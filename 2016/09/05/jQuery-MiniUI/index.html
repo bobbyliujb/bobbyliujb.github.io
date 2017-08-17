@@ -1,0 +1,1022 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next mist use-motion" lang="en">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+  
+  
+    
+    
+  <script src="/lib/pace/pace.min.js?v=1.0.2"></script>
+  <link href="/lib/pace/pace-theme-minimal.min.css?v=1.0.2" rel="stylesheet">
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.2" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="frontend,js,jQuery," />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.2" />
+
+
+
+
+
+
+<meta name="description" content="那本厚厚的JavaScript高级程序设计还没看完，先开动jQuery。早就听说jQuery的强大，这个jQuery MiniUI是基于它的，强于处理表格数据，提供了方便的API，可以研究一波。">
+<meta name="keywords" content="frontend,js,jQuery">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Note for Ducumentation of jQuery MiniUI">
+<meta property="og:url" content="https://bobbyliujb.github.io/2016/09/05/jQuery-MiniUI/index.html">
+<meta property="og:site_name" content="Bobby">
+<meta property="og:description" content="那本厚厚的JavaScript高级程序设计还没看完，先开动jQuery。早就听说jQuery的强大，这个jQuery MiniUI是基于它的，强于处理表格数据，提供了方便的API，可以研究一波。">
+<meta property="og:locale" content="en">
+<meta property="og:updated_time" content="2016-09-08T14:40:28.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Note for Ducumentation of jQuery MiniUI">
+<meta name="twitter:description" content="那本厚厚的JavaScript高级程序设计还没看完，先开动jQuery。早就听说jQuery的强大，这个jQuery MiniUI是基于它的，强于处理表格数据，提供了方便的API，可以研究一波。">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Mist',
+    sidebar: {"position":"left","display":"hide","offset":12,"offset_float":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: true,
+    duoshuo: {
+      userId: '0',
+      author: 'Author'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="https://bobbyliujb.github.io/2016/09/05/jQuery-MiniUI/"/>
+
+
+
+
+
+  <title>Note for Ducumentation of jQuery MiniUI | Bobby</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="en">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Bobby</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            Home
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            Categories
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            Archives
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            Tags
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://bobbyliujb.github.io/2016/09/05/jQuery-MiniUI/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="BobbyLiujb">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="https://ww4.sinaimg.cn/large/9b3a5c2fgw1faysh4xl7ij20bh0bhmy5.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Bobby">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">Note for Ducumentation of jQuery MiniUI</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2016-09-05T10:10:45-07:00">
+                2016-09-05
+              </time>
+            
+
+            
+              <span class="post-meta-divider">|</span>
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-check-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Post modified&#58;</span>
+              
+              <time title="Post modified" itemprop="dateModified" datetime="2016-09-08T07:40:28-07:00">
+                2016-09-08
+              </time>
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Tech/" itemprop="url" rel="index">
+                    <span itemprop="name">Tech</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2016/09/05/jQuery-MiniUI/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count"
+                        data-disqus-identifier="2016/09/05/jQuery-MiniUI/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+             <span id="/2016/09/05/jQuery-MiniUI/" class="leancloud_visitors" data-flag-title="Note for Ducumentation of jQuery MiniUI">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">Visitors&#58;</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>那本厚厚的JavaScript高级程序设计还没看完，先开动jQuery。早就听说jQuery的强大，这个jQuery MiniUI是基于它的，强于处理表格数据，提供了方便的API，可以研究一波。<br><a id="more"></a></p>
+<h1 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h1><hr>
+<h3 id="MiniUI"><a href="#MiniUI" class="headerlink" title="MiniUI"></a>MiniUI</h3><p> 在<a href="http://www.miniui.com/download" target="_blank" rel="external">MiniUI</a>官网下载对应版本的MiniUI。不过其实开发前端只用到里面的几个js文件和miniui文件夹而已。对于我下载的这个mini_java版本而言，就是<code>WebContent\scripts</code>中的miniui文件夹、boot.js、jquery-1.6.2.min.js、tongji.js。这里的tongji其实是个空文件，暂时不知用途。</p>
+<h3 id="其他开发环境配置"><a href="#其他开发环境配置" class="headerlink" title="其他开发环境配置"></a>其他开发环境配置</h3><p> 除了前端的MiniUI，事实上这边还需要用Java的maven来构建ssh框架。为此安装了jdk-6u20-windows-i86, mysql-5.0.22-win32, Eclipse Java EE Indigo。暂时还没有学这些。</p>
+<h1 id="表格-CRUD"><a href="#表格-CRUD" class="headerlink" title="表格(CRUD)"></a>表格(CRUD)</h1><hr>
+<h3 id="CRUD增查改删"><a href="#CRUD增查改删" class="headerlink" title="CRUD增查改删"></a>CRUD增查改删</h3><p> C-create, R-retrieve, U-update, D-delete，对应到数据库中最常用的四个操作“增查改删”。在MiniUI中，主要是以表格的形式呈现数据的，MiniUI提供了对这些数据的可视化CRUD操作。在MiniUI文档中，主要介绍了4种方式来update数据。</p>
+<h3 id="单元格编辑"><a href="#单元格编辑" class="headerlink" title="单元格编辑"></a>单元格编辑</h3><p> 直接在数据列表中，点击每个单元格直接进行修改，不需要二级界面。在MiniUI中为div添加<code>class=&quot;mini-datagrid&quot;</code>属性即可使用内置的数据表格样式。而设置单元格点击编辑其实十分简单，首先为mini-datagrid的div添加<code>allowCellEdit=&quot;true&quot;</code>和<code>allowCellSelect=&quot;true&quot;</code>，然后在对应的div列的单元格添加input标签并添加<code>property=&quot;editor&quot;</code>属性。具体如下:<br><figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"datagrid"</span> <span class="attr">class</span>=<span class="string">"mini-datagrid"</span> <span class="attr">allowCellEdit</span>=<span class="string">"true"</span> <span class="attr">allowCellSelect</span>=<span class="string">"true"</span> <span class="attr">multiSelect</span>=<span class="string">"true"</span> <span class="attr">allowResize</span>=<span class="string">"true"</span> <span class="attr">pageSize</span>=<span class="string">"20"</span> <span class="attr">url</span>=<span class="string">"../data/AjaxService.aspx?method=SearchEmployees"</span></span></div><div class="line"><span class="tag">&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">div</span> <span class="attr">property</span>=<span class="string">"columns"</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">type</span>=<span class="string">"checkcolumn"</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">field</span>=<span class="string">"loginname"</span> <span class="attr">width</span>=<span class="string">"120"</span> <span class="attr">headerAlign</span>=<span class="string">"center"</span> <span class="attr">allowSort</span>=<span class="string">"true"</span>&gt;</span>员工帐号</div><div class="line">      <span class="tag">&lt;<span class="name">input</span> <span class="attr">property</span>=<span class="string">"editor"</span> <span class="attr">class</span>=<span class="string">"mini-textbox"</span> <span class="attr">style</span>=<span class="string">"width:100%;"</span>/&gt;</span></div><div class="line">      <span class="comment">&lt;!--此外class还有mini-combobox, mini-spinner, mini-datepicker, mini-textarea等选择，对应不同的输入内容--&gt;</span></div><div class="line">    <span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">field</span>=<span class="string">"gender"</span> <span class="attr">width</span>=<span class="string">"100"</span> <span class="attr">headerAlign</span>=<span class="string">"center"</span> <span class="attr">align</span>=<span class="string">"center"</span>&gt;</span>性别</div><div class="line">      <span class="tag">&lt;<span class="name">input</span> <span class="attr">property</span>=<span class="string">"editor"</span> <span class="attr">class</span>=<span class="string">"mini-combobox"</span> <span class="attr">data</span>=<span class="string">"Genders"</span> /&gt;</span></div><div class="line">    <span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">field</span>=<span class="string">"age"</span> <span class="attr">allowSort</span>=<span class="string">"true"</span>&gt;</span>年龄</div><div class="line">      <span class="tag">&lt;<span class="name">input</span> <span class="attr">property</span>=<span class="string">"editor"</span> <span class="attr">class</span>=<span class="string">"mini-spinner"</span> <span class="attr">minValue</span>=<span class="string">"0"</span> <span class="attr">maxValue</span>=<span class="string">"200"</span> <span class="attr">value</span>=<span class="string">"25"</span> /&gt;</span></div><div class="line">    <span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line">    ......</div><div class="line">  <span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></div></pre></td></tr></table></figure></p>
+<p> 在<a href="http://www.miniui.com/demo/datagrid/celledit.html" target="_blank" rel="external">demo</a>中顶部有三个按钮控制数据操作，对应的JavaScript也需要在前端进行处理，不过有现成的grid的<a href="http://www.miniui.com/docs/api/index.html#ui=datagrid" target="_blank" rel="external">API方法</a>可以直接调用。<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// 增加行</span></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">addRow</span>(<span class="params"></span>) </span>&#123;</div><div class="line">	<span class="keyword">var</span> newRow = &#123;</div><div class="line">		name: <span class="string">"New Row"</span></div><div class="line">	&#125;</div><div class="line">	grid.addRow(newRow, <span class="number">0</span>);  <span class="comment">//addRow ( row, index )</span></div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="comment">// 删除行</span></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">removeRow</span>(<span class="params"></span>) </span>&#123;	<span class="comment">// 不需要传入参数，只需要在后面调用API获得勾选项目即可</span></div><div class="line">	<span class="keyword">var</span> rows = grid.getSelecteds();</div><div class="line">	<span class="keyword">if</span> (rows.length &gt; <span class="number">0</span>) &#123;</div><div class="line">		grid.removeRows(rows, <span class="literal">true</span>); </div><div class="line">		<span class="comment">// removeRows ( rows, autoSelect )，表示是否自动勾选下一项</span></div><div class="line">	&#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="comment">// 保存</span></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">saveData</span>(<span class="params"></span>) </span>&#123;</div><div class="line">	<span class="keyword">var</span> data = grid.getChanges();</div><div class="line">	<span class="keyword">var</span> json = mini.encode(data);</div><div class="line">	grid.loading(<span class="string">"这是弹窗显示的内容..."</span>);</div><div class="line">	$.ajax(&#123;</div><div class="line">		url: <span class="string">"../data/AjaxService.aspx?method=SaveChangedEmployees"</span>,</div><div class="line">		data: &#123;<span class="attr">data</span>: json&#125;,</div><div class="line">		type: <span class="string">"post"</span>,</div><div class="line">		success: <span class="function"><span class="keyword">function</span>(<span class="params">text</span>) </span>&#123;</div><div class="line">			grid.reload();</div><div class="line">		&#125;,</div><div class="line">		error: <span class="function"><span class="keyword">function</span>(<span class="params">jqXHR, textStatus, errorThrown</span>) </span>&#123;</div><div class="line">			alert(jqXHR.responseText);</div><div class="line">		&#125;</div><div class="line">	&#125;);</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p> 注意上面的post方法就是指明了要修改服务端的数据。在前面用到的SaveChangedEmployees方法如下，不过我暂时不太明白这个看着像是Java的程序怎么在aspx文件中工作。其中用到的TestDB是Java定义的一个类。<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">SaveChangedEmployees</span><span class="params">()</span> </span>&#123;</div><div class="line">	String json = Request[<span class="string">"data"</span>];</div><div class="line">	ArrayList rows = (ArrayList)PluSoft.Utils.JSON.Decode(json);</div><div class="line">	</div><div class="line">	foreach(Hashtable row in rows) &#123;</div><div class="line">		String state = row[<span class="string">"_state"</span>] == <span class="keyword">null</span>? <span class="string">""</span>: row[<span class="string">"_state"</span>].toString();</div><div class="line">		<span class="keyword">if</span>  (state == <span class="string">"added"</span>) &#123;</div><div class="line">			row[<span class="string">"createTime"</span>] = DateTime.Now;</div><div class="line">			<span class="keyword">new</span> TestDB().InsertEmployee(row);</div><div class="line">		&#125; <span class="keyword">else</span> <span class="keyword">if</span> (state == <span class="string">"removed"</span> || state == <span class="string">"deleted"</span>) &#123;</div><div class="line">			String id = row[<span class="string">"id"</span>].ToString();</div><div class="line">			<span class="keyword">new</span> TestDB().DeleteEmployee(id);</div><div class="line">		&#125; <span class="keyword">else</span> <span class="keyword">if</span> (state == <span class="string">"modified"</span>) &#123;</div><div class="line">            <span class="keyword">new</span> TestDB().UpdateEmployee(row);</div><div class="line">        &#125;</div><div class="line">	&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<h3 id="行编辑"><a href="#行编辑" class="headerlink" title="行编辑"></a>行编辑</h3><p> 在每一行的最前面有三个控制按钮，New, Edit, Delete.增和删与前面一个例子相同，而改则不是通过点击各个单元格修改，而是点击Edit后整行都变为可编辑的input输入框（需设置<code>property=&quot;editor&quot;</code>）。行编辑器html定义如下：<br><figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"datagrid1"</span> <span class="attr">class</span>=<span class="string">"mini-datagrid"</span> </span></div><div class="line"><span class="tag">    <span class="attr">url</span>=<span class="string">"../data/DataService.aspx?method=SearchEmployees"</span> </span></div><div class="line"><span class="tag">&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">property</span>=<span class="string">"columns"</span>&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">div</span> <span class="attr">name</span>=<span class="string">"action"</span> <span class="attr">width</span>=<span class="string">"120"</span> <span class="attr">headerAlign</span>=<span class="string">"center"</span> <span class="attr">align</span>=<span class="string">"center"</span> <span class="attr">renderer</span>=<span class="string">"onActionRenderer"</span> <span class="attr">cellStyle</span>=<span class="string">"padding:0;"</span>&gt;</span>#<span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">div</span> <span class="attr">field</span>=<span class="string">"loginname"</span> <span class="attr">width</span>=<span class="string">"120"</span> <span class="attr">headerAlign</span>=<span class="string">"center"</span> <span class="attr">allowSort</span>=<span class="string">"true"</span>&gt;</span>员工帐号</div><div class="line">            <span class="tag">&lt;<span class="name">input</span> <span class="attr">property</span>=<span class="string">"editor"</span> <span class="attr">class</span>=<span class="string">"mini-textbox"</span> /&gt;</span></div><div class="line">        <span class="tag">&lt;/<span class="name">div</span>&gt;</span>                </div><div class="line">        <span class="tag">&lt;<span class="name">div</span> <span class="attr">field</span>=<span class="string">"gender"</span> <span class="attr">width</span>=<span class="string">"100"</span> <span class="attr">allowSort</span>=<span class="string">"true"</span> <span class="attr">renderer</span>=<span class="string">"onGenderRenderer"</span> <span class="attr">align</span>=<span class="string">"center"</span> <span class="attr">headerAlign</span>=<span class="string">"center"</span>&gt;</span>性别</div><div class="line">            <span class="tag">&lt;<span class="name">input</span> <span class="attr">property</span>=<span class="string">"editor"</span> <span class="attr">class</span>=<span class="string">"mini-combobox"</span> <span class="attr">style</span>=<span class="string">"width:100%;"</span> <span class="attr">data</span>=<span class="string">"[&#123;id:1, text:'男'&#125;, &#123;id:2, text: '女'&#125;]"</span>/&gt;</span>                </div><div class="line">        <span class="tag">&lt;/<span class="name">div</span>&gt;</span>            </div><div class="line">        <span class="tag">&lt;<span class="name">div</span> <span class="attr">field</span>=<span class="string">"age"</span> <span class="attr">width</span>=<span class="string">"100"</span> <span class="attr">allowSort</span>=<span class="string">"true"</span>&gt;</span>年龄</div><div class="line">            <span class="tag">&lt;<span class="name">input</span> <span class="attr">property</span>=<span class="string">"editor"</span> <span class="attr">class</span>=<span class="string">"mini-spinner"</span> <span class="attr">minValue</span>=<span class="string">"0"</span> <span class="attr">maxValue</span>=<span class="string">"200"</span> <span class="attr">value</span>=<span class="string">"25"</span> <span class="attr">style</span>=<span class="string">"width:100%;"</span>/&gt;</span></div><div class="line">        <span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">div</span> <span class="attr">field</span>=<span class="string">"birthday"</span> <span class="attr">width</span>=<span class="string">"100"</span> <span class="attr">allowSort</span>=<span class="string">"true"</span> <span class="attr">dateFormat</span>=<span class="string">"yyyy-MM-dd"</span>&gt;</span>出生日期</div><div class="line">            <span class="tag">&lt;<span class="name">input</span> <span class="attr">property</span>=<span class="string">"editor"</span> <span class="attr">class</span>=<span class="string">"mini-datepicker"</span> <span class="attr">style</span>=<span class="string">"width:100%;"</span>/&gt;</span></div><div class="line">        <span class="tag">&lt;/<span class="name">div</span>&gt;</span>                                    </div><div class="line">        <span class="tag">&lt;<span class="name">div</span> <span class="attr">field</span>=<span class="string">"createtime"</span> <span class="attr">width</span>=<span class="string">"100"</span> <span class="attr">headerAlign</span>=<span class="string">"center"</span> <span class="attr">dateFormat</span>=<span class="string">"yyyy-MM-dd"</span> <span class="attr">allowSort</span>=<span class="string">"true"</span>&gt;</span>创建日期<span class="tag">&lt;/<span class="name">div</span>&gt;</span>                </div><div class="line">    <span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></div></pre></td></tr></table></figure></p>
+<p> 而开始编辑的JavaScript代码也是用到grid对象的API方法，非常方便:<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// 触发编辑</span></div><div class="line">grid.beginEditRow(row);	<span class="comment">// row通过grid.getSelected()获得</span></div><div class="line"></div><div class="line"><span class="comment">// 取消编辑</span></div><div class="line">grid.cancelEdit();</div><div class="line"></div><div class="line"><span class="comment">// 提交数据</span></div><div class="line"><span class="keyword">var</span> rowData = grid.getEditRowData(row);</div><div class="line">grid.loading(<span class="string">"保存中，请稍后......"</span>);</div><div class="line"><span class="keyword">var</span> json = mini.encode([rowData]);</div><div class="line">$.ajax(&#123;</div><div class="line">    url: <span class="string">"../data/DataService.aspx?method=SaveEmployees"</span>,</div><div class="line">    data: &#123; <span class="attr">employees</span>: json &#125;,</div><div class="line">    success: <span class="function"><span class="keyword">function</span> (<span class="params">text</span>) </span>&#123;</div><div class="line">        grid.reload();</div><div class="line">    &#125;,</div><div class="line">    error: <span class="function"><span class="keyword">function</span> (<span class="params">jqXHR, textStatus, errorThrown</span>) </span>&#123;</div><div class="line">        alert(jqXHR.responseText);</div><div class="line">    &#125;</div><div class="line">&#125;);</div></pre></td></tr></table></figure></p>
+<h3 id="表单提交-弹出面板提交"><a href="#表单提交-弹出面板提交" class="headerlink" title="表单提交/弹出面板提交"></a>表单提交/弹出面板提交</h3><p> 反正基本套路就是这样，CRUD还有两种内置提供方式可以编辑数据。<br> <a href="http://www.miniui.com/docs/tutorial/crud_formedit.html" target="_blank" rel="external">表单编辑</a>的html是使用一个隐藏的table表格作为编辑面板，然后利用grid的方法获取原数据，生成表单并嵌入原详细行下方。<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">grid.hideAllRowDetail();</div><div class="line">gird.showRowDetail(row);</div><div class="line"></div><div class="line"><span class="keyword">var</span> td = grid.getRowDetailCellEl(row); <span class="comment">// 获取DOM对象</span></div><div class="line">td.appendChild(editForm);</div><div class="line">editForm.style.display=<span class="string">""</span>;	<span class="comment">// 取消隐藏</span></div></pre></td></tr></table></figure></p>
+<p> 需要将原行的数据加载到的动态插入的表单中<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> form = <span class="keyword">new</span> mini.Form(<span class="string">"editForm1"</span>);</div><div class="line"><span class="keyword">if</span> (grid.isNewRow(row)) &#123;                    </div><div class="line">    form.reset();</div><div class="line">&#125; <span class="keyword">else</span> &#123;</div><div class="line">    form.loading();</div><div class="line">    $.ajax(&#123;</div><div class="line">        url: <span class="string">"../data/DataService.aspx?method=GetEmployee&amp;id="</span> + row.id,</div><div class="line">        success: <span class="function"><span class="keyword">function</span> (<span class="params">text</span>) </span>&#123;</div><div class="line">            <span class="keyword">var</span> o = mini.decode(text);</div><div class="line">            form.setData(o);                            </div><div class="line"></div><div class="line">            form.unmask();</div><div class="line">        &#125;</div><div class="line">    &#125;);</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p> <a href="http://www.miniui.com/docs/tutorial/crud_popupedit.html" target="_blank" rel="external">弹出窗口</a>的html是用class=”mini-window”的div作为弹出面板来编辑，这就不涉及嵌入原数据行下方的操作了，直接获取原数据填入面板即可。<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// 加载面板数据</span></div><div class="line"><span class="keyword">var</span> editWindow = mini.get(<span class="string">"editWindow"</span>);	<span class="comment">// get的是id</span></div><div class="line">editWindow.show();</div><div class="line"><span class="keyword">var</span> form = <span class="keyword">new</span> mini.Form(<span class="string">"#editform"</span>);</div><div class="line">form.loading();</div><div class="line">$.ajax(&#123;</div><div class="line">    url: <span class="string">"../data/DataService.aspx?method=GetEmployee&amp;id="</span> + row.id,</div><div class="line">    success: <span class="function"><span class="keyword">function</span> (<span class="params">text</span>) </span>&#123;</div><div class="line">        <span class="keyword">var</span> o = mini.decode(text);</div><div class="line">        form.setData(o);</div><div class="line">        form.unmask();</div><div class="line">    &#125;,</div><div class="line">    error: <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</div><div class="line">        alert(<span class="string">"表单加载错误"</span>);</div><div class="line">    &#125;</div><div class="line">&#125;);</div></pre></td></tr></table></figure></p>
+<p> 这两个方法实际上都用到了form表单，所以提交数据可用mini内置对form的处理:<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// 提交数据</span></div><div class="line"><span class="keyword">var</span> form = <span class="keyword">new</span> mini.Form(<span class="string">"#editform"</span>);</div><div class="line"><span class="keyword">var</span> o = form.getData();</div><div class="line"></div><div class="line">grid.loading(<span class="string">"some message..."</span>);</div><div class="line"><span class="keyword">var</span> json = mini.encode([<span class="number">0</span>]);</div><div class="line">$.ajax(&#123;</div><div class="line">    url: <span class="string">"../data/DataService.aspx?method=SaveEmployees"</span>,</div><div class="line">    data: &#123; <span class="attr">employees</span>: json &#125;,</div><div class="line">    success: <span class="function"><span class="keyword">function</span> (<span class="params">text</span>) </span>&#123;</div><div class="line">                    </div><div class="line">        grid.reload();</div><div class="line">    &#125;,</div><div class="line">    error: <span class="function"><span class="keyword">function</span> (<span class="params">jqXHR, textStatus, errorThrown</span>) </span>&#123;</div><div class="line">        alert(jqXHR.responseText);</div><div class="line">    &#125;</div><div class="line">&#125;);</div><div class="line"></div><div class="line">editWindow.hide();</div></pre></td></tr></table></figure></p>
+<h1 id="表单控件"><a href="#表单控件" class="headerlink" title="表单控件"></a>表单控件</h1><hr>
+<h3 id="数据绑定"><a href="#数据绑定" class="headerlink" title="数据绑定"></a>数据绑定</h3><p> 前面CRUD中的update时，要想让更新后的数据实时反映在原数据中（不是真的保存到数据库，只是修改显示的数据），就可以使用databinding将表单/控件的数据与原表格绑定。<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// API</span></div><div class="line"><span class="comment">// 绑定表单：bindForm(formnamestr, grid)</span></div><div class="line"><span class="comment">// 绑定控件：bindField(controlname, grid, fieldnamestr)</span></div><div class="line"></div><div class="line"><span class="comment">//绑定表单</span></div><div class="line"><span class="keyword">var</span> db = <span class="keyword">new</span> mini.DataBinding();</div><div class="line">db.bindForm(<span class="string">"editForm1"</span>, grid);</div><div class="line"></div><div class="line"><span class="comment">//绑定控件</span></div><div class="line">db.bindField(textbox, grid, <span class="string">"username"</span>);</div></pre></td></tr></table></figure></p>
+<h3 id="表单"><a href="#表单" class="headerlink" title="表单"></a>表单</h3><ul>
+<li>创建表单: 只要你在html中为div设置好了id，就可以利用这个id创建JavaScript中的表单对象。<br><code>var form = new mini.Form(&quot;#form1&quot;);</code></li>
+<li><p>加载表单: 使用到了jQuery的$.ajax方法。<code>$.ajax(option)</code>是jQuery最底层的Ajax实现。所谓最底层是相对于$.load(), $.get(), $.post(), $.getJSON(), $.getScript()这些方法来说的，用$.ajax可以实现所有方法，较为全能。该方法只有一个对象参数，这个对象包含了$.ajax()方法所需的请求设置和回调函数等信息，以键:值的形式给出url(发送请求过去的地址)、type(GET或POST)、data（要传送的键值对形式数据）、success（请求成功后的回调函数）等等参数。下面这里虽然用到的是POST，不过其实是抓数据的，所以没有要上传的data。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">$.ajax(&#123;</div><div class="line">    url: <span class="string">"../data/FormService.aspx?method=LoadData"</span>,</div><div class="line">    type: <span class="string">"post"</span>,</div><div class="line">    success: <span class="function"><span class="keyword">function</span> (<span class="params">text</span>) </span>&#123;</div><div class="line">        <span class="keyword">var</span> data = mini.decode(text);   <span class="comment">//反序列化成对象</span></div><div class="line">        form.setData(data);             <span class="comment">//设置多个控件数据</span></div><div class="line">    &#125;</div><div class="line">&#125;);</div></pre></td></tr></table></figure>
+</li>
+<li><p>提交表单: 必然用到POST，与上面例子相比就需要data来上传了。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//提交表单数据</span></div><div class="line"><span class="keyword">var</span> form = <span class="keyword">new</span> mini.Form(<span class="string">"#form1"</span>);            </div><div class="line"><span class="keyword">var</span> data = form.getData();      <span class="comment">//获取表单多个控件的数据</span></div><div class="line"><span class="keyword">var</span> json = mini.encode(data);   <span class="comment">//序列化成JSON</span></div><div class="line">$.ajax(&#123;</div><div class="line">    url: <span class="string">"../data/FormService.aspx?method=SaveData"</span>,</div><div class="line">    type: <span class="string">"post"</span>,</div><div class="line">    data: &#123; <span class="attr">submitData</span>: json &#125;,</div><div class="line">    success: <span class="function"><span class="keyword">function</span> (<span class="params">text</span>) </span>&#123;</div><div class="line">        alert(<span class="string">"提交成功，返回结果:"</span> + text);</div><div class="line">    &#125;</div><div class="line">&#125;);</div></pre></td></tr></table></figure>
+</li>
+<li><p>清除表单: <code>form.clear();</code></p>
+</li>
+<li>重置表单: <code>form.reset();</code></li>
+<li>表单验证: 在input控件中加入<code>onvalidation=&quot;onUserNameValidation&quot;</code>属性，然后手动编写验证函数绑定过去。当然也可以使用mini-textbox内置的<code>vtype=&quot;email&quot;</code>属性来验证，包括了email、url、int、float、maxLength、minLength、rangeLength、rangeChar、range、date等规则。这些都只是基于控件的验证，随后提交表单时还可以进行一波验证。<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// 绑定validation事件</span></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">onUserNameValidation</span>(<span class="params">e</span>) </span>&#123;</div><div class="line">    <span class="keyword">if</span> (e.isValid) &#123;</div><div class="line">        <span class="keyword">if</span> (isEmail(e.value) == <span class="literal">false</span>) &#123;</div><div class="line">             e.errorText = <span class="string">"必须为合法的邮箱地址"</span>;</div><div class="line">             e.isValid = <span class="literal">false</span>;</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="comment">// 验证表单</span></div><div class="line"><span class="keyword">var</span> form = <span class="keyword">new</span> mini.Form(<span class="string">"#form1"</span>);</div><div class="line">form.validate();</div><div class="line"><span class="keyword">if</span> (!form.isValid()) &#123;</div><div class="line">    alert(<span class="string">"表单验证失败！"</span>);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<h3 id="弹出选择表格"><a href="#弹出选择表格" class="headerlink" title="弹出选择表格"></a>弹出选择表格</h3><p> 使用<a href="http://www.miniui.com/docs/api/index.html#ui=messagebox" target="_blank" rel="external">mini.open</a>弹出子页面，这里就用于弹出带有选择按钮的表格，该子页面存放在url指向的html中。<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div></pre></td><td class="code"><pre><div class="line">mini.open(&#123;</div><div class="line">    url: bootPATH + <span class="string">"../demo/CommonLibs/SelectGridWindow.html"</span>,           </div><div class="line">    title: <span class="string">"选择列表"</span>,</div><div class="line">    width: <span class="number">650</span>,</div><div class="line">    height: <span class="number">380</span>,</div><div class="line">    onload: <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;       <span class="comment">//弹出页面加载完成</span></div><div class="line">        <span class="keyword">var</span> iframe = <span class="keyword">this</span>.getIFrameEl(); </div><div class="line">        <span class="keyword">var</span> data = &#123;&#125;;       </div><div class="line">        <span class="comment">//调用弹出页面方法进行初始化</span></div><div class="line">        iframe.contentWindow.SetData(data); </div><div class="line">                        </div><div class="line">    &#125;,</div><div class="line">    ondestroy: <span class="function"><span class="keyword">function</span> (<span class="params">action</span>) </span>&#123;                  </div><div class="line">        <span class="keyword">if</span> (action == <span class="string">"ok"</span>) &#123;</div><div class="line">            <span class="keyword">var</span> iframe = <span class="keyword">this</span>.getIFrameEl();                        </div><div class="line">            <span class="keyword">var</span> data = iframe.contentWindow.GetData();</div><div class="line">            data = mini.clone(data);    <span class="comment">//必须拷贝数据(why???)</span></div><div class="line"></div><div class="line">            btnEdit.setValue(data.id);</div><div class="line">            btnEdit.setText(data.name);</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">&#125;);</div></pre></td></tr></table></figure></p>
+<h3 id="小部件"><a href="#小部件" class="headerlink" title="小部件"></a>小部件</h3><p> 这一部分包含了很多控件，多数都是细节，直接查看样例就好了，就不做笔记了。</p>
+<ul>
+<li><a href="http://www.miniui.com/docs/tutorial/button.html" target="_blank" rel="external">Button：按钮</a></li>
+<li><a href="http://www.miniui.com/docs/tutorial/buttonedit.html" target="_blank" rel="external">ButtonEdit：按钮输入框</a></li>
+<li><a href="http://www.miniui.com/docs/tutorial/textbox.html" target="_blank" rel="external">TextBox：文本输入框</a></li>
+<li><a href="http://www.miniui.com/docs/tutorial/combobox.html" target="_blank" rel="external">ComboBox：下拉选择框</a></li>
+<li><a href="http://www.miniui.com/docs/tutorial/combobox2.html" target="_blank" rel="external">ComboBox：联动选择</a></li>
+<li><a href="http://www.miniui.com/docs/tutorial/datepicker.html" target="_blank" rel="external">DatePicker：日期选择框</a></li>
+<li><a href="http://www.miniui.com/docs/tutorial/spinner.html" target="_blank" rel="external">Spinner：数字输入框</a></li>
+<li><a href="http://www.miniui.com/docs/tutorial/treeselect.html" target="_blank" rel="external">TreeSelect：树形选择框</a></li>
+<li><a href="http://www.miniui.com/docs/tutorial/autocomplete.html" target="_blank" rel="external">AutoComplete：输入智能提示框</a></li>
+<li><a href="http://www.miniui.com/docs/tutorial/textboxlist.html" target="_blank" rel="external">TextBoxList：多选输入智能提示框</a></li>
+<li><a href="http://www.miniui.com/docs/tutorial/checkbox.html" target="_blank" rel="external">CheckBox：复选框</a></li>
+<li><a href="http://www.miniui.com/docs/tutorial/listbox.html" target="_blank" rel="external">ListBox：列表控件</a></li>
+<li><a href="http://www.miniui.com/docs/tutorial/checkboxlist.html" target="_blank" rel="external">CheckBoxList：复选框组</a></li>
+<li><a href="http://www.miniui.com/docs/tutorial/radiobuttonlist.html" target="_blank" rel="external">RadioButtonList：单选框组</a></li>
+<li><a href="http://www.miniui.com/docs/tutorial/fileupload.html" target="_blank" rel="external">FileUpload：文件上传控件</a></li>
+</ul>
+<h1 id="树形控件"><a href="#树形控件" class="headerlink" title="树形控件"></a>树形控件</h1><hr>
+<h3 id="创建树"><a href="#创建树" class="headerlink" title="创建树"></a>创建树</h3><p> 实际上都是使用ul实现的，为ul添加<code>class=&quot;mini-tree&quot;</code>属性就可以使用内置的树形控件了。而根据数据树中显示的数据来源，又分为以下四种实现方式。</p>
+<ul>
+<li><p>树形结构: 首先是建立ul控件并添加<code>class=&quot;mini-tree&quot;</code>。设置url指明树显示的内容来源，拿到的数据就是树形结构的数据。</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">ul</span> <span class="attr">id</span>=<span class="string">"tree1"</span> <span class="attr">class</span>=<span class="string">"mini-tree"</span> <span class="attr">url</span>=<span class="string">"../data/tree.txt"</span> <span class="attr">showTreeIcon</span>=<span class="string">"true"</span> </span></div><div class="line"><span class="tag"><span class="attr">textField</span>=<span class="string">"text"</span> <span class="attr">idField</span>=<span class="string">"id"</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">ul</span>&gt;</span></div><div class="line"></div><div class="line">抓回来txt中的树形结构大致如下</div><div class="line">[</div><div class="line">    &#123;id: "base", text: "Base", expanded: false,</div><div class="line">     children: [</div><div class="line">        &#123;id: "ajax", text: "Ajax"&#125;,</div><div class="line">        &#123;id: "json", text: "JSON"&#125;,</div><div class="line">        &#123;id: "date", text: "Date"&#125;,</div><div class="line">        &#123;id: "control", text: "Control"&#125;,</div><div class="line">        &#123;id: "messagebox", text: "MessageBox"&#125;,</div><div class="line">        &#123;id: "window", text: "Window"&#125;</div><div class="line">     ]</div><div class="line">        </div><div class="line">    &#125;,</div><div class="line"></div><div class="line">    more nodes...</div><div class="line">]</div></pre></td></tr></table></figure>
+</li>
+<li><p>列表结构: 与上面的树形结构的区别在于数据来源的格式以及ul部分属性的微调。注意下方的拿回的txt数据格式以及ul中到底parentField、resultAsTree属性。id与pid是父子关系，拥有pid的元素是子，对应的id是父元素。</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">ul</span> <span class="attr">id</span>=<span class="string">"tree2"</span> <span class="attr">class</span>=<span class="string">"mini-tree"</span> <span class="attr">url</span>=<span class="string">"../data/listTree.txt"</span> </span></div><div class="line"><span class="tag">    <span class="attr">showTreeIcon</span>=<span class="string">"true"</span> <span class="attr">textField</span>=<span class="string">"text"</span> <span class="attr">idField</span>=<span class="string">"id"</span> <span class="attr">parentField</span>=<span class="string">"pid"</span> <span class="attr">resultAsTree</span>=<span class="string">"false"</span>  </span></div><div class="line"><span class="tag">    &gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">ul</span>&gt;</span></div><div class="line"></div><div class="line">抓回来txt中的列表结构大致如下，比前面的树形结构更直观好懂一些</div><div class="line">[</div><div class="line">    &#123;id: "base", text: "Base", expanded: false&#125;,    </div><div class="line">    &#123;id: "ajax", text: "Ajax", pid: "base"&#125;,</div><div class="line">    &#123;id: "json", text: "JSON", pid: "base"&#125;,</div><div class="line">    ......</div><div class="line">]</div></pre></td></tr></table></figure>
+</li>
+<li><p>本地JSON: 不需要设置url拿数据，而是通过JavaScript以JSON的格式设置树中要显示的数据，这个格式与树形结构的txt是一样的，区别只在于不是url中txt定死的，而是JavaScript来加载。</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">ul</span> <span class="attr">id</span>=<span class="string">"tree3"</span> <span class="attr">class</span>=<span class="string">"mini-tree"</span> <span class="attr">style</span>=<span class="string">"width:300px;padding:5px;"</span> </span></div><div class="line"><span class="tag">    <span class="attr">showTreeIcon</span>=<span class="string">"true"</span> <span class="attr">textField</span>=<span class="string">"text"</span> <span class="attr">idField</span>=<span class="string">"id"</span> &gt;</span>        </div><div class="line"><span class="tag">&lt;/<span class="name">ul</span>&gt;</span></div></pre></td></tr></table></figure>
+</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> tree3 = mini.get(<span class="string">"tree3"</span>);</div><div class="line">tree3.loadData([</div><div class="line">    &#123; <span class="attr">id</span>: <span class="string">"lists"</span>, <span class="attr">text</span>: <span class="string">"Lists"</span>, <span class="attr">expanded</span>: <span class="literal">false</span>,</div><div class="line">        children: [</div><div class="line">            &#123; <span class="attr">id</span>: <span class="string">"datagrid"</span>, <span class="attr">text</span>: <span class="string">"DataGrid"</span> &#125;,</div><div class="line">            &#123; <span class="attr">id</span>: <span class="string">"tree"</span>, <span class="attr">text</span>: <span class="string">"Tree"</span> &#125;,</div><div class="line">            &#123; <span class="attr">id</span>: <span class="string">"treegrid"</span>, <span class="attr">text</span>: <span class="string">"TreeGrid "</span> &#125;</div><div class="line">        ]</div><div class="line">    &#125;,</div><div class="line">    &#123; <span class="attr">id</span>: <span class="string">"layouts"</span>, <span class="attr">text</span>: <span class="string">"Layouts"</span>, <span class="attr">expanded</span>: <span class="literal">false</span>,</div><div class="line">        children: [</div><div class="line">            &#123; <span class="attr">id</span>: <span class="string">"panel"</span>, <span class="attr">text</span>: <span class="string">"Panel"</span> &#125;,</div><div class="line">            &#123; <span class="attr">id</span>: <span class="string">"splitter"</span>, <span class="attr">text</span>: <span class="string">"Splitter"</span> &#125;,</div><div class="line">            &#123; <span class="attr">id</span>: <span class="string">"layout"</span>, <span class="attr">text</span>: <span class="string">"Layout "</span> &#125;</div><div class="line">        ]</div><div class="line">    &#125;</div><div class="line"></div><div class="line">]);</div></pre></td></tr></table></figure>
+<ul>
+<li>HTML创建: 这个方法是最原始最直接的想法，用HTML标签把树拼出来。但从下面可以看出来，这个方式就像是普通的无序列表的HTML了，不够简洁。<figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">ul</span> <span class="attr">id</span>=<span class="string">"tree4"</span> <span class="attr">class</span>=<span class="string">"mini-tree"</span> <span class="attr">style</span>=<span class="string">"width:200px;padding:5px;"</span> <span class="attr">showTreeIcon</span>=<span class="string">"true"</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">li</span>&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">span</span>&gt;</span>MiniUI<span class="tag">&lt;/<span class="name">span</span>&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">ul</span>&gt;</span></div><div class="line">            <span class="tag">&lt;<span class="name">li</span>&gt;</span></div><div class="line">                <span class="tag">&lt;<span class="name">span</span> <span class="attr">expanded</span>=<span class="string">"false"</span>&gt;</span>Form<span class="tag">&lt;/<span class="name">span</span>&gt;</span></div><div class="line">                <span class="tag">&lt;<span class="name">ul</span>&gt;</span>                           </div><div class="line">                    <span class="tag">&lt;<span class="name">li</span>&gt;</span>ComboBox<span class="tag">&lt;/<span class="name">li</span>&gt;</span></div><div class="line">                    <span class="tag">&lt;<span class="name">li</span>&gt;</span>DatePicker<span class="tag">&lt;/<span class="name">li</span>&gt;</span></div><div class="line">                    <span class="tag">&lt;<span class="name">li</span>&gt;</span>Spinner<span class="tag">&lt;/<span class="name">li</span>&gt;</span></div><div class="line">                    <span class="tag">&lt;<span class="name">li</span>&gt;</span>TreeSelect<span class="tag">&lt;/<span class="name">li</span>&gt;</span></div><div class="line">                <span class="tag">&lt;/<span class="name">ul</span>&gt;</span></div><div class="line">            <span class="tag">&lt;/<span class="name">li</span>&gt;</span></div><div class="line">            <span class="tag">&lt;<span class="name">li</span>&gt;</span></div><div class="line">                <span class="tag">&lt;<span class="name">span</span> <span class="attr">expanded</span>=<span class="string">"false"</span>&gt;</span>Lists<span class="tag">&lt;/<span class="name">span</span>&gt;</span></div><div class="line">                <span class="tag">&lt;<span class="name">ul</span>&gt;</span></div><div class="line">                    <span class="tag">&lt;<span class="name">li</span>&gt;</span><span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">"../datagrid/datagrid.html"</span> <span class="attr">target</span>=<span class="string">"_blank"</span> <span class="attr">style</span>=<span class="string">"color:Blue;text-decoration:underline;"</span>&gt;</span>DataGrid<span class="tag">&lt;/<span class="name">a</span>&gt;</span><span class="tag">&lt;/<span class="name">li</span>&gt;</span></div><div class="line">                    <span class="tag">&lt;<span class="name">li</span>&gt;</span>Tree<span class="tag">&lt;/<span class="name">li</span>&gt;</span></div><div class="line">                <span class="tag">&lt;/<span class="name">ul</span>&gt;</span></div><div class="line">            <span class="tag">&lt;/<span class="name">li</span>&gt;</span>    </div><div class="line">            <span class="tag">&lt;<span class="name">li</span>&gt;</span></div><div class="line">                <span class="tag">&lt;<span class="name">span</span> <span class="attr">expanded</span>=<span class="string">"false"</span>&gt;</span>Layouts<span class="tag">&lt;/<span class="name">span</span>&gt;</span></div><div class="line">                <span class="tag">&lt;<span class="name">ul</span>&gt;</span></div><div class="line">                    <span class="tag">&lt;<span class="name">li</span>&gt;</span>Panel<span class="tag">&lt;/<span class="name">li</span>&gt;</span></div><div class="line">                    <span class="tag">&lt;<span class="name">li</span>&gt;</span>Splitter<span class="tag">&lt;/<span class="name">li</span>&gt;</span></div><div class="line">                    <span class="tag">&lt;<span class="name">li</span>&gt;</span>Layout<span class="tag">&lt;/<span class="name">li</span>&gt;</span></div><div class="line">                <span class="tag">&lt;/<span class="name">ul</span>&gt;</span></div><div class="line">            <span class="tag">&lt;/<span class="name">li</span>&gt;</span>         </div><div class="line">            <span class="tag">&lt;<span class="name">li</span>&gt;</span></div><div class="line">                <span class="tag">&lt;<span class="name">span</span> <span class="attr">expanded</span>=<span class="string">"false"</span>&gt;</span>Navigations<span class="tag">&lt;/<span class="name">span</span>&gt;</span></div><div class="line">                <span class="tag">&lt;<span class="name">ul</span>&gt;</span></div><div class="line">                    <span class="tag">&lt;<span class="name">li</span>&gt;</span>Tabs<span class="tag">&lt;/<span class="name">li</span>&gt;</span></div><div class="line">                    <span class="tag">&lt;<span class="name">li</span>&gt;</span>NavBar<span class="tag">&lt;/<span class="name">li</span>&gt;</span></div><div class="line">                    <span class="tag">&lt;<span class="name">li</span>&gt;</span>Menu<span class="tag">&lt;/<span class="name">li</span>&gt;</span></div><div class="line">                    <span class="tag">&lt;<span class="name">li</span>&gt;</span>Pager<span class="tag">&lt;/<span class="name">li</span>&gt;</span>                            </div><div class="line">                <span class="tag">&lt;/<span class="name">ul</span>&gt;</span></div><div class="line">            <span class="tag">&lt;/<span class="name">li</span>&gt;</span>             </div><div class="line">        <span class="tag">&lt;/<span class="name">ul</span>&gt;</span></div><div class="line">    <span class="tag">&lt;/<span class="name">li</span>&gt;</span>                       </div><div class="line"><span class="tag">&lt;/<span class="name">ul</span>&gt;</span></div></pre></td></tr></table></figure>
+</li>
+</ul>
+<h3 id="树的懒加载"><a href="#树的懒加载" class="headerlink" title="树的懒加载"></a>树的懒加载</h3><p> 只有当用户点击了展开才会加载当前树节点的子孙。点击”+”图标时，当前节点的id就会传到后台，不过可以在前台利用onbeforeload在传递之前做一些额外操作再交给后台去加载子孙。服务端则根据Request获取的节点id来搜索数据库取出子节点<br><figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">ul</span> <span class="attr">id</span>=<span class="string">"tree1"</span> <span class="attr">class</span>=<span class="string">"mini-tree"</span> <span class="attr">url</span>=<span class="string">"../data/TreeService.aspx?method=LoadNodes"</span> <span class="attr">style</span>=<span class="string">"width:300px;height:200px;padding:5px;"</span> </span></div><div class="line"><span class="tag">    <span class="attr">showTreeIcon</span>=<span class="string">"true"</span> <span class="attr">textField</span>=<span class="string">"name"</span> <span class="attr">idField</span>=<span class="string">"id"</span> <span class="attr">onbeforeload</span>=<span class="string">"onBeforeTreeLoad"</span> &gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">ul</span>&gt;</span></div></pre></td></tr></table></figure></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// 在加载节点之前，在前端执行的操作</span></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">onBeforeTreeLoad</span>(<span class="params">e</span>) </span>&#123;</div><div class="line">    <span class="keyword">var</span> tree = e.sender;    <span class="comment">//树控件</span></div><div class="line">    <span class="keyword">var</span> node = e.node;      <span class="comment">//当前节点</span></div><div class="line">    <span class="keyword">var</span> params = e.params;  <span class="comment">//参数对象</span></div><div class="line"></div><div class="line">    <span class="comment">//可以传递自定义的属性</span></div><div class="line">    params.myField = <span class="string">"123"</span>; <span class="comment">//后台就可以用request对象获取"myField"字段了</span></div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// 服务端程序，根据节点id拿子节点</span></div><div class="line">String id = Request[<span class="string">"id"</span>];</div><div class="line"><span class="keyword">if</span> (String.IsNullOrEmpty(id)) id = <span class="string">"-1"</span>;</div><div class="line"></div><div class="line"><span class="comment">//获取下一级节点</span></div><div class="line">String sql = <span class="string">"select * from plus_file where pid = '"</span> + id + <span class="string">"' order by updatedate"</span>;</div><div class="line">ArrayList folders = DBUtil.Select(sql);</div><div class="line"></div><div class="line"><span class="comment">//判断节点，是否有子节点。如果有，则处理isLeaf和expanded。</span></div><div class="line"><span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>, l = folders.Count; i &lt; l; i++)</div><div class="line">&#123;</div><div class="line">    Hashtable node = (Hashtable)folders[i];</div><div class="line">    String nodeId = node[<span class="string">"id"</span>].ToString();</div><div class="line"></div><div class="line">    String sql2 = <span class="string">"select * from plus_file where pid = '"</span> + nodeId + <span class="string">"' order by updatedate"</span>;</div><div class="line">    ArrayList nodes = DBUtil.Select(sql2);</div><div class="line"></div><div class="line">    <span class="keyword">if</span> (nodes.Count &gt; <span class="number">0</span>)</div><div class="line">    &#123;</div><div class="line">        node[<span class="string">"isLeaf"</span>] = <span class="keyword">false</span>;</div><div class="line">        node[<span class="string">"expanded"</span>] = <span class="keyword">false</span>;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="comment">//返回JSON</span></div><div class="line">String json = PluSoft.Utils.JSON.Encode(folders);</div><div class="line">Response.Write(json);</div></pre></td></tr></table></figure>
+<h3 id="树的操作"><a href="#树的操作" class="headerlink" title="树的操作"></a>树的操作</h3><p> 提供了增删改移的内置操作。<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// 增加节点</span></div><div class="line"><span class="keyword">var</span> tree = mini.get(<span class="string">"tree1"</span>);</div><div class="line"><span class="keyword">var</span> node = tree.getSelectedNode();</div><div class="line"><span class="keyword">var</span> newNode = &#123;&#125;;</div><div class="line"><span class="comment">//addNode ( node, index, parentNode )</span></div><div class="line">tree.addNode(newNode, <span class="string">"before"</span>, node);</div><div class="line"></div><div class="line"><span class="comment">// 删除节点</span></div><div class="line"><span class="keyword">var</span> node = tree.getSelectedNode();</div><div class="line">tree.removeNode(node);</div><div class="line"></div><div class="line"><span class="comment">// 编辑节点</span></div><div class="line"><span class="keyword">var</span> node = tree.getSelectedNode();            </div><div class="line">tree.beginEdit(node);  </div><div class="line"></div><div class="line"><span class="comment">// 移动节点</span></div><div class="line">tree.moveNode(node, targetNode, <span class="string">"before"</span>);</div></pre></td></tr></table></figure></p>
+<h3 id="为树创建右键菜单"><a href="#为树创建右键菜单" class="headerlink" title="为树创建右键菜单"></a>为树创建右键菜单</h3><p> 除了利用工具栏按钮的形式操作树的节点，还可以直接在节点上<a href="http://www.miniui.com/docs/tutorial/tree_contextmenu.html" target="_blank" rel="external">右键弹出菜单</a>进行操作，称之为ContextMenu。ContextMenu的HTML其实就是ul+li的列表，然后要想让右键点击树能够弹出这个ContextMenu，则需要为树的HTML标签添加contextMenu属性。<br><figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">ul</span> <span class="attr">id</span>=<span class="string">"treeMenu"</span> <span class="attr">class</span>=<span class="string">"mini-contextmenu"</span> <span class="attr">onbeforeopen</span>=<span class="string">"onBeforeOpen"</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">li</span> <span class="attr">iconCls</span>=<span class="string">"icon-move"</span> <span class="attr">onclick</span>=<span class="string">"onMoveNode"</span>&gt;</span>移动节点<span class="tag">&lt;/<span class="name">li</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">li</span> <span class="attr">class</span>=<span class="string">"separator"</span>&gt;</span><span class="tag">&lt;/<span class="name">li</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">li</span>&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">span</span> <span class="attr">iconCls</span>=<span class="string">"icon-add"</span>&gt;</span>新增节点<span class="tag">&lt;/<span class="name">span</span>&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">ul</span>&gt;</span></div><div class="line">            <span class="tag">&lt;<span class="name">li</span> <span class="attr">onclick</span>=<span class="string">"onAddBefore"</span>&gt;</span>插入节点前<span class="tag">&lt;/<span class="name">li</span>&gt;</span>                </div><div class="line">            <span class="tag">&lt;<span class="name">li</span> <span class="attr">onclick</span>=<span class="string">"onAddAfter"</span>&gt;</span>插入节点后<span class="tag">&lt;/<span class="name">li</span>&gt;</span>    </div><div class="line">            <span class="tag">&lt;<span class="name">li</span> <span class="attr">onclick</span>=<span class="string">"onAddNode"</span>&gt;</span>插入子节点<span class="tag">&lt;/<span class="name">li</span>&gt;</span>                 </div><div class="line">        <span class="tag">&lt;/<span class="name">ul</span>&gt;</span></div><div class="line">    <span class="tag">&lt;/<span class="name">li</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">li</span> <span class="attr">name</span>=<span class="string">"edit"</span> <span class="attr">iconCls</span>=<span class="string">"icon-edit"</span> <span class="attr">onclick</span>=<span class="string">"onEditNode"</span>&gt;</span>编辑节点<span class="tag">&lt;/<span class="name">li</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">li</span> <span class="attr">name</span>=<span class="string">"remove"</span> <span class="attr">iconCls</span>=<span class="string">"icon-remove"</span> <span class="attr">onclick</span>=<span class="string">"onRemoveNode"</span>&gt;</span>删除节点<span class="tag">&lt;/<span class="name">li</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">ul</span>&gt;</span></div><div class="line"></div><div class="line">而对于树而言只需要把contextMenu属性赋上这个contextMenu的id值即可完成绑定。</div><div class="line"><span class="tag">&lt;<span class="name">ul</span> <span class="attr">id</span>=<span class="string">"tree1"</span> <span class="attr">class</span>=<span class="string">"mini-tree"</span> <span class="attr">url</span>=<span class="string">"../data/tree.txt"</span> <span class="attr">style</span>=<span class="string">"width:200px;padding:5px;"</span> </span></div><div class="line"><span class="tag">    <span class="attr">showTreeIcon</span>=<span class="string">"true"</span> <span class="attr">textField</span>=<span class="string">"text"</span> <span class="attr">idField</span>=<span class="string">"id"</span> </span></div><div class="line"><span class="tag">    <span class="attr">contextMenu</span>=<span class="string">"#treeMenu"</span></span></div><div class="line"><span class="tag">    &gt;</span>        </div><div class="line"><span class="tag">&lt;/<span class="name">ul</span>&gt;</span></div></pre></td></tr></table></figure></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div></pre></td><td class="code"><pre><div class="line">在contextMenu中的onbeforeopen属性绑定的函数是：</div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">onBeforeOpen</span>(<span class="params">e</span>) </span>&#123;</div><div class="line">    <span class="keyword">var</span> menu = e.sender;</div><div class="line">    <span class="keyword">var</span> tree = mini.get(<span class="string">"tree1"</span>);</div><div class="line"></div><div class="line">    <span class="keyword">var</span> node = tree.getSelectedNode();</div><div class="line">    <span class="keyword">if</span> (!node) &#123;</div><div class="line">        e.cancel = <span class="literal">true</span>;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="comment">// 若点击的是Base，不弹出</span></div><div class="line">    <span class="keyword">if</span> (node &amp;&amp; node.text == <span class="string">"Base"</span>) &#123;  </div><div class="line">        e.cancel = <span class="literal">true</span>;</div><div class="line">        <span class="comment">//阻止浏览器默认右键菜单</span></div><div class="line">        e.htmlEvent.preventDefault();</div><div class="line">        <span class="keyword">return</span>;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="keyword">var</span> editItem = mini.getbyName(<span class="string">"edit"</span>, menu);</div><div class="line">    <span class="keyword">var</span> removeItem = mini.getbyName(<span class="string">"remove"</span>, menu);</div><div class="line">    editItem.show();</div><div class="line">    removeItem.enable();    <span class="comment">// 防止之前的禁用效果无法恢复</span></div><div class="line"></div><div class="line">    <span class="keyword">if</span> (node.id == <span class="string">"forms"</span>) &#123;</div><div class="line">        editItem.hide();    <span class="comment">// 隐藏编辑选项</span></div><div class="line">    &#125;</div><div class="line">    <span class="keyword">if</span> (node.id == <span class="string">"lists"</span>) &#123;</div><div class="line">        removeItem.disable();<span class="comment">// 禁用删除选项</span></div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h1 id="导航"><a href="#导航" class="headerlink" title="导航"></a>导航</h1><hr>
+<p> MiniUI提供了很多内置方式实现页面切换，如toolbar、菜单、ContextMenu、Tabs选项卡、OutlookBar折叠面板、OutlookMenu折叠菜单、OutlookTree折叠树、Pager分页。</p>
+<h3 id="Toolbar工具栏"><a href="#Toolbar工具栏" class="headerlink" title="Toolbar工具栏"></a><a href="http://www.miniui.com/docs/tutorial/toolbar.html" target="_blank" rel="external">Toolbar工具栏</a></h3><p> 其实就是div+a的组合，只不过对应地加上MiniUI的class就可以用内置的CSS显示为导航栏。<br><figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"mini-toolbar"</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">a</span> <span class="attr">class</span>=<span class="string">"mini-button"</span> <span class="attr">iconCls</span>=<span class="string">"icon-add"</span>&gt;</span>增加<span class="tag">&lt;/<span class="name">a</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">a</span> <span class="attr">class</span>=<span class="string">"mini-button"</span> <span class="attr">iconCls</span>=<span class="string">"icon-edit"</span>&gt;</span>修改<span class="tag">&lt;/<span class="name">a</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">a</span> <span class="attr">class</span>=<span class="string">"mini-button"</span> <span class="attr">iconCls</span>=<span class="string">"icon-remove"</span>&gt;</span>删除<span class="tag">&lt;/<span class="name">a</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">span</span> <span class="attr">class</span>=<span class="string">"separator"</span>&gt;</span><span class="tag">&lt;/<span class="name">span</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">a</span> <span class="attr">class</span>=<span class="string">"mini-button"</span> <span class="attr">plain</span>=<span class="string">"true"</span>&gt;</span>增加<span class="tag">&lt;/<span class="name">a</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">a</span> <span class="attr">class</span>=<span class="string">"mini-button"</span> <span class="attr">plain</span>=<span class="string">"true"</span>&gt;</span>修改<span class="tag">&lt;/<span class="name">a</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">a</span> <span class="attr">class</span>=<span class="string">"mini-button"</span> <span class="attr">plain</span>=<span class="string">"true"</span>&gt;</span>删除<span class="tag">&lt;/<span class="name">a</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">span</span> <span class="attr">class</span>=<span class="string">"separator"</span>&gt;</span><span class="tag">&lt;/<span class="name">span</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">input</span> <span class="attr">class</span>=<span class="string">"mini-textbox"</span> /&gt;</span>   </div><div class="line">    <span class="tag">&lt;<span class="name">a</span> <span class="attr">class</span>=<span class="string">"mini-button"</span> <span class="attr">plain</span>=<span class="string">"true"</span>&gt;</span>查询<span class="tag">&lt;/<span class="name">a</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></div></pre></td></tr></table></figure></p>
+<p> 要复杂点的话可以加入table表格控制内部小按钮靠左靠右(例如用width: 100%)。</p>
+<h3 id="菜单"><a href="#菜单" class="headerlink" title="菜单"></a><a href="http://www.miniui.com/docs/tutorial/menu.html" target="_blank" rel="external">菜单</a></h3><p> 类似于Windows顶部的菜单栏，直接用ul结合url定出菜单中的内容。<br><figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">ul</span> <span class="attr">id</span>=<span class="string">"menu1"</span> <span class="attr">class</span>=<span class="string">"mini-menubar"</span> <span class="attr">style</span>=<span class="string">"width:100%;"</span> </span></div><div class="line"><span class="tag">    <span class="attr">url</span>=<span class="string">"../data/listMenu.txt"</span> <span class="attr">idField</span>=<span class="string">"id"</span> <span class="attr">parentField</span>=<span class="string">"pid"</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">ul</span>&gt;</span></div><div class="line">其中txt文件的格式和之前建树的类似，利用id和pid确定父子关系。既然和建树类似，那必然就有类似的[原始HTML构建菜单方式](http://www.miniui.com/docs/tutorial/menu_html.html)。</div><div class="line">[</div><div class="line">    &#123; id: "1", text: "文件(F)"&#125;,        </div><div class="line">    '-',</div><div class="line">    &#123; id: "2", text: "新建", iconCls: "icon-new", pid: "1"&#125;,    </div><div class="line">    &#123; id: "3", text: "文件", pid: "2"&#125;,</div><div class="line">    &#123; id: "4", text: "文件夹", pid: "2"&#125;,        </div><div class="line">    &#123; id: "5", text: "打开", iconCls: "icon-folderopen", pid: "1"&#125;,</div><div class="line">    &#123; id: "6", text: "保存", pid: "1"&#125;,</div><div class="line">    &#123; id: "7", text: "关闭", pid: "1"&#125;,</div><div class="line">        </div><div class="line">    &#123; id: "8", text: "编辑(E)"&#125;,</div><div class="line">    &#123; id: "9", text: "剪切", iconCls: "icon-cut", pid: "8"&#125;,</div><div class="line">    &#123; id: "10", text: "复制", pid: "8"&#125;,</div><div class="line">    &#123; id: "11", text: "粘贴", pid: "8"&#125;,</div><div class="line">        </div><div class="line">    &#123; id: "12", text: "查看(V)"&#125;,</div><div class="line">    &#123; id: "13", text: "帮助(H)", iconCls: "icon-help"&#125;</div><div class="line">]</div></pre></td></tr></table></figure></p>
+<h3 id="ContextMenu"><a href="#ContextMenu" class="headerlink" title="ContextMenu"></a><a href="http://www.miniui.com/docs/tutorial/contextmenu.html" target="_blank" rel="external">ContextMenu</a></h3><p> 这是右键点击，根据上下文弹出的菜单。前面已经提到了在树的节点上可以实现右键弹出菜单，只需要把contextMenu的id绑定到对应的树就可以了。而这里构建菜单也是类似的，先用ul+li把菜单建起来，然后用JavaScript把菜单绑定到右键点击事件。<br><figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">ul</span> <span class="attr">id</span>=<span class="string">"contextMenu"</span> <span class="attr">class</span>=<span class="string">"mini-contextmenu"</span> &gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">li</span>&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">span</span> &gt;</span>操作<span class="tag">&lt;/<span class="name">span</span>&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">ul</span>&gt;</span></div><div class="line">            <span class="tag">&lt;<span class="name">li</span> <span class="attr">iconCls</span>=<span class="string">"icon-new"</span> <span class="attr">onclick</span>=<span class="string">"onItemClick"</span>&gt;</span>新建<span class="tag">&lt;/<span class="name">li</span>&gt;</span></div><div class="line">            <span class="tag">&lt;<span class="name">li</span> <span class="attr">class</span>=<span class="string">"separator"</span>&gt;</span><span class="tag">&lt;/<span class="name">li</span>&gt;</span></div><div class="line">            <span class="tag">&lt;<span class="name">li</span> <span class="attr">iconCls</span>=<span class="string">"icon-add"</span> <span class="attr">onclick</span>=<span class="string">"onItemClick"</span>&gt;</span>增加<span class="tag">&lt;/<span class="name">li</span>&gt;</span>    </div><div class="line">            <span class="tag">&lt;<span class="name">li</span> <span class="attr">iconCls</span>=<span class="string">"icon-edit"</span> <span class="attr">onclick</span>=<span class="string">"onItemClick"</span>&gt;</span>修改<span class="tag">&lt;/<span class="name">li</span>&gt;</span></div><div class="line">            <span class="tag">&lt;<span class="name">li</span> <span class="attr">iconCls</span>=<span class="string">"icon-remove"</span> <span class="attr">onclick</span>=<span class="string">"onItemClick"</span>&gt;</span>删除<span class="tag">&lt;/<span class="name">li</span>&gt;</span>                      </div><div class="line">        <span class="tag">&lt;/<span class="name">ul</span>&gt;</span></div><div class="line">    <span class="tag">&lt;/<span class="name">li</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">li</span> <span class="attr">class</span>=<span class="string">"separator"</span>&gt;</span><span class="tag">&lt;/<span class="name">li</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">li</span> <span class="attr">iconCls</span>=<span class="string">"icon-open"</span> &gt;</span>打开<span class="tag">&lt;/<span class="name">li</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">li</span> <span class="attr">iconCls</span>=<span class="string">"icon-remove"</span> &gt;</span>关闭<span class="tag">&lt;/<span class="name">li</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">ul</span>&gt;</span></div></pre></td></tr></table></figure></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">onItemClick</span>(<span class="params">e</span>) </span>&#123;   <span class="comment">// 点击某项后的操作</span></div><div class="line">    <span class="keyword">var</span> item = e.sender;</div><div class="line">    alert(item.getText());     </div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="built_in">window</span>.onload = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;   <span class="comment">// 将contextMenu绑定到指定元素</span></div><div class="line">    $(<span class="string">"#region1"</span>).bind(<span class="string">"contextmenu"</span>, <span class="function"><span class="keyword">function</span> (<span class="params">e</span>) </span>&#123;</div><div class="line">        <span class="keyword">var</span> menu = mini.get(<span class="string">"contextMenu"</span>);</div><div class="line">        menu.showAtPos(e.pageX, e.pageY);</div><div class="line">        <span class="keyword">return</span> <span class="literal">false</span>;</div><div class="line">    &#125;);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h3 id="Tabs选项卡"><a href="#Tabs选项卡" class="headerlink" title="Tabs选项卡"></a><a href="http://www.miniui.com/docs/tutorial/tabs.html" target="_blank" rel="external">Tabs选项卡</a></h3><p> 使用div，然后加入<code>class=&quot;mini-tabs&quot;</code>属性即可。每个tabs里面可以是静态1的div定义，也可以使用外部txt来<a href="http://www.miniui.com/docs/tutorial/tabs_load.html" target="_blank" rel="external">懒加载</a>。每个tab都有很多内置属性可以使用。<br><figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"tabs1"</span> <span class="attr">class</span>=<span class="string">"mini-tabs"</span> <span class="attr">activeIndex</span>=<span class="string">"0"</span> <span class="attr">style</span>=<span class="string">"width:350px;height:200px;"</span></span></div><div class="line"><span class="tag">     <span class="attr">url</span>=<span class="string">"../data/tabs.txt"</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line"></div><div class="line">txt中保存的格式，每个子页面的内容都由新的url定义。</div><div class="line">[</div><div class="line">    &#123;title: "Tab1", url: "../tabs/pages/page1.html", refreshOnClick: true&#125;,</div><div class="line">    &#123;title: "Tab2", url: "../tabs/pages/page2.html", showCloseButton: true&#125;,</div><div class="line">    &#123;title: "Tab3", url: "../tabs/pages/page3.html"&#125;,</div><div class="line">    &#123;title: "Tab4", url: "../tabs/pages/page4.html"&#125;,</div><div class="line">    &#123;title: "Tab5", url: "../tabs/pages/page5.html"&#125;</div><div class="line">]</div></pre></td></tr></table></figure></p>
+<h3 id="Outlook面板系列"><a href="#Outlook面板系列" class="headerlink" title="Outlook面板系列"></a>Outlook面板系列</h3><ul>
+<li><a href="http://www.miniui.com/docs/tutorial/outlookbar.html" target="_blank" rel="external">OutlookBar折叠面板</a>: 为div加入<code>class=&quot;mini-outlookbar</code>属性即可。面板内部的内容直接通过子div提供。</li>
+<li><a href="http://www.miniui.com/docs/tutorial/outlookmenu.html" target="_blank" rel="external">OutlookMenu折叠菜单</a>: 为div加入<code>class=&quot;mini-outlookmenu</code>属性，然后提供url导入菜单中要显示的内容即可。</li>
+<li><a href="http://www.miniui.com/docs/tutorial/outlooktree.html" target="_blank" rel="external">OutlookTree折叠树</a>: 为div加入<code>class=&quot;mini-outlooktree</code>属性，然后提供url导入树中要显示的内容即可。<figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div></pre></td><td class="code"><pre><div class="line"><span class="comment">&lt;!--折叠面板，直接提供内部div的内容--&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"outlookbar1"</span> <span class="attr">class</span>=<span class="string">"mini-outlookbar "</span> <span class="attr">activeIndex</span>=<span class="string">"0"</span> <span class="attr">style</span>=<span class="string">"width:180px;height:250px;"</span> <span class="attr">autoCollapse</span>=<span class="string">"true"</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">title</span>=<span class="string">"权限管理"</span>&gt;</span>            </div><div class="line">        1</div><div class="line">    <span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">title</span>=<span class="string">"用户管理"</span>&gt;</span></div><div class="line">        2</div><div class="line">    <span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line"></div><div class="line"><span class="comment">&lt;!--折叠面板中的菜单--&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"mini-outlookmenu"</span> <span class="attr">url</span>=<span class="string">"../data/outlookmenu.txt"</span> <span class="attr">onitemselect</span>=<span class="string">"onItemSelect"</span></span></div><div class="line"><span class="tag">    <span class="attr">idField</span>=<span class="string">"id"</span> <span class="attr">parentField</span>=<span class="string">"pid"</span> <span class="attr">textField</span>=<span class="string">"text"</span></span></div><div class="line"><span class="tag">&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line">其中url提供的内容格式和前面通过外部文件定义菜单的方式类似</div><div class="line">[</div><div class="line">    &#123; id: "user", text: "用户管理"&#125;,</div><div class="line">    &#123; id: "addUser", pid: "user", text: "增加用户", iconCls: "icon-add", url: "../navbartree/navbartree.html" &#125;,</div><div class="line">    &#123; id: "editUser", pid: "user", text: "修改用户", iconCls: "icon-edit", url: "../buttonedit/openwindow.html" &#125;,</div><div class="line">    &#123; id: "removeUser", pid: "user", text: "删除用户", iconCls: "icon-remove", url: "../datagrid/datagrid.html" &#125;,</div><div class="line">        </div><div class="line">    &#123; id: "right", text: "权限管理"&#125;,</div><div class="line">    &#123; id: "addRight", pid: "right", text: "查询权限", iconCls: "Note", url: "../navbartree/navbartree.html", iconPosition: "top" &#125;,</div><div class="line">    &#123; id: "editRight", pid: "right", text: "操作权限", iconCls: "Reports", url: "../buttonedit/openwindow.html", iconPosition: "top" &#125;        </div><div class="line">]</div><div class="line"></div><div class="line"><span class="comment">&lt;!--折叠面板中的树--&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"leftTree"</span> <span class="attr">class</span>=<span class="string">"mini-outlooktree"</span> <span class="attr">url</span>=<span class="string">"../data/outlooktree.txt"</span> <span class="attr">onnodeselect</span>=<span class="string">"onNodeSelect"</span></span></div><div class="line"><span class="tag">    <span class="attr">textField</span>=<span class="string">"text"</span> <span class="attr">idField</span>=<span class="string">"id"</span> <span class="attr">parentField</span>=<span class="string">"pid"</span></span></div><div class="line"><span class="tag">&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line">其中url提供的树的txt内容格式与前面提过的类似，通过id和pid确定父子关系。</div><div class="line">[</div><div class="line">    &#123;id: "user", text: "用户管理"&#125;,</div><div class="line">        </div><div class="line">        &#123;id: "lists", text: "Lists", pid: "user" &#125;,</div><div class="line">            </div><div class="line">            &#123;id: "datagrid", text: "DataGrid", pid: "lists"&#125;,            </div><div class="line">            &#123;id: "tree", text: "Tree" , pid: "lists"&#125;,</div><div class="line">            &#123;id: "treegrid", text: "TreeGrid " , pid: "lists"&#125;,</div><div class="line">        </div><div class="line">        &#123;id: "layouts", text: "Layouts", expanded: false, pid: "user"&#125;,</div><div class="line">        </div><div class="line">            &#123;id: "panel", text: "Panel", pid: "layouts"&#125;,</div><div class="line">            &#123;id: "splitter", text: "Splitter", pid: "layouts"&#125;,  </div><div class="line">]</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<h3 id="Pager分页"><a href="#Pager分页" class="headerlink" title="Pager分页"></a><a href="http://www.miniui.com/docs/tutorial/pager.html" target="_blank" rel="external">Pager分页</a></h3><p> 为div加入<code>class=&quot;mini-pager&quot;</code>属性即可。可以为onpagechanged属性提供JavaScript函数进行额外处理。<br><figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"mini-pager"</span> <span class="attr">style</span>=<span class="string">"width:600px;background:#ccc;"</span> </span></div><div class="line"><span class="tag">    <span class="attr">totalCount</span>=<span class="string">"123"</span> <span class="attr">onpagechanged</span>=<span class="string">"onPageChanged"</span> <span class="attr">sizeList</span>=<span class="string">"[5,10,20,100]"</span></span></div><div class="line"><span class="tag">    <span class="attr">showTotalCount</span>=<span class="string">"true"</span></span></div><div class="line"><span class="tag">    &gt;</span>        </div><div class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></div></pre></td></tr></table></figure></p>
+<p>这篇博客其实可能以后都不会怎么看了，因为人家官网写得也足够详细了，直接参考官方文档就行了。而且大多都是一些控件什么的，用一用就会了，用不着写个博客总结什么思想，弃坑啦。</p>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+      <div>
+        <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+  <div>└(^o^)┘</div>
+  <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+    <span>Donate</span>
+  </button>
+  <div id="QR" style="display: none;">
+
+    
+      <div id="wechat" style="display: inline-block">
+        <img id="wechat_qr" src="/images/wechatRewardImg.png" alt="BobbyLiujb WeChat Pay"/>
+        <p>WeChat Pay</p>
+      </div>
+    
+
+    
+      <div id="alipay" style="display: inline-block">
+        <img id="alipay_qr" src="/images/alipayRewardImg.png" alt="BobbyLiujb Alipay"/>
+        <p>Alipay</p>
+      </div>
+    
+
+    
+
+  </div>
+</div>
+
+      </div>
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/frontend/" rel="tag"># frontend</a>
+          
+            <a href="/tags/js/" rel="tag"># js</a>
+          
+            <a href="/tags/jQuery/" rel="tag"># jQuery</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2016/08/26/JavaScript-Professional/" rel="next" title="Note for Professional JavaScript for Web Developers (1/4)">
+                <i class="fa fa-chevron-left"></i> Note for Professional JavaScript for Web Developers (1/4)
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2016/09/10/JavaScript-Professional-2/" rel="prev" title="Note for Professional JavaScript for Web Developers (2/4)">
+                Note for Professional JavaScript for Web Developers (2/4) <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+        <!-- Go to www.addthis.com/dashboard to customize your tools -->
+<div class="addthis_inline_share_toolbox">
+  <script type = "text/javascript" src = "//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-593135f4e114024c" async = "async" ></script>
+</div>
+
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+      <div id="disqus_thread">
+        <noscript>
+          Please enable JavaScript to view the
+          <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a>
+        </noscript>
+      </div>
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            Overview
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="https://ww4.sinaimg.cn/large/9b3a5c2fgw1faysh4xl7ij20bh0bhmy5.jpg"
+               alt="BobbyLiujb" />
+          <p class="site-author-name" itemprop="name">BobbyLiujb</p>
+           
+              <p class="site-description motion-element" itemprop="description"></p>
+          
+        </div>
+        <nav class="site-state motion-element">
+
+          
+            <div class="site-state-item site-state-posts">
+              <a href="/archives/">
+                <span class="site-state-item-count">21</span>
+                <span class="site-state-item-name">posts</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-categories">
+              
+                <span class="site-state-item-count">3</span>
+                <span class="site-state-item-name">categories</span>
+              
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-tags">
+              
+                <span class="site-state-item-count">30</span>
+                <span class="site-state-item-name">tags</span>
+              
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+        </div>
+
+        
+        
+
+        
+        
+
+        
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#概述"><span class="nav-number">1.</span> <span class="nav-text">概述</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#MiniUI"><span class="nav-number">1.0.1.</span> <span class="nav-text">MiniUI</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#其他开发环境配置"><span class="nav-number">1.0.2.</span> <span class="nav-text">其他开发环境配置</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#表格-CRUD"><span class="nav-number">2.</span> <span class="nav-text">表格(CRUD)</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#CRUD增查改删"><span class="nav-number">2.0.1.</span> <span class="nav-text">CRUD增查改删</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#单元格编辑"><span class="nav-number">2.0.2.</span> <span class="nav-text">单元格编辑</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#行编辑"><span class="nav-number">2.0.3.</span> <span class="nav-text">行编辑</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#表单提交-弹出面板提交"><span class="nav-number">2.0.4.</span> <span class="nav-text">表单提交/弹出面板提交</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#表单控件"><span class="nav-number">3.</span> <span class="nav-text">表单控件</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#数据绑定"><span class="nav-number">3.0.1.</span> <span class="nav-text">数据绑定</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#表单"><span class="nav-number">3.0.2.</span> <span class="nav-text">表单</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#弹出选择表格"><span class="nav-number">3.0.3.</span> <span class="nav-text">弹出选择表格</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#小部件"><span class="nav-number">3.0.4.</span> <span class="nav-text">小部件</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#树形控件"><span class="nav-number">4.</span> <span class="nav-text">树形控件</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#创建树"><span class="nav-number">4.0.1.</span> <span class="nav-text">创建树</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#树的懒加载"><span class="nav-number">4.0.2.</span> <span class="nav-text">树的懒加载</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#树的操作"><span class="nav-number">4.0.3.</span> <span class="nav-text">树的操作</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#为树创建右键菜单"><span class="nav-number">4.0.4.</span> <span class="nav-text">为树创建右键菜单</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#导航"><span class="nav-number">5.</span> <span class="nav-text">导航</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Toolbar工具栏"><span class="nav-number">5.0.1.</span> <span class="nav-text">Toolbar工具栏</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#菜单"><span class="nav-number">5.0.2.</span> <span class="nav-text">菜单</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#ContextMenu"><span class="nav-number">5.0.3.</span> <span class="nav-text">ContextMenu</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Tabs选项卡"><span class="nav-number">5.0.4.</span> <span class="nav-text">Tabs选项卡</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Outlook面板系列"><span class="nav-number">5.0.5.</span> <span class="nav-text">Outlook面板系列</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Pager分页"><span class="nav-number">5.0.6.</span> <span class="nav-text">Pager分页</span></a></li></ol></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy;  2016 &mdash; 
+  <span itemprop="copyrightYear">2017</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">BobbyLiujb</span>
+
+  
+</div>
+
+
+  <div class="powered-by">
+    Powered by <a class="theme-link" href="https://hexo.io">Hexo</a>
+  </div>
+
+  <span class="post-meta-divider">|</span>
+
+  <div class="theme-info">
+    Theme &mdash;
+    <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+      NexT.Mist
+    </a>
+  </div>
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.2"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.2"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.2"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.2"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.2"></script>
+
+
+
+  
+
+  
+
+    
+      <script id="dsq-count-scr" src="https://bobbyliujb.disqus.com/count.js" async></script>
+    
+
+    
+      <script type="text/javascript">
+        var disqus_config = function () {
+          this.page.url = 'https://bobbyliujb.github.io/2016/09/05/jQuery-MiniUI/';
+          this.page.identifier = '2016/09/05/jQuery-MiniUI/';
+          this.page.title = 'Note for Ducumentation of jQuery MiniUI';
+        };
+        var d = document, s = d.createElement('script');
+        s.src = 'https://bobbyliujb.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', '' + +new Date());
+        (d.head || d.body).appendChild(s);
+      </script>
+    
+
+  
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+  <script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.4.js"></script>
+  <script>AV.initialize("jT7i5auNazMHRONSPUHmcoko-gzGzoHsz", "dEWwuVre5Svmwvjw2DmcIbLy");</script>
+  <script>
+    function showTime(Counter) {
+      var query = new AV.Query(Counter);
+      var entries = [];
+      var $visitors = $(".leancloud_visitors");
+
+      $visitors.each(function () {
+        entries.push( $(this).attr("id").trim() );
+      });
+
+      query.containedIn('url', entries);
+      query.find()
+        .done(function (results) {
+          var COUNT_CONTAINER_REF = '.leancloud-visitors-count';
+
+          if (results.length === 0) {
+            $visitors.find(COUNT_CONTAINER_REF).text(0);
+            return;
+          }
+
+          for (var i = 0; i < results.length; i++) {
+            var item = results[i];
+            var url = item.get('url');
+            var time = item.get('time');
+            var element = document.getElementById(url);
+
+            $(element).find(COUNT_CONTAINER_REF).text(time);
+          }
+          for(var i = 0; i < entries.length; i++) {
+            var url = entries[i];
+            var element = document.getElementById(url);
+            var countSpan = $(element).find(COUNT_CONTAINER_REF);
+            if( countSpan.text() == '') {
+              countSpan.text(0);
+            }
+          }
+        })
+        .fail(function (object, error) {
+          console.log("Error: " + error.code + " " + error.message);
+        });
+    }
+
+    function addCount(Counter) {
+      var $visitors = $(".leancloud_visitors");
+      var url = $visitors.attr('id').trim();
+      var title = $visitors.attr('data-flag-title').trim();
+      var query = new AV.Query(Counter);
+
+      query.equalTo("url", url);
+      query.find({
+        success: function(results) {
+          if (results.length > 0) {
+            var counter = results[0];
+            counter.fetchWhenSave(true);
+            counter.increment("time");
+            counter.save(null, {
+              success: function(counter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(counter.get('time'));
+              },
+              error: function(counter, error) {
+                console.log('Failed to save Visitor num, with error message: ' + error.message);
+              }
+            });
+          } else {
+            var newcounter = new Counter();
+            /* Set ACL */
+            var acl = new AV.ACL();
+            acl.setPublicReadAccess(true);
+            acl.setPublicWriteAccess(true);
+            newcounter.setACL(acl);
+            /* End Set ACL */
+            newcounter.set("title", title);
+            newcounter.set("url", url);
+            newcounter.set("time", 1);
+            newcounter.save(null, {
+              success: function(newcounter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(newcounter.get('time'));
+              },
+              error: function(newcounter, error) {
+                console.log('Failed to create');
+              }
+            });
+          }
+        },
+        error: function(error) {
+          console.log('Error:' + error.code + " " + error.message);
+        }
+      });
+    }
+
+    $(function() {
+      var Counter = AV.Object.extend("Counter");
+      if ($('.leancloud_visitors').length == 1) {
+        addCount(Counter);
+      } else if ($('.post-title-link').length > 1) {
+        showTime(Counter);
+      }
+    });
+  </script>
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

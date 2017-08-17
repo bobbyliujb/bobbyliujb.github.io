@@ -1,0 +1,1256 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next mist use-motion" lang="en">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+  
+  
+    
+    
+  <script src="/lib/pace/pace.min.js?v=1.0.2"></script>
+  <link href="/lib/pace/pace-theme-minimal.min.css?v=1.0.2" rel="stylesheet">
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.2" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="java,algorithm,interview," />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.2" />
+
+
+
+
+
+
+<meta name="description" content="刷题。祝我好运。">
+<meta name="keywords" content="java,algorithm,interview">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Note for LeetCode in Java ( 201~300 )">
+<meta property="og:url" content="https://bobbyliujb.github.io/2017/06/03/java_leetcode3/index.html">
+<meta property="og:site_name" content="Bobby">
+<meta property="og:description" content="刷题。祝我好运。">
+<meta property="og:locale" content="en">
+<meta property="og:image" content="https://ww1.sinaimg.cn/large/9b3a5c2fgy1fgfeg0uu25j20eb09nt9j.jpg">
+<meta property="og:updated_time" content="2017-07-06T19:00:00.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Note for LeetCode in Java ( 201~300 )">
+<meta name="twitter:description" content="刷题。祝我好运。">
+<meta name="twitter:image" content="https://ww1.sinaimg.cn/large/9b3a5c2fgy1fgfeg0uu25j20eb09nt9j.jpg">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Mist',
+    sidebar: {"position":"left","display":"hide","offset":12,"offset_float":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: true,
+    duoshuo: {
+      userId: '0',
+      author: 'Author'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="https://bobbyliujb.github.io/2017/06/03/java_leetcode3/"/>
+
+
+
+
+
+  <title>Note for LeetCode in Java ( 201~300 ) | Bobby</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="en">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Bobby</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            Home
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            Categories
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            Archives
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            Tags
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://bobbyliujb.github.io/2017/06/03/java_leetcode3/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="BobbyLiujb">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="https://ww4.sinaimg.cn/large/9b3a5c2fgw1faysh4xl7ij20bh0bhmy5.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Bobby">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">Note for LeetCode in Java ( 201~300 )</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-06-03T19:26:30-07:00">
+                2017-06-03
+              </time>
+            
+
+            
+              <span class="post-meta-divider">|</span>
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-check-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Post modified&#58;</span>
+              
+              <time title="Post modified" itemprop="dateModified" datetime="2017-07-06T12:00:00-07:00">
+                2017-07-06
+              </time>
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Tech/" itemprop="url" rel="index">
+                    <span itemprop="name">Tech</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2017/06/03/java_leetcode3/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count"
+                        data-disqus-identifier="2017/06/03/java_leetcode3/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+             <span id="/2017/06/03/java_leetcode3/" class="leancloud_visitors" data-flag-title="Note for LeetCode in Java ( 201~300 )">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">Visitors&#58;</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>刷题。祝我好运。<br><a id="more"></a></p>
+<h4 id="201-bitwise-and-of-numbers-range"><a href="#201-bitwise-and-of-numbers-range" class="headerlink" title="201. bitwise-and-of-numbers-range"></a><a href="https://leetcode.com/problems/bitwise-and-of-numbers-range/#/description" target="_blank" rel="external">201. bitwise-and-of-numbers-range</a></h4><ul>
+<li>给两个数字，求这两个数字之间（含他俩）所有数的And的结果。</li>
+<li>ME：从1开始左移，找到恰好不大于下界的2的幂，然后看看上界是否超过了这个幂的两倍，因为一旦这两个数字包含2的倍数，就直接是0了，想想<code>111 &amp; 1000</code>。如果不包含，那么这个幂对应的位置就一定是1了，那么用这个幂与原本的下界和上界取个异或，就得到了后续的部分，递归下去找数字，结果再加上当前这个幂即可。[详情见这里]。</li>
+<li>TA：<a href="https://discuss.leetcode.com/topic/20176/2-line-solution-with-detailed-explanation" target="_blank" rel="external">这个方法</a>看似暴力，其实有个trick是每次都约减掉了最高位的1.<a href="https://discuss.leetcode.com/topic/12093/my-simple-java-solution-3-lines" target="_blank" rel="external">这个方法</a>的核心则是『寻找m和n的左侧最长的公共部分』，最后用上界与这个公共部分（公共部分以左全为1，不过无所谓）再做个与即为结果。<a href="https://discuss.leetcode.com/topic/12133/bit-operation-solution-java" target="_blank" rel="external">这个</a>也是类似，不过是『右移m和n来找公共部分』，同时用一个factor记录从哪一位开始往左都是相同的了。</li>
+</ul>
+<h4 id="202-happy-number"><a href="#202-happy-number" class="headerlink" title="202. happy-number"></a><a href="https://leetcode.com/problems/happy-number/#/description" target="_blank" rel="external">202. happy-number</a></h4><ul>
+<li>给一个正整数，判断它是否Happy。所谓happy指的是求各位的数字的平方和，得到的是1则是happy，不是1就继续这样算平方和。不是happy的数会陷入循环。</li>
+<li>ME：递归加Set标记是否轮回搞定。</li>
+<li>TA：<a href="https://discuss.leetcode.com/topic/25026/beat-90-fast-easy-understand-java-solution-with-brief-explanation" target="_blank" rel="external">这个是Iterative版的set</a>，利用set.add判断是否出现重复。<a href="https://discuss.leetcode.com/topic/12587/my-solution-in-c-o-1-space-and-no-magic-math-property-involved" target="_blank" rel="external">这个借助Floyd Cycle Detection的答案更加妙</a>，来源于快慢指针检测链表中是否有环，这里也是这样，fast是每次往后算两步，slow是一步。当fast到达了1说明是happy，如果fast追上了slow说明成环了。</li>
+</ul>
+<h4 id="203-remove-linked-list-elements"><a href="#203-remove-linked-list-elements" class="headerlink" title="203. remove-linked-list-elements"></a><a href="https://leetcode.com/problems/remove-linked-list-elements/#/description" target="_blank" rel="external">203. remove-linked-list-elements</a></h4><ul>
+<li>给一个链表和一个val，将链表中与val相等的节点删除。</li>
+<li>ME：用一个伪头部O( n )搞定。一开始偷懒没有搞双指针，结果没法处理连续删除的问题，例如<code>[1,1]</code>删除1.</li>
+<li>TA：挖去，原来<a href="https://discuss.leetcode.com/topic/12637/iterative-short-java-solution" target="_blank" rel="external">单指针足够了</a>，关键是你逮到一个与val相等的节点后，当前节点的next重新赋值，但不能往后挪，这样才能保证后续的那个节点也被check到。还有<a href="https://discuss.leetcode.com/topic/12580/3-line-recursive-solution" target="_blank" rel="external">这个recursive的方法</a>，既然函数会返回节点，那么就一路往后直到null，若当前节点需要被删除，就返回后续的节点即可。</li>
+</ul>
+<h4 id="204-count-primes"><a href="#204-count-primes" class="headerlink" title="204. count-primes"></a><a href="https://leetcode.com/problems/count-primes/#/description" target="_blank" rel="external">204. count-primes</a></h4><ul>
+<li>给一个正整数n，求n之前有多少素数。</li>
+<li>ME：衣洗题还没搞出来，丢人。一开始就想到用HashSet把非素数给放进去，结果爆内存。后来又想着用暴力方法吧一个个调用isPrime判断一下，果断超时。</li>
+<li>TA：<a href="https://discuss.leetcode.com/topic/13654/my-simple-java-solution" target="_blank" rel="external">没想到竟然可以直接new数组</a>，都不会爆内存，难道测试用例这么弱的吗？<a href="https://discuss.leetcode.com/topic/35033/12-ms-java-solution-modified-from-the-hint-method-beats-99-95/10" target="_blank" rel="external">这里还有个更subtle的方法</a>，既然偶数都不可能是素数，那一开始就把所有偶数排除掉，count初始化为<code>n/2</code>。利用composite数组记录是否为合数，从3开始遍历，不是合数则进入内层循环，将<code>i * i + a*i</code>对应索引的composite置为true，同时<code>count--</code>。<a href="https://leetcode.com/submissions/detail/104893040/" target="_blank" rel="external">速度炒鸡快</a>。</li>
+</ul>
+<h4 id="205-isomorphic-strings"><a href="#205-isomorphic-strings" class="headerlink" title="205. isomorphic-strings"></a><a href="https://leetcode.com/problems/isomorphic-strings/#/description" target="_blank" rel="external">205. isomorphic-strings</a></h4><ul>
+<li>给两个字符串，看能否建立一一映射关系，使得字符串s能转换成t。一一映射要求各个key映射到不同的value，不能多对一，更不可能一对多。</li>
+<li>ME：HashMap搞定，利用containsKey判断是否定义过映射，利用containsValue防止多对一。</li>
+<li>TA：<a href="https://discuss.leetcode.com/topic/41595/java-3ms-beats-99-25" target="_blank" rel="external">这个</a>告诉你，由于都是ASCII字符，那么可以用数组代替HashMap嘛，这样会快很多。<a href="https://leetcode.com/submissions/detail/104911468/" target="_blank" rel="external">果然很快</a>。</li>
+</ul>
+<h4 id="206-reverse-linked-list"><a href="#206-reverse-linked-list" class="headerlink" title="206. reverse-linked-list"></a><a href="https://leetcode.com/problems/reverse-linked-list/#/description" target="_blank" rel="external">206. reverse-linked-list</a></h4><ul>
+<li>给一个链表，反转它，返回反转后的链表头。要求iterative和recursive分别实现。</li>
+<li>ME：<a href="https://leetcode.com/submissions/detail/104906821/" target="_blank" rel="external">iterative的很好办</a>，一个prev从null开始，一个curr从head开始，改变curr.next指向prev即可。recursive没想出来。。。</li>
+<li>TA：偷看了别人的，写出了<a href="https://leetcode.com/submissions/detail/104907820/" target="_blank" rel="external">recursive的方法</a>。我当时搞不懂怎么写是因为不知道应该返回head还是tail，其实每次递归还是应该返回新的头部，因为tail完全可以用当前元素的next访问到。</li>
+</ul>
+<h4 id="207-course-schedule"><a href="#207-course-schedule" class="headerlink" title="207. course-schedule"></a><a href="https://leetcode.com/problems/course-schedule/#/description" target="_blank" rel="external">207. course-schedule</a></h4><ul>
+<li>很典型的图论题，判断根据所给的prerequisite列表能否规划出修完全部课程的方案。术语叫作topological sort，托普排序。</li>
+<li>ME：真的抓狂，明明很基础的一个题，想半天搞不出来。回头翻了大二上的数据结构Lecture 13果然找到了托普排序。利用『入度为零』判断哪个点可以作为起始点，将这些点全部入队，然后从队首的点出发，将它相邻的点的入度都减1，相当于『修了这门课』。这样一直循环直到队列为空，看看遍历了多少课程。</li>
+<li>TA：课上讲的其实就是<a href="https://discuss.leetcode.com/topic/13854/easy-bfs-topological-sort-java" target="_blank" rel="external">这个BFS的方法</a>，此外还有<a href="https://discuss.leetcode.com/topic/15762/java-dfs-and-bfs-solution" target="_blank" rel="external">DFS的方法</a>。DFS需要借助visited数组，标记哪些课程已经上过了，如果在后续DFS中回到了上过的课程索引，说明成环了，这样的课程依赖关系永远没有办法满足，直接返回false。如果全部课程都走过一遍了，也没有成环，那就说明可以。注意DFS如果使用数组会超时，因为需要遍历才能知道后续课程索引，而使用ArrayList就直接往后get就好了。</li>
+</ul>
+<h4 id="208-implement-trie-prefix-tree"><a href="#208-implement-trie-prefix-tree" class="headerlink" title="208. implement-trie-prefix-tree"></a><a href="https://leetcode.com/problems/implement-trie-prefix-tree/#/description" target="_blank" rel="external">208. implement-trie-prefix-tree</a></h4><ul>
+<li>Trie树来源于单词『retrieve』，主要用于字典查找、输入法联想，因为可以提供prefix查找。这个就是实现一波。</li>
+<li>ME：这个题促使我翻看了大二上的『数据结构与算法』的PPT，理解了相关内容后<a href="https://leetcode.com/submissions/detail/105330089/" target="_blank" rel="external">实现起来非常容易</a>。</li>
+<li>TA：因为search和startsWith非常类似，只是search要求在该节点处isWord为真，<a href="https://discuss.leetcode.com/topic/13463/maybe-the-code-is-not-too-much-by-using-next-26-c" target="_blank" rel="external">这个答案</a>告诉你，可以将公共部分提取出来调用这个find函数，返回找到的该字符串对应的最后一个节点。</li>
+</ul>
+<h4 id="209-minimum-size-subarray-sum"><a href="#209-minimum-size-subarray-sum" class="headerlink" title="209. minimum-size-subarray-sum"></a><a href="https://leetcode.com/problems/minimum-size-subarray-sum/#/description" target="_blank" rel="external">209. minimum-size-subarray-sum</a></h4><ul>
+<li>给一个目标s和一个int数组，求最短长度的连续子串使其元素和大于等于s。</li>
+<li>ME：想到了<a href="https://leetcode.com/submissions/detail/104924126/" target="_blank" rel="external">双指针做法</a>，就是fast指针一直往后加知道超过s，然后slow指针再跟进同时减掉slow指针对应的值，一旦小于s就又开始挪fast。这是个O( N )的做法，但是follow up要求想到O( NlogN )的。</li>
+<li>TA：<a href="https://discuss.leetcode.com/topic/18583/accepted-clean-java-o-n-solution-two-pointers" target="_blank" rel="external">这个大神</a>的Two pointer就比你的简单很多咧。此外就是<a href="https://discuss.leetcode.com/topic/13749/two-ac-solutions-in-java-with-time-complexity-of-n-and-nlogn-with-explanation" target="_blank" rel="external">这个O( NlogN )的做法</a>，很容易想到二分查找，但是二分要求数组是有序的，但在这里原数组的顺序matters，不能动，怎么破？我就是不知道这个。其实题目说了都是正数，那么它对应的累积和数组cumultive就是有序的了，在搜索目标s的时候加上之前的和就可以了。这里的二分查找和通常的不太一样，因为通常是找到了就直接输出索引，最后如果没找到就输出-1，在这里就不能这样，因为没找到就要返回『最小的大于目标的索引』，因此需要在princeton版本二分中删除相等即输出的判断，同时最后返回的是left而不是-1，写出来是<a href="https://leetcode.com/submissions/detail/105219262/" target="_blank" rel="external">这样</a>。</li>
+</ul>
+<h4 id="210-course-schedule-ii"><a href="#210-course-schedule-ii" class="headerlink" title="210. course-schedule-ii"></a><a href="https://leetcode.com/problems/course-schedule-ii/#/description" target="_blank" rel="external">210. course-schedule-ii</a></h4><ul>
+<li>与207相比需要记录路径了。</li>
+<li>ME：<a href="https://leetcode.com/submissions/detail/104919098/" target="_blank" rel="external">BFS很好办</a>，也是利用入度为0筛选出起始点，然后逐步放到Queue里。但DFS就不好理解了，因为前面的那个『成环』的判定，在这里需要记录路径的情况下，似乎不管用了。</li>
+<li>TA：DFS的方法我参考了<a href="https://discuss.leetcode.com/topic/17276/20-lines-c-bfs-dfs-solutions/8" target="_blank" rel="external">这个</a>，原来需要维护两种状态，一个是完全visited，一个是在DFS过程中经过了这个点onpath，在DFS结束之前恢复的是onpath，表示当前这个recursive path已经退出、不再占用这个点，但visited就不能恢复了。</li>
+</ul>
+<h4 id="211-add-and-search-word-data-structure-design"><a href="#211-add-and-search-word-data-structure-design" class="headerlink" title="211. add-and-search-word-data-structure-design"></a><a href="https://leetcode.com/problems/add-and-search-word-data-structure-design/#/description" target="_blank" rel="external">211. add-and-search-word-data-structure-design</a></h4><ul>
+<li>类似于Trie数，但是在search的时候引入了通配字符<code>.</code>，可以任意替代一个字母。</li>
+<li>ME：参考前面的Trie题，<a href="https://leetcode.com/submissions/detail/105447803/" target="_blank" rel="external">写出来了这个</a>，需要用一波DFS来处理通配符。</li>
+<li>TA：没啥了。</li>
+</ul>
+<h4 id="212-word-search-ii"><a href="#212-word-search-ii" class="headerlink" title="212. word-search-ii"></a><a href="https://leetcode.com/problems/word-search-ii/#/description" target="_blank" rel="external">212. word-search-ii</a></h4><ul>
+<li>给一个棋盘，再给一个String数组，求在棋盘中出现了哪些字符串。字符串沿四个走位七歪八扭形成的都算出现。</li>
+<li>ME：作死，看了一下tag，发现要用Trie，<a href="https://leetcode.com/submissions/detail/105475356/" target="_blank" rel="external">稍微修改一下就OK了</a>。修改在于把search函数拆分成了单步的nextNodeWithChar函数，给一个字符就返回对应的TrieNode，在DFS的时候一旦碰到对应的TrieNode为空就停止继续搜索了。同时TrieNode中存放的不是boolean，而是一个String，这样就不用重新拼接起来获得字符串了。</li>
+<li>TA：<a href="https://discuss.leetcode.com/topic/33246/java-15ms-easiest-solution-100-00/" target="_blank" rel="external">这个超强答案</a>总结了所有可能的优化。去重这里HashSet可以用TrieNode中增加count，或者干脆每当DFS到了这个word的时候就把这个TrieNode的String给置空，以实现『去重』的目的。此外，onpath这个辅助二维数组也不必要，因为当你已经来到了搜索对应的TrieNode时，当前的节点肯定不会在深入的DFS中用到，因此可以直接修改原board，然后在最终退出DFS之前改回来。</li>
+</ul>
+<h4 id="213-house-robber-ii"><a href="#213-house-robber-ii" class="headerlink" title="213. house-robber-ii"></a><a href="https://leetcode.com/problems/house-robber-ii/#/description" target="_blank" rel="external">213. house-robber-ii</a></h4><ul>
+<li>和前面198的区别在于，要把数组看作一个首尾相连的住宅区，因此第一个和最后一个不能同时选。</li>
+<li>ME：这题在上次写得很漂亮，但是这里多了一个条件就纠结死了，<a href="https://leetcode.com/submissions/detail/105485364/" target="_blank" rel="external">WA了嗨多次才过</a>。我维护了一个first的布尔数组表示是否选择了第一户人家，这样到达最后一户的时候，如果是真，那么就减掉第一间，在和前一个结果做比较。但是这样无法通过<code>2,2,4,3,2,5</code>，因为这里就需要在完全不理会第一户的情况下取到最大值10。于是我不得不加入了以第二户为起点的一波比较和赋值，勉强通过，但这个逻辑非常乱，不能提倡。</li>
+<li>TA：<a href="https://discuss.leetcode.com/topic/14375/simple-ac-solution-in-java-in-o-n-with-explanation" target="_blank" rel="external">这个直接来了两波</a>，想法很直接，但我总觉得略low。他们把这个叫作『two pass』，好吧，这不失为一种方法。关键是不容易出错啊哥！</li>
+</ul>
+<h4 id="214-shortest-palindrome"><a href="#214-shortest-palindrome" class="headerlink" title="214. shortest-palindrome"></a><a href="https://leetcode.com/problems/shortest-palindrome/#/description" target="_blank" rel="external">214. shortest-palindrome</a></h4><ul>
+<li>给一个字符串，在它的前面增加尽量短的字符串拼接而成的新字符串自对称。</li>
+<li>ME：想到<a href="https://leetcode.com/submissions/detail/105487474/" target="_blank" rel="external">这个方法</a>，自我感觉良好，但中间还是出了很多WA。从中间开始往两边拓展，判断是否对称，让这个『中间』的指针从正中间逐步往字符串头部挪，这样就能找到靠近头部的已经自对称的片段，然后把剩余不对称的拼上去就好了。</li>
+<li>TA：<a href="https://discuss.leetcode.com/topic/21068/my-7-lines-recursive-java-solution/" target="_blank" rel="external">这个</a>的前半部分找自对称的子字符串的那段代码实在太强！从后往前，如果前后指针对应字符相等则前指针++，后指针则不论什么时候都一直–，循环重点是后指针到达起点。此时前指针j所在的位置就是不对称部分的开端，那么这一部分就是需要反转并拼在最前面的部分了。但是这还没完，此时（0，j）这一部分还不能断言就是对称的，例如<a href="https://discuss.leetcode.com/topic/21068/my-7-lines-recursive-java-solution/18" target="_blank" rel="external">例子</a><code>&quot;abacfghcabakmnchgfcabaiuytrcfghcnmkabachgfcaba&quot;</code>，因此需要递归地处理( 0,j )这一部分。此外还有一个<a href="https://discuss.leetcode.com/topic/27261/clean-kmp-solution-with-super-detailed-explanation" target="_blank" rel="external">KMP的方法</a>，这个真是一头雾水，有个<a href="http://blog.csdn.net/joylnwang/article/details/6778316/" target="_blank" rel="external">博客</a>可以看看，不过先放一放吧。。。</li>
+</ul>
+<h4 id="215-kth-largest-element-in-an-array"><a href="#215-kth-largest-element-in-an-array" class="headerlink" title="215. kth-largest-element-in-an-array"></a><a href="https://leetcode.com/problems/kth-largest-element-in-an-array/#/description" target="_blank" rel="external">215. kth-largest-element-in-an-array</a></h4><ul>
+<li>求一个无序的int数组，经过排序后的第k个大的元素。</li>
+<li>ME：立刻想到了quickSort的应用，写出来是<a href="https://leetcode.com/submissions/detail/105500761/" target="_blank" rel="external">这样</a>。我在这里用的是『以首元素为pivot』，而不是之前一直写的『以中间元素为pivot』的快排，不太熟悉，参考了princeton课件。<br><img src="https://ww1.sinaimg.cn/large/9b3a5c2fgy1fgfeg0uu25j20eb09nt9j.jpg" alt=""></li>
+<li>TA：<a href="https://discuss.leetcode.com/topic/14597/solution-explained" target="_blank" rel="external">这个</a>是一个总结，可以使用Java内置的priorityQueue（其实就是大根堆），将原数组的每个元素插入进去，始终维持规模为K，最后剩下的队首就是了。</li>
+</ul>
+<h4 id="216-combination-sum-iii"><a href="#216-combination-sum-iii" class="headerlink" title="216. combination-sum-iii"></a><a href="https://leetcode.com/problems/combination-sum-iii/#/description" target="_blank" rel="external">216. combination-sum-iii</a></h4><ul>
+<li>给整数k和n，要求不重复地从1~9中选k个数出来使得它们的和为n。</li>
+<li>ME：<a href="https://leetcode.com/submissions/detail/105541393/" target="_blank" rel="external">递归解决</a>。数组索引越界了若干次，没有仔细设置循环/判断条件。从1开始取，used数组对应标true，然后将当前剩余需要拼凑的和减去当前取的这个值，进入下一步递归。为了防止重复，只能往后取值。</li>
+<li>TA：<a href="https://discuss.leetcode.com/topic/26351/simple-and-clean-java-code-backtracking" target="_blank" rel="external">这个</a>真的简洁，竟然不需要任何辅助的标记数组！因为每次都是往后取的，所以自然不会取到前面的啦。不过我的因为判断条件比较多，可以提前停止递归，所以比他的快嘿嘿。面试的时候当然还是选择好写的这个来写了。</li>
+</ul>
+<h4 id="217-contains-duplicate"><a href="#217-contains-duplicate" class="headerlink" title="217. contains-duplicate"></a><a href="https://leetcode.com/problems/contains-duplicate/#/description" target="_blank" rel="external">217. contains-duplicate</a></h4><ul>
+<li>给一个int数组，确认其中是否含有出现超过1次的数字。</li>
+<li>ME：直接HashSet搞定，在add的时候如果返回false就说明重复了。</li>
+<li>TA：<a href="https://discuss.leetcode.com/topic/14730/possible-solutions" target="_blank" rel="external">这个小总结了一波</a>，可以先sort再前后判断相邻的嘛。</li>
+</ul>
+<h4 id="218-the-skyline-problem"><a href="#218-the-skyline-problem" class="headerlink" title="218. the-skyline-problem"></a><a href="https://leetcode.com/problems/the-skyline-problem/#/description" target="_blank" rel="external">218. the-skyline-problem</a></h4><ul>
+<li>给一个int[][]，存储的是一系列三元组，三元组定义了摩天大楼的横坐标起点、终点和高度，求这些摩天大楼的侧视图所形成轮廓中所有横线的左端点坐标。</li>
+<li>ME：完全没有头绪！！！感觉这题是仅次于前面那个什么Word Ladder的题，实在是不知怎么抽象出来。。。</li>
+<li>TA：看了很多post，<a href="https://discuss.leetcode.com/topic/22482/short-java-solution" target="_blank" rel="external">这个</a>感觉最好懂（代码最短= =）。首先你原本想到的TreeSet思路是对的，但是没必要重新构建Block保存三个int的对象，这里直接<code>List&lt;int[]&gt;</code>用存储每一条竖线，第一个元素为横坐标、第二个元素为高度，左边缘高度为负、右边缘高度为正这样区分开来。List自定义排序方式就根据横坐标越小的越靠前，若相等则左边靠前。<code>PriorityQueue&lt;Integer&gt;</code>存放的就是高度了，维护从大到小的顺序，初始化插入一个0，然后在循环里取List的元素，如果是右边缘直接remove掉，如果是左边缘就add进去，然后用一个curr取出当前的最大元素，与上一步的最大元素prev做比较，如果不一样了，说明上一步的最大元素已经出队或者新插入的元素高度更大，这两种情况对应下行阶梯或上行阶梯的形状，都需要把左节点插入结果，即当前的这个横坐标以及最大高度。观众朋友会问了，如果刚好全部边都出去了，落到地面了怎么办？这就是为什么要在第一步插入一个0，因为当所有边都出去了，当前横坐标对应的高度就落回到0了，照样可以输出到答案中。写出来是<a href="https://leetcode.com/submissions/detail/105677130/" target="_blank" rel="external">这样的</a>。还<a href="https://discuss.leetcode.com/topic/22482/short-java-solution/3" target="_blank" rel="external">有人改造成了TreeMap</a>，因为PriorityQueue的remove任意节点需要O( n )，而TreeMap是O( log N )，因此快很多。不过需要注意的是由于是Map，所以key不能重复，这种限制在priorityQueue中不存在，因此需要对TreeMap的value添加一个计数器，以应对多个相同高度的情况。写出来是<a href="https://leetcode.com/submissions/detail/105678341/" target="_blank" rel="external">这样的</a>。</li>
+</ul>
+<h4 id="219-contains-duplicate-ii"><a href="#219-contains-duplicate-ii" class="headerlink" title="219. contains-duplicate-ii"></a><a href="https://leetcode.com/problems/contains-duplicate-ii/#/description" target="_blank" rel="external">219. contains-duplicate-ii</a></h4><ul>
+<li>给一个int数组，给一个长度k，要求如果找到重复项，这两项的索引之差不超过k，返回布尔值。</li>
+<li>ME：一开始直接用HashMap保存值与对应索引，当发现重复的key的时候，就减一下索引看看是否小于等于k，每次都直接put进去更新索引。但是超时，我猜测大概是因为当数组规模很大的时候，每次HashMap查找都比较费时。衣洗题也陷入江局了。。。（但是hin奇怪的是我看别人通过的答案，用Map又是可以的啊。。。）</li>
+<li>TA：<a href="https://discuss.leetcode.com/topic/15305/simple-java-solution" target="_blank" rel="external">这个</a>的提速在于尽可能压缩HashTable的规模，当索引超过k的时候，<code>nums[i-k-1]</code>不会再被用到，可以用<code>set.remove( Object )</code>删掉它，这样每次查找都会快很多。</li>
+</ul>
+<h4 id="220-contains-duplicate-iii"><a href="#220-contains-duplicate-iii" class="headerlink" title="220. contains-duplicate-iii"></a><a href="https://leetcode.com/problems/contains-duplicate-iii/#/description" target="_blank" rel="external">220. contains-duplicate-iii</a></h4><ul>
+<li>给一个int数组，给偏移范围t和索引差距k，求是否存在差距在k以内的两个索引i和j，使得对应的元素之差的绝对值小于t。</li>
+<li>ME：<a href="https://leetcode.com/submissions/detail/105563901/" target="_blank" rel="external">还是用HashSet搞定了</a>，自定义了Range类，根据<code>[mid-t, mid+t]</code>来确定元素之差是否在t以内。但是当t为0时，即退化为前一个问题的时候，会超时，所以就特殊处理了一下，当t == 0时还是跑之前的代码，结果的速度还是挺快的。不记得在哪里看到的，说自定义类作为HashMap的Key是没有意义的，我当时就只是记住了。这次碰到这个问题，不得不考虑自定义Key放入HashSet，参考了<a href="http://blog.sina.com.cn/s/blog_79164f730102w3jh.html" target="_blank" rel="external">这个</a>。HashSet的比较首先是看hashCode，若hashCode相同，再调用equals比较两个对象。</li>
+<li>TA：<a href="https://discuss.leetcode.com/topic/15199/ac-o-n-solution-in-java-using-buckets-with-explanation" target="_blank" rel="external">这个答案</a>避免了自定义对象的麻烦。如何将相差为t的尽量map到同一个索引呢？答主想到的是除法，将所有int都减去最小int转化为非负Long，然后除以<code>t + 1</code>将其倍数往后的t个元素都映射到同一个索引bucket，然后建立<code>&lt;bucket, value&gt;</code>键值对插入Map。这样但是光有除法还不够，还需要对前、后两个索引进行比较看看差距是否小于等于t，毕竟不是每个数都是<code>t + 1</code>的倍数嘛，写出来是<a href="https://leetcode.com/submissions/detail/105566455/" target="_blank" rel="external">这样</a>。此外，还有<a href="https://discuss.leetcode.com/topic/15191/java-o-n-lg-k-solution/16" target="_blank" rel="external">一个利用二分查找树</a>的方法，每次求<code>当前元素 + t</code>在树中的floor，如果大于等于<code>当前元素 - t</code>说明就找到了。与原po相比<a href="https://leetcode.com/submissions/detail/105568241/" target="_blank" rel="external">我稍微改了一下判断条件</a>，同时利用lo和hi防止越Integer界，当然改成Long方便多了。</li>
+<li>自定义类插入HashSet/HashMap，需要重写HashCode和equals函数。但还是比较麻烦，尽量想想如何用内置类型代替。</li>
+</ul>
+<h4 id="221-maximal-square"><a href="#221-maximal-square" class="headerlink" title="221. maximal-square"></a><a href="https://leetcode.com/problems/maximal-square/#/description" target="_blank" rel="external">221. maximal-square</a></h4><ul>
+<li>给一个只含有0/1的char棋盘，求其中1组成的最大正方形的面积。</li>
+<li>ME：<a href="https://leetcode.com/submissions/detail/105571102/" target="_blank" rel="external">感觉我这用的是暴力法</a>，若当前为1则向右下一格去分别向上和向左判断是否全为1，一直向右下深入。AC后看了一下tag，发现竟然可以用DP。</li>
+<li>TA：<a href="https://discuss.leetcode.com/topic/15328/easy-dp-solution-in-c-with-detailed-explanations-8ms-o-n-2-time-and-o-n-space" target="_blank" rel="external">这个DP</a>用一个二维table维护正方形的边长，若当前位置为1，则去左、左上、上三者中的最小值加1作为边长，这样一旦其中一个位置的边长为0就相当于重置了。然后答主又进一步优化了两波，最终只用了一维数组来dp，节省了空间但可读性也就下降了，我模仿着写出了<a href="https://leetcode.com/submissions/detail/105572495/" target="_blank" rel="external">这个</a>。对于dp[j]来说，上对应的就是dp[j]（因为还没改动）、左对的就是dp[j-1]（已经改动过了），那么左上怎么办呢？额外用一个pre来记录，每次刚进入循环时存起来，然后结束循环前赋值给pre，这样在下一步再用到pre就是左上的效果了。</li>
+</ul>
+<h4 id="222-count-complete-tree-nodes"><a href="#222-count-complete-tree-nodes" class="headerlink" title="222. count-complete-tree-nodes"></a><a href="https://leetcode.com/problems/count-complete-tree-nodes/#/description" target="_blank" rel="external">222. count-complete-tree-nodes</a></h4><ul>
+<li>给一个complete binary tree，即除了叶子Level，其余level都是满的，而且叶子都是尽可能靠左存在的。求这个树的节点数。</li>
+<li>ME：还以为很简单，直接用个<a href="https://leetcode.com/submissions/detail/105573492/" target="_blank" rel="external">类似于level traverse的Queue来搞</a>，结果超时。后来干脆改成<a href="https://leetcode.com/submissions/detail/105573637/" target="_blank" rel="external">一个三行的递归</a>，还是超时。陷入江局。。。</li>
+<li>TA：参考了<a href="https://discuss.leetcode.com/topic/15533/concise-java-solutions-o-log-n-2" target="_blank" rel="external">这个眼熟的大神的</a>写出了<a href="https://leetcode.com/submissions/detail/105575104/" target="_blank" rel="external">这个</a>。不过老实说他这个计算height的方法有些诡异，把-1都搞出来了，我后来在提交页面看到了个超快的iterative方法，写出来是<a href="https://leetcode.com/submissions/detail/105641487/" target="_blank" rel="external">这样</a>。这个计算的高度也是只计算最左的高度，符合人眼计算漫漫叠加那样就没有什么-1了。在主函数里先计算根的高度，然后计算右子树的高度，如果右子树高度刚好是根高度减一，说明左子树一定是满的，因此要潜下右子树继续求高度，而左子树那堆满的节点加上根节点，刚好就是<code>1 &lt;&lt; rightH</code>，满的左子树高度就是<code>rootH - 1 == rightH</code>，节点数本来就是<code>1 + 2 + 4 + 8... + 2^( rightH - 1 )</code>，再加个根节点就相当于对应二进制进多了一位<code>1 &lt;&lt; rightH</code>。而如果右子树高度不够根高度减一，说明右子树虽然矮但也是满了的，要潜入左子树继续求高度，而满的右子树节点数就是<code>1 + 2 + ... + 2^( rightH - 1 )</code>，再加个根节点又是<code>1 &lt;&lt; rightH</code>。之前那个外国小哥大神还介绍了和最naive的递归方法相似的一个方法，思路是先同时向左和向右下潜，若二者同时null了，说明是full，直接利用高度求节点数即可；若右空而左没空，则需要分别对第一个左子树和第一个右子树递归调用，再加个根节点，由于每次这两个recursive call中有一个能get到full的，因此不会持续递归，这是相比naive的优化。写出来是<a href="https://leetcode.com/submissions/detail/105644413/" target="_blank" rel="external">这样的</a>。</li>
+</ul>
+<h4 id="223-rectangle-area"><a href="#223-rectangle-area" class="headerlink" title="223. rectangle-area"></a><a href="https://leetcode.com/problems/rectangle-area/#/description" target="_blank" rel="external">223. rectangle-area</a></h4><ul>
+<li>给两个矩形的左下和右上点坐标，根据四个点坐标求共同围成的面积。</li>
+<li>ME：<a href="https://leetcode.com/submissions/detail/105648887/" target="_blank" rel="external">一大堆条件判断</a>。</li>
+<li>TA：<a href="https://discuss.leetcode.com/topic/15733/my-java-solution-sum-of-areas-overlapped-area/" target="_blank" rel="external">这个</a>告诉你，根本不用判断overlap，直接根据坐标大小来就可以了，有<a href="https://discuss.leetcode.com/topic/17705/just-another-short-way" target="_blank" rel="external">一个更简洁的版本</a>，改写成了<a href="https://leetcode.com/submissions/detail/105650381/" target="_blank" rel="external">这个</a>。</li>
+</ul>
+<h4 id="224-basic-calculator"><a href="#224-basic-calculator" class="headerlink" title="224. basic-calculator"></a><a href="https://leetcode.com/problems/basic-calculator/#/description" target="_blank" rel="external">224. basic-calculator</a></h4><ul>
+<li>给一个只含有数字和加、减、小括号的算式字符串，求结果。</li>
+<li>ME：利用两个Stack，一个存数字、一个存运算符和左括号。当遇到数字时，若符号栈顶不是左括号，就直接pop出数字栈顶数字和pop符号、计算一波并将结果入数字栈。当右括号出现则持续计算直到遇到左括号。写出来是<a href="https://leetcode.com/submissions/detail/105684712/" target="_blank" rel="external">这样</a>。</li>
+<li>TA：<a href="https://discuss.leetcode.com/topic/15816/iterative-java-solution-with-stack/" target="_blank" rel="external">这个</a> 只用到了一个Stack，因为符号的加减可以通过一个变量来控制而不用存起来，每次直接就运算掉了，而括号也不需要去验证是否匹配，因此也不用存起来，当出现左括号就把前面的运算结果入栈，同时把括号前的符号入栈，当右括号出现，就先取栈顶的符号乘以当前运算结果，再加上栈顶数字就完成了这部分括号的计算。很优雅。<a href="https://discuss.leetcode.com/topic/33044/java-easy-version-to-understand/" target="_blank" rel="external">这个</a> 也差不多，<a href="https://leetcode.com/submissions/detail/105904909/" target="_blank" rel="external">模仿了一波</a>。</li>
+</ul>
+<h4 id="225-implement-stack-using-queues"><a href="#225-implement-stack-using-queues" class="headerlink" title="225. implement-stack-using-queues"></a><a href="https://leetcode.com/problems/implement-stack-using-queues/#/description" target="_blank" rel="external">225. implement-stack-using-queues</a></h4><ul>
+<li>用Queue实现Stack的功能。</li>
+<li>ME：<a href="https://leetcode.com/submissions/detail/105652151/" target="_blank" rel="external">用两个Queue实现了</a>。</li>
+<li>TA：<a href="https://discuss.leetcode.com/topic/16141/only-push-is-o-n-others-are-o-1-using-one-queue-combination-of-two-shared-solutions" target="_blank" rel="external">这个告诉你</a>，只用一个就够了，为了维持『后入先出』，队列要在push的时候维持倒序，这个方法的push是O( n )而pop和top都是直接队首就搞定了。</li>
+</ul>
+<h4 id="226-invert-binary-tree"><a href="#226-invert-binary-tree" class="headerlink" title="226. invert-binary-tree"></a><a href="https://leetcode.com/problems/invert-binary-tree/#/description" target="_blank" rel="external">226. invert-binary-tree</a></h4><ul>
+<li>镜像翻转一个二叉树。传说中有名的一题，因为有一个不会写这个而被谷歌拒的牛人。</li>
+<li>ME：递归搞定。这里是有返回值的版本，如果是void版本呢？也差不多其实。</li>
+<li>TA：<a href="https://discuss.leetcode.com/topic/16039/straightforward-dfs-recursive-iterative-bfs-solutions" target="_blank" rel="external">这个</a>改成了iterative的方法，其实就是level traverse把Queue换成了Stack，就是镜像了。<a href="https://discuss.leetcode.com/topic/16039/straightforward-dfs-recursive-iterative-bfs-solutions/6" target="_blank" rel="external">这里</a>解释了为什么iterative更受青睐：递归可能在函数嵌套过程中增加了overhead、递归容易溢出函数栈、最后一个没看懂，大概是说『更容易拆解』？？？</li>
+</ul>
+<h4 id="227-basic-calculator-ii"><a href="#227-basic-calculator-ii" class="headerlink" title="227. basic-calculator-ii"></a><a href="https://leetcode.com/problems/basic-calculator-ii/#/description" target="_blank" rel="external">227. basic-calculator-ii</a></h4><ul>
+<li>给一个只含有<code>+ - * /</code>四则运算的String，求运算结果。</li>
+<li>ME：模仿学到的单Stack做法，处理优先级不同的情况。利用upgrade确认是否需要提升优先级，提升时将前面的运算结果和符号依次Push入栈，把当前数字设为当前结果，然后往后计算结果，直到回到加减运算时，再将当前结果乘以栈顶的符号、加上再前一位的数字，然后继续往后算。写出来是<a href="https://leetcode.com/submissions/detail/105972742/https://leetcode.com/submissions/detail/105972742/" target="_blank" rel="external">这样</a>，还是复杂了点。</li>
+<li>TA：在提交页面看到一个超叼的不用Stack的方法，模仿了一波写成了<a href="https://leetcode.com/submissions/detail/105976739/" target="_blank" rel="external">这样</a>。对于加减符号，把符号之前的一个数字乘以sign，直接就往结果里加了，然后更新后续的符号；对于乘法，很巧妙的是直接将乘法前的一个数字融到了sign符号里面，因为sign本身也是要乘后续数字的嘛；对于除法稍微复杂一些，碰到除法符号就设置divide标志，然后将除法符号前的数字赋值给一个prev，然后在除法符号之后的那个数字结束时，完成prev / num的除法，赋值给num，然后再后续计算。讨论区里也有一个<a href="https://discuss.leetcode.com/topic/41118/simple-c-solution-beats-85-submissions-with-detailed-explanations/" target="_blank" rel="external">类似的</a>。</li>
+</ul>
+<h4 id="228-summary-ranges"><a href="#228-summary-ranges" class="headerlink" title="228. summary-ranges"></a><a href="https://leetcode.com/problems/summary-ranges/#/description" target="_blank" rel="external">228. summary-ranges</a></h4><ul>
+<li>给一个排好序的int数组，求其一个个连续的值域，用String表示并添加到List中。</li>
+<li>ME：既然排好序了，那么连续的话就必须有『索引之差等于值之差』，我首先想到的是二分查找，如果索引差小于值差，则向左半部分找，否则到右半部分。查找完成后start~right即为连续的值域，然后把start赋值为right+1，继续，写出来是<a href="https://leetcode.com/submissions/detail/105981892/" target="_blank" rel="external">这样</a>。</li>
+<li>TA：哇去，我还以为自己这个O( NlogN )的想法很妙，美滋滋哩，结果提交页面看到个one-pass O( N )的，讨论区也有个<a href="https://discuss.leetcode.com/topic/17151/accepted-java-solution-easy-to-understand" target="_blank" rel="external">类似的</a>，笋干爆炸。思路是直接判断前后两个是否差值为1，找到差值不为1的时候结束循环，输出到结果，虽然双重循环但是内层循环的索引用的是外层的，所以还是O( N )。默默学习了一波，写出来是<a href="https://leetcode.com/submissions/detail/105984777/" target="_blank" rel="external">这样</a>。</li>
+</ul>
+<h4 id="229-majority-element-ii"><a href="#229-majority-element-ii" class="headerlink" title="229. majority-element-ii"></a><a href="https://leetcode.com/problems/majority-element-ii/#/description" target="_blank" rel="external">229. majority-element-ii</a></h4><ul>
+<li>给一个乱序的int数组，求其中出现次数超过三分之一规模的所有数。要求linear time，O( 1 )space。</li>
+<li>ME：想了半天不知道除了HashMap还能怎么搞，回看了169有个morre voting，但是只适用于求超过一半的元素的情况。陷入江局。。。</li>
+<li>TA：玛德，刚看到<a href="https://discuss.leetcode.com/topic/32510/java-easy-version-to-understand/" target="_blank" rel="external">这个的开头</a>笋干就懂了大概的思路，既然求一半以上的用的是一个数字，那求三分之一以上的，可能有两个数字，那就设两个变量嘛。不过细节还是得参考才能写出来，例如当count1和count2不断归零之后，新产生的num1、num2不一定超过三分之一频数，还需要遍历一波看看是不是真的符合。写出来是<a href="https://leetcode.com/submissions/detail/105998570/" target="_blank" rel="external">这样</a>。后续有<a href="https://discuss.leetcode.com/topic/32510/java-easy-version-to-understand/5" target="_blank" rel="external">推广到k分之一频数的方法</a>，就是把count和num都对应放到数组里。</li>
+</ul>
+<h4 id="230-kth-smallest-element-in-a-bst"><a href="#230-kth-smallest-element-in-a-bst" class="headerlink" title="230. kth-smallest-element-in-a-bst"></a><a href="https://leetcode.com/problems/kth-smallest-element-in-a-bst/#/description" target="_blank" rel="external">230. kth-smallest-element-in-a-bst</a></h4><ul>
+<li>给一个BST，求第k小的元素。</li>
+<li>ME：丢脸，又忘记二叉树的iterative的in-order怎么写，参考了<a href="https://leetcode.com/submissions/detail/104694864/" target="_blank" rel="external">173</a>才写出来了<a href="https://leetcode.com/submissions/detail/106011605/" target="_blank" rel="external">这题</a>，用一个Stack保存节点，每次持续把左节点入栈，取栈顶加入List，同时看这个节点是否存在右节点，有就深入下去，继续持续把左子树入栈。。。</li>
+<li>TA：<a href="https://discuss.leetcode.com/topic/17810/3-ways-implemented-in-java-python-binary-search-in-order-iterative-recursive" target="_blank" rel="external">这个大神</a>给出了三种方法，玛德貌似我的iterative方法是最不preferable的，而且我用了个List其实根本没必要，因为我只关心最后一个元素，可以直接让k减减嘛。先看看recursive版本的，用一个全局变量<code>count = k</code>不断减减，直到零就说明找到了，遍历也是优先往左子树递归，若当前不是第k个，再往右子树递归。<a href="https://leetcode.com/submissions/detail/106016102/" target="_blank" rel="external">写出来是这样</a>。第一个答主说是最preferable的，但时间复杂度O( N logN )并不低啊，不过<a href="https://leetcode.com/submissions/detail/106018800/" target="_blank" rel="external">还是模仿了一波</a>。思路是利用左节点数判断，若左边子树的节点数恰好是k - 1，那么当前节点就是了。若左子树节点数多于k - 1，则需要递归进入左子树进一步找。若左子树节点数多于k - 1，则需要递归到右子树，但此时就需要更新k为k - 1 - count。</li>
+</ul>
+<h4 id="231-power-of-two"><a href="#231-power-of-two" class="headerlink" title="231. power-of-two"></a><a href="https://leetcode.com/problems/power-of-two/#/description" target="_blank" rel="external">231. power-of-two</a></h4><ul>
+<li>给一个整数，判断它是不是2的幂。</li>
+<li>ME：用一个pivot从1开始往左移，直到最高位。写出来是<a href="https://leetcode.com/submissions/detail/106021594/" target="_blank" rel="external">这样</a>。</li>
+<li>TA：在提交页面看到个超叼的方法，思路是直接用n和n-1作一个与运算，如果是2的幂直接全是0了，否则就不是2的幂。<a href="https://leetcode.com/submissions/detail/106023656/" target="_blank" rel="external">模仿了一下</a>。</li>
+</ul>
+<h4 id="232-implement-queue-using-stacks"><a href="#232-implement-queue-using-stacks" class="headerlink" title="232. implement-queue-using-stacks"></a><a href="https://leetcode.com/problems/implement-queue-using-stacks/#/description" target="_blank" rel="external">232. implement-queue-using-stacks</a></h4><ul>
+<li>用Stack模拟Queue的功能。</li>
+<li>ME：印象深刻好吧，一个栈专门输入、另一个栈专门输出，当输出的空了，就把in的全部给导过来，再pop/peek。写出来是<a href="https://leetcode.com/submissions/detail/106023335/" target="_blank" rel="external">这样</a>。</li>
+<li>TA：没啥了。</li>
+</ul>
+<h4 id="233-number-of-digit-one"><a href="#233-number-of-digit-one" class="headerlink" title="233. number-of-digit-one"></a><a href="https://leetcode.com/problems/number-of-digit-one/#/description" target="_blank" rel="external">233. number-of-digit-one</a></h4><ul>
+<li>给一个整数n，求从0~n这些数字中，一共出现了多少次1.</li>
+<li>ME：纠结了好久<a href="https://leetcode.com/submissions/detail/106041771/" target="_blank" rel="external">自己写出来了个这个</a>，速度神慢。思路是求最高的非0位，从<code>1000000000</code>开始逐步除以10去找，求商和余数。若余数为0，说明恰好是整的临界数，除非是<code>1000</code>这样的能在最高位提供1，<code>6000</code>这些都无法在最高位提供1，我的做法是递归地直接去找<code>n - 1</code>这个数的1的出现次数。若不是临界数，再看商，若商为1，则说明『最高位能提供的1由后续数字决定，即余数加1个』，否则最高位能提供的就是完整的当前被除数firstOne个1了。然后递归往后找，一部分是由余数决定的，另一部分就是『商』这么多个完整的<code>firstOne - 1</code>中包含的1了。例如1234，最高位能提供的1就有235个，然后余数234递归去求，还有999往前也要递归去求。98765也类似，最高为能提供的1是8766个，然后递归去求8765中含的1，以及9个<code>10000 - 1</code>中含有的1.</li>
+<li>TA：<a href="https://discuss.leetcode.com/topic/18972/ac-short-java-solution" target="_blank" rel="external">又是这个脸熟的大神</a>，看到这个我是震惊的，怎么可以这么短。。。这个大神思路是这样，k作为1、10、100…的一个除数。当k == 1，此时关注的是个位，每10个数就会在个位出现一个1，共有<code>( n / k ) / 10</code>个『10个数』；当k == 10，此时关注的是十位，每100个数就会在十位出现十个1，共有<code>( n / k ) / 10</code>个『100个数』，对应1的个数为<code>( n / k ) / 10 * k</code>，这就是基本公式了。但是对于特殊的数字<code>1x, 11x...</code>，可以在最高位提供额外的1，有多少个额外的1呢？<code>n % k + 1</code>个，而判断是否特殊的条件是<code>( ( n / k ) % 10 == 1 )</code>；此外，还需要考虑<code>2x</code>，因为按照目前的公式在计算十位出现的1的时候，<code>( 2x / 10 ) / 10 * 10</code>算出来是0，我们需要让<code>1x</code>在计算十位时得到0而后续的<code>2x~9x</code>都为10，一个trick是在公式中加8，<code>( ( 2x / 10 ) + 8 ) / 10 * 10</code>得到的就是10了。综上，最终的公式就是<code>( ( ( n / k ) + 8 ) / 10 * k ) + ( ( n / k ) % 10 == 1? n % k + 1: 0 )</code>。此外还有<a href="https://discuss.leetcode.com/topic/27565/java-python-one-pass-solution-easy-to-understand" target="_blank" rel="external">这个方法</a>，这个情况更加简洁直观，对于数字<code>xyzdabc</code>来说，考虑千位<code>d</code>出现的1的次数，若<code>d == 0</code>则<code>xyz0000</code>往后都不可能有千位的1，只能向前找，也就是<code>0 ~ xyz-1</code>即<code>xyz * 1000</code>个1了；若<code>d == 1</code>，则除了前面的<code>xyz * 1000</code>个，往后还有<code>0 ~ abc</code>即<code>abc + 1</code>个；若<code>d &gt; 1</code>，则<code>xyz1000 ~ xyz1999</code>都可以被取到，所以直接是<code>xyz * 1000 + 1000</code>，更推荐这个方法！</li>
+</ul>
+<h4 id="234-palindrome-linked-list"><a href="#234-palindrome-linked-list" class="headerlink" title="234. palindrome-linked-list"></a><a href="https://leetcode.com/problems/palindrome-linked-list/#/description" target="_blank" rel="external">234. palindrome-linked-list</a></h4><ul>
+<li>判断一个链表是否自对称。</li>
+<li>ME：一开始<a href="https://leetcode.com/submissions/detail/106042719/" target="_blank" rel="external">用了Stack</a>，后来<a href="https://leetcode.com/submissions/detail/106092627/" target="_blank" rel="external">直接把前半部分链表反转了</a>。利用快慢指针找到中间节点，再根据fast指针后续的情况判断出总节点的奇偶，微调一下，然后pop栈比较、或者直接把前面反转后的链表和后续链表比较。</li>
+<li>TA：没啥吧，不过<a href="https://discuss.leetcode.com/topic/18533/reversing-a-list-is-not-considered-o-1-space" target="_blank" rel="external">这里有两个大神争论</a>什么叫作『O( 1 ) space』。</li>
+</ul>
+<h4 id="235-lowest-common-ancestor-of-a-binary-search-tree"><a href="#235-lowest-common-ancestor-of-a-binary-search-tree" class="headerlink" title="235. lowest-common-ancestor-of-a-binary-search-tree"></a><a href="https://leetcode.com/problems/lowest-common-ancestor-of-a-binary-search-tree/#/description" target="_blank" rel="external">235. lowest-common-ancestor-of-a-binary-search-tree</a></h4><ul>
+<li>给一个BST的根节点，给其中的两个节点，求二者最低层的共同的祖先。</li>
+<li>ME：BST根、左、右孩子有大小关系，而且不含重复元素，所以直接根据val来判断递归即可。所给的p、q其中一个已经是root了，那root就是共同祖先了。否则就根据p, q, root的val的大小关系，若<code>p &lt; q &lt; root</code>则往左递归，若<code>root &lt; p &lt; q</code>则往右递归，若<code>p &lt; root &lt; q</code>，则p和q分属两侧，root直接就是共同祖先了。写出来是<a href="https://leetcode.com/submissions/detail/106133409/" target="_blank" rel="external">这样</a>。</li>
+<li>TA：又是<a href="https://discuss.leetcode.com/topic/18387/3-lines-with-o-1-space-1-liners-alternatives/" target="_blank" rel="external">这个外国大神小哥</a>总结了Iterative和Recursive的方法，其中iterative方法利用root - p和root - q是否同号来判断大小关系实在是妙哉，当其中一个等于root的时候也可以直接跳出循环了。</li>
+</ul>
+<h4 id="236-lowest-common-ancestor-of-a-binary-tree"><a href="#236-lowest-common-ancestor-of-a-binary-tree" class="headerlink" title="236. lowest-common-ancestor-of-a-binary-tree"></a><a href="https://leetcode.com/problems/lowest-common-ancestor-of-a-binary-tree/#/description" target="_blank" rel="external">236. lowest-common-ancestor-of-a-binary-tree</a></h4><ul>
+<li>给一个可能带有重复元素且大小关系不确定的二叉树，给两个节点，求他们的最底层的公共祖先。</li>
+<li>ME：一开始以为没有重复元素，直接向两侧递归如果都能找到两个节点其中一个，就返回当前节点了。结果WA看了一下样例才发现可以重复。想了一晚上都不知道怎么破，陷入江局。。。</li>
+<li>TA：看了<a href="https://discuss.leetcode.com/topic/18561/4-lines-c-java-python-ruby/" target="_blank" rel="external">这个</a>我恍然大悟，我犯了一个严重的错误，用『值』来判定节点是否相等，而事实上就算『值』重复，两个节点对象那就是两个节点对象，是绝对可以分开的。因此你原来的思路算是可行的，如果当前节点是其中一个，直接就可以返回了；否则就递归往两侧找，如果左侧找不到那说明在右侧、如果右侧为空说明在左侧，如果都不空那就是当前节点了。写出来是<a href="https://leetcode.com/submissions/detail/106211509/" target="_blank" rel="external">这样的</a>。还有<a href="https://discuss.leetcode.com/topic/27479/java-python-iterative-solution/" target="_blank" rel="external">一个利用HashMap, Stack, HashSet的iterative的方法</a>，你别说，我还真想到过，但没敢动手实现。思路是利用HashMap记录每个节点的父节点，然后用Stack（其实Queue也行）一直往后类似于层级遍历，当Map中记录到了p和q作为key的键值对，就结束记录父亲的工作。然后用Set记录p的所有父亲，一路向上直到root。然后再从q开始往上找Parent，找到的第一个在Set中出现的，就是最low的共同祖先啦。写出来<a href="https://leetcode.com/submissions/detail/106212730/" target="_blank" rel="external">是这样的</a>。</li>
+</ul>
+<h4 id="237-delete-node-in-a-linked-list"><a href="#237-delete-node-in-a-linked-list" class="headerlink" title="237. delete-node-in-a-linked-list"></a><a href="https://leetcode.com/problems/delete-node-in-a-linked-list/#/description" target="_blank" rel="external">237. delete-node-in-a-linked-list</a></h4><ul>
+<li>给一个单向链表中的节点，删除这个节点。</li>
+<li>ME：单向链表按道理是不能给定节点直接删除的，题目没说不能用赋值的方法『伪删除』，而且强调了不能删除最后一个节点，我就想到是<a href="https://leetcode.com/submissions/detail/106157677/" target="_blank" rel="external">更改节点的val</a>，一直到最后，将倒数第二个节点的next指向null就完成了。这题没啥意思。。。</li>
+<li>TA：玛德，哪里用全部赋值啊，<a href="https://discuss.leetcode.com/topic/18752/1-3-lines-c-java-python-c-c-javascript-ruby/" target="_blank" rel="external">直接</a>把要删除节点之后一个节点的值覆盖过来，然后把next指向下下个就好了啊。</li>
+</ul>
+<h4 id="238-product-of-array-except-self"><a href="#238-product-of-array-except-self" class="headerlink" title="238. product-of-array-except-self"></a><a href="https://leetcode.com/problems/product-of-array-except-self/#/description" target="_blank" rel="external">238. product-of-array-except-self</a></h4><ul>
+<li>给一个数组num[]，求对应长度的数组使得output[i]为所有数的积除了num[i]，要求O( n )且不能用除法。</li>
+<li>ME：不给我用除法我整个人是懵逼的，脑子一下转不过来，陷入江局。。。</li>
+<li>TA：<a href="https://discuss.leetcode.com/topic/37927/how-from-o-n-to-o-1" target="_blank" rel="external">这个</a>给出了如何从辅助数组到O( 1 )space的思考过程。首先这个辅助数组的方法我怎么就想不出来呢，left数组从左开始每一格存储的是『除了当前数字的前面数字之积』，right数组从右开始存储的是『除了当前数字的后续数字之积』，然后再来一波对应把left和right乘起来就得到了『除了当前数字前面和后面数字之积』。这怎么能想不到呐？？写出来是<a href="https://leetcode.com/submissions/detail/106219251/" target="_blank" rel="external">这样</a>。至于从O( N )到O( 1 )的空间复杂度，知道了之后也没啥了，以后再碰到尽量想起来吧。既然每一个地方都需要哟还能感到它左边所有项之积和右边所有项之积，而如果只维护left和right两个值，无法在循环到第一位的时候就获得右边所有数的积，怎么办？答主的做法是在一步循环里，对两端进行更新，也就是每个位置会被更新两次，一次是随left更新，一次是随right更新，left和right就分别从左和从右向另一端去乘。妙哉！如果把这个one-pass拆开来写，就是<a href="https://discuss.leetcode.com/topic/19033/my-simple-java-solution" target="_blank" rel="external">这样的</a>.</li>
+</ul>
+<h4 id="239-sliding-window-maximum"><a href="#239-sliding-window-maximum" class="headerlink" title="239. sliding-window-maximum"></a><a href="https://leetcode.com/problems/sliding-window-maximum/#/description" target="_blank" rel="external">239. sliding-window-maximum</a></h4><ul>
+<li>给一个数组，给一个window的size，要求从左到右滑动窗口，输出每滑动一格所能看到的数中的最大值，汇总在数组中输出。</li>
+<li>ME：维护最大值，而且要方便删除，我就想到了PriorityQueue，<a href="https://leetcode.com/submissions/detail/105678341/" target="_blank" rel="external">218摩天大楼</a>那题用到了。不过为了提升效率我用的是TreeMap，这样删除任意一个元素就是O( logN )了。先根据前k个元素初始化TreeMap，然后继续往后遍历，每次取firstKey就是最大值（不过要在构造时传入Collections.reverseOrder才是从大到小），然后删除窗口中的第一个元素、添加后一个元素，一直往后。写出来是<a href="https://leetcode.com/submissions/detail/106238361/" target="_blank" rel="external">这样</a>，看了tag给的也是Heap。</li>
+<li>TA：挖去！！<a href="https://discuss.leetcode.com/topic/19055/java-o-n-solution-using-deque-with-explanation/" target="_blank" rel="external">这个真的妙</a>，思路是利用Deque维护索引，左侧头部就是窗口范围内最大值对应的索引，右侧头部就是依次递减的值对应的索引，在Deque内所存储索引对应的值一定是递减的。循环开始时，先确认最左侧的索引是否已经超出了窗口范围，超出了就需要poll掉（答主用了while，其实if足矣）。然后从右侧比较后续元素，如果新加入的元素比前面的大，就直接pollLast，一直比较，直到可以维持递减状态再把新加入元素的索引add进去（最坏情况是新加入元素比前面的都大，就一直清空了原Deque直接留下新的索引了）。最后就直接把Deque左侧索引对应元素存入结果就好。太妙了！！！写出来是<a href="https://leetcode.com/submissions/detail/106240947/" target="_blank" rel="external">这样</a>。还有<a href="https://discuss.leetcode.com/topic/26480/o-n-solution-in-java-with-two-simple-pass-in-the-array" target="_blank" rel="external">一个方法</a>也是挺巧妙的不过不太好移植，根据窗口长度划分区域，分别求左边开始的和右边开始的可见最大值，最后综合一下<code>left[i + k - 1]</code>和<code>right[i]</code>，写出来是<a href="https://leetcode.com/submissions/detail/106243067/" target="_blank" rel="external">这样</a>。在提交页面还看到一个很简单粗暴的想法，维护一个max，如果窗口前的元素是max，就往后再找一波新的max，这个复杂度感觉就不是O( N )了。。。</li>
+</ul>
+<h4 id="240-search-a-2d-matrix-ii"><a href="#240-search-a-2d-matrix-ii" class="headerlink" title="240. search-a-2d-matrix-ii"></a><a href="https://leetcode.com/problems/search-a-2d-matrix-ii/#/description" target="_blank" rel="external">240. search-a-2d-matrix-ii</a></h4><ul>
+<li>给一个m*n的二维数组，其中每一行的元素都满足左边小于等于右边、每一列元素都满足上面小于等于下面，给一个target，判断是否在这个矩阵里面。</li>
+<li>ME：马上想到二分查找嘛。取左上和右下的中间元素（横纵分别取中点），若target较小，则递归搜索中点上方的矩形和它左方的矩形，若target较大，则递归搜索中点下方和它右方的矩形。写出来是<a href="https://leetcode.com/submissions/detail/106246376/" target="_blank" rel="external">这样</a>，不过速度好慢。。。我这样的时间复杂度貌似是（M * log( N )）?</li>
+<li>TA：玛德，原来<a href="https://discuss.leetcode.com/topic/20064/my-concise-o-m-n-java-solution/" target="_blank" rel="external">这个</a>线性查找就已经很快了，O( M + N )呢！</li>
+</ul>
+<h4 id="241-different-ways-to-add-parentheses"><a href="#241-different-ways-to-add-parentheses" class="headerlink" title="241. different-ways-to-add-parentheses"></a><a href="https://leetcode.com/problems/different-ways-to-add-parentheses/#/description" target="_blank" rel="external">241. different-ways-to-add-parentheses</a></h4><ul>
+<li>给一个只含有数字和加、减、乘的算式，求各种加括号的方式对应的值，不论值是否重复都输出到List中。</li>
+<li>ME：隐约感到要递归，纠结了很久终于还是<a href="https://leetcode.com/submissions/detail/106252563/" target="_blank" rel="external">写出来了</a>，但是神慢啊。思路就是分成两半，前半部分的数字依次乘以后半部分的数字。</li>
+<li>TA：我的方法跟<a href="https://discuss.leetcode.com/topic/25490/share-a-clean-and-short-java-solution" target="_blank" rel="external">这个</a>很像，在提交页面最快的方法就是基于这个，再加一个HashMap来避免重复计算。<a href="https://discuss.leetcode.com/topic/26076/java-recursive-9ms-and-dp-4ms-solution/" target="_blank" rel="external">这还有一个DP的方法</a>，<code>dp[i][j]</code>存的是从第i个数字到第j个数字（不是索引！）的算式的所有可能值。首先对字符串做预处理，拆解成一个个独立的String，数字str与运算符str交替。假设整理后有N个数字，让d从0循环到N-1，表示取第i~i+d个整数的结果，即<code>dp[i][i+d]</code>。而当d=0，就只取一个数字，也就是本身了。内层还有两重循环，就是根据拆分成两半分别求的结果来更新了。</li>
+</ul>
+<h4 id="242-valid-anagram"><a href="#242-valid-anagram" class="headerlink" title="242. valid-anagram"></a><a href="https://leetcode.com/problems/valid-anagram/#/description" target="_blank" rel="external">242. valid-anagram</a></h4><ul>
+<li>给两个字符串，判断它们是否是anagram，既一个把字母打乱后重新组合可得到另一个。</li>
+<li>ME：用bucket数组咯，算字符出现的个数，s出现就++，t出现的就–，最后再扫一波看看是否全部都为0.写出来是<a href="https://leetcode.com/submissions/detail/106244100/" target="_blank" rel="external">这样</a>。</li>
+<li>TA：没啥了。</li>
+</ul>
+<h4 id="257-binary-tree-paths"><a href="#257-binary-tree-paths" class="headerlink" title="257. binary-tree-paths"></a><a href="https://leetcode.com/problems/binary-tree-paths/#/description" target="_blank" rel="external">257. binary-tree-paths</a></h4><ul>
+<li>给一个二叉树，返回所有从root到叶子节点的路径，用String的形式存入List。</li>
+<li>ME：DFS搞定，但是我的字符串拼接不合理，<code>&quot;-&gt;&quot;</code>的拼接显得很笨。而且由于用了StringBuilder来真的拼接，所以在DFS结束之前还要删除当前的结果，速度还真不一定比String和加号来得快。写出来是<a href="https://leetcode.com/submissions/detail/106256615/" target="_blank" rel="external">这样</a>。</li>
+<li>TA：<a href="https://discuss.leetcode.com/topic/21474/accepted-java-simple-solution-in-8-lines" target="_blank" rel="external">这个</a>就是String和加号的，实在是太简洁啦！写出来是<a href="https://leetcode.com/submissions/detail/106261541/" target="_blank" rel="external">这样</a>。<a href="https://discuss.leetcode.com/topic/33781/my-java-solution-in-dfs-bfs-recursion" target="_blank" rel="external">这个</a>则给出了Queue和Stack的方法，其实就是类似于层级遍历，找到叶子就把对应的String输出就欧了。Stack代码几乎一样，只不过由于每次都是先处理后进来的节点，所以效果是DFS，先获取的是最右边的路径，然后依次往左。还有<a href="https://discuss.leetcode.com/topic/23047/clean-java-solution-accepted-without-any-helper-recursive-function/" target="_blank" rel="external">一个recursive的</a>，但没有辅助函数，每次将当前节点插入到递归返回列表中各字符串的前面，表示『是从我这个节点到这些字符串的』，最终就是完整的Path了。</li>
+</ul>
+<h4 id="258-add-digits"><a href="#258-add-digits" class="headerlink" title="258. add-digits"></a><a href="https://leetcode.com/problems/add-digits/#/description" target="_blank" rel="external">258. add-digits</a></h4><ul>
+<li>给一个非负数，不断把它各位加起来，求最终得到的一位数。follow-up是不用循环/递归，在O( 1 )时间内求。</li>
+<li>ME：<a href="https://leetcode.com/submissions/detail/106257317/" target="_blank" rel="external">用循环搞啊</a>，这没啥意思。但follow up的规律想了一下没想出来。</li>
+<li>TA：<a href="https://discuss.leetcode.com/topic/21498/accepted-c-o-1-time-o-1-space-1-line-solution-with-detail-explanations/" target="_blank" rel="external">这个</a>在纸上写写，一下就搞出来了，没啥意思。。。</li>
+</ul>
+<h4 id="260-single-number-iii"><a href="#260-single-number-iii" class="headerlink" title="260. single-number-iii"></a><a href="https://leetcode.com/problems/single-number-iii/#/description" target="_blank" rel="external">260. single-number-iii</a></h4><ul>
+<li>给一个数组，大多数数字都是恰好出现两次，有两个单身狗只出现一次，找出这两个单身狗。follow-up是不能使用额外的空间。</li>
+<li>ME：还是<a href="https://leetcode.com/submissions/detail/106306990/" target="_blank" rel="external">用了hashset才搞定</a>。但这和前面<a href="https://leetcode.com/problems/single-number-ii/#/description" target="_blank" rel="external">137. single-number-ii</a>不同了，因为在那里面都只有一个单身狗，而这里有俩。</li>
+<li>TA：<a href="https://discuss.leetcode.com/category/328/single-number-iii" target="_blank" rel="external">这个</a>解释得很清楚。既然有两个不同的数，那么全部异或一遍之后，剩下的就是不同的这两个数的XOR结果，其中为1的就是二者不同的bit，随便取其中一位作为划分依据，这样原数组就分成了两派，一派是该bit为1的，一派是该bit为0的，分别去异或，最后剩下的就是两排中各自的单身狗了。代码参考的是<a href="https://discuss.leetcode.com/topic/21605/accepted-c-java-o-n-time-o-1-space-easy-solution-with-detail-explanations/" target="_blank" rel="external">这个</a>，找不同的那个bit用的是取原异或结果的负数（等价于减一再取反），然后与原数做一个AND就得到了最右的原异或结果中的1、同时其他位全部为0.写出来是<a href="https://leetcode.com/submissions/detail/106321291/" target="_blank" rel="external">这样</a>。</li>
+</ul>
+<h4 id="263-ugly-number"><a href="#263-ugly-number" class="headerlink" title="263. ugly-number"></a><a href="https://leetcode.com/problems/ugly-number/#/description" target="_blank" rel="external">263. ugly-number</a></h4><ul>
+<li>给一个int，判断它是否ugly number，即因数只由2、3、5组成。</li>
+<li>ME：三个单独的循环，分别模5、3、2，最后看看是否剩下1.写出来是<a href="https://leetcode.com/submissions/detail/106325420/" target="_blank" rel="external">这样</a>。</li>
+<li>TA：差不多吧，有的大神把我5、3、2这三个循环都放到外层循环里了。</li>
+</ul>
+<h4 id="264-ugly-number-ii"><a href="#264-ugly-number-ii" class="headerlink" title="264. ugly-number-ii"></a><a href="https://leetcode.com/problems/ugly-number-ii/#/description" target="_blank" rel="external">264. ugly-number-ii</a></h4><ul>
+<li>给一个整数n，求第n个ugly-number。</li>
+<li>ME：暴力法当然知道，就一波循环往后走，每个判断是否ugly-number呗。我又想了一个不太暴力的暴力法，就是用TreeSet，每次取最前的元素，尝试乘以2、乘以3这样往里放，然后每次就直接取首位就是当前的元素。不过为了防止越界，一开始用的是<code>curr * i &gt; 0</code>后来改成<code>curr * i &gt; curr</code>，最后改成<code>curr * i / i == curr</code>才对。写出来是<a href="https://leetcode.com/submissions/detail/106327871/" target="_blank" rel="external">这样的</a>，略慢。。。tag给的是DP，但我没想出来怎么个DP法。</li>
+<li>TA：<a href="https://discuss.leetcode.com/topic/21791/o-n-java-solution" target="_blank" rel="external">这个</a>讲得很棒。既然都是2、3、5的倍数组成的，那我们就可以分成三个独立的部分共同组成ugly-number的数组，每次从2、3、5倍数中选择最小的放到ugly中，然后更新被选中的那个的倍数，即从ugly中一直往后取倍数乘以相应的2/3/5。写出来是<a href="https://leetcode.com/submissions/detail/106329209/" target="_blank" rel="external">这样</a>，注意中间的三个if不可以写成else if，因为可能factor有重复的，例如<code>2*3</code>和<code>3*2</code>，一旦取了6，factor2和factor3都需要更新。这应该就是题目想要考察的DP了。</li>
+</ul>
+<h4 id="268-missing-number"><a href="#268-missing-number" class="headerlink" title="268. missing-number"></a><a href="https://leetcode.com/problems/missing-number/#/description" target="_blank" rel="external">268. missing-number</a></h4><ul>
+<li>给一个规模为n的数组，里面包含了0~n-1的数字，除了一个，找到缺的这一个。要求linear time complexity.</li>
+<li>ME：很直接地想到了<a href="https://leetcode.com/submissions/detail/106330837/" target="_blank" rel="external">木桶法</a>呀。follow-up要求不用extra space，感觉又是异或，但是没试出来。。。</li>
+<li>TA：<a href="https://discuss.leetcode.com/topic/23427/3-different-ideas-xor-sum-binary-search-java-code" target="_blank" rel="external">这里列举了三种方法</a>，一是<a href="https://leetcode.com/submissions/detail/106333331/" target="_blank" rel="external">求和法</a>，可以用『首项加末项乘以项数除以二』先求出总和，然后逐个去减，最后得到的就是那个Missing Number了。二是位操作，利用<code>a ^ b ^ b = a</code>，从头到尾一口气异或索引和数字，因为基本上每个索引都会对应到它的数字，<code>0-0, 1-1, ..., nums[index] - index</code>，除了缺的那个数。写出来是<a href="https://leetcode.com/submissions/detail/106333639/" target="_blank" rel="external">这样</a>。三是二分查找，不过还有一步排序并不是O(N)，所以不太合题意。</li>
+</ul>
+<h4 id="273-integer-to-english-words"><a href="#273-integer-to-english-words" class="headerlink" title="273. integer-to-english-words"></a><a href="https://leetcode.com/problems/integer-to-english-words/#/description" target="_blank" rel="external">273. integer-to-english-words</a></h4><ul>
+<li>给一个非负的整数，返回它对应的英文念法字符串。</li>
+<li>ME：各种判断，然后递归去求每三位的念法，写出来是<a href="https://leetcode.com/submissions/detail/106336501/" target="_blank" rel="external">这样</a>。其实没什么算法上的难度。。。</li>
+<li>TA：<a href="https://discuss.leetcode.com/topic/23054/my-clean-java-solution-very-easy-to-understand/" target="_blank" rel="external">这个</a>和我的思路差不多，不过他直接用的是数字，没想到也挺方便的！也是每次取三位来转换，在数字这里就直接是<code>num % 1000</code>了。而且答主也没有纠结空格加不加，反正统一都在末尾加上空格，最后返回之前就trim一下就行了。</li>
+</ul>
+<h4 id="274-h-index"><a href="#274-h-index" class="headerlink" title="274. h-index"></a><a href="https://leetcode.com/problems/h-index/#/description" target="_blank" rel="external">274. h-index</a></h4><ul>
+<li>给一个数组，存的是某学者的论文的引用数，求这个学者的h-index，既他有h篇论文引用数大于等于h，剩下的N - h篇都小于等于h。</li>
+<li>ME：我原本的想法是，排个序，然后二分查找。但是各种边缘条件搞得我崩溃。。。失败</li>
+<li>TA：挖去，原来二分竟然是比较弱的了，因为你排个序起码就O(NlogN)了。<a href="https://discuss.leetcode.com/topic/40765/java-bucket-sort-o-n-solution-with-detail-explanation/" target="_blank" rel="external">这个O(N)的木桶法</a>非常好懂，思路是声明一个规模恰好比原数组多1的bucket，表示索引为i的论文有bucket[i]篇。然后根据引用数在相应索引处加加，注意有可能引用数超过了规模，那么统一加到最大索引处。然后再一波流从后往前累加，当刚好累加到论文数大于等于索引（引用数）的时候，就可以输出了；若一直都没有，说明全都集中在0，那就输出0吧。写出来是<a href="https://leetcode.com/submissions/detail/106546114/" target="_blank" rel="external">这样</a>.</li>
+</ul>
+<h4 id="275-h-index-ii"><a href="#275-h-index-ii" class="headerlink" title="275. h-index-ii"></a><a href="https://leetcode.com/problems/h-index-ii/#/description" target="_blank" rel="external">275. h-index-ii</a></h4><ul>
+<li>如果原citations数组已经是升序排列了，改进算法。</li>
+<li>ME：这绝笔是二分查找了，之前搞了一晚上没搞出来。。。这次就直接看discuss了，因为我怀疑搞不出来是因为理解有误。</li>
+<li>TA：<a href="https://discuss.leetcode.com/topic/23338/is-it-possible-to-have-two-h-in-this-problem-please-give-an-example" target="_blank" rel="external">这个</a>说了，不可能有多个解，所以只要符合条件的h就可以直接输出了。我先参考了<a href="https://discuss.leetcode.com/topic/23399/standard-binary-search" target="_blank" rel="external">这个</a>，一旦找到引用数与右边论文数相等的就直接输出；若引用数略小，说明右边论文数太多，提升左界；若引用数略大，说明应该往左多取一些论文，下降右界；最后输出有不需要那么多乱起八糟的判断，直接输出右边论文数就可以了，即<code>len - (right + 1) = len - left</code>。<a href="https://discuss.leetcode.com/topic/23399/standard-binary-search/7" target="_blank" rel="external">回帖里有个大神说她的更标准</a>，因为要求一个边界是可以取的而另一个是不可取的，这个还是第一次听说。。。</li>
+</ul>
+<h4 id="278-first-bad-version"><a href="#278-first-bad-version" class="headerlink" title="278. first-bad-version"></a><a href="https://leetcode.com/problems/first-bad-version/#/description" target="_blank" rel="external">278. first-bad-version</a></h4><ul>
+<li>给一个整数n表示最新的版本号，从1到n一旦有一个版本是bad，那么后续全都是bad，找到这第一个bad的版本。判断某版本号是否bad调用题目本身提供的API，不用理。</li>
+<li>ME：必须二分查找啊，写出来是<a href="https://leetcode.com/submissions/detail/106561565/" target="_blank" rel="external">这样</a>。</li>
+<li>TA：看了很多答案都比我的简洁，比如<a href="https://discuss.leetcode.com/topic/38135/a-good-warning-to-me-to-use-start-end-start-2-to-avoid-overflow/" target="_blank" rel="external">这个</a>.我最后那个判断left是否bad其实没有必要，因为当<code>right - left = 2</code>的时候，mid刚好比left多1，如果它是bad，那么right就会降到mid；若mid不是bad，left直接飙升到mid + 1 = right，此时right也是bad，因此最后统一返回right就好了。</li>
+</ul>
+<h4 id="279-perfect-squares"><a href="#279-perfect-squares" class="headerlink" title="279. perfect-squares"></a><a href="https://leetcode.com/problems/perfect-squares/#/description" target="_blank" rel="external">279. perfect-squares</a></h4><ul>
+<li>给一个正整数，求至少由多少个平方数相加能得到它。</li>
+<li>ME：这题不会啊。感觉是要DP的，列了个数组，但是没找到前后依赖/转换关系。陷入江局。。。</li>
+<li>TA：看了<a href="https://discuss.leetcode.com/topic/24255/summary-of-4-different-solutions-bfs-dp-static-dp-and-mathematics" target="_blank" rel="external">这个</a>，感觉也不难啊哥，可能今天状态不好吧。第一个DP的思路是，把当前数减去一个平方数，求得索引对应的值加1就是了，遍历当前索引能减的所有平方数（相减后非负）。写出来是<a href="https://leetcode.com/submissions/detail/106567449/" target="_blank" rel="external">这样</a>。第二种DP就是把dp数组声明为static的List，持续add在末尾，这样当重复构造Solutions类对象的时候，可以共用一个，如果之前的结果已经求出来了，后续便可以直接访问了。第三种是用拉格朗日数学定理『<a href="https://en.wikipedia.org/wiki/Legendre%27s_three-square_theorem" target="_blank" rel="external">Legendre’s three-square theorem</a>』，结果只可能是1、2、3、4四种，写一个<code>isSquare</code>函数判断是否平方数得到结果1，利用定理知当且仅当<code>n != 4^a (8b + 7)</code>的时候，n由三个完全平方数组成，因此当<code>n == 4^a (8b + 7)</code>时，结果要么为4要么为2。第四种方法是BFS，首先把不大于n的平方数列举出来，入队后对这些平方数进行拓展，逐个加平方数并入队，直到达到n。</li>
+</ul>
+<h4 id="282-expression-add-operators"><a href="#282-expression-add-operators" class="headerlink" title="282. expression-add-operators"></a><a href="https://leetcode.com/problems/expression-add-operators/#/description" target="_blank" rel="external">282. expression-add-operators</a></h4><ul>
+<li>给一个纯数字的字符串和一个int的目标值，求这些数字通过加、减、乘如何能够得到target。数字可以组合成多位数但必须维持原顺序，且需要注意运算优先级。</li>
+<li>ME：题目描述的最后一句话是我按照自己理解码完代码（递归）才发现的漏洞，多位数倒是好解决（递归外加一层循环），但是优先级是真的不知所措。。。</li>
+<li>TA：参考了<a href="https://discuss.leetcode.com/topic/24523/java-standard-backtrace-ac-solutoin-short-and-clear" target="_blank" rel="external">这个</a>，和我的思路基本一致，处理优先级用的是反向相减，利用一个<code>multi</code>参数记录『如果接下来的操作符是乘法，应该乘的数』，如果再往前一步是<code>+ x</code>，那碰到<code>+ x*y</code>的时候就要先从当前结果中减去x再加上<code>x * y</code>；如果是<code>- x</code>，就直接当成『加负数』来看待就好了；如果是<code>* x</code>，优先级是相同的，那就是从当前结果中减去<code>multi</code>再加回<code>multi</code>乘以当前的数字。此外，还需要考虑Integer的边缘情况，直接用Long就搞定了。在我原本的版本上改了一下，写出来是<a href="https://leetcode.com/submissions/detail/107037316/" target="_blank" rel="external">这样</a>。还有<a href="https://discuss.leetcode.com/topic/35942/java-ac-solution-19ms-beat-100-00" target="_blank" rel="external">这个DFS方法</a>，感觉也是大同小异，怎么会那么快？它就是把相加的时机滞后了，这样就可以持续计算相乘的结果，而不往里加，一旦出现优先级变化才会真正加到结果中。</li>
+</ul>
+<h4 id="283-move-zeroes"><a href="#283-move-zeroes" class="headerlink" title="283. move-zeroes"></a><a href="https://leetcode.com/problems/move-zeroes/#/description" target="_blank" rel="external">283. move-zeroes</a></h4><ul>
+<li>给一个数组，要求把所有0挪到非零的右边，并保持原有非零项的相互顺序。要求In-place，并尽可能减少操作。</li>
+<li>ME：从前往后遍历，碰到零就往后找非零元素并swap。写出来是<a href="https://leetcode.com/submissions/detail/106808154/" target="_blank" rel="external">这样</a>，有点慢。</li>
+<li>TA：<a href="https://discuss.leetcode.com/topic/24716/simple-o-n-java-solution-using-insert-index" target="_blank" rel="external">这个</a>告诉你，根本不需要用到swap，直接覆盖就好了。思路是从前往后找非零元素，然后直接赋值给Index对应位置，一直遍历一波，这样Index就保存了原数组中所有的非零元素了，最后再往后全部赋值为0即可。<a href="https://discuss.leetcode.com/topic/29902/1ms-java-solution" target="_blank" rel="external">这个</a>也用到了swap，但比你的简洁太多，用一个<code>j</code>记录『最前的0的索引』，然后<code>i</code>往后找非零元素跟<code>j</code>交换即可。后面还有一个one line python的，用的是sort的comparator，让非零元素在零前面，也是666。</li>
+</ul>
+<h4 id="284-peeking-iterator"><a href="#284-peeking-iterator" class="headerlink" title="284. peeking-iterator"></a><a href="https://leetcode.com/problems/peeking-iterator/#/description" target="_blank" rel="external">284. peeking-iterator</a></h4><ul>
+<li>design题，实现一个具有peek功能的iterator，返回的是调用Next时的元素。</li>
+<li>ME：不太懂Iterator有啥用，直接看了discuss。</li>
+<li>TA：一开始看的是<a href="https://discuss.leetcode.com/topic/24883/concise-java-solution/" target="_blank" rel="external">这个</a>，其实就是比正常的Iterator多维护了一个变量next，存储peek应当返回的元素。原po判定hasNext是通过next变量是否为Null来判定的，但<a href="https://discuss.leetcode.com/topic/24883/concise-java-solution/9" target="_blank" rel="external">这个答主</a>认为，Null理论上是可以作为合法的元素放进去的，因此应当额外维护一个done的布尔值判定是否已经全部吐干净了。</li>
+</ul>
+<h4 id="287-find-the-duplicate-number"><a href="#287-find-the-duplicate-number" class="headerlink" title="287. find-the-duplicate-number"></a><a href="https://leetcode.com/problems/find-the-duplicate-number/#/description" target="_blank" rel="external">287. find-the-duplicate-number</a></h4><ul>
+<li>给一个规模为<code>n + 1</code>的数组，元素的值域为<code>[1, n]</code>，其中有一个元素是重复的，重复次数未知，求这个重复的数。原数组不可修改，时间复杂度必须小于O(N^2)，O(1)空间。</li>
+<li>ME：对于这种计数的题，一旦不给用extra space比如HashSet之类的，我就懵逼了。之前做的使用异或操作，但这题想了半天似乎找不出异或能怎么解决。陷入江局。。。</li>
+<li>TA：<a href="https://discuss.leetcode.com/topic/25913/my-easy-understood-solution-with-o-n-time-and-o-1-space-without-modifying-the-array-with-clear-explanation" target="_blank" rel="external">这个</a>真的是逆天了，竟然能把这个找重复元素的问题转化成『找链表环的入口』的问题。答主的解释是，既然所有元素都只出现一次而某一个出现多次，而且元素的值域严格限制在数组规模以内，那就可以利用当前索引对应的值作为下一步访问的索引，一路访问，利用快慢指针（索引），当两个指针相遇后再从头来多一个指针，和慢指针同时继续后移，相遇即为环的入口。模仿出来是<a href="https://leetcode.com/submissions/detail/107040493/" target="_blank" rel="external">这样</a>。当然前面这个方法比较难想到，但是另一个<a href="https://discuss.leetcode.com/topic/25580/two-solutions-with-explanation-o-nlog-n-and-o-n-time-o-1-space-without-changing-the-input-array/" target="_blank" rel="external">基于Binary Search思想的方法</a>讲道理应该是能想出来的。既然元素值域为<code>[1, n]</code>，那每次取中值mid，再O(n)扫一遍看看小于等于mid的元素数是否小于等于mid个（小于是因为不要求每个元素都出现），最终下界即为所求。模仿出来是<a href="https://leetcode.com/submissions/detail/107044146/" target="_blank" rel="external">这样</a>。</li>
+</ul>
+<h4 id="289-game-of-life"><a href="#289-game-of-life" class="headerlink" title="289. game-of-life"></a><a href="https://leetcode.com/problems/game-of-life/#/description" target="_blank" rel="external">289. game-of-life</a></h4><ul>
+<li>经典的GameOfLife问题，如果细胞周围有超过三个就死，少于两个也死，而死细胞周围恰好有三个的时候就可以复活。</li>
+<li>ME：in-place搞定，活细胞死则保持1、死细胞复活也保持0；活细胞活为2，死细胞死为-1，最后在遍历一波将大于1的值都减1、小于1的都加1。写出来是<a href="https://leetcode.com/submissions/detail/107047110/" target="_blank" rel="external">这样</a>。</li>
+<li>TA：<a href="https://discuss.leetcode.com/topic/29054/easiest-java-solution-with-explanation/" target="_blank" rel="external">这个</a>和我的也差不多吧，不过答主用的是2-bit的形式来区分状态的，第一位bit是新的状态，第二位bit是原本的状态，最后只要全部右移一位就把旧的状态抹去了。follow-up有个问题是说如果是无线大的棋盘怎么办，<a href="https://discuss.leetcode.com/topic/26236/infinite-board-solution" target="_blank" rel="external">这个大神给出了解答</a>.</li>
+</ul>
+<h4 id="290-word-pattern"><a href="#290-word-pattern" class="headerlink" title="290. word-pattern"></a><a href="https://leetcode.com/problems/word-pattern/#/description" target="_blank" rel="external">290. word-pattern</a></h4><ul>
+<li>给两个String，一个表示pattern，另一个是待匹配的由空格分隔的若干单词组成的字符串，判断是否匹配。</li>
+<li>ME：直接用HashMap搞定。写出来是<a href="https://leetcode.com/submissions/detail/106825550/" target="_blank" rel="external">这样</a>。</li>
+<li>TA：<a href="https://discuss.leetcode.com/topic/26339/8-lines-simple-java" target="_blank" rel="external">这个</a>略叼，第一次见Map可以不指定type混存的，大神答主同时把char和string作为key、索引作为value存入map。如果其中一个key重复了就会存入失败，这样就检测出不匹配了。</li>
+</ul>
+<h4 id="292-nim-game"><a href="#292-nim-game" class="headerlink" title="292. nim-game"></a><a href="https://leetcode.com/problems/nim-game/#/description" target="_blank" rel="external">292. nim-game</a></h4><ul>
+<li>两个人玩取石头的游戏，每次取1/2/3个，最后把石头取完的赢。给一个整数表示石头数，判断先取者是否能稳赢。</li>
+<li>ME：一开始还用了个DP数组，结果爆内存。后来改成<a href="https://leetcode.com/submissions/detail/106831099/" target="_blank" rel="external">模4一行搞定</a>，摊手。</li>
+<li>TA：模4也可以用位操作表示成<a href="https://discuss.leetcode.com/topic/34065/o-1-efficient-single-line-java-using-bit-checking" target="_blank" rel="external">这样</a>。其实<a href="https://discuss.leetcode.com/topic/26956/two-java-solution" target="_blank" rel="external">也有人提出了DP的方法</a>。</li>
+</ul>
+<h4 id="295-find-median-from-data-stream"><a href="#295-find-median-from-data-stream" class="headerlink" title="295. find-median-from-data-stream"></a><a href="https://leetcode.com/problems/find-median-from-data-stream/#/description" target="_blank" rel="external">295. find-median-from-data-stream</a></h4><ul>
+<li>在一个数字输入流中，随时调用函数返回当前的中位数。</li>
+<li>ME：要维护从小到大顺序，又要方便访问到中间的元素。。。陷入了江局。瞄了一眼讨论版，看见了要用到两个Heap，前一半和后一半，秒懂。不过Heap我一开始用的是TreeSet，但是这就不允许重复元素了。而PriorityQueue就没法自由访问最前和最后的元素了，再次陷入江局。再次偷看discuss，发现了<code>Collections.reverseOrder</code>，再观察我的代码，对于前半部分我只需要访问最后一个数字，那就直接反过来，就<a href="https://leetcode.com/submissions/detail/108570100/" target="_blank" rel="external">这样过了</a>。</li>
+<li>TA：我最开始看的是<a href="https://discuss.leetcode.com/topic/27521/short-simple-java-c-python-o-log-n-o-1" target="_blank" rel="external">这个大神的</a>，答主先直接都变成了Long类型来防止Integer的越界问题。每次直接add到large中，同时把large首位poll出来取个负数直接add到small中。若large元素少于small了，再把small首位（最小的负数即最大的正数）poll出来add到large中。取Medium的时候若large元素多于small，直接就取large的最小元素即可，否则就取large最小元素和small最小元素之负数的平均数。至于我是怎么想到要Collections.reverseOrder，就是看<a href="https://discuss.leetcode.com/topic/27620/share-my-java-solution-logn-to-insert-o-1-to-query" target="_blank" rel="external">这个</a>了，原po的答案有点绕。但他们的答案真的很简洁呀！第一遍我先不追求简洁，做出来、逻辑清晰就好。</li>
+</ul>
+<h4 id="297-serialize-and-deserialize-binary-tree"><a href="#297-serialize-and-deserialize-binary-tree" class="headerlink" title="297. serialize-and-deserialize-binary-tree"></a><a href="https://leetcode.com/problems/serialize-and-deserialize-binary-tree/#/description" target="_blank" rel="external">297. serialize-and-deserialize-binary-tree</a></h4><ul>
+<li>LeetCode中对树的表示是通过数组的形式来做的，这题就是实现一下如何在树节点和它对应的字符串表示，空节点就是null。刚好之前东哥问了一个类似的问题，他还是自己想的，相当于他自己搞了一个Hard题出来？</li>
+<li>ME：题目规定了不能在类中用新的变量来记录state。所以就是BFS咯，写出来是<a href="https://leetcode.com/submissions/detail/107938882/" target="_blank" rel="external">这样</a>。用类似于层级遍历的思路，维护两个Queue，一个存放有效的节点、一个存放Null的索引。根据上一层的有效节点数 * 2得到当前层的节点数，然后用for循环从0开始，如果匹配到Null的索引，就在字符串上拼上<code>,null</code>，否则就正常从节点队列中取队首并拼接到字符串中，同时判断该节点的左右孩子是否为空，为空就把索引add到索引队列中。需要指出的是，for循环的变量和计算孩子索引所用的变量是不同的，每一层的『有效孩子节点数』需要单独用当前层级的『有效节点数』count记录，乘以2就得到了理论的孩子节点数了。</li>
+<li>TA：唔。。。事实上不需要严格按照LeetCode的字符串格式来表示树，所以<a href="https://discuss.leetcode.com/topic/28029/easy-to-understand-java-solution" target="_blank" rel="external">这个方法</a>就直接用<code>X</code>代替了Null，没有前后的方括号，也没有处理最末位的逗号，直接用一个队列（原po用了Deque但<a href="https://discuss.leetcode.com/topic/28029/easy-to-understand-java-solution/12" target="_blank" rel="external">这里</a>用了Queue）存储经过split的各个字符串数字。递归地访问各个节点并将节点的值拼接到StringBuilder上；在恢复成树的时候，从队首取出字符、转为数字并新建一个节点出来，此时队列已经更改了，再调用buildTree就能构建左右孩子了。这样写简洁很多。</li>
+</ul>
+<h4 id="299-bulls-and-cows"><a href="#299-bulls-and-cows" class="headerlink" title="299. bulls-and-cows"></a><a href="https://leetcode.com/problems/bulls-and-cows/#/description" target="_blank" rel="external">299. bulls-and-cows</a></h4><ul>
+<li>给两个String，secret表示预先确定的数字串，guess表示猜测的数字串。bull表示数字和位置完美匹配，cow表示数字是对的但是位置不对，二者不能重复计算。最后返回<code>xAyB</code>的字符串。</li>
+<li>ME：首先判断是否完美匹配（bull），不完美匹配则用bucket记录，若在secret中出现则加加、在guess中出现则减减。cow的判断就是依赖这个bucket，如果在加的时候已经是负数，说明在guess中出现过；反之亦然。写出来是<a href="https://leetcode.com/submissions/detail/107054698/" target="_blank" rel="external">这样</a>。</li>
+<li>TA：没啥了。</li>
+</ul>
+<h4 id="300-longest-increasing-subsequence"><a href="#300-longest-increasing-subsequence" class="headerlink" title="300. longest-increasing-subsequence"></a><a href="https://leetcode.com/problems/longest-increasing-subsequence/#/description" target="_blank" rel="external">300. longest-increasing-subsequence</a></h4><ul>
+<li>给一个无序数组，求其中最长升序子序列的长度。</li>
+<li>ME：题目基本的要求是时间复杂度在O(N^2)，所以一开始我就直接<a href="https://leetcode.com/submissions/detail/107238629/" target="_blank" rel="external">暴力搞了</a>，固定一个值然后往后取比它大的，递归到最后再换一个值继续循环，结果超时。挠破头皮也没想出来，感觉会不会是DP？一看tag果然。。。</li>
+<li>TA：非常恼火连O(N^2)的方法都搞不出来，看了<a href="https://discuss.leetcode.com/topic/30721/my-easy-to-understand-o-n-2-solution-using-dp-with-video-explanation" target="_blank" rel="external">这个</a>发现真的不难，DP的思路是固定子序列的最后一个元素，然后从最前方往后遍历判断『取当前子序列的最后一个元素』的时候，最长长度是多少。真的不难才对，模仿着写出来是<a href="https://leetcode.com/submissions/detail/107243666/" target="_blank" rel="external">这样</a>。另外还有<a href="https://discuss.leetcode.com/topic/28738/java-python-binary-search-o-nlogn-time-with-explanation" target="_blank" rel="external">二分查找的方法</a>，简直是五体投地螺旋服。维护一个数组tail，tail[i]表示当最长升序子序列的长度为i+1的时候，所有可能中最大元素的最小值。在二分查找中左界为0、右界为当前的tail已填充的size，求一个中点。从原数组中取元素x出来，若<code>tail[mid] &lt; x</code>，说明还能再往后找找，左界往后，否则就压缩右界。当前后两个指针相等时，直接更新当前位置的tail，然后若i已经到达末尾则更新size。真的。。。强！服！</li>
+</ul>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+      <div>
+        <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+  <div>└(^o^)┘</div>
+  <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+    <span>Donate</span>
+  </button>
+  <div id="QR" style="display: none;">
+
+    
+      <div id="wechat" style="display: inline-block">
+        <img id="wechat_qr" src="/images/wechatRewardImg.png" alt="BobbyLiujb WeChat Pay"/>
+        <p>WeChat Pay</p>
+      </div>
+    
+
+    
+      <div id="alipay" style="display: inline-block">
+        <img id="alipay_qr" src="/images/alipayRewardImg.png" alt="BobbyLiujb Alipay"/>
+        <p>Alipay</p>
+      </div>
+    
+
+    
+
+  </div>
+</div>
+
+      </div>
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/java/" rel="tag"># java</a>
+          
+            <a href="/tags/algorithm/" rel="tag"># algorithm</a>
+          
+            <a href="/tags/interview/" rel="tag"># interview</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2017/05/14/java_leetcode2/" rel="next" title="Note for LeetCode in Java (101~200 )">
+                <i class="fa fa-chevron-left"></i> Note for LeetCode in Java (101~200 )
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2017/06/05/data-structure-cpp/" rel="prev" title="Note for Data Structure in CPP">
+                Note for Data Structure in CPP <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+        <!-- Go to www.addthis.com/dashboard to customize your tools -->
+<div class="addthis_inline_share_toolbox">
+  <script type = "text/javascript" src = "//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-593135f4e114024c" async = "async" ></script>
+</div>
+
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+      <div id="disqus_thread">
+        <noscript>
+          Please enable JavaScript to view the
+          <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a>
+        </noscript>
+      </div>
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            Overview
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="https://ww4.sinaimg.cn/large/9b3a5c2fgw1faysh4xl7ij20bh0bhmy5.jpg"
+               alt="BobbyLiujb" />
+          <p class="site-author-name" itemprop="name">BobbyLiujb</p>
+           
+              <p class="site-description motion-element" itemprop="description"></p>
+          
+        </div>
+        <nav class="site-state motion-element">
+
+          
+            <div class="site-state-item site-state-posts">
+              <a href="/archives/">
+                <span class="site-state-item-count">21</span>
+                <span class="site-state-item-name">posts</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-categories">
+              
+                <span class="site-state-item-count">3</span>
+                <span class="site-state-item-name">categories</span>
+              
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-tags">
+              
+                <span class="site-state-item-count">30</span>
+                <span class="site-state-item-name">tags</span>
+              
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+        </div>
+
+        
+        
+
+        
+        
+
+        
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#201-bitwise-and-of-numbers-range"><span class="nav-number">1.</span> <span class="nav-text">201. bitwise-and-of-numbers-range</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#202-happy-number"><span class="nav-number">2.</span> <span class="nav-text">202. happy-number</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#203-remove-linked-list-elements"><span class="nav-number">3.</span> <span class="nav-text">203. remove-linked-list-elements</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#204-count-primes"><span class="nav-number">4.</span> <span class="nav-text">204. count-primes</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#205-isomorphic-strings"><span class="nav-number">5.</span> <span class="nav-text">205. isomorphic-strings</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#206-reverse-linked-list"><span class="nav-number">6.</span> <span class="nav-text">206. reverse-linked-list</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#207-course-schedule"><span class="nav-number">7.</span> <span class="nav-text">207. course-schedule</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#208-implement-trie-prefix-tree"><span class="nav-number">8.</span> <span class="nav-text">208. implement-trie-prefix-tree</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#209-minimum-size-subarray-sum"><span class="nav-number">9.</span> <span class="nav-text">209. minimum-size-subarray-sum</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#210-course-schedule-ii"><span class="nav-number">10.</span> <span class="nav-text">210. course-schedule-ii</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#211-add-and-search-word-data-structure-design"><span class="nav-number">11.</span> <span class="nav-text">211. add-and-search-word-data-structure-design</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#212-word-search-ii"><span class="nav-number">12.</span> <span class="nav-text">212. word-search-ii</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#213-house-robber-ii"><span class="nav-number">13.</span> <span class="nav-text">213. house-robber-ii</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#214-shortest-palindrome"><span class="nav-number">14.</span> <span class="nav-text">214. shortest-palindrome</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#215-kth-largest-element-in-an-array"><span class="nav-number">15.</span> <span class="nav-text">215. kth-largest-element-in-an-array</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#216-combination-sum-iii"><span class="nav-number">16.</span> <span class="nav-text">216. combination-sum-iii</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#217-contains-duplicate"><span class="nav-number">17.</span> <span class="nav-text">217. contains-duplicate</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#218-the-skyline-problem"><span class="nav-number">18.</span> <span class="nav-text">218. the-skyline-problem</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#219-contains-duplicate-ii"><span class="nav-number">19.</span> <span class="nav-text">219. contains-duplicate-ii</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#220-contains-duplicate-iii"><span class="nav-number">20.</span> <span class="nav-text">220. contains-duplicate-iii</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#221-maximal-square"><span class="nav-number">21.</span> <span class="nav-text">221. maximal-square</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#222-count-complete-tree-nodes"><span class="nav-number">22.</span> <span class="nav-text">222. count-complete-tree-nodes</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#223-rectangle-area"><span class="nav-number">23.</span> <span class="nav-text">223. rectangle-area</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#224-basic-calculator"><span class="nav-number">24.</span> <span class="nav-text">224. basic-calculator</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#225-implement-stack-using-queues"><span class="nav-number">25.</span> <span class="nav-text">225. implement-stack-using-queues</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#226-invert-binary-tree"><span class="nav-number">26.</span> <span class="nav-text">226. invert-binary-tree</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#227-basic-calculator-ii"><span class="nav-number">27.</span> <span class="nav-text">227. basic-calculator-ii</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#228-summary-ranges"><span class="nav-number">28.</span> <span class="nav-text">228. summary-ranges</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#229-majority-element-ii"><span class="nav-number">29.</span> <span class="nav-text">229. majority-element-ii</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#230-kth-smallest-element-in-a-bst"><span class="nav-number">30.</span> <span class="nav-text">230. kth-smallest-element-in-a-bst</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#231-power-of-two"><span class="nav-number">31.</span> <span class="nav-text">231. power-of-two</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#232-implement-queue-using-stacks"><span class="nav-number">32.</span> <span class="nav-text">232. implement-queue-using-stacks</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#233-number-of-digit-one"><span class="nav-number">33.</span> <span class="nav-text">233. number-of-digit-one</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#234-palindrome-linked-list"><span class="nav-number">34.</span> <span class="nav-text">234. palindrome-linked-list</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#235-lowest-common-ancestor-of-a-binary-search-tree"><span class="nav-number">35.</span> <span class="nav-text">235. lowest-common-ancestor-of-a-binary-search-tree</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#236-lowest-common-ancestor-of-a-binary-tree"><span class="nav-number">36.</span> <span class="nav-text">236. lowest-common-ancestor-of-a-binary-tree</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#237-delete-node-in-a-linked-list"><span class="nav-number">37.</span> <span class="nav-text">237. delete-node-in-a-linked-list</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#238-product-of-array-except-self"><span class="nav-number">38.</span> <span class="nav-text">238. product-of-array-except-self</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#239-sliding-window-maximum"><span class="nav-number">39.</span> <span class="nav-text">239. sliding-window-maximum</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#240-search-a-2d-matrix-ii"><span class="nav-number">40.</span> <span class="nav-text">240. search-a-2d-matrix-ii</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#241-different-ways-to-add-parentheses"><span class="nav-number">41.</span> <span class="nav-text">241. different-ways-to-add-parentheses</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#242-valid-anagram"><span class="nav-number">42.</span> <span class="nav-text">242. valid-anagram</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#257-binary-tree-paths"><span class="nav-number">43.</span> <span class="nav-text">257. binary-tree-paths</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#258-add-digits"><span class="nav-number">44.</span> <span class="nav-text">258. add-digits</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#260-single-number-iii"><span class="nav-number">45.</span> <span class="nav-text">260. single-number-iii</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#263-ugly-number"><span class="nav-number">46.</span> <span class="nav-text">263. ugly-number</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#264-ugly-number-ii"><span class="nav-number">47.</span> <span class="nav-text">264. ugly-number-ii</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#268-missing-number"><span class="nav-number">48.</span> <span class="nav-text">268. missing-number</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#273-integer-to-english-words"><span class="nav-number">49.</span> <span class="nav-text">273. integer-to-english-words</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#274-h-index"><span class="nav-number">50.</span> <span class="nav-text">274. h-index</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#275-h-index-ii"><span class="nav-number">51.</span> <span class="nav-text">275. h-index-ii</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#278-first-bad-version"><span class="nav-number">52.</span> <span class="nav-text">278. first-bad-version</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#279-perfect-squares"><span class="nav-number">53.</span> <span class="nav-text">279. perfect-squares</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#282-expression-add-operators"><span class="nav-number">54.</span> <span class="nav-text">282. expression-add-operators</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#283-move-zeroes"><span class="nav-number">55.</span> <span class="nav-text">283. move-zeroes</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#284-peeking-iterator"><span class="nav-number">56.</span> <span class="nav-text">284. peeking-iterator</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#287-find-the-duplicate-number"><span class="nav-number">57.</span> <span class="nav-text">287. find-the-duplicate-number</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#289-game-of-life"><span class="nav-number">58.</span> <span class="nav-text">289. game-of-life</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#290-word-pattern"><span class="nav-number">59.</span> <span class="nav-text">290. word-pattern</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#292-nim-game"><span class="nav-number">60.</span> <span class="nav-text">292. nim-game</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#295-find-median-from-data-stream"><span class="nav-number">61.</span> <span class="nav-text">295. find-median-from-data-stream</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#297-serialize-and-deserialize-binary-tree"><span class="nav-number">62.</span> <span class="nav-text">297. serialize-and-deserialize-binary-tree</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#299-bulls-and-cows"><span class="nav-number">63.</span> <span class="nav-text">299. bulls-and-cows</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#300-longest-increasing-subsequence"><span class="nav-number">64.</span> <span class="nav-text">300. longest-increasing-subsequence</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy;  2016 &mdash; 
+  <span itemprop="copyrightYear">2017</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">BobbyLiujb</span>
+
+  
+</div>
+
+
+  <div class="powered-by">
+    Powered by <a class="theme-link" href="https://hexo.io">Hexo</a>
+  </div>
+
+  <span class="post-meta-divider">|</span>
+
+  <div class="theme-info">
+    Theme &mdash;
+    <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+      NexT.Mist
+    </a>
+  </div>
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.2"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.2"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.2"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.2"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.2"></script>
+
+
+
+  
+
+  
+
+    
+      <script id="dsq-count-scr" src="https://bobbyliujb.disqus.com/count.js" async></script>
+    
+
+    
+      <script type="text/javascript">
+        var disqus_config = function () {
+          this.page.url = 'https://bobbyliujb.github.io/2017/06/03/java_leetcode3/';
+          this.page.identifier = '2017/06/03/java_leetcode3/';
+          this.page.title = 'Note for LeetCode in Java ( 201~300 )';
+        };
+        var d = document, s = d.createElement('script');
+        s.src = 'https://bobbyliujb.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', '' + +new Date());
+        (d.head || d.body).appendChild(s);
+      </script>
+    
+
+  
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+  <script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.4.js"></script>
+  <script>AV.initialize("jT7i5auNazMHRONSPUHmcoko-gzGzoHsz", "dEWwuVre5Svmwvjw2DmcIbLy");</script>
+  <script>
+    function showTime(Counter) {
+      var query = new AV.Query(Counter);
+      var entries = [];
+      var $visitors = $(".leancloud_visitors");
+
+      $visitors.each(function () {
+        entries.push( $(this).attr("id").trim() );
+      });
+
+      query.containedIn('url', entries);
+      query.find()
+        .done(function (results) {
+          var COUNT_CONTAINER_REF = '.leancloud-visitors-count';
+
+          if (results.length === 0) {
+            $visitors.find(COUNT_CONTAINER_REF).text(0);
+            return;
+          }
+
+          for (var i = 0; i < results.length; i++) {
+            var item = results[i];
+            var url = item.get('url');
+            var time = item.get('time');
+            var element = document.getElementById(url);
+
+            $(element).find(COUNT_CONTAINER_REF).text(time);
+          }
+          for(var i = 0; i < entries.length; i++) {
+            var url = entries[i];
+            var element = document.getElementById(url);
+            var countSpan = $(element).find(COUNT_CONTAINER_REF);
+            if( countSpan.text() == '') {
+              countSpan.text(0);
+            }
+          }
+        })
+        .fail(function (object, error) {
+          console.log("Error: " + error.code + " " + error.message);
+        });
+    }
+
+    function addCount(Counter) {
+      var $visitors = $(".leancloud_visitors");
+      var url = $visitors.attr('id').trim();
+      var title = $visitors.attr('data-flag-title').trim();
+      var query = new AV.Query(Counter);
+
+      query.equalTo("url", url);
+      query.find({
+        success: function(results) {
+          if (results.length > 0) {
+            var counter = results[0];
+            counter.fetchWhenSave(true);
+            counter.increment("time");
+            counter.save(null, {
+              success: function(counter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(counter.get('time'));
+              },
+              error: function(counter, error) {
+                console.log('Failed to save Visitor num, with error message: ' + error.message);
+              }
+            });
+          } else {
+            var newcounter = new Counter();
+            /* Set ACL */
+            var acl = new AV.ACL();
+            acl.setPublicReadAccess(true);
+            acl.setPublicWriteAccess(true);
+            newcounter.setACL(acl);
+            /* End Set ACL */
+            newcounter.set("title", title);
+            newcounter.set("url", url);
+            newcounter.set("time", 1);
+            newcounter.save(null, {
+              success: function(newcounter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(newcounter.get('time'));
+              },
+              error: function(newcounter, error) {
+                console.log('Failed to create');
+              }
+            });
+          }
+        },
+        error: function(error) {
+          console.log('Error:' + error.code + " " + error.message);
+        }
+      });
+    }
+
+    $(function() {
+      var Counter = AV.Object.extend("Counter");
+      if ($('.leancloud_visitors').length == 1) {
+        addCount(Counter);
+      } else if ($('.post-title-link').length > 1) {
+        showTime(Counter);
+      }
+    });
+  </script>
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
