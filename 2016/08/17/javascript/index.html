@@ -109,7 +109,7 @@
 <meta property="og:site_name" content="Bobby">
 <meta property="og:description" content="完成了CSS/HTML的学习，接下来是第二本书《JavaScript DOM编程艺术（第2版）》。这本书被很多大神推荐，但是就我看完的感觉，不是很明白这本书为什么会这样受到热捧。这份笔记还结合了一部分廖雪峰的JavaScript教程，因为光凭这本书可能对JavaScript的基础语法还是没法很全面地掌握。后面还有几本JavaScript的pdf书，到时再作补充。">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2016-08-24T07:20:50.000Z">
+<meta property="og:updated_time" content="2017-08-19T04:36:36.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Fundamental of JavaScript">
 <meta name="twitter:description" content="完成了CSS/HTML的学习，接下来是第二本书《JavaScript DOM编程艺术（第2版）》。这本书被很多大神推荐，但是就我看完的感觉，不是很明白这本书为什么会这样受到热捧。这份笔记还结合了一部分廖雪峰的JavaScript教程，因为光凭这本书可能对JavaScript的基础语法还是没法很全面地掌握。后面还有几本JavaScript的pdf书，到时再作补充。">
@@ -319,8 +319,8 @@
               
                 <span class="post-meta-item-text">Post modified&#58;</span>
               
-              <time title="Post modified" itemprop="dateModified" datetime="2016-08-24T00:20:50-07:00">
-                2016-08-24
+              <time title="Post modified" itemprop="dateModified" datetime="2017-08-18T21:36:36-07:00">
+                2017-08-18
               </time>
             
           </span>
@@ -608,7 +608,7 @@
 <li>获取/修改表单值<br>使用value属性或checked属性。对于HTML5的标准控件，value一定是具有标准格式字符串。</li>
 <li><p>提交表单</p>
 <ul>
-<li><p>使用form的submit()方法: 在HTML中，<form>之间的表单通过响应按钮控件的onclick事件实现表单提交，但这会干扰浏览器对form的正常提交。正常情况下浏览器默认点击submit类型的button来提交表单，或者在最后的input按回车键提交表单。</form></p>
+<li><p>使用form的submit()方法: 在HTML中，<code>&lt;form&gt;</code>之间的表单通过响应按钮控件的onclick事件实现表单提交，但这会干扰浏览器对form的正常提交。正常情况下浏览器默认点击submit类型的button来提交表单，或者在最后的input按回车键提交表单。</p>
 <figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">form</span> <span class="attr">id</span>=<span class="string">"test-form"</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"text"</span> <span class="attr">name</span>=<span class="string">"test"</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">button</span> <span class="attr">type</span>=<span class="string">”button”</span> <span class="attr">onclick</span>=<span class="string">”doSubmitForm()”</span>&gt;</span>SUBMIT<span class="tag">&lt;/<span class="name">button</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">form</span>&gt;</span></div><div class="line"></div><div class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="undefined"></span></div><div class="line"><span class="javascript"><span class="function"><span class="keyword">function</span> <span class="title">doSubmitForm</span>(<span class="params"></span>) </span>&#123;</span></div><div class="line"><span class="javascript">    <span class="keyword">var</span> form = <span class="built_in">document</span>.getElementById(<span class="string">'test-form'</span>);</span></div><div class="line"><span class="javascript">    <span class="comment">// 可以在此修改form的input...</span></span></div><div class="line"><span class="javascript">    <span class="comment">// 提交form:</span></span></div><div class="line"><span class="undefined">    form.submit();</span></div><div class="line"><span class="undefined">&#125;</span></div><div class="line"><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></div></pre></td></tr></table></figure>
 </li>
 <li><p>响应form的onsubmit事件：在form标签后添加onsubmit响应事件。</p>

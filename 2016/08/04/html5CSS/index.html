@@ -110,7 +110,7 @@
 <meta property="og:description" content="大菜鸭推荐了几本前端学习书籍pdf给我，这本《HTML5与CSS3基础教程（第8版）》是我看的第一本。虽然大三上的时候选修了移动Web应用开发这门课，当时觉得这门课性价比真高，除了HTML/CSS/JavaScript三件套，还学了Java, JSP, MySQL等等，但都只是涉猎，并没有很全面地学。虽然我这样看书可能也不见得能学得多系统，不过一步步来吧。">
 <meta property="og:locale" content="en">
 <meta property="og:image" content="http://ww3.sinaimg.cn/mw690/9b3a5c2fgw1f6he65b8r9j20lo07xtau.jpg">
-<meta property="og:updated_time" content="2016-08-18T09:54:10.000Z">
+<meta property="og:updated_time" content="2017-08-23T17:22:06.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Fundamental of HTML5 and CSS">
 <meta name="twitter:description" content="大菜鸭推荐了几本前端学习书籍pdf给我，这本《HTML5与CSS3基础教程（第8版）》是我看的第一本。虽然大三上的时候选修了移动Web应用开发这门课，当时觉得这门课性价比真高，除了HTML/CSS/JavaScript三件套，还学了Java, JSP, MySQL等等，但都只是涉猎，并没有很全面地学。虽然我这样看书可能也不见得能学得多系统，不过一步步来吧。">
@@ -321,8 +321,8 @@
               
                 <span class="post-meta-item-text">Post modified&#58;</span>
               
-              <time title="Post modified" itemprop="dateModified" datetime="2016-08-18T02:54:10-07:00">
-                2016-08-18
+              <time title="Post modified" itemprop="dateModified" datetime="2017-08-23T10:22:06-07:00">
+                2017-08-23
               </time>
             
           </span>
@@ -495,7 +495,7 @@
 <h1 id="CSS构造块"><a href="#CSS构造块" class="headerlink" title="CSS构造块"></a>CSS构造块</h1><hr>
 <ol>
 <li>样式表定义了网页外观的规则。每一条规则由选择器selector和声明块declaration block组成。</li>
-<li>注释<br>Html中是<!-- blablabla-->，CSS是/<em>Blablabla</em>/。</li>
+<li>注释<br>Html中是<code>&lt;!-- blablabla--&gt;</code>，CSS是<code>/*Blablabla*/</code>。</li>
 <li>继承inheritance<br>根据元素的包含关系（或者画出树形结构）确定谁是后代谁是祖先。</li>
 <li>样式层叠<br>当多条规则定义同一元素的同一属性，会根据以下方式来确定样式：<ul>
 <li>特殊性（specificity，越具体规则性越强，例如id选择器就大于继承来的样式）；</li>
@@ -514,7 +514,7 @@
 </ol>
 <h1 id="操作样式表"><a href="#操作样式表" class="headerlink" title="操作样式表"></a>操作样式表</h1><hr>
 <ol>
-<li>外部样式表<br>这是最佳选择，让各个页面有类似的样式设置，不会出现很多重复代码。同时使用外部样式表可以充分利用浏览器的缓存功能，不需要重复请求css文件。<br>在html的head中使用<code>&lt;link ref=”stylesheet” href=”style.css” /&gt;</code>，在实践中最好将css放在单独子目录中。</li>
+<li>外部样式表<br>这是最佳选择，让各个页面有类似的样式设置，不会出现很多重复代码。同时使用外部样式表可以充分利用浏览器的缓存功能，不需要重复请求css文件。<br>在html的head中使用<code>&lt;link rel=&quot;stylesheet&quot; type=&quot;text/css&quot; href=&quot;style.css&quot;&gt;</code>，在实践中最好将css放在单独子目录中。</li>
 <li>嵌入样式表<br>在html的head包围中，加入<code>&lt;style&gt; img{border: 2px solid red;} &lt;/style&gt;</code>这样的样式，只会作用于这个页面。</li>
 <li>内联样式<br>将style作为各个元素的属性进行设置，它严重违背了html的宗旨（将内容和表现分离）。要想改变一点点样式就需要大量的检查，很麻烦。当然可以作为简单的测试，合适后搬移到外部css文件中。</li>
 <li>指定媒体<br>在link的属性中加上media=”screen”或“print”来规定什么情况下使用该样式。<br>或者直接在css文件中的对应选择器之前加上一个大包围<figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">@media print &#123; </div><div class="line">  xxxx </div><div class="line">&#125;</div></pre></td></tr></table></figure>
