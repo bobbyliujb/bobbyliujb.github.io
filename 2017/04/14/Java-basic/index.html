@@ -114,7 +114,7 @@
 <meta property="og:image" content="http://ww1.sinaimg.cn/large/9b3a5c2fgy1feoa73140jj20fm07d41s.jpg">
 <meta property="og:image" content="http://ww1.sinaimg.cn/large/9b3a5c2fgy1feoc09ug9xj20pn06tq3e.jpg">
 <meta property="og:image" content="https://ww1.sinaimg.cn/large/9b3a5c2fgy1feoibzt8c7j20hb0cnq9d.jpg">
-<meta property="og:updated_time" content="2017-04-16T09:00:46.000Z">
+<meta property="og:updated_time" content="2017-10-15T06:22:59.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Note for Java">
 <meta name="twitter:description" content="学校课程并没有专门教Java，所以自己整理了一些基本Java语法之类的东西，还涉及一部分操作系统、计网、数据库的大山中学时做的笔记。">
@@ -325,8 +325,8 @@
               
                 <span class="post-meta-item-text">Post modified&#58;</span>
               
-              <time title="Post modified" itemprop="dateModified" datetime="2017-04-16T02:00:46-07:00">
-                2017-04-16
+              <time title="Post modified" itemprop="dateModified" datetime="2017-10-14T23:22:59-07:00">
+                2017-10-14
               </time>
             
           </span>
@@ -408,22 +408,29 @@
 <h3 id="java基础"><a href="#java基础" class="headerlink" title="java基础"></a>java基础</h3><h4 id="Java简介"><a href="#Java简介" class="headerlink" title="Java简介"></a>Java简介</h4><ul>
 <li>Java版本分为三种<br>-&gt; Java SE: 标准版，适用于桌面系统；<br>-&gt; Java ME：微缩版，适用于小型设备；<br>-&gt; Java EE：企业版，适用于创建服务器应用程序和服务。</li>
 <li>JDK和JRE的区别：<br>-&gt; JDK：开发套件，提供了Java的开发环境，是面向开发人员使用的SDK；<br>-&gt; JRE：执行环境，提供了Java的运行环境，是面向程序的使用者。</li>
+<li><a href="https://stackoverflow.com/questions/834763/difference-between-an-api-and-sdk" target="_blank" rel="external">SDK和API的区别</a>：<br>-&gt; SDK：software development kit, a collection of implementation tools.<br>-&gt; API：application programming interface, defines how to call another service.</li>
 </ul>
 <h4 id="Java编译、执行："><a href="#Java编译、执行：" class="headerlink" title="Java编译、执行："></a>Java编译、执行：</h4><ul>
 <li>Java的文件名必须与代码中的public类名相一致。若类不是public则不必要，但注意一个文件中的多个类只能有一个用public修饰，编译后每一个类对应一个.class文件。</li>
-<li>Main是程序的入口方法，必须在java程序中定义，它的签名是固定的。Main可以定义在任何一个类中，不一定是public修饰的那个类。</li>
+<li>main是程序的入口方法，必须在Java程序中定义，它的签名是固定的。main可以定义在任何一个类中，不一定是public修饰的那个类。</li>
 <li>编译命令：<code>javac –d . .HelloWorld.java</code>。其中<code>-d</code>表示生成类的时候按照包结构生成文件夹，<code>.</code>表示在当前路径下开始生成。</li>
 <li>执行命令：java myPackage.HelloWorld。<code>包名.类名</code>的格式，将可执行字节码文件交给JVM执行。</li>
-<li>运行过程：源码文件.java经过编译器javac后生成与平台无关的字节码文件.class，最后交给Java解释器执行字节码。总结起来就是『先编译，后解释』。编译指的是生成可执行文件（效率高、不跨平台），解释指的是将源文件逐行解释（效率低、跨平台）。</li>
+<li>运行过程：源码文件<code>.java</code>经过编译器javac后生成与平台无关的字节码文件<code>.class</code>，最后交给Java解释器执行字节码。总结起来就是『先编译，后解释』。编译指的是生成可执行文件（效率高、不跨平台），解释指的是将源文件逐行解释（效率低、跨平台）。</li>
 <li>Java是跨平台的语言，Write Once and Run Anywhere(WORA)。真正执行的不是二进制代码，而是字节码，由JVM负责解释执行。Java跨平台的特性其实是基于JVM，但JVM本身是C语言编写的、并不是跨平台的。所以Java能够跨平台，本质上是依靠了不跨平台的JVM。</li>
 </ul>
 <h4 id="Java面向对象"><a href="#Java面向对象" class="headerlink" title="Java面向对象"></a>Java面向对象</h4><ul>
 <li>面向对象是一种程序设计方法、一种程序设计范型，基本思想是使用对象、类、继承、封装、消息等概念来设计程序。面向对象强调以问题域中的事物为中心来思考问题、认识问题，根据这些事物的本质特点，把它们抽象地表示为系统中的对象作为系统的基本构成单位。如此一来，系统便可以直接映射问题域，保持问题域中事物及其相互关系的本来面貌。</li>
-<li>面向对象的四个主要特征：封装、继承、抽象、多态。</li>
-<li>封装：模块化，希望程序的部件”高内聚、低耦合”，防止程序相互依赖而带来的变动影响。在面向对象编程中，对象是封装的基本单位，面向对象的封装就是把描述一个对象的属性和行为的代码封装在一个类中。其中属性用变量定义，行为用方法定义，方法可以直接访问同一对象中的属性。通常将属性定义为private，这样就可以思考具体的方法究竟要定义到什么类中。例如人在黑板上画圆这个过程，显然圆心和半径都是圆的私有属性，所以画圆必须定义到圆这个类中，人只是负责发送一个消息给圆让它画一个。</li>
-<li>抽象：只关注事物的相似点、共性，忽略与当前主题无关的方面。例如每个人都有不同，但我只关注姓名、年龄、收入这些内容，那就可以抽象成一个人，而不必管其他身高体重之类的无关数据。通过抽象可以简化、提炼问题的本质。</li>
-<li>继承：继承是子类自动共享父类数据和方法的机制，是类之间的一种关系，提高的代码的可重用性和可扩展性。在定义和实现一个类的时候，可以利用已有的类，将它的内容作为自己的基础内容，然后再添加一些新的内容或修改覆盖原有内容。</li>
-<li>多态：多态指的是程序中定义的引用变量所指向的具体类型和通过该引用变量发出的方法调用在编译时并不确定，在程序运行时才会确定。程序真正运行时才能确定引用变量到底会指向哪个类的实例对象、调用谁的方法。如此一来，就可以改变程序运行时绑定的具体代码，让程序可以选择多个运行状态。</li>
+<li>Object: represents an entity with unique identity, state(attributes), behavior(operations).<ul>
+<li>state: condition where the object exists.</li>
+<li>behavior: how the object acts to requests from other objects.</li>
+</ul>
+</li>
+<li>Class: description of a set of objects with same stucture(attributes) and behavior(operatios), serving as template for creating objects.</li>
+<li>面向对象的四个主要特征：抽象abstraction、封装ecapsulation、分层hierarchy、模块化Modularity。</li>
+<li>抽象：Essentail characteristics of an entity reltive to a given perspective, eliminating details. 只关注事物的相似点、共性，忽略与当前主题无关的方面。例如每个人都有不同，但我只关注姓名、年龄、收入这些内容，那就可以抽象成一个人，而不必管其他身高体重之类的无关数据。通过抽象可以简化、提炼问题的本质。</li>
+<li>封装：grouping of related elements into single entity, helping to hide information. 希望程序的部件”高内聚、低耦合”，防止程序相互依赖而带来的变动影响。在面向对象编程中，对象是封装的基本单位，面向对象的封装就是把描述一个对象的属性和行为的代码封装在一个类中。其中属性用变量定义，行为用方法定义，方法可以直接访问同一对象中的属性。通常将属性定义为private，这样就可以思考具体的方法究竟要定义到什么类中。例如人在黑板上画圆这个过程，显然圆心和半径都是圆的私有属性，所以画圆必须定义到圆这个类中，人只是负责发送一个消息给圆让它画一个。</li>
+<li>分层：分为组合aggregation(is-part-of)和继承inheritance(is-a-kind-of)。继承是子类自动共享父类数据和方法的机制，是类之间的一种关系，提高的代码的可重用性和可扩展性。在定义和实现一个类的时候，可以利用已有的类，将它的内容作为自己的基础内容，然后再添加一些新的内容或修改覆盖原有内容。通过继承，我们实现了多态polymorphism，多态指的是程序中定义的引用变量所指向的具体类型和通过该引用变量发出的方法调用在编译时并不确定，在程序运行时才会确定。程序真正运行时才能确定引用变量到底会指向哪个类的实例对象、调用谁的方法。如此一来，就可以改变程序运行时绑定的具体代码，让程序可以选择多个运行状态。</li>
+<li>模块化：decomposition of a large entity into smaller modules, which are independent, cohesive. Low coupling, high cohesion.</li>
 </ul>
 <h4 id="Java的数据类型"><a href="#Java的数据类型" class="headerlink" title="Java的数据类型"></a>Java的数据类型</h4><ul>
 <li>基本数据类型：8种<br> -&gt; 整形：byte(1), short(2), int(4), long(8)<br> -&gt; 浮点型：float(4), double(8)<br> -&gt; 字符：char(2)<br> -&gt; 布尔：boolean<br> -&gt; 字符类型要用单引号括起来，\u0000表示将字符转换为对应unicode编码。<br> -&gt; 数字默认浮点型为double，强制用0.12f。<br> -&gt; Long类型也需要加123l(l = L).</li>
@@ -453,7 +460,7 @@
 </li>
 <li>二维数组其实是一维数组中每个元素又分别是一个一维数组。高维要先分配好空间才能给低维数组分配（否则就是空中楼阁）。</li>
 <li>数组拷贝：使用系统类System提供的<code>Static void arraycopy(Object src, int srcPos, Object dest, int destPos, int length);</code> SrcPos表示源数组的什么位置开始拷贝，destPos表示放到dest的那个位置开始。</li>
-<li>数组排序：可以用<code>java.util.Arrays.sort(object obj, Comparator myComparator);</code><br>自定义排序可以通过自定义MyComparator来实现。<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">MyComparator</span> <span class="keyword">implements</span> <span class="title">Comparator</span> </span>&#123;</div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">compare</span><span class="params">(Object obj1, Object obj2)</span> </span>&#123;</div><div class="line">        User u1 = (User)obj1;</div><div class="line">        User u2 = (User)obj2;</div><div class="line">        <span class="keyword">if</span> (u1.age &lt; u2.age) &#123;</div><div class="line">                <span class="keyword">return</span> -<span class="number">1</span>;    <span class="comment">// 升序排列</span></div><div class="line">        &#125; <span class="keyword">else</span> <span class="keyword">if</span> (u1.age &gt; u2.age) &#123;</div><div class="line">                <span class="keyword">return</span> <span class="number">1</span>;    <span class="comment">// 降序排列</span></div><div class="line">        &#125; <span class="keyword">else</span> &#123;             <span class="comment">// 年龄相同按String排序</span></div><div class="line">                <span class="keyword">return</span> u1.name.compareTo(u2.name);</div><div class="line">        &#125;</div><div class="line">        &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<li>数组排序：可以用<code>java.util.Arrays.sort(object obj, Comparator myComparator);</code><br>自定义排序可以通过自定义MyComparator来实现。<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">MyComparator</span> <span class="keyword">implements</span> <span class="title">Comparator</span> </span>&#123;</div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">compare</span><span class="params">(Object obj1, Object obj2)</span> </span>&#123;</div><div class="line">        User u1 = (User)obj1;</div><div class="line">        User u2 = (User)obj2;</div><div class="line">        <span class="keyword">if</span> (u1.age &lt; u2.age) &#123;</div><div class="line">                <span class="keyword">return</span> -<span class="number">1</span>;    <span class="comment">// 升序排列</span></div><div class="line">        &#125; <span class="keyword">else</span> <span class="keyword">if</span> (u1.age &gt; u2.age) &#123;</div><div class="line">                <span class="keyword">return</span> <span class="number">1</span>;    <span class="comment">// 降序排列</span></div><div class="line">        &#125; <span class="keyword">else</span> &#123;             <span class="comment">// 年龄相同按String排序</span></div><div class="line">                <span class="keyword">return</span> u1.name.compareTo(u2.name);</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line"><span class="comment">// actually we don't need to explicitly define this</span></div><div class="line">Arrays.sort(arr, <span class="keyword">new</span> Comparator() &#123;</div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">compare</span><span class="params">(Node a, Node b)</span> </span>&#123;</div><div class="line">        <span class="keyword">return</span> a.val - b.val;</div><div class="line">    &#125;</div><div class="line">&#125;);</div><div class="line"><span class="comment">// and more easily</span></div><div class="line"> Arrays.sort(arr, (a, b) -&gt; a.val - b.val);</div></pre></td></tr></table></figure>
 </li>
 </ul>
 <p>然后在public的类的main中<code>ArrayList arrayList = new ArrayList();</code>之后，在往里add User的实例对象。<code>Object[] users = arrayList.toArray();</code>之后就可以<code>java.util.Arrays.sort(users, new MyComparator());</code>这样调用了。</p>
@@ -463,19 +470,21 @@
 </ul>
 <h4 id="Final"><a href="#Final" class="headerlink" title="Final"></a>Final</h4><ul>
 <li>类似于const，表示不许改变。修饰变量、方法、类。</li>
-<li>Final修饰的变量称为常量，没有默认初始值，必须进行一次直接赋值或者在构造方法里赋值，只能赋值一次。而在前面再加上static，则只能直接赋值。而final修饰的引用变量指的是引用不能随意改变指向，但是指向的那个对象本身还是可以变的。</li>
-<li>Final修饰的方法保持方法稳定性，不允许被子类覆盖。</li>
-<li>Final修饰的类不能被继承，类中的方法都是final的。</li>
-<li>Final, finally, finalize区别<br> -&gt; Final用于声明属性、方法和类，分别表示属性不可变、方法不可覆盖、类不可继承。内部类要访问一个局部变量，则该局部变量必须定义为final类型。<br> -&gt; Finally是异常处理末尾的统一出口，总是执行。<br> -&gt; Finalize是Object类的一个方法，在垃圾回收执行时调用被回收对象的finalize方法，可以覆盖重写以进行其他资源的回收如关闭文件等。</li>
+<li>final修饰的变量称为常量，没有默认初始值，必须进行一次直接赋值或者在构造方法里赋值，只能赋值一次。而在前面再加上static，则只能直接赋值。而final修饰的引用变量指的是引用不能随意改变指向，但是指向的那个对象本身还是可以变的。</li>
+<li>final修饰的方法保持方法稳定性，不允许被子类覆盖。</li>
+<li>final修饰的类不能被继承，类中的方法都是final的。</li>
+<li>final, finally, finalize区别<br> -&gt; final用于声明属性、方法和类，分别表示属性不可变、方法不可覆盖、类不可继承。内部类要访问一个局部变量，则该局部变量必须定义为final类型。<br> -&gt; finally是异常处理末尾的统一出口，总是执行。<br> -&gt; finalize是Object类的一个方法，在垃圾回收执行时调用被回收对象的finalize方法，可以覆盖重写以进行其他资源的回收如关闭文件等。</li>
 </ul>
 <h4 id="Abstract"><a href="#Abstract" class="headerlink" title="Abstract"></a>Abstract</h4><ul>
-<li>抽象类：含有抽象方法的类都是抽象类，但是抽象类其实也可以全是具体方法。抽象类不能生成对象实例，但可以作为对象变量声明的类型，只能定义一个引用，指向属于该抽象类的子类的实例。抽象类相当于半成品，需要子类覆盖其中的抽象方法。</li>
+<li>抽象类：含有抽象方法的类都是抽象类(需要声明abstract关键字)，但是抽象类其实也可以全是具体方法。抽象类不能生成对象实例，但可以作为对象变量声明的类型，只能定义一个引用，指向属于该抽象类的子类的实例。抽象类相当于半成品，需要子类覆盖其中的抽象方法。</li>
 <li>抽象方法：定义了一种标准，不含有具体实现，子类负责继承并实现父类所有抽象方法后才能实例化。</li>
 <li>Abstract和final不能同时使用。Abstract修饰明摆着就是需要继承、重写的，这与final相违背。private也不能同时使用，因为private直接就阻止了继承和重写。</li>
+<li><a href="http://www.geeksforgeeks.org/java-and-multiple-inheritance/" target="_blank" rel="external">Java不支持多继承</a>，因为可能出现在父类中定义了相同的方法（method with same signature），然后同时继承，调用该方法的时候就不知道调用的是哪一个方法了(<a href="https://en.wikipedia.org/wiki/Multiple_inheritance#The_diamond_problem" target="_blank" rel="external">diamond of death</a>)。或者解释说这是一个is-a问题，不能同时是同等级的东西。</li>
 </ul>
 <h4 id="接口interface"><a href="#接口interface" class="headerlink" title="接口interface"></a>接口interface</h4><ul>
 <li>接口本质上是特殊的抽象类。通过接口可以间接实现多继承，而不会增加类关系的复杂度。因为接口是对类的进一步抽象，可以分出主、次关系类型。接口定义了一种标准，接口的调用者是在使用这种标准，接口的实现类则是在实现标准。通过接口可以将使用标准和实现标准分离开来，解除耦合关系，具有可移植性。</li>
-<li>在接口中，所有的方法都是public abstract、所有的属性都是public static final。接口与接口之间可以多继承，implements后用逗号隔开。但是类还是只能单继承的。接口没有构造子，也没有main方法。</li>
+<li>在接口中，所有的方法都是public abstract、所有的属性都是public static final。</li>
+<li>接口与接口之间可以多继承，extends后用逗号隔开。这是因为接口仅仅定义了一种约定contract，仅仅是方法的signature而不涉及implementation，这样在子接口中发现相同的signature，直接归为一类。接口没有构造子，也没有main方法，不过在Java8中出现了接口的default方法，也允许一部分带有implementation的方法被继承，在子类implement这些接口的时候，需要手动调用<code>I1.super.func1()</code>来防止编译器不知道是哪个接口的方法。</li>
 <li>接口的实现是通过类。<code>public class className implements itf1, itf2, itf3</code> 来实现接口，允许实现多个接口。类必须实现接口中所有的方法，否则仍为抽象类。实现类中的方法必须加上public。</li>
 </ul>
 <h4 id="包装类及其拆箱装箱"><a href="#包装类及其拆箱装箱" class="headerlink" title="包装类及其拆箱装箱"></a>包装类及其拆箱装箱</h4><ul>
@@ -493,13 +502,13 @@
 <li><p><code>==</code>，<code>!=</code>比较的是引用对象的地址而不会自动拆箱;<code>&gt;</code>，<code>&gt;=</code>，<code>&lt;=</code>，<code>&lt;</code>，则会触发自动拆箱取出对象中的值。要比较Object的值，还是需要调用equals或实现compareTo方法为妙。</p>
 </li>
 </ul>
-<h4 id="String-StringBuffer-StringBuilder"><a href="#String-StringBuffer-StringBuilder" class="headerlink" title="String, StringBuffer, StringBuilder"></a>String, StringBuffer, StringBuilder</h4><ul>
+<h4 id="String-StringBuffer-StringBuilder"><a href="#String-StringBuffer-StringBuilder" class="headerlink" title="String, StringBuffer, StringBuilder"></a><a href="http://www.geeksforgeeks.org/g-fact-27-string-vs-stringbuilder-vs-stringbuffer/" target="_blank" rel="external">String, StringBuffer, StringBuilder</a></h4><ul>
 <li><p>String：不可改变的Unicode字符序列。在String类中，以”xxx”的字面值创建时，直接到Java方法空间的串池中查找，若已存在则直接返回该串地址，若无则新建。</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">String s1 = <span class="string">"abc"</span>;    <span class="comment">// 新建</span></div><div class="line">String s2 = <span class="string">"abc"</span>;    <span class="comment">// 直接从池中取出</span></div><div class="line">String s3 = <span class="keyword">new</span> String(<span class="string">"abc"</span>);    <span class="comment">// 在堆中创建，不管池</span></div></pre></td></tr></table></figure>
 <p> 调用String类的任何方法都不会改变String对象本身。</p>
 </li>
-<li>StringBuffer：可改变的Unicode字符序列。允许并发操作，是线程安全的。最典型的使用场景是String的连接，使用append方法会比新建String高效。</li>
-<li>StringBulder：可改变的Unicode字符序列。但不支持并发操作，不是线程安全的。</li>
+<li>StringBuffer：可改变的Unicode字符序列。synchronous允许并发操作，thread-safe是线程安全的。最典型的使用场景是String的连接，使用append方法会比新建String高效。</li>
+<li>StringBuilder：可改变的Unicode字符序列。但不支持并发操作，不是线程安全的，不过就更快。</li>
 </ul>
 <h4 id="内部类"><a href="#内部类" class="headerlink" title="内部类"></a>内部类</h4><ul>
 <li>内部类作为类的一个成员，依附于外部类存在。内部类提供了某种进入其外围类的窗口，通常使用场景是内部类继承自某个类或实现某个接口，在内部类代码中操作创建其外围类的对象。无论外围类是否已经继承了某个接口，都对内部类没有影响。主要分为成员内部类、局部内部类、静态内部类、匿名内部类。</li>
@@ -513,7 +522,7 @@
 </ul>
 <h4 id="Assert"><a href="#Assert" class="headerlink" title="Assert"></a>Assert</h4><ul>
 <li>要想使用断言，在执行时需要java –ea 类名这样强制开启。</li>
-<li>断言保证了最基本的、关键的正确性。<code>Assert 布尔表达式 字符串;</code>一旦这个表达式为false，后面的字符串就会显示出来。</li>
+<li>断言保证了最基本的、关键的正确性。<code>assert 布尔表达式 字符串;</code>一旦这个表达式为false，后面的字符串就会显示出来。</li>
 </ul>
 <h4 id="Equals与"><a href="#Equals与" class="headerlink" title="Equals与=="></a>Equals与<code>==</code></h4><p> 在Object类中，equals的定义就是<code>==</code>，表示的是判断两个变量指向的对象是否是同一个变量。所以如果希望比较的是对象的内容，还是需要自己覆盖equals方法。</p>
 <h4 id="Overload重载与Override覆盖重写"><a href="#Overload重载与Override覆盖重写" class="headerlink" title="Overload重载与Override覆盖重写"></a>Overload重载与Override覆盖重写</h4><ul>
@@ -542,12 +551,12 @@
 </li>
 </ul>
 <h4 id="class-forName-String-ClassName-的作用"><a href="#class-forName-String-ClassName-的作用" class="headerlink" title="class.forName(String ClassName)的作用"></a>class.forName(String ClassName)的作用</h4><ul>
-<li>返回与给定的字符串名称相关联类或接口的Class对象。它是Static的方法，不依赖Class类对象。Class类没有显式的构造子可以调用，只有类加载器的defineClass自动调用。</li>
+<li>返回与给定的字符串名称相关联类或接口的Class对象。它是static的方法，不依赖Class类对象。Class类没有显式的构造子可以调用，只有类加载器的defineClass自动调用。</li>
 <li>Java程序在运行时，Java运行时系统一直对所有的对象进行所谓的运行时类型标识。这项信息纪录了每个对象所属的类。虚拟机通常使用运行时类型信息选准正确方法去执行，用来保存这些类型信息的类是Class类。Class类封装一个对象和接口运行时的状态，当装载类时，Class类型的对象自动创建。</li>
 </ul>
 <h4 id="ClassLoader如何加载Class"><a href="#ClassLoader如何加载Class" class="headerlink" title="ClassLoader如何加载Class"></a>ClassLoader如何加载Class</h4><ul>
 <li>ClassLoader用于将Class文件加载到JVM，使java动态加载类定义的特性成为可能。</li>
-<li>当运行一个程序的时候，JVM启动，运行bootstrap classloader，加载java核心API，再调用ExtClaassLoader加载扩展API，最后AppClassLoader加载CLASSPATH目录下定义的class。</li>
+<li>当运行一个程序的时候，JVM启动，运行bootstrap classloader，加载java核心API，再调用ExtClassLoader加载扩展API，最后AppClassLoader加载CLASSPATH目录下定义的class。</li>
 <li>这个bootstrap classloader不是用java编写的。它在JVM运行时加载java核心API以满足java程序最基本的需求。</li>
 <li>类加载的双亲委托模式：每一个自定义的ClassLoader都继承ClassLoader这个抽象类，同时还有个parent指向父类。这个Parent不是真正的被继承的父类，而是在实例化ClassLoader时指定的一个ClassLoader。若这个parent是Null，则默认其父类为bootstrap ClassLoader。当parent无法加载成功才会由自己的findClass加载。所以我们要实现一个自定义类时，只需要实现一个findClass方法即可。</li>
 <li>双亲委托模式作用：一是避免重复加载，当parent已经可以加载该类，就没必要让子ClassLoader再加载一次；二是考虑安全因素，保证核心API中定义的类不会被轻易替换掉，例如String一定会现在Bootstrap ClassLoader中加载好，轮不到自定义的findClass.</li>
@@ -564,10 +573,12 @@
 <li>Java代码编译和执行的整个过程包含三个重要机制：<br> -&gt; Java源码编译机制：三步走——分析和输入到符号表、注解处理、语义分析和生成class文件。最后生成的class文件包含了结构信息（class文件格式、版本号、各部分的数量和大小信息）、元数据（对应于java源码中声明和常量信息，包括类、父类、实现的接口的声明信息、域和方法声明信息和常量池）、方法信息（对应java源码中语句和表达式对应的信息，包括字节码、异常处理器表、求值栈和局部变量区大小、求值栈的类型记录、调试符号等信息）。<br> -&gt; 类加载机制：通过ClassLoader及其子类完成，加载顺序依次为<br>  -Bootstrap ClassLoader(加载$JAVA_HOME中jre/lib/rt.jar的类，由C++实现而非ClassLoader子类)<br>  -Extension ClassLoader(加载$JAVA_HOME中jre/lib/*.jar的其他扩展功能包)<br>  -App ClassLoader (加载classpath指定的jar包)<br>  -Custom ClassLoader(应用程序根据自身需要自定义的ClassLoader)<br>  最终会从下往上检查是否所有类都加载成功。<br> -&gt; 类执行机制：基于栈来执行class字节码。线程创建后，会产生程序计数器pc和栈stack，pc存放下一条要执行的指令在方法中的偏移量，栈中存放一个个栈帧，每个栈帧对应每个方法的每次调用，栈帧由局部变量区（存方法中的局部变量和参数）和操作数栈（存放方法执行时的中间结果）两部分组成。</li>
 <li>JVM内存管理<br>JVM栈由堆、栈、本地方法栈、方法区等部分组成。<br> -&gt; 堆：存放对象内容，所有new出来的内容都在堆中分配。堆分为新生代和旧生代，其中新生代存放新建对象于eden区，当edne空间不足是会移到survivor取。旧生代存放多次垃圾回收后仍然存活的对象。<br> -&gt; 栈：每个线程执行每个方法的时候都会在栈中申请一个栈帧。<br> -&gt; 本地方法栈：用于支持native方法的执行，存储了每个native方法调用的状态。<br> -&gt; 方法区permanent space：存放了要加载的类信息、静态变量、final类型的常量、属性、方法信息。</li>
 </ul>
-<h4 id="JVM垃圾回收"><a href="#JVM垃圾回收" class="headerlink" title="JVM垃圾回收"></a>JVM垃圾回收</h4><p> JVM对新生代和旧生代采用不同的垃圾回收机制。</p>
+<h4 id="JVM垃圾回收"><a href="#JVM垃圾回收" class="headerlink" title="JVM垃圾回收"></a><a href="http://www.geeksforgeeks.org/garbage-collection-java/" target="_blank" rel="external">JVM垃圾回收</a></h4><p> JVM对新生代和旧生代采用不同的垃圾回收机制。</p>
 <ul>
 <li>生代通常存活时间较短，故用Copying算法扫描出存活的对象并复制到一块新的完全未使用的空间（Eden的From Space复制到To Space）。新生代GC的触发由空闲指针的方式控制，指针记录最后一次分配的对象在新生代区间的位置，当下一次又要分配内存时就会检查空间是否足够，不够就触发GC。当连续分配对象的时候，对象会逐渐从eden到survivor，最后到旧生代。</li>
-<li>旧生代对象存活时间较长，故采用Mark算法扫描出存活的对象并回收未被标记的对象，回收后对空间合并或标记为空闲方便下次分配。    </li>
+<li>旧生代对象存活时间较长，故采用Mark算法扫描出存活的对象并回收未被标记的对象，回收后对空间合并或标记为空闲方便下次分配。 </li>
+<li>Main objective: free heap memory by destroying unreachable objects.</li>
+<li><a href="http://www.geeksforgeeks.org/mark-and-sweep-garbage-collection-algorithm/" target="_blank" rel="external">Mark and sweep algorithm</a>: when objects are created, their marked bit is set to false. when gc starts, mark phase will DFS from root(assume one only) to all the other nodes and mark the reachable ones as true; in sweep phase, all the nodes that are marked false will be swept away from heap and those marked true will be reset as false.</li>
 </ul>
 <hr>
 <h3 id="多线程"><a href="#多线程" class="headerlink" title="多线程"></a>多线程</h3><h4 id="进程与线程"><a href="#进程与线程" class="headerlink" title="进程与线程"></a>进程与线程</h4><ul>
@@ -579,16 +590,16 @@
 <li>只有运行状态的线程才有机会执行代码，主线程的中止（main方法退出）不会影响其他正在运行中的线程，在线程内部，程序按顺序执行。只有进程中的所有线程都中止，进程(JVM进程)才会退出。</li>
 </ul>
 <h4 id="线程编程"><a href="#线程编程" class="headerlink" title="线程编程"></a>线程编程</h4><ul>
-<li><p>写一个类extends Thread类，并覆盖其中的run()方法。之后在main中实例化对象后再.start()即可运行。</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">MyThread</span> <span class="keyword">extends</span> <span class="title">Thread</span> </span>&#123;</div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">run</span><span class="params">()</span> </span>&#123; … &#125;</div><div class="line">&#125;</div><div class="line">Thread t1 = <span class="keyword">new</span> MyThread();</div><div class="line">T1.start();</div></pre></td></tr></table></figure>
+<li><p>写一个类extends Thread类，并覆盖其中的run()方法。之后在main中实例化对象后再.start()即可运行。由于Java不支持多继承，所以在这种情况下就没法再继承别的基类了。不过可以访问Thread类中定义的yield, interrupt等方法。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">MyThread</span> <span class="keyword">extends</span> <span class="title">Thread</span> </span>&#123;</div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">run</span><span class="params">()</span> </span>&#123;</div><div class="line">        ... </div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line">Thread t1 = <span class="keyword">new</span> MyThread();</div><div class="line">T1.start();</div></pre></td></tr></table></figure>
 </li>
-<li><p>写一个类implements Runnable接口，实现其中的run()方法。但是这个类不能直接作为对象开启线程，而是作为线程Thread的对象构造子的参数实例化一个线程后，还是通过线程来开启。</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">MyThread</span> <span class="keyword">implements</span> <span class="title">Runnable</span> </span>&#123;</div><div class="line">     <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">run</span><span class="params">()</span> </span>&#123; … &#125;</div><div class="line">&#125;</div><div class="line">Runnable myThread = <span class="keyword">new</span> MyThread();</div><div class="line">Thread t2 = <span class="keyword">new</span> Thread(myThread);</div><div class="line">T2.start();</div></pre></td></tr></table></figure>
+<li><p>写一个类implements Runnable接口，实现其中的run()方法。但是这个类不能直接作为对象开启线程，而是作为线程Thread的对象构造子的参数实例化一个线程后，还是通过线程来开启。由于这只是实现了接口，因此还可以继承某种别的基类或实现若干别的接口。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">MyThread</span> <span class="keyword">implements</span> <span class="title">Runnable</span> </span>&#123;</div><div class="line">     <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">run</span><span class="params">()</span> </span>&#123;</div><div class="line">         ...</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line">Runnable myThread = <span class="keyword">new</span> MyThread();</div><div class="line">Thread t2 = <span class="keyword">new</span> Thread(myThread);</div><div class="line">T2.start();</div></pre></td></tr></table></figure>
 </li>
 </ul>
 <h4 id="线程的生命周期"><a href="#线程的生命周期" class="headerlink" title="线程的生命周期"></a>线程的生命周期</h4><ul>
 <li>初始状态new：创建了一个线程对象，线程只是处在JVM中，并没有真正开始运行。</li>
-<li>就绪状态ready：已经具备了运行条件，但还没有分配到CPU。处于就绪队列中（或者叫可运行池）等待CPU调度。</li>
+<li>就绪状态ready/runnable：已经具备了运行条件，但还没有分配到CPU。处于就绪队列中（或者叫可运行池）等待CPU调度。</li>
 <li>运行状态running：拥有CPU的执行权。</li>
 <li>阻塞状态waiting：运行状态中的线程若需要等待I/O资源或者调用了sleep等方法，就会进入阻塞状态。阻塞之后的线程会重新进入就绪队列等待调度。</li>
 <li>终止状态terminate：线程运行结束。所有线程都over了这个进程才会over。</li>
@@ -610,8 +621,8 @@
 <li>NotifyAll()方法：移出所有等待队列中的线程放入锁池。</li>
 </ul>
 <h4 id="Sleep与wait方法"><a href="#Sleep与wait方法" class="headerlink" title="Sleep与wait方法"></a>Sleep与wait方法</h4><ul>
-<li>Sleep：Thread类中的方法，表示线程休眠，会自动唤醒。Sleep只是将执行机会让给其他线程而不会释放对象锁，监控状态依然保持、之后会自动恢复。</li>
-<li>Wait：Object类中的方法，表示当前线程释放对象锁并进入等待队列，待针对此对象的notify方法执行后才会进入锁池。</li>
+<li>sleep：Thread类中的方法，表示线程休眠，会自动唤醒。Sleep只是将执行机会让给其他线程而不会释放对象锁，监控状态依然保持、之后会自动恢复。</li>
+<li>wait：Object类中的方法，表示当前线程释放对象锁并进入等待队列，待针对此对象的notify方法执行后才会进入锁池。</li>
 </ul>
 <h4 id="当一个线程进入一个对象的一个synchronized方法后，其他线程可否进入该对象的其他方法？"><a href="#当一个线程进入一个对象的一个synchronized方法后，其他线程可否进入该对象的其他方法？" class="headerlink" title="当一个线程进入一个对象的一个synchronized方法后，其他线程可否进入该对象的其他方法？"></a>当一个线程进入一个对象的一个synchronized方法后，其他线程可否进入该对象的其他方法？</h4><p> 分情况来看。</p>
 <ul>
