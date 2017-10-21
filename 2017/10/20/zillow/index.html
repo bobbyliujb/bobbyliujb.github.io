@@ -1,0 +1,1107 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next mist use-motion" lang="en">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+  
+  
+    
+    
+  <script src="/lib/pace/pace.min.js?v=1.0.2"></script>
+  <link href="/lib/pace/pace-theme-minimal.min.css?v=1.0.2" rel="stylesheet">
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.2" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="java,algorithm,interview," />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.2" />
+
+
+
+
+
+
+<meta name="description" content="迎难而上，祝我好运。">
+<meta name="keywords" content="java,algorithm,interview">
+<meta property="og:type" content="article">
+<meta property="og:title" content="西螺古炉普">
+<meta property="og:url" content="https://bobbyliujb.github.io/2017/10/20/zillow/index.html">
+<meta property="og:site_name" content="Bobby">
+<meta property="og:description" content="迎难而上，祝我好运。">
+<meta property="og:locale" content="en">
+<meta property="og:updated_time" content="2017-10-21T06:39:55.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="西螺古炉普">
+<meta name="twitter:description" content="迎难而上，祝我好运。">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Mist',
+    sidebar: {"position":"left","display":"hide","offset":12,"offset_float":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: true,
+    duoshuo: {
+      userId: '0',
+      author: 'Author'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="https://bobbyliujb.github.io/2017/10/20/zillow/"/>
+
+
+
+
+
+  <title>西螺古炉普 | Bobby</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="en">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Bobby</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            Home
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            Categories
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            Archives
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            Tags
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://bobbyliujb.github.io/2017/10/20/zillow/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="BobbyLiujb">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="https://ww4.sinaimg.cn/large/9b3a5c2fgw1faysh4xl7ij20bh0bhmy5.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Bobby">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">西螺古炉普</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-10-20T17:29:42-07:00">
+                2017-10-20
+              </time>
+            
+
+            
+              <span class="post-meta-divider">|</span>
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-check-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Post modified&#58;</span>
+              
+              <time title="Post modified" itemprop="dateModified" datetime="2017-10-20T23:39:55-07:00">
+                2017-10-20
+              </time>
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Tech/" itemprop="url" rel="index">
+                    <span itemprop="name">Tech</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2017/10/20/zillow/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count"
+                        data-disqus-identifier="2017/10/20/zillow/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+             <span id="/2017/10/20/zillow/" class="leancloud_visitors" data-flag-title="西螺古炉普">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">Visitors&#58;</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>迎难而上，祝我好运。<br><a id="more"></a></p>
+<h4 id="字符串长度"><a href="#字符串长度" class="headerlink" title="字符串长度"></a>字符串长度</h4><ul>
+<li>要求不能用length内建方法。<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">private</span> <span class="keyword">int</span> <span class="title">getStrLen</span><span class="params">(String str)</span> </span>&#123;</div><div class="line">		<span class="keyword">if</span> (str == <span class="keyword">null</span> || str.equals(<span class="string">""</span>)) &#123;</div><div class="line">			<span class="keyword">return</span> <span class="number">0</span>;</div><div class="line">		&#125;</div><div class="line">		<span class="keyword">return</span> <span class="number">1</span> + getStrLen(str.substring(<span class="number">1</span>));</div><div class="line">	&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<h4 id="BST验证"><a href="#BST验证" class="headerlink" title="BST验证"></a>BST验证</h4><ul>
+<li>常见的错误是直接greedy，只判断当前节点和孩子的大小。但BST的定义是比「所有的左子树都大、比右都小」。</li>
+<li><p>方法一：中序遍历时每次都判断前后两个元素的大小关系。又分为recursive和iterative的。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div></pre></td><td class="code"><pre><div class="line"> <span class="comment">// recursive: 全局的prev记录当前节点前一个是谁，比较大小</span></div><div class="line"><span class="keyword">private</span> TreeNode prev = <span class="keyword">null</span>;</div><div class="line"><span class="function"><span class="keyword">private</span> <span class="keyword">boolean</span> <span class="title">validateBST1</span><span class="params">(TreeNode root)</span> </span>&#123;</div><div class="line">    <span class="keyword">if</span> (root == <span class="keyword">null</span>) &#123;</div><div class="line">        <span class="keyword">return</span> <span class="keyword">true</span>;</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">if</span> (!validateBST1(root.left)) &#123;</div><div class="line">        <span class="keyword">return</span> <span class="keyword">false</span>;</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">if</span> (prev != <span class="keyword">null</span> &amp;&amp; prev.val &gt;= root.val) &#123;</div><div class="line">        <span class="keyword">return</span> <span class="keyword">false</span>;</div><div class="line">    &#125;</div><div class="line">    prev = root;</div><div class="line">    <span class="keyword">return</span> validateBST1(root.right);</div><div class="line">&#125;</div><div class="line"> </div><div class="line"><span class="comment">// iterative: 用stack不断深入左节点，直到空再将栈顶与prev比较，然后进入右子树，继续不断向左。</span></div><div class="line"><span class="function"><span class="keyword">private</span> <span class="keyword">boolean</span> <span class="title">validateBST2</span><span class="params">(TreeNode root)</span> </span>&#123;</div><div class="line">    <span class="keyword">if</span> (root == <span class="keyword">null</span>) &#123;</div><div class="line">        <span class="keyword">return</span> <span class="keyword">true</span>;</div><div class="line">    &#125;</div><div class="line">    Stack&lt;TreeNode&gt; stack = <span class="keyword">new</span> Stack&lt;&gt;();</div><div class="line">    TreeNode prev = <span class="keyword">null</span>;</div><div class="line">    <span class="keyword">while</span> (root != <span class="keyword">null</span> || !stack.isEmpty()) &#123;</div><div class="line">        <span class="keyword">while</span> (root != <span class="keyword">null</span>) &#123;</div><div class="line">            stack.push(root);</div><div class="line">            root = root.left;</div><div class="line">        &#125;</div><div class="line">        root = stack.pop();</div><div class="line">        <span class="keyword">if</span> (prev != <span class="keyword">null</span> &amp;&amp; prev.val &gt;= root.val) &#123;</div><div class="line">            <span class="keyword">return</span> <span class="keyword">false</span>;</div><div class="line">        &#125;</div><div class="line">        prev = root;</div><div class="line">        root = root.right;</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">return</span> <span class="keyword">true</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+</li>
+<li><p>方法二：分治，为左右子树给定范围（min, max），在递归时更新左子树的上界、更新右子树的下界。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">private</span> <span class="keyword">boolean</span> <span class="title">validateBST3</span><span class="params">(TreeNode root)</span> </span>&#123;</div><div class="line">    <span class="keyword">return</span> dvcq(root, Long.MIN_VALUE, Long.MAX_VALUE);</div><div class="line">&#125;</div><div class="line"><span class="function"><span class="keyword">private</span> <span class="keyword">boolean</span> <span class="title">dvcq</span><span class="params">(TreeNode root, <span class="keyword">long</span> min, <span class="keyword">long</span> max)</span> </span>&#123;</div><div class="line">    <span class="keyword">if</span> (root == <span class="keyword">null</span>) &#123;</div><div class="line">        <span class="keyword">return</span> <span class="keyword">true</span>;</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">if</span> (root.val &lt;= min || root.val &gt;= max) &#123;</div><div class="line">        <span class="keyword">return</span> <span class="keyword">false</span>;</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">return</span> dvcq(root.left, min, Math.min(root.val, max))</div><div class="line">            &amp;&amp; dvcq(root.right, Math.max(root.val, min), max);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<h4 id="走迷宫"><a href="#走迷宫" class="headerlink" title="走迷宫"></a>走迷宫</h4><ul>
+<li>给一个grid走迷宫，有障碍物，四个方向随便走，要左上角到右下角的最短路径</li>
+<li>BFS方法，进入循环时记录需要遍历的点的个数同时更新步数，从当前点开始往下、右、上、左的顺序走，如果没访问过且不是障碍物就放入queue，第一个到达右下角的就是最短路了。<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">private</span> <span class="keyword">int</span> <span class="title">shortestPath</span><span class="params">(<span class="keyword">int</span>[][] grid)</span></span>&#123;</div><div class="line">    <span class="keyword">if</span> (grid == <span class="keyword">null</span> || grid.length == <span class="number">0</span> || grid[<span class="number">0</span>].length == <span class="number">0</span> || grid[<span class="number">0</span>][<span class="number">0</span>] == <span class="number">1</span>) &#123;</div><div class="line">        <span class="keyword">return</span> <span class="number">0</span>;</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">boolean</span>[][] visited = <span class="keyword">new</span> <span class="keyword">boolean</span> [grid.length][grid[<span class="number">0</span>].length];</div><div class="line">    Queue&lt;Point&gt; q = <span class="keyword">new</span> LinkedList&lt;&gt;();</div><div class="line">    q.add(<span class="keyword">new</span> Point(<span class="number">0</span>, <span class="number">0</span>));</div><div class="line">    visited[<span class="number">0</span>][<span class="number">0</span>] = <span class="keyword">true</span>;</div><div class="line">    <span class="keyword">int</span> step = <span class="number">0</span>;</div><div class="line">    <span class="keyword">while</span> (!q.isEmpty()) &#123;</div><div class="line">        <span class="keyword">int</span> size = q.size();</div><div class="line">        step++;</div><div class="line">        <span class="keyword">while</span> (size-- &gt; <span class="number">0</span>) &#123;</div><div class="line">            Point curr = q.poll();</div><div class="line">            <span class="keyword">if</span> (curr.x == grid.length - <span class="number">1</span> &amp;&amp; curr.y == grid[<span class="number">0</span>].length - <span class="number">1</span>) &#123;</div><div class="line">                <span class="keyword">return</span> step;</div><div class="line">            &#125;</div><div class="line">            <span class="comment">// down</span></div><div class="line">            <span class="keyword">if</span> (curr.x + <span class="number">1</span> &lt; grid.length &amp;&amp; grid[curr.x + <span class="number">1</span>][curr.y] != <span class="number">1</span> &amp;&amp;</div><div class="line">                    !visited[curr.x + <span class="number">1</span>][curr.y]) &#123;</div><div class="line">                visited[curr.x + <span class="number">1</span>][curr.y] = <span class="keyword">true</span>;</div><div class="line">                q.add(<span class="keyword">new</span> Point(curr.x + <span class="number">1</span>, curr.y));</div><div class="line">            &#125;</div><div class="line">            <span class="comment">// right</span></div><div class="line">            <span class="keyword">if</span> (curr.y + <span class="number">1</span> &lt; grid[<span class="number">0</span>].length &amp;&amp; grid[curr.x][curr.y + <span class="number">1</span>] != <span class="number">1</span> &amp;&amp;</div><div class="line">                    !visited[curr.x][curr.y + <span class="number">1</span>]) &#123;</div><div class="line">                visited[curr.x][curr.y + <span class="number">1</span>] = <span class="keyword">true</span>;</div><div class="line">                q.add(<span class="keyword">new</span> Point(curr.x, curr.y + <span class="number">1</span>));</div><div class="line">            &#125;</div><div class="line">            <span class="comment">// up</span></div><div class="line">            <span class="keyword">if</span> (curr.x &gt;= <span class="number">1</span> &amp;&amp; grid[curr.x - <span class="number">1</span>][curr.y] != <span class="number">1</span> &amp;&amp;</div><div class="line">                    !visited[curr.x - <span class="number">1</span>][curr.y]) &#123;</div><div class="line">                visited[curr.x - <span class="number">1</span>][curr.y] = <span class="keyword">true</span>;</div><div class="line">                q.add(<span class="keyword">new</span> Point(curr.x - <span class="number">1</span>, curr.y));</div><div class="line">            &#125;</div><div class="line">            <span class="comment">// left</span></div><div class="line">            <span class="keyword">if</span> (curr.y &gt;= <span class="number">1</span> &amp;&amp; grid[curr.x][curr.y - <span class="number">1</span>] != <span class="number">1</span> &amp;&amp;</div><div class="line">                    !visited[curr.x][curr.y - <span class="number">1</span>]) &#123;</div><div class="line">                visited[curr.x][curr.y - <span class="number">1</span>] = <span class="keyword">true</span>;</div><div class="line">                q.add(<span class="keyword">new</span> Point(curr.x, curr.y - <span class="number">1</span>));</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">return</span> -<span class="number">1</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<h4 id="Lowest-Common-Ancestor"><a href="#Lowest-Common-Ancestor" class="headerlink" title="Lowest Common Ancestor"></a>Lowest Common Ancestor</h4><ul>
+<li>任意二叉树的最小共同祖先。</li>
+<li><p>recursive：先看当前root是否符合其中一个，是就返回当前root，否则看看是否分居左、右，是也返回当前root，再否则看看需要深入到哪一边。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">private</span> TreeNode <span class="title">getLCA</span><span class="params">(TreeNode root, TreeNode n1, TreeNode n2)</span> </span>&#123;</div><div class="line">	<span class="keyword">if</span> (root == <span class="keyword">null</span>) &#123;</div><div class="line">		<span class="keyword">return</span> <span class="keyword">null</span>;</div><div class="line">	&#125;</div><div class="line">	<span class="keyword">if</span> (root == n1 || root == n2) &#123;</div><div class="line">		<span class="keyword">return</span> root;</div><div class="line">	&#125;</div><div class="line">	TreeNode left = getLCA(root.left, n1, n2);</div><div class="line">	TreeNode right = getLCA(root.right, n1, n2);</div><div class="line">	<span class="keyword">if</span> (left != <span class="keyword">null</span> &amp;&amp; right != <span class="keyword">null</span>) &#123;</div><div class="line">		<span class="keyword">return</span> root;</div><div class="line">	&#125;</div><div class="line">	<span class="keyword">if</span> (left == <span class="keyword">null</span> &amp;&amp; right == <span class="keyword">null</span>) &#123;</div><div class="line">		<span class="keyword">return</span> <span class="keyword">null</span>;</div><div class="line">	&#125;</div><div class="line">	<span class="keyword">return</span> left == <span class="keyword">null</span>? right: left;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+</li>
+<li><p>follow-up：如果每个节点还给多一个parent引用</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">TreeNodeP</span> </span>&#123;</div><div class="line">    <span class="keyword">int</span> val;</div><div class="line">    TreeNodeP left;</div><div class="line">    TreeNodeP right;</div><div class="line">    TreeNodeP parent;</div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="title">TreeNodeP</span><span class="params">(<span class="keyword">int</span> val)</span> </span>&#123;</div><div class="line">        <span class="keyword">this</span>.val = val;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+</li>
+<li><p>方法一：将其中一个节点一路上溯到root，将沿途的节点全部存入Set，然后再从另一个节点上溯，看看沿途哪个在set里。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">public</span> TreeNodeP <span class="title">getLCA2</span><span class="params">(TreeNodeP p, TreeNodeP q)</span> </span>&#123;</div><div class="line">    Set&lt;TreeNodeP&gt; set = <span class="keyword">new</span> HashSet&lt;&gt;();</div><div class="line">    <span class="keyword">while</span> (p != <span class="keyword">null</span>) &#123;</div><div class="line">        set.add(p);</div><div class="line">        p = p.parent;</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">while</span> (q != <span class="keyword">null</span>) &#123;</div><div class="line">        <span class="keyword">if</span> (set.contains(q)) &#123;</div><div class="line">            <span class="keyword">return</span> q;</div><div class="line">        &#125;</div><div class="line">        q = q.parent;</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">return</span> <span class="keyword">null</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+</li>
+<li><p>方法二：先分别求两个节点的深度，将两个节点上溯到相同高度后，同时上溯并在每一步都判断是否相等。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">public</span> TreeNodeP <span class="title">getLCA3</span><span class="params">(TreeNodeP p, TreeNodeP q)</span> </span>&#123;</div><div class="line">    <span class="keyword">int</span> hp = getH(p);</div><div class="line">    <span class="keyword">int</span> hq = getH(q);</div><div class="line">    <span class="keyword">while</span> (hp &lt; hq) &#123;</div><div class="line">        p = p.parent;</div><div class="line">        hp--;</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">while</span> (hq &lt; hp) &#123;</div><div class="line">        q = q.parent;</div><div class="line">        hq--;</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">while</span> (p != <span class="keyword">null</span> &amp;&amp; q != <span class="keyword">null</span> &amp;&amp; p != q) &#123;</div><div class="line">        p = p.parent;</div><div class="line">        q = q.parent;</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">return</span> p;</div><div class="line">&#125;</div><div class="line"><span class="function"><span class="keyword">private</span> <span class="keyword">int</span> <span class="title">getH</span><span class="params">(TreeNodeP root)</span> </span>&#123;</div><div class="line">    <span class="keyword">int</span> h = <span class="number">0</span>;</div><div class="line">    <span class="keyword">while</span> (root != <span class="keyword">null</span>) &#123;</div><div class="line">        h++;</div><div class="line">        root = root.parent;</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">return</span> h;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<h4 id="找第一个unique的字符"><a href="#找第一个unique的字符" class="headerlink" title="找第一个unique的字符"></a>找第一个unique的字符</h4><ul>
+<li><p>方法一：遍历两次，第一次统计次数，第二次碰到次数为1的即可。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">firstUniqChar2</span><span class="params">(String s)</span> </span>&#123;</div><div class="line">        <span class="keyword">if</span> (s == <span class="keyword">null</span> || s.length() == <span class="number">0</span>) &#123;</div><div class="line">            <span class="keyword">return</span> -<span class="number">1</span>;</div><div class="line">        &#125;</div><div class="line">        <span class="keyword">char</span>[] sChar = s.toCharArray();</div><div class="line">        <span class="keyword">int</span>[] bucket = <span class="keyword">new</span> <span class="keyword">int</span> [<span class="number">256</span>];</div><div class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; sChar.length; i++) &#123;</div><div class="line">        	bucket[sChar[i]]++;</div><div class="line">        &#125;</div><div class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; sChar.length; i++) &#123;</div><div class="line">        	<span class="keyword">if</span> (bucket[sChar[i]] == <span class="number">1</span>) &#123;</div><div class="line">        		<span class="keyword">return</span> i;</div><div class="line">        	&#125;</div><div class="line">        &#125;</div><div class="line">        <span class="keyword">return</span> -<span class="number">1</span>;</div><div class="line">    &#125;</div></pre></td></tr></table></figure>
+</li>
+<li><p>方法二：只遍历一次，利用<code>LinkedHashMap</code>维护存入的顺序，在统计次数的同时，将次数为1的放入linkedhashmap，如果后续再碰到字符就remove掉，最后就输出第一个就好。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">firstUniqChar</span><span class="params">(String s)</span> </span>&#123;</div><div class="line">    <span class="keyword">if</span> (s == <span class="keyword">null</span> || s.length() == <span class="number">0</span>) &#123;</div><div class="line">        <span class="keyword">return</span> -<span class="number">1</span>;</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">char</span>[] sChar = s.toCharArray();</div><div class="line">    <span class="keyword">int</span>[] bucket = <span class="keyword">new</span> <span class="keyword">int</span> [<span class="number">256</span>];</div><div class="line">    Map&lt;Character, Integer&gt; map = <span class="keyword">new</span> LinkedHashMap&lt;&gt;();</div><div class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; sChar.length; i++) &#123;</div><div class="line">        <span class="keyword">if</span> (bucket[sChar[i]]++ == <span class="number">0</span>) &#123;</div><div class="line">            map.put(sChar[i], i);</div><div class="line">        &#125; <span class="keyword">else</span> &#123;</div><div class="line">            map.remove(sChar[i]);</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">    Iterator it = map.entrySet().iterator();</div><div class="line">    <span class="keyword">if</span> (it.hasNext()) &#123;</div><div class="line">        Map.Entry pair = (Map.Entry)it.next();</div><div class="line">        <span class="keyword">return</span> (Integer)pair.getValue();</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">return</span> -<span class="number">1</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+</li>
+<li><p>方法三，双指针，慢指针指向当前只出现了一次的，快指针往后统计次数。每次都要判断慢指针指向的是不是已经需要更新了，更新时用while一路往后。当快指针消耗完，慢指针就是了。但感觉也算是遍历两次了。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">firstUniqChar</span><span class="params">(String s)</span> </span>&#123; </div><div class="line">    <span class="keyword">if</span> (s == <span class="keyword">null</span> || s.length() == <span class="number">0</span>) &#123;</div><div class="line">        <span class="keyword">return</span> -<span class="number">1</span>;</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">int</span> len = s.length(); </div><div class="line">    <span class="keyword">int</span> slow = <span class="number">0</span>, fast = -<span class="number">1</span>; </div><div class="line">    <span class="keyword">int</span>[] count = <span class="keyword">new</span> <span class="keyword">int</span>[<span class="number">256</span>]; </div><div class="line">    <span class="keyword">char</span>[] c = s.toCharArray(); </div><div class="line">    <span class="keyword">while</span> (++fast &lt; len)&#123; </div><div class="line">        count[c[fast]] ++; </div><div class="line">        <span class="keyword">while</span> (slow &lt; len &amp;&amp; count[c[slow]] &gt; <span class="number">1</span>) &#123;</div><div class="line">            slow++; </div><div class="line">        &#125;</div><div class="line">        <span class="keyword">if</span> (slow == len) &#123;</div><div class="line">            <span class="keyword">return</span> -<span class="number">1</span>;</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">return</span> slow; </div><div class="line">&#125;</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<h4 id="wordBreak"><a href="#wordBreak" class="headerlink" title="wordBreak"></a>wordBreak</h4><ul>
+<li>给一个字符串和一个字典，判断该字符串能否通过空格拆分成单词，使得这些单词都来自dict。</li>
+<li><p>方法一：BFS每次入队的都是起点，然后每次从队首拿到起点，开始往后遍历，看能否找到新的起点，找到就入队。如果队都空了还没到最后，就不行。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">wordBreak</span><span class="params">(String s, List&lt;String&gt; wordDict)</span> </span>&#123;</div><div class="line">    <span class="keyword">if</span> (s == <span class="keyword">null</span> || s.length() == <span class="number">0</span> || wordDict == <span class="keyword">null</span> || wordDict.size() == <span class="number">0</span>) &#123;</div><div class="line">        <span class="keyword">return</span> <span class="keyword">false</span>;</div><div class="line">    &#125;</div><div class="line">    Set&lt;String&gt; wordSet = <span class="keyword">new</span> HashSet&lt;&gt;();</div><div class="line">    <span class="keyword">int</span> maxLen = <span class="number">0</span>;</div><div class="line">    <span class="keyword">for</span> (String word: wordDict) &#123;</div><div class="line">        wordSet.add(word);</div><div class="line">        maxLen = Math.max(maxLen, word.length());</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="keyword">if</span> (wordSet.contains(s)) <span class="keyword">return</span> <span class="keyword">true</span>;</div><div class="line">    Queue&lt;Integer&gt; queue = <span class="keyword">new</span> LinkedList&lt;Integer&gt;();</div><div class="line">    queue.offer(<span class="number">0</span>);</div><div class="line">    <span class="comment">// use a set to record checked index to avoid repeated work.</span></div><div class="line">    <span class="comment">// This is the key to reduce the running time to O(N^2).</span></div><div class="line">    <span class="keyword">boolean</span>[] visited = <span class="keyword">new</span> <span class="keyword">boolean</span>[s.length() + <span class="number">1</span>];</div><div class="line">    visited[<span class="number">0</span>] = <span class="keyword">true</span>;</div><div class="line">    <span class="keyword">while</span> (!queue.isEmpty()) &#123;</div><div class="line">        <span class="keyword">int</span> currIndex = queue.poll();</div><div class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = currIndex + <span class="number">1</span>; i &lt;= s.length() &amp;&amp; i - currIndex &lt;= maxLen; i++) &#123;</div><div class="line">            <span class="keyword">if</span> (visited[i]) <span class="keyword">continue</span>;</div><div class="line">            <span class="keyword">if</span> (wordSet.contains(s.substring(currIndex, i))) &#123;</div><div class="line">                <span class="keyword">if</span> (i == s.length()) <span class="keyword">return</span> <span class="keyword">true</span>;</div><div class="line">                queue.offer(i);</div><div class="line">                visited[i] = <span class="keyword">true</span>;</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">return</span> <span class="keyword">false</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+</li>
+<li><p>方法二：DFS中也是给定起点，往后遍历看能否找到，如果找到就以该处为起点继续向后，如果找不到，就直接把终点对应都索引标注起来，这样之后再碰到以该点起始都就知道不行了（因为以它结尾都不行，就算后面可以也没用）。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">wordBreak</span><span class="params">(String s, List&lt;String&gt; wordDict)</span> </span>&#123;</div><div class="line">    <span class="keyword">if</span> (s == <span class="keyword">null</span> || s.length() == <span class="number">0</span> || wordDict == <span class="keyword">null</span> || wordDict.size() == <span class="number">0</span>) &#123;</div><div class="line">        <span class="keyword">return</span> <span class="keyword">false</span>;</div><div class="line">    &#125;</div><div class="line">    Set&lt;String&gt; wordSet = <span class="keyword">new</span> HashSet&lt;&gt;();</div><div class="line">    <span class="keyword">int</span> maxLen = <span class="number">0</span>;</div><div class="line">    <span class="keyword">for</span> (String word: wordDict) &#123;</div><div class="line">        wordSet.add(word);</div><div class="line">        maxLen = Math.max(maxLen, word.length());</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="keyword">if</span> (wordSet.contains(s)) <span class="keyword">return</span> <span class="keyword">true</span>;</div><div class="line">    <span class="keyword">boolean</span>[] visited = <span class="keyword">new</span> <span class="keyword">boolean</span>[s.length() + <span class="number">1</span>];</div><div class="line">    <span class="keyword">return</span> dfs(s, <span class="number">0</span>, maxLen, wordSet, visited);</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">private</span> <span class="keyword">boolean</span> <span class="title">dfs</span><span class="params">(String s, <span class="keyword">int</span> index, <span class="keyword">int</span> maxLen, Set&lt;String&gt; dict, <span class="keyword">boolean</span>[] visited)</span></span>&#123;</div><div class="line">    <span class="comment">// base case</span></div><div class="line">    <span class="keyword">if</span> (index == s.length()) <span class="keyword">return</span> <span class="keyword">true</span>;</div><div class="line">    <span class="comment">// check memory</span></div><div class="line">    <span class="keyword">if</span> (visited[index]) <span class="keyword">return</span> <span class="keyword">false</span>;</div><div class="line">    <span class="comment">// recursion</span></div><div class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = index + <span class="number">1</span>; i &lt;= s.length() &amp;&amp; i - index &lt;= maxLen; i++)&#123;</div><div class="line">        String t = s.substring(index, i);</div><div class="line">        <span class="keyword">if</span> (dict.contains(t))</div><div class="line">            <span class="keyword">if</span> (dfs(s, i, maxLen, dict, visited))</div><div class="line">                <span class="keyword">return</span> <span class="keyword">true</span>;</div><div class="line">            <span class="keyword">else</span></div><div class="line">                visited[i] = <span class="keyword">true</span>;  <span class="comment">// 以i结尾啊是不行的</span></div><div class="line">    &#125;</div><div class="line">    visited[index] = <span class="keyword">false</span>;</div><div class="line">    <span class="keyword">return</span> <span class="keyword">false</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+</li>
+<li><p>方法三：DP。dp[i]表示取长度为i的字串是否都是dict里的，因此当发现一段子串来自dict之后，还需要看前一位是否true才可以判断当前是否true。 </p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">workBreak</span><span class="params">(String s, List&lt;String&gt; wordDict)</span> </span>&#123;</div><div class="line">    <span class="keyword">if</span> (s == <span class="keyword">null</span> || s.length() == <span class="number">0</span> || wordDict == <span class="keyword">null</span> || wordDict.size() == <span class="number">0</span>) &#123;</div><div class="line">        <span class="keyword">return</span> <span class="keyword">false</span>;</div><div class="line">    &#125;</div><div class="line">    Set&lt;String&gt; wordSet = <span class="keyword">new</span> HashSet&lt;&gt;();</div><div class="line">    <span class="keyword">int</span> maxLen = <span class="number">0</span>;</div><div class="line">    <span class="keyword">for</span> (String word: wordDict) &#123;</div><div class="line">        wordSet.add(word);</div><div class="line">        maxLen = Math.max(maxLen, word.length());</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">boolean</span>[] dp = <span class="keyword">new</span> <span class="keyword">boolean</span> [s.length() + <span class="number">1</span>];</div><div class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= s.length(); i++) &#123;</div><div class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> j = i - <span class="number">1</span>; j &gt;= <span class="number">0</span> &amp;&amp; i - j &lt;= maxLen; j--) &#123;</div><div class="line">            <span class="keyword">if</span> (dp[j] &amp;&amp; wordSet.contains(s.substring(j, i))) &#123;</div><div class="line">                dp[i] = <span class="keyword">true</span>;</div><div class="line">                <span class="keyword">break</span>;</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">return</span> dp[s.length()];</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<h4 id="four-missing-nums-in-1-100"><a href="#four-missing-nums-in-1-100" class="headerlink" title="four missing nums in 1-100"></a>four missing nums in 1-100</h4><ul>
+<li><p>方法一：暴力找，用个辅助数组。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="keyword">int</span>[] missingNum(<span class="keyword">int</span>[] nums) &#123;</div><div class="line">    <span class="keyword">if</span> (nums == <span class="keyword">null</span> || nums.length != <span class="number">96</span>) &#123;</div><div class="line">        <span class="keyword">return</span> <span class="keyword">new</span> <span class="keyword">int</span>[]&#123;<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>&#125;;</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">boolean</span>[] mark = <span class="keyword">new</span> <span class="keyword">boolean</span>[<span class="number">100</span>];</div><div class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; <span class="number">100</span>; i++) &#123;</div><div class="line">        mark[i - <span class="number">1</span>] = <span class="keyword">true</span>;</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">int</span>[] ans = <span class="keyword">new</span> <span class="keyword">int</span> [<span class="number">4</span>];</div><div class="line">    <span class="keyword">int</span> index = <span class="number">0</span>;</div><div class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; <span class="number">100</span> &amp;&amp; index &lt; <span class="number">4</span>; i++) &#123;</div><div class="line">        <span class="keyword">if</span> (!mark[i]) &#123;</div><div class="line">            ans[index++] = i + <span class="number">1</span>;</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">return</span> ans;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+</li>
+<li><p>follow-up: 如果内存不够，数组很大，怎么破？分批查找，引入一个累加都offset，方法中虽然还是找1-100的，但加上offset就是真实值了。</p>
+</li>
+<li>follow-up: 如果排好序，怎么优化？从头往后看，一旦index和数值差有变化，前一位就是missing的。但是如果都堆积在最末尾，那就要单独讨论了。</li>
+</ul>
+<h4 id="Git是什么"><a href="#Git是什么" class="headerlink" title="Git是什么"></a>Git是什么</h4><ul>
+<li>Git is a version control system - a tool to manage your source code history.<ul>
+<li>允许不联网状态下建立本地仓库，通过branch方式分散，用merge合并。联网后有一个remote repo，可以和本地的repo record同步，pull = fetch + merge</li>
+</ul>
+</li>
+</ul>
+<h4 id="介绍一个数据结构"><a href="#介绍一个数据结构" class="headerlink" title="介绍一个数据结构"></a>介绍一个数据结构</h4><ul>
+<li>大致有：Array, List, Set, Map, Queue, Stack, Tree, BST, Heap, Graph</li>
+<li>Tree binary tree, bst</li>
+</ul>
+<h4 id="pass-by-reference和pass-by-value"><a href="#pass-by-reference和pass-by-value" class="headerlink" title="pass by reference和pass by value?"></a>pass by reference和pass by value?</h4><ul>
+<li>Pass by reference: the caller and the callee use the same variable for the parameter. If the callee modifies the parameter variable, the effect is visible to the caller’s variable.</li>
+<li>Pass by value: the caller and callee have two independent variables with the same value. If the callee modifies the parameter variable, the effect is not visible to the caller.</li>
+<li>Java is passing by value, but when pass value of object as parameter, that value is actually reference to that object. Though we can’t change the reference relation from callee method, we can still modify the object itself through that reference.</li>
+</ul>
+<h4 id="Fibonacci-sum"><a href="#Fibonacci-sum" class="headerlink" title="Fibonacci sum"></a>Fibonacci sum</h4><ul>
+<li>求斐波那契数列前n项之和，即<code>0 ~ (n - 1)</code>。</li>
+<li><p>首先看看基本的斐波那契数列怎么求。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">int</span> <span class="title">fib</span><span class="params">(n)</span> </span>&#123;</div><div class="line">    <span class="keyword">if</span> (n &lt; <span class="number">2</span>) &#123;</div><div class="line">        <span class="keyword">return</span> n;</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">return</span> fib(n - <span class="number">2</span>) + fib(n - <span class="number">1</span>);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+</li>
+<li><p>方法一：自然想到连续调用，显然复杂度非常高<code>O(n ^ 2)</code>，因为重复计算了很多。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">int</span> <span class="title">fibSum1</span><span class="params">(<span class="keyword">int</span> n)</span> </span>&#123;</div><div class="line">    <span class="keyword">if</span> (n &lt; <span class="number">2</span>) &#123;</div><div class="line">        <span class="keyword">return</span> n;</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">return</span> fibSum1(n - <span class="number">1</span>) + fib(n);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<ul>
+<li><p>方法二：基于规律，<code>fibSum(n) = fibSum(n - 1) + fib(n) = fibSum(n - 1) + fib(n - 2) + fib(n - 1) = fibSum(n - 1) + fibSum(n - 2) - fibSum(n - 3) + fibSum(n - 1) - fibSum(n - 2) = fibSum(n - 1) * 2 - fibSum(n - 3)</code>。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">int</span> <span class="title">fibSum</span><span class="params">(<span class="keyword">int</span> n)</span> </span>&#123;</div><div class="line">    <span class="keyword">if</span> (n &lt; <span class="number">2</span>) &#123;</div><div class="line">        <span class="keyword">return</span> n;</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">int</span> prev1 = fibSum(n - <span class="number">1</span>);</div><div class="line">    <span class="keyword">int</span> prev3 = fibSum(n - <span class="number">3</span>);</div><div class="line">    <span class="keyword">return</span> (prev1 * <span class="number">2</span>)- prev3;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<ul>
+<li><p>方法三：算是DP吧，用数组记录每一项fib，顺便求和。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">int</span> <span class="title">fibSum2</span><span class="params">(<span class="keyword">int</span> n)</span> </span>&#123;</div><div class="line">    <span class="keyword">if</span> (n &lt; <span class="number">2</span>) &#123;</div><div class="line">        <span class="keyword">return</span> n;</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">int</span>[] fibArray = <span class="keyword">new</span> <span class="keyword">int</span> [n + <span class="number">1</span>];</div><div class="line">    fibArray[<span class="number">1</span>] = <span class="number">1</span>;</div><div class="line">    Int sum = <span class="number">1</span>;</div><div class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">2</span>; i &lt;= n; i++) &#123;</div><div class="line">        fibArray[i] = fibArray[i - <span class="number">1</span>] + fibArray[i - <span class="number">2</span>];</div><div class="line">        sum += fibArray[i];</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">return</span> sum;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+</li>
+<li><p>方法四：更绝的规律，直接求后两项的fib，然后减1即得。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">int</span> <span class="title">fibSum4</span><span class="params">(<span class="keyword">int</span> n)</span> </span>&#123;</div><div class="line">    <span class="keyword">if</span> (n &lt; <span class="number">2</span>) &#123;</div><div class="line">        <span class="keyword">return</span> n;</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">int</span> f = fib(n + <span class="number">2</span>);</div><div class="line">    <span class="keyword">return</span> f - <span class="number">1</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+</li>
+</ul>
+</li>
+</ul>
+<h4 id="LRU-Cache-146"><a href="#LRU-Cache-146" class="headerlink" title="LRU Cache(146)"></a>LRU Cache(<a href="https://leetcode.com/problems/lru-cache/description/" target="_blank" rel="external">146</a>)</h4><ul>
+<li>模拟Least Recently Used缓存，当要插入新的<code>entry(key, value)</code>时规模不够，最近最少用到的<code>entry</code>会被清除。要求get和put都是<code>O(1)</code>。</li>
+<li>由于有键值对，肯定要有Map。key是整数，而put的时候，value不能真的存给的整数value，而是存双向链表中的一个节点，该节点的val再存给定的整数value。put还需要考虑是否是更新，更新则要把原节点val更新后拖到头部；在get的时候，也要注意拖到链表头部。当需要移除最近最少使用元素的时候，就需要把最后一个节点删掉，同时在map中删掉，所以链表节点中还需要存key才能去map中删。双向链表根据节点来删除是<code>O(1)</code>的，因为可以直接访问前后两个节点（单向链表提供待删除节点和它前一个节点也可以做到constant time）。<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div><div class="line">75</div><div class="line">76</div><div class="line">77</div><div class="line">78</div><div class="line">79</div><div class="line">80</div><div class="line">81</div><div class="line">82</div><div class="line">83</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">LRUCache</span> </span>&#123;</div><div class="line">    <span class="keyword">private</span> <span class="class"><span class="keyword">class</span> <span class="title">DoublyListNode</span> </span>&#123;</div><div class="line">        <span class="keyword">int</span> key;</div><div class="line">        <span class="keyword">int</span> value;</div><div class="line">        DoublyListNode prev;</div><div class="line">        DoublyListNode next;</div><div class="line">        <span class="function"><span class="keyword">private</span> <span class="title">DoublyListNode</span><span class="params">(<span class="keyword">int</span> key, <span class="keyword">int</span> value)</span> </span>&#123;</div><div class="line">            <span class="keyword">this</span>.key = key;</div><div class="line">            <span class="keyword">this</span>.value = value;</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">int</span> capacity;</div><div class="line">    <span class="keyword">int</span> currSize;</div><div class="line">    DoublyListNode head, tail;</div><div class="line">    HashMap&lt;Integer, DoublyListNode&gt; map;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="title">LRUCache</span><span class="params">(<span class="keyword">int</span> capacity)</span> </span>&#123;</div><div class="line">        <span class="keyword">this</span>.capacity = capacity;</div><div class="line">        map = <span class="keyword">new</span> HashMap&lt;Integer, DoublyListNode&gt;();</div><div class="line">        currSize = <span class="number">0</span>;</div><div class="line">        head = <span class="keyword">new</span> DoublyListNode(<span class="number">0</span>, <span class="number">0</span>);    <span class="comment">// 伪头部</span></div><div class="line">        tail = <span class="keyword">new</span> DoublyListNode(<span class="number">0</span>, <span class="number">0</span>);    <span class="comment">// 伪尾部</span></div><div class="line">        head.prev = <span class="keyword">null</span>;</div><div class="line">        head.next = tail;</div><div class="line">        tail.prev = head;</div><div class="line">        tail.next = <span class="keyword">null</span>;</div><div class="line">    &#125;</div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">get</span><span class="params">(<span class="keyword">int</span> key)</span> </span>&#123;</div><div class="line">        DoublyListNode node = map.get(key);</div><div class="line">        <span class="keyword">if</span> (node != <span class="keyword">null</span>) &#123;</div><div class="line">            moveToFirst(node);</div><div class="line">            <span class="keyword">return</span> node.value;</div><div class="line">        &#125; <span class="keyword">else</span> &#123;</div><div class="line">            <span class="keyword">return</span> -<span class="number">1</span>;</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">put</span><span class="params">(<span class="keyword">int</span> key, <span class="keyword">int</span> value)</span> </span>&#123;</div><div class="line">        DoublyListNode node = map.get(key);</div><div class="line">        <span class="keyword">if</span> (node == <span class="keyword">null</span>) &#123;</div><div class="line">            node = <span class="keyword">new</span> DoublyListNode(key, value);</div><div class="line">            currSize++;</div><div class="line">            <span class="keyword">if</span> (currSize &gt; capacity) &#123;</div><div class="line">                currSize--;</div><div class="line">                map.remove(popLast().key);  <span class="comment">// 尾部的</span></div><div class="line">            &#125;</div><div class="line">            add(node);</div><div class="line">            map.put(key, node);</div><div class="line">        &#125; <span class="keyword">else</span> &#123;</div><div class="line">            node.value = value;</div><div class="line">            moveToFirst(node);</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">    <span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">add</span><span class="params">(DoublyListNode node)</span> </span>&#123;</div><div class="line">        DoublyListNode nextOfHead = head.next;</div><div class="line">        head.next = node;       <span class="comment">// 插入到头部的下一位，需要调整头指针的指向</span></div><div class="line">        node.prev = head;</div><div class="line">        nextOfHead.prev = node;</div><div class="line">        node.next = nextOfHead;</div><div class="line">    &#125;</div><div class="line">    <span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">remove</span><span class="params">(DoublyListNode node)</span> </span>&#123;</div><div class="line">        DoublyListNode prevOfNode = node.prev;</div><div class="line">        DoublyListNode nextOfNode = node.next;</div><div class="line">        </div><div class="line">        prevOfNode.next = nextOfNode;</div><div class="line">        nextOfNode.prev = prevOfNode;</div><div class="line">    &#125;</div><div class="line">    <span class="function"><span class="keyword">private</span> DoublyListNode <span class="title">popLast</span><span class="params">()</span> </span>&#123;</div><div class="line">        DoublyListNode last = tail.prev;</div><div class="line">        remove(last);</div><div class="line">        <span class="keyword">return</span> last;</div><div class="line">    &#125;</div><div class="line">    <span class="comment">// 被get了，就需要挪到头部，先删除再插入到头部即可</span></div><div class="line">    <span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">moveToFirst</span><span class="params">(DoublyListNode node)</span> </span>&#123;</div><div class="line">        remove(node);</div><div class="line">        add(node);</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line"><span class="comment">/**</span></div><div class="line"><span class="comment"> * Your LRUCache object will be instantiated and called as such:</span></div><div class="line"><span class="comment"> * LRUCache obj = new LRUCache(capacity);</span></div><div class="line"><span class="comment"> * int param_1 = obj.get(key);</span></div><div class="line"><span class="comment"> * obj.put(key,value);</span></div><div class="line"><span class="comment"> */</span></div></pre></td></tr></table></figure>
+</li>
+</ul>
+<h4 id="扫雷-529"><a href="#扫雷-529" class="headerlink" title="扫雷(529)"></a>扫雷(<a href="https://leetcode.com/problems/minesweeper/description/" target="_blank" rel="external">529</a>)</h4><ul>
+<li>点击一个位置，根据是否有雷更新棋盘。如果是雷，直接改成叉叉并返回；如果没有点开并且周围八个相邻格子有雷，则改成雷的数目并返回；如果周围都没有雷，就扩散到相邻格子继续更新。</li>
+<li><p>方法一：根据描述本身就蕴含了递归，所以自然想到DFS。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</div><div class="line">    <span class="keyword">public</span> <span class="keyword">char</span>[][] updateBoard(<span class="keyword">char</span>[][] board, <span class="keyword">int</span>[] click) &#123;</div><div class="line">        <span class="keyword">if</span> (board == <span class="keyword">null</span> || board.length == <span class="number">0</span> || board[<span class="number">0</span>].length == <span class="number">0</span></div><div class="line">           || click == <span class="keyword">null</span> || click.length &lt; <span class="number">2</span>) &#123;</div><div class="line">            <span class="keyword">return</span> <span class="keyword">new</span> <span class="keyword">char</span> [<span class="number">0</span>][<span class="number">0</span>];</div><div class="line">        &#125;</div><div class="line">        <span class="keyword">int</span> rowCount = board.length, colCount = board[<span class="number">0</span>].length;</div><div class="line">        <span class="keyword">int</span> row = click[<span class="number">0</span>], col = click[<span class="number">1</span>];</div><div class="line">        <span class="keyword">if</span> (board[row][col] == <span class="string">'B'</span>) &#123;   <span class="comment">// 已经点开了就直接返回</span></div><div class="line">            <span class="keyword">return</span> board;</div><div class="line">        &#125;</div><div class="line">        <span class="keyword">if</span> (board[row][col] == <span class="string">'M'</span>) &#123;   <span class="comment">// 是雷就gg</span></div><div class="line">            board[row][col] = <span class="string">'X'</span>;</div><div class="line">        &#125; <span class="keyword">else</span> &#123;</div><div class="line">            <span class="keyword">int</span> count = <span class="number">0</span>;              <span class="comment">// 计算雷的个数</span></div><div class="line">            <span class="keyword">for</span> (<span class="keyword">int</span> i = -<span class="number">1</span>; i &lt; <span class="number">2</span>; i++) &#123;</div><div class="line">                <span class="keyword">int</span> tempRow = row + i;</div><div class="line">                <span class="keyword">if</span> (tempRow &lt; <span class="number">0</span> || tempRow &gt;= rowCount) &#123;</div><div class="line">                    <span class="keyword">continue</span>;</div><div class="line">                &#125;</div><div class="line">                <span class="keyword">for</span> (<span class="keyword">int</span> j = -<span class="number">1</span>; j &lt; <span class="number">2</span>; j++) &#123;</div><div class="line">                    <span class="keyword">int</span> tempCol = col + j;</div><div class="line">                    <span class="keyword">if</span> (tempCol &lt; <span class="number">0</span> || tempCol &gt;= colCount) &#123;</div><div class="line">                        <span class="keyword">continue</span>;</div><div class="line">                    &#125;</div><div class="line">                    <span class="keyword">if</span> (board[tempRow][tempCol] == <span class="string">'M'</span>) &#123;</div><div class="line">                        count++;</div><div class="line">                    &#125;</div><div class="line">                &#125;</div><div class="line">            &#125;</div><div class="line">            <span class="keyword">if</span> (count &gt; <span class="number">0</span>) &#123;</div><div class="line">                board[row][col] = (<span class="keyword">char</span>)(<span class="string">'0'</span> + count);</div><div class="line">            &#125; <span class="keyword">else</span> &#123;</div><div class="line">                board[row][col] = <span class="string">'B'</span>;      <span class="comment">// 改为已经reveal，并扩散到周围unreveal的邻居</span></div><div class="line">                <span class="keyword">for</span> (<span class="keyword">int</span> i = -<span class="number">1</span>; i &lt; <span class="number">2</span>; i++) &#123;</div><div class="line">                    <span class="keyword">int</span> tempRow = row + i;</div><div class="line">                    <span class="keyword">if</span> (tempRow &lt; <span class="number">0</span> || tempRow &gt;= rowCount) &#123;</div><div class="line">                        <span class="keyword">continue</span>;</div><div class="line">                    &#125;</div><div class="line">                    <span class="keyword">for</span> (<span class="keyword">int</span> j = -<span class="number">1</span>; j &lt; <span class="number">2</span>; j++) &#123;</div><div class="line">                        <span class="keyword">int</span> tempCol = col + j;</div><div class="line">                        <span class="keyword">if</span> (tempCol &lt; <span class="number">0</span> || tempCol &gt;= colCount) &#123;</div><div class="line">                            <span class="keyword">continue</span>;</div><div class="line">                        &#125;</div><div class="line">                        <span class="keyword">if</span> (board[tempRow][tempCol] == <span class="string">'E'</span>) &#123;   <span class="comment">// DFS the unrevealed</span></div><div class="line">                            updateBoard(board, <span class="keyword">new</span> <span class="keyword">int</span>[]&#123;tempRow, tempCol&#125;);</div><div class="line">                        &#125;</div><div class="line">                    &#125;</div><div class="line">                &#125;</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line">        <span class="keyword">return</span> board;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+</li>
+<li><p>方法二：BFS，Queue中存放点击之后扩散的点（如果有的话），一直扩散直到Queue为空。但是和DFS需要区别的是，由于BFS会将相邻的所有E的格子都入队，很可能会出现重复，所以就直接在更新时就赋值为B，防止重复入队。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</div><div class="line">    <span class="keyword">public</span> <span class="keyword">char</span>[][] updateBoard(<span class="keyword">char</span>[][] board, <span class="keyword">int</span>[] click) &#123;</div><div class="line">        <span class="keyword">if</span> (board == <span class="keyword">null</span> || board.length == <span class="number">0</span> || board[<span class="number">0</span>].length == <span class="number">0</span></div><div class="line">           || click == <span class="keyword">null</span> || click.length &lt; <span class="number">2</span>) &#123;</div><div class="line">            <span class="keyword">return</span> <span class="keyword">new</span> <span class="keyword">char</span> [<span class="number">0</span>][<span class="number">0</span>];</div><div class="line">        &#125;</div><div class="line">        Queue&lt;<span class="keyword">int</span>[]&gt; q = <span class="keyword">new</span> LinkedList&lt;&gt;();</div><div class="line">        <span class="keyword">int</span> rowCount = board.length, colCount = board[<span class="number">0</span>].length;</div><div class="line">        q.add(click);</div><div class="line">        <span class="keyword">while</span> (!q.isEmpty()) &#123;</div><div class="line">            <span class="keyword">int</span>[] curr = q.poll();</div><div class="line">            <span class="keyword">int</span> row = curr[<span class="number">0</span>], col = curr[<span class="number">1</span>];   <span class="comment">// 和DFS相比少了判断为B的步骤</span></div><div class="line">            <span class="keyword">if</span> (board[row][col] == <span class="string">'M'</span>) &#123;</div><div class="line">                board[row][col] = <span class="string">'X'</span>;</div><div class="line">            &#125; <span class="keyword">else</span> &#123;</div><div class="line">                <span class="keyword">int</span> count = <span class="number">0</span>;</div><div class="line">                <span class="keyword">for</span> (<span class="keyword">int</span> i = -<span class="number">1</span>; i &lt; <span class="number">2</span>; i++) &#123;</div><div class="line">                    <span class="keyword">int</span> tempRow = row + i;</div><div class="line">                    <span class="keyword">if</span> (tempRow &lt; <span class="number">0</span> || tempRow &gt;= rowCount) &#123;</div><div class="line">                        <span class="keyword">continue</span>;</div><div class="line">                    &#125;</div><div class="line">                    <span class="keyword">for</span> (<span class="keyword">int</span> j = -<span class="number">1</span>; j &lt; <span class="number">2</span>; j++) &#123;</div><div class="line">                        <span class="keyword">int</span> tempCol = col + j;</div><div class="line">                        <span class="keyword">if</span> (tempCol &lt; <span class="number">0</span> || tempCol &gt;= colCount) &#123;</div><div class="line">                            <span class="keyword">continue</span>;</div><div class="line">                        &#125;</div><div class="line">                        <span class="keyword">if</span> (board[tempRow][tempCol] == <span class="string">'M'</span>) &#123;</div><div class="line">                            count++;</div><div class="line">                        &#125;</div><div class="line">                    &#125;</div><div class="line">                &#125;</div><div class="line">                <span class="keyword">if</span> (count &gt; <span class="number">0</span>) &#123;</div><div class="line">                    board[row][col] = (<span class="keyword">char</span>)(<span class="string">'0'</span> + count);</div><div class="line">                &#125; <span class="keyword">else</span> &#123;</div><div class="line">                    board[row][col] = <span class="string">'B'</span>;</div><div class="line">                    <span class="keyword">for</span> (<span class="keyword">int</span> i = -<span class="number">1</span>; i &lt; <span class="number">2</span>; i++) &#123;</div><div class="line">                        <span class="keyword">int</span> tempRow = row + i;</div><div class="line">                        <span class="keyword">if</span> (tempRow &lt; <span class="number">0</span> || tempRow &gt;= rowCount) &#123;</div><div class="line">                            <span class="keyword">continue</span>;</div><div class="line">                        &#125;</div><div class="line">                        <span class="keyword">for</span> (<span class="keyword">int</span> j = -<span class="number">1</span>; j &lt; <span class="number">2</span>; j++) &#123;</div><div class="line">                            <span class="keyword">int</span> tempCol = col + j;</div><div class="line">                            <span class="keyword">if</span> (tempCol &lt; <span class="number">0</span> || tempCol &gt;= colCount) &#123;</div><div class="line">                                <span class="keyword">continue</span>;</div><div class="line">                            &#125;</div><div class="line">                            <span class="keyword">if</span> (board[tempRow][tempCol] == <span class="string">'E'</span>) &#123;   <span class="comment">// BFS the unrevealed</span></div><div class="line">                                q.add(<span class="keyword">new</span> <span class="keyword">int</span>[]&#123;tempRow, tempCol&#125;);</div><div class="line">                                board[tempRow][tempCol] = <span class="string">'B'</span>;  <span class="comment">// IMPORTANT!!!</span></div><div class="line">                            &#125;</div><div class="line">                        &#125;</div><div class="line">                    &#125;</div><div class="line">                &#125;</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line">        <span class="keyword">return</span> board;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<h4 id="Reverse-Integer"><a href="#Reverse-Integer" class="headerlink" title="Reverse Integer"></a>Reverse Integer</h4><ul>
+<li>给一个整数，求它各个位数字反转后的新的整数。</li>
+<li>需要考虑：反转之后越界？末尾是零的话反转到首位怎么表示？</li>
+<li>起始末尾是0如果按照正常数学操作是不用单独考虑的，越界就需要通过每一步与<code>214748364</code>进行比较了，一是防止这一部分就越界了、二是防止后一位加上来之后又越界了（需要分正负判断）。<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">reverse</span><span class="params">(<span class="keyword">int</span> x)</span> </span>&#123;</div><div class="line">    <span class="keyword">int</span> ans = <span class="number">0</span>;</div><div class="line">    <span class="keyword">while</span> (x != <span class="number">0</span>) &#123;</div><div class="line">        <span class="keyword">int</span> curr = Math.abs(ans);</div><div class="line">        <span class="keyword">if</span> (curr &gt; <span class="number">214748364</span>) &#123;     <span class="comment">// 解决反转后越界问题</span></div><div class="line">            <span class="keyword">return</span> <span class="number">0</span>;</div><div class="line">        &#125;</div><div class="line">        <span class="keyword">if</span> (curr == <span class="number">214748364</span>) &#123;    <span class="comment">// 解决反转后越界问题</span></div><div class="line">            <span class="keyword">int</span> limit = x &lt; <span class="number">0</span>? <span class="number">8</span>: <span class="number">7</span>;</div><div class="line">            <span class="keyword">if</span> (x / <span class="number">10</span> &gt; limit) &#123;</div><div class="line">                <span class="keyword">return</span> <span class="number">0</span>;</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line">        ans = ans * <span class="number">10</span> + (x % <span class="number">10</span>);  <span class="comment">// 更新反转数by加上x当前末尾数</span></div><div class="line">        x /= <span class="number">10</span>;</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">return</span> ans;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<h4 id="Reverse-Bits"><a href="#Reverse-Bits" class="headerlink" title="Reverse Bits"></a>Reverse Bits</h4><ul>
+<li>给一个数字，反转它对应的bit形式。</li>
+<li>此时就不需要考虑什么越界了，因为都是32位，反转了bit也是可以表示出来的。</li>
+<li><p>就从末尾开始通过AND取bit，不断加到result里。注意移位必须是unsigned。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">reverseBits</span><span class="params">(<span class="keyword">int</span> n)</span> </span>&#123;</div><div class="line">    <span class="keyword">int</span> result = <span class="number">0</span>;</div><div class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; <span class="number">32</span>; i++) &#123;</div><div class="line">        result += n &amp; <span class="number">1</span>;</div><div class="line">        n &gt;&gt;&gt;= <span class="number">1</span>;       <span class="comment">// CATCH: must do unsigned shift</span></div><div class="line">        <span class="keyword">if</span> (i &lt; <span class="number">31</span>)     <span class="comment">// CATCH: for last digit, don't shift!</span></div><div class="line">            result &lt;&lt;= <span class="number">1</span>;</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">return</span> result;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+</li>
+<li><p>follow-up：如果这个函数会被反复调用，如何优化？</p>
+</li>
+<li>优化无非时间空间，空间这里是没啥优化了，那么时间呢？时间优化通常就需要牺牲一点空间，也就是cache中间计算的结果。这里的「中间结果」可以利用bit的规律，将每8 bit（即1 byte）的结果缓存到map中，后续如果碰到了就直接从map中取这部分就好了。<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">reverseBits</span><span class="params">(<span class="keyword">int</span> n)</span> </span>&#123;</div><div class="line">    <span class="keyword">byte</span>[] bytes = <span class="keyword">new</span> <span class="keyword">byte</span>[<span class="number">4</span>];</div><div class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; <span class="number">4</span>; i++)     <span class="comment">// convert int into 4 bytes</span></div><div class="line">        bytes[i] = (<span class="keyword">byte</span>)((n &gt;&gt;&gt; <span class="number">8</span>*i) &amp; <span class="number">0xFF</span>);</div><div class="line">    <span class="keyword">int</span> result = <span class="number">0</span>;</div><div class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; <span class="number">4</span>; i++) &#123;</div><div class="line">        result += reverseByte(bytes[i]); <span class="comment">// reverse per byte</span></div><div class="line">        <span class="keyword">if</span> (i &lt; <span class="number">3</span>)</div><div class="line">            result &lt;&lt;= <span class="number">8</span>;</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">return</span> result;</div><div class="line">&#125;</div><div class="line"><span class="keyword">private</span> <span class="keyword">final</span> Map&lt;Byte, Integer&gt; cache = <span class="keyword">new</span> HashMap&lt;Byte, Integer&gt;();</div><div class="line"><span class="function"><span class="keyword">private</span> <span class="keyword">int</span> <span class="title">reverseByte</span><span class="params">(<span class="keyword">byte</span> b)</span> </span>&#123;</div><div class="line">    Integer value = cache.get(b); <span class="comment">// first look up from cache</span></div><div class="line">    <span class="keyword">if</span> (value != <span class="keyword">null</span>)</div><div class="line">        <span class="keyword">return</span> value;</div><div class="line">    value = <span class="number">0</span>;</div><div class="line">    <span class="comment">// reverse by bit</span></div><div class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; <span class="number">8</span>; i++) &#123;</div><div class="line">        value += ((b &gt;&gt;&gt; i) &amp; <span class="number">1</span>);</div><div class="line">        <span class="keyword">if</span> (i &lt; <span class="number">7</span>)</div><div class="line">            value &lt;&lt;= <span class="number">1</span>;</div><div class="line">    &#125;</div><div class="line">    cache.put(b, value);</div><div class="line">    <span class="keyword">return</span> value;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<h4 id="黑杰克"><a href="#黑杰克" class="headerlink" title="黑杰克"></a>黑杰克</h4><ul>
+<li>（不确定题目描述）给一堆扑克牌，1～10是本身面值，JQK是10，而A可以是1也可以是11（同一组牌中只能确定一个取值），求最接近21的组合。例如<code>A,A,J = 12</code>, <code>J,J,A,2 = 23</code>, <code>A,2 = 13</code>。</li>
+<li>似乎就是贪心法，先将所有牌加起来，如果没有A就那样，如果有A就先保守地取1并统计A的出现次数，加完之后再比较<code>sum + A_count * 10</code>表示A都取11时的结果，两个取更接近21即可。</li>
+</ul>
+<h4 id="三维空间求点"><a href="#三维空间求点" class="headerlink" title="三维空间求点"></a>三维空间求点</h4><ul>
+<li>三维空间给定N个点的坐标(x, y, z)，找到N个点其中的一个点，使得其他点到这个点的距离总和最小。</li>
+<li>先遍历一遍求所有点的中心点，然后再遍历一遍看看哪个点离中心点最近。</li>
+</ul>
+<h4 id="Design-tic-tac-toe-348"><a href="#Design-tic-tac-toe-348" class="headerlink" title="Design tic tac toe(348)"></a>Design tic tac toe(<a href="https://leetcode.com/problems/design-tic-tac-toe/description/" target="_blank" rel="external">348</a>)</h4><ul>
+<li>XXOO游戏，两个玩家，每一行、每一列、两条对角线都是一样的话，对应玩家就赢了。要设计一个class，其中包含move函数，给坐标和玩家编号，在图里放，如果该玩家赢了就返回玩家编号。每行、每列需要统计两个玩家各自的个数，如果都是其中一个玩家都就赢了，两条对角线也是。</li>
+<li>记录行、列、两条对较线。区分两个玩家的O和X就通过正负一来判断，这样如果有一个玩家赢了就意味着一路相加结果是n或者-n<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div><div class="line">75</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">TicTacToe</span> </span>&#123;</div><div class="line">    <span class="keyword">private</span> <span class="keyword">int</span> n, diag, diag2;</div><div class="line">    <span class="keyword">private</span> <span class="keyword">int</span>[] rows, cols;</div><div class="line">    </div><div class="line">    <span class="comment">/** Initialize your data structure here. */</span></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="title">TicTacToe</span><span class="params">(<span class="keyword">int</span> n)</span> </span>&#123;</div><div class="line">        <span class="keyword">this</span>.n = n;</div><div class="line">        <span class="keyword">this</span>.diag = <span class="number">0</span>;      <span class="comment">// topleft to bottom right</span></div><div class="line">        <span class="keyword">this</span>.diag2 = <span class="number">0</span>;     <span class="comment">// topright to bottomleft</span></div><div class="line">        rows = <span class="keyword">new</span> <span class="keyword">int</span> [n];</div><div class="line">        cols = <span class="keyword">new</span> <span class="keyword">int</span> [n];</div><div class="line">    &#125;</div><div class="line">    </div><div class="line">    <span class="comment">/** Player &#123;player&#125; makes a move at (&#123;row&#125;, &#123;col&#125;).</span></div><div class="line"><span class="comment">        <span class="doctag">@param</span> row The row of the board.</span></div><div class="line"><span class="comment">        <span class="doctag">@param</span> col The column of the board.</span></div><div class="line"><span class="comment">        <span class="doctag">@param</span> player The player, can be either 1 or 2.</span></div><div class="line"><span class="comment">        <span class="doctag">@return</span> The current winning condition, can be either:</span></div><div class="line"><span class="comment">                0: No one wins.</span></div><div class="line"><span class="comment">                1: Player 1 wins.</span></div><div class="line"><span class="comment">                2: Player 2 wins. */</span></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">move</span><span class="params">(<span class="keyword">int</span> row, <span class="keyword">int</span> col, <span class="keyword">int</span> player)</span> </span>&#123;</div><div class="line">        <span class="keyword">if</span> (row &gt;= n || col &gt;= n || row &lt; <span class="number">0</span> || col &lt; <span class="number">0</span> || player &lt; <span class="number">1</span> || player &gt; <span class="number">2</span>) &#123;</div><div class="line">            <span class="keyword">return</span> <span class="number">0</span>;       <span class="comment">// invalid input</span></div><div class="line">        &#125;</div><div class="line">        </div><div class="line">        <span class="keyword">int</span> add = player == <span class="number">1</span>? -<span class="number">1</span>: <span class="number">1</span>;</div><div class="line">        <span class="keyword">if</span> (row == col) &#123;</div><div class="line">            diag += add;</div><div class="line">            <span class="keyword">if</span> (diag == -n) &#123;</div><div class="line">                <span class="keyword">return</span> <span class="number">1</span>;</div><div class="line">            &#125;</div><div class="line">            <span class="keyword">if</span> (diag == n) &#123;</div><div class="line">                <span class="keyword">return</span> <span class="number">2</span>;</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line">        <span class="keyword">if</span> (row + col == n - <span class="number">1</span>) &#123;</div><div class="line">            diag2 += add;</div><div class="line">            <span class="keyword">if</span> (diag2 == -n) &#123;</div><div class="line">                <span class="keyword">return</span> <span class="number">1</span>;</div><div class="line">            &#125;</div><div class="line">            <span class="keyword">if</span> (diag2 == n) &#123;</div><div class="line">                <span class="keyword">return</span> <span class="number">2</span>;</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line">        rows[row] += add;</div><div class="line">        <span class="keyword">if</span> (rows[row] == -n) &#123;</div><div class="line">            <span class="keyword">return</span> <span class="number">1</span>;</div><div class="line">        &#125;</div><div class="line">        <span class="keyword">if</span> (rows[row] == n) &#123;</div><div class="line">            <span class="keyword">return</span> <span class="number">2</span>;</div><div class="line">        &#125;</div><div class="line">        cols[col] += add;</div><div class="line">        <span class="keyword">if</span> (cols[col] == -n) &#123;</div><div class="line">            <span class="keyword">return</span> <span class="number">1</span>;</div><div class="line">        &#125;</div><div class="line">        <span class="keyword">if</span> (cols[col] == n) &#123;</div><div class="line">            <span class="keyword">return</span> <span class="number">2</span>;</div><div class="line">        &#125;</div><div class="line">        <span class="keyword">return</span> <span class="number">0</span>;</div><div class="line">        </div><div class="line">        <span class="comment">/*</span></div><div class="line"><span class="comment">        int add = player == 1? -1: 1;</span></div><div class="line"><span class="comment">        rows[row] += add;</span></div><div class="line"><span class="comment">        cols[col] += add;</span></div><div class="line"><span class="comment">        diag += row == col? add: 0;</span></div><div class="line"><span class="comment">        diag2 += row + col == n - 1? add: 0;</span></div><div class="line"><span class="comment">        if (rows[row] / n != 0 || cols[col] / n != 0</span></div><div class="line"><span class="comment">           || diag / n != 0 || diag2 / n != 0) &#123;</span></div><div class="line"><span class="comment">            return player;</span></div><div class="line"><span class="comment">        &#125;</span></div><div class="line"><span class="comment">        return 0;</span></div><div class="line"><span class="comment">        */</span></div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<h4 id="Anagrams-49"><a href="#Anagrams-49" class="headerlink" title="Anagrams(49)"></a>Anagrams(<a href="https://leetcode.com/problems/group-anagrams" target="_blank" rel="external">49</a>)</h4><ul>
+<li>给一个String数组，求其中各字符串的anagram，即「相同字符组合的字符串」，并将相同的放在一个List中。</li>
+<li>取每个字符串出来，排个序作为key去找map里对应的index，如果存在index就找到ansList中对应index的那一行，插到末尾；如果不存在说明是新的，就把当前ansList的规模作为新的index存入map。<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> List&lt;List&lt;String&gt;&gt; groupAnagrams(String[] strs) &#123;</div><div class="line">        List&lt;List&lt;String&gt;&gt; ans = <span class="keyword">new</span> ArrayList&lt;&gt;();</div><div class="line">        <span class="keyword">if</span> (strs == <span class="keyword">null</span> || strs.length == <span class="number">0</span>) &#123;</div><div class="line">            <span class="keyword">return</span> ans;</div><div class="line">        &#125;</div><div class="line">        </div><div class="line">        Map&lt;String, Integer&gt; map = <span class="keyword">new</span> HashMap&lt;&gt;();</div><div class="line">        <span class="keyword">for</span> (String str: strs) &#123;</div><div class="line">            <span class="keyword">char</span>[] sChar = str.toCharArray();   <span class="comment">// sort str</span></div><div class="line">            Arrays.sort(sChar);             </div><div class="line">            String newStr = <span class="keyword">new</span> String(sChar);  <span class="comment">// the key to get the index in ans</span></div><div class="line">            <span class="keyword">if</span> (map.containsKey(newStr)) &#123;</div><div class="line">                <span class="keyword">int</span> index = map.get(newStr);</div><div class="line">                ans.get(index).add(str);</div><div class="line">            &#125; <span class="keyword">else</span> &#123;</div><div class="line">                map.put(newStr, ans.size());</div><div class="line">                List&lt;String&gt; temp = <span class="keyword">new</span> ArrayList&lt;&gt;();</div><div class="line">                temp.add(str);</div><div class="line">                ans.add(temp);</div><div class="line">            &#125;</div><div class="line">        &#125;    </div><div class="line">        <span class="keyword">return</span> ans;</div><div class="line">    &#125;</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<h4 id="Anagramii-438"><a href="#Anagramii-438" class="headerlink" title="Anagramii(438)"></a>Anagramii(<a href="https://leetcode.com/problems/find-all-anagrams-in-a-string/description/" target="_blank" rel="external">438</a>)</h4><ul>
+<li>给两个字符串，求后者的anagram在前者中子串的所有出现的index。</li>
+<li>又是字串问题，考虑双指针。先统计后者的每个字符各出现了几次，并确定有多少个不同的字符。然后双指针从前者头部走起，快指针往后取，直到剩余字符为0，然后慢指针再跟进，碰到map中存在的key就说明当前是anagram其中一个字符，需要加回来，同时判断该字符计数是否从0变成了1，是的话就不能再移慢指针了。此时判断慢指针到快指针之间是不是anagram的长度，是就说明start的index需要放入ans了。<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">public</span> List&lt;Integer&gt; <span class="title">findAnagrams</span><span class="params">(String s, String t)</span> </span>&#123;</div><div class="line">    List&lt;Integer&gt; result = <span class="keyword">new</span> LinkedList&lt;&gt;();</div><div class="line">    <span class="keyword">if</span> (t.length() &gt; s.length()) &#123;      <span class="comment">// 如果后者比前者还长，根本不可能是anagram</span></div><div class="line">        <span class="keyword">return</span> result;</div><div class="line">    &#125;</div><div class="line">    Map&lt;Character, Integer&gt; map = <span class="keyword">new</span> HashMap&lt;&gt;();</div><div class="line">    <span class="keyword">for</span>(<span class="keyword">char</span> c : t.toCharArray()) &#123;</div><div class="line">        map.put(c, map.getOrDefault(c, <span class="number">0</span>) + <span class="number">1</span>);</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">int</span> counter = map.size();   <span class="comment">// 多少个不同的字符</span></div><div class="line">    <span class="keyword">int</span> begin = <span class="number">0</span>, end = <span class="number">0</span>;</div><div class="line">    <span class="keyword">int</span> head = <span class="number">0</span>;</div><div class="line">    <span class="keyword">int</span> len = Integer.MAX_VALUE;   </div><div class="line">    <span class="keyword">while</span> (end &lt; s.length()) &#123;</div><div class="line">        <span class="keyword">char</span> c = s.charAt(end);</div><div class="line">        <span class="keyword">if</span> (map.containsKey(c)) &#123;</div><div class="line">            map.put(c, map.get(c) - <span class="number">1</span>);</div><div class="line">            <span class="keyword">if</span> (map.get(c) == <span class="number">0</span>)    <span class="comment">// 消耗了一个字符</span></div><div class="line">                counter--;</div><div class="line">        &#125;</div><div class="line">        end++;       </div><div class="line">        <span class="keyword">while</span> (counter == <span class="number">0</span>) &#123;</div><div class="line">            <span class="keyword">char</span> tempc = s.charAt(begin);</div><div class="line">            <span class="keyword">if</span> (map.containsKey(tempc)) &#123;</div><div class="line">                map.put(tempc, map.get(tempc) + <span class="number">1</span>);</div><div class="line">                <span class="keyword">if</span> (map.get(tempc) &gt; <span class="number">0</span>) &#123;</div><div class="line">                    counter++;      <span class="comment">// 恢复了一个字符</span></div><div class="line">                &#125;</div><div class="line">            &#125;</div><div class="line">            <span class="keyword">if</span> (end - begin == t.length()) &#123;</div><div class="line">                result.add(begin);</div><div class="line">            &#125;</div><div class="line">            begin++;</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">return</span> result;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<p>Reverse linked list between m and n<br>反转链表，给定了范围。<br>public ListNode reverseBetween(ListNode head, int m, int n) {<br>    if(head == null) return null;<br>    ListNode dummy = new ListNode(0); // create a dummy node to mark the head of this list<br>    dummy.next = head;<br>    ListNode pre = dummy; // make a pointer pre as a marker for the node before reversing<br>    for(int i = 0; i&lt;m-1; i++) pre = pre.next;</p>
+<pre><code>ListNode start = pre.next; // a pointer to the beginning of a sub-list that will be reversed
+ListNode then = start.next; // a pointer to a node that will be reversed
+
+// 1 - 2 -3 - 4 - 5 ; m=2; n =4 ---&gt; pre = 1, start = 2, then = 3
+// dummy-&gt; 1 -&gt; 2 -&gt; 3 -&gt; 4 -&gt; 5
+
+for(int i=0; i&lt;n-m; i++)
+{
+    start.next = then.next;
+    then.next = pre.next;
+    pre.next = then;
+    then = start.next;
+}
+
+// first reversing : dummy-&gt;1 - 3 - 2 - 4 - 5; pre = 1, start = 2, then = 4
+// second reversing: dummy-&gt;1 - 4 - 3 - 2 - 5; pre = 1, start = 2, then = 5 (finish)
+return dummy.next;
+</code></pre><p>}</p>
+<p>BST中给个target求最接近的值<br>public int closestValue(TreeNode root, double target) {<br>    if (root == null) return Integer.MAX_VALUE;<br>    int currVal = root.val;<br>    TreeNode kid = target &lt; currVal ? root.left : root.right;<br>    if (kid == null) return currVal;<br>    int b = closestValue(kid, target);<br>    return Math.abs(a - target) &lt; Math.abs(b - target) ? a : b;<br>}</p>
+<p>BST中给个target求其中大于target的最小值。<br>public int closestLarger(TreeNode root, double target) {<br>    if (root == null) return Integer.MAX_VALUE;<br>    int currVal = root.val;<br>    if (currVal &lt;= target) {    // 当前小于等于目标说明得去右子树找大于的<br>        return cloestLarger(root.right, target);<br>    } else {   // 当前已经大于目标了，则还要进左子树找大于的，然后取更小的<br>        return Math.min(currVal, closetLarger(root.left, target));<br>    }<br>}</p>
+<p>2sum给一个target，求在数组中能否找到两个数之和等于它。<br><a href="https://leetcode.com/problems/two-sum/description/" target="_blank" rel="external">https://leetcode.com/problems/two-sum/description/</a><br><a href="https://leetcode.com/problems/two-sum-ii-input-array-is-sorted/description/" target="_blank" rel="external">https://leetcode.com/problems/two-sum-ii-input-array-is-sorted/description/</a></p>
+<p>Given a binary tree and a sum, find all root-to-leaf paths where each path’s sum equals the given sum.</p>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+      <div>
+        <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+  <div>└(^o^)┘</div>
+  <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+    <span>Donate</span>
+  </button>
+  <div id="QR" style="display: none;">
+
+    
+      <div id="wechat" style="display: inline-block">
+        <img id="wechat_qr" src="/images/wechatRewardImg.png" alt="BobbyLiujb WeChat Pay"/>
+        <p>WeChat Pay</p>
+      </div>
+    
+
+    
+      <div id="alipay" style="display: inline-block">
+        <img id="alipay_qr" src="/images/alipayRewardImg.png" alt="BobbyLiujb Alipay"/>
+        <p>Alipay</p>
+      </div>
+    
+
+    
+
+  </div>
+</div>
+
+      </div>
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/java/" rel="tag"># java</a>
+          
+            <a href="/tags/algorithm/" rel="tag"># algorithm</a>
+          
+            <a href="/tags/interview/" rel="tag"># interview</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2017/10/20/interview_code_repo/" rel="next" title="面试代码复习">
+                <i class="fa fa-chevron-left"></i> 面试代码复习
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+        <!-- Go to www.addthis.com/dashboard to customize your tools -->
+<div class="addthis_inline_share_toolbox">
+  <script type = "text/javascript" src = "//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-593135f4e114024c" async = "async" ></script>
+</div>
+
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+      <div id="disqus_thread">
+        <noscript>
+          Please enable JavaScript to view the
+          <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a>
+        </noscript>
+      </div>
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            Overview
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="https://ww4.sinaimg.cn/large/9b3a5c2fgw1faysh4xl7ij20bh0bhmy5.jpg"
+               alt="BobbyLiujb" />
+          <p class="site-author-name" itemprop="name">BobbyLiujb</p>
+           
+              <p class="site-description motion-element" itemprop="description"></p>
+          
+        </div>
+        <nav class="site-state motion-element">
+
+          
+            <div class="site-state-item site-state-posts">
+              <a href="/archives/">
+                <span class="site-state-item-count">24</span>
+                <span class="site-state-item-name">posts</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-categories">
+              
+                <span class="site-state-item-count">3</span>
+                <span class="site-state-item-name">categories</span>
+              
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-tags">
+              
+                <span class="site-state-item-count">30</span>
+                <span class="site-state-item-name">tags</span>
+              
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+        </div>
+
+        
+        
+
+        
+        
+
+        
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#字符串长度"><span class="nav-number">1.</span> <span class="nav-text">字符串长度</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#BST验证"><span class="nav-number">2.</span> <span class="nav-text">BST验证</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#走迷宫"><span class="nav-number">3.</span> <span class="nav-text">走迷宫</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Lowest-Common-Ancestor"><span class="nav-number">4.</span> <span class="nav-text">Lowest Common Ancestor</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#找第一个unique的字符"><span class="nav-number">5.</span> <span class="nav-text">找第一个unique的字符</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#wordBreak"><span class="nav-number">6.</span> <span class="nav-text">wordBreak</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#four-missing-nums-in-1-100"><span class="nav-number">7.</span> <span class="nav-text">four missing nums in 1-100</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Git是什么"><span class="nav-number">8.</span> <span class="nav-text">Git是什么</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#介绍一个数据结构"><span class="nav-number">9.</span> <span class="nav-text">介绍一个数据结构</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#pass-by-reference和pass-by-value"><span class="nav-number">10.</span> <span class="nav-text">pass by reference和pass by value?</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Fibonacci-sum"><span class="nav-number">11.</span> <span class="nav-text">Fibonacci sum</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#LRU-Cache-146"><span class="nav-number">12.</span> <span class="nav-text">LRU Cache(146)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#扫雷-529"><span class="nav-number">13.</span> <span class="nav-text">扫雷(529)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Reverse-Integer"><span class="nav-number">14.</span> <span class="nav-text">Reverse Integer</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Reverse-Bits"><span class="nav-number">15.</span> <span class="nav-text">Reverse Bits</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#黑杰克"><span class="nav-number">16.</span> <span class="nav-text">黑杰克</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#三维空间求点"><span class="nav-number">17.</span> <span class="nav-text">三维空间求点</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Design-tic-tac-toe-348"><span class="nav-number">18.</span> <span class="nav-text">Design tic tac toe(348)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Anagrams-49"><span class="nav-number">19.</span> <span class="nav-text">Anagrams(49)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Anagramii-438"><span class="nav-number">20.</span> <span class="nav-text">Anagramii(438)</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy;  2016 &mdash; 
+  <span itemprop="copyrightYear">2017</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">BobbyLiujb</span>
+
+  
+</div>
+
+
+  <div class="powered-by">
+    Powered by <a class="theme-link" href="https://hexo.io">Hexo</a>
+  </div>
+
+  <span class="post-meta-divider">|</span>
+
+  <div class="theme-info">
+    Theme &mdash;
+    <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+      NexT.Mist
+    </a>
+  </div>
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.2"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.2"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.2"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.2"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.2"></script>
+
+
+
+  
+
+  
+
+    
+      <script id="dsq-count-scr" src="https://bobbyliujb.disqus.com/count.js" async></script>
+    
+
+    
+      <script type="text/javascript">
+        var disqus_config = function () {
+          this.page.url = 'https://bobbyliujb.github.io/2017/10/20/zillow/';
+          this.page.identifier = '2017/10/20/zillow/';
+          this.page.title = '西螺古炉普';
+        };
+        var d = document, s = d.createElement('script');
+        s.src = 'https://bobbyliujb.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', '' + +new Date());
+        (d.head || d.body).appendChild(s);
+      </script>
+    
+
+  
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+  <script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.4.js"></script>
+  <script>AV.initialize("jT7i5auNazMHRONSPUHmcoko-gzGzoHsz", "dEWwuVre5Svmwvjw2DmcIbLy");</script>
+  <script>
+    function showTime(Counter) {
+      var query = new AV.Query(Counter);
+      var entries = [];
+      var $visitors = $(".leancloud_visitors");
+
+      $visitors.each(function () {
+        entries.push( $(this).attr("id").trim() );
+      });
+
+      query.containedIn('url', entries);
+      query.find()
+        .done(function (results) {
+          var COUNT_CONTAINER_REF = '.leancloud-visitors-count';
+
+          if (results.length === 0) {
+            $visitors.find(COUNT_CONTAINER_REF).text(0);
+            return;
+          }
+
+          for (var i = 0; i < results.length; i++) {
+            var item = results[i];
+            var url = item.get('url');
+            var time = item.get('time');
+            var element = document.getElementById(url);
+
+            $(element).find(COUNT_CONTAINER_REF).text(time);
+          }
+          for(var i = 0; i < entries.length; i++) {
+            var url = entries[i];
+            var element = document.getElementById(url);
+            var countSpan = $(element).find(COUNT_CONTAINER_REF);
+            if( countSpan.text() == '') {
+              countSpan.text(0);
+            }
+          }
+        })
+        .fail(function (object, error) {
+          console.log("Error: " + error.code + " " + error.message);
+        });
+    }
+
+    function addCount(Counter) {
+      var $visitors = $(".leancloud_visitors");
+      var url = $visitors.attr('id').trim();
+      var title = $visitors.attr('data-flag-title').trim();
+      var query = new AV.Query(Counter);
+
+      query.equalTo("url", url);
+      query.find({
+        success: function(results) {
+          if (results.length > 0) {
+            var counter = results[0];
+            counter.fetchWhenSave(true);
+            counter.increment("time");
+            counter.save(null, {
+              success: function(counter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(counter.get('time'));
+              },
+              error: function(counter, error) {
+                console.log('Failed to save Visitor num, with error message: ' + error.message);
+              }
+            });
+          } else {
+            var newcounter = new Counter();
+            /* Set ACL */
+            var acl = new AV.ACL();
+            acl.setPublicReadAccess(true);
+            acl.setPublicWriteAccess(true);
+            newcounter.setACL(acl);
+            /* End Set ACL */
+            newcounter.set("title", title);
+            newcounter.set("url", url);
+            newcounter.set("time", 1);
+            newcounter.save(null, {
+              success: function(newcounter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(newcounter.get('time'));
+              },
+              error: function(newcounter, error) {
+                console.log('Failed to create');
+              }
+            });
+          }
+        },
+        error: function(error) {
+          console.log('Error:' + error.code + " " + error.message);
+        }
+      });
+    }
+
+    $(function() {
+      var Counter = AV.Object.extend("Counter");
+      if ($('.leancloud_visitors').length == 1) {
+        addCount(Counter);
+      } else if ($('.post-title-link').length > 1) {
+        showTime(Counter);
+      }
+    });
+  </script>
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
