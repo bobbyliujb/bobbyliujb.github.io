@@ -114,7 +114,7 @@
 <meta property="og:image" content="http://ww1.sinaimg.cn/large/9b3a5c2fgy1feoa73140jj20fm07d41s.jpg">
 <meta property="og:image" content="http://ww1.sinaimg.cn/large/9b3a5c2fgy1feoc09ug9xj20pn06tq3e.jpg">
 <meta property="og:image" content="https://ww1.sinaimg.cn/large/9b3a5c2fgy1feoibzt8c7j20hb0cnq9d.jpg">
-<meta property="og:updated_time" content="2017-10-15T06:22:59.000Z">
+<meta property="og:updated_time" content="2017-11-02T17:07:31.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Note for Java">
 <meta name="twitter:description" content="学校课程并没有专门教Java，所以自己整理了一些基本Java语法之类的东西，还涉及一部分操作系统、计网、数据库的大山中学时做的笔记。">
@@ -325,8 +325,8 @@
               
                 <span class="post-meta-item-text">Post modified&#58;</span>
               
-              <time title="Post modified" itemprop="dateModified" datetime="2017-10-14T23:22:59-07:00">
-                2017-10-14
+              <time title="Post modified" itemprop="dateModified" datetime="2017-11-02T10:07:31-07:00">
+                2017-11-02
               </time>
             
           </span>
@@ -881,7 +881,12 @@
 <h4 id="SQL-structured-query-language"><a href="#SQL-structured-query-language" class="headerlink" title="SQL(structured query language)"></a>SQL(structured query language)</h4><p> 高级非过程化语言，在高层数据结构上工作，具有不同底层结构的数据库系统可以使用相同的SQL语言作为数据输入和管理的接口。</p>
 <ul>
 <li><p>创建数据表：可设置非空、默认值，指定主键/复合主键，定义外键。</p>
-<figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">CREATE</span> <span class="keyword">TABLE</span> tableName</div><div class="line">(</div><div class="line">    fieldName1 <span class="keyword">type</span>(maxLength) <span class="keyword">NOT</span> <span class="literal">NULL</span>,</div><div class="line">    fieldName2 <span class="keyword">type</span>(maxLength) <span class="keyword">NOT</span> <span class="literal">NULL</span>,</div><div class="line">    fieldName3 <span class="keyword">type</span>(maxLength) <span class="keyword">DEFAULT</span> defaultValue,</div><div class="line">    …</div><div class="line">    PRIMARY <span class="keyword">KEY</span>(fieldName1),     // 放在字段定义之后，主键必须设置非空约束</div><div class="line">    // PRIMARY <span class="keyword">KEY</span>(fieldName1, fieldName2), 联合主键，慎用</div><div class="line">    FOREIGN <span class="keyword">KEY</span>(fieldName3) <span class="keyword">REFERENCES</span> anotherTableName(fieldName)</div><div class="line">);</div><div class="line"> ``</div><div class="line"> * 定义外键：外键是体现关系数据库中"关系"二字的关键，使用外键可以把互相独立的表关联起来，即在某字段引用其他表的主键作为值。</div><div class="line"> * 修改已有数据表</div><div class="line"> ```SQL</div><div class="line"><span class="keyword">ALTER</span> <span class="keyword">TABLE</span> tableName <span class="keyword">ADD</span> newFieldName <span class="keyword">type</span>(maxLength);</div><div class="line"><span class="keyword">ALTER</span> <span class="keyword">TABLE</span> tableName <span class="keyword">DROP</span> oldFieldName;</div></pre></td></tr></table></figure>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">CREATE</span> <span class="keyword">TABLE</span> tableName</div><div class="line">(</div><div class="line">    fieldName1 <span class="keyword">type</span>(maxLength) <span class="keyword">NOT</span> <span class="literal">NULL</span>,</div><div class="line">    fieldName2 <span class="keyword">type</span>(maxLength) <span class="keyword">NOT</span> <span class="literal">NULL</span>,</div><div class="line">    fieldName3 <span class="keyword">type</span>(maxLength) <span class="keyword">DEFAULT</span> defaultValue,</div><div class="line">    …</div><div class="line">    PRIMARY <span class="keyword">KEY</span>(fieldName1),     // 放在字段定义之后，主键必须设置非空约束</div><div class="line">    // PRIMARY <span class="keyword">KEY</span>(fieldName1, fieldName2), 联合主键，慎用</div><div class="line">    FOREIGN <span class="keyword">KEY</span>(fieldName3) <span class="keyword">REFERENCES</span> anotherTableName(fieldName)</div><div class="line">);</div></pre></td></tr></table></figure>
+</li>
+<li><p>定义外键：外键是体现关系数据库中”关系”二字的关键，使用外键可以把互相独立的表关联起来，即在某字段引用其他表的主键作为值。</p>
+</li>
+<li><p>修改已有数据表</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">ALTER</span> <span class="keyword">TABLE</span> tableName <span class="keyword">ADD</span> newFieldName <span class="keyword">type</span>(maxLength);</div><div class="line"><span class="keyword">ALTER</span> <span class="keyword">TABLE</span> tableName <span class="keyword">DROP</span> oldFieldName;</div></pre></td></tr></table></figure>
 </li>
 <li><p>删除数据表<br><code>DROP TABLE tableName;</code><br>注意若存在外键关联关系，被引用的数据表必须等到引用的表删除后才能删除，否则会破坏外联关系导致已有的表出问题。</p>
 </li>
