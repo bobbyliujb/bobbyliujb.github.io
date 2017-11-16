@@ -109,7 +109,7 @@
 <meta property="og:site_name" content="Bobby">
 <meta property="og:description" content="刷题。祝我好运。">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2017-11-02T07:54:59.000Z">
+<meta property="og:updated_time" content="2017-11-16T07:32:50.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Note for LeetCode in Java (1~100)">
 <meta name="twitter:description" content="刷题。祝我好运。">
@@ -319,8 +319,8 @@
               
                 <span class="post-meta-item-text">Post modified&#58;</span>
               
-              <time title="Post modified" itemprop="dateModified" datetime="2017-11-02T00:54:59-07:00">
-                2017-11-02
+              <time title="Post modified" itemprop="dateModified" datetime="2017-11-15T23:32:50-08:00">
+                2017-11-15
               </time>
             
           </span>
@@ -1019,7 +1019,7 @@
 <h4 id="99-recover-binary-search-tree"><a href="#99-recover-binary-search-tree" class="headerlink" title="99. recover-binary-search-tree"></a><a href="https://leetcode.com/problems/recover-binary-search-tree/#/description" target="_blank" rel="external">99. recover-binary-search-tree</a></h4><ul>
 <li>给一个二分查找树的根节点，其中有两个节点调换了顺序，要求恢复成合法的二分查找树。</li>
 <li>ME：有点投机取巧的方法，先DFS中序遍历把所有节点存入一个ArrayList，然后Collections.sort排个序，再DFS一次把值全部重新赋一遍。在绝望的时候随便试了一发，都做好TLE的准备了，竟然AC了。不过follow up说，空间O(n )的很容易想到，但如果是O(1 )空间要怎么做？</li>
-<li>TA：你这么做并不能令人信服。主要的问题是如何找到这两个放错了位置的点呢？<a href="https://discuss.leetcode.com/topic/3988/no-fancy-algorithm-just-simple-and-powerful-in-order-traversal/" target="_blank" rel="external">这个</a>告诉你，其实就是把在中序遍历的时候，找逆序对，若是直接相连的两个节点反了，则只有一对逆序对，若不直接相连，则是两对逆序对，把前者的靠前者与后者的靠后者交换即可。使用到了三指针，prev指针实际上是初始化成了一个虚拟的最左子节点，初始值为Integer.MIN_VALUE。至于O(1 )，当然就是之前听说过的Morris Traversal。</li>
+<li>TA：你这么做并不能令人信服。主要的问题是如何找到这两个放错了位置的点呢？<a href="https://discuss.leetcode.com/topic/3988/no-fancy-algorithm-just-simple-and-powerful-in-order-traversal/" target="_blank" rel="external">这个</a>告诉你，其实就是把在中序遍历的时候，找逆序对，若是直接相连的两个节点反了，则只有一对逆序对，若不直接相连，则是两对逆序对，把前者的靠前者与后者的靠后者交换即可。使用到了三指针，prev指针实际上是初始化成了一个虚拟的最左子节点，初始值为Integer.MIN_VALUE。至于O(1)，当然就是之前听说过的Morris Traversal。</li>
 <li>Prev, first, second. reverse pair.<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;    </div><div class="line">    TreeNode first = <span class="keyword">null</span>, second = <span class="keyword">null</span>;   <span class="comment">// for getting the reverse pair</span></div><div class="line">    TreeNode prev = <span class="keyword">new</span> TreeNode(Integer.MIN_VALUE);    <span class="comment">// prevent unwanted setting of first</span></div><div class="line">    <span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">dfs</span><span class="params">(TreeNode root)</span> </span>&#123;</div><div class="line">        <span class="keyword">if</span> (root == <span class="keyword">null</span>) &#123;</div><div class="line">            <span class="keyword">return</span> ;</div><div class="line">        &#125;</div><div class="line">        <span class="comment">// inorder</span></div><div class="line">        dfs(root.left);</div><div class="line">        <span class="keyword">if</span> (first == <span class="keyword">null</span> &amp;&amp; prev.val &gt;= root.val) &#123;<span class="comment">// prev is less than curr node normally</span></div><div class="line">            first = prev;                           <span class="comment">// if not, prev is the one that misplaced</span></div><div class="line">        &#125;</div><div class="line">        <span class="keyword">if</span> (first != <span class="keyword">null</span> &amp;&amp; prev.val &gt;= root.val) &#123;<span class="comment">// put curr node as swap target</span></div><div class="line">            second = root;</div><div class="line">        &#125;</div><div class="line">        prev = root;</div><div class="line">        dfs(root.right);</div><div class="line">    &#125;</div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">recoverTree</span><span class="params">(TreeNode root)</span> </span>&#123;</div><div class="line">        dfs(root);</div><div class="line">        <span class="keyword">if</span> (first != <span class="keyword">null</span> &amp;&amp; second != <span class="keyword">null</span>) &#123;</div><div class="line">            <span class="keyword">int</span> temp = first.val;</div><div class="line">            first.val = second.val;</div><div class="line">            second.val = temp;</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
 </li>
 </ul>

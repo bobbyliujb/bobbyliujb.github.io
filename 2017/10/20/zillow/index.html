@@ -109,7 +109,7 @@
 <meta property="og:site_name" content="Bobby">
 <meta property="og:description" content="迎难而上，祝我好运。">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2017-11-02T07:55:02.000Z">
+<meta property="og:updated_time" content="2017-11-04T06:47:17.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="滋衣螺古如普">
 <meta name="twitter:description" content="迎难而上，祝我好运。">
@@ -319,8 +319,8 @@
               
                 <span class="post-meta-item-text">Post modified&#58;</span>
               
-              <time title="Post modified" itemprop="dateModified" datetime="2017-11-02T00:55:02-07:00">
-                2017-11-02
+              <time title="Post modified" itemprop="dateModified" datetime="2017-11-03T23:47:17-07:00">
+                2017-11-03
               </time>
             
           </span>
@@ -400,7 +400,7 @@
         <p>迎难而上，祝我好运。<br><a id="more"></a></p>
 <h4 id="字符串长度"><a href="#字符串长度" class="headerlink" title="字符串长度"></a>字符串长度</h4><ul>
 <li><p>要求不能用length内建方法。</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">private</span> <span class="keyword">int</span> <span class="title">getStrLen</span><span class="params">(String str)</span> </span>&#123;</div><div class="line">    <span class="keyword">if</span> (str == <span class="keyword">null</span> || str.equals(<span class="string">""</span>)) &#123;</div><div class="line">        <span class="keyword">return</span> <span class="number">0</span>;</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">return</span> <span class="number">1</span> + getStrLen(str.substring(<span class="number">1</span>));</div><div class="line">&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">private</span> <span class="keyword">int</span> <span class="title">getStrLen</span><span class="params">(String str)</span> </span>&#123;</div><div class="line">    <span class="keyword">if</span> (str == <span class="keyword">null</span> || str.equals(<span class="string">""</span>)) &#123;</div><div class="line">        <span class="keyword">return</span> <span class="number">0</span>;</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">return</span> <span class="number">1</span> + getStrLen(str.substring(<span class="number">1</span>));</div><div class="line">&#125;</div></pre></td></tr></table></figure>
 </li>
 <li><p>上面这个复杂度达到了O(N^2). 其实循环除了根据长度界定范围，还有一个for-each可以用，所以可以先转成charArray再for-each来找。</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">private</span> <span class="keyword">int</span> <span class="title">getStrLen</span><span class="params">(String str)</span> </span>&#123;</div><div class="line">    <span class="keyword">if</span> (str == <span class="keyword">null</span> || str.equals(<span class="string">""</span>)) &#123;</div><div class="line">        <span class="keyword">return</span> <span class="number">0</span>;</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">int</span> index = <span class="number">0</span>;</div><div class="line">    <span class="keyword">char</span>[] sChar = str.toCharArray();</div><div class="line">    <span class="keyword">for</span> (<span class="keyword">char</span> c: sChar) &#123;</div><div class="line">        index++;</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">return</span> index;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
