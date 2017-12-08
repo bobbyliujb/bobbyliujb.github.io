@@ -655,7 +655,7 @@
 <li>实现一个cache类的put和get方法，这个cache符合Least recently used规则来覆盖旧元素。</li>
 <li>ME：存储键值对当然用HashMap，为了维护这个Least recently used我用的是LinkedList来不断地线性查找remove然后再add到最后，每次空间不够就poll最前面的即可。然而超时。关键就是这个LRU要如何高效更新呢？？陷入江局。。。</li>
 <li>TA：<a href="https://discuss.leetcode.com/topic/6613/java-hashtable-double-linked-list-with-a-touch-of-pseudo-nodes/" target="_blank" rel="external">这个</a>告诉你，自己新创一个DLinkedNode类构建双向链表，让Hash表由key映射到这样的节点上，每个DLinkedNode要存储key和value，value当然是为了get的时候返回，而保存key则是为了当链表的容量爆了的时候，弹出末尾的这个节点时能获得这个key，告诉map去remove。</li>
-<li>双向链表的特点是插入和删除都不需要额外传入prev节点，不需要像通常单向链表那样O(n )遍历找到插入/删除的位置。</li>
+<li>双向链表的特点是插入和删除都不需要额外传入prev节点，不需要像通常单向链表那样O(n)遍历找到插入/删除的位置。</li>
 </ul>
 <h4 id="147-insertion-sort-list"><a href="#147-insertion-sort-list" class="headerlink" title="147. insertion-sort-list"></a><a href="https://leetcode.com/problems/insertion-sort-list" target="_blank" rel="external">147. insertion-sort-list</a></h4><ul>
 <li>给一个链表，实现插入排序。</li>
@@ -978,7 +978,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives/">
-                <span class="site-state-item-count">27</span>
+                <span class="site-state-item-count">28</span>
                 <span class="site-state-item-name">posts</span>
               </a>
             </div>
