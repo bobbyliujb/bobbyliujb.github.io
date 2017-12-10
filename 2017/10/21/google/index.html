@@ -110,7 +110,7 @@
 <meta property="og:description" content="迎难而上，祝我好运。">
 <meta property="og:locale" content="en">
 <meta property="og:image" content="https://drscdn.500px.org/photo/130178585/m%3D2048/300d71f784f679d5e70fadda8ad7d68f">
-<meta property="og:updated_time" content="2017-12-10T02:26:01.000Z">
+<meta property="og:updated_time" content="2017-12-10T08:27:46.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="孤狗">
 <meta name="twitter:description" content="迎难而上，祝我好运。">
@@ -321,8 +321,8 @@
               
                 <span class="post-meta-item-text">Post modified&#58;</span>
               
-              <time title="Post modified" itemprop="dateModified" datetime="2017-12-09T18:26:01-08:00">
-                2017-12-09
+              <time title="Post modified" itemprop="dateModified" datetime="2017-12-10T00:27:46-08:00">
+                2017-12-10
               </time>
             
           </span>
@@ -565,7 +565,8 @@
 </li>
 </ul>
 <h4 id="validate-2D-array"><a href="#validate-2D-array" class="headerlink" title="validate 2D array"></a><a href="http://www.1point3acres.com/bbs/thread-308429-1-1.html" target="_blank" rel="external">validate 2D array</a></h4><ul>
-<li>2-D array，里面有R,G,B,Y四种类型的element，如果横竖没有三个element是同一类型的话，这个2-Darray就是valid的。先让写个function判断一个2-D array是否valid。<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"></div><div class="line"></div></pre></td></tr></table></figure>
+<li>2-D array，里面有R,G,B,Y四种类型的element，如果横竖没有三个element是同一类型的话，这个2-Darray就是valid的。先让写个function判断一个2-D array是否valid。</li>
+<li>感觉和那个OOXX(<a href="https://leetcode.com/problems/design-tic-tac-toe/description/" target="_blank" rel="external">348 Design tic tac toe</a>)的游戏很像，不过就不能通过简单的加一减一来搞了。这里就是暴力了，判断当前字符的前一行、下一行，以及前一列、下一列。<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">boolean</span> <span class="title">isValidMatrix</span><span class="params">(<span class="keyword">char</span>[][] matrix)</span> </span>&#123;</div><div class="line">    <span class="keyword">if</span> (matrix == <span class="keyword">null</span> || matrix.length == <span class="number">0</span> || matrix[<span class="number">0</span>].length == <span class="number">0</span>) &#123;</div><div class="line">        <span class="keyword">return</span> <span class="keyword">false</span>;</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">int</span> rows = matrix.length, cols = matrix[<span class="number">0</span>].length;</div><div class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; rows; i++) &#123;</div><div class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> j = <span class="number">0</span>; j &lt; cols; j++) &#123;</div><div class="line">            <span class="keyword">if</span> (i &gt; <span class="number">0</span> &amp;&amp; matrix[i - <span class="number">1</span>][j] == matrix[i][j]) &#123;  <span class="comment">// 等于上一行</span></div><div class="line">                <span class="keyword">if</span> (i + <span class="number">1</span> &lt; rows &amp;&amp; matrix[i + <span class="number">1</span>][j] == matrix[i][j]) &#123;</div><div class="line">                    <span class="keyword">return</span> <span class="keyword">false</span>;	<span class="comment">// 判断下一行</span></div><div class="line">                &#125;</div><div class="line">            &#125;</div><div class="line">            colBucket[j] = matrix[i][j];</div><div class="line">            <span class="keyword">if</span> (j &gt; <span class="number">0</span> &amp;&amp; matrix[i][j] == matrix[i][j - <span class="number">1</span>]) &#123;</div><div class="line">                <span class="keyword">if</span> (j + <span class="number">1</span> &lt; cols &amp;&amp; matrix[i][j + <span class="number">1</span>] == matrix[i][j]) &#123;</div><div class="line">                    <span class="keyword">return</span> <span class="keyword">false</span>;</div><div class="line">                &#125; <span class="keyword">else</span> &#123;</div><div class="line">                    j++;</div><div class="line">                    <span class="keyword">if</span> (j &lt; cols) &#123;</div><div class="line">                        colBucket[j] = matrix[i][j];</div><div class="line">                    &#125;</div><div class="line">                &#125;</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">return</span> <span class="keyword">true</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
 </li>
 </ul>
 
