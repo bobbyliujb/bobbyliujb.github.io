@@ -111,7 +111,7 @@
 <meta property="og:locale" content="en">
 <meta property="og:image" content="http://ww1.sinaimg.cn/mw690/9b3a5c2fgy1fn33xkz4hmj20xj0ppduv.jpg">
 <meta property="og:image" content="http://ww1.sinaimg.cn/mw690/9b3a5c2fgy1fn33xyffcsj20yz0piqj7.jpg">
-<meta property="og:updated_time" content="2018-01-04T07:52:33.000Z">
+<meta property="og:updated_time" content="2018-01-05T01:00:37.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="覃超视频课">
 <meta name="twitter:description" content="迎难而上，祝我好运。">
@@ -322,8 +322,8 @@
               
                 <span class="post-meta-item-text">Post modified&#58;</span>
               
-              <time title="Post modified" itemprop="dateModified" datetime="2018-01-03T23:52:33-08:00">
-                2018-01-03
+              <time title="Post modified" itemprop="dateModified" datetime="2018-01-04T17:00:37-08:00">
+                2018-01-04
               </time>
             
           </span>
@@ -441,6 +441,27 @@
 <li>lc22 generate parentheses</li>
 <li>lc515 largest in BT row</li>
 <li>lc102 level traversal</li>
+</ul>
+<hr>
+<h4 id="Live-8"><a href="#Live-8" class="headerlink" title="Live 8"></a>Live 8</h4><h5 id="Dyanamic-Programming"><a href="#Dyanamic-Programming" class="headerlink" title="Dyanamic Programming"></a>Dyanamic Programming</h5><ol>
+<li>递推（从前往后推导，而不能仅仅理解为递归里加个cache）</li>
+<li>状态的定义（状态实在定义不了的话，就考虑是否可以增加一个维度）</li>
+<li>最优子结构（实现<code>getOptimizedState</code>）</li>
+<li>状态转移方程<h5 id="DP与分治法区别"><a href="#DP与分治法区别" class="headerlink" title="DP与分治法区别"></a>DP与分治法区别</h5></li>
+</ol>
+<ul>
+<li>适合于动态规划求解的问题，经分解后的字问题往往不是相互独立的。下一个阶段子问题的求解需要建立在上一阶段解的基础之上。<h5 id="三大属性"><a href="#三大属性" class="headerlink" title="三大属性"></a>三大属性</h5></li>
+<li>最优化原理：如果问题的最优解所包含的子问题的解也是最优的，则该问题具有最优子结构。</li>
+<li>无后效性：某阶段的状态一旦确定，就不受后续状态/决策的影响，不会出现回溯。</li>
+<li>有重叠字问题：子问题之间不独立，一个子问题可能在后续阶段决策中被多次用到。<h5 id="例题-2"><a href="#例题-2" class="headerlink" title="例题"></a>例题</h5></li>
+<li>lc300：状态就是以当前元素为结尾的子序列长度，只要比前面任意一个元素大就可以从该元素转移过来。</li>
+<li>lc64：可以BFS/DFS上下左右搞一波，也可以DP。</li>
+</ul>
+<hr>
+<h4 id="Live-9"><a href="#Live-9" class="headerlink" title="Live 9"></a>Live 9</h4><h5 id="DP例题"><a href="#DP例题" class="headerlink" title="DP例题"></a>DP例题</h5><ul>
+<li>lc70：有很多follow-up.如果可以走1…k步，就需要不断累加<code>dp[i - 1]...dp[i - k]</code>。如果限制「上一步走了x，这一步就不能走x」，则需要增加一个维度来保存该处走的是多少步到达的；如果限制「上一步走x、上上步走y，这一步不能走x或y」，就再增加一个维度。</li>
+<li>lc91：DP在字符串处理中经常用到，状态就是当前长度为止有多少种decode方式。</li>
+<li>股票系列题：</li>
 </ul>
 
       
@@ -662,7 +683,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#Live-2"><span class="nav-number">1.</span> <span class="nav-text">Live 2</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#Big-O"><span class="nav-number">1.1.</span> <span class="nav-text">Big-O</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#切题四件套"><span class="nav-number">1.2.</span> <span class="nav-text">切题四件套</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Live-3"><span class="nav-number">2.</span> <span class="nav-text">Live 3</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#Queue-and-Stack"><span class="nav-number">2.1.</span> <span class="nav-text">Queue and Stack</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#例题"><span class="nav-number">2.2.</span> <span class="nav-text">例题</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Live-6"><span class="nav-number">3.</span> <span class="nav-text">Live 6</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#DFS"><span class="nav-number">3.1.</span> <span class="nav-text">DFS</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#BFS"><span class="nav-number">3.2.</span> <span class="nav-text">BFS</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#例题-1"><span class="nav-number">3.3.</span> <span class="nav-text">例题</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Live-7"><span class="nav-number">4.</span> <span class="nav-text">Live 7</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#DFS-BFS-例题"><span class="nav-number">4.1.</span> <span class="nav-text">DFS/BFS 例题</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#Live-2"><span class="nav-number">1.</span> <span class="nav-text">Live 2</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#Big-O"><span class="nav-number">1.1.</span> <span class="nav-text">Big-O</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#切题四件套"><span class="nav-number">1.2.</span> <span class="nav-text">切题四件套</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Live-3"><span class="nav-number">2.</span> <span class="nav-text">Live 3</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#Queue-and-Stack"><span class="nav-number">2.1.</span> <span class="nav-text">Queue and Stack</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#例题"><span class="nav-number">2.2.</span> <span class="nav-text">例题</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Live-6"><span class="nav-number">3.</span> <span class="nav-text">Live 6</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#DFS"><span class="nav-number">3.1.</span> <span class="nav-text">DFS</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#BFS"><span class="nav-number">3.2.</span> <span class="nav-text">BFS</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#例题-1"><span class="nav-number">3.3.</span> <span class="nav-text">例题</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Live-7"><span class="nav-number">4.</span> <span class="nav-text">Live 7</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#DFS-BFS-例题"><span class="nav-number">4.1.</span> <span class="nav-text">DFS/BFS 例题</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Live-8"><span class="nav-number">5.</span> <span class="nav-text">Live 8</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#Dyanamic-Programming"><span class="nav-number">5.1.</span> <span class="nav-text">Dyanamic Programming</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#DP与分治法区别"><span class="nav-number">5.2.</span> <span class="nav-text">DP与分治法区别</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#三大属性"><span class="nav-number">5.3.</span> <span class="nav-text">三大属性</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#例题-2"><span class="nav-number">5.4.</span> <span class="nav-text">例题</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Live-9"><span class="nav-number">6.</span> <span class="nav-text">Live 9</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#DP例题"><span class="nav-number">6.1.</span> <span class="nav-text">DP例题</span></a></li></ol></li></ol></div>
             
 
           </div>
