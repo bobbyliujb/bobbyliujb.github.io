@@ -109,7 +109,7 @@
 <meta property="og:site_name" content="Bobby">
 <meta property="og:description" content="刷题。祝我好运。">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2018-01-04T07:52:36.000Z">
+<meta property="og:updated_time" content="2018-01-31T05:03:46.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Note for LeetCode in Java (1~100)">
 <meta name="twitter:description" content="刷题。祝我好运。">
@@ -319,8 +319,8 @@
               
                 <span class="post-meta-item-text">Post modified&#58;</span>
               
-              <time title="Post modified" itemprop="dateModified" datetime="2018-01-03T23:52:36-08:00">
-                2018-01-03
+              <time title="Post modified" itemprop="dateModified" datetime="2018-01-30T21:03:46-08:00">
+                2018-01-30
               </time>
             
           </span>
@@ -869,7 +869,7 @@ return head;
 <h4 id="sqrtx"><a href="#sqrtx" class="headerlink" title="sqrtx"></a><a href="https://leetcode.com/problems/sqrtx/#/description" target="_blank" rel="external">sqrtx</a></h4><ul>
 <li>给一个int，返回它的开方。负数直接返回本身。</li>
 <li>ME：和之前做过的一个pow有点像，得考虑如何加速。我能想到的就是折半、折半…这样，找到n*n &lt; x的时候，再一点点加，找到合适的值。需要注意的是越界的情况，因为x/2得到的n平方一下可能特别大。提交后发现贼慢，只超过2%！</li>
-<li>TA：<a href="https://discuss.leetcode.com/topic/24532/3-4-short-lines-integer-newton-every-language" target="_blank" rel="external">这个</a>总结了个<a href="https://en.wikipedia.org/wiki/Integer_square_root#Using_only_integer_division" target="_blank" rel="external">牛顿法</a>出来，我的思路和它有点像，不过它更优雅，因为没有最后那个++的过程。另外<a href="https://discuss.leetcode.com/topic/8680/a-binary-search-solution" target="_blank" rel="external">这个二分查找的方法</a>比较合我心意。另外，一个避免越界的办法是不要用n*n，改成用x/n来判断。奇怪的是，我写的这个二分也不快，但是看最快的那个方法基本和我一样啊摊手。<a href="https://discuss.leetcode.com/topic/2671/share-my-o-log-n-solution-using-bit-manipulation/26" target="_blank" rel="external">这里</a>还有一个利用位运算的方法，这个真的就是程序员的思路了，先把整数最高位设为1（1&lt;&lt;15）存入h，然后从高到低挪，与一个ans取或运算之后，把这个ans与x/ans做比较，若大于说明太大了，ans与h取个异或把这一位1给拿掉，再继续挪h。。这么说可能也不是很好懂吧，确实是比较计算机的思维。位运算确实还是比较快的，打败了77%。还有<a href="https://discuss.leetcode.com/topic/35357/share-my-2ms-and-4lines-java-code" target="_blank" rel="external">一个方法</a>是利用<code>sqrt(x ) = (2sqrt(x ) )/2 = 2sqrt(x/4 )</code>来求的，边缘情况是非完全平方数的时候，需要将结果加个1再判断一下。一个衣洗题搞出这么多花样，服气。</li>
+<li>TA：<a href="https://discuss.leetcode.com/topic/24532/3-4-short-lines-integer-newton-every-language" target="_blank" rel="external">这个</a>总结了个<a href="https://en.wikipedia.org/wiki/Integer_square_root#Using_only_integer_division" target="_blank" rel="external">牛顿法</a>出来，我的思路和它有点像，不过它更优雅，因为没有最后那个++的过程。另外<a href="https://discuss.leetcode.com/topic/8680/a-binary-search-solution" target="_blank" rel="external">这个二分查找的方法</a>比较合我心意。另外，一个避免越界的办法是不要用n*n，改成用x/n来判断。奇怪的是，我写的这个二分也不快，但是看最快的那个方法基本和我一样啊摊手。<a href="https://discuss.leetcode.com/topic/2671/share-my-o-log-n-solution-using-bit-manipulation/26" target="_blank" rel="external">这里</a>还有一个利用位运算的方法，这个真的就是程序员的思路了，先把整数最高位设为1（1&lt;&lt;15）存入h，然后从高到低挪，与一个ans取或运算之后，把这个ans与x/ans做比较，若大于说明太大了，ans与h取个异或把这一位1给拿掉，再继续挪h。。这么说可能也不是很好懂吧，确实是比较计算机的思维。位运算确实还是比较快的，打败了77%。还有<a href="https://discuss.leetcode.com/topic/35357/share-my-2ms-and-4lines-java-code" target="_blank" rel="external">一个方法</a>是利用<code>sqrt(x) = (2sqrt(x))/2 = 2sqrt(x/4)</code>来求的，边缘情况是非完全平方数的时候，需要将结果加个1再判断一下。一个衣洗题搞出这么多花样，服气。</li>
 </ul>
 <h4 id="climbing-stairs"><a href="#climbing-stairs" class="headerlink" title="climbing-stairs"></a><a href="https://leetcode.com/problems/climbing-stairs/#/description" target="_blank" rel="external">climbing-stairs</a></h4><ul>
 <li>给一个整数n表示阶梯的级数，每次只能跳1或2级，求跳到最高级的路径数。</li>
