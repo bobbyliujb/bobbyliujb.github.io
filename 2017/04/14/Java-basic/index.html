@@ -114,7 +114,7 @@
 <meta property="og:image" content="http://ww1.sinaimg.cn/large/9b3a5c2fgy1feoa73140jj20fm07d41s.jpg">
 <meta property="og:image" content="http://ww1.sinaimg.cn/large/9b3a5c2fgy1feoc09ug9xj20pn06tq3e.jpg">
 <meta property="og:image" content="https://ww1.sinaimg.cn/large/9b3a5c2fgy1feoibzt8c7j20hb0cnq9d.jpg">
-<meta property="og:updated_time" content="2018-03-06T02:10:16.000Z">
+<meta property="og:updated_time" content="2018-03-07T19:21:13.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Note for Java">
 <meta name="twitter:description" content="学校课程并没有专门教Java，所以自己整理了一些基本Java语法之类的东西，还涉及一部分操作系统、计网、数据库的大山中学时做的笔记。另外结合Geeks4geeks做一些补充。">
@@ -325,8 +325,8 @@
               
                 <span class="post-meta-item-text">Post modified&#58;</span>
               
-              <time title="Post modified" itemprop="dateModified" datetime="2018-03-05T18:10:16-08:00">
-                2018-03-05
+              <time title="Post modified" itemprop="dateModified" datetime="2018-03-07T11:21:13-08:00">
+                2018-03-07
               </time>
             
           </span>
@@ -995,7 +995,9 @@
 </li>
 <li><p>sorted: 对流进行排序。</p>
 </li>
-<li>此外还有一些类似于SQL的操作如count, limit。<h5 id="Terminal-Operations"><a href="#Terminal-Operations" class="headerlink" title="Terminal Operations"></a>Terminal Operations</h5></li>
+<li>此外还有一些类似于SQL的操作如count, limit。</li>
+</ul>
+<h5 id="Terminal-Operations"><a href="#Terminal-Operations" class="headerlink" title="Terminal Operations"></a>Terminal Operations</h5><ul>
 <li><p>collect: 将操作结果收集并返回，可与Collectors类结合使用。</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">List&lt;String&gt;strings = Arrays.asList(<span class="string">"abc"</span>, <span class="string">""</span>, <span class="string">"bc"</span>, <span class="string">"efg"</span>, <span class="string">"abcd"</span>,<span class="string">""</span>, <span class="string">"jkl"</span>);</div><div class="line">List&lt;String&gt; filtered = strings.stream().filter(string -&gt; !string.isEmpty()).collect(Collectors.toList());</div><div class="line">String mergedString = strings.stream().filter(string -&gt; !string.isEmpty()).collect(Collectors.joining(<span class="string">", "</span>));</div></pre></td></tr></table></figure>
 </li>
