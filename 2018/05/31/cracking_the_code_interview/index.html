@@ -1,0 +1,1068 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next mist use-motion" lang="en">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+  
+  
+    
+    
+  <script src="/lib/pace/pace.min.js?v=1.0.2"></script>
+  <link href="/lib/pace/pace-theme-minimal.min.css?v=1.0.2" rel="stylesheet">
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.2" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="java,algorithm,interview," />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.2" />
+
+
+
+
+
+
+<meta name="description" content="Note for Cracking the Coding Interview 6th Edition.">
+<meta name="keywords" content="java,algorithm,interview">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Note for Cracking the Coding Interview">
+<meta property="og:url" content="https://bobbyliujb.github.io/2018/05/31/cracking_the_code_interview/index.html">
+<meta property="og:site_name" content="Bobby">
+<meta property="og:description" content="Note for Cracking the Coding Interview 6th Edition.">
+<meta property="og:locale" content="en">
+<meta property="og:updated_time" content="2018-06-04T00:21:33.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Note for Cracking the Coding Interview">
+<meta name="twitter:description" content="Note for Cracking the Coding Interview 6th Edition.">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Mist',
+    sidebar: {"position":"left","display":"hide","offset":12,"offset_float":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: true,
+    duoshuo: {
+      userId: '0',
+      author: 'Author'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="https://bobbyliujb.github.io/2018/05/31/cracking_the_code_interview/"/>
+
+
+
+
+
+  <title>Note for Cracking the Coding Interview | Bobby</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="en">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Bobby</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            Home
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            Categories
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            Archives
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            Tags
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://bobbyliujb.github.io/2018/05/31/cracking_the_code_interview/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="BobbyLiujb">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="https://ww4.sinaimg.cn/large/9b3a5c2fgw1faysh4xl7ij20bh0bhmy5.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Bobby">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">Note for Cracking the Coding Interview</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-05-31T10:44:46-07:00">
+                2018-05-31
+              </time>
+            
+
+            
+              <span class="post-meta-divider">|</span>
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-check-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Post modified&#58;</span>
+              
+              <time title="Post modified" itemprop="dateModified" datetime="2018-06-03T17:21:33-07:00">
+                2018-06-03
+              </time>
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Tech/" itemprop="url" rel="index">
+                    <span itemprop="name">Tech</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2018/05/31/cracking_the_code_interview/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count"
+                        data-disqus-identifier="2018/05/31/cracking_the_code_interview/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+             <span id="/2018/05/31/cracking_the_code_interview/" class="leancloud_visitors" data-flag-title="Note for Cracking the Coding Interview">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">Visitors&#58;</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>Note for Cracking the Coding Interview 6th Edition.<br><a id="more"></a></p>
+<hr>
+<h3 id="Big-O"><a href="#Big-O" class="headerlink" title="Big O"></a>Big O</h3><h4 id="Multipart-Algorithms"><a href="#Multipart-Algorithms" class="headerlink" title="Multipart Algorithms"></a>Multipart Algorithms</h4><ul>
+<li>Add: do A, then when A is all done, do B.</li>
+<li>Multiply: do B <strong>each time</strong> you do A.    (recall Zillow mistake…)</li>
+</ul>
+<h4 id="Recursive-Runtimes"><a href="#Recursive-Runtimes" class="headerlink" title="Recursive Runtimes"></a>Recursive Runtimes</h4><ul>
+<li>See branched recursive calls from parent calls to form a “tree”. Pattern: <code>O(barnches ^ depth)</code>, branches = #times each recursive call branches.</li>
+</ul>
+<hr>
+<h3 id="Arrays-and-Strings"><a href="#Arrays-and-Strings" class="headerlink" title="Arrays and Strings"></a>Arrays and Strings</h3><h4 id="Hash-Tables"><a href="#Hash-Tables" class="headerlink" title="Hash Tables"></a>Hash Tables</h4><ul>
+<li>Array of linked lists: O(1) general lookup time.</li>
+<li>Balanced BST: O(logN) lookup time, less space.</li>
+</ul>
+<h4 id="Resizable-Arrays"><a href="#Resizable-Arrays" class="headerlink" title="Resizable Arrays"></a>Resizable Arrays</h4><ul>
+<li>ArrayList: O(1) amortized insertion time.</li>
+</ul>
+<h4 id="String-v-s-StringBuilder"><a href="#String-v-s-StringBuilder" class="headerlink" title="String v.s.StringBuilder"></a>String v.s.StringBuilder</h4><ul>
+<li>String: immutable, always create a new copy of the string when concatenating(might bring the runtime to O(N^2))</li>
+<li>StringBuilder: resizable char array.</li>
+</ul>
+<h4 id="Problems"><a href="#Problems" class="headerlink" title="Problems"></a>Problems</h4><ul>
+<li><em>Q：给一个String，判断它是否包含完全不同的unique characters。</em><ul>
+<li>用一个bucket数组，ASCII一共有128个字符。O(N)时间和空间。</li>
+<li>O(NlogN) sort之后遍历一波，判断相邻的char即可。无额外空间。</li>
+<li>如果只是26个字母，可以直接用bit当作bucket来用，一旦有一个bit之前已经设为1了就说明不unique。</li>
+</ul>
+</li>
+<li><em>Q：给两个String，判断它们是否是同一个permutation.</em><ul>
+<li>O(NlogN) sort之后比较一波。</li>
+<li>用一个bucket数组统计每个字符出现的个数。</li>
+</ul>
+</li>
+<li><em>Q：给一个char array和它的real length（array.length足够hold住替换之后的所有字符），将其中所有的空格都替换成<code>%20</code>，.</em><ul>
+<li>从给定的len - 1开始从后往前遍历，依次复制／替换到char数组的末尾。<strong>String manipulation问题通常可以尝试从后往前做，因为这样相当于在末尾有一个inplace的buffer</strong>。</li>
+</ul>
+</li>
+<li><em>Q：给一个String，判断它是否是palindrome的permutation。</em><ul>
+<li>用一个bucket记录所有字符出现的个数，最后再一波O(N)统计是否有超过一个的count是odd。</li>
+<li>用一个countOdd变量在统计个数的时候顺便记录有多少个是odd的，全部统计完了之后直接就可以判断了。</li>
+<li>我们并不关心『每个字符具体有多少个』，而只是想知道『每个字符个数是even还是odd』。因此直接用bit作为on/off即可，最后要么为0（全是even），要么只有一位是1（判断x &amp; (x-1) == 0即可）。</li>
+</ul>
+</li>
+<li><em>Q：给两个String，判断他们是否之多差一步操作即可相互转换：插入一个字符／删除一个字符／替换一个字符。</em><ul>
+<li>关键在于发现插入和删除其实是逆操作，直接根据长度判断一下即可知道是哪个操作。</li>
+</ul>
+</li>
+<li><em>Q：给一个String，将相邻连续出现的字符压缩成<code>a2b3c1</code>的形式，若压缩后长度并没有缩短则维持原字符串。</em><ul>
+<li>在实际操作之前先判断一下压缩之后的长度再决定要不要执行压缩。</li>
+</ul>
+</li>
+<li><em>Q：给一个n</em>n的方matrix，向右旋转90度。*<ul>
+<li>老老实实进行四位替换，top-left, left-bottom, bottom-right, right-top.</li>
+</ul>
+</li>
+<li><em>Q：给一个m</em>n的matrix，若其中一个位置为0则将它所处的行和列全都设为0.*<ul>
+<li>维护两个boolean array分别存放row和column的0的位置，最后再设为0。</li>
+<li>直接用矩阵的第一行和第一列存放0的位置（需要额外用两个变量mark一下第一行和第一列本身有没有0），就不需要额外空间了。</li>
+</ul>
+</li>
+<li><em>Q：给两个String，判断其中一个是否是另一个通过rotate形成的，例如<code>abbc</code>-&gt;<code>bcab</code>。</em><ul>
+<li>假设rotation point前面的部分为x，后面的为y，则形成<code>xy</code>的形式。要判断另一个字符是不是<code>yx</code>，其实只需要将<code>xy</code>自己拼接一下形成<code>xyxy</code>，直接看另一个字符串是否是它的substring即可。</li>
+</ul>
+</li>
+</ul>
+<hr>
+<h3 id="Linked-List"><a href="#Linked-List" class="headerlink" title="Linked List"></a>Linked List</h3><ul>
+<li>Runner technique: iterate through linked list with two pointers simultaneously, with one ahead or faster movement.</li>
+</ul>
+<h4 id="Problems-1"><a href="#Problems-1" class="headerlink" title="Problems"></a>Problems</h4><ul>
+<li><em>Q：给一个unsorted的链表，删除其中重复的元素。</em><ul>
+<li>fix一个节点然后一路往后删，O(N^2)时间。</li>
+<li>用Set。</li>
+</ul>
+</li>
+<li><em>Q：给一个链表，返回倒数第k个元素。</em><ul>
+<li>利用双指针，让后一个指针先挪k，然后两个一起挪即可。</li>
+</ul>
+</li>
+<li><em>Q：给一个链表中间的某个节点，删除它。</em><ul>
+<li>其实这题是假的删除，因为无法拿到该节点前面一个节点，因此只能把后面节点的值往前覆盖。</li>
+</ul>
+</li>
+<li><em>Q：给一个链表和一个int，要求将链表中小于x的元素都排在前面、大于等于x的元素都排在后面，而两个partition内部的顺序不需要维护。</em><ul>
+<li>链表问题有个经典做法是建“新”的链表、而节点都是原来的。这里就是用两个“新链表”，一个存小于的节点、一个存大于等于的节点，最后合起来。</li>
+</ul>
+</li>
+<li><em>Q：给两个链表，表示从低位到高位的整数，求它们的和（也用链表表示）。</em><ul>
+<li>就直接加，需要处理进位和两个链表长度不一样的情况。</li>
+<li>如果链表表示的是从高位到低位的数字，首先需要将较短的链表前面pad zero，然后再用自定义类（因为需要进位）recursive地求。</li>
+</ul>
+</li>
+<li><em>Q：给一个链表，判断是否palindrome。</em><ul>
+<li>先拷贝一份reverse的链表，然后直接比较两个链表是否相等。 </li>
+<li>用快慢指针将前半部分投入stack，然后一边pop一边往后比较。</li>
+<li>用自定义类（需要boolean以及后续指针）recursive地判断，若之前都为true且当前元素和返回的元素相等，则继续返回true。</li>
+</ul>
+</li>
+<li><em>Q：给两个链表，判断它们是否相交并返回第一个汇合点。</em><ul>
+<li>先走两波获取两个链表的长度求出delta，然后让长的先走delta，再一起遍历即得汇合点。</li>
+<li>交叉走法：A和B同时往后走，当A走到尽头就再从B出发、B同理，最后如果汇合了即为汇合点。假设A的独立部分长度为a，B的独立部分长度为b，公用部分为c，(a+c+b) = (b+c+a).</li>
+</ul>
+</li>
+<li><em>Q：给一个链表，判断它是否有环并返回环的入口。</em><ul>
+<li>快慢指针出发，相遇之后再从起点走一个慢指针，相遇处即为入口。设环长度为l，环之前长度为a，相遇时慢指针在环内走了b。有(a+l+b) = 2(a+b)，即l - b = a，因此继续走必定相遇。</li>
+</ul>
+</li>
+</ul>
+<hr>
+<h3 id="Stacks-and-Queues"><a href="#Stacks-and-Queues" class="headerlink" title="Stacks and Queues"></a>Stacks and Queues</h3><ul>
+<li>Stack: LIFO</li>
+<li>Queue: FIFO<h4 id="Problems-2"><a href="#Problems-2" class="headerlink" title="Problems"></a>Problems</h4></li>
+<li><em>Q：用一个array实现三个Stack。</em><ul>
+<li>将array划分成3等份，然后每个stack就只有固定一部分的capacity进行pop, push.</li>
+<li>如果想要flexible size，可以学习arraylist那样在一开始先有一个initial capacity，满了之后再进行扩容。</li>
+</ul>
+</li>
+<li><em>Q：实现一个stack，支持push, pop, min方法，其中min可以返回当前所有stack中元素的最小值。</em><ul>
+<li>push的时候如果最小值更新了，则先把当前最小值push进去，然后再把新值push进去并更新最小值；pop的时候如果最小值和栈顶一致，则需要再pop一下把最小值更新。</li>
+</ul>
+</li>
+<li><em>Q：实现stacks的ArrayList，当一个stack满了之后就新建另一个stack继续存。</em><ul>
+<li>push好办，对应index进行存放，满了就在下一个index新建stack继续放。pop则需要考虑是否需要维护『前面所有stack都维持在满的状态』这个条件，如果需要就得把指定index之后的stack都进行roll over，将栈底釜底抽薪放到前面。</li>
+</ul>
+</li>
+<li><em>Q：用两个stack实现queue。</em><ul>
+<li>一个stackA只负责存、另一个stackB只负责取。如果peek的时候没有东西了，就需要将B中所有内容都pop到A中，再从A中取，这样就可以保证FIFO。</li>
+</ul>
+</li>
+<li><em>Q：给一个stack，将它排序，最小值在栈顶。只允许使用一个辅助stack。</em><ul>
+<li>s2作为辅助stack，维持从大到小的顺序。s1中pop栈顶元素先存入一个变量temp，若发现temp比s2栈顶大则完美存入，否则需要先将s2的元素不断pop并存入直到temp元素可以放入，然后再重复从s1 pop存入temp的过程插入s2。</li>
+<li>如果有无限制的辅助stack可以使用，就可以实现类似于mergesort和quicksort的排序。mergesort在每一个recursion level都需要两个辅助stack来排序，将他们各自排好序然后将他们汇集到输入的原始stack中，依次递归就能将整个stack排序完成；quicksort也需要在每一个recursion level两个辅助stack，将他们divide based on pivot value最后再汇集到原始stack。</li>
+</ul>
+</li>
+<li><em>Q：动物收容所领养动物必须遵循FIFO规则，只能选择动物种类cat/dog，或者随机选择入队最久的anything。要求使用linkedlist。</em><ul>
+<li>维护两个LinkedList分别存放cat和dog，直接append到List末尾即可，dequeue就直接从头部取；dequeueAny则利用timestamp保证取最久的。</li>
+</ul>
+</li>
+</ul>
+<hr>
+<h3 id="Trees-and-Graphs"><a href="#Trees-and-Graphs" class="headerlink" title="Trees and Graphs"></a>Trees and Graphs</h3>
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+      <div>
+        <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+  <div>└(^o^)┘</div>
+  <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+    <span>Donate</span>
+  </button>
+  <div id="QR" style="display: none;">
+
+    
+      <div id="wechat" style="display: inline-block">
+        <img id="wechat_qr" src="/images/wechatRewardImg.png" alt="BobbyLiujb WeChat Pay"/>
+        <p>WeChat Pay</p>
+      </div>
+    
+
+    
+      <div id="alipay" style="display: inline-block">
+        <img id="alipay_qr" src="/images/alipayRewardImg.png" alt="BobbyLiujb Alipay"/>
+        <p>Alipay</p>
+      </div>
+    
+
+    
+
+  </div>
+</div>
+
+      </div>
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/java/" rel="tag"># java</a>
+          
+            <a href="/tags/algorithm/" rel="tag"># algorithm</a>
+          
+            <a href="/tags/interview/" rel="tag"># interview</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/02/20/liveramp/" rel="next" title="来福软谱">
+                <i class="fa fa-chevron-left"></i> 来福软谱
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+        <!-- Go to www.addthis.com/dashboard to customize your tools -->
+<div class="addthis_inline_share_toolbox">
+  <script type = "text/javascript" src = "//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-593135f4e114024c" async = "async" ></script>
+</div>
+
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+      <div id="disqus_thread">
+        <noscript>
+          Please enable JavaScript to view the
+          <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a>
+        </noscript>
+      </div>
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            Overview
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="https://ww4.sinaimg.cn/large/9b3a5c2fgw1faysh4xl7ij20bh0bhmy5.jpg"
+               alt="BobbyLiujb" />
+          <p class="site-author-name" itemprop="name">BobbyLiujb</p>
+           
+              <p class="site-description motion-element" itemprop="description"></p>
+          
+        </div>
+        <nav class="site-state motion-element">
+
+          
+            <div class="site-state-item site-state-posts">
+              <a href="/archives/">
+                <span class="site-state-item-count">32</span>
+                <span class="site-state-item-name">posts</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-categories">
+              
+                <span class="site-state-item-count">3</span>
+                <span class="site-state-item-name">categories</span>
+              
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-tags">
+              
+                <span class="site-state-item-count">37</span>
+                <span class="site-state-item-name">tags</span>
+              
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+        </div>
+
+        
+        
+
+        
+        
+
+        
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#Big-O"><span class="nav-number">1.</span> <span class="nav-text">Big O</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Multipart-Algorithms"><span class="nav-number">1.1.</span> <span class="nav-text">Multipart Algorithms</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Recursive-Runtimes"><span class="nav-number">1.2.</span> <span class="nav-text">Recursive Runtimes</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Arrays-and-Strings"><span class="nav-number">2.</span> <span class="nav-text">Arrays and Strings</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Hash-Tables"><span class="nav-number">2.1.</span> <span class="nav-text">Hash Tables</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Resizable-Arrays"><span class="nav-number">2.2.</span> <span class="nav-text">Resizable Arrays</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#String-v-s-StringBuilder"><span class="nav-number">2.3.</span> <span class="nav-text">String v.s.StringBuilder</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Problems"><span class="nav-number">2.4.</span> <span class="nav-text">Problems</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Linked-List"><span class="nav-number">3.</span> <span class="nav-text">Linked List</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Problems-1"><span class="nav-number">3.1.</span> <span class="nav-text">Problems</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Stacks-and-Queues"><span class="nav-number">4.</span> <span class="nav-text">Stacks and Queues</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Problems-2"><span class="nav-number">4.1.</span> <span class="nav-text">Problems</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Trees-and-Graphs"><span class="nav-number">5.</span> <span class="nav-text">Trees and Graphs</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy;  2016 &mdash; 
+  <span itemprop="copyrightYear">2018</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">BobbyLiujb</span>
+
+  
+</div>
+
+
+  <div class="powered-by">
+    Powered by <a class="theme-link" href="https://hexo.io">Hexo</a>
+  </div>
+
+  <span class="post-meta-divider">|</span>
+
+  <div class="theme-info">
+    Theme &mdash;
+    <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+      NexT.Mist
+    </a>
+  </div>
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.2"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.2"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.2"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.2"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.2"></script>
+
+
+
+  
+
+  
+
+    
+      <script id="dsq-count-scr" src="https://bobbyliujb.disqus.com/count.js" async></script>
+    
+
+    
+      <script type="text/javascript">
+        var disqus_config = function () {
+          this.page.url = 'https://bobbyliujb.github.io/2018/05/31/cracking_the_code_interview/';
+          this.page.identifier = '2018/05/31/cracking_the_code_interview/';
+          this.page.title = 'Note for Cracking the Coding Interview';
+        };
+        var d = document, s = d.createElement('script');
+        s.src = 'https://bobbyliujb.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', '' + +new Date());
+        (d.head || d.body).appendChild(s);
+      </script>
+    
+
+  
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+  <script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.4.js"></script>
+  <script>AV.initialize("jT7i5auNazMHRONSPUHmcoko-gzGzoHsz", "dEWwuVre5Svmwvjw2DmcIbLy");</script>
+  <script>
+    function showTime(Counter) {
+      var query = new AV.Query(Counter);
+      var entries = [];
+      var $visitors = $(".leancloud_visitors");
+
+      $visitors.each(function () {
+        entries.push( $(this).attr("id").trim() );
+      });
+
+      query.containedIn('url', entries);
+      query.find()
+        .done(function (results) {
+          var COUNT_CONTAINER_REF = '.leancloud-visitors-count';
+
+          if (results.length === 0) {
+            $visitors.find(COUNT_CONTAINER_REF).text(0);
+            return;
+          }
+
+          for (var i = 0; i < results.length; i++) {
+            var item = results[i];
+            var url = item.get('url');
+            var time = item.get('time');
+            var element = document.getElementById(url);
+
+            $(element).find(COUNT_CONTAINER_REF).text(time);
+          }
+          for(var i = 0; i < entries.length; i++) {
+            var url = entries[i];
+            var element = document.getElementById(url);
+            var countSpan = $(element).find(COUNT_CONTAINER_REF);
+            if( countSpan.text() == '') {
+              countSpan.text(0);
+            }
+          }
+        })
+        .fail(function (object, error) {
+          console.log("Error: " + error.code + " " + error.message);
+        });
+    }
+
+    function addCount(Counter) {
+      var $visitors = $(".leancloud_visitors");
+      var url = $visitors.attr('id').trim();
+      var title = $visitors.attr('data-flag-title').trim();
+      var query = new AV.Query(Counter);
+
+      query.equalTo("url", url);
+      query.find({
+        success: function(results) {
+          if (results.length > 0) {
+            var counter = results[0];
+            counter.fetchWhenSave(true);
+            counter.increment("time");
+            counter.save(null, {
+              success: function(counter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(counter.get('time'));
+              },
+              error: function(counter, error) {
+                console.log('Failed to save Visitor num, with error message: ' + error.message);
+              }
+            });
+          } else {
+            var newcounter = new Counter();
+            /* Set ACL */
+            var acl = new AV.ACL();
+            acl.setPublicReadAccess(true);
+            acl.setPublicWriteAccess(true);
+            newcounter.setACL(acl);
+            /* End Set ACL */
+            newcounter.set("title", title);
+            newcounter.set("url", url);
+            newcounter.set("time", 1);
+            newcounter.save(null, {
+              success: function(newcounter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(newcounter.get('time'));
+              },
+              error: function(newcounter, error) {
+                console.log('Failed to create');
+              }
+            });
+          }
+        },
+        error: function(error) {
+          console.log('Error:' + error.code + " " + error.message);
+        }
+      });
+    }
+
+    $(function() {
+      var Counter = AV.Object.extend("Counter");
+      if ($('.leancloud_visitors').length == 1) {
+        addCount(Counter);
+      } else if ($('.post-title-link').length > 1) {
+        showTime(Counter);
+      }
+    });
+  </script>
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
