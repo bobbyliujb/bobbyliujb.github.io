@@ -109,7 +109,7 @@
 <meta property="og:site_name" content="Bobby">
 <meta property="og:description" content="Note for Cracking the Coding Interview 6th Edition.">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2018-06-02T23:05:25.000Z">
+<meta property="og:updated_time" content="2018-06-04T00:20:31.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Note for Cracking the Coding Interview">
 <meta name="twitter:description" content="Note for Cracking the Coding Interview 6th Edition.">
@@ -319,8 +319,8 @@
               
                 <span class="post-meta-item-text">Post modified&#58;</span>
               
-              <time title="Post modified" itemprop="dateModified" datetime="2018-06-02T16:05:25-07:00">
-                2018-06-02
+              <time title="Post modified" itemprop="dateModified" datetime="2018-06-03T17:20:31-07:00">
+                2018-06-03
               </time>
             
           </span>
@@ -506,7 +506,38 @@
 </li>
 </ul>
 <hr>
-
+<h3 id="Stacks-and-Queues"><a href="#Stacks-and-Queues" class="headerlink" title="Stacks and Queues"></a>Stacks and Queues</h3><ul>
+<li>Stack: LIFO</li>
+<li>Queue: FIFO<h4 id="Problems-2"><a href="#Problems-2" class="headerlink" title="Problems"></a>Problems</h4></li>
+<li><em>Q：用一个array实现三个Stack。</em><ul>
+<li>将array划分成3等份，然后每个stack就只有固定一部分的capacity进行pop, push.</li>
+<li>如果想要flexible size，可以学习arraylist那样在一开始先有一个initial capacity，满了之后再进行扩容。</li>
+</ul>
+</li>
+<li><em>Q：实现一个stack，支持push, pop, min方法，其中min可以返回当前所有stack中元素的最小值。</em><ul>
+<li>push的时候如果最小值更新了，则先把当前最小值push进去，然后再把新值push进去并更新最小值；pop的时候如果最小值和栈顶一致，则需要再pop一下把最小值更新。</li>
+</ul>
+</li>
+<li><em>Q：实现stacks的ArrayList，当一个stack满了之后就新建另一个stack继续存。</em><ul>
+<li>push好办，对应index进行存放，满了就在下一个index新建stack继续放。pop则需要考虑是否需要维护『前面所有stack都维持在满的状态』这个条件，如果需要就得把指定index之后的stack都进行roll over，将栈底釜底抽薪放到前面。</li>
+</ul>
+</li>
+<li><em>Q：用两个stack实现queue。</em><ul>
+<li>一个stackA只负责存、另一个stackB只负责取。如果peek的时候没有东西了，就需要将B中所有内容都pop到A中，再从A中取，这样就可以保证FIFO。</li>
+</ul>
+</li>
+<li><em>Q：给一个stack，将它排序，最小值在栈顶。只允许使用一个辅助stack。</em><ul>
+<li>s2作为辅助stack，维持从大到小的顺序。s1中pop栈顶元素先存入一个变量temp，若发现temp比s2栈顶大则完美存入，否则需要先将s2的元素不断pop并存入直到temp元素可以放入，然后再重复从s1 pop存入temp的过程插入s2。</li>
+<li>如果有无限制的辅助stack可以使用，就可以实现类似于mergesort和quicksort的排序。mergesort在每一个recursion level都需要两个辅助stack来排序，将他们各自排好序然后将他们汇集到输入的原始stack中，依次递归就能将整个stack排序完成；quicksort也需要在每一个recursion level两个辅助stack，将他们divide based on pivot value最后再汇集到原始stack。</li>
+</ul>
+</li>
+<li><em>Q：动物收容所领养动物必须遵循FIFO规则，只能选择动物种类cat/dog，或者随机选择入队最久的anything。要求使用linkedlist。</em><ul>
+<li>维护两个LinkedList分别存放cat和dog，直接append到List末尾即可，dequeue就直接从头部取；dequeueAny则利用timestamp保证取最久的。</li>
+</ul>
+</li>
+</ul>
+<hr>
+<h3 id="Trees-and-Graphs"><a href="#Trees-and-Graphs" class="headerlink" title="Trees and Graphs"></a>Trees and Graphs</h3>
       
     </div>
     
@@ -724,7 +755,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#Big-O"><span class="nav-number">1.</span> <span class="nav-text">Big O</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Multipart-Algorithms"><span class="nav-number">1.1.</span> <span class="nav-text">Multipart Algorithms</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Recursive-Runtimes"><span class="nav-number">1.2.</span> <span class="nav-text">Recursive Runtimes</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Arrays-and-Strings"><span class="nav-number">2.</span> <span class="nav-text">Arrays and Strings</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Hash-Tables"><span class="nav-number">2.1.</span> <span class="nav-text">Hash Tables</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Resizable-Arrays"><span class="nav-number">2.2.</span> <span class="nav-text">Resizable Arrays</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#String-v-s-StringBuilder"><span class="nav-number">2.3.</span> <span class="nav-text">String v.s.StringBuilder</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Problems"><span class="nav-number">2.4.</span> <span class="nav-text">Problems</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Linked-List"><span class="nav-number">3.</span> <span class="nav-text">Linked List</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Problems-1"><span class="nav-number">3.1.</span> <span class="nav-text">Problems</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#Big-O"><span class="nav-number">1.</span> <span class="nav-text">Big O</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Multipart-Algorithms"><span class="nav-number">1.1.</span> <span class="nav-text">Multipart Algorithms</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Recursive-Runtimes"><span class="nav-number">1.2.</span> <span class="nav-text">Recursive Runtimes</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Arrays-and-Strings"><span class="nav-number">2.</span> <span class="nav-text">Arrays and Strings</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Hash-Tables"><span class="nav-number">2.1.</span> <span class="nav-text">Hash Tables</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Resizable-Arrays"><span class="nav-number">2.2.</span> <span class="nav-text">Resizable Arrays</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#String-v-s-StringBuilder"><span class="nav-number">2.3.</span> <span class="nav-text">String v.s.StringBuilder</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Problems"><span class="nav-number">2.4.</span> <span class="nav-text">Problems</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Linked-List"><span class="nav-number">3.</span> <span class="nav-text">Linked List</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Problems-1"><span class="nav-number">3.1.</span> <span class="nav-text">Problems</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Stacks-and-Queues"><span class="nav-number">4.</span> <span class="nav-text">Stacks and Queues</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Problems-2"><span class="nav-number">4.1.</span> <span class="nav-text">Problems</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Trees-and-Graphs"><span class="nav-number">5.</span> <span class="nav-text">Trees and Graphs</span></a></li></ol></div>
             
 
           </div>
