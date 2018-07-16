@@ -109,7 +109,7 @@
 <meta property="og:site_name" content="Bobby">
 <meta property="og:description" content="Note for Cracking the Coding Interview 6th Edition.">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2018-06-12T03:09:40.000Z">
+<meta property="og:updated_time" content="2018-07-16T05:18:42.239Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Note for Cracking the Coding Interview">
 <meta name="twitter:description" content="Note for Cracking the Coding Interview 6th Edition.">
@@ -319,8 +319,8 @@
               
                 <span class="post-meta-item-text">Post modified&#58;</span>
               
-              <time title="Post modified" itemprop="dateModified" datetime="2018-06-11T20:09:40-07:00">
-                2018-06-11
+              <time title="Post modified" itemprop="dateModified" datetime="2018-07-15T22:18:42-07:00">
+                2018-07-15
               </time>
             
           </span>
@@ -541,8 +541,43 @@
 <li>Complete Binary Tree: Every level is fully filled, except last level; In each level, nodes are filled from left to right.</li>
 <li>Full Binary Tree: Every node has either 0 or 2 children.</li>
 <li>Perfect Binary Tree: Both Full and Complete Binary Tree.</li>
+<li>BST: left &lt;= n &lt; right</li>
 </ul>
-<h4 id="Traverse"><a href="#Traverse" class="headerlink" title="Traverse"></a>Traverse</h4><p> * </p>
+<h4 id="Traverse"><a href="#Traverse" class="headerlink" title="Traverse"></a>Traverse</h4><ul>
+<li>DFS: simpler implementation(recursion) for visiting all nodes in graph. Need to check if the node has been visited.</li>
+<li>BFS: find path(shortest path) between two nodes.</li>
+<li>Bidirectional Search: find the shortest path between a src and dest node by running two BFS from src and dest simultaneously.<h4 id="Problems-3"><a href="#Problems-3" class="headerlink" title="Problems"></a>Problems</h4></li>
+<li><em>Q：给一个有向图和两个node，判断它们之间是否有path</em><ul>
+<li>就是简单的考察BFS和DFS。</li>
+</ul>
+</li>
+<li><em>Q：给一个含有不同int的升序数组，创建一个对应的最小height的BST</em><ul>
+<li>要想生成高度最小的BST，也就是root需要是数组中间元素。因此一个递归方法就出来了，先找到中间元素作为root，然后递归生成左半边的BST和右半边的BST分别作为左右孩子。</li>
+</ul>
+</li>
+<li><em>Q：给一个二叉树，求每一个depth处的nodes，存在LinkedList中</em><ul>
+<li>其实就是level traverse，用BFS层级遍历即可。时间O(N)，空间不包括输出的话是O(1)。</li>
+<li>也可以用DFS的preorder traversal，附加传入一个level信息即可。时间O(N)，空间O(logN)。</li>
+</ul>
+</li>
+<li><em>Q：给一个二叉树，判断它是否balanced（左右子树的高度相差不超过1）</em><ul>
+<li>暴力递归，对于每一个节点递归地求深度，对于每一个节点都会被在它上面的节点访问一次，因此时间是O(NlogN)。</li>
+<li>考虑优化求height的过程，在递归的时候事实上可以通过传回「特殊值」来表示unbalanced的情况，这样可以保证每一个节点只会被访问一次，因此时间是O(N)。</li>
+</ul>
+</li>
+<li><em>Q：判断一个BST是否合法</em><ul>
+<li>用in-order traverse和一个全局变量来比较prev和curr，保证完全小于。</li>
+<li>传入min和max值限定孩子节点的值域，一旦不符合就直接false了。</li>
+</ul>
+</li>
+<li><p><em>Q：给一个二叉树中的node，求它在in-order traverse中的successor(假设每一个节点都可以访问到parent节点)</em></p>
+<ul>
+<li>需要分情况讨论：如果当前node有右子树，则需要访问到右子树的最左节点；如果没有右子树，则说明当前节点及其孩子已经全部访问完了，需要回到parent，而这parent又要分node是它的左孩子还是右孩子，是右孩子的话说明是已经访问过parent才来到node的，因此还要往parent的parent找，只有当node是parent的左孩子时，parent才是successor.<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div></pre></td><td class="code"><pre><div class="line"><span class="function">TreeNode <span class="title">inorderSuccessor</span><span class="params">(TreeNode node)</span> </span>&#123;</div><div class="line">    <span class="keyword">if</span> (node == <span class="keyword">null</span>) &#123;</div><div class="line">        <span class="keyword">return</span> <span class="keyword">null</span>;</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">if</span> (node.right != <span class="keyword">null</span>) &#123;</div><div class="line">        <span class="keyword">return</span> getLeftMostChild(node.right);</div><div class="line">    &#125; <span class="keyword">else</span> &#123;</div><div class="line">        TreeNode curr = node;</div><div class="line">        TreeNode prev = curr.parent;</div><div class="line">        <span class="keyword">while</span> (prev != <span class="keyword">null</span> &amp;&amp; prev.left != curr) &#123;</div><div class="line">            curr = prev;</div><div class="line">            prev = prev.parent;</div><div class="line">        &#125;</div><div class="line">        <span class="keyword">return</span> prev;</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line"><span class="function">TreeNode <span class="title">getLeftMostChild</span><span class="params">(TreeNode node)</span> </span>&#123;</div><div class="line">    <span class="keyword">if</span> (node == <span class="keyword">null</span>) &#123;</div><div class="line">        <span class="keyword">return</span> <span class="keyword">null</span>;</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">while</span> (node.left != <span class="keyword">null</span>) &#123;</div><div class="line">        node = node.left;</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">return</span> node;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+</li>
+</ul>
+</li>
+<li></li>
+</ul>
 
       
     </div>
@@ -761,7 +796,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#Big-O"><span class="nav-number">1.</span> <span class="nav-text">Big O</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Multipart-Algorithms"><span class="nav-number">1.1.</span> <span class="nav-text">Multipart Algorithms</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Recursive-Runtimes"><span class="nav-number">1.2.</span> <span class="nav-text">Recursive Runtimes</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Arrays-and-Strings"><span class="nav-number">2.</span> <span class="nav-text">Arrays and Strings</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Hash-Tables"><span class="nav-number">2.1.</span> <span class="nav-text">Hash Tables</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Resizable-Arrays"><span class="nav-number">2.2.</span> <span class="nav-text">Resizable Arrays</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#String-v-s-StringBuilder"><span class="nav-number">2.3.</span> <span class="nav-text">String v.s.StringBuilder</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Problems"><span class="nav-number">2.4.</span> <span class="nav-text">Problems</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Linked-List"><span class="nav-number">3.</span> <span class="nav-text">Linked List</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Problems-1"><span class="nav-number">3.1.</span> <span class="nav-text">Problems</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Stacks-and-Queues"><span class="nav-number">4.</span> <span class="nav-text">Stacks and Queues</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Problems-2"><span class="nav-number">4.1.</span> <span class="nav-text">Problems</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Trees-and-Graphs"><span class="nav-number">5.</span> <span class="nav-text">Trees and Graphs</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Types-of-Trees"><span class="nav-number">5.1.</span> <span class="nav-text">Types of Trees</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Traverse"><span class="nav-number">5.2.</span> <span class="nav-text">Traverse</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#Big-O"><span class="nav-number">1.</span> <span class="nav-text">Big O</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Multipart-Algorithms"><span class="nav-number">1.1.</span> <span class="nav-text">Multipart Algorithms</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Recursive-Runtimes"><span class="nav-number">1.2.</span> <span class="nav-text">Recursive Runtimes</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Arrays-and-Strings"><span class="nav-number">2.</span> <span class="nav-text">Arrays and Strings</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Hash-Tables"><span class="nav-number">2.1.</span> <span class="nav-text">Hash Tables</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Resizable-Arrays"><span class="nav-number">2.2.</span> <span class="nav-text">Resizable Arrays</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#String-v-s-StringBuilder"><span class="nav-number">2.3.</span> <span class="nav-text">String v.s.StringBuilder</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Problems"><span class="nav-number">2.4.</span> <span class="nav-text">Problems</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Linked-List"><span class="nav-number">3.</span> <span class="nav-text">Linked List</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Problems-1"><span class="nav-number">3.1.</span> <span class="nav-text">Problems</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Stacks-and-Queues"><span class="nav-number">4.</span> <span class="nav-text">Stacks and Queues</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Problems-2"><span class="nav-number">4.1.</span> <span class="nav-text">Problems</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Trees-and-Graphs"><span class="nav-number">5.</span> <span class="nav-text">Trees and Graphs</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Types-of-Trees"><span class="nav-number">5.1.</span> <span class="nav-text">Types of Trees</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Traverse"><span class="nav-number">5.2.</span> <span class="nav-text">Traverse</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Problems-3"><span class="nav-number">5.3.</span> <span class="nav-text">Problems</span></a></li></ol></li></ol></div>
             
 
           </div>
