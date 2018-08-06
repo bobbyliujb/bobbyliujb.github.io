@@ -85,7 +85,7 @@
 <link href="/css/main.css?v=5.1.2" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="algorithm,interview,java," />
+  <meta name="keywords" content="java,algorithm,interview," />
 
 
 
@@ -102,14 +102,14 @@
 
 
 <meta name="description" content="Note for Cracking the Coding Interview 6th Edition.">
-<meta name="keywords" content="algorithm,interview,java">
+<meta name="keywords" content="java,algorithm,interview">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Note for Cracking the Coding Interview">
 <meta property="og:url" content="https://bobbyliujb.github.io/2018/05/31/cracking_the_code_interview/index.html">
 <meta property="og:site_name" content="Bobby">
 <meta property="og:description" content="Note for Cracking the Coding Interview 6th Edition.">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2018-07-31T06:27:44.408Z">
+<meta property="og:updated_time" content="2018-08-06T01:50:18.521Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Note for Cracking the Coding Interview">
 <meta name="twitter:description" content="Note for Cracking the Coding Interview 6th Edition.">
@@ -319,8 +319,8 @@
               
                 <span class="post-meta-item-text">Post modified&#58;</span>
               
-              <time title="Post modified" itemprop="dateModified" datetime="2018-07-30T23:27:44-07:00">
-                2018-07-30
+              <time title="Post modified" itemprop="dateModified" datetime="2018-08-05T18:50:18-07:00">
+                2018-08-05
               </time>
             
           </span>
@@ -676,7 +676,36 @@
 <li>利用memo数组记录下从0～n的所有走法数量，每次从前面三个累加即可。注意这种连续加法要考虑overflow的情况，向面试官指出来。</li>
 </ul>
 </li>
-<li></li>
+<li><em>Q: 走grid，每次只能向下走或这向右走，grid值为false的地方是障碍物，求一条从左上角到右下角的路径。</em><ul>
+<li>可以从终点往回递归，这样如果找到路径了就只需要在List末尾插入当前坐标即可。为了提升time，需要额外空间记录每个点是否访问过。</li>
+</ul>
+</li>
+<li><p><em>Q: 给一个排好序的dinstinct int数组，求其中一个magic index若存在的话. magic index指的是<code>i s.t. A[i] == i</code></em></p>
+<ul>
+<li><p>看到排好序就想到是否可以用二分查找？若<code>i &gt; A[i]</code>，而且数组中元素各不相同，说明<code>i</code>之前不可能有magic index，因此可以直接往后找，非常类似二分查找的思想。</p>
+ <figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">getMagicIndex</span><span class="params">(<span class="keyword">int</span>[] arr)</span> </span>&#123;</div><div class="line">    <span class="keyword">return</span> getMagicIndex(arr, <span class="number">0</span>, arr.length - <span class="number">1</span>);</div><div class="line">&#125;</div><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">getMaticIndex</span><span class="params">(<span class="keyword">int</span>[] arr, <span class="keyword">int</span> start, <span class="keyword">int</span> end)</span> </span>&#123;</div><div class="line">    <span class="keyword">if</span> (end &lt; start) &#123;</div><div class="line">        <span class="keyword">return</span> -<span class="number">1</span>;</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">int</span> mid = start + (end - start) / <span class="number">2</span>;</div><div class="line">    <span class="keyword">if</span> (arr[mid] == mid) &#123;</div><div class="line">        <span class="keyword">return</span> mid;</div><div class="line">    &#125; <span class="keyword">else</span> <span class="keyword">if</span> (arr[mid] &gt; mid) &#123;</div><div class="line">        <span class="keyword">return</span> getMagicIndex(arr, start, mid - <span class="number">1</span>);</div><div class="line">    &#125; <span class="keyword">else</span> &#123;</div><div class="line">        <span class="keyword">return</span> getMagicIndex(arr, start + <span class="number">1</span>, end);</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+</li>
+<li><p>Follow-up: 如果数组中含有重复元素，如何改进？还是沿用这个思路，区别在于当<code>i &gt; A[i]</code>，不能把整个<code>index &lt; i</code>都放弃，只能说明<code>[A[i], i]</code>这部分是不可能的，还需要保留<code>[start, A[i]]</code>的部分。</p>
+ <figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">getMagicIndex</span><span class="params">(<span class="keyword">int</span>[] arr)</span> </span>&#123;</div><div class="line">    <span class="keyword">return</span> getMagicIndex(arr, <span class="number">0</span>, arr.length - <span class="number">1</span>);</div><div class="line">&#125;</div><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">getMaticIndex</span><span class="params">(<span class="keyword">int</span>[] arr, <span class="keyword">int</span> start, <span class="keyword">int</span> end)</span> </span>&#123;</div><div class="line">    <span class="keyword">if</span> (end &lt; start) &#123;</div><div class="line">        <span class="keyword">return</span> -<span class="number">1</span>;</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">int</span> midIndex = start + (end - start) / <span class="number">2</span>;</div><div class="line">    <span class="keyword">int</span> midValue = arr[midIndex];</div><div class="line">    <span class="keyword">if</span> (midValue == midIndex) &#123;</div><div class="line">        <span class="keyword">return</span> midIndex;</div><div class="line">    &#125; </div><div class="line">    <span class="comment">// 搜索左边剩余部分</span></div><div class="line">    <span class="keyword">int</span> leftEnd = Math.min(midIndex - <span class="number">1</span>, midValue);</div><div class="line">    <span class="keyword">int</span> left = getMagicIndex(arr, start, leftEnd);</div><div class="line">    <span class="keyword">if</span> (left &gt;= <span class="number">0</span>) &#123;</div><div class="line">        <span class="keyword">return</span> left;</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">int</span> rightStart = Math.max(midIndex + <span class="number">1</span>, midValue);</div><div class="line">    <span class="keyword">int</span> right = getMagicIndex(arr, rightStart, end);</div><div class="line">    <span class="keyword">return</span> right;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+</li>
+</ul>
+</li>
+<li><p><em>Q: Power set, 求一个set（元素各不相同）的所有subset</em></p>
+<ul>
+<li><p>经典递归，每一步直接考虑在前一个subset的基础上添加一个元素。</p>
+ <figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div></pre></td><td class="code"><pre><div class="line">List&lt;List&lt;Integer&gt;&gt; getSubsets(List&lt;Integer&gt; set, <span class="keyword">int</span> index) &#123;</div><div class="line">    List&lt;List&lt;Integer&gt;&gt; ans;</div><div class="line">    <span class="keyword">if</span> (set.size() == index) &#123;</div><div class="line">        ans = <span class="keyword">new</span> ArrayList&lt;&gt;();</div><div class="line">        ans.add(<span class="keyword">new</span> ArrayList&lt;&gt;());</div><div class="line">    &#125; <span class="keyword">else</span> &#123;</div><div class="line">        ans = getSubsets(set, index + <span class="number">1</span>);</div><div class="line">        <span class="keyword">int</span> curr = set.get(index);</div><div class="line">        List&lt;List&lt;Integer&gt;&gt; moreSet = <span class="keyword">new</span> ArrayList&lt;&gt;();</div><div class="line">        <span class="keyword">for</span> (List&lt;Integer&gt; subset : ans) &#123;</div><div class="line">            List&lt;Integer&gt; temp = <span class="keyword">new</span> ArrayList&lt;&gt;();</div><div class="line">            temp.addAll(subset);</div><div class="line">            temp.add(curr);</div><div class="line">            moreSet.add(temp);</div><div class="line">        &#125;</div><div class="line">        ans.addAll(moreSet);</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">return</span> ans;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+</li>
+<li><p>还可以考虑用bit，每一个元素取/不取就用1/0来指代。</p>
+ <figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div></pre></td><td class="code"><pre><div class="line">List&lt;List&lt;Integer&gt;&gt; getSubsets(List&lt;Integer&gt; set) &#123;</div><div class="line">    List&lt;List&lt;Integer&gt;&gt; ans = <span class="keyword">new</span> ArrayList&lt;&gt;();</div><div class="line">    <span class="keyword">int</span> max = <span class="number">1</span> &lt;&lt; set.size();</div><div class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; max; i++) &#123;</div><div class="line">        List&lt;Integer&gt; subset = int2Set(k, set);</div><div class="line">        ans.add(subset);</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">return</span> ans;</div><div class="line">&#125;</div><div class="line"><span class="function">List&lt;Integer&gt; <span class="title">int2Set</span><span class="params">(<span class="keyword">int</span> num, List&lt;Integer&gt; set)</span> </span>&#123;</div><div class="line">    List&lt;Integer&gt; subset = <span class="keyword">new</span> ArrayList&lt;&gt;();</div><div class="line">    <span class="keyword">int</span> index = <span class="number">0</span>;</div><div class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = num; i &gt; <span class="number">0</span>; i &gt;&gt;= <span class="number">1</span>) &#123;</div><div class="line">        <span class="keyword">if</span> ((k &amp; <span class="number">1</span>) == <span class="number">1</span>) &#123;</div><div class="line">            subset.add(set.get(index));</div><div class="line">        &#125;</div><div class="line">        index++;</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">return</span> subset;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+</li>
+</ul>
+</li>
+<li><p><em>Q: 只使用加、减、shifting实现两个正整数的乘法，要求operations尽量少。</em></p>
+<ul>
+<li>对于一大一小<code>x, y</code>两个数，相当于把大数x加y次，这个y次又可以通过shift进行折半。如果y是偶数折半刚好，如果是奇数就需要递归完成后再加一个x。时间复杂度只需要O(log(smaller)). <figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">minProd</span><span class="params">(<span class="keyword">int</span> a, <span class="keyword">int</span> b)</span> </span>&#123;</div><div class="line">    <span class="keyword">int</span> smaller = a &lt; b ? a : b;</div><div class="line">    <span class="keyword">int</span> bigger = a &lt; b ? b : a;</div><div class="line">    <span class="keyword">return</span> minProdHelper(smaller, bigger);</div><div class="line">&#125;</div><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">minProdHelper</span><span class="params">(<span class="keyword">int</span> times, <span class="keyword">int</span> num)</span> </span>&#123;</div><div class="line">    <span class="keyword">if</span> (times == <span class="number">0</span>) &#123;</div><div class="line">        <span class="keyword">return</span> <span class="number">0</span>;</div><div class="line">    &#125; <span class="keyword">else</span> <span class="keyword">if</span> (times == <span class="number">1</span>) &#123;</div><div class="line">        <span class="keyword">return</span> num;</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">int</span> newTimes = times &gt;&gt; <span class="number">1</span>;</div><div class="line">    <span class="keyword">int</span> halfProd = minProdHelper(newTimes, num);</div><div class="line">    <span class="keyword">if</span> (times % <span class="number">2</span> == <span class="number">0</span>) &#123;</div><div class="line">        <span class="keyword">return</span> halfProd + halfProd;</div><div class="line">    &#125; <span class="keyword">else</span> &#123;</div><div class="line">        <span class="keyword">return</span> halfProd + halfProd + num;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+</li>
+</ul>
+</li>
 </ul>
 
       
@@ -724,11 +753,11 @@
       
         <div class="post-tags">
           
+            <a href="/tags/java/" rel="tag"># java</a>
+          
             <a href="/tags/algorithm/" rel="tag"># algorithm</a>
           
             <a href="/tags/interview/" rel="tag"># interview</a>
-          
-            <a href="/tags/java/" rel="tag"># java</a>
           
         </div>
       
