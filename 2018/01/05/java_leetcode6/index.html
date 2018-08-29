@@ -85,7 +85,7 @@
 <link href="/css/main.css?v=5.1.2" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="java,algorithm,interview,leetcode," />
+  <meta name="keywords" content="algorithm,java,interview,leetcode," />
 
 
 
@@ -102,14 +102,14 @@
 
 
 <meta name="description" content="刷题。祝我好运。">
-<meta name="keywords" content="java,algorithm,interview,leetcode">
+<meta name="keywords" content="algorithm,java,interview,leetcode">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Note for LeetCode in Java (800+)">
 <meta property="og:url" content="https://bobbyliujb.github.io/2018/01/05/java_leetcode6/index.html">
 <meta property="og:site_name" content="Bobby">
 <meta property="og:description" content="刷题。祝我好运。">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2018-08-25T17:41:13.146Z">
+<meta property="og:updated_time" content="2018-08-28T19:52:12.557Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Note for LeetCode in Java (800+)">
 <meta name="twitter:description" content="刷题。祝我好运。">
@@ -319,8 +319,8 @@
               
                 <span class="post-meta-item-text">Post modified&#58;</span>
               
-              <time title="Post modified" itemprop="dateModified" datetime="2018-08-25T10:41:13-07:00">
-                2018-08-25
+              <time title="Post modified" itemprop="dateModified" datetime="2018-08-28T12:52:12-07:00">
+                2018-08-28
               </time>
             
           </span>
@@ -434,6 +434,11 @@
 <li>给一个只含有0和1的数组，0表示没人坐，1表示有人坐，求某一个0使得离最近的人最远，返回最远距离。</li>
 <li>分情况讨论，如果最远出现在两侧以及出现在两个1之间。skip。</li>
 </ul>
+<h4 id="853-car-fleet"><a href="#853-car-fleet" class="headerlink" title="853. car-fleet"></a><a href="https://leetcode.com/problems/car-fleet/description/" target="_blank" rel="external">853. car-fleet</a></h4><ul>
+<li>若干辆车朝着target开，给一个position数组表示开始时车的位置，给一个speed数组表示每台车的速度。若后续车辆追上前面车则融合成一个以前面车的速度继续开。求到达终点的共有几台车。初识时每台车都在不同位置。</li>
+<li>利用TreeMap，每台车的剩余距离作为key、每台车的到达终点所需时间作为value，在TreeMap中按照剩余距离从小到大排序后从头遍历剩余时间，若后续车辆剩余时间比前面的短或相等，就说明会追上；若后续车辆所需时间比前面大，必定赶不上，因此它就作为后续集团的leading car。本质就是求有多少个leading car.<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">carFleet</span><span class="params">(<span class="keyword">int</span> target, <span class="keyword">int</span>[] position, <span class="keyword">int</span>[] speed)</span> </span>&#123;</div><div class="line">        <span class="keyword">if</span> (position == <span class="keyword">null</span> || position.length == <span class="number">0</span></div><div class="line">           || speed == <span class="keyword">null</span> || speed.length == <span class="number">0</span></div><div class="line">           || position.length != speed.length) &#123;</div><div class="line">            <span class="keyword">return</span> <span class="number">0</span>;</div><div class="line">        &#125;</div><div class="line">        TreeMap&lt;Integer, Double&gt; map = <span class="keyword">new</span> TreeMap&lt;&gt;();</div><div class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; position.length; i++) &#123;</div><div class="line">            <span class="keyword">int</span> distanceRemain = target - position[i];</div><div class="line">            map.put(distanceRemain, (<span class="keyword">double</span>)(distanceRemain) / speed[i]);</div><div class="line">        &#125;</div><div class="line">        <span class="keyword">int</span> count = <span class="number">0</span>;</div><div class="line">        <span class="keyword">double</span> prevTime = <span class="number">0</span>;</div><div class="line">        <span class="keyword">for</span> (<span class="keyword">double</span> time : map.values()) &#123;  <span class="comment">// values按照distanceRemain从小到大排列</span></div><div class="line">            <span class="keyword">if</span> (time &gt; prevTime) &#123;  <span class="comment">// 若当前所需时间大于前面的时间</span></div><div class="line">                prevTime = time;    <span class="comment">// 则形成新的fleet</span></div><div class="line">                count++;</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line">        <span class="keyword">return</span> count;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+</li>
+</ul>
 <h4 id="858-mirror-reflection"><a href="#858-mirror-reflection" class="headerlink" title="858. mirror-reflection"></a><a href="https://leetcode.com/problems/mirror-reflection/description/" target="_blank" rel="external">858. mirror-reflection</a></h4><ul>
 <li>给整数p和q，p表示正方形空间的边长，q表示初始激光从左下射出的高度，在右下、右上、左上各右一个receptor标号为0、1、2，可以保证一定可以接收到，求接收到的receptor的id。</li>
 <li>激光射出后纵向移动达到q时，横向移动一定为p。假设把天花板去掉，无限往上反射x次，最终射到某个corner的时候，纵向上移动的距离恰好是p的某个倍数<code>q*x == y*p</code>，因此问题转换为求p和q的最小公倍数lcm，而<code>lcm = p * q / gcd</code>，用最大公约数可破。若<code>lcm / p % 2 == 0</code>，说明反射到了下面这个receptor，即0；否则再判断<code>lcm / q % 2 == 0</code>看看是否回到了左侧的recptor，即2。<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//   lcm / p % 2 + 1 - lcm / q % 2 </span></div><div class="line"><span class="comment">// = p * q / gcd / p % 2 + 1 - p * q / gcd / q % 2</span></div><div class="line"><span class="comment">// = 1 + q / gcd % 2 - p / gcd % 2</span></div><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">mirrorReflection</span><span class="params">(<span class="keyword">int</span> p, <span class="keyword">int</span> q)</span> </span>&#123;</div><div class="line">        <span class="keyword">if</span> (p &lt; <span class="number">1</span> || q &gt; p) &#123;</div><div class="line">            <span class="keyword">return</span> <span class="number">0</span>;</div><div class="line">        &#125;</div><div class="line">        <span class="keyword">int</span> gcd = getGCD(p, q);</div><div class="line">        <span class="keyword">return</span> <span class="number">1</span> + q / gcd % <span class="number">2</span> - p / gcd % <span class="number">2</span>;</div><div class="line">    &#125;</div><div class="line">    <span class="function"><span class="keyword">private</span> <span class="keyword">int</span> <span class="title">getGCD</span><span class="params">(<span class="keyword">int</span> p, <span class="keyword">int</span> q)</span> </span>&#123;</div><div class="line">        <span class="keyword">return</span> q != <span class="number">0</span> ? getGCD(q, p % q) : p;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
@@ -485,9 +490,9 @@
       
         <div class="post-tags">
           
-            <a href="/tags/java/" rel="tag"># java</a>
-          
             <a href="/tags/algorithm/" rel="tag"># algorithm</a>
+          
+            <a href="/tags/java/" rel="tag"># java</a>
           
             <a href="/tags/interview/" rel="tag"># interview</a>
           
@@ -663,7 +668,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#unique-morse-code-words"><span class="nav-number">1.</span> <span class="nav-text">unique-morse-code-words</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#806-number-of-lines-to-write-string"><span class="nav-number">2.</span> <span class="nav-text">806. number-of-lines-to-write-string</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#807-max-increase-to-keep-city-skyline"><span class="nav-number">3.</span> <span class="nav-text">807. max-increase-to-keep-city-skyline</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#817-linked-list-components"><span class="nav-number">4.</span> <span class="nav-text">817. linked-list-components</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#827-making-a-large-island"><span class="nav-number">5.</span> <span class="nav-text">827. making-a-large-island</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#833-find-and-replace-in-string"><span class="nav-number">6.</span> <span class="nav-text">833. find-and-replace-in-string</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#844-backspace-string-compare"><span class="nav-number">7.</span> <span class="nav-text">844. backspace-string-compare</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#846-hand-of-straights"><span class="nav-number">8.</span> <span class="nav-text">846. hand-of-straights</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#849-maximize-distance-to-closest-person"><span class="nav-number">9.</span> <span class="nav-text">849. maximize-distance-to-closest-person</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#858-mirror-reflection"><span class="nav-number">10.</span> <span class="nav-text">858. mirror-reflection</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#unique-morse-code-words"><span class="nav-number">1.</span> <span class="nav-text">unique-morse-code-words</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#806-number-of-lines-to-write-string"><span class="nav-number">2.</span> <span class="nav-text">806. number-of-lines-to-write-string</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#807-max-increase-to-keep-city-skyline"><span class="nav-number">3.</span> <span class="nav-text">807. max-increase-to-keep-city-skyline</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#817-linked-list-components"><span class="nav-number">4.</span> <span class="nav-text">817. linked-list-components</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#827-making-a-large-island"><span class="nav-number">5.</span> <span class="nav-text">827. making-a-large-island</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#833-find-and-replace-in-string"><span class="nav-number">6.</span> <span class="nav-text">833. find-and-replace-in-string</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#844-backspace-string-compare"><span class="nav-number">7.</span> <span class="nav-text">844. backspace-string-compare</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#846-hand-of-straights"><span class="nav-number">8.</span> <span class="nav-text">846. hand-of-straights</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#849-maximize-distance-to-closest-person"><span class="nav-number">9.</span> <span class="nav-text">849. maximize-distance-to-closest-person</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#853-car-fleet"><span class="nav-number">10.</span> <span class="nav-text">853. car-fleet</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#858-mirror-reflection"><span class="nav-number">11.</span> <span class="nav-text">858. mirror-reflection</span></a></li></ol></div>
             
 
           </div>
