@@ -109,7 +109,7 @@
 <meta property="og:site_name" content="Bobby">
 <meta property="og:description" content="刷题。祝我好运。">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2018-09-06T06:52:52.649Z">
+<meta property="og:updated_time" content="2018-09-15T05:23:29.363Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Note for LeetCode in Java ( 101~200 )">
 <meta name="twitter:description" content="刷题。祝我好运。">
@@ -319,8 +319,8 @@
               
                 <span class="post-meta-item-text">Post modified&#58;</span>
               
-              <time title="Post modified" itemprop="dateModified" datetime="2018-09-05T23:52:52-07:00">
-                2018-09-05
+              <time title="Post modified" itemprop="dateModified" datetime="2018-09-14T22:23:29-07:00">
+                2018-09-14
               </time>
             
           </span>
@@ -573,7 +573,7 @@
 <h4 id="130-surrounded-regions"><a href="#130-surrounded-regions" class="headerlink" title="130. surrounded-regions"></a><a href="https://leetcode.com/problems/surrounded-regions/#/description" target="_blank" rel="external">130. surrounded-regions</a></h4><ul>
 <li>给一个只含有<code>XXOO</code>的char二维数组，要求把所有被<code>X</code>完美包围的<code>O</code>替换成<code>X</code>，而绵延到边界的<code>O</code>就不替换。</li>
 <li>ME：总感觉这题似曾相识，我最担心的情况出现了——在费劲地想和之前做过的什么题相似，而思路本身却卡壳了。我只能想到利用一个辅助二维table帮助判定是边界的O还是内部的O，一旦是边界的就向四个方向拓展判断。测试了一下算法是对的，但是递归的时候StackOverflow了。。。</li>
-<li>TA：原来我的DFS方法是可以的，但是这个StackOverflow是因为你递归太多层了，而且也没有必要来多一个辅助的table，直接在原棋盘上操作就好了。<a href="https://discuss.leetcode.com/topic/17224/a-really-simple-and-readable-c-solution-only-cost-12ms/8" target="_blank" rel="external">这个大神</a>给出了解释，当从首行开始改变<code>O</code>的时候，如果向后一直蛇形连成一长串<code>O</code>，那么从(0, 0 )开始的DFS会一路递归下去，规模非常可观。虽然改了之后可以AC，但是对于这个大神提出的第二个情况，DFS还是不行的。因此，还是不能偷懒搞DFS+recursive，得BFS+iterative，我参考了<a href="https://discuss.leetcode.com/topic/2982/my-bfs-solution-c-28ms" target="_blank" rel="external">这个</a>写出来了<a href="https://leetcode.com/submissions/detail/104040158/" target="_blank" rel="external">自己的</a>，思路就是遍历四条边的<code>O</code>，碰到就对它进行BFS，在BFS中先把<code>O</code>给换成别的什么字符，利用Queue来保存该<code>O</code>四个方向相邻的<code>O</code>（用了个内部类），入Queue之前也要把<code>O</code>给换掉，然后一直遍历Queue中的<code>O</code>直到Queue为空。最后把四个边界遍历完成后，再从头到尾来一波，把特殊字符换回<code>O</code>，把剩余的<code>O</code>换成<code>X</code>。此外还有<a href="https://discuss.leetcode.com/topic/1944/solve-it-using-union-find" target="_blank" rel="external">一个使用并查集的方法</a>，不是太好懂。。。似乎答主的灵感还是来自MIT的coursera作业，然而我没搞= =</li>
+<li>TA：原来我的DFS方法是可以的，但是这个StackOverflow是因为你递归太多层了，而且也没有必要来多一个辅助的table，直接在原棋盘上操作就好了。<a href="https://discuss.leetcode.com/topic/17224/a-really-simple-and-readable-c-solution-only-cost-12ms/8" target="_blank" rel="external">这个大神</a>给出了解释，当从首行开始改变<code>O</code>的时候，如果向后一直蛇形连成一长串<code>O</code>，那么从(0, 0)开始的DFS会一路递归下去，规模非常可观。虽然改了之后可以AC，但是对于这个大神提出的第二个情况，DFS还是不行的。因此，还是不能偷懒搞DFS+recursive，得BFS+iterative，我参考了<a href="https://discuss.leetcode.com/topic/2982/my-bfs-solution-c-28ms" target="_blank" rel="external">这个</a>写出来了<a href="https://leetcode.com/submissions/detail/104040158/" target="_blank" rel="external">自己的</a>，思路就是遍历四条边的<code>O</code>，碰到就对它进行BFS，在BFS中先把<code>O</code>给换成别的什么字符，利用Queue来保存该<code>O</code>四个方向相邻的<code>O</code>（用了个内部类），入Queue之前也要把<code>O</code>给换掉，然后一直遍历Queue中的<code>O</code>直到Queue为空。最后把四个边界遍历完成后，再从头到尾来一波，把特殊字符换回<code>O</code>，把剩余的<code>O</code>换成<code>X</code>。此外还有<a href="https://discuss.leetcode.com/topic/1944/solve-it-using-union-find" target="_blank" rel="external">一个使用并查集的方法</a>，不是太好懂。。。似乎答主的灵感还是来自MIT的coursera作业，然而我没搞= =</li>
 </ul>
 <h4 id="131-palindrome-partitioning"><a href="#131-palindrome-partitioning" class="headerlink" title="131. palindrome-partitioning"></a><a href="https://leetcode.com/problems/palindrome-partitioning/#/description" target="_blank" rel="external">131. palindrome-partitioning</a></h4><ul>
 <li>给一个字符串，求它所有的划分方式使得每一个子字符串都是自对称的。</li>
