@@ -85,7 +85,7 @@
 <link href="/css/main.css?v=5.1.2" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="java,algorithm,interview," />
+  <meta name="keywords" content="algorithm,java,interview," />
 
 
 
@@ -102,14 +102,14 @@
 
 
 <meta name="description" content="迎难而上，祝我好运。面朝大海，春暖花开。">
-<meta name="keywords" content="java,algorithm,interview">
+<meta name="keywords" content="algorithm,java,interview">
 <meta property="og:type" content="article">
 <meta property="og:title" content="易贝">
 <meta property="og:url" content="https://bobbyliujb.github.io/2018/09/11/ebay/index.html">
 <meta property="og:site_name" content="Bobby">
 <meta property="og:description" content="迎难而上，祝我好运。面朝大海，春暖花开。">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2018-09-18T04:05:24.002Z">
+<meta property="og:updated_time" content="2018-09-18T05:56:40.834Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="易贝">
 <meta name="twitter:description" content="迎难而上，祝我好运。面朝大海，春暖花开。">
@@ -319,7 +319,7 @@
               
                 <span class="post-meta-item-text">Post modified&#58;</span>
               
-              <time title="Post modified" itemprop="dateModified" datetime="2018-09-17T21:05:24-07:00">
+              <time title="Post modified" itemprop="dateModified" datetime="2018-09-17T22:56:40-07:00">
                 2018-09-17
               </time>
             
@@ -400,10 +400,10 @@
         <p>迎难而上，祝我好运。面朝大海，春暖花开。<br><a id="more"></a></p>
 <h4 id="k-way-merge"><a href="#k-way-merge" class="headerlink" title="k way merge"></a><a href="http://www.1point3acres.com/bbs/thread-440098-1-1.html" target="_blank" rel="external">k way merge</a></h4><ul>
 <li><a href="https://leetcode.com/problems/merge-k-sorted-lists/#/description" target="_blank" rel="external">LC23</a>。给K个排好序的链表头节点数组，将他们merge到一个list中。</li>
-<li><p>方法一：利用PriorityQueue存储，先一波流将所有链表头加入pq，然后每次poll掉最小的同时将它后续的节点也放进pq中。</p>
+<li><p>方法一：利用PriorityQueue存储，先一波流将所有链表头加入pq，然后每次poll掉最小的同时将它后续的节点也放进pq中。pq的offer, poll, remove复杂度都是log(N)，因此在这里维护规模为K的就需要log(K)，而总共有KN个节点，时间复杂度是O(KNlogK)。</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">public</span> ListNode <span class="title">mergeKLists</span><span class="params">(ListNode[] lists)</span> </span>&#123;</div><div class="line">    <span class="keyword">if</span> (lists == <span class="keyword">null</span> || lists.length == <span class="number">0</span>) &#123;</div><div class="line">        <span class="keyword">return</span> <span class="keyword">null</span>;</div><div class="line">    &#125;</div><div class="line">    PriorityQueue&lt;ListNode&gt; pq = <span class="keyword">new</span> PriorityQueue&lt;&gt;((a, b) -&gt; &#123;</div><div class="line">        <span class="keyword">return</span> a.val - b.val;</div><div class="line">    &#125;);</div><div class="line">    <span class="keyword">for</span> (ListNode l: lists) &#123;</div><div class="line">        <span class="keyword">if</span> (l != <span class="keyword">null</span>)</div><div class="line">            pq.add(l);</div><div class="line">    &#125;</div><div class="line">    ListNode fakeHead = <span class="keyword">new</span> ListNode(<span class="number">0</span>), curr = fakeHead;</div><div class="line">    <span class="keyword">while</span> (!pq.isEmpty()) &#123;</div><div class="line">        curr.next = pq.poll();</div><div class="line">        curr = curr.next;</div><div class="line">        <span class="keyword">if</span> (curr.next != <span class="keyword">null</span>)</div><div class="line">            pq.add(curr.next);</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">return</span> fakeHead.next;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
 </li>
-<li><p>方法二：递归+分治法，归结为merge两个List的问题。</p>
+<li><p>方法二：递归+分治法，归结为merge两个List的问题。时间复杂度是O(KNlogK)，因为一开始K个数组，需要遍历每个元素合并之后形成K/2个数组，以此类推，每次需要遍历需要O(KN)，总共有logK次，因此是O(KNlogK)。</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// divide and conquer</span></div><div class="line"><span class="function"><span class="keyword">public</span> ListNode <span class="title">mergeKLists</span><span class="params">(ListNode[] lists)</span> </span>&#123;</div><div class="line">    <span class="keyword">if</span> (lists == <span class="keyword">null</span> || lists.length == <span class="number">0</span>) &#123;</div><div class="line">        <span class="keyword">return</span> <span class="keyword">null</span>;</div><div class="line">    &#125;</div><div class="line">    <span class="comment">// last two params are used to divide into sub problems</span></div><div class="line">    <span class="keyword">return</span> mergeKLists(lists, <span class="number">0</span>, lists.length);</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">private</span> ListNode <span class="title">mergeKLists</span><span class="params">(ListNode[] lists, <span class="keyword">int</span> start, <span class="keyword">int</span> end)</span> </span>&#123;</div><div class="line">    <span class="keyword">if</span> (end - start == <span class="number">1</span>) &#123;         <span class="comment">// only one list</span></div><div class="line">        <span class="keyword">return</span> lists[start];</div><div class="line">    &#125; <span class="keyword">else</span> <span class="keyword">if</span> (end - start == <span class="number">2</span>) &#123;  <span class="comment">// merge two lists</span></div><div class="line">        <span class="keyword">return</span> mergeTwoLists(lists[start], lists[start + <span class="number">1</span>]);</div><div class="line">    &#125; <span class="keyword">else</span> &#123;</div><div class="line">        <span class="keyword">int</span> mid = start + (end - start) / <span class="number">2</span>;</div><div class="line">        <span class="comment">// cut into first and second halves</span></div><div class="line">        <span class="keyword">return</span> mergeTwoLists(mergeKLists(lists, start, mid), </div><div class="line">                                mergeKLists(lists, mid, end)); <span class="comment">// warning not mid + 1</span></div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line"><span class="function"><span class="keyword">private</span> ListNode <span class="title">mergeTwoLists</span><span class="params">(ListNode l1, ListNode l2)</span> </span>&#123;</div><div class="line">    <span class="keyword">if</span> (l1 == <span class="keyword">null</span>) &#123;</div><div class="line">        <span class="keyword">return</span> l2;</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">if</span> (l2 == <span class="keyword">null</span>) &#123;</div><div class="line">        <span class="keyword">return</span> l1;</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">if</span> (l1.val &lt;= l2.val) &#123;</div><div class="line">        l1.next = mergeTwoLists(l1.next, l2);</div><div class="line">        <span class="keyword">return</span> l1;</div><div class="line">    &#125; <span class="keyword">else</span> &#123;</div><div class="line">        l2.next = mergeTwoLists(l1, l2.next);</div><div class="line">        <span class="keyword">return</span> l2;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
 </li>
 </ul>
@@ -625,9 +625,9 @@
       
         <div class="post-tags">
           
-            <a href="/tags/java/" rel="tag"># java</a>
-          
             <a href="/tags/algorithm/" rel="tag"># algorithm</a>
+          
+            <a href="/tags/java/" rel="tag"># java</a>
           
             <a href="/tags/interview/" rel="tag"># interview</a>
           
