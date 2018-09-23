@@ -85,7 +85,7 @@
 <link href="/css/main.css?v=5.1.2" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="algorithm,java,interview,leetcode," />
+  <meta name="keywords" content="java,algorithm,interview,leetcode," />
 
 
 
@@ -102,7 +102,7 @@
 
 
 <meta name="description" content="刷题。祝我好运。">
-<meta name="keywords" content="algorithm,java,interview,leetcode">
+<meta name="keywords" content="java,algorithm,interview,leetcode">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Note for LeetCode in Java ( 201~300 )">
 <meta property="og:url" content="https://bobbyliujb.github.io/2017/06/03/java_leetcode3/index.html">
@@ -110,7 +110,7 @@
 <meta property="og:description" content="刷题。祝我好运。">
 <meta property="og:locale" content="en">
 <meta property="og:image" content="https://ww1.sinaimg.cn/large/9b3a5c2fgy1fgfeg0uu25j20eb09nt9j.jpg">
-<meta property="og:updated_time" content="2018-09-07T06:56:13.897Z">
+<meta property="og:updated_time" content="2018-09-23T18:21:23.029Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Note for LeetCode in Java ( 201~300 )">
 <meta name="twitter:description" content="刷题。祝我好运。">
@@ -321,8 +321,8 @@
               
                 <span class="post-meta-item-text">Post modified&#58;</span>
               
-              <time title="Post modified" itemprop="dateModified" datetime="2018-09-06T23:56:13-07:00">
-                2018-09-06
+              <time title="Post modified" itemprop="dateModified" datetime="2018-09-23T11:21:23-07:00">
+                2018-09-23
               </time>
             
           </span>
@@ -424,6 +424,7 @@
 <li>给两个字符串，看能否建立一一映射关系，使得字符串s能转换成t。一一映射要求各个key映射到不同的value，不能多对一，更不可能一对多。</li>
 <li>ME：HashMap搞定，利用containsKey判断是否定义过映射，利用containsValue防止多对一。</li>
 <li>TA：<a href="https://discuss.leetcode.com/topic/41595/java-3ms-beats-99-25" target="_blank" rel="external">这个</a>告诉你，由于都是ASCII字符，那么可以用数组代替HashMap嘛，这样会快很多。<a href="https://leetcode.com/submissions/detail/104911468/" target="_blank" rel="external">果然很快</a>。</li>
+<li>我去，当年谷歌实习面试的原题，明明做过竟然没搞出来。。。follow-up说如果这些test字符串是million级别的，要怎么优化。不能再给每一组维护a pair of maps，需要找出某种pattern，那么可以根据secret字符串总结出一个pattern，然后后面的字符串都调用相同的算法生成pattern，直接比较pattern字符串即可。</li>
 </ul>
 <h4 id="206-reverse-linked-list"><a href="#206-reverse-linked-list" class="headerlink" title="206. reverse-linked-list"></a><a href="https://leetcode.com/problems/reverse-linked-list/#/description" target="_blank" rel="external">206. reverse-linked-list</a></h4><ul>
 <li>给一个链表，反转它，返回反转后的链表头。要求iterative和recursive分别实现。</li>
@@ -885,9 +886,9 @@
       
         <div class="post-tags">
           
-            <a href="/tags/algorithm/" rel="tag"># algorithm</a>
-          
             <a href="/tags/java/" rel="tag"># java</a>
+          
+            <a href="/tags/algorithm/" rel="tag"># algorithm</a>
           
             <a href="/tags/interview/" rel="tag"># interview</a>
           

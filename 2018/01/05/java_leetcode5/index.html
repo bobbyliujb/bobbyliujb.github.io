@@ -85,7 +85,7 @@
 <link href="/css/main.css?v=5.1.2" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="algorithm,java,interview,leetcode," />
+  <meta name="keywords" content="java,algorithm,interview,leetcode," />
 
 
 
@@ -102,14 +102,14 @@
 
 
 <meta name="description" content="刷题。祝我好运。">
-<meta name="keywords" content="algorithm,java,interview,leetcode">
+<meta name="keywords" content="java,algorithm,interview,leetcode">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Note for LeetCode in Java (401~800)">
 <meta property="og:url" content="https://bobbyliujb.github.io/2018/01/05/java_leetcode5/index.html">
 <meta property="og:site_name" content="Bobby">
 <meta property="og:description" content="刷题。祝我好运。">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2018-09-07T18:06:10.422Z">
+<meta property="og:updated_time" content="2018-09-21T06:34:18.628Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Note for LeetCode in Java (401~800)">
 <meta name="twitter:description" content="刷题。祝我好运。">
@@ -319,8 +319,8 @@
               
                 <span class="post-meta-item-text">Post modified&#58;</span>
               
-              <time title="Post modified" itemprop="dateModified" datetime="2018-09-07T11:06:10-07:00">
-                2018-09-07
+              <time title="Post modified" itemprop="dateModified" datetime="2018-09-20T23:34:18-07:00">
+                2018-09-20
               </time>
             
           </span>
@@ -921,7 +921,11 @@
 </ul>
 <h4 id="687-longest-univalue-path"><a href="#687-longest-univalue-path" class="headerlink" title="687. longest-univalue-path"></a><a href="https://leetcode.com/problems/longest-univalue-path/description/" target="_blank" rel="external">687. longest-univalue-path</a></h4><ul>
 <li>给一个二叉树，求其中最长的连续边数使得经过的节点值都一样。不一定是完全笔直的路径。</li>
-<li>对于左子树和右子树递归调用求最长路径（不取当前节点的情况），然后根据当前节点的值进行DFS（也就是取当前节点的情况）。最后取最大。<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">longestUnivaluePath</span><span class="params">(TreeNode root)</span> </span>&#123;</div><div class="line">        <span class="keyword">if</span> (root == <span class="keyword">null</span>) &#123;</div><div class="line">            <span class="keyword">return</span> <span class="number">0</span>;</div><div class="line">        &#125;</div><div class="line">        <span class="keyword">int</span> child = Math.max(longestUnivaluePath(root.left), longestUnivaluePath(root.right));</div><div class="line">        <span class="keyword">return</span> Math.max(child, dfs(root.left, root.val) + dfs(root.right, root.val));</div><div class="line">    &#125;</div><div class="line">    <span class="function"><span class="keyword">private</span> <span class="keyword">int</span> <span class="title">dfs</span><span class="params">(TreeNode node, <span class="keyword">int</span> val)</span> </span>&#123;</div><div class="line">        <span class="keyword">if</span> (node == <span class="keyword">null</span> || node.val != val) &#123;</div><div class="line">            <span class="keyword">return</span> <span class="number">0</span>;</div><div class="line">        &#125;</div><div class="line">        <span class="keyword">return</span> <span class="number">1</span> + Math.max(dfs(node.left, val), dfs(node.right, val)); <span class="comment">// two nodes forms one edge</span></div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<li><p>对于左子树和右子树递归调用求最长路径（不取当前节点的情况），然后根据当前节点的值进行DFS（也就是取当前节点的情况）。最后取最大。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">longestUnivaluePath</span><span class="params">(TreeNode root)</span> </span>&#123;</div><div class="line">        <span class="keyword">if</span> (root == <span class="keyword">null</span>) &#123;</div><div class="line">            <span class="keyword">return</span> <span class="number">0</span>;</div><div class="line">        &#125;</div><div class="line">        <span class="keyword">int</span> child = Math.max(longestUnivaluePath(root.left), longestUnivaluePath(root.right));</div><div class="line">        <span class="keyword">return</span> Math.max(child, dfs(root.left, root.val) + dfs(root.right, root.val));</div><div class="line">    &#125;</div><div class="line">    <span class="function"><span class="keyword">private</span> <span class="keyword">int</span> <span class="title">dfs</span><span class="params">(TreeNode node, <span class="keyword">int</span> val)</span> </span>&#123;</div><div class="line">        <span class="keyword">if</span> (node == <span class="keyword">null</span> || node.val != val) &#123;</div><div class="line">            <span class="keyword">return</span> <span class="number">0</span>;</div><div class="line">        &#125;</div><div class="line">        <span class="keyword">return</span> <span class="number">1</span> + Math.max(dfs(node.left, val), dfs(node.right, val)); <span class="comment">// two nodes forms one edge</span></div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+</li>
+<li><p>但是上面的这个方法存在大量重复访问节点，时间复杂度O(N^2)。因此考虑和之前diameter题一样，使用全局变量求最大path，同时在dfs每步直接将两侧中较大深度返回给上一层。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</div><div class="line">    <span class="keyword">int</span> maxLen = <span class="number">0</span>;</div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">longestUnivaluePath</span><span class="params">(TreeNode root)</span> </span>&#123;</div><div class="line">        <span class="keyword">if</span> (root == <span class="keyword">null</span>) &#123;</div><div class="line">            <span class="keyword">return</span> <span class="number">0</span>;</div><div class="line">        &#125;</div><div class="line">        dfs(root, root.val);</div><div class="line">        <span class="keyword">return</span> maxLen;</div><div class="line">    &#125;</div><div class="line">    <span class="function"><span class="keyword">private</span> <span class="keyword">int</span> <span class="title">dfs</span><span class="params">(TreeNode node, <span class="keyword">int</span> val)</span> </span>&#123;</div><div class="line">        <span class="keyword">if</span> (node == <span class="keyword">null</span>) &#123;</div><div class="line">            <span class="keyword">return</span> <span class="number">0</span>;</div><div class="line">        &#125;</div><div class="line">        <span class="keyword">int</span> left = dfs(node.left, node.val);</div><div class="line">        <span class="keyword">int</span> right = dfs(node.right, node.val);</div><div class="line">        maxLen = Math.max(maxLen, left + right);    <span class="comment">// 取当前node为转折点</span></div><div class="line">        <span class="keyword">return</span> node.val == val ? Math.max(left, right) + <span class="number">1</span> : <span class="number">0</span>;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
 </li>
 </ul>
 <h4 id="689-maximum-sum-of-3-non-overlapping-subarrays"><a href="#689-maximum-sum-of-3-non-overlapping-subarrays" class="headerlink" title="689. maximum-sum-of-3-non-overlapping-subarrays"></a><a href="https://leetcode.com/problems/maximum-sum-of-3-non-overlapping-subarrays/description/" target="_blank" rel="external">689. maximum-sum-of-3-non-overlapping-subarrays</a></h4><ul>
@@ -1239,9 +1243,9 @@
       
         <div class="post-tags">
           
-            <a href="/tags/algorithm/" rel="tag"># algorithm</a>
-          
             <a href="/tags/java/" rel="tag"># java</a>
+          
+            <a href="/tags/algorithm/" rel="tag"># algorithm</a>
           
             <a href="/tags/interview/" rel="tag"># interview</a>
           
@@ -1258,8 +1262,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2018/01/05/java_leetcode6/" rel="next" title="Note for LeetCode in Java (800+)">
-                <i class="fa fa-chevron-left"></i> Note for LeetCode in Java (800+)
+              <a href="/2017/11/28/udacity/" rel="next" title="有代西滴">
+                <i class="fa fa-chevron-left"></i> 有代西滴
               </a>
             
           </div>
@@ -1268,8 +1272,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2018/01/15/groupon/" rel="prev" title="谷入普昂">
-                谷入普昂 <i class="fa fa-chevron-right"></i>
+              <a href="/2018/01/05/java_leetcode6/" rel="prev" title="Note for LeetCode in Java (800+)">
+                Note for LeetCode in Java (800+) <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
