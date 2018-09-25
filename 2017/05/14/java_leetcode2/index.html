@@ -109,7 +109,7 @@
 <meta property="og:site_name" content="Bobby">
 <meta property="og:description" content="刷题。祝我好运。">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2018-09-21T01:03:10.422Z">
+<meta property="og:updated_time" content="2018-09-23T22:10:52.799Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Note for LeetCode in Java ( 101~200 )">
 <meta name="twitter:description" content="刷题。祝我好运。">
@@ -319,8 +319,8 @@
               
                 <span class="post-meta-item-text">Post modified&#58;</span>
               
-              <time title="Post modified" itemprop="dateModified" datetime="2018-09-20T18:03:10-07:00">
-                2018-09-20
+              <time title="Post modified" itemprop="dateModified" datetime="2018-09-23T15:10:52-07:00">
+                2018-09-23
               </time>
             
           </span>
@@ -559,7 +559,7 @@
 <li><code>possible lossy conversion from int to char</code>说明出现潜在的精度丢失，需要在运算式子最前面加个括号强制转换。Queue用LinkedList，不是push而是add；Set用HashSet，有contains、remove等方法。</li>
 </ul>
 <h4 id="128-longest-consecutive-sequence"><a href="#128-longest-consecutive-sequence" class="headerlink" title="128. longest-consecutive-sequence"></a><a href="https://leetcode.com/problems/longest-consecutive-sequence/#/description" target="_blank" rel="external">128. longest-consecutive-sequence</a></h4><ul>
-<li>给一个数组，要求在O(n )的时间内，返回其最长的连续子序列的长度。</li>
+<li>给一个数组，要求在O(n)的时间内，返回其最长的连续子序列的长度。</li>
 <li>ME：毫无头绪，偷看了下tag，提到了并查集。然而似乎不能直接用类似木桶法那样的数组搞啊，八成会越界。</li>
 <li>TA：看了<a href="https://discuss.leetcode.com/topic/6148/my-really-simple-java-o-n-solution-accepted/" target="_blank" rel="external">这个</a>用了HashMap和<code>val+1</code>、<code>val-1</code>判断的答案，其实我本来有往这方面考虑的啊哭。思路是维护一个map，存储的是以当前数值为边界的最大连续长度，先从原数组中逐个取出数值n，再到map中查找<code>n-1</code>和<code>n+1</code>对应的长度<code>left</code>和<code>right</code>，那么加上当前数值之后的长度就为<code>left+right+1</code>了，判断一下取个max即为结果，注意要更新两个边界的长度，即map中<code>n+left</code>和<code>n+right</code>处的值。若原数组中有重复元素，即已经在map中出现了，就不能再拿来更新了。此外，还有<a href="https://discuss.leetcode.com/topic/25493/simple-fast-java-solution-using-set" target="_blank" rel="external">一个使用set实现的</a>，模仿了一下也AC了。这种也是有点图论的感觉，<code>n-1</code>和<code>n+1</code>就是邻居，看n最远可以走到哪。</li>
 </ul>
@@ -592,8 +592,8 @@
 </ul>
 <h4 id="134-gas-station"><a href="#134-gas-station" class="headerlink" title="134. gas-station"></a><a href="https://leetcode.com/problems/gas-station/#/description" target="_blank" rel="external">134. gas-station</a></h4><ul>
 <li>假设一个环形的路线，给一个gas数组表示每个索引处对应的供应油量，cost数组表示从当前索引到下一索引所需的油量，求从哪个索引开始能够保证油量足够绕一圈。</li>
-<li>ME：一开始按照最直接的想法DFS，暴力从每个索引出发判断油量够不够，结果超时。改成了一个O(n )的根据剩余油量正负来更新start的方法，又是WA。看了一下标签，就是个Greedy，不知道我Greedy的逻辑哪不对。。</li>
-<li>TA：<a href="https://discuss.leetcode.com/topic/1344/share-some-of-my-ideas" target="_blank" rel="external">这个</a>和我WA的O(n )很像，思路是从头开始算剩余油量，当油量为负就累计一下『所欠的油量』，然后将剩余油量归0再往后遍历，遍历完后看看剩余油量够不够所欠油量，够就可以把start输出了。就差一点呀，关键就是这个『所欠油量』！<a href="https://discuss.leetcode.com/topic/5088/my-ac-is-o-1-space-o-n-running-time-solution-does-anybody-have-posted-this-solution/" target="_blank" rel="external">这个</a>也很6，有个trick比较难想到，把最后一个索引当成start、第一个索引当成end，将剩余油量初始化为最后一个索引处往第一个索引处开之后的油量sum，若sum非负，则可以继续往后开（加上end这个索引处的油量情况），若sum负了说明从当前start不能开到end，需要让start往回滚找到能够开到end的起点。当start和end相遇仍没有办法让油量非负，说明无解。</li>
+<li>ME：一开始按照最直接的想法DFS，暴力从每个索引出发判断油量够不够，结果超时。改成了一个O(n)的根据剩余油量正负来更新start的方法，又是WA。看了一下标签，就是个Greedy，不知道我Greedy的逻辑哪不对。。</li>
+<li>TA：<a href="https://discuss.leetcode.com/topic/1344/share-some-of-my-ideas" target="_blank" rel="external">这个</a>和我WA的O(n)很像，思路是从头开始算剩余油量，当油量为负就累计一下『所欠的油量』，然后将剩余油量归0再往后遍历，遍历完后看看剩余油量够不够所欠油量，够就可以把start输出了。就差一点呀，关键就是这个『所欠油量』！<a href="https://discuss.leetcode.com/topic/5088/my-ac-is-o-1-space-o-n-running-time-solution-does-anybody-have-posted-this-solution/" target="_blank" rel="external">这个</a>也很6，有个trick比较难想到，把最后一个索引当成start、第一个索引当成end，将剩余油量初始化为最后一个索引处往第一个索引处开之后的油量sum，若sum非负，则可以继续往后开（加上end这个索引处的油量情况），若sum负了说明从当前start不能开到end，需要让start往回滚找到能够开到end的起点。当start和end相遇仍没有办法让油量非负，说明无解。</li>
 </ul>
 <h4 id="135-candy"><a href="#135-candy" class="headerlink" title="135. candy"></a><a href="https://leetcode.com/problems/candy/#/description" target="_blank" rel="external">135. candy</a></h4><ul>
 <li>给一个ratings数组表示一排小朋友的优先级，要求每个小孩至少一颗糖，优先级高于相邻小朋友的必须得到多于邻居的糖。求发出去的糖果总数的最小值。</li>
@@ -690,7 +690,7 @@
 </ul>
 <h4 id="153-find-minimum-in-rotated-sorted-array"><a href="#153-find-minimum-in-rotated-sorted-array" class="headerlink" title="153. find-minimum-in-rotated-sorted-array"></a><a href="https://leetcode.com/problems/find-minimum-in-rotated-sorted-array/#/description" target="_blank" rel="external">153. find-minimum-in-rotated-sorted-array</a></h4><ul>
 <li>给一个int数组，原本已经从小到大排好序了，从某个元素开始前半部分和后半部分对调位置（rotate），求最小元素。此题数组中的元素不会重复。</li>
-<li>ME：一开始纳闷这题O(n )不就搞定了嘛，后来突然感觉四层相识，这种rotate过后『一定有一半的元素是正确的升序排列』，所以用类似于二分查找的方法来搞非常合适。所以就用二分查找搞定咯。</li>
+<li>ME：一开始纳闷这题O(n)不就搞定了嘛，后来突然感觉四层相识，这种rotate过后『一定有一半的元素是正确的升序排列』，所以用类似于二分查找的方法来搞非常合适。所以就用二分查找搞定咯。</li>
 <li>TA：<a href="https://discuss.leetcode.com/topic/4100/compact-and-clean-c-solution" target="_blank" rel="external">这个</a>简洁好多，判断条件少了速度自然就快了。当left已经小于right，说明本身有序，直接返回left对应的即可；否则，当left小于mid，而left又大于right，说明应该在右半部分，因此<code>left = mid + 1</code>，否则<code>right = mid</code>。不过为了和后面的对应，我都统一改写成了<a href="https://leetcode.com/submissions/detail/104512898/" target="_blank" rel="external">用mid和right比较来判断哪半部分有序</a>。</li>
 </ul>
 <h4 id="154-find-minimum-in-rotated-sorted-array-ii"><a href="#154-find-minimum-in-rotated-sorted-array-ii" class="headerlink" title="154. find-minimum-in-rotated-sorted-array-ii"></a><a href="https://leetcode.com/problems/find-minimum-in-rotated-sorted-array-ii/#/description" target="_blank" rel="external">154. find-minimum-in-rotated-sorted-array-ii</a></h4><ul>
