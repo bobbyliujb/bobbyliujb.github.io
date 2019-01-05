@@ -2,51 +2,50 @@
 
 
 
+
+
+
+
+
+
+
+
+
   
 
 
-<html class="theme-next mist use-motion" lang="en">
+<html class="theme-next gemini use-motion" lang="en">
 <head>
   <meta charset="UTF-8"/>
-<meta http-equiv="X-UA-Compatible" content="IE=edge" />
-<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
-<meta name="theme-color" content="#222">
-
-
-
-  
-  
-    
-    
-  <script src="/lib/pace/pace.min.js?v=1.0.2"></script>
-  <link href="/lib/pace/pace-theme-minimal.min.css?v=1.0.2" rel="stylesheet">
-
-
-
-
-
-
-
-<meta http-equiv="Cache-Control" content="no-transform" />
-<meta http-equiv="Cache-Control" content="no-siteapp" />
-
-
-
-
-
-
-
-
-
-
-
-
-
+<meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2"/>
+<meta name="theme-color" content="#222"/>
 
 
   
   
-  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+  <link rel="stylesheet" href="/lib/needsharebutton/needsharebutton.css"/>
+
+
+
+
+
+
+
+  <meta http-equiv="Cache-Control" content="no-transform"/>
+  <meta http-equiv="Cache-Control" content="no-siteapp"/>
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -72,7 +71,7 @@
   
     
     
-    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext"/>
   
 
 
@@ -80,55 +79,40 @@
 
 
 
-<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2"/>
 
-<link href="/css/main.css?v=5.1.2" rel="stylesheet" type="text/css" />
-
-
-  <meta name="keywords" content="java,algorithm,interview,leetcode," />
+<link rel="stylesheet" href="/css/main.css?v=6.7.0"/>
 
 
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/favicon.ico?v=6.7.0">
 
 
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon.ico?v=6.7.0">
 
 
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon.ico?v=6.7.0">
 
 
-  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.2" />
-
-
+  <link rel="mask-icon" href="/images/favicon.ico?v=6.7.0" color="#222">
 
 
 
 
-<meta name="description" content="刷题。祝我好运。">
-<meta name="keywords" content="java,algorithm,interview,leetcode">
-<meta property="og:type" content="article">
-<meta property="og:title" content="Note for LeetCode in Java (401~800)">
-<meta property="og:url" content="https://bobbyliujb.github.io/2018/01/05/java_leetcode5/index.html">
-<meta property="og:site_name" content="Bobby">
-<meta property="og:description" content="刷题。祝我好运。">
-<meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2018-10-12T17:20:49.546Z">
-<meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Note for LeetCode in Java (401~800)">
-<meta name="twitter:description" content="刷题。祝我好运。">
 
 
 
-<script type="text/javascript" id="hexo.configurations">
+<script id="hexo.configurations">
   var NexT = window.NexT || {};
   var CONFIG = {
     root: '/',
-    scheme: 'Mist',
-    sidebar: {"position":"left","display":"hide","offset":12,"offset_float":12,"b2t":false,"scrollpercent":false,"onmobile":false},
-    fancybox: true,
+    scheme: 'Gemini',
+    version: '6.7.0',
+    sidebar: {"position":"left","display":"hide","offset":12,"b2t":true,"scrollpercent":false,"onmobile":false},
+    fancybox: false,
+    fastclick: false,
+    lazyload: false,
     tabs: true,
-    motion: true,
-    duoshuo: {
-      userId: '0',
-      author: 'Author'
-    },
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
     algolia: {
       applicationID: '',
       apiKey: '',
@@ -140,14 +124,40 @@
 </script>
 
 
+  
+
+
+
+
+  <meta name="description" content="刷题。祝我好运。">
+<meta name="keywords" content="java,algorithm,interview,leetcode">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Note for LeetCode in Java (401~800)">
+<meta property="og:url" content="https://bobbyliujb.github.io/2018/01/05/java_leetcode5/index.html">
+<meta property="og:site_name" content="Bob_波波">
+<meta property="og:description" content="刷题。祝我好运。">
+<meta property="og:locale" content="en">
+<meta property="og:updated_time" content="2018-10-12T17:20:49.546Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Note for LeetCode in Java (401~800)">
+<meta name="twitter:description" content="刷题。祝我好运。">
+
+
+
+
+
 
   <link rel="canonical" href="https://bobbyliujb.github.io/2018/01/05/java_leetcode5/"/>
 
 
 
+<script id="page.configurations">
+  CONFIG.page = {
+    sidebar: "",
+  };
+</script>
 
-
-  <title>Note for LeetCode in Java (401~800) | Bobby</title>
+  <title>Note for LeetCode in Java (401~800) | Bob_波波</title>
   
 
 
@@ -156,6 +166,35 @@
 
 
 
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .motion-element,
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-title { opacity: initial; }
+
+  .use-motion .logo,
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
 
 </head>
 
@@ -166,28 +205,27 @@
     
   
 
-  <div class="container sidebar-position-left page-post-detail ">
+  <div class="container sidebar-position-left page-post-detail">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
       <div class="header-inner"><div class="site-brand-wrapper">
-  <div class="site-meta ">
+  <div class="site-meta">
     
 
     <div class="custom-logo-site-title">
-      <a href="/"  class="brand" rel="start">
+      <a href="/" class="brand" rel="start">
         <span class="logo-line-before"><i></i></span>
-        <span class="site-title">Bobby</span>
+        <span class="site-title">Bob_波波</span>
         <span class="logo-line-after"><i></i></span>
       </a>
     </div>
-      
-        <p class="site-subtitle"></p>
-      
+    
+    
   </div>
 
   <div class="site-nav-toggle">
-    <button>
+    <button aria-label="Toggle navigation bar">
       <span class="btn-bar"></span>
       <span class="btn-bar"></span>
       <span class="btn-bar"></span>
@@ -195,55 +233,103 @@
   </div>
 </div>
 
-<nav class="site-nav">
-  
 
+
+<nav class="site-nav">
   
     <ul id="menu" class="menu">
       
         
-        <li class="menu-item menu-item-home">
-          <a href="/" rel="section">
-            
-              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
-            
-            Home
-          </a>
-        </li>
-      
         
-        <li class="menu-item menu-item-categories">
-          <a href="/categories/" rel="section">
-            
-              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
-            
-            Categories
-          </a>
-        </li>
-      
         
-        <li class="menu-item menu-item-archives">
-          <a href="/archives/" rel="section">
-            
-              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
-            
-            Archives
-          </a>
-        </li>
+          
+          <li class="menu-item menu-item-home">
+
+    
+    
+    
       
+    
+
+    
+
+    <a href="/" rel="section"><i class="menu-item-icon fa fa-fw fa-home"></i> <br/>Home</a>
+
+  </li>
         
-        <li class="menu-item menu-item-tags">
-          <a href="/tags/" rel="section">
-            
-              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
-            
-            Tags
-          </a>
-        </li>
+        
+        
+          
+          <li class="menu-item menu-item-tags">
+
+    
+    
+    
       
+    
+
+    
+
+    <a href="/tags/" rel="section"><i class="menu-item-icon fa fa-fw fa-tags"></i> <br/>Tags</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-categories">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/categories/" rel="section"><i class="menu-item-icon fa fa-fw fa-th"></i> <br/>Categories</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-archives">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br/>Archives</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-about">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/about/" rel="section"><i class="menu-item-icon fa fa-fw fa-user"></i> <br/>About</a>
+
+  </li>
 
       
+      
     </ul>
+  
+
   
 
   
@@ -251,12 +337,23 @@
 
 
 
- </div>
+  
+
+
+
+</div>
     </header>
+
+    
+
 
     <main id="main" class="main">
       <div class="main-inner">
         <div class="content-wrap">
+          
+            
+
+          
           <div id="content" class="content">
             
 
@@ -269,21 +366,25 @@
   
   
 
+  
+    <div class="reading-progress-bar"></div>
+  
+
   <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
   
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://bobbyliujb.github.io/2018/01/05/java_leetcode5/">
+    <link itemprop="mainEntityOfPage" href="https://bobbyliujb.github.io/2018/01/05/java_leetcode5/"/>
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="BobbyLiujb">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="https://ww4.sinaimg.cn/large/9b3a5c2fgw1faysh4xl7ij20bh0bhmy5.jpg">
+      <meta itemprop="name" content="Bob_波波"/>
+      <meta itemprop="description" content="I'm a Software Engineer!"/>
+      <meta itemprop="image" content="/images/avatar.jpg"/>
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Bobby">
+      <meta itemprop="name" content="Bob_波波"/>
     </span>
 
     
@@ -291,11 +392,20 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">Note for LeetCode in Java (401~800)</h1>
+          <h1 class="post-title" itemprop="name headline">Note for LeetCode in Java (401~800)
+
+              
+            
+          </h1>
         
 
         <div class="post-meta">
           <span class="post-time">
+
+            
+            
+            
+
             
               <span class="post-meta-item-icon">
                 <i class="fa fa-calendar-o"></i>
@@ -303,25 +413,30 @@
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-01-05T16:49:39-08:00">
-                2018-01-05
-              </time>
+
+              
+                
+              
+
+              <time title="Created: 2018-01-05 16:49:39" itemprop="dateCreated datePublished" datetime="2018-01-05T16:49:39-08:00">2018-01-05</time>
             
 
             
-              <span class="post-meta-divider">|</span>
-            
+              
 
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-check-o"></i>
-              </span>
               
-                <span class="post-meta-item-text">Post modified&#58;</span>
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Edited on</span>
+                
+                <time title="Modified: 2018-10-12 10:20:49" itemprop="dateModified" datetime="2018-10-12T10:20:49-07:00">2018-10-12</time>
               
-              <time title="Post modified" itemprop="dateModified" datetime="2018-10-12T10:20:49-07:00">
-                2018-10-12
-              </time>
             
           </span>
 
@@ -337,11 +452,7 @@
                 <span class="post-meta-item-text">In</span>
               
               
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Tech/" itemprop="url" rel="index">
-                    <span itemprop="name">Tech</span>
-                  </a>
-                </span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Tech/" itemprop="url" rel="index"><span itemprop="name">Tech</span></a></span>
 
                 
                 
@@ -357,6 +468,7 @@
                   <i class="fa fa-comment-o"></i>
                 </span>
                 <a href="/2018/01/05/java_leetcode5/#comments" itemprop="discussionUrl">
+                
                   <span class="post-comments-count disqus-comment-count"
                         data-disqus-identifier="2018/01/05/java_leetcode5/" itemprop="commentCount"></span>
                 </a>
@@ -372,7 +484,7 @@
                  <i class="fa fa-eye"></i>
                </span>
                
-                 <span class="post-meta-item-text">Visitors&#58;</span>
+                 <span class="post-meta-item-text">Views: </span>
                
                  <span class="leancloud-visitors-count"></span>
              </span>
@@ -1228,12 +1340,18 @@
 
       
     </div>
+
+    
+
     
     
     
 
     
 
+    
+      
+    
     
       <div>
         <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
@@ -1245,14 +1363,14 @@
 
     
       <div id="wechat" style="display: inline-block">
-        <img id="wechat_qr" src="/images/wechatRewardImg.png" alt="BobbyLiujb WeChat Pay"/>
+        <img id="wechat_qr" src="/images/wechat.png" alt="Bob_波波 WeChat Pay"/>
         <p>WeChat Pay</p>
       </div>
     
 
     
       <div id="alipay" style="display: inline-block">
-        <img id="alipay_qr" src="/images/alipayRewardImg.png" alt="BobbyLiujb Alipay"/>
+        <img id="alipay_qr" src="/images/alipay.png" alt="Bob_波波 Alipay"/>
         <p>Alipay</p>
       </div>
     
@@ -1283,6 +1401,26 @@
       
 
       
+      
+        <div class="post-widgets">
+        
+
+        
+
+        
+          
+          <div class="social_share">
+            
+            
+               <div id="needsharebutton-postbottom">
+                 <span class="btn">
+                    <i class="fa fa-share-alt" aria-hidden="true"></i>
+                 </span>
+               </div>
+            
+          </div>
+        
+        </div>
       
       
 
@@ -1318,34 +1456,21 @@
   </article>
 
 
-
-    <div class="post-spread">
-      
-        <!-- Go to www.addthis.com/dashboard to customize your tools -->
-<div class="addthis_inline_share_toolbox">
-  <script type = "text/javascript" src = "//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-593135f4e114024c" async = "async" ></script>
-</div>
-
-      
-    </div>
   </div>
 
 
           </div>
           
 
-
-          
-  <div class="comments" id="comments">
-    
+  
+    <div class="comments" id="comments">
       <div id="disqus_thread">
-        <noscript>
-          Please enable JavaScript to view the
-          <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a>
-        </noscript>
+        <noscript>Please enable JavaScript to view the comments powered by Disqus.</noscript>
       </div>
-    
-  </div>
+    </div>
+
+  
+
 
 
         </div>
@@ -1367,96 +1492,166 @@
       
 
       
-        <ul class="sidebar-nav motion-element">
-          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
-            Table of Contents
-          </li>
-          <li class="sidebar-nav-overview" data-target="site-overview">
-            Overview
-          </li>
-        </ul>
-      
 
-      <section class="site-overview sidebar-panel">
-        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
-          <img class="site-author-image" itemprop="image"
-               src="https://ww4.sinaimg.cn/large/9b3a5c2fgw1faysh4xl7ij20bh0bhmy5.jpg"
-               alt="BobbyLiujb" />
-          <p class="site-author-name" itemprop="name">BobbyLiujb</p>
-           
-              <p class="site-description motion-element" itemprop="description"></p>
-          
-        </div>
-        <nav class="site-state motion-element">
-
-          
-            <div class="site-state-item site-state-posts">
-              <a href="/archives/">
-                <span class="site-state-item-count">38</span>
-                <span class="site-state-item-name">posts</span>
-              </a>
-            </div>
-          
-
-          
+      <div class="site-overview-wrap sidebar-panel sidebar-panel-active">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
+              <img class="site-author-image" itemprop="image"
+                src="/images/avatar.jpg"
+                alt="Bob_波波"/>
             
-            <div class="site-state-item site-state-categories">
-              
-                <span class="site-state-item-count">3</span>
-                <span class="site-state-item-name">categories</span>
-              
-            </div>
-          
-
-          
-            
-            
-            <div class="site-state-item site-state-tags">
-              
-                <span class="site-state-item-count">38</span>
-                <span class="site-state-item-name">tags</span>
-              
-            </div>
-          
-
-        </nav>
-
-        
-
-        <div class="links-of-author motion-element">
-          
-        </div>
-
-        
-        
-
-        
-        
-
-        
-
-
-      </section>
-
-      
-      <!--noindex-->
-        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
-          <div class="post-toc">
-
-            
-              
-            
-
-            
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#403-frog-jump"><span class="nav-number">1.</span> <span class="nav-text">403. frog-jump</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#404-sum-of-left-leaves"><span class="nav-number">2.</span> <span class="nav-text">404. sum-of-left-leaves</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#405-convert-a-number-to-hexadecimal"><span class="nav-number">3.</span> <span class="nav-text">405. convert-a-number-to-hexadecimal</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#410-split-array-largest-sum"><span class="nav-number">4.</span> <span class="nav-text">410. split-array-largest-sum</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#412-FizzBuzz"><span class="nav-number">5.</span> <span class="nav-text">412. FizzBuzz</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#416-partition-equal-subset-sum"><span class="nav-number">6.</span> <span class="nav-text">416. partition-equal-subset-sum</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#419-battleships-in-a-board"><span class="nav-number">7.</span> <span class="nav-text">419. battleships-in-a-board</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#424-longest-repeating-character-replacement"><span class="nav-number">8.</span> <span class="nav-text">424. longest-repeating-character-replacement</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#425-word-squares"><span class="nav-number">9.</span> <span class="nav-text">425. word-squares</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#426-convert-binary-search-tree-to-sorted-doubly-linked-list"><span class="nav-number">10.</span> <span class="nav-text">426. convert-binary-search-tree-to-sorted-doubly-linked-list</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#437-path-sum-iii"><span class="nav-number">11.</span> <span class="nav-text">437. path-sum-iii</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#438-find-all-anagrams-in-a-string"><span class="nav-number">12.</span> <span class="nav-text">438. find-all-anagrams-in-a-string</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#439-ternary-expression-parser"><span class="nav-number">13.</span> <span class="nav-text">439. ternary-expression-parser</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#443-string-compression"><span class="nav-number">14.</span> <span class="nav-text">443. string-compression</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#444-sequence-reconstruction"><span class="nav-number">15.</span> <span class="nav-text">444. sequence-reconstruction</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#449-serialize-and-deserialize-bst"><span class="nav-number">16.</span> <span class="nav-text">449. serialize-and-deserialize-bst</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#450-delete-node-in-a-bst"><span class="nav-number">17.</span> <span class="nav-text">450. delete-node-in-a-bst</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#453-minimum-moves-to-equal-array-elements"><span class="nav-number">18.</span> <span class="nav-text">453. minimum-moves-to-equal-array-elements</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#454-4sum-ii"><span class="nav-number">19.</span> <span class="nav-text">454. 4sum-ii</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#457-circular-array-loop"><span class="nav-number">20.</span> <span class="nav-text">457. circular-array-loop</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#460-Least-Frequently-Used-Cache"><span class="nav-number">21.</span> <span class="nav-text">460. Least Frequently Used Cache</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#461-hamming-distance"><span class="nav-number">22.</span> <span class="nav-text">461. hamming-distance</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#463-island-perimeter"><span class="nav-number">23.</span> <span class="nav-text">463. island-perimeter</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#464-can-i-win"><span class="nav-number">24.</span> <span class="nav-text">464. can-i-win</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#477-total-hamming-distance"><span class="nav-number">25.</span> <span class="nav-text">477. total-hamming-distance</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#480-sliding-window-median"><span class="nav-number">26.</span> <span class="nav-text">480. sliding-window-median</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#482-license-key-formatting"><span class="nav-number">27.</span> <span class="nav-text">482. license-key-formatting</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#484-find-permutation"><span class="nav-number">28.</span> <span class="nav-text">484. find-permutation</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#485-max-consecutive-ones"><span class="nav-number">29.</span> <span class="nav-text">485. max-consecutive-ones</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#486-predict-the-winner"><span class="nav-number">30.</span> <span class="nav-text">486. predict-the-winner</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#487-max-consecutive-ones-ii"><span class="nav-number">31.</span> <span class="nav-text">487. max-consecutive-ones-ii</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#490-the-maze"><span class="nav-number">32.</span> <span class="nav-text">490. the-maze</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#494-target-sum"><span class="nav-number">33.</span> <span class="nav-text">494. target-sum</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#496-next-greater-element-i"><span class="nav-number">34.</span> <span class="nav-text">496. next-greater-element-i</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#499-the-maze-iii"><span class="nav-number">35.</span> <span class="nav-text">499. the-maze-iii</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#503-next-greater-element-ii"><span class="nav-number">36.</span> <span class="nav-text">503. next-greater-element-ii</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#505-the-maze-ii"><span class="nav-number">37.</span> <span class="nav-text">505. the-maze-ii</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#508-most-frequent-subtree-sum"><span class="nav-number">38.</span> <span class="nav-text">508. most-frequent-subtree-sum</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#513-find-bottom-left-tree-value"><span class="nav-number">39.</span> <span class="nav-text">513. find-bottom-left-tree-value</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#515-find-largest-value-in-each-tree-row"><span class="nav-number">40.</span> <span class="nav-text">515. find-largest-value-in-each-tree-row</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#516-longest-palindromic-subsequence"><span class="nav-number">41.</span> <span class="nav-text">516. longest-palindromic-subsequence</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#518-coin-change-2"><span class="nav-number">42.</span> <span class="nav-text">518. coin-change-2</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#523-continuous-subarray-sum"><span class="nav-number">43.</span> <span class="nav-text">523. continuous-subarray-sum</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#524-longest-word-in-dictionary-through-deleting"><span class="nav-number">44.</span> <span class="nav-text">524. longest-word-in-dictionary-through-deleting</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#525-contiguous-array"><span class="nav-number">45.</span> <span class="nav-text">525. contiguous-array</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#529-minesweeper"><span class="nav-number">46.</span> <span class="nav-text">529. minesweeper</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#535-encode-and-decode-tinyurl"><span class="nav-number">47.</span> <span class="nav-text">535. encode-and-decode-tinyurl</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#540-single-element-in-a-sorted-array"><span class="nav-number">48.</span> <span class="nav-text">540. single-element-in-a-sorted-array</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#543-diameter-of-binary-tree"><span class="nav-number">49.</span> <span class="nav-text">543. diameter-of-binary-tree</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#545-boundary-of-binary-tree"><span class="nav-number">50.</span> <span class="nav-text">545. boundary-of-binary-tree</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#548-split-array-with-equal-sum"><span class="nav-number">51.</span> <span class="nav-text">548. split-array-with-equal-sum</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#549-binary-tree-longest-consecutive-sequence-ii"><span class="nav-number">52.</span> <span class="nav-text">549. binary-tree-longest-consecutive-sequence-ii</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#554-brick-wall"><span class="nav-number">53.</span> <span class="nav-text">554. brick-wall</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#556-next-greater-element-iii"><span class="nav-number">54.</span> <span class="nav-text">556. next-greater-element-iii</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#560-subarray-sum-equals-k"><span class="nav-number">55.</span> <span class="nav-text">560. subarray-sum-equals-k</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#562-longest-line-of-consecutive-one-in-matrix"><span class="nav-number">56.</span> <span class="nav-text">562. longest-line-of-consecutive-one-in-matrix</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#567-permutation-in-string"><span class="nav-number">57.</span> <span class="nav-text">567. permutation-in-string</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#572-subtree-of-another-tree"><span class="nav-number">58.</span> <span class="nav-text">572. subtree-of-another-tree</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#575-distribute-candies"><span class="nav-number">59.</span> <span class="nav-text">575. distribute-candies</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#581-shortest-unsorted-continuous-subarray"><span class="nav-number">60.</span> <span class="nav-text">581. shortest-unsorted-continuous-subarray</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#594-longest-harmonious-subsequence"><span class="nav-number">61.</span> <span class="nav-text">594. longest-harmonious-subsequence</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#598-range-addition-ii"><span class="nav-number">62.</span> <span class="nav-text">598. range-addition-ii</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#600-non-negative-integers-without-consecutive-ones"><span class="nav-number">63.</span> <span class="nav-text">600. non-negative-integers-without-consecutive-ones</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#604-design-compressed-string-iterator"><span class="nav-number">64.</span> <span class="nav-text">604. design-compressed-string-iterator</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#605-can-place-flowers"><span class="nav-number">65.</span> <span class="nav-text">605. can-place-flowers</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#606-construct-string-from-binary-tree"><span class="nav-number">66.</span> <span class="nav-text">606. construct-string-from-binary-tree</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#609-find-duplicate-file-in-system"><span class="nav-number">67.</span> <span class="nav-text">609. find-duplicate-file-in-system</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#611-valid-triangle-number"><span class="nav-number">68.</span> <span class="nav-text">611. valid-triangle-number</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#621-task-scheduler"><span class="nav-number">69.</span> <span class="nav-text">621. task-scheduler</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#628-maximum-product-of-three-numbers"><span class="nav-number">70.</span> <span class="nav-text">628. maximum-product-of-three-numbers</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#632-smallest-range"><span class="nav-number">71.</span> <span class="nav-text">632. smallest-range</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#633-sum-of-square-numbers"><span class="nav-number">72.</span> <span class="nav-text">633. sum-of-square-numbers</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#636-exclusive-time-of-functions"><span class="nav-number">73.</span> <span class="nav-text">636. exclusive-time-of-functions</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#637-average-of-levels-in-binary-tree"><span class="nav-number">74.</span> <span class="nav-text">637. average-of-levels-in-binary-tree</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#646-maximum-length-of-pair-chain"><span class="nav-number">75.</span> <span class="nav-text">646. maximum-length-of-pair-chain</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#647-palindromic-substrings"><span class="nav-number">76.</span> <span class="nav-text">647. palindromic-substrings</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#648-replace-words"><span class="nav-number">77.</span> <span class="nav-text">648. replace-words</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#652-find-duplicate-subtrees"><span class="nav-number">78.</span> <span class="nav-text">652. find-duplicate-subtrees</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#653-two-sum-iv-input-is-a-bst"><span class="nav-number">79.</span> <span class="nav-text">653. two-sum-iv-input-is-a-bst</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#657-judge-route-circle"><span class="nav-number">80.</span> <span class="nav-text">657. judge-route-circle</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#658-find-k-closest-elements"><span class="nav-number">81.</span> <span class="nav-text">658. find-k-closest-elements</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#662-maximum-width-of-binary-tree"><span class="nav-number">82.</span> <span class="nav-text">662. maximum-width-of-binary-tree</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#669-trim-a-binary-search-tree"><span class="nav-number">83.</span> <span class="nav-text">669. trim-a-binary-search-tree</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#670-maximum-swap"><span class="nav-number">84.</span> <span class="nav-text">670. maximum-swap</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#671-second-minimum-node-in-a-binary-tree"><span class="nav-number">85.</span> <span class="nav-text">671. second-minimum-node-in-a-binary-tree</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#673-number-of-longest-increasing-subsequence"><span class="nav-number">86.</span> <span class="nav-text">673. number-of-longest-increasing-subsequence</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#674-longest-continuous-increasing-subsequence"><span class="nav-number">87.</span> <span class="nav-text">674. longest-continuous-increasing-subsequence</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#676-implement-magic-dictionary"><span class="nav-number">88.</span> <span class="nav-text">676. implement-magic-dictionary</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#680-valid-palindrome-ii"><span class="nav-number">89.</span> <span class="nav-text">680. valid-palindrome-ii</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#681-next-closest-time"><span class="nav-number">90.</span> <span class="nav-text">681. next-closest-time</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#682-baseball-game"><span class="nav-number">91.</span> <span class="nav-text">682. baseball-game</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#683-k-empty-slots"><span class="nav-number">92.</span> <span class="nav-text">683. k-empty-slots</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#684-redundant-connection"><span class="nav-number">93.</span> <span class="nav-text">684. redundant-connection</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#685-redundant-connection-ii"><span class="nav-number">94.</span> <span class="nav-text">685. redundant-connection-ii</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#686-repeated-string-match"><span class="nav-number">95.</span> <span class="nav-text">686. repeated-string-match</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#687-longest-univalue-path"><span class="nav-number">96.</span> <span class="nav-text">687. longest-univalue-path</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#689-maximum-sum-of-3-non-overlapping-subarrays"><span class="nav-number">97.</span> <span class="nav-text">689. maximum-sum-of-3-non-overlapping-subarrays</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#690-employee-importance"><span class="nav-number">98.</span> <span class="nav-text">690. employee-importance</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#692-top-k-frequent-words"><span class="nav-number">99.</span> <span class="nav-text">692. top-k-frequent-words</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#694-number-of-distinct-islands"><span class="nav-number">100.</span> <span class="nav-text">694. number-of-distinct-islands</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#695-max-area-of-island"><span class="nav-number">101.</span> <span class="nav-text">695. max-area-of-island</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#696-count-binary-substrings"><span class="nav-number">102.</span> <span class="nav-text">696. count-binary-substrings</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#698-partition-to-k-equal-sum-subsets"><span class="nav-number">103.</span> <span class="nav-text">698. partition-to-k-equal-sum-subsets</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#699-falling-squares"><span class="nav-number">104.</span> <span class="nav-text">699. falling-squares</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#703-kth-largest-element-in-a-stream"><span class="nav-number">105.</span> <span class="nav-text">703. kth-largest-element-in-a-stream</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#711-number-of-distinct-islands-ii"><span class="nav-number">106.</span> <span class="nav-text">711. number-of-distinct-islands-ii</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#714-best-time-to-buy-and-sell-stock-with-transaction-fee"><span class="nav-number">107.</span> <span class="nav-text">714. best-time-to-buy-and-sell-stock-with-transaction-fee</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#719-find-k-th-smallest-pair-distance"><span class="nav-number">108.</span> <span class="nav-text">719. find-k-th-smallest-pair-distance</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#720-longest-word-in-dictionary"><span class="nav-number">109.</span> <span class="nav-text">720. longest-word-in-dictionary</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#721-accounts-merge"><span class="nav-number">110.</span> <span class="nav-text">721. accounts-merge</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#722-remove-comments"><span class="nav-number">111.</span> <span class="nav-text">722. remove-comments</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#724-find-pivot-index"><span class="nav-number">112.</span> <span class="nav-text">724. find-pivot-index</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#726-number-of-atoms"><span class="nav-number">113.</span> <span class="nav-text">726. number-of-atoms</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#727-minimum-window-subsequence"><span class="nav-number">114.</span> <span class="nav-text">727. minimum-window-subsequence</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#729-my-calendar-i"><span class="nav-number">115.</span> <span class="nav-text">729. my-calendar-i</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#731-my-calendar-ii"><span class="nav-number">116.</span> <span class="nav-text">731. my-calendar-ii</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#733-flood-fill"><span class="nav-number">117.</span> <span class="nav-text">733. flood-fill</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#734-sentence-similarity"><span class="nav-number">118.</span> <span class="nav-text">734. sentence-similarity</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#735-asteroid-collision"><span class="nav-number">119.</span> <span class="nav-text">735. asteroid-collision</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#737-sentence-similarity-ii"><span class="nav-number">120.</span> <span class="nav-text">737. sentence-similarity-ii</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#739-daily-temperatures"><span class="nav-number">121.</span> <span class="nav-text">739. daily-temperatures</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#742-closest-leaf-in-a-binary-tree"><span class="nav-number">122.</span> <span class="nav-text">742. closest-leaf-in-a-binary-tree</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#743-network-delay-time"><span class="nav-number">123.</span> <span class="nav-text">743. network-delay-time</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#744-find-smallest-letter-greater-than-target"><span class="nav-number">124.</span> <span class="nav-text">744. find-smallest-letter-greater-than-target</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#745-prefix-and-suffix-search"><span class="nav-number">125.</span> <span class="nav-text">745. prefix-and-suffix-search</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#748-shortest-completing-word"><span class="nav-number">126.</span> <span class="nav-text">748. shortest-completing-word</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#750-number-of-corner-rectangles"><span class="nav-number">127.</span> <span class="nav-text">750. number-of-corner-rectangles</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#752-open-the-lock"><span class="nav-number">128.</span> <span class="nav-text">752. open-the-lock</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#759-employee-free-time"><span class="nav-number">129.</span> <span class="nav-text">759. employee-free-time</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#760-find-anagram-mappings"><span class="nav-number">130.</span> <span class="nav-text">760. find-anagram-mappings</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#763-partition-labels"><span class="nav-number">131.</span> <span class="nav-text">763. partition-labels</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#764-largest-plus-sign"><span class="nav-number">132.</span> <span class="nav-text">764. largest-plus-sign</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#765-couples-holding-hands"><span class="nav-number">133.</span> <span class="nav-text">765. couples-holding-hands</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#767-reorganize-string"><span class="nav-number">134.</span> <span class="nav-text">767. reorganize-string</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#768-max-chunks-to-make-sorted-ii"><span class="nav-number">135.</span> <span class="nav-text">768. max-chunks-to-make-sorted-ii</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#769-max-chunks-to-make-sorted"><span class="nav-number">136.</span> <span class="nav-text">769. max-chunks-to-make-sorted</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#776-split-bst"><span class="nav-number">137.</span> <span class="nav-text">776. split-bst</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#785-is-graph-bipartite"><span class="nav-number">138.</span> <span class="nav-text">785. is-graph-bipartite</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#787-cheapest-flights-within-k-stops"><span class="nav-number">139.</span> <span class="nav-text">787. cheapest-flights-within-k-stops</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#791-custom-sort-string"><span class="nav-number">140.</span> <span class="nav-text">791. custom-sort-string</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#795-number-of-subarrays-with-bounded-maximum"><span class="nav-number">141.</span> <span class="nav-text">795. number-of-subarrays-with-bounded-maximum</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#796-rotate-string"><span class="nav-number">142.</span> <span class="nav-text">796. rotate-string</span></a></li></ol></div>
-            
-
+              <p class="site-author-name" itemprop="name">Bob_波波</p>
+              <p class="site-description motion-element" itemprop="description">I'm a Software Engineer!</p>
           </div>
-        </section>
-      <!--/noindex-->
+
+          
+            <nav class="site-state motion-element">
+              
+                <div class="site-state-item site-state-posts">
+                
+                  <a href="/archives/">
+                
+                    <span class="site-state-item-count">38</span>
+                    <span class="site-state-item-name">posts</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-categories">
+                  <a href="/categories/index.html">
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">3</span>
+                    <span class="site-state-item-name">categories</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-tags">
+                  <a href="/tags/index.html">
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">38</span>
+                    <span class="site-state-item-name">tags</span>
+                  </a>
+                </div>
+              
+            </nav>
+          
+
+          
+
+          
+
+          
+
+          
+          
+
+          
+            
+          
+          
+
+        </div>
+      </div>
+
       
 
+      
+        <div class="back-to-top">
+          <i class="fa fa-arrow-up"></i>
+          
+        </div>
       
 
     </div>
@@ -1469,34 +1664,33 @@
 
     <footer id="footer" class="footer">
       <div class="footer-inner">
-        <div class="copyright" >
-  
-  &copy;  2016 &mdash; 
-  <span itemprop="copyrightYear">2018</span>
-  <span class="with-love">
-    <i class="fa fa-heart"></i>
+        <div class="copyright">&copy; 2016 – <span itemprop="copyrightYear">2019</span>
+  <span class="with-love" id="animate">
+    <i class="fa fa-user"></i>
   </span>
-  <span class="author" itemprop="copyrightHolder">BobbyLiujb</span>
+  <span class="author" itemprop="copyrightHolder">Bob_波波</span>
+
+  
 
   
 </div>
 
 
-  <div class="powered-by">
-    Powered by <a class="theme-link" href="https://hexo.io">Hexo</a>
-  </div>
+  <div class="powered-by">Powered by <a href="https://hexo.io" class="theme-link" rel="noopener" target="_blank">Hexo</a></div>
+
+
 
   <span class="post-meta-divider">|</span>
 
-  <div class="theme-info">
-    Theme &mdash;
-    <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
-      NexT.Mist
-    </a>
-  </div>
+
+
+  <div class="theme-info">Theme – <a href="https://theme-next.org" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a></div>
+
+
 
 
         
+
 
 
 
@@ -1509,17 +1703,17 @@
     </footer>
 
     
-      <div class="back-to-top">
-        <i class="fa fa-arrow-up"></i>
-        
-      </div>
+
     
 
+    
+
+    
   </div>
 
   
 
-<script type="text/javascript">
+<script>
   if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
     window.Promise = null;
   }
@@ -1533,7 +1727,6 @@
 
 
 
-  
 
 
 
@@ -1546,83 +1739,85 @@
 
 
 
-  
-  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
-
-  
-  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
-
-  
-  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
-
-  
-  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
-
-  
-  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
-
-  
-  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
-
-
-  
-
-
-  <script type="text/javascript" src="/js/src/utils.js?v=5.1.2"></script>
-
-  <script type="text/javascript" src="/js/src/motion.js?v=5.1.2"></script>
-
-
-
-  
-  
-
-  
-  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.2"></script>
-<script type="text/javascript" src="/js/src/post-details.js?v=5.1.2"></script>
 
 
 
   
 
 
-  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.2"></script>
+
+  
+  <script src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script src="/lib/reading_progress/reading_progress.js"></script>
+
+
+  
+
+
+  <script src="/js/src/utils.js?v=6.7.0"></script>
+
+  <script src="/js/src/motion.js?v=6.7.0"></script>
+
+
+
+  
+  
+
+
+  <script src="/js/src/affix.js?v=6.7.0"></script>
+
+  <script src="/js/src/schemes/pisces.js?v=6.7.0"></script>
+
+
+
+  
+  <script src="/js/src/scrollspy.js?v=6.7.0"></script>
+<script src="/js/src/post-details.js?v=6.7.0"></script>
+
+
+
+  
+
+
+  <script src="/js/src/bootstrap.js?v=6.7.0"></script>
 
 
 
   
 
   
+    <script id="dsq-count-scr" src="https://bobbyliujb.disqus.com/count.js" async></script>
+  
 
-    
-      <script id="dsq-count-scr" src="https://bobbyliujb.disqus.com/count.js" async></script>
-    
-
-    
-      <script type="text/javascript">
-        var disqus_config = function () {
-          this.page.url = 'https://bobbyliujb.github.io/2018/01/05/java_leetcode5/';
-          this.page.identifier = '2018/01/05/java_leetcode5/';
-          this.page.title = 'Note for LeetCode in Java (401~800)';
+  
+    <script>
+      var disqus_config = function () {
+        this.page.url = "https://bobbyliujb.github.io/2018/01/05/java_leetcode5/";
+        this.page.identifier = "2018/01/05/java_leetcode5/";
+        this.page.title = 'Note for LeetCode in Java (401~800)';
         };
+      function loadComments () {
         var d = document, s = d.createElement('script');
         s.src = 'https://bobbyliujb.disqus.com/embed.js';
         s.setAttribute('data-timestamp', '' + +new Date());
         (d.head || d.body).appendChild(s);
-      </script>
-    
-
+      }
+      
+        loadComments();
+      
+    </script>
   
 
 
 
-	
-
-
-
-
-
-  
 
 
 
@@ -1642,111 +1837,99 @@
   
 
   
-  <script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.4.js"></script>
-  <script>AV.initialize("jT7i5auNazMHRONSPUHmcoko-gzGzoHsz", "dEWwuVre5Svmwvjw2DmcIbLy");</script>
   <script>
-    function showTime(Counter) {
-      var query = new AV.Query(Counter);
-      var entries = [];
-      var $visitors = $(".leancloud_visitors");
-
-      $visitors.each(function () {
-        entries.push( $(this).attr("id").trim() );
-      });
-
-      query.containedIn('url', entries);
-      query.find()
-        .done(function (results) {
-          var COUNT_CONTAINER_REF = '.leancloud-visitors-count';
-
-          if (results.length === 0) {
-            $visitors.find(COUNT_CONTAINER_REF).text(0);
-            return;
-          }
-
-          for (var i = 0; i < results.length; i++) {
-            var item = results[i];
-            var url = item.get('url');
-            var time = item.get('time');
-            var element = document.getElementById(url);
-
-            $(element).find(COUNT_CONTAINER_REF).text(time);
-          }
-          for(var i = 0; i < entries.length; i++) {
-            var url = entries[i];
-            var element = document.getElementById(url);
-            var countSpan = $(element).find(COUNT_CONTAINER_REF);
-            if( countSpan.text() == '') {
-              countSpan.text(0);
-            }
-          }
-        })
-        .fail(function (object, error) {
-          console.log("Error: " + error.code + " " + error.message);
-        });
-    }
-
+    
     function addCount(Counter) {
       var $visitors = $(".leancloud_visitors");
       var url = $visitors.attr('id').trim();
       var title = $visitors.attr('data-flag-title').trim();
-      var query = new AV.Query(Counter);
 
-      query.equalTo("url", url);
-      query.find({
-        success: function(results) {
+      Counter('get', '/classes/Counter', { where: JSON.stringify({ url }) })
+        .done(function ({ results }) {
           if (results.length > 0) {
             var counter = results[0];
-            counter.fetchWhenSave(true);
-            counter.increment("time");
-            counter.save(null, {
-              success: function(counter) {
-                var $element = $(document.getElementById(url));
-                $element.find('.leancloud-visitors-count').text(counter.get('time'));
-              },
-              error: function(counter, error) {
-                console.log('Failed to save Visitor num, with error message: ' + error.message);
-              }
-            });
+            
+            Counter('put', `/classes/Counter/${counter.objectId}`, JSON.stringify({ time: { "__op":"Increment", "amount":1 } }))
+            
+            .done(function () {
+                  var $element = $(document.getElementById(url));
+                  $element.find('.leancloud-visitors-count').text(counter.time + 1);
+            })
+            
+            .fail(function ({ responseJSON }) {
+                console.log('Failed to save Visitor num, with error message: ' + responseJSON.error);
+            })
           } else {
-            var newcounter = new Counter();
-            /* Set ACL */
-            var acl = new AV.ACL();
-            acl.setPublicReadAccess(true);
-            acl.setPublicWriteAccess(true);
-            newcounter.setACL(acl);
-            /* End Set ACL */
-            newcounter.set("title", title);
-            newcounter.set("url", url);
-            newcounter.set("time", 1);
-            newcounter.save(null, {
-              success: function(newcounter) {
-                var $element = $(document.getElementById(url));
-                $element.find('.leancloud-visitors-count').text(newcounter.get('time'));
-              },
-              error: function(newcounter, error) {
-                console.log('Failed to create');
-              }
-            });
+            
+              var $element = $(document.getElementById(url));
+              $element.find('.leancloud-visitors-count').text('Counter not initialized! See more at console err msg.');
+              console.error('ATTENTION! LeanCloud counter has security bug, see here how to solve it: https://github.com/theme-next/hexo-leancloud-counter-security. \n But you also can use LeanCloud without security, by set \'security\' option to \'false\'.');
+            
           }
-        },
-        error: function(error) {
-          console.log('Error:' + error.code + " " + error.message);
-        }
+        })
+      .fail(function ({ responseJSON }) {
+        console.log('LeanCloud Counter Error:' + responseJSON.code + " " + responseJSON.error);
       });
     }
+    
 
     $(function() {
-      var Counter = AV.Object.extend("Counter");
-      if ($('.leancloud_visitors').length == 1) {
-        addCount(Counter);
-      } else if ($('.post-title-link').length > 1) {
-        showTime(Counter);
-      }
+      $.get('https://app-router.leancloud.cn/2/route?appId=' + "jT7i5auNazMHRONSPUHmcoko-gzGzoHsz")
+        .done(function ({ api_server }) {
+          var Counter = function (method, url, data) {
+            return $.ajax({
+              method: method,
+              url: `https://${api_server}/1.1${url}`,
+              headers: {
+                'X-LC-Id': "jT7i5auNazMHRONSPUHmcoko-gzGzoHsz",
+                'X-LC-Key': "dEWwuVre5Svmwvjw2DmcIbLy",
+                'Content-Type': 'application/json',
+              },
+              data: data,
+            });
+          };
+          
+          addCount(Counter);
+          
+        })
     });
   </script>
 
 
+
+  
+
+  
+
+  
+
+  
+
+  
+  
+  
+  <script src="/lib/needsharebutton/needsharebutton.js"></script>
+  <script>
+    
+      pbOptions = {};
+      
+        pbOptions.iconStyle = "box";
+      
+        pbOptions.boxForm = "horizontal";
+      
+        pbOptions.position = "bottomCenter";
+      
+        pbOptions.networks = "Linkedin,Weibo,Wechat,Twitter,Facebook,Pinterest,GooglePlus,Evernote,Reddit,Douban,QQZone,Mailto";
+      
+      new needShareButton('#needsharebutton-postbottom', pbOptions);
+    
+    
+  </script>
+
+
+  
+
+  
 
   
 

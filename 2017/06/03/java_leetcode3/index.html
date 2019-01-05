@@ -2,51 +2,50 @@
 
 
 
+
+
+
+
+
+
+
+
+
   
 
 
-<html class="theme-next mist use-motion" lang="en">
+<html class="theme-next gemini use-motion" lang="en">
 <head>
   <meta charset="UTF-8"/>
-<meta http-equiv="X-UA-Compatible" content="IE=edge" />
-<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
-<meta name="theme-color" content="#222">
-
-
-
-  
-  
-    
-    
-  <script src="/lib/pace/pace.min.js?v=1.0.2"></script>
-  <link href="/lib/pace/pace-theme-minimal.min.css?v=1.0.2" rel="stylesheet">
-
-
-
-
-
-
-
-<meta http-equiv="Cache-Control" content="no-transform" />
-<meta http-equiv="Cache-Control" content="no-siteapp" />
-
-
-
-
-
-
-
-
-
-
-
-
-
+<meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2"/>
+<meta name="theme-color" content="#222"/>
 
 
   
   
-  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+  <link rel="stylesheet" href="/lib/needsharebutton/needsharebutton.css"/>
+
+
+
+
+
+
+
+  <meta http-equiv="Cache-Control" content="no-transform"/>
+  <meta http-equiv="Cache-Control" content="no-siteapp"/>
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -72,7 +71,7 @@
   
     
     
-    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext"/>
   
 
 
@@ -80,57 +79,40 @@
 
 
 
-<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2"/>
 
-<link href="/css/main.css?v=5.1.2" rel="stylesheet" type="text/css" />
-
-
-  <meta name="keywords" content="java,algorithm,interview,leetcode," />
+<link rel="stylesheet" href="/css/main.css?v=6.7.0"/>
 
 
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/favicon.ico?v=6.7.0">
 
 
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon.ico?v=6.7.0">
 
 
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon.ico?v=6.7.0">
 
 
-  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.2" />
-
-
+  <link rel="mask-icon" href="/images/favicon.ico?v=6.7.0" color="#222">
 
 
 
 
-<meta name="description" content="刷题。祝我好运。">
-<meta name="keywords" content="java,algorithm,interview,leetcode">
-<meta property="og:type" content="article">
-<meta property="og:title" content="Note for LeetCode in Java ( 201~300 )">
-<meta property="og:url" content="https://bobbyliujb.github.io/2017/06/03/java_leetcode3/index.html">
-<meta property="og:site_name" content="Bobby">
-<meta property="og:description" content="刷题。祝我好运。">
-<meta property="og:locale" content="en">
-<meta property="og:image" content="https://ww1.sinaimg.cn/large/9b3a5c2fgy1fgfeg0uu25j20eb09nt9j.jpg">
-<meta property="og:updated_time" content="2018-10-06T23:41:40.022Z">
-<meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Note for LeetCode in Java ( 201~300 )">
-<meta name="twitter:description" content="刷题。祝我好运。">
-<meta name="twitter:image" content="https://ww1.sinaimg.cn/large/9b3a5c2fgy1fgfeg0uu25j20eb09nt9j.jpg">
 
 
 
-<script type="text/javascript" id="hexo.configurations">
+<script id="hexo.configurations">
   var NexT = window.NexT || {};
   var CONFIG = {
     root: '/',
-    scheme: 'Mist',
-    sidebar: {"position":"left","display":"hide","offset":12,"offset_float":12,"b2t":false,"scrollpercent":false,"onmobile":false},
-    fancybox: true,
+    scheme: 'Gemini',
+    version: '6.7.0',
+    sidebar: {"position":"left","display":"hide","offset":12,"b2t":true,"scrollpercent":false,"onmobile":false},
+    fancybox: false,
+    fastclick: false,
+    lazyload: false,
     tabs: true,
-    motion: true,
-    duoshuo: {
-      userId: '0',
-      author: 'Author'
-    },
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
     algolia: {
       applicationID: '',
       apiKey: '',
@@ -142,14 +124,42 @@
 </script>
 
 
+  
+
+
+
+
+  <meta name="description" content="刷题。祝我好运。">
+<meta name="keywords" content="java,algorithm,interview,leetcode">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Note for LeetCode in Java ( 201~300 )">
+<meta property="og:url" content="https://bobbyliujb.github.io/2017/06/03/java_leetcode3/index.html">
+<meta property="og:site_name" content="Bob_波波">
+<meta property="og:description" content="刷题。祝我好运。">
+<meta property="og:locale" content="en">
+<meta property="og:image" content="https://ww1.sinaimg.cn/large/9b3a5c2fgy1fgfeg0uu25j20eb09nt9j.jpg">
+<meta property="og:updated_time" content="2018-10-06T23:41:40.022Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Note for LeetCode in Java ( 201~300 )">
+<meta name="twitter:description" content="刷题。祝我好运。">
+<meta name="twitter:image" content="https://ww1.sinaimg.cn/large/9b3a5c2fgy1fgfeg0uu25j20eb09nt9j.jpg">
+
+
+
+
+
 
   <link rel="canonical" href="https://bobbyliujb.github.io/2017/06/03/java_leetcode3/"/>
 
 
 
+<script id="page.configurations">
+  CONFIG.page = {
+    sidebar: "",
+  };
+</script>
 
-
-  <title>Note for LeetCode in Java ( 201~300 ) | Bobby</title>
+  <title>Note for LeetCode in Java ( 201~300 ) | Bob_波波</title>
   
 
 
@@ -158,6 +168,35 @@
 
 
 
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .motion-element,
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-title { opacity: initial; }
+
+  .use-motion .logo,
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
 
 </head>
 
@@ -168,28 +207,27 @@
     
   
 
-  <div class="container sidebar-position-left page-post-detail ">
+  <div class="container sidebar-position-left page-post-detail">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
       <div class="header-inner"><div class="site-brand-wrapper">
-  <div class="site-meta ">
+  <div class="site-meta">
     
 
     <div class="custom-logo-site-title">
-      <a href="/"  class="brand" rel="start">
+      <a href="/" class="brand" rel="start">
         <span class="logo-line-before"><i></i></span>
-        <span class="site-title">Bobby</span>
+        <span class="site-title">Bob_波波</span>
         <span class="logo-line-after"><i></i></span>
       </a>
     </div>
-      
-        <p class="site-subtitle"></p>
-      
+    
+    
   </div>
 
   <div class="site-nav-toggle">
-    <button>
+    <button aria-label="Toggle navigation bar">
       <span class="btn-bar"></span>
       <span class="btn-bar"></span>
       <span class="btn-bar"></span>
@@ -197,55 +235,103 @@
   </div>
 </div>
 
-<nav class="site-nav">
-  
 
+
+<nav class="site-nav">
   
     <ul id="menu" class="menu">
       
         
-        <li class="menu-item menu-item-home">
-          <a href="/" rel="section">
-            
-              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
-            
-            Home
-          </a>
-        </li>
-      
         
-        <li class="menu-item menu-item-categories">
-          <a href="/categories/" rel="section">
-            
-              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
-            
-            Categories
-          </a>
-        </li>
-      
         
-        <li class="menu-item menu-item-archives">
-          <a href="/archives/" rel="section">
-            
-              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
-            
-            Archives
-          </a>
-        </li>
+          
+          <li class="menu-item menu-item-home">
+
+    
+    
+    
       
+    
+
+    
+
+    <a href="/" rel="section"><i class="menu-item-icon fa fa-fw fa-home"></i> <br/>Home</a>
+
+  </li>
         
-        <li class="menu-item menu-item-tags">
-          <a href="/tags/" rel="section">
-            
-              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
-            
-            Tags
-          </a>
-        </li>
+        
+        
+          
+          <li class="menu-item menu-item-tags">
+
+    
+    
+    
       
+    
+
+    
+
+    <a href="/tags/" rel="section"><i class="menu-item-icon fa fa-fw fa-tags"></i> <br/>Tags</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-categories">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/categories/" rel="section"><i class="menu-item-icon fa fa-fw fa-th"></i> <br/>Categories</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-archives">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br/>Archives</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-about">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/about/" rel="section"><i class="menu-item-icon fa fa-fw fa-user"></i> <br/>About</a>
+
+  </li>
 
       
+      
     </ul>
+  
+
   
 
   
@@ -253,12 +339,23 @@
 
 
 
- </div>
+  
+
+
+
+</div>
     </header>
+
+    
+
 
     <main id="main" class="main">
       <div class="main-inner">
         <div class="content-wrap">
+          
+            
+
+          
           <div id="content" class="content">
             
 
@@ -271,21 +368,25 @@
   
   
 
+  
+    <div class="reading-progress-bar"></div>
+  
+
   <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
   
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://bobbyliujb.github.io/2017/06/03/java_leetcode3/">
+    <link itemprop="mainEntityOfPage" href="https://bobbyliujb.github.io/2017/06/03/java_leetcode3/"/>
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="BobbyLiujb">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="https://ww4.sinaimg.cn/large/9b3a5c2fgw1faysh4xl7ij20bh0bhmy5.jpg">
+      <meta itemprop="name" content="Bob_波波"/>
+      <meta itemprop="description" content="I'm a Software Engineer!"/>
+      <meta itemprop="image" content="/images/avatar.jpg"/>
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Bobby">
+      <meta itemprop="name" content="Bob_波波"/>
     </span>
 
     
@@ -293,11 +394,20 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">Note for LeetCode in Java ( 201~300 )</h1>
+          <h1 class="post-title" itemprop="name headline">Note for LeetCode in Java ( 201~300 )
+
+              
+            
+          </h1>
         
 
         <div class="post-meta">
           <span class="post-time">
+
+            
+            
+            
+
             
               <span class="post-meta-item-icon">
                 <i class="fa fa-calendar-o"></i>
@@ -305,25 +415,30 @@
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-06-03T19:26:30-07:00">
-                2017-06-03
-              </time>
+
+              
+                
+              
+
+              <time title="Created: 2017-06-03 19:26:30" itemprop="dateCreated datePublished" datetime="2017-06-03T19:26:30-07:00">2017-06-03</time>
             
 
             
-              <span class="post-meta-divider">|</span>
-            
+              
 
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-check-o"></i>
-              </span>
               
-                <span class="post-meta-item-text">Post modified&#58;</span>
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Edited on</span>
+                
+                <time title="Modified: 2018-10-06 16:41:40" itemprop="dateModified" datetime="2018-10-06T16:41:40-07:00">2018-10-06</time>
               
-              <time title="Post modified" itemprop="dateModified" datetime="2018-10-06T16:41:40-07:00">
-                2018-10-06
-              </time>
             
           </span>
 
@@ -339,11 +454,7 @@
                 <span class="post-meta-item-text">In</span>
               
               
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Tech/" itemprop="url" rel="index">
-                    <span itemprop="name">Tech</span>
-                  </a>
-                </span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Tech/" itemprop="url" rel="index"><span itemprop="name">Tech</span></a></span>
 
                 
                 
@@ -359,6 +470,7 @@
                   <i class="fa fa-comment-o"></i>
                 </span>
                 <a href="/2017/06/03/java_leetcode3/#comments" itemprop="discussionUrl">
+                
                   <span class="post-comments-count disqus-comment-count"
                         data-disqus-identifier="2017/06/03/java_leetcode3/" itemprop="commentCount"></span>
                 </a>
@@ -374,7 +486,7 @@
                  <i class="fa fa-eye"></i>
                </span>
                
-                 <span class="post-meta-item-text">Visitors&#58;</span>
+                 <span class="post-meta-item-text">Views: </span>
                
                  <span class="leancloud-visitors-count"></span>
              </span>
@@ -844,12 +956,18 @@
 
       
     </div>
+
+    
+
     
     
     
 
     
 
+    
+      
+    
     
       <div>
         <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
@@ -861,14 +979,14 @@
 
     
       <div id="wechat" style="display: inline-block">
-        <img id="wechat_qr" src="/images/wechatRewardImg.png" alt="BobbyLiujb WeChat Pay"/>
+        <img id="wechat_qr" src="/images/wechat.png" alt="Bob_波波 WeChat Pay"/>
         <p>WeChat Pay</p>
       </div>
     
 
     
       <div id="alipay" style="display: inline-block">
-        <img id="alipay_qr" src="/images/alipayRewardImg.png" alt="BobbyLiujb Alipay"/>
+        <img id="alipay_qr" src="/images/alipay.png" alt="Bob_波波 Alipay"/>
         <p>Alipay</p>
       </div>
     
@@ -899,6 +1017,26 @@
       
 
       
+      
+        <div class="post-widgets">
+        
+
+        
+
+        
+          
+          <div class="social_share">
+            
+            
+               <div id="needsharebutton-postbottom">
+                 <span class="btn">
+                    <i class="fa fa-share-alt" aria-hidden="true"></i>
+                 </span>
+               </div>
+            
+          </div>
+        
+        </div>
       
       
 
@@ -934,34 +1072,21 @@
   </article>
 
 
-
-    <div class="post-spread">
-      
-        <!-- Go to www.addthis.com/dashboard to customize your tools -->
-<div class="addthis_inline_share_toolbox">
-  <script type = "text/javascript" src = "//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-593135f4e114024c" async = "async" ></script>
-</div>
-
-      
-    </div>
   </div>
 
 
           </div>
           
 
-
-          
-  <div class="comments" id="comments">
-    
+  
+    <div class="comments" id="comments">
       <div id="disqus_thread">
-        <noscript>
-          Please enable JavaScript to view the
-          <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a>
-        </noscript>
+        <noscript>Please enable JavaScript to view the comments powered by Disqus.</noscript>
       </div>
-    
-  </div>
+    </div>
+
+  
+
 
 
         </div>
@@ -983,96 +1108,166 @@
       
 
       
-        <ul class="sidebar-nav motion-element">
-          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
-            Table of Contents
-          </li>
-          <li class="sidebar-nav-overview" data-target="site-overview">
-            Overview
-          </li>
-        </ul>
-      
 
-      <section class="site-overview sidebar-panel">
-        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
-          <img class="site-author-image" itemprop="image"
-               src="https://ww4.sinaimg.cn/large/9b3a5c2fgw1faysh4xl7ij20bh0bhmy5.jpg"
-               alt="BobbyLiujb" />
-          <p class="site-author-name" itemprop="name">BobbyLiujb</p>
-           
-              <p class="site-description motion-element" itemprop="description"></p>
-          
-        </div>
-        <nav class="site-state motion-element">
-
-          
-            <div class="site-state-item site-state-posts">
-              <a href="/archives/">
-                <span class="site-state-item-count">38</span>
-                <span class="site-state-item-name">posts</span>
-              </a>
-            </div>
-          
-
-          
+      <div class="site-overview-wrap sidebar-panel sidebar-panel-active">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
+              <img class="site-author-image" itemprop="image"
+                src="/images/avatar.jpg"
+                alt="Bob_波波"/>
             
-            <div class="site-state-item site-state-categories">
-              
-                <span class="site-state-item-count">3</span>
-                <span class="site-state-item-name">categories</span>
-              
-            </div>
-          
-
-          
-            
-            
-            <div class="site-state-item site-state-tags">
-              
-                <span class="site-state-item-count">38</span>
-                <span class="site-state-item-name">tags</span>
-              
-            </div>
-          
-
-        </nav>
-
-        
-
-        <div class="links-of-author motion-element">
-          
-        </div>
-
-        
-        
-
-        
-        
-
-        
-
-
-      </section>
-
-      
-      <!--noindex-->
-        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
-          <div class="post-toc">
-
-            
-              
-            
-
-            
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#201-bitwise-and-of-numbers-range"><span class="nav-number">1.</span> <span class="nav-text">201. bitwise-and-of-numbers-range</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#202-happy-number"><span class="nav-number">2.</span> <span class="nav-text">202. happy-number</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#203-remove-linked-list-elements"><span class="nav-number">3.</span> <span class="nav-text">203. remove-linked-list-elements</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#204-count-primes"><span class="nav-number">4.</span> <span class="nav-text">204. count-primes</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#205-isomorphic-strings"><span class="nav-number">5.</span> <span class="nav-text">205. isomorphic-strings</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#206-reverse-linked-list"><span class="nav-number">6.</span> <span class="nav-text">206. reverse-linked-list</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#207-course-schedule"><span class="nav-number">7.</span> <span class="nav-text">207. course-schedule</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#208-implement-trie-prefix-tree"><span class="nav-number">8.</span> <span class="nav-text">208. implement-trie-prefix-tree</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#209-minimum-size-subarray-sum"><span class="nav-number">9.</span> <span class="nav-text">209. minimum-size-subarray-sum</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#210-course-schedule-ii"><span class="nav-number">10.</span> <span class="nav-text">210. course-schedule-ii</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#211-add-and-search-word-data-structure-design"><span class="nav-number">11.</span> <span class="nav-text">211. add-and-search-word-data-structure-design</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#212-word-search-ii"><span class="nav-number">12.</span> <span class="nav-text">212. word-search-ii</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#213-house-robber-ii"><span class="nav-number">13.</span> <span class="nav-text">213. house-robber-ii</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#214-shortest-palindrome"><span class="nav-number">14.</span> <span class="nav-text">214. shortest-palindrome</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#215-kth-largest-element-in-an-array"><span class="nav-number">15.</span> <span class="nav-text">215. kth-largest-element-in-an-array</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#216-combination-sum-iii"><span class="nav-number">16.</span> <span class="nav-text">216. combination-sum-iii</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#217-contains-duplicate"><span class="nav-number">17.</span> <span class="nav-text">217. contains-duplicate</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#218-the-skyline-problem"><span class="nav-number">18.</span> <span class="nav-text">218. the-skyline-problem</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#219-contains-duplicate-ii"><span class="nav-number">19.</span> <span class="nav-text">219. contains-duplicate-ii</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#220-contains-duplicate-iii"><span class="nav-number">20.</span> <span class="nav-text">220. contains-duplicate-iii</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#221-maximal-square"><span class="nav-number">21.</span> <span class="nav-text">221. maximal-square</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#222-count-complete-tree-nodes"><span class="nav-number">22.</span> <span class="nav-text">222. count-complete-tree-nodes</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#223-rectangle-area"><span class="nav-number">23.</span> <span class="nav-text">223. rectangle-area</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#224-basic-calculator"><span class="nav-number">24.</span> <span class="nav-text">224. basic-calculator</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#225-implement-stack-using-queues"><span class="nav-number">25.</span> <span class="nav-text">225. implement-stack-using-queues</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#226-invert-binary-tree"><span class="nav-number">26.</span> <span class="nav-text">226. invert-binary-tree</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#227-basic-calculator-ii"><span class="nav-number">27.</span> <span class="nav-text">227. basic-calculator-ii</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#228-summary-ranges"><span class="nav-number">28.</span> <span class="nav-text">228. summary-ranges</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#229-majority-element-ii"><span class="nav-number">29.</span> <span class="nav-text">229. majority-element-ii</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#230-kth-smallest-element-in-a-bst"><span class="nav-number">30.</span> <span class="nav-text">230. kth-smallest-element-in-a-bst</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#231-power-of-two"><span class="nav-number">31.</span> <span class="nav-text">231. power-of-two</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#232-implement-queue-using-stacks"><span class="nav-number">32.</span> <span class="nav-text">232. implement-queue-using-stacks</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#233-number-of-digit-one"><span class="nav-number">33.</span> <span class="nav-text">233. number-of-digit-one</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#234-palindrome-linked-list"><span class="nav-number">34.</span> <span class="nav-text">234. palindrome-linked-list</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#235-lowest-common-ancestor-of-a-binary-search-tree"><span class="nav-number">35.</span> <span class="nav-text">235. lowest-common-ancestor-of-a-binary-search-tree</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#236-lowest-common-ancestor-of-a-binary-tree"><span class="nav-number">36.</span> <span class="nav-text">236. lowest-common-ancestor-of-a-binary-tree</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#237-delete-node-in-a-linked-list"><span class="nav-number">37.</span> <span class="nav-text">237. delete-node-in-a-linked-list</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#238-product-of-array-except-self"><span class="nav-number">38.</span> <span class="nav-text">238. product-of-array-except-self</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#239-sliding-window-maximum"><span class="nav-number">39.</span> <span class="nav-text">239. sliding-window-maximum</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#240-search-a-2d-matrix-ii"><span class="nav-number">40.</span> <span class="nav-text">240. search-a-2d-matrix-ii</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#241-different-ways-to-add-parentheses"><span class="nav-number">41.</span> <span class="nav-text">241. different-ways-to-add-parentheses</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#242-valid-anagram"><span class="nav-number">42.</span> <span class="nav-text">242. valid-anagram</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#243-shortest-word-distance"><span class="nav-number">43.</span> <span class="nav-text">243. shortest-word-distance</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#244-shortest-word-distance-ii"><span class="nav-number">44.</span> <span class="nav-text">244. shortest-word-distance-ii</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#245-shortest-word-distance-iii"><span class="nav-number">45.</span> <span class="nav-text">245. shortest-word-distance-iii</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#246-strobogrammatic-number"><span class="nav-number">46.</span> <span class="nav-text">246. strobogrammatic-number</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#250-count-univalue-subtrees"><span class="nav-number">47.</span> <span class="nav-text">250. count-univalue-subtrees</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#252-meeting-rooms"><span class="nav-number">48.</span> <span class="nav-text">252. meeting-rooms</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#253-meeting-rooms-ii"><span class="nav-number">49.</span> <span class="nav-text">253. meeting-rooms-ii</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#254-factor-combinations"><span class="nav-number">50.</span> <span class="nav-text">254. factor-combinations</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#257-binary-tree-paths"><span class="nav-number">51.</span> <span class="nav-text">257. binary-tree-paths</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#258-add-digits"><span class="nav-number">52.</span> <span class="nav-text">258. add-digits</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#259-3sum-smaller"><span class="nav-number">53.</span> <span class="nav-text">259. 3sum-smaller</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#260-single-number-iii"><span class="nav-number">54.</span> <span class="nav-text">260. single-number-iii</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#261-graph-valid-tree"><span class="nav-number">55.</span> <span class="nav-text">261. graph-valid-tree</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#263-ugly-number"><span class="nav-number">56.</span> <span class="nav-text">263. ugly-number</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#264-ugly-number-ii"><span class="nav-number">57.</span> <span class="nav-text">264. ugly-number-ii</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#266-palindrome-permutation"><span class="nav-number">58.</span> <span class="nav-text">266. palindrome-permutation</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#268-missing-number"><span class="nav-number">59.</span> <span class="nav-text">268. missing-number</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#269-alien-dictionary"><span class="nav-number">60.</span> <span class="nav-text">269. alien-dictionary</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#271-encode-and-decode-strings"><span class="nav-number">61.</span> <span class="nav-text">271. encode-and-decode-strings</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#273-integer-to-english-words"><span class="nav-number">62.</span> <span class="nav-text">273. integer-to-english-words</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#274-h-index"><span class="nav-number">63.</span> <span class="nav-text">274. h-index</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#275-h-index-ii"><span class="nav-number">64.</span> <span class="nav-text">275. h-index-ii</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#277-find-the-celebrity"><span class="nav-number">65.</span> <span class="nav-text">277. find-the-celebrity</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#278-first-bad-version"><span class="nav-number">66.</span> <span class="nav-text">278. first-bad-version</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#279-perfect-squares"><span class="nav-number">67.</span> <span class="nav-text">279. perfect-squares</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#280-wiggle-sort"><span class="nav-number">68.</span> <span class="nav-text">280. wiggle-sort</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#281-zigzag-iterator"><span class="nav-number">69.</span> <span class="nav-text">281. zigzag-iterator</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#282-expression-add-operators"><span class="nav-number">70.</span> <span class="nav-text">282. expression-add-operators</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#283-move-zeroes"><span class="nav-number">71.</span> <span class="nav-text">283. move-zeroes</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#284-peeking-iterator"><span class="nav-number">72.</span> <span class="nav-text">284. peeking-iterator</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#286-walls-and-gates"><span class="nav-number">73.</span> <span class="nav-text">286. walls-and-gates</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#287-find-the-duplicate-number"><span class="nav-number">74.</span> <span class="nav-text">287. find-the-duplicate-number</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#288-unique-word-abbreviation"><span class="nav-number">75.</span> <span class="nav-text">288. unique-word-abbreviation</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#289-game-of-life"><span class="nav-number">76.</span> <span class="nav-text">289. game-of-life</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#290-word-pattern"><span class="nav-number">77.</span> <span class="nav-text">290. word-pattern</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#291-word-pattern-ii"><span class="nav-number">78.</span> <span class="nav-text">291. word-pattern-ii</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#292-nim-game"><span class="nav-number">79.</span> <span class="nav-text">292. nim-game</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#295-find-median-from-data-stream"><span class="nav-number">80.</span> <span class="nav-text">295. find-median-from-data-stream</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#297-serialize-and-deserialize-binary-tree"><span class="nav-number">81.</span> <span class="nav-text">297. serialize-and-deserialize-binary-tree</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#298-binary-tree-longest-consecutive-sequence"><span class="nav-number">82.</span> <span class="nav-text">298. binary-tree-longest-consecutive-sequence</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#299-bulls-and-cows"><span class="nav-number">83.</span> <span class="nav-text">299. bulls-and-cows</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#300-longest-increasing-subsequence"><span class="nav-number">84.</span> <span class="nav-text">300. longest-increasing-subsequence</span></a></li></ol></div>
-            
-
+              <p class="site-author-name" itemprop="name">Bob_波波</p>
+              <p class="site-description motion-element" itemprop="description">I'm a Software Engineer!</p>
           </div>
-        </section>
-      <!--/noindex-->
+
+          
+            <nav class="site-state motion-element">
+              
+                <div class="site-state-item site-state-posts">
+                
+                  <a href="/archives/">
+                
+                    <span class="site-state-item-count">38</span>
+                    <span class="site-state-item-name">posts</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-categories">
+                  <a href="/categories/index.html">
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">3</span>
+                    <span class="site-state-item-name">categories</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-tags">
+                  <a href="/tags/index.html">
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">38</span>
+                    <span class="site-state-item-name">tags</span>
+                  </a>
+                </div>
+              
+            </nav>
+          
+
+          
+
+          
+
+          
+
+          
+          
+
+          
+            
+          
+          
+
+        </div>
+      </div>
+
       
 
+      
+        <div class="back-to-top">
+          <i class="fa fa-arrow-up"></i>
+          
+        </div>
       
 
     </div>
@@ -1085,34 +1280,33 @@
 
     <footer id="footer" class="footer">
       <div class="footer-inner">
-        <div class="copyright" >
-  
-  &copy;  2016 &mdash; 
-  <span itemprop="copyrightYear">2018</span>
-  <span class="with-love">
-    <i class="fa fa-heart"></i>
+        <div class="copyright">&copy; 2016 – <span itemprop="copyrightYear">2019</span>
+  <span class="with-love" id="animate">
+    <i class="fa fa-user"></i>
   </span>
-  <span class="author" itemprop="copyrightHolder">BobbyLiujb</span>
+  <span class="author" itemprop="copyrightHolder">Bob_波波</span>
+
+  
 
   
 </div>
 
 
-  <div class="powered-by">
-    Powered by <a class="theme-link" href="https://hexo.io">Hexo</a>
-  </div>
+  <div class="powered-by">Powered by <a href="https://hexo.io" class="theme-link" rel="noopener" target="_blank">Hexo</a></div>
+
+
 
   <span class="post-meta-divider">|</span>
 
-  <div class="theme-info">
-    Theme &mdash;
-    <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
-      NexT.Mist
-    </a>
-  </div>
+
+
+  <div class="theme-info">Theme – <a href="https://theme-next.org" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a></div>
+
+
 
 
         
+
 
 
 
@@ -1125,17 +1319,17 @@
     </footer>
 
     
-      <div class="back-to-top">
-        <i class="fa fa-arrow-up"></i>
-        
-      </div>
+
     
 
+    
+
+    
   </div>
 
   
 
-<script type="text/javascript">
+<script>
   if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
     window.Promise = null;
   }
@@ -1149,7 +1343,6 @@
 
 
 
-  
 
 
 
@@ -1162,83 +1355,85 @@
 
 
 
-  
-  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
-
-  
-  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
-
-  
-  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
-
-  
-  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
-
-  
-  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
-
-  
-  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
-
-
-  
-
-
-  <script type="text/javascript" src="/js/src/utils.js?v=5.1.2"></script>
-
-  <script type="text/javascript" src="/js/src/motion.js?v=5.1.2"></script>
-
-
-
-  
-  
-
-  
-  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.2"></script>
-<script type="text/javascript" src="/js/src/post-details.js?v=5.1.2"></script>
 
 
 
   
 
 
-  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.2"></script>
+
+  
+  <script src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script src="/lib/reading_progress/reading_progress.js"></script>
+
+
+  
+
+
+  <script src="/js/src/utils.js?v=6.7.0"></script>
+
+  <script src="/js/src/motion.js?v=6.7.0"></script>
+
+
+
+  
+  
+
+
+  <script src="/js/src/affix.js?v=6.7.0"></script>
+
+  <script src="/js/src/schemes/pisces.js?v=6.7.0"></script>
+
+
+
+  
+  <script src="/js/src/scrollspy.js?v=6.7.0"></script>
+<script src="/js/src/post-details.js?v=6.7.0"></script>
+
+
+
+  
+
+
+  <script src="/js/src/bootstrap.js?v=6.7.0"></script>
 
 
 
   
 
   
+    <script id="dsq-count-scr" src="https://bobbyliujb.disqus.com/count.js" async></script>
+  
 
-    
-      <script id="dsq-count-scr" src="https://bobbyliujb.disqus.com/count.js" async></script>
-    
-
-    
-      <script type="text/javascript">
-        var disqus_config = function () {
-          this.page.url = 'https://bobbyliujb.github.io/2017/06/03/java_leetcode3/';
-          this.page.identifier = '2017/06/03/java_leetcode3/';
-          this.page.title = 'Note for LeetCode in Java ( 201~300 )';
+  
+    <script>
+      var disqus_config = function () {
+        this.page.url = "https://bobbyliujb.github.io/2017/06/03/java_leetcode3/";
+        this.page.identifier = "2017/06/03/java_leetcode3/";
+        this.page.title = 'Note for LeetCode in Java ( 201~300 )';
         };
+      function loadComments () {
         var d = document, s = d.createElement('script');
         s.src = 'https://bobbyliujb.disqus.com/embed.js';
         s.setAttribute('data-timestamp', '' + +new Date());
         (d.head || d.body).appendChild(s);
-      </script>
-    
-
+      }
+      
+        loadComments();
+      
+    </script>
   
 
 
 
-	
-
-
-
-
-
-  
 
 
 
@@ -1258,111 +1453,99 @@
   
 
   
-  <script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.4.js"></script>
-  <script>AV.initialize("jT7i5auNazMHRONSPUHmcoko-gzGzoHsz", "dEWwuVre5Svmwvjw2DmcIbLy");</script>
   <script>
-    function showTime(Counter) {
-      var query = new AV.Query(Counter);
-      var entries = [];
-      var $visitors = $(".leancloud_visitors");
-
-      $visitors.each(function () {
-        entries.push( $(this).attr("id").trim() );
-      });
-
-      query.containedIn('url', entries);
-      query.find()
-        .done(function (results) {
-          var COUNT_CONTAINER_REF = '.leancloud-visitors-count';
-
-          if (results.length === 0) {
-            $visitors.find(COUNT_CONTAINER_REF).text(0);
-            return;
-          }
-
-          for (var i = 0; i < results.length; i++) {
-            var item = results[i];
-            var url = item.get('url');
-            var time = item.get('time');
-            var element = document.getElementById(url);
-
-            $(element).find(COUNT_CONTAINER_REF).text(time);
-          }
-          for(var i = 0; i < entries.length; i++) {
-            var url = entries[i];
-            var element = document.getElementById(url);
-            var countSpan = $(element).find(COUNT_CONTAINER_REF);
-            if( countSpan.text() == '') {
-              countSpan.text(0);
-            }
-          }
-        })
-        .fail(function (object, error) {
-          console.log("Error: " + error.code + " " + error.message);
-        });
-    }
-
+    
     function addCount(Counter) {
       var $visitors = $(".leancloud_visitors");
       var url = $visitors.attr('id').trim();
       var title = $visitors.attr('data-flag-title').trim();
-      var query = new AV.Query(Counter);
 
-      query.equalTo("url", url);
-      query.find({
-        success: function(results) {
+      Counter('get', '/classes/Counter', { where: JSON.stringify({ url }) })
+        .done(function ({ results }) {
           if (results.length > 0) {
             var counter = results[0];
-            counter.fetchWhenSave(true);
-            counter.increment("time");
-            counter.save(null, {
-              success: function(counter) {
-                var $element = $(document.getElementById(url));
-                $element.find('.leancloud-visitors-count').text(counter.get('time'));
-              },
-              error: function(counter, error) {
-                console.log('Failed to save Visitor num, with error message: ' + error.message);
-              }
-            });
+            
+            Counter('put', `/classes/Counter/${counter.objectId}`, JSON.stringify({ time: { "__op":"Increment", "amount":1 } }))
+            
+            .done(function () {
+                  var $element = $(document.getElementById(url));
+                  $element.find('.leancloud-visitors-count').text(counter.time + 1);
+            })
+            
+            .fail(function ({ responseJSON }) {
+                console.log('Failed to save Visitor num, with error message: ' + responseJSON.error);
+            })
           } else {
-            var newcounter = new Counter();
-            /* Set ACL */
-            var acl = new AV.ACL();
-            acl.setPublicReadAccess(true);
-            acl.setPublicWriteAccess(true);
-            newcounter.setACL(acl);
-            /* End Set ACL */
-            newcounter.set("title", title);
-            newcounter.set("url", url);
-            newcounter.set("time", 1);
-            newcounter.save(null, {
-              success: function(newcounter) {
-                var $element = $(document.getElementById(url));
-                $element.find('.leancloud-visitors-count').text(newcounter.get('time'));
-              },
-              error: function(newcounter, error) {
-                console.log('Failed to create');
-              }
-            });
+            
+              var $element = $(document.getElementById(url));
+              $element.find('.leancloud-visitors-count').text('Counter not initialized! See more at console err msg.');
+              console.error('ATTENTION! LeanCloud counter has security bug, see here how to solve it: https://github.com/theme-next/hexo-leancloud-counter-security. \n But you also can use LeanCloud without security, by set \'security\' option to \'false\'.');
+            
           }
-        },
-        error: function(error) {
-          console.log('Error:' + error.code + " " + error.message);
-        }
+        })
+      .fail(function ({ responseJSON }) {
+        console.log('LeanCloud Counter Error:' + responseJSON.code + " " + responseJSON.error);
       });
     }
+    
 
     $(function() {
-      var Counter = AV.Object.extend("Counter");
-      if ($('.leancloud_visitors').length == 1) {
-        addCount(Counter);
-      } else if ($('.post-title-link').length > 1) {
-        showTime(Counter);
-      }
+      $.get('https://app-router.leancloud.cn/2/route?appId=' + "jT7i5auNazMHRONSPUHmcoko-gzGzoHsz")
+        .done(function ({ api_server }) {
+          var Counter = function (method, url, data) {
+            return $.ajax({
+              method: method,
+              url: `https://${api_server}/1.1${url}`,
+              headers: {
+                'X-LC-Id': "jT7i5auNazMHRONSPUHmcoko-gzGzoHsz",
+                'X-LC-Key': "dEWwuVre5Svmwvjw2DmcIbLy",
+                'Content-Type': 'application/json',
+              },
+              data: data,
+            });
+          };
+          
+          addCount(Counter);
+          
+        })
     });
   </script>
 
 
+
+  
+
+  
+
+  
+
+  
+
+  
+  
+  
+  <script src="/lib/needsharebutton/needsharebutton.js"></script>
+  <script>
+    
+      pbOptions = {};
+      
+        pbOptions.iconStyle = "box";
+      
+        pbOptions.boxForm = "horizontal";
+      
+        pbOptions.position = "bottomCenter";
+      
+        pbOptions.networks = "Linkedin,Weibo,Wechat,Twitter,Facebook,Pinterest,GooglePlus,Evernote,Reddit,Douban,QQZone,Mailto";
+      
+      new needShareButton('#needsharebutton-postbottom', pbOptions);
+    
+    
+  </script>
+
+
+  
+
+  
 
   
 
