@@ -147,7 +147,7 @@
 <meta property="og:image" content="http://ww1.sinaimg.cn/mw690/006nWDLfgw1f5s1ijhh7pj30m80femyk.jpg">
 <meta property="og:image" content="http://ww4.sinaimg.cn/mw690/006nWDLfgw1f5s9jgcd40j30bo05tgm2.jpg">
 <meta property="og:image" content="http://ww1.sinaimg.cn/large/006nWDLfgw1f5s9l8itiaj304v036t8o.jpg">
-<meta property="og:updated_time" content="2017-06-02T18:42:28.000Z">
+<meta property="og:updated_time" content="2019-01-05T20:52:15.966Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Guidance to create Github blog">
 <meta name="twitter:description" content="这是啵啵的第一篇博客日志，就记录一下这个博客是怎么利用github和Hexo静态博客框架搭建起来的吧。 This is the first blog of Bobby. This guthub page is built under the perfect guidance from Sunwhut’s blog. Here I just mention some key steps to cre">
@@ -458,7 +458,7 @@
                 
                   <span class="post-meta-item-text">Edited on</span>
                 
-                <time title="Modified: 2017-06-02 11:42:28" itemprop="dateModified" datetime="2017-06-02T11:42:28-07:00">2017-06-02</time>
+                <time title="Modified: 2019-01-05 12:52:15" itemprop="dateModified" datetime="2019-01-05T12:52:15-08:00">2019-01-05</time>
               
             
           </span>
@@ -516,6 +516,34 @@
           
 
           
+            <div class="post-symbolscount">
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Symbols count in article: </span>
+                
+                <span title="Symbols count in article">15k</span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Reading time &asymp;</span>
+                
+                <span title="Reading time">16 mins.</span>
+              
+            </div>
+          
 
           
 
@@ -533,7 +561,7 @@
 
       
         <p>这是啵啵的第一篇博客日志，就记录一下这个博客是怎么利用github和Hexo静态博客框架搭建起来的吧。</p>
-<p>This is the first blog of Bobby. This guthub page is built under the perfect guidance from <a href="http://sunwhut.com/2015/10/30/buildBlog/" target="_blank" rel="external">Sunwhut’s blog</a>. Here I just mention some key steps to create this blog with Windows7 + Gitbub + Hexo. All the instructions and software have been tested on my Windows7.<br><a id="more"></a></p>
+<p>This is the first blog of Bobby. This guthub page is built under the perfect guidance from <a href="http://sunwhut.com/2015/10/30/buildBlog/" target="_blank" rel="external">Sunwhut’s blog</a>. Here I just mention some key steps to create this blog with Windows7 + Gitbub + Hexo. All the instructions and software have been tested on my Windows7. Also working on Mac OS High Sierra 10.13.6.<br><a id="more"></a></p>
 <h2 id="Software"><a href="#Software" class="headerlink" title="Software"></a>Software</h2><hr>
 <p>The official <a href="https://zh.wikipedia.org/wiki/Node.js" target="_blank" rel="external">Node.js</a> and Github desktop:</p>
 <ul>
@@ -665,7 +693,24 @@
 </ul>
 <p>========2016.12.01=========</p>
 <h2 id="Sort-the-posts-by-last-update"><a href="#Sort-the-posts-by-last-update" class="headerlink" title="Sort the posts by last update"></a>Sort the posts by last update</h2><p> Referred to <a href="https://yanhuili.github.io/2016/11/21/hexo%E5%8D%9A%E6%96%87%E7%BD%AE%E9%A1%B6%E6%8A%80%E5%B7%A7/" target="_blank" rel="external">this guide</a>.<br> Modify <code>node_modules/hexo-generator-index/lib/generator.js</code> like the following:<br> <figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//var posts = locals.posts.sort(config.index_generator.order_by);</span></div><div class="line"><span class="keyword">var</span> posts = locals.posts;</div><div class="line">  posts.data = posts.data.sort(<span class="function"><span class="keyword">function</span>(<span class="params">a,b</span>)</span>&#123;</div><div class="line">    <span class="keyword">if</span> (a.updated) &#123;</div><div class="line">    	<span class="keyword">if</span> (b.updated) &#123;</div><div class="line">    		<span class="keyword">if</span> (a.updated == b.updated) &#123;</div><div class="line">	    		<span class="keyword">return</span> b.date - a.date;</div><div class="line">	    	&#125; <span class="keyword">else</span> &#123;</div><div class="line">	    		<span class="keyword">return</span> b.updated - a.updated;</div><div class="line">	    	&#125;</div><div class="line">    	&#125; <span class="keyword">else</span> &#123;</div><div class="line">    		<span class="keyword">return</span> <span class="number">-1</span>;</div><div class="line">    	&#125;</div><div class="line">    &#125; <span class="keyword">else</span> &#123;</div><div class="line">    	<span class="keyword">if</span> (b.updated) &#123;</div><div class="line">    		<span class="keyword">return</span> <span class="number">1</span>;</div><div class="line">    	&#125; <span class="keyword">else</span> &#123;</div><div class="line">    		<span class="keyword">return</span> b.date - a.date;</div><div class="line">    	&#125;</div><div class="line">    &#125;</div><div class="line">  &#125;);</div></pre></td></tr></table></figure></p>
-<h2 id="AddThis-Share"><a href="#AddThis-Share" class="headerlink" title="AddThis Share"></a>AddThis Share</h2><p> Referred to <a href="http://blog.whguardian.info/2016/07/16/set-up-a-personal-blog/" target="_blank" rel="external">this post</a>.<br> Go to <a href="https://www.addthis.com/" target="_blank" rel="external">AddThis</a> to register and customize your own sharing buttons. Get AddThis ID in Profile Options - General and paste it into <code>workspaceOfHexo\Hexo\themes\next\_config.yml</code>. Supports HTTPS, though not stable.</p>
+<h2 id="AddThis-Share"><a href="#AddThis-Share" class="headerlink" title="AddThis Share"></a>AddThis Share</h2><p>Referred to <a href="http://blog.whguardian.info/2016/07/16/set-up-a-personal-blog/" target="_blank" rel="external">this post</a>.<br>Go to <a href="https://www.addthis.com/" target="_blank" rel="external">AddThis</a> to register and customize your own sharing buttons. Get AddThis ID in Profile Options - General and paste it into <code>workspaceOfHexo\Hexo\themes\next\_config.yml</code>. Supports HTTPS, though not stable.</p>
+<p>========2019.01.05=========<br> Found another <a href="https://www.jianshu.com/p/9f0e90cc32c2" target="_blank" rel="external">tutorial</a> to make Hexo.Next even better.</p>
+<h2 id="Update-Hexo"><a href="#Update-Hexo" class="headerlink" title="Update Hexo"></a>Update Hexo</h2><p> Simply run <code>npm update -g hexo</code> in terminal.</p>
+<h2 id="Use-scheme-Gemini"><a href="#Use-scheme-Gemini" class="headerlink" title="Use scheme Gemini"></a>Use scheme Gemini</h2><p> Modify 「Next Theme config」:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"># Schemes</div><div class="line"># scheme: Muse</div><div class="line">#scheme: Mist</div><div class="line">#scheme: Pisces</div><div class="line">scheme: Gemini</div></pre></td></tr></table></figure></p>
+<p> I don’t like the black headband hanging at the top of the page, so I add custom setting in <code>hexo/themes/next/source/css/_custom/custom.styl</code>:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">.headband &#123;</div><div class="line">  height: 0;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<h2 id="Add-local-search"><a href="#Add-local-search" class="headerlink" title="Add local search"></a>Add local search</h2><ol>
+<li>Install <a href="https://www.npmjs.com/package/hexo-generator-search" target="_blank" rel="external">local search plugin</a> at the root of hexo with <code>npm install hexo-generator-search --save</code>.</li>
+<li><p>Modify the hexo config:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">search:</div><div class="line">  path: search.xml</div><div class="line">  field: post</div><div class="line">  content: true</div></pre></td></tr></table></figure>
+</li>
+<li><p>Enable local search at the theme Next config:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">local_search:</div><div class="line">  enable: true</div><div class="line">  # if auto, trigger search by changing input</div><div class="line">  # if manual, trigger search by pressing enter key or search button</div><div class="line">  trigger: auto</div><div class="line">  # show top n results per article, show all results by setting to -1</div><div class="line">  top_n_per_article: 10</div><div class="line">  # unescape html strings to the readable one</div><div class="line">  unescape: false</div></pre></td></tr></table></figure>
+</li>
+</ol>
+<h2 id="Add-NeedMoreShare2"><a href="#Add-NeedMoreShare2" class="headerlink" title="Add NeedMoreShare2"></a>Add <a href="https://github.com/revir/need-more-share2" target="_blank" rel="external">NeedMoreShare2</a></h2><p> Simply enable the needmoreshare2 in the theme Next config.<br> <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div></pre></td><td class="code"><pre><div class="line"># NeedMoreShare2</div><div class="line"># Dependencies: https://github.com/theme-next/theme-next-needmoreshare2</div><div class="line"># See: https://github.com/revir/need-more-share2, https://github.com/DzmVasileusky/needShareButton</div><div class="line"># iconStyle: default | box</div><div class="line"># boxForm: horizontal | vertical</div><div class="line"># position: top / middle / bottom + Left / Center / Right</div><div class="line"># networks:</div><div class="line"># Weibo,Wechat,Douban,QQZone,Twitter,Linkedin,Mailto,Reddit,Delicious,StumbleUpon,Pinterest,Facebook,GooglePlus,</div><div class="line"># Slashdot,Technorati,Posterous,Tumblr,GoogleBookmarks,Newsvine,Evernote,Friendfeed,Vkontakte,Odnoklassniki,Mailru</div><div class="line">needmoreshare2:</div><div class="line">  enable: true</div><div class="line">  postbottom:</div><div class="line">    enable: true</div><div class="line">    options:</div><div class="line">      iconStyle: box</div><div class="line">      boxForm: horizontal</div><div class="line">      position: topCenter</div><div class="line">      networks: Linkedin,Weibo,Wechat,Twitter,Facebook,Pinterest,GooglePlus,Evernote,Reddit,Douban,QQZone,Mailto</div><div class="line">  float:</div><div class="line">    enable: false</div><div class="line">    options:</div><div class="line">      iconStyle: box</div><div class="line">      boxForm: horizontal</div><div class="line">      position: middleRight</div><div class="line">      networks: Weibo,Wechat,Douban,QQZone,Twitter,Facebook</div></pre></td></tr></table></figure></p>
+<h2 id="Add-site-count-at-the-bottom"><a href="#Add-site-count-at-the-bottom" class="headerlink" title="Add site count at the bottom"></a>Add site count at the bottom</h2><p> Modify the theme Next config:<br> <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div></pre></td><td class="code"><pre><div class="line">footer:</div><div class="line">  # Specify the date when the site was setup.</div><div class="line">  # If not defined, current year will be used.</div><div class="line">  since: 2016</div><div class="line"></div><div class="line">  # Icon between year and copyright info.</div><div class="line">  icon:</div><div class="line">    # Icon name in fontawesome, see: https://fontawesome.com/v4.7.0/icons/</div><div class="line">    # `heart` is recommended with animation in red (#ff0000).</div><div class="line">    name: futbol-o</div><div class="line">    # If you want to animate the icon, set it to true.</div><div class="line">    animated: true</div><div class="line">    # Change the color of icon, using Hex Code.</div><div class="line">    color: &quot;#808080&quot;</div><div class="line"></div><div class="line">  # If not defined, `author` from Hexo main config will be used.</div><div class="line">  copyright:</div><div class="line">  # -------------------------------------------------------------</div><div class="line">  powered:</div><div class="line">    # Hexo link (Powered by Hexo).</div><div class="line">    enable: true</div><div class="line">    # Version info of Hexo after Hexo link (vX.X.X).</div><div class="line">    version: false</div><div class="line"></div><div class="line">  theme:</div><div class="line">    # Theme &amp; scheme info link (Theme - NexT.scheme).</div><div class="line">    enable: true</div><div class="line">    # Version info of NexT after scheme info (vX.X.X).</div><div class="line">    version: false</div></pre></td></tr></table></figure></p>
+<h2 id="Add-wordcount-and-reading-time"><a href="#Add-wordcount-and-reading-time" class="headerlink" title="Add wordcount and reading time"></a>Add <a href="https://github.com/theme-next/hexo-symbols-count-time" target="_blank" rel="external">wordcount and reading time</a></h2><p> Add following code to hexo config:<br> <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">symbols_count_time:</div><div class="line">  symbols: true</div><div class="line">  time: true</div><div class="line">  total_symbols: true</div><div class="line">  total_time: true</div></pre></td></tr></table></figure></p>
+<p> You can customize wordcount settings in theme Next’s config:<br> <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"># Post wordcount display settings</div><div class="line"># Dependencies: https://github.com/theme-next/hexo-symbols-count-time</div><div class="line">symbols_count_time:</div><div class="line">  separated_meta: true</div><div class="line">  item_text_post: true</div><div class="line">  item_text_total: false</div><div class="line">  awl: 4</div><div class="line">  wpm: 240</div></pre></td></tr></table></figure></p>
 
       
     </div>
@@ -991,12 +1036,26 @@
       <div class="footer-inner">
         <div class="copyright">&copy; 2016 – <span itemprop="copyrightYear">2019</span>
   <span class="with-love" id="animate">
-    <i class="fa fa-user"></i>
+    <i class="fa fa-futbol-o"></i>
   </span>
   <span class="author" itemprop="copyrightHolder">Bob_波波</span>
 
   
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-area-chart"></i>
+    </span>
+    
+    <span title="Symbols count total">1.2m</span>
+  
 
+  
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+    
+    <span title="Reading time total">21:05</span>
   
 </div>
 
@@ -1015,6 +1074,28 @@
 
 
         
+<div class="busuanzi-count">
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  
+    <span class="site-uv" title="Total Visitors">
+      <i class="fa fa-user"></i>
+      <span class="busuanzi-value" id="busuanzi_value_site_uv"></span>
+    </span>
+  
+
+  
+    <span class="post-meta-divider">|</span>
+  
+
+  
+    <span class="site-pv" title="Total Views">
+      <i class="fa fa-history"></i>
+      <span class="busuanzi-value" id="busuanzi_value_site_pv"></span>
+    </span>
+  
+</div>
+
 
 
 
