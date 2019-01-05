@@ -959,8 +959,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Overview
+          </li>
+        </ul>
+      
 
-      <div class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <div class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -1112,6 +1121,23 @@
         </div>
       </div>
 
+      
+      <!--noindex-->
+        <div class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+            
+            
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#字符串长度"><span class="nav-text">字符串长度</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#BST验证"><span class="nav-text">BST验证</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#走迷宫"><span class="nav-text">走迷宫</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Lowest-Common-Ancestor"><span class="nav-text">Lowest Common Ancestor</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#找第一个unique的字符"><span class="nav-text">找第一个unique的字符</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#wordBreak"><span class="nav-text">wordBreak</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#four-missing-nums-in-1-100"><span class="nav-text">four missing nums in 1-100</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Git是什么"><span class="nav-text">Git是什么</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#介绍一个数据结构"><span class="nav-text">介绍一个数据结构</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#pass-by-reference和pass-by-value"><span class="nav-text">pass by reference和pass by value?</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Fibonacci-sum"><span class="nav-text">Fibonacci sum</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#LRU-Cache-146"><span class="nav-text">LRU Cache(146)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#扫雷-529"><span class="nav-text">扫雷(529)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Reverse-Integer"><span class="nav-text">Reverse Integer</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Reverse-Bits"><span class="nav-text">Reverse Bits</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#黑杰克"><span class="nav-text">黑杰克</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#三维空间求点"><span class="nav-text">三维空间求点</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Design-tic-tac-toe-348"><span class="nav-text">Design tic tac toe(348)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Anagrams-49"><span class="nav-text">Anagrams(49)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Anagramii-438"><span class="nav-text">Anagramii(438)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Reverse-linked-list-between-m-and-n"><span class="nav-text">Reverse linked list between m and n</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#BST中给个target求最接近的值"><span class="nav-text">BST中给个target求最接近的值</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#BST中给个target求其中大于target的最小值。"><span class="nav-text">BST中给个target求其中大于target的最小值。</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#二叉树根到叶路径和-113"><span class="nav-text">二叉树根到叶路径和(113)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#转array189"><span class="nav-text">转array189</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#乘积-238"><span class="nav-text">乘积[238]</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#299"><span class="nav-text">[299]</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#314"><span class="nav-text">[314]</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#53"><span class="nav-text">[53]</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Linux命令行"><span class="nav-text">Linux命令行</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#awk-分析与处理"><span class="nav-text">awk:分析与处理</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#sed-编辑"><span class="nav-text">sed:编辑</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#grep-截取"><span class="nav-text">grep:截取</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#tail"><span class="nav-text">tail</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </div>
+      <!--/noindex-->
       
 
       
@@ -1365,7 +1391,7 @@
       $("body")
         .append('<div class="search-popup-overlay local-search-pop-overlay">' +
           '<div id="search-loading-icon">' +
-          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
+          '<i class="fa fa-circle-o-notch fa-spin fa-3x fa-fw"></i>' +
           '</div>' +
           '</div>')
         .css('overflow', 'hidden');

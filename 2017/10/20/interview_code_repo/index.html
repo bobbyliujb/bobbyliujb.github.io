@@ -776,8 +776,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Overview
+          </li>
+        </ul>
+      
 
-      <div class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <div class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -929,6 +938,23 @@
         </div>
       </div>
 
+      
+      <!--noindex-->
+        <div class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+            
+            
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-Two-Sum"><span class="nav-text">1. Two Sum</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-Add-2-Num"><span class="nav-text">2. Add 2 Num</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-Longest-substring"><span class="nav-text">3. Longest substring</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#4-Median-of-2-sorted-arrays"><span class="nav-text">4. Median of 2 sorted arrays</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#249-group-shifted-strings"><span class="nav-text">249. group-shifted-strings</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Extra-tree"><span class="nav-text">[Extra][tree]</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#extra-interval"><span class="nav-text">[extra][interval]</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Linux命令行"><span class="nav-text">Linux命令行</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#awk-分析与处理"><span class="nav-text">awk:分析与处理</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#sed-编辑"><span class="nav-text">sed:编辑</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#grep-截取"><span class="nav-text">grep:截取</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#tail"><span class="nav-text">tail</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </div>
+      <!--/noindex-->
       
 
       
@@ -1182,7 +1208,7 @@
       $("body")
         .append('<div class="search-popup-overlay local-search-pop-overlay">' +
           '<div id="search-loading-icon">' +
-          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
+          '<i class="fa fa-circle-o-notch fa-spin fa-3x fa-fw"></i>' +
           '</div>' +
           '</div>')
         .css('overflow', 'hidden');

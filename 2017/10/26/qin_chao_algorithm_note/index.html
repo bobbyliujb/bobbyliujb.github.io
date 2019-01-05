@@ -781,8 +781,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Overview
+          </li>
+        </ul>
+      
 
-      <div class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <div class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -934,6 +943,23 @@
         </div>
       </div>
 
+      
+      <!--noindex-->
+        <div class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+            
+            
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#Live-2"><span class="nav-text">Live 2</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#Big-O"><span class="nav-text">Big-O</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#切题四件套"><span class="nav-text">切题四件套</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Live-3"><span class="nav-text">Live 3</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#Queue-and-Stack"><span class="nav-text">Queue and Stack</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#例题"><span class="nav-text">例题</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Live-6"><span class="nav-text">Live 6</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#DFS"><span class="nav-text">DFS</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#BFS"><span class="nav-text">BFS</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#例题-1"><span class="nav-text">例题</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Live-7"><span class="nav-text">Live 7</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#DFS-BFS-例题"><span class="nav-text">DFS/BFS 例题</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Live-8"><span class="nav-text">Live 8</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#Dyanamic-Programming"><span class="nav-text">Dyanamic Programming</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#DP与分治法区别"><span class="nav-text">DP与分治法区别</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#三大属性"><span class="nav-text">三大属性</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#例题-2"><span class="nav-text">例题</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Live-9"><span class="nav-text">Live 9</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#DP例题"><span class="nav-text">DP例题</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </div>
+      <!--/noindex-->
       
 
       
@@ -1187,7 +1213,7 @@
       $("body")
         .append('<div class="search-popup-overlay local-search-pop-overlay">' +
           '<div id="search-loading-icon">' +
-          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
+          '<i class="fa fa-circle-o-notch fa-spin fa-3x fa-fw"></i>' +
           '</div>' +
           '</div>')
         .css('overflow', 'hidden');

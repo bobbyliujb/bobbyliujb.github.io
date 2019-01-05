@@ -768,8 +768,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Overview
+          </li>
+        </ul>
+      
 
-      <div class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <div class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -921,6 +930,23 @@
         </div>
       </div>
 
+      
+      <!--noindex-->
+        <div class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+            
+            
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#403-frog-jump"><span class="nav-text">403. frog-jump</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#249-group-shifted-strings"><span class="nav-text">249. group-shifted-strings</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#108-convert-sorted-array-to-binary-search-tree"><span class="nav-text">108. convert-sorted-array-to-binary-search-tree</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#127-word-ladder"><span class="nav-text">127. word-ladder</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#126-word-ladder-ii"><span class="nav-text">126. word-ladder-ii</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Extra-path-between-2-nodes-in-tree"><span class="nav-text">[Extra][path between 2 nodes in tree]</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#extra-overlap-interval"><span class="nav-text">[extra][overlap interval]</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#extra-inplace-convert-binary-tree-to-BST"><span class="nav-text">[extra][inplace convert binary tree to BST]</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#extra-product-between-indices"><span class="nav-text">[extra][product between indices]</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#362-design-hit-counter"><span class="nav-text">362. design-hit-counter</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#extra-subarray-sum"><span class="nav-text">[extra][subarray sum]</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#anagrams"><span class="nav-text">anagrams</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#70-climbing-stairs"><span class="nav-text">70. climbing-stairs</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#43-multiply-strings"><span class="nav-text">43. multiply-strings</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#extra-even-space"><span class="nav-text">[extra][even space]</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#32-longest-valid-parentheses"><span class="nav-text">32. longest-valid-parentheses</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#543-diameter-of-binary-tree"><span class="nav-text">543. diameter-of-binary-tree</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#472-concatenated-words"><span class="nav-text">472. concatenated-words</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#138-copy-list-with-random-pointer"><span class="nav-text">138. copy-list-with-random-pointer</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#139-word-break"><span class="nav-text">139. word-break</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#98-validate-binary-search-tree"><span class="nav-text">98. validate-binary-search-tree</span></a></li></ol></div>
+            
+
+          </div>
+        </div>
+      <!--/noindex-->
       
 
       
@@ -1174,7 +1200,7 @@
       $("body")
         .append('<div class="search-popup-overlay local-search-pop-overlay">' +
           '<div id="search-loading-icon">' +
-          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
+          '<i class="fa fa-circle-o-notch fa-spin fa-3x fa-fw"></i>' +
           '</div>' +
           '</div>')
         .css('overflow', 'hidden');

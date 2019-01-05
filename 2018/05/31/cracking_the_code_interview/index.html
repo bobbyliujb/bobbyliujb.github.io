@@ -1037,8 +1037,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Overview
+          </li>
+        </ul>
+      
 
-      <div class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <div class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -1190,6 +1199,23 @@
         </div>
       </div>
 
+      
+      <!--noindex-->
+        <div class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+            
+            
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#Big-O"><span class="nav-text">Big O</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Multipart-Algorithms"><span class="nav-text">Multipart Algorithms</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Recursive-Runtimes"><span class="nav-text">Recursive Runtimes</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Arrays-and-Strings"><span class="nav-text">Arrays and Strings</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Hash-Tables"><span class="nav-text">Hash Tables</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Resizable-Arrays"><span class="nav-text">Resizable Arrays</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#String-v-s-StringBuilder"><span class="nav-text">String v.s.StringBuilder</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Problems"><span class="nav-text">Problems</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Linked-List"><span class="nav-text">Linked List</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Problems-1"><span class="nav-text">Problems</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Stacks-and-Queues"><span class="nav-text">Stacks and Queues</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Problems-2"><span class="nav-text">Problems</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Trees-and-Graphs"><span class="nav-text">Trees and Graphs</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Types-of-Trees"><span class="nav-text">Types of Trees</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Traverse"><span class="nav-text">Traverse</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Problems-3"><span class="nav-text">Problems</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Bit-Manipulation"><span class="nav-text">Bit Manipulation</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#2’s-Complement"><span class="nav-text">2’s Complement</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Common-bit-tasks"><span class="nav-text">Common bit tasks</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Problems-4"><span class="nav-text">Problems</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Math-and-Logic-Puzzles"><span class="nav-text">Math and Logic Puzzles</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Object-Oriented-Design"><span class="nav-text">Object-Oriented Design</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Recursion-and-Dynamic-Programming"><span class="nav-text">Recursion and Dynamic Programming</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#3-recursion-approach"><span class="nav-text">3 recursion approach</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Problems-5"><span class="nav-text">Problems</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </div>
+      <!--/noindex-->
       
 
       
@@ -1443,7 +1469,7 @@
       $("body")
         .append('<div class="search-popup-overlay local-search-pop-overlay">' +
           '<div id="search-loading-icon">' +
-          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
+          '<i class="fa fa-circle-o-notch fa-spin fa-3x fa-fw"></i>' +
           '</div>' +
           '</div>')
         .css('overflow', 'hidden');

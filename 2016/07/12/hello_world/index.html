@@ -862,8 +862,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Overview
+          </li>
+        </ul>
+      
 
-      <div class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <div class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -1015,6 +1024,23 @@
         </div>
       </div>
 
+      
+      <!--noindex-->
+        <div class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+            
+            
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Software"><span class="nav-text">Software</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Github"><span class="nav-text">Github</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Github-SSH-key"><span class="nav-text">Github SSH key</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Create-blog-repo"><span class="nav-text">Create blog repo</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Hexo"><span class="nav-text">Hexo</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Hexo-Installation"><span class="nav-text">Hexo Installation</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Hexo-Deployment"><span class="nav-text">Hexo Deployment</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Hexo-Theme-NexT-Mist"><span class="nav-text">Hexo Theme NexT.Mist</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Blog-post"><span class="nav-text">Blog post</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Create-a-new-post"><span class="nav-text">Create a new post</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Preview-the-post"><span class="nav-text">Preview the post</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Deploy-to-remote-sites"><span class="nav-text">Deploy to remote sites</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Comment-Service"><span class="nav-text">Comment Service</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Picture-Service"><span class="nav-text">Picture Service</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Page-View-Count"><span class="nav-text">Page View Count</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Show-the-update-of-each-post"><span class="nav-text">Show the update of each post</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Sort-the-posts-by-last-update"><span class="nav-text">Sort the posts by last update</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#AddThis-Share"><span class="nav-text">AddThis Share</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Update-Hexo"><span class="nav-text">Update Hexo</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Use-scheme-Gemini"><span class="nav-text">Use scheme Gemini</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Add-local-search"><span class="nav-text">Add local search</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Add-NeedMoreShare2"><span class="nav-text">Add NeedMoreShare2</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Add-site-count-at-the-bottom"><span class="nav-text">Add site count at the bottom</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Add-wordcount-and-reading-time"><span class="nav-text">Add wordcount and reading time</span></a></li></ol></div>
+            
+
+          </div>
+        </div>
+      <!--/noindex-->
       
 
       
@@ -1268,7 +1294,7 @@
       $("body")
         .append('<div class="search-popup-overlay local-search-pop-overlay">' +
           '<div id="search-loading-icon">' +
-          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
+          '<i class="fa fa-circle-o-notch fa-spin fa-3x fa-fw"></i>' +
           '</div>' +
           '</div>')
         .css('overflow', 'hidden');

@@ -807,8 +807,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Overview
+          </li>
+        </ul>
+      
 
-      <div class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <div class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -960,6 +969,23 @@
         </div>
       </div>
 
+      
+      <!--noindex-->
+        <div class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+            
+            
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#概述"><span class="nav-text">概述</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#MiniUI"><span class="nav-text">MiniUI</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#其他开发环境配置"><span class="nav-text">其他开发环境配置</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#表格-CRUD"><span class="nav-text">表格(CRUD)</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#CRUD增查改删"><span class="nav-text">CRUD增查改删</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#单元格编辑"><span class="nav-text">单元格编辑</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#行编辑"><span class="nav-text">行编辑</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#表单提交-弹出面板提交"><span class="nav-text">表单提交/弹出面板提交</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#表单控件"><span class="nav-text">表单控件</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#数据绑定"><span class="nav-text">数据绑定</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#表单"><span class="nav-text">表单</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#弹出选择表格"><span class="nav-text">弹出选择表格</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#小部件"><span class="nav-text">小部件</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#树形控件"><span class="nav-text">树形控件</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#创建树"><span class="nav-text">创建树</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#树的懒加载"><span class="nav-text">树的懒加载</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#树的操作"><span class="nav-text">树的操作</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#为树创建右键菜单"><span class="nav-text">为树创建右键菜单</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#导航"><span class="nav-text">导航</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Toolbar工具栏"><span class="nav-text">Toolbar工具栏</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#菜单"><span class="nav-text">菜单</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#ContextMenu"><span class="nav-text">ContextMenu</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Tabs选项卡"><span class="nav-text">Tabs选项卡</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Outlook面板系列"><span class="nav-text">Outlook面板系列</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Pager分页"><span class="nav-text">Pager分页</span></a></li></ol></li></ol></li></ol></div>
+            
+
+          </div>
+        </div>
+      <!--/noindex-->
       
 
       
@@ -1213,7 +1239,7 @@
       $("body")
         .append('<div class="search-popup-overlay local-search-pop-overlay">' +
           '<div id="search-loading-icon">' +
-          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
+          '<i class="fa fa-circle-o-notch fa-spin fa-3x fa-fw"></i>' +
           '</div>' +
           '</div>')
         .css('overflow', 'hidden');

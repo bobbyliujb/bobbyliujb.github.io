@@ -743,8 +743,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Overview
+          </li>
+        </ul>
+      
 
-      <div class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <div class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -896,6 +905,23 @@
         </div>
       </div>
 
+      
+      <!--noindex-->
+        <div class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+            
+            
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#BinarySearch"><span class="nav-text">BinarySearch</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Sort"><span class="nav-text">Sort</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#Selection-Sort"><span class="nav-text">Selection Sort</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#Insertion-Sort"><span class="nav-text">Insertion Sort</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#Shell-Sort"><span class="nav-text">Shell Sort</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#Bubble-Sort"><span class="nav-text">Bubble Sort</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#Bucket-Sort"><span class="nav-text">Bucket Sort</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#Radix-Sort-TODO"><span class="nav-text">Radix Sort[====TODO====]</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#Merge-Sort"><span class="nav-text">Merge Sort</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#Quick-Sort-Shuffle"><span class="nav-text">Quick Sort + Shuffle</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Big-Integer-Calculation"><span class="nav-text">Big Integer Calculation</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#GCD"><span class="nav-text">GCD</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Union-Find"><span class="nav-text">Union Find</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Backtracking"><span class="nav-text">Backtracking</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#Subset-无重复元素"><span class="nav-text">Subset(无重复元素)</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#Subset-有重复元素"><span class="nav-text">Subset(有重复元素)</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#Permutations-无重复元素全排列"><span class="nav-text">Permutations(无重复元素全排列)</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#Permutations-有重复元素全排列"><span class="nav-text">Permutations(有重复元素全排列)</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#Combinations"><span class="nav-text">Combinations</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#combination-sum（无重复元素可重复组合求和）"><span class="nav-text">combination-sum（无重复元素可重复组合求和）</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#combination-sum（有重复元素不可复用组合求和）"><span class="nav-text">combination-sum（有重复元素不可复用组合求和）</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#String"><span class="nav-text">String</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#substring-palindrome-516-647"><span class="nav-text">substring palindrome: 516, 647.</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Miscellaneous"><span class="nav-text">Miscellaneous</span></a></li></ol></div>
+            
+
+          </div>
+        </div>
+      <!--/noindex-->
       
 
       
@@ -1149,7 +1175,7 @@
       $("body")
         .append('<div class="search-popup-overlay local-search-pop-overlay">' +
           '<div id="search-loading-icon">' +
-          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
+          '<i class="fa fa-circle-o-notch fa-spin fa-3x fa-fw"></i>' +
           '</div>' +
           '</div>')
         .css('overflow', 'hidden');

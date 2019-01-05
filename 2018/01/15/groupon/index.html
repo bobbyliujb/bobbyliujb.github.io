@@ -907,8 +907,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Overview
+          </li>
+        </ul>
+      
 
-      <div class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <div class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -1060,6 +1069,23 @@
         </div>
       </div>
 
+      
+      <!--noindex-->
+        <div class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+            
+            
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#LRU-Cache-146"><span class="nav-text">LRU Cache(146)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#奇偶归一"><span class="nav-text">奇偶归一</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#215-kth-largest-element-in-an-array"><span class="nav-text">215. kth-largest-element-in-an-array</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#692-top-k-frequent-words"><span class="nav-text">692. top-k-frequent-words</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#437-path-sum-iii"><span class="nav-text">437. path-sum-iii</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#322-coin-change"><span class="nav-text">322. coin-change</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#238-product-of-array-except-self"><span class="nav-text">238. product-of-array-except-self</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#正则-10"><span class="nav-text">正则  10 </span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#4-Median-of-2-sorted-arrays"><span class="nav-text">4. Median of 2 sorted arrays</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#5-Longest-palindromic-substring"><span class="nav-text">5. Longest palindromic substring</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-sum"><span class="nav-text">3 sum</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#202-happy-number"><span class="nav-text">202. happy-number</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#sort-array-with-only-0-and-1"><span class="nav-text">sort array with only 0 and 1</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#string-repetition"><span class="nav-text">string repetition</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#366-find-leaves-of-binary-tree"><span class="nav-text">366. find-leaves-of-binary-tree</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#513-find-bottom-left-tree-value"><span class="nav-text">513. find-bottom-left-tree-value</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#reverse-LinkedList"><span class="nav-text">reverse LinkedList</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#186-reverse-words-in-a-string-ii"><span class="nav-text">186. reverse-words-in-a-string-ii</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#implement-linkedhashmap"><span class="nav-text">implement linkedhashmap</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#implement-priority-queue"><span class="nav-text">implement priority queue</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#572-subtree-of-another-tree"><span class="nav-text">572. subtree-of-another-tree</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#remove-duplicates-from-sorted-array"><span class="nav-text">remove-duplicates-from-sorted-array</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#remove-duplicates-from-sorted-array-ii"><span class="nav-text">remove-duplicates-from-sorted-array-ii</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#127-word-ladder"><span class="nav-text">127. word-ladder</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#126-word-ladder-ii"><span class="nav-text">126. word-ladder-ii</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#BST验证"><span class="nav-text">BST验证</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#22-generate-parentheses"><span class="nav-text">22. generate-parentheses</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#袜子匹配"><span class="nav-text">袜子匹配</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#销售额统计"><span class="nav-text">销售额统计</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Vending-machine"><span class="nav-text">Vending machine</span></a></li></ol></div>
+            
+
+          </div>
+        </div>
+      <!--/noindex-->
       
 
       
@@ -1313,7 +1339,7 @@
       $("body")
         .append('<div class="search-popup-overlay local-search-pop-overlay">' +
           '<div id="search-loading-icon">' +
-          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
+          '<i class="fa fa-circle-o-notch fa-spin fa-3x fa-fw"></i>' +
           '</div>' +
           '</div>')
         .css('overflow', 'hidden');

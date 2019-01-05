@@ -802,8 +802,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Overview
+          </li>
+        </ul>
+      
 
-      <div class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <div class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -955,6 +964,23 @@
         </div>
       </div>
 
+      
+      <!--noindex-->
+        <div class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+            
+            
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#Stack"><span class="nav-text">Stack</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Feature"><span class="nav-text">Feature</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Implementation"><span class="nav-text">Implementation</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Application"><span class="nav-text">Application</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Queue"><span class="nav-text">Queue</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Feature-1"><span class="nav-text">Feature</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Implementation-1"><span class="nav-text">Implementation</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Application-1"><span class="nav-text">Application</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#LinkedList"><span class="nav-text">LinkedList</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Feature-2"><span class="nav-text">Feature</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Application-2"><span class="nav-text">Application</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Searching"><span class="nav-text">Searching</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Binary-Search"><span class="nav-text">Binary Search</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Application-3"><span class="nav-text">Application</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Sorting"><span class="nav-text">Sorting</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Recursion"><span class="nav-text">Recursion</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Binary-Trees"><span class="nav-text">Binary Trees</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Storage"><span class="nav-text">Storage</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Terminologies"><span class="nav-text">Terminologies</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Traversal"><span class="nav-text">Traversal</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Binary-Search-Tree"><span class="nav-text">Binary Search Tree</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Free-Trees"><span class="nav-text">Free Trees</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Graphs"><span class="nav-text">Graphs</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Terminologies-1"><span class="nav-text">Terminologies</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Storage-1"><span class="nav-text">Storage</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Traverse"><span class="nav-text">Traverse</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Topological-Sorting"><span class="nav-text">Topological Sorting</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Weighted-Graphs"><span class="nav-text">Weighted Graphs</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Minimum-Spanning-Tree"><span class="nav-text">Minimum Spanning Tree</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Shortest-Path"><span class="nav-text">Shortest Path</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </div>
+      <!--/noindex-->
       
 
       
@@ -1208,7 +1234,7 @@
       $("body")
         .append('<div class="search-popup-overlay local-search-pop-overlay">' +
           '<div id="search-loading-icon">' +
-          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
+          '<i class="fa fa-circle-o-notch fa-spin fa-3x fa-fw"></i>' +
           '</div>' +
           '</div>')
         .css('overflow', 'hidden');
