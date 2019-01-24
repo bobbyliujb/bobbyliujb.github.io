@@ -1,0 +1,1665 @@
+<!DOCTYPE html>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+<html class="theme-next gemini use-motion" lang="en">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2"/>
+<meta name="theme-color" content="#222"/>
+
+
+  
+  
+  <link rel="stylesheet" href="/lib/needsharebutton/needsharebutton.css"/>
+
+
+
+  
+  
+    
+    
+  <script src="/lib/pace/pace.min.js?v=1.0.2"></script>
+  <link rel="stylesheet" href="/lib/pace/pace-theme-flash.min.css?v=1.0.2"/>
+
+
+
+
+
+  <meta http-equiv="Cache-Control" content="no-transform"/>
+  <meta http-equiv="Cache-Control" content="no-siteapp"/>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext"/>
+  
+
+
+
+
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2"/>
+
+<link rel="stylesheet" href="/css/main.css?v=6.7.0"/>
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/favicon.ico?v=6.7.0">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon.ico?v=6.7.0">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon.ico?v=6.7.0">
+
+
+  <link rel="mask-icon" href="/images/favicon.ico?v=6.7.0" color="#222">
+
+
+
+
+
+
+
+<script id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Gemini',
+    version: '6.7.0',
+    sidebar: {"position":"left","display":"hide","offset":12,"b2t":true,"scrollpercent":false,"onmobile":false},
+    fancybox: false,
+    fastclick: false,
+    lazyload: false,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+  
+
+
+
+
+  <meta name="description" content="之前看的那本《Spring揭秘》内容真多，还是没有全部啃完。现在先用网上一个史上最全最强的SpringMVC示例来练练手好了，感觉书上的罗列介绍都是理论内容，还是不太懂怎么用。所以就借着这个练手项目，把代码背后Spring MVC整理一下好了。好吧其实我看书都还没看到这部分呢，不过没关系，先接触一下到时再回头看看系统的介绍。">
+<meta name="keywords" content="java,web,spring">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Spring MVC示例项目练手">
+<meta property="og:url" content="https://bobbyliujb.github.io/2016/10/09/try_spring/index.html">
+<meta property="og:site_name" content="Bob_波波">
+<meta property="og:description" content="之前看的那本《Spring揭秘》内容真多，还是没有全部啃完。现在先用网上一个史上最全最强的SpringMVC示例来练练手好了，感觉书上的罗列介绍都是理论内容，还是不太懂怎么用。所以就借着这个练手项目，把代码背后Spring MVC整理一下好了。好吧其实我看书都还没看到这部分呢，不过没关系，先接触一下到时再回头看看系统的介绍。">
+<meta property="og:locale" content="en">
+<meta property="og:image" content="http://ww2.sinaimg.cn/large/9b3a5c2fgw1f8ky2cjjf9j206u051dgt.jpg">
+<meta property="og:image" content="http://ww3.sinaimg.cn/large/9b3a5c2fgw1f8ky0vwo3mj205r01bweg.jpg">
+<meta property="og:image" content="http://ww4.sinaimg.cn/large/9b3a5c2fgw1f8la2nc0k2j205q01u74e.jpg">
+<meta property="og:image" content="http://ww1.sinaimg.cn/large/9b3a5c2fgw1f8m1a8y78xj20t702k3zo.jpg">
+<meta property="og:image" content="http://ww4.sinaimg.cn/large/9b3a5c2fgw1f8m1cfi9kwj20h202ut9g.jpg">
+<meta property="og:image" content="http://ww1.sinaimg.cn/large/9b3a5c2fgw1f8m5vjg2xqj20g005f3zy.jpg">
+<meta property="og:image" content="http://ww3.sinaimg.cn/large/9b3a5c2fgw1f8m5wkw0grj20cq06taay.jpg">
+<meta property="og:image" content="http://ww4.sinaimg.cn/large/9b3a5c2fgw1f8m61r18vnj204o01fmx0.jpg">
+<meta property="og:image" content="http://ww3.sinaimg.cn/large/9b3a5c2fgw1f8m63296zkj20b7032weu.jpg">
+<meta property="og:updated_time" content="2016-10-10T02:17:10.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Spring MVC示例项目练手">
+<meta name="twitter:description" content="之前看的那本《Spring揭秘》内容真多，还是没有全部啃完。现在先用网上一个史上最全最强的SpringMVC示例来练练手好了，感觉书上的罗列介绍都是理论内容，还是不太懂怎么用。所以就借着这个练手项目，把代码背后Spring MVC整理一下好了。好吧其实我看书都还没看到这部分呢，不过没关系，先接触一下到时再回头看看系统的介绍。">
+<meta name="twitter:image" content="http://ww2.sinaimg.cn/large/9b3a5c2fgw1f8ky2cjjf9j206u051dgt.jpg">
+
+
+
+
+
+
+  <link rel="canonical" href="https://bobbyliujb.github.io/2016/10/09/try_spring/"/>
+
+
+
+<script id="page.configurations">
+  CONFIG.page = {
+    sidebar: "",
+  };
+</script>
+
+  <title>Spring MVC示例项目练手 | Bob_波波</title>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .motion-element,
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-title { opacity: initial; }
+
+  .use-motion .logo,
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="en">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Bob_波波</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+    
+    
+  </div>
+
+  <div class="site-nav-toggle">
+    <button aria-label="Toggle navigation bar">
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  
+    <ul id="menu" class="menu">
+      
+        
+        
+        
+          
+          <li class="menu-item menu-item-home">
+
+    
+    
+    
+      
+    
+
+    
+      
+    
+
+    <a href="/" rel="section"><i class="menu-item-icon fa fa-fw fa-home"></i> <br/>Home</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-tags">
+
+    
+    
+    
+      
+    
+
+    
+      
+    
+
+    <a href="/tags/" rel="section"><i class="menu-item-icon fa fa-fw fa-tags"></i> <br/>Tags<span class="badge">39</span></a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-categories">
+
+    
+    
+    
+      
+    
+
+    
+      
+    
+
+    <a href="/categories/" rel="section"><i class="menu-item-icon fa fa-fw fa-th"></i> <br/>Categories<span class="badge">3</span></a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-archives">
+
+    
+    
+    
+      
+    
+
+    
+      
+    
+
+    <a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br/>Archives<span class="badge">40</span></a>
+
+  </li>
+
+      
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />Search</a>
+        </li>
+      
+    </ul>
+  
+
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off"
+             placeholder="Searching..." spellcheck="false"
+             type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
+  
+</nav>
+
+
+
+  
+
+
+
+</div>
+    </header>
+
+    
+
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+            
+
+          
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://bobbyliujb.github.io/2016/10/09/try_spring/"/>
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Bob_波波"/>
+      <meta itemprop="description" content="I'm a Software Engineer!"/>
+      <meta itemprop="image" content="/images/avatar.jpg"/>
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Bob_波波"/>
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">Spring MVC示例项目练手
+
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+
+              
+                
+              
+
+              <time title="Created: 2016-10-08 12:42:35" itemprop="dateCreated datePublished" datetime="2016-10-08T12:42:35-07:00">2016-10-08</time>
+            
+
+            
+              
+
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Edited on</span>
+                
+                <time title="Modified: 2016-10-09 19:17:10" itemprop="dateModified" datetime="2016-10-09T19:17:10-07:00">2016-10-09</time>
+              
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Tech/" itemprop="url" rel="index"><span itemprop="name">Tech</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2016/10/09/try_spring/#comments" itemprop="discussionUrl">
+                
+                  <span class="post-comments-count disqus-comment-count"
+                        data-disqus-identifier="2016/10/09/try_spring/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+             <span id="/2016/10/09/try_spring/" class="leancloud_visitors" data-flag-title="Spring MVC示例项目练手">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">Views: </span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+            <div class="post-symbolscount">
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Symbols count in article: </span>
+                
+                <span title="Symbols count in article">22k</span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Reading time &asymp;</span>
+                
+                <span title="Reading time">23 mins.</span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>之前看的那本《Spring揭秘》内容真多，还是没有全部啃完。现在先用网上一个<a href="http://www.admin10000.com/document/6436.html" target="_blank" rel="external">史上最全最强的SpringMVC示例</a>来练练手好了，感觉书上的罗列介绍都是理论内容，还是不太懂怎么用。所以就借着这个练手项目，把代码背后Spring MVC整理一下好了。好吧其实我看书都还没看到这部分呢，不过没关系，先接触一下到时再回头看看系统的介绍。<br><a id="more"></a></p>
+<h2 id="创建Spring-MVC项目"><a href="#创建Spring-MVC项目" class="headerlink" title="创建Spring MVC项目"></a>创建Spring MVC项目</h2><hr>
+<ul>
+<li>1.在Eclipse JavaEE中新建工程，New - Other - Web - Dynamic Web Project，命名随便取个spring。</li>
+<li>2.在WebContent - WEB-INF - lib目录下放入Spring相关的jar包。jar包是开发时需要引用的通用类，.jar就是一种封装（有点类似.zip，不过会多一个META-INF\MANIFEST.MF文件），用户并不需要知道jar包中有多少.class、不关心它们所属的package，只需要知道如何使用类的属性和方法。<br><img src="http://ww2.sinaimg.cn/large/9b3a5c2fgw1f8ky2cjjf9j206u051dgt.jpg" alt=""></li>
+<li><p>3.在WebContent - WEB-INF目录下新建web.xml文件。web.xml是整个Web应用程序的部署描述文件，这是基于Servlet规范的Web应用程序都要有的。其中DispatcherServlet是Front Controller，负责接收所有的Web请求，并根据不同的处理逻辑委派到下一级控制器去实现。这里的servlet-mapping是一种映射，当Web请求到达了DispatcherServlet，它会寻找具体的HandlerMapping实例，最终获取当前Web请求应该用到的具体处理类。</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div></pre></td><td class="code"><pre><div class="line">&lt;?xml version="1.0" encoding="UTF-8"?&gt;</div><div class="line"><span class="tag">&lt;<span class="name">web-app</span> <span class="attr">xmlns:xsi</span>=<span class="string">"http://www.w3.org/2001/XMLSchema-instance"</span> <span class="attr">xmlns</span>=<span class="string">"http://java.sun.com/xml/ns/javaee"</span> <span class="attr">xmlns:web</span>=<span class="string">"http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd"</span> <span class="attr">xsi:schemaLocation</span>=<span class="string">"http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd"</span> <span class="attr">id</span>=<span class="string">"WebApp_ID"</span> <span class="attr">version</span>=<span class="string">"3.0"</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">display-name</span>&gt;</span>spring<span class="tag">&lt;/<span class="name">display-name</span>&gt;</span></div><div class="line">  </div><div class="line">  <span class="comment">&lt;!--configure the setting of springmvcDispatcherServlet and configure the mapping--&gt;</span></div><div class="line">	<span class="tag">&lt;<span class="name">servlet</span>&gt;</span></div><div class="line">	    <span class="tag">&lt;<span class="name">servlet-name</span>&gt;</span>spring<span class="tag">&lt;/<span class="name">servlet-name</span>&gt;</span></div><div class="line">	    <span class="tag">&lt;<span class="name">servlet-class</span>&gt;</span>org.springframework.web.servlet.DispatcherServlet<span class="tag">&lt;/<span class="name">servlet-class</span>&gt;</span></div><div class="line">	    <span class="tag">&lt;<span class="name">init-param</span>&gt;</span></div><div class="line">	        <span class="tag">&lt;<span class="name">param-name</span>&gt;</span>contextConfigLocation<span class="tag">&lt;/<span class="name">param-name</span>&gt;</span></div><div class="line">	        <span class="tag">&lt;<span class="name">param-value</span>&gt;</span>classpath:springmvc-servlet.xml<span class="tag">&lt;/<span class="name">param-value</span>&gt;</span></div><div class="line">	    <span class="tag">&lt;/<span class="name">init-param</span>&gt;</span></div><div class="line">	    <span class="comment">&lt;!-- &lt;load-on-startup&gt;1&lt;/load-on-startup&gt; --&gt;</span></div><div class="line">	<span class="tag">&lt;/<span class="name">servlet</span>&gt;</span></div><div class="line">	 </div><div class="line">	<span class="tag">&lt;<span class="name">servlet-mapping</span>&gt;</span></div><div class="line">	    <span class="tag">&lt;<span class="name">servlet-name</span>&gt;</span>spring<span class="tag">&lt;/<span class="name">servlet-name</span>&gt;</span></div><div class="line">	    <span class="tag">&lt;<span class="name">url-pattern</span>&gt;</span>/<span class="tag">&lt;/<span class="name">url-pattern</span>&gt;</span></div><div class="line">	<span class="tag">&lt;/<span class="name">servlet-mapping</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">web-app</span>&gt;</span></div></pre></td></tr></table></figure>
+</li>
+<li><p>4.在项目的src目录下新建springmvc-servlet.xml文件。前面的web.xml中由DispatcherServlet分配给具体处理类处理好Web请求后，会返回一个ModelAndView实例。Spring提出了基于ViewResolver和View接口的Web视图处理抽象层，选择相应的视图名并显示。</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div></pre></td><td class="code"><pre><div class="line">&lt;?xml version="1.0" encoding="UTF-8"?&gt;</div><div class="line"><span class="tag">&lt;<span class="name">beans</span> <span class="attr">xmlns</span>=<span class="string">"http://www.springframework.org/schema/beans"</span></span></div><div class="line"><span class="tag">    <span class="attr">xmlns:xsi</span>=<span class="string">"http://www.w3.org/2001/XMLSchema-instance"</span></span></div><div class="line"><span class="tag">    <span class="attr">xmlns:context</span>=<span class="string">"http://www.springframework.org/schema/context"</span></span></div><div class="line"><span class="tag">    <span class="attr">xmlns:mvc</span>=<span class="string">"http://www.springframework.org/schema/mvc"</span></span></div><div class="line"><span class="tag">    <span class="attr">xsi:schemaLocation</span>=<span class="string">"http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd</span></span></div><div class="line"><span class="tag"><span class="string">        http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.1.xsd</span></span></div><div class="line"><span class="tag"><span class="string">        http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc-4.1.xsd"</span>&gt;</span>                    </div><div class="line"> </div><div class="line">    <span class="comment">&lt;!-- scan the package and the sub package --&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">context:component-scan</span> <span class="attr">base-package</span>=<span class="string">"testSpring"</span>/&gt;</span></div><div class="line"> </div><div class="line">    <span class="comment">&lt;!-- don't handle the static resource --&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">mvc:default-servlet-handler</span> /&gt;</span></div><div class="line"> </div><div class="line">    <span class="comment">&lt;!-- if you use annotation you must configure following setting --&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">mvc:annotation-driven</span> /&gt;</span></div><div class="line">    </div><div class="line">    <span class="comment">&lt;!-- 为了指向WEB-INF中静态的js文件 --&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">mvc:resources</span> <span class="attr">mapping</span>=<span class="string">"/js/**"</span> <span class="attr">location</span>=<span class="string">"/WEB-INF/js/"</span>/&gt;</span>  </div><div class="line">    </div><div class="line">    <span class="comment">&lt;!-- configure the InternalResourceViewResolver --&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">bean</span> <span class="attr">class</span>=<span class="string">"org.springframework.web.servlet.view.InternalResourceViewResolver"</span></span></div><div class="line"><span class="tag">            <span class="attr">id</span>=<span class="string">"internalResourceViewResolver"</span>&gt;</span></div><div class="line">        <span class="comment">&lt;!-- 前缀 --&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">"prefix"</span> <span class="attr">value</span>=<span class="string">"/WEB-INF/jsp/"</span> /&gt;</span></div><div class="line">        <span class="comment">&lt;!-- 后缀 --&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">"suffix"</span> <span class="attr">value</span>=<span class="string">".jsp"</span> /&gt;</span></div><div class="line">    <span class="tag">&lt;/<span class="name">bean</span>&gt;</span></div><div class="line">    </div><div class="line">    <span class="comment">&lt;!-- upload settings --&gt;</span></div><div class="line">	<span class="tag">&lt;<span class="name">bean</span> <span class="attr">id</span>=<span class="string">"multipartResolver"</span>  <span class="attr">class</span>=<span class="string">"org.springframework.web.multipart.commons.CommonsMultipartResolver"</span>&gt;</span></div><div class="line">	    <span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">"maxUploadSize"</span> <span class="attr">value</span>=<span class="string">"102400000"</span>&gt;</span><span class="tag">&lt;/<span class="name">property</span>&gt;</span></div><div class="line">	<span class="tag">&lt;/<span class="name">bean</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">beans</span>&gt;</span></div></pre></td></tr></table></figure>
+</li>
+<li><p>5.在WEB-INF目录下新建jsp文件夹，专门存放ViewResolver映射的jsp视图。例如新增hello.jsp。</p>
+</li>
+<li><p>6.为src添加类。例如创建包testSpring，新建MVCController.java，其中用到了Controller和RequestMapping注解。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="meta">@Controller</span>				<span class="comment">// 负责注册一个bean到spring上下文中</span></div><div class="line"><span class="meta">@RequestMapping</span>(<span class="string">"/mvc"</span>)	<span class="comment">// 注解为控制器指定可以处理哪些URL请求</span></div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">MVCController</span> </span>&#123;</div><div class="line">	</div><div class="line">	<span class="meta">@RequestMapping</span>(<span class="string">"/hello"</span>)</div><div class="line">	<span class="function"><span class="keyword">public</span> String <span class="title">hello</span><span class="params">()</span> </span>&#123;</div><div class="line">		<span class="keyword">return</span> <span class="string">"hello"</span>;	<span class="comment">// 返回指定的视图文件名（不含后缀）</span></div><div class="line">	&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+</li>
+<li><p>7.此时在eclipse中启动Tomcat Server，访问localhost:8080/spring/mvc/hello即可访问到hello.jsp。</p>
+</li>
+</ul>
+<h2 id="进一步体验Spring-MVC"><a href="#进一步体验Spring-MVC" class="headerlink" title="进一步体验Spring MVC"></a>进一步体验Spring MVC</h2><hr>
+<ul>
+<li><p>自动匹配参数: 可以根据变量名来匹配客户端传来的参数，获取各参数的值。在MVCController.java添加如下方法，在访问时加上<code>?name=bobo&amp;age=21</code>即可在控制台看到对应的值。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//match automatically</span></div><div class="line"><span class="meta">@RequestMapping</span>(<span class="string">"/person"</span>)</div><div class="line"><span class="function"><span class="keyword">public</span> String <span class="title">toPerson</span><span class="params">(String name, <span class="keyword">double</span> age)</span> </span>&#123;</div><div class="line">    System.out.println(name+<span class="string">" "</span>+age);</div><div class="line">    <span class="keyword">return</span> <span class="string">"hello"</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+</li>
+<li><p>自动装箱: 利用类中的属性名或方法名来匹配客户端传来的参数并对应赋值构造出一个实例。神奇的是不论在地址栏中附上的参数顺序如何、名字如何，总能正确映射。例如新建model包，创建Person类型。然后在MVCController.java中重载（但是前面有个RequestMapping注解，不确定算不算重载）toPerson方法：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Person</span> </span>&#123;</div><div class="line">	</div><div class="line">	<span class="keyword">private</span> String sex;</div><div class="line">	<span class="keyword">private</span> <span class="keyword">int</span> age;</div><div class="line">	<span class="keyword">private</span> String name;</div><div class="line">	</div><div class="line">	<span class="function"><span class="keyword">public</span> String <span class="title">getSex</span><span class="params">()</span> </span>&#123;</div><div class="line">		<span class="keyword">return</span> sex;</div><div class="line">	&#125;</div><div class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setSex</span><span class="params">(String sex)</span> </span>&#123;</div><div class="line">		<span class="keyword">this</span>.sex = sex;</div><div class="line">	&#125;</div><div class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">getAge</span><span class="params">()</span> </span>&#123;</div><div class="line">		<span class="keyword">return</span> age;</div><div class="line">	&#125;</div><div class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setAge</span><span class="params">(<span class="keyword">int</span> age)</span> </span>&#123;</div><div class="line">		<span class="keyword">this</span>.age = age;</div><div class="line">	&#125;</div><div class="line">	<span class="function"><span class="keyword">public</span> String <span class="title">getName</span><span class="params">()</span> </span>&#123;</div><div class="line">		<span class="keyword">return</span> name;</div><div class="line">	&#125;</div><div class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setName</span><span class="params">(String name)</span> </span>&#123;</div><div class="line">		<span class="keyword">this</span>.name = name;</div><div class="line">	&#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="comment">//boxing automatically</span></div><div class="line"><span class="meta">@RequestMapping</span>(<span class="string">"/person2"</span>)</div><div class="line"><span class="function"><span class="keyword">public</span> String <span class="title">toPerson</span><span class="params">(Person p)</span></span>&#123;</div><div class="line">    System.out.println(p.getName()+<span class="string">" "</span>+p.getAge() + <span class="string">" "</span> + p.getSex());</div><div class="line">    <span class="keyword">return</span> <span class="string">"hello"</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+</li>
+<li><p>使用InitBinder注解: 表示在初始化的时候就会调用的函数，这里将客户端传过来的参数(String类型)转化为Date类型。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//the parameter was converted in initBinder</span></div><div class="line"><span class="meta">@RequestMapping</span>(<span class="string">"/date"</span>)</div><div class="line"><span class="function"><span class="keyword">public</span> String <span class="title">date</span><span class="params">(Date date)</span></span>&#123;</div><div class="line">    System.out.println(date);</div><div class="line">    <span class="keyword">return</span> <span class="string">"hello"</span>;</div><div class="line">&#125;  </div><div class="line"><span class="comment">//At the time of initialization,convert the type "String" to type "date"</span></div><div class="line"><span class="meta">@InitBinder</span></div><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">initBinder</span><span class="params">(ServletRequestDataBinder binder)</span></span>&#123;</div><div class="line">    binder.registerCustomEditor(Date.class, <span class="keyword">new</span> CustomDateEditor(<span class="keyword">new</span> SimpleDateFormat(<span class="string">"yyyy-MM-dd"</span>),</div><div class="line">            <span class="keyword">true</span>));</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+</li>
+<li><p>使用Map向前台传递参数/对象: 除了从前台获取参数，还能通过方法传入的参数向前台传递参数。在前台的jsp文件中（其实也就是showPerson方法返回的叫做”show”的jsp文件）通过<code>request.getAttribute(&quot;p&quot;)</code>就可以获取Person实例了。在MVCController.java中继续添加如下方法：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//pass the parameters to front-end</span></div><div class="line"><span class="meta">@RequestMapping</span>(<span class="string">"/show"</span>)</div><div class="line"><span class="function"><span class="keyword">public</span> String <span class="title">showPerson</span><span class="params">(Map&lt;String,Object&gt; map)</span></span>&#123;</div><div class="line">    Person p = <span class="keyword">new</span> Person();  </div><div class="line">    p.setAge(<span class="number">20</span>);</div><div class="line">    p.setName(<span class="string">"Bobby"</span>);</div><div class="line">    map.put(<span class="string">"p"</span>, p); </div><div class="line">    <span class="keyword">return</span> <span class="string">"show"</span>;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="comment">// 在jsp中可以这样获取p实例（在jsp目录下添加show.jsp）</span></div><div class="line"><span class="comment">// &lt;% Person p = (Person)request.getAttribute("p"); %&gt;</span></div><div class="line"><span class="comment">// &lt;p&gt;&lt;%=p.getName() %&gt;&lt;/p&gt;</span></div><div class="line"><span class="comment">//</span></div></pre></td></tr></table></figure>
+</li>
+<li><p>使用Ajax获取前台Post传过来的参数: 前面用JQuery提供的Ajax已经玩过几遍了，现在使用Spring其实写出来也差不多。首先在jsp目录下添加ajax.jsp，需要指出的是这里要引用jQuery外部js，但是WEB-INF只对服务端开放，浏览器是不能直接访问到存在这个目录下的文件的，所以需要在springmvc-servlet.xml中<a href="http://blog.csdn.net/zml19910925/article/details/51193168" target="_blank" rel="external">配置静态资源访问路径</a><code>&lt;mvc:resources mapping=&quot;/js/**&quot; location=&quot;/WEB-INF/js/&quot;/&gt;</code>，否则对静态资源的请求会被拦截。然后在MVCController.java中继续添加方法，这里是返回一句问候语字符串，在前台由js弹窗显示。</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></div><div class="line">	<span class="tag">&lt;<span class="name">input</span> <span class="attr">id</span>=<span class="string">"name"</span> <span class="attr">type</span>=<span class="string">"text"</span> <span class="attr">name</span>=<span class="string">"name"</span> /&gt;</span></div><div class="line">	<span class="tag">&lt;<span class="name">input</span> <span class="attr">id</span>=<span class="string">"btn"</span> <span class="attr">type</span>=<span class="string">"button"</span> <span class="attr">value</span>=<span class="string">"OK"</span>/&gt;</span></div><div class="line">	</div><div class="line">	<span class="comment">&lt;!-- SpringMVC的jsp无法访问WEB-INF中静态的js文件，但通过添加servletxml文件可映射到特定文件夹 --&gt;</span></div><div class="line">	<span class="tag">&lt;<span class="name">script</span> <span class="attr">type</span>=<span class="string">"text/javascript"</span> <span class="attr">src</span>=<span class="string">"../js/jquery-1.6.2.min.js"</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></div><div class="line">	<span class="tag">&lt;<span class="name">script</span> <span class="attr">type</span>=<span class="string">"text/javascript"</span>&gt;</span><span class="undefined"></span></div><div class="line"><span class="javascript">		$(<span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span></div><div class="line"><span class="javascript">			$(<span class="string">"#btn"</span>).click(<span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span></div><div class="line"><span class="javascript">				$.post(<span class="string">"getPerson"</span>, &#123;</span></div><div class="line"><span class="javascript">					name: $(<span class="string">"#name"</span>).val()</span></div><div class="line"><span class="undefined">				&#125;,</span></div><div class="line"><span class="javascript">				<span class="function"><span class="keyword">function</span>(<span class="params">data</span>) </span>&#123;</span></div><div class="line"><span class="undefined">					alert(data);</span></div><div class="line"><span class="undefined">				&#125;);</span></div><div class="line"><span class="undefined">			&#125;);</span></div><div class="line"><span class="undefined">		&#125;);</span></div><div class="line"><span class="undefined">	</span><span class="tag">&lt;/<span class="name">script</span>&gt;</span> </div><div class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></div></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//pass the parameters to front-end using ajax</span></div><div class="line"><span class="meta">@RequestMapping</span>(<span class="string">"/getPerson"</span>)</div><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">getPerson</span><span class="params">(String name, PrintWriter pw)</span></span>&#123;</div><div class="line">    pw.write(<span class="string">"hello, "</span> + name);        </div><div class="line">&#125;</div><div class="line"><span class="meta">@RequestMapping</span>(<span class="string">"/ajax"</span>)</div><div class="line"><span class="function"><span class="keyword">public</span> String <span class="title">sayHello</span><span class="params">()</span></span>&#123;</div><div class="line">    <span class="keyword">return</span> <span class="string">"ajax"</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+</li>
+<li><p>在Controller中使用redirect方式处理请求: 使用redirect将路径重定向到新的地址，再由该地址对应的Controller方法去处理并返回视图。继续在MVCController.java中添加:</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//redirect </span></div><div class="line"><span class="meta">@RequestMapping</span>(<span class="string">"/redirect"</span>)</div><div class="line"><span class="function"><span class="keyword">public</span> String <span class="title">redirect</span><span class="params">()</span></span>&#123;</div><div class="line">    <span class="keyword">return</span> <span class="string">"redirect:hello"</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+</li>
+<li><p>文件上传: 首先要导入两个处理文件上传的jar包。<br><img src="http://ww3.sinaimg.cn/large/9b3a5c2fgw1f8ky0vwo3mj205r01bweg.jpg" alt=""><br>在springmvc-servlet.xml配置文件中加入如下bean引用类：</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="comment">&lt;!-- upload settings --&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">bean</span> <span class="attr">id</span>=<span class="string">"multipartResolver"</span>  <span class="attr">class</span>=<span class="string">"org.springframework.web.multipart.commons.CommonsMultipartResolver"</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">"maxUploadSize"</span> <span class="attr">value</span>=<span class="string">"102400000"</span>&gt;</span><span class="tag">&lt;/<span class="name">property</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">bean</span>&gt;</span></div></pre></td></tr></table></figure>
+<p>在MVCController.java中加入处理文件上传的方法:</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line"><span class="meta">@RequestMapping</span>(value=<span class="string">"/upload"</span>,method=RequestMethod.POST)</div><div class="line"><span class="function"><span class="keyword">public</span> String <span class="title">upload</span><span class="params">(HttpServletRequest req)</span> <span class="keyword">throws</span> Exception</span>&#123;</div><div class="line">    MultipartHttpServletRequest mreq = (MultipartHttpServletRequest)req;</div><div class="line">    MultipartFile file = mreq.getFile(<span class="string">"file"</span>);</div><div class="line">    String fileName = file.getOriginalFilename();</div><div class="line">    SimpleDateFormat sdf = <span class="keyword">new</span> SimpleDateFormat(<span class="string">"yyyyMMddHHmmss"</span>);        </div><div class="line">    FileOutputStream fos = <span class="keyword">new</span> FileOutputStream(req.getSession().getServletContext().getRealPath(<span class="string">"/"</span>)+</div><div class="line">            <span class="string">"upload/"</span>+sdf.format(<span class="keyword">new</span> Date())+fileName.substring(fileName.lastIndexOf(<span class="string">'.'</span>)));</div><div class="line">    <span class="comment">//System.out.println(req.getSession().getServletContext().getRealPath("/"));</span></div><div class="line">    fos.write(file.getBytes());</div><div class="line">    fos.flush();</div><div class="line">    fos.close();</div><div class="line">     </div><div class="line">    <span class="keyword">return</span> <span class="string">"hello"</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>在hello.jsp中也要相应地加上上传文件的控件：</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">form</span> <span class="attr">action</span>=<span class="string">"upload"</span> <span class="attr">method</span>=<span class="string">"post"</span> <span class="attr">enctype</span>=<span class="string">"multipart/form-data"</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"file"</span> <span class="attr">name</span>=<span class="string">"file"</span>&gt;</span><span class="tag">&lt;<span class="name">br</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"submit"</span> <span class="attr">value</span>=<span class="string">"submit"</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">form</span>&gt;</span></div></pre></td></tr></table></figure>
+</li>
+<li><p>使用@RequestParam注解参数的名称: 指定了请求中必须给出该名字的参数值，否则报错。在MVCController.java中加入方法:</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// 强制必须传入参数 </span></div><div class="line"><span class="meta">@RequestMapping</span>(value=<span class="string">"/param"</span>)</div><div class="line"><span class="function"><span class="keyword">public</span> String <span class="title">testRequestParam</span><span class="params">(@RequestParam(value=<span class="string">"id"</span>)</span> Integer id,</span></div><div class="line"><span class="function">        @<span class="title">RequestParam</span><span class="params">(value=<span class="string">"name"</span>)</span>String name)</span>&#123;</div><div class="line">    System.out.println(id+<span class="string">" "</span>+name);</div><div class="line">    <span class="keyword">return</span> <span class="string">"hello"</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+</li>
+<li><p>RESTful风格的SpringMVC: REST(<a href="http://baike.baidu.com/link?url=At3xH6Yr9za8nNcIT53-sV9jDsLTv3vGQQ1s_fnqhGqzR4f0m2rDpKbZEUxxjK-NKQlfjC1gvaq7M4yN2dlcYa" target="_blank" rel="external">Representational State Transfer</a>)，指的是一组架构约束条件和原则，其中最重要的是<strong>客户端和服务器之间的交互在请求之间是无状态的</strong>，从客户端到服务器的每个请求都必须包含理解请求所必需的信息。在Spring MVC中，RESTful的查删改增的实现需要用RequestMapping和PathVariable注解来实现，同时需要注意form不支持PUT和DELETE方法，所以需要曲线实现。首先在hello.jsp中加入相关的form控件：</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">form</span> <span class="attr">action</span>=<span class="string">"/spring/rest/user/1"</span> <span class="attr">method</span>=<span class="string">"post"</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"hidden"</span> <span class="attr">name</span>=<span class="string">"_method"</span> <span class="attr">value</span>=<span class="string">"PUT"</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"submit"</span> <span class="attr">value</span>=<span class="string">"put"</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">form</span>&gt;</span></div><div class="line"> </div><div class="line"><span class="tag">&lt;<span class="name">form</span> <span class="attr">action</span>=<span class="string">"/spring/rest/user/1"</span> <span class="attr">method</span>=<span class="string">"post"</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"submit"</span> <span class="attr">value</span>=<span class="string">"post"</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">form</span>&gt;</span></div><div class="line"> </div><div class="line"><span class="tag">&lt;<span class="name">form</span> <span class="attr">action</span>=<span class="string">"/spring/rest/user/1"</span> <span class="attr">method</span>=<span class="string">"get"</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"submit"</span> <span class="attr">value</span>=<span class="string">"get"</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">form</span>&gt;</span></div><div class="line"> </div><div class="line"><span class="tag">&lt;<span class="name">form</span> <span class="attr">action</span>=<span class="string">"/spring/rest/user/1"</span> <span class="attr">method</span>=<span class="string">"post"</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"hidden"</span> <span class="attr">name</span>=<span class="string">"_method"</span> <span class="attr">value</span>=<span class="string">"DELETE"</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"submit"</span> <span class="attr">value</span>=<span class="string">"delete"</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">form</span>&gt;</span></div></pre></td></tr></table></figure>
+<p>接着新建RestController类用于映射rest路径并且打印四种方法的字符串：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div></pre></td><td class="code"><pre><div class="line"><span class="meta">@Controller</span></div><div class="line"><span class="meta">@RequestMapping</span>(<span class="string">"/rest"</span>)</div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">RestController</span> </span>&#123;</div><div class="line">	<span class="meta">@RequestMapping</span>(value=<span class="string">"/user/&#123;id&#125;"</span>,method=RequestMethod.GET)</div><div class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">get</span><span class="params">(@PathVariable(<span class="string">"id"</span>)</span> Integer id)</span>&#123;</div><div class="line">        System.out.println(<span class="string">"get"</span> + id);</div><div class="line">        <span class="keyword">return</span> <span class="string">"/hello"</span>;</div><div class="line">    &#125;</div><div class="line">     </div><div class="line">    <span class="meta">@RequestMapping</span>(value=<span class="string">"/user/&#123;id&#125;"</span>,method=RequestMethod.POST)</div><div class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">post</span><span class="params">(@PathVariable(<span class="string">"id"</span>)</span> Integer id)</span>&#123;</div><div class="line">        System.out.println(<span class="string">"post"</span> + id);</div><div class="line">        <span class="keyword">return</span> <span class="string">"/hello"</span>;</div><div class="line">    &#125;</div><div class="line">     </div><div class="line">    <span class="meta">@RequestMapping</span>(value=<span class="string">"/user/&#123;id&#125;"</span>,method=RequestMethod.PUT)</div><div class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">put</span><span class="params">(@PathVariable(<span class="string">"id"</span>)</span> Integer id)</span>&#123;</div><div class="line">        System.out.println(<span class="string">"put"</span> + id);</div><div class="line">        <span class="keyword">return</span> <span class="string">"/hello"</span>;</div><div class="line">    &#125;</div><div class="line">     </div><div class="line">    <span class="meta">@RequestMapping</span>(value=<span class="string">"/user/&#123;id&#125;"</span>,method=RequestMethod.DELETE)</div><div class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">delete</span><span class="params">(@PathVariable(<span class="string">"id"</span>)</span> Integer id)</span>&#123;</div><div class="line">        System.out.println(<span class="string">"delete"</span> + id);</div><div class="line">        <span class="keyword">return</span> <span class="string">"/hello"</span>;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+</li>
+<li><p>返回json格式的数据: 还记得之前做bbs小项目的时候ajax+json的数据传递接触得很多了，现在换一批jar包看看。首先导入这些jar包(不过似乎没有什么类有引用到它们诶…)<br><img src="http://ww4.sinaimg.cn/large/9b3a5c2fgw1f8la2nc0k2j205q01u74e.jpg" alt=""><br>然后新建JsonController类，直接返回Person对象</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div></pre></td><td class="code"><pre><div class="line"><span class="meta">@Controller</span></div><div class="line"><span class="meta">@RequestMapping</span>(<span class="string">"/json"</span>)</div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">JsonController</span> </span>&#123;</div><div class="line">	</div><div class="line">	<span class="meta">@RequestMapping</span>(<span class="string">"/json"</span>)</div><div class="line">	<span class="function"><span class="keyword">public</span> String <span class="title">jsonJSP</span><span class="params">()</span> </span>&#123;</div><div class="line">		<span class="keyword">return</span> <span class="string">"json"</span>;</div><div class="line">	&#125;</div><div class="line">	</div><div class="line">	<span class="meta">@ResponseBody</span></div><div class="line">    <span class="meta">@RequestMapping</span>(<span class="string">"/personJson"</span>)</div><div class="line">    <span class="function"><span class="keyword">public</span> Person <span class="title">get</span><span class="params">()</span> </span>&#123;</div><div class="line">        Person p = <span class="keyword">new</span> Person();</div><div class="line">        p.setName(<span class="string">"Bobo"</span>);</div><div class="line">        p.setAge(<span class="number">21</span>);</div><div class="line">        p.setSex(<span class="string">"male"</span>);</div><div class="line">        <span class="keyword">return</span> p;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>对应地创建json.jsp页面，利用ajax发Get请求到的数据可以直接用点操作符访问值了。不过直接打印data的话并不是一个json字符串，而是<code>[object Object]</code>的形式，所以我得说做了这个json的小实验还是不太懂Spring怎么就通过json格式传输数据了</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">input</span> <span class="attr">id</span>=<span class="string">"btn"</span> <span class="attr">type</span>=<span class="string">"button"</span> <span class="attr">value</span>=<span class="string">"OK"</span>/&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"container"</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line"></div><div class="line"><span class="comment">&lt;!-- SpringMVC的jsp无法访问WEB-INF中静态的js文件，但通过添加servletxml文件可映射到特定文件夹 --&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">type</span>=<span class="string">"text/javascript"</span> <span class="attr">src</span>=<span class="string">"../js/jquery-1.6.2.min.js"</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">type</span>=<span class="string">"text/javascript"</span>&gt;</span><span class="undefined"></span></div><div class="line"><span class="javascript">	$(<span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span></div><div class="line"><span class="javascript">		$(<span class="string">"#btn"</span>).click(<span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span></div><div class="line"><span class="javascript">			$.ajax(&#123;</span></div><div class="line"><span class="javascript">				url: <span class="string">"personJson"</span>,</span></div><div class="line"><span class="javascript">				type: <span class="string">"get"</span>,</span></div><div class="line"><span class="javascript">				success: <span class="function"><span class="keyword">function</span>(<span class="params">data</span>) </span>&#123;</span></div><div class="line"><span class="javascript">					<span class="keyword">var</span> c = $(<span class="string">"#container"</span>);</span></div><div class="line"><span class="javascript">					c.append(<span class="string">"&lt;div&gt;Name:"</span> + data.name + <span class="string">"&lt;/div&gt;"</span>);</span></div><div class="line"><span class="javascript">					c.append(<span class="string">"&lt;div&gt;Age:"</span> + data.age + <span class="string">"&lt;/div&gt;"</span>);</span></div><div class="line"><span class="javascript">					c.append(<span class="string">"&lt;div&gt;Sex:"</span> + data.sex + <span class="string">"&lt;/div&gt;"</span>);</span></div><div class="line"><span class="undefined">				&#125;</span></div><div class="line"><span class="undefined">			&#125;);</span></div><div class="line"><span class="undefined">		&#125;);</span></div><div class="line"><span class="undefined">	&#125;);</span></div><div class="line"><span class="undefined">	</span></div><div class="line"><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></div></pre></td></tr></table></figure>
+</li>
+<li><p>异常的处理(未验证): 分为在Controller内部处理局部异常、新建对所有Controller异常的处理类。</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// 1. 局部异常</span></div><div class="line"><span class="meta">@ExceptionHandler</span></div><div class="line"><span class="function"><span class="keyword">public</span> ModelAndView <span class="title">exceptionHandler</span><span class="params">(Exception ex)</span></span>&#123;</div><div class="line">    ModelAndView mv = <span class="keyword">new</span> ModelAndView(<span class="string">"error"</span>);</div><div class="line">    mv.addObject(<span class="string">"exception"</span>, ex);</div><div class="line">    System.out.println(<span class="string">"in testExceptionHandler"</span>);</div><div class="line">    <span class="keyword">return</span> mv;</div><div class="line">&#125;</div><div class="line"><span class="meta">@RequestMapping</span>(<span class="string">"/error"</span>)</div><div class="line"><span class="function"><span class="keyword">public</span> String <span class="title">error</span><span class="params">()</span></span>&#123;</div><div class="line">    <span class="keyword">int</span> i = <span class="number">5</span>/<span class="number">0</span>;</div><div class="line">    <span class="keyword">return</span> <span class="string">"hello"</span>;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="comment">// 2.1 全局异常的处理类</span></div><div class="line"><span class="meta">@ControllerAdvice</span></div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">testControllerAdvice</span> </span>&#123;</div><div class="line">    <span class="meta">@ExceptionHandler</span></div><div class="line">    <span class="function"><span class="keyword">public</span> ModelAndView <span class="title">exceptionHandler</span><span class="params">(Exception ex)</span></span>&#123;</div><div class="line">        ModelAndView mv = <span class="keyword">new</span> ModelAndView(<span class="string">"error"</span>);</div><div class="line">        mv.addObject(<span class="string">"exception"</span>, ex);</div><div class="line">        System.out.println(<span class="string">"in testControllerAdvice"</span>);</div><div class="line">        <span class="keyword">return</span> mv;</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="comment">// 2.2 全局异常处理也可以在配置文件中设置，其中error是出错后指向的页面</span></div><div class="line">&lt;!-- configure SimpleMappingExceptionResolver --&gt;</div><div class="line">&lt;bean <span class="class"><span class="keyword">class</span></span>=<span class="string">"org.springframework.web.servlet.handler.SimpleMappingExceptionResolver"</span>&gt;</div><div class="line">    &lt;property name=<span class="string">"exceptionMappings"</span>&gt;</div><div class="line">        &lt;props&gt;</div><div class="line">            &lt;prop key="java.lang.ArithmeticException"&gt;error&lt;/prop&gt;</div><div class="line">        &lt;/props&gt;</div><div class="line">    &lt;/property&gt;</div><div class="line">&lt;/bean&gt;</div></pre></td></tr></table></figure>
+</li>
+<li><p>自定义拦截器: Spring MVC中拦截器的主要作用是拦截用户的请求并进行相应的处理，有点类似于Servlet开发中的filter，但<a href="http://blog.csdn.net/chenleixing/article/details/44573495" target="_blank" rel="external">拦截器和过滤器还是有区别的</a>。拦截器可以用来计算PageView、进行权限验证，或者是来判断用户是否登陆，或者是像12306 那样子判断当前时间是否是购票时间。创建自定义拦截器类，实现HandlerInterceptor接口:</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">MyInterceptor</span> <span class="keyword">implements</span> <span class="title">HandlerInterceptor</span> </span>&#123;</div><div class="line"></div><div class="line">    <span class="meta">@Override</span></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">afterCompletion</span><span class="params">(HttpServletRequest arg0,</span></span></div><div class="line"><span class="function"><span class="params">            HttpServletResponse arg1, Object arg2, Exception arg3)</span></span></div><div class="line"><span class="function">            <span class="keyword">throws</span> Exception </span>&#123;</div><div class="line">        System.out.println(<span class="string">"afterCompletion"</span>);</div><div class="line">    &#125;</div><div class="line"> </div><div class="line">    <span class="meta">@Override</span></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">postHandle</span><span class="params">(HttpServletRequest arg0, HttpServletResponse arg1,</span></span></div><div class="line"><span class="function"><span class="params">            Object arg2, ModelAndView arg3)</span> <span class="keyword">throws</span> Exception </span>&#123;</div><div class="line">        System.out.println(<span class="string">"postHandle"</span>);</div><div class="line">    &#125;</div><div class="line"> </div><div class="line">    <span class="meta">@Override</span></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">preHandle</span><span class="params">(HttpServletRequest arg0, HttpServletResponse arg1,</span></span></div><div class="line"><span class="function"><span class="params">            Object arg2)</span> <span class="keyword">throws</span> Exception </span>&#123;</div><div class="line">        System.out.println(<span class="string">"preHandle"</span>);</div><div class="line">        <span class="keyword">return</span> <span class="keyword">true</span>;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>然后在springmvc-servlet.xml中加入</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="comment">&lt;!-- interceptor setting --&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">mvc:interceptors</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">mvc:interceptor</span>&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">mvc:mapping</span> <span class="attr">path</span>=<span class="string">"/mvc/**"</span>/&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">bean</span> <span class="attr">class</span>=<span class="string">"testSpring.interceptor.MyInterceptor"</span>&gt;</span><span class="tag">&lt;/<span class="name">bean</span>&gt;</span></div><div class="line">    <span class="tag">&lt;/<span class="name">mvc:interceptor</span>&gt;</span>        </div><div class="line"><span class="tag">&lt;/<span class="name">mvc:interceptors</span>&gt;</span></div></pre></td></tr></table></figure>
+<p>此时访问<em>/spring/mvc/</em>下的页面就会在控制台看到打印的内容，说明拦截器起作用了，可以自定义其中各个过程的操作。</p>
+</li>
+</ul>
+<h2 id="整合SpringIOC和SpringMVC"><a href="#整合SpringIOC和SpringMVC" class="headerlink" title="整合SpringIOC和SpringMVC"></a>整合SpringIOC和SpringMVC</h2><hr>
+<ul>
+<li>首先导入部分validation的jar包。包括<code>validation-api-1.1.0.Final.jar</code>, <code>jboss-logging-3.1.3.ga.jar</code>, <code>hibernate-validator-5.0.1.Final.jar</code>。</li>
+<li><p>在testSpring下新建文件夹integrate。创建User类，其中用到了部分用于验证的注解，但奇怪的是似乎没起到作用，例如非空的name不传值也不会报错:</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">User</span> </span>&#123;</div><div class="line">	<span class="keyword">private</span> <span class="keyword">int</span> id;</div><div class="line">	<span class="meta">@NotEmpty</span></div><div class="line">	<span class="keyword">private</span> String name;</div><div class="line">	</div><div class="line">	<span class="meta">@Past</span></div><div class="line">	<span class="meta">@DateTimeFormat</span>(pattern=<span class="string">"yyyy-MM-dd"</span>)</div><div class="line">	<span class="keyword">private</span> Date birth;</div><div class="line">	</div><div class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">getId</span><span class="params">()</span> </span>&#123;</div><div class="line">		<span class="keyword">return</span> id;</div><div class="line">	&#125;</div><div class="line"></div><div class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setId</span><span class="params">(<span class="keyword">int</span> id)</span> </span>&#123;</div><div class="line">		<span class="keyword">this</span>.id = id;</div><div class="line">	&#125;</div><div class="line"></div><div class="line">	<span class="function"><span class="keyword">public</span> String <span class="title">getName</span><span class="params">()</span> </span>&#123;</div><div class="line">		<span class="keyword">return</span> name;</div><div class="line">	&#125;</div><div class="line"></div><div class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setName</span><span class="params">(String name)</span> </span>&#123;</div><div class="line">		<span class="keyword">this</span>.name = name;</div><div class="line">	&#125;</div><div class="line"></div><div class="line">	<span class="function"><span class="keyword">public</span> Date <span class="title">getBirth</span><span class="params">()</span> </span>&#123;</div><div class="line">		<span class="keyword">return</span> birth;</div><div class="line">	&#125;</div><div class="line"></div><div class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setBirth</span><span class="params">(Date birth)</span> </span>&#123;</div><div class="line">		<span class="keyword">this</span>.birth = birth;</div><div class="line">	&#125;</div><div class="line"></div><div class="line">	<span class="meta">@Override</span></div><div class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">toString</span><span class="params">()</span> </span>&#123;</div><div class="line">        <span class="keyword">return</span> <span class="string">"User [id="</span> + id + <span class="string">", name="</span> + name + <span class="string">", birth="</span> + birth + <span class="string">"]"</span>;</div><div class="line">    &#125; </div><div class="line">&#125;</div></pre></td></tr></table></figure>
+</li>
+<li><p>创建UserController类，其中用到了IoC的Autowired注解，表示需要从外部注入依赖对象UserService，而在UserController内部就不用涉及这个属性的实例化了</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line"><span class="meta">@Controller</span></div><div class="line"><span class="meta">@RequestMapping</span>(<span class="string">"/integrate"</span>)</div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">UserController</span> </span>&#123;</div><div class="line">	<span class="meta">@Autowired</span>	<span class="comment">// 表示UserController依赖UserService。</span></div><div class="line">	<span class="keyword">private</span> UserService userService;	<span class="comment">// 用了IoC，可以看到这里并不涉及UserService的实例化。</span></div><div class="line">	</div><div class="line">	<span class="meta">@RequestMapping</span>(<span class="string">"/user"</span>)</div><div class="line">	<span class="function"><span class="keyword">public</span> String <span class="title">saveUser</span><span class="params">(@RequestBody @ModelAttribute User u)</span> </span>&#123;</div><div class="line">		System.out.println(u);</div><div class="line">		userService.save();</div><div class="line">		<span class="keyword">return</span> <span class="string">"hello"</span>;	</div><div class="line">	&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+</li>
+<li><p>创建UserService类，注意用到了Component注解，表示这个类需要交给容器，然后配合配置文件扫描指定目录下的Component类，注入到需要它的对象中。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="meta">@Component</span></div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">UserService</span> </span>&#123;</div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="title">UserService</span><span class="params">()</span></span>&#123;</div><div class="line">        System.out.println(<span class="string">"UserService Constructor...\n\n"</span>);</div><div class="line">    &#125;</div><div class="line">     </div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">save</span><span class="params">()</span></span>&#123;</div><div class="line">        System.out.println(<span class="string">"save"</span>);</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+</li>
+<li><p>修改Spring配置文件: 在src目录下新建applicationContext.xml，关键是用<code>context:component-scan base-package</code>指定到某个包下导入Component到IoC容器中</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div></pre></td><td class="code"><pre><div class="line">&lt;?xml version="1.0" encoding="UTF-8"?&gt;</div><div class="line"><span class="tag">&lt;<span class="name">beans</span> <span class="attr">xmlns</span>=<span class="string">"http://www.springframework.org/schema/beans"</span></span></div><div class="line"><span class="tag">    <span class="attr">xmlns:xsi</span>=<span class="string">"http://www.w3.org/2001/XMLSchema-instance"</span></span></div><div class="line"><span class="tag">    <span class="attr">xsi:schemaLocation</span>=<span class="string">"http://www.springframework.org/schema/beans  </span></span></div><div class="line"><span class="tag"><span class="string">        http://www.springframework.org/schema/beans/spring-beans.xsd </span></span></div><div class="line"><span class="tag"><span class="string">        http://www.springframework.org/schema/util </span></span></div><div class="line"><span class="tag"><span class="string">        http://www.springframework.org/schema/util/spring-util-4.0.xsd</span></span></div><div class="line"><span class="tag"><span class="string">        http://www.springframework.org/schema/context</span></span></div><div class="line"><span class="tag"><span class="string">        http://www.springframework.org/schema/context/spring-context.xsd</span></span></div><div class="line"><span class="tag"><span class="string">        "</span></span></div><div class="line"><span class="tag">        <span class="attr">xmlns:util</span>=<span class="string">"http://www.springframework.org/schema/util"</span></span></div><div class="line"><span class="tag">        <span class="attr">xmlns:p</span>=<span class="string">"http://www.springframework.org/schema/p"</span></span></div><div class="line"><span class="tag">        <span class="attr">xmlns:context</span>=<span class="string">"http://www.springframework.org/schema/context"</span>   </span></div><div class="line"><span class="tag">        &gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">context:component-scan</span> <span class="attr">base-package</span>=<span class="string">"testSpring.integrate"</span>&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">context:exclude-filter</span> <span class="attr">type</span>=<span class="string">"annotation"</span></span></div><div class="line"><span class="tag">            <span class="attr">expression</span>=<span class="string">"org.springframework.stereotype.Controller"</span>/&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">context:exclude-filter</span> <span class="attr">type</span>=<span class="string">"annotation"</span></span></div><div class="line"><span class="tag">            <span class="attr">expression</span>=<span class="string">"org.springframework.web.bind.annotation.ControllerAdvice"</span>/&gt;</span>        </div><div class="line">    <span class="tag">&lt;/<span class="name">context:component-scan</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">beans</span>&gt;</span></div></pre></td></tr></table></figure>
+<p>对应地把这个新的xml关联到原来的web.xml中:</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="comment">&lt;!-- configure the springIOC --&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">listener</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">listener-class</span>&gt;</span>org.springframework.web.context.ContextLoaderListener<span class="tag">&lt;/<span class="name">listener-class</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">listener</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">context-param</span>&gt;</span>  </div><div class="line">    <span class="tag">&lt;<span class="name">param-name</span>&gt;</span>contextConfigLocation<span class="tag">&lt;/<span class="name">param-name</span>&gt;</span>  </div><div class="line">    <span class="tag">&lt;<span class="name">param-value</span>&gt;</span>classpath:applicationContext.xml<span class="tag">&lt;/<span class="name">param-value</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">context-param</span>&gt;</span></div></pre></td></tr></table></figure>
+<p>在原来的springmvc-servlet.xml中也需要对应修改扫描的目录，防止SpringMVC和SpringIOC对同一个对象的管理重合。这一点暂时还不太明白，是因为web.xml同时导入了这两个Xml所以要防止二者定义冲突吗？</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"> <span class="comment">&lt;!-- scan the package and the sub package --&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">context:component-scan</span> <span class="attr">base-package</span>=<span class="string">"testSpring.integrate"</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">context:include-filter</span> <span class="attr">type</span>=<span class="string">"annotation"</span></span></div><div class="line"><span class="tag">        <span class="attr">expression</span>=<span class="string">"org.springframework.stereotype.Controller"</span>/&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">context:include-filter</span> <span class="attr">type</span>=<span class="string">"annotation"</span></span></div><div class="line"><span class="tag">        <span class="attr">expression</span>=<span class="string">"org.springframework.web.bind.annotation.ControllerAdvice"</span>/&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">context:component-scan</span>&gt;</span></div></pre></td></tr></table></figure>
+<p>在运行Tomcat的时候，可以看到在加载XML文件的时候，就调用了UserService的构造子，因此UserService的实例化和UserController的实例化解耦合了:<br><img src="http://ww1.sinaimg.cn/large/9b3a5c2fgw1f8m1a8y78xj20t702k3zo.jpg" alt=""><br>访问(<a href="http://localhost:8080/spring/integrate/user" target="_blank" rel="external">http://localhost:8080/spring/integrate/user</a>) ，由于此时没有传入任何User的属性，所以打印出来的都是空（为何不报错？）。附上参数?id=1&amp;name=bobo&amp;birth=2015-05-16后就会正常匹配到User的属性（但是为啥日期的格式和User中定的pattern不同？）:<br><img src="http://ww4.sinaimg.cn/large/9b3a5c2fgw1f8m1cfi9kwj20h202ut9g.jpg" alt=""></p>
+</li>
+</ul>
+<h2 id="表单验证与国际化"><a href="#表单验证与国际化" class="headerlink" title="表单验证与国际化"></a>表单验证与国际化</h2><ul>
+<li><p>沿用前面的User类，前面写的非空、日期格式等到这一步才会起作用。例如现在需要显示用户信息。首先新建FormController类:</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line"><span class="meta">@Controller</span></div><div class="line"><span class="meta">@RequestMapping</span>(<span class="string">"/form"</span>)</div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">FormController</span> </span>&#123;</div><div class="line">	<span class="meta">@RequestMapping</span>(value=<span class="string">"/add"</span>,method=RequestMethod.POST)    </div><div class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">add</span><span class="params">(@Valid User u, BindingResult br)</span></span>&#123;</div><div class="line">        <span class="keyword">if</span>(br.getErrorCount() &gt; <span class="number">0</span>) &#123; <span class="comment">// 出错则不提交到showUser        </span></div><div class="line">            <span class="keyword">return</span> <span class="string">"addUser"</span>;</div><div class="line">        &#125;</div><div class="line">        <span class="keyword">return</span> <span class="string">"showUser"</span>;</div><div class="line">    &#125;</div><div class="line">     </div><div class="line">    <span class="meta">@RequestMapping</span>(value=<span class="string">"/add"</span>,method=RequestMethod.GET)</div><div class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">add</span><span class="params">(Map&lt;String,Object&gt; map)</span></span>&#123;</div><div class="line">        map.put(<span class="string">"user"</span>, <span class="keyword">new</span> User());</div><div class="line">        <span class="keyword">return</span> <span class="string">"addUser"</span>;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>这里的逻辑是，第一次请求页面(GET)的时候new一个User对象，并返回addUser的jsp页面。而提交表单时，若发现了错误，则保持在addUser这个页面，若没有错误则跳转到showUser这个jsp页面。错误信息会直接显示在addUser原页面上，而且原来填入的信息不会被清空。</p>
+</li>
+<li><p>对应地在jsp目录下新建addUser和showUser的jsp。注意要想用<code>form:form</code>标签，需要在最前面添加一句引用<code>&lt;%@ taglib prefix=&quot;form&quot; uri=&quot;http://www.springframework.org/tags/form&quot; %&gt;</code>:</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line"><span class="comment">&lt;!--addUser.jsp的body部分--&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">form:form</span> <span class="attr">action</span>=<span class="string">"add"</span> <span class="attr">method</span>=<span class="string">"post"</span> <span class="attr">modelAttribute</span>=<span class="string">"user"</span>&gt;</span></div><div class="line">    id:<span class="tag">&lt;<span class="name">form:input</span> <span class="attr">path</span>=<span class="string">"id"</span>/&gt;</span><span class="tag">&lt;<span class="name">form:errors</span> <span class="attr">path</span>=<span class="string">"id"</span>/&gt;</span><span class="tag">&lt;<span class="name">br</span>&gt;</span></div><div class="line">    name:<span class="tag">&lt;<span class="name">form:input</span> <span class="attr">path</span>=<span class="string">"name"</span>/&gt;</span><span class="tag">&lt;<span class="name">form:errors</span> <span class="attr">path</span>=<span class="string">"name"</span>/&gt;</span><span class="tag">&lt;<span class="name">br</span>&gt;</span></div><div class="line">    birth:<span class="tag">&lt;<span class="name">form:input</span> <span class="attr">path</span>=<span class="string">"birth"</span>/&gt;</span><span class="tag">&lt;<span class="name">form:errors</span> <span class="attr">path</span>=<span class="string">"birth"</span>/&gt;</span><span class="tag">&lt;<span class="name">br</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"submit"</span> <span class="attr">value</span>=<span class="string">"OK"</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">form:form</span>&gt;</span></div><div class="line"></div><div class="line"><span class="comment">&lt;!--showUser.jsp的body部分--&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">%</span> <span class="attr">User</span> <span class="attr">u</span> = <span class="string">(User)request.getAttribute(</span>"<span class="attr">user</span>"); %&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">p</span>&gt;</span>ID:<span class="tag">&lt;<span class="name">%=u.getId()</span> %&gt;</span><span class="tag">&lt;/<span class="name">p</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">p</span>&gt;</span>Name:<span class="tag">&lt;<span class="name">%=u.getName()</span> %&gt;</span><span class="tag">&lt;/<span class="name">p</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">p</span>&gt;</span>Birth:<span class="tag">&lt;<span class="name">%=u.getBirth()</span> %&gt;</span><span class="tag">&lt;/<span class="name">p</span>&gt;</span></div></pre></td></tr></table></figure>
+</li>
+<li><p>可以自定义出错提示信息，在src目录下新建locale.properties：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">NotEmpty.user.name=name cannot be empty</div><div class="line">Past.user.birth=birth should be a past value</div><div class="line">DateTimeFormat.user.birth=the format of input is wrong</div><div class="line">typeMismatch.user.birth=the format of input is wrong</div><div class="line">typeMismatch.user.id=the format of input is wrong</div></pre></td></tr></table></figure>
+<p>效果如下：<br><img src="http://ww1.sinaimg.cn/large/9b3a5c2fgw1f8m5vjg2xqj20g005f3zy.jpg" alt=""><br>格式正确后提交后就可以跳转到showUser<br><img src="http://ww3.sinaimg.cn/large/9b3a5c2fgw1f8m5wkw0grj20cq06taay.jpg" alt=""></p>
+</li>
+<li><p>国际化: （这个国际化实验暂时没有做成功不知为何…）在src下添加locale_zh_CN.properties</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">username=帐号</div><div class="line">password=密码</div></pre></td></tr></table></figure>
+<p>locale_en_US.properties</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">username=user name</div><div class="line">password=password</div></pre></td></tr></table></figure>
+<p>新建一个locale.jsp，同时在导入两个jar包<br><img src="http://ww4.sinaimg.cn/large/9b3a5c2fgw1f8m61r18vnj204o01fmx0.jpg" alt="">，并在jsp最前面加上<code>&lt;%@ taglib uri=&quot;http://java.sun.com/jsp/jstl/fmt&quot; prefix=&quot;fmt&quot; %&gt;</code></p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">fmt:message</span> <span class="attr">key</span>=<span class="string">"username"</span>&gt;</span><span class="tag">&lt;/<span class="name">fmt:message</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">fmt:message</span> <span class="attr">key</span>=<span class="string">"password"</span>&gt;</span><span class="tag">&lt;/<span class="name">fmt:message</span>&gt;</span></div></pre></td></tr></table></figure>
+<p>再稍微改一下MVCController，加个带有@RequestMapping的方法导向这个jsp，显示效果如下，但浏览器改成英文仍然是中文显示，不知为啥<br><img src="http://ww3.sinaimg.cn/large/9b3a5c2fgw1f8m63296zkj20b7032weu.jpg" alt=""></p>
+</li>
+</ul>
+
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+      <div>
+        <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+  <div>└(^o^)┘</div>
+  <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+    <span>Donate</span>
+  </button>
+  <div id="QR" style="display: none;">
+
+    
+      <div id="wechat" style="display: inline-block">
+        <img id="wechat_qr" src="/images/wechat.png" alt="Bob_波波 WeChat Pay"/>
+        <p>WeChat Pay</p>
+      </div>
+    
+
+    
+      <div id="alipay" style="display: inline-block">
+        <img id="alipay_qr" src="/images/alipay.png" alt="Bob_波波 Alipay"/>
+        <p>Alipay</p>
+      </div>
+    
+
+    
+
+  </div>
+</div>
+
+      </div>
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/java/" rel="tag"><i class="fa fa-tag"></i> java</a>
+          
+            <a href="/tags/web/" rel="tag"><i class="fa fa-tag"></i> web</a>
+          
+            <a href="/tags/spring/" rel="tag"><i class="fa fa-tag"></i> spring</a>
+          
+        </div>
+      
+
+      
+      
+        <div class="post-widgets">
+        
+
+        
+
+        
+          
+          <div class="social_share">
+            
+            
+               <div id="needsharebutton-postbottom">
+                 <span class="btn">
+                    <i class="fa fa-share-alt" aria-hidden="true"></i>
+                 </span>
+               </div>
+            
+          </div>
+        
+        </div>
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2016/09/23/java_spring/" rel="next" title="Java Spring框架入门">
+                <i class="fa fa-chevron-left"></i> Java Spring框架入门
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2016/10/16/javascript_professional_3/" rel="prev" title="(Suspended)Note for Professional JavaScript for Web Developers (3/4)">
+                (Suspended)Note for Professional JavaScript for Web Developers (3/4) <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+  </div>
+
+
+          </div>
+          
+
+  
+    <div class="comments" id="comments">
+      <div id="disqus_thread">
+        <noscript>Please enable JavaScript to view the comments powered by Disqus.</noscript>
+      </div>
+    </div>
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Overview
+          </li>
+        </ul>
+      
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="/images/avatar.jpg"
+                alt="Bob_波波"/>
+            
+              <p class="site-author-name" itemprop="name">Bob_波波</p>
+              <p class="site-description motion-element" itemprop="description">I'm a Software Engineer!</p>
+          </div>
+
+          
+            <nav class="site-state motion-element">
+              
+                <div class="site-state-item site-state-posts">
+                
+                  <a href="/archives/">
+                
+                    <span class="site-state-item-count">40</span>
+                    <span class="site-state-item-name">posts</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-categories">
+                  <a href="/categories/index.html">
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">3</span>
+                    <span class="site-state-item-name">categories</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-tags">
+                  <a href="/tags/index.html">
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">39</span>
+                    <span class="site-state-item-name">tags</span>
+                  </a>
+                </div>
+              
+            </nav>
+          
+
+          
+
+          
+
+          
+
+          
+          
+
+          
+            
+          
+          
+
+        </div>
+      </div>
+
+      
+      <!--noindex-->
+        <div class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+            
+            
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#创建Spring-MVC项目"><span class="nav-text">创建Spring MVC项目</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#进一步体验Spring-MVC"><span class="nav-text">进一步体验Spring MVC</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#整合SpringIOC和SpringMVC"><span class="nav-text">整合SpringIOC和SpringMVC</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#表单验证与国际化"><span class="nav-text">表单验证与国际化</span></a></li></ol></div>
+            
+
+          </div>
+        </div>
+      <!--/noindex-->
+      
+
+      
+        <div class="back-to-top">
+          <i class="fa fa-arrow-up"></i>
+          
+        </div>
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; 2016 – <span itemprop="copyrightYear">2019</span>
+  <span class="with-love" id="animate">
+    <i class="fa fa-futbol-o"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Bob_波波</span>
+
+  
+
+  
+</div>
+
+
+  <div class="powered-by">Powered by <a href="https://hexo.io" class="theme-link" rel="noopener" target="_blank">Hexo</a></div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">Theme – <a href="https://theme-next.org" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a></div>
+
+
+
+
+        
+<div class="busuanzi-count">
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  
+    <span class="site-uv" title="Total Visitors">
+      <i class="fa fa-user"></i>
+      <span class="busuanzi-value" id="busuanzi_value_site_uv"></span>
+    </span>
+  
+
+  
+    <span class="post-meta-divider">|</span>
+  
+
+  
+    <span class="site-pv" title="Total Views">
+      <i class="fa fa-history"></i>
+      <span class="busuanzi-value" id="busuanzi_value_site_pv"></span>
+    </span>
+  
+</div>
+
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+
+    
+
+    
+
+    
+      <div>
+        <!-- Go to www.addthis.com/dashboard to customize your tools -->
+<div class="addthis_inline_share_toolbox">
+  <script type = "text/javascript" src = "//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-593135f4e114024c" async = "async" ></script>
+</div>
+
+      </div>
+    
+  </div>
+
+  
+
+<script>
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+
+  
+
+
+  <script src="/js/src/utils.js?v=6.7.0"></script>
+
+  <script src="/js/src/motion.js?v=6.7.0"></script>
+
+
+
+  
+  
+
+
+  <script src="/js/src/affix.js?v=6.7.0"></script>
+
+  <script src="/js/src/schemes/pisces.js?v=6.7.0"></script>
+
+
+
+  
+  <script src="/js/src/scrollspy.js?v=6.7.0"></script>
+<script src="/js/src/post-details.js?v=6.7.0"></script>
+
+
+
+  
+
+
+  <script src="/js/src/bootstrap.js?v=6.7.0"></script>
+
+
+
+  
+
+  
+    <script id="dsq-count-scr" src="https://bobbyliujb.disqus.com/count.js" async></script>
+  
+
+  
+    <script>
+      var disqus_config = function () {
+        this.page.url = "https://bobbyliujb.github.io/2016/10/09/try_spring/";
+        this.page.identifier = "2016/10/09/try_spring/";
+        this.page.title = 'Spring MVC示例项目练手';
+        };
+      function loadComments () {
+        var d = document, s = d.createElement('script');
+        s.src = 'https://bobbyliujb.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', '' + +new Date());
+        (d.head || d.body).appendChild(s);
+      }
+      
+        loadComments();
+      
+    </script>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  <script>
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').hide();
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.search-popup-overlay').click(onPopupClose);
+      $('.popup').toggle();
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+
+      // start loading animation
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
+          '<div id="search-loading-icon">' +
+          '<i class="fa fa-circle-o-notch fa-spin fa-3x fa-fw"></i>' +
+          '</div>' +
+          '</div>')
+        .css('overflow', 'hidden');
+      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
+
+      
+
+      $.ajax({
+        url: path,
+        dataType: isXml ? "xml" : "json",
+        async: true,
+        success: function(res) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = isXml ? $("entry", res).map(function() {
+            return {
+              title: $("title", this).text(),
+              content: $("content",this).text(),
+              url: $("url" , this).text()
+            };
+          }).get() : res;
+          var input = document.getElementById(search_id);
+          var resultContent = document.getElementById(content_id);
+          var inputEventFunction = function() {
+            var searchText = input.value.trim().toLowerCase();
+            var keywords = searchText.split(/[\s\-]+/);
+            if (keywords.length > 1) {
+              keywords.push(searchText);
+            }
+            var resultItems = [];
+            if (searchText.length > 0) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var hitCount = 0;
+                var searchTextCount = 0;
+                var title = data.title.trim();
+                var titleInLowerCase = title.toLowerCase();
+                var content = data.content.trim().replace(/<[^>]+>/g,"");
+                
+                var contentInLowerCase = content.toLowerCase();
+                var articleUrl = decodeURIComponent(data.url).replace(/\/{2,}/g, '/');
+                var indexOfTitle = [];
+                var indexOfContent = [];
+                // only match articles with not empty titles
+                if(title != '') {
+                  keywords.forEach(function(keyword) {
+                    function getIndexByWord(word, text, caseSensitive) {
+                      var wordLen = word.length;
+                      if (wordLen === 0) {
+                        return [];
+                      }
+                      var startPosition = 0, position = [], index = [];
+                      if (!caseSensitive) {
+                        text = text.toLowerCase();
+                        word = word.toLowerCase();
+                      }
+                      while ((position = text.indexOf(word, startPosition)) > -1) {
+                        index.push({position: position, word: word});
+                        startPosition = position + wordLen;
+                      }
+                      return index;
+                    }
+
+                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+                  });
+                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+                    isMatch = true;
+                    hitCount = indexOfTitle.length + indexOfContent.length;
+                  }
+                }
+
+                // show search results
+
+                if (isMatch) {
+                  // sort index by position of keyword
+
+                  [indexOfTitle, indexOfContent].forEach(function (index) {
+                    index.sort(function (itemLeft, itemRight) {
+                      if (itemRight.position !== itemLeft.position) {
+                        return itemRight.position - itemLeft.position;
+                      } else {
+                        return itemLeft.word.length - itemRight.word.length;
+                      }
+                    });
+                  });
+
+                  // merge hits into slices
+
+                  function mergeIntoSlice(text, start, end, index) {
+                    var item = index[index.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    var hits = [];
+                    var searchTextCountInSlice = 0;
+                    while (position + word.length <= end && index.length != 0) {
+                      if (word === searchText) {
+                        searchTextCountInSlice++;
+                      }
+                      hits.push({position: position, length: word.length});
+                      var wordEnd = position + word.length;
+
+                      // move to next position of hit
+
+                      index.pop();
+                      while (index.length != 0) {
+                        item = index[index.length - 1];
+                        position = item.position;
+                        word = item.word;
+                        if (wordEnd > position) {
+                          index.pop();
+                        } else {
+                          break;
+                        }
+                      }
+                    }
+                    searchTextCount += searchTextCountInSlice;
+                    return {
+                      hits: hits,
+                      start: start,
+                      end: end,
+                      searchTextCount: searchTextCountInSlice
+                    };
+                  }
+
+                  var slicesOfTitle = [];
+                  if (indexOfTitle.length != 0) {
+                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+                  }
+
+                  var slicesOfContent = [];
+                  while (indexOfContent.length != 0) {
+                    var item = indexOfContent[indexOfContent.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    // cut out 100 characters
+                    var start = position - 20;
+                    var end = position + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if (end < position + word.length) {
+                      end = position + word.length;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+                  }
+
+                  // sort slices in content by search text's count and hits' count
+
+                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                      return sliceRight.hits.length - sliceLeft.hits.length;
+                    } else {
+                      return sliceLeft.start - sliceRight.start;
+                    }
+                  });
+
+                  // select top N slices in content
+
+                  var upperBound = parseInt('10');
+                  if (upperBound >= 0) {
+                    slicesOfContent = slicesOfContent.slice(0, upperBound);
+                  }
+
+                  // highlight title and content
+
+                  function highlightKeyword(text, slice) {
+                    var result = '';
+                    var prevEnd = slice.start;
+                    slice.hits.forEach(function (hit) {
+                      result += text.substring(prevEnd, hit.position);
+                      var end = hit.position + hit.length;
+                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                      prevEnd = end;
+                    });
+                    result += text.substring(prevEnd, slice.end);
+                    return result;
+                  }
+
+                  var resultItem = '';
+
+                  if (slicesOfTitle.length != 0) {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+                  } else {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+                  }
+
+                  slicesOfContent.forEach(function (slice) {
+                    resultItem += "<a href='" + articleUrl + "'>" +
+                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                      "...</p>" + "</a>";
+                  });
+
+                  resultItem += "</li>";
+                  resultItems.push({
+                    item: resultItem,
+                    searchTextCount: searchTextCount,
+                    hitCount: hitCount,
+                    id: resultItems.length
+                  });
+                }
+              })
+            };
+            if (keywords.length === 1 && keywords[0] === "") {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x"></i></div>'
+            } else if (resultItems.length === 0) {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x"></i></div>'
+            } else {
+              resultItems.sort(function (resultLeft, resultRight) {
+                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+                  return resultRight.searchTextCount - resultLeft.searchTextCount;
+                } else if (resultLeft.hitCount !== resultRight.hitCount) {
+                  return resultRight.hitCount - resultLeft.hitCount;
+                } else {
+                  return resultRight.id - resultLeft.id;
+                }
+              });
+              var searchResultList = '<ul class=\"search-result-list\">';
+              resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if ('auto' === 'auto') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
+          proceedsearch();
+        }
+      });
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script>
+
+
+
+
+
+  
+
+  
+  <script>
+    
+    function addCount(Counter) {
+      var $visitors = $(".leancloud_visitors");
+      var url = $visitors.attr('id').trim();
+      var title = $visitors.attr('data-flag-title').trim();
+
+      Counter('get', '/classes/Counter', { where: JSON.stringify({ url }) })
+        .done(function ({ results }) {
+          if (results.length > 0) {
+            var counter = results[0];
+            
+            Counter('put', `/classes/Counter/${counter.objectId}`, JSON.stringify({ time: { "__op":"Increment", "amount":1 } }))
+            
+            .done(function () {
+                  var $element = $(document.getElementById(url));
+                  $element.find('.leancloud-visitors-count').text(counter.time + 1);
+            })
+            
+            .fail(function ({ responseJSON }) {
+                console.log('Failed to save Visitor num, with error message: ' + responseJSON.error);
+            })
+          } else {
+            
+              var $element = $(document.getElementById(url));
+              $element.find('.leancloud-visitors-count').text('Counter not initialized! See more at console err msg.');
+              console.error('ATTENTION! LeanCloud counter has security bug, see here how to solve it: https://github.com/theme-next/hexo-leancloud-counter-security. \n But you also can use LeanCloud without security, by set \'security\' option to \'false\'.');
+            
+          }
+        })
+      .fail(function ({ responseJSON }) {
+        console.log('LeanCloud Counter Error:' + responseJSON.code + " " + responseJSON.error);
+      });
+    }
+    
+
+    $(function() {
+      $.get('https://app-router.leancloud.cn/2/route?appId=' + "jT7i5auNazMHRONSPUHmcoko-gzGzoHsz")
+        .done(function ({ api_server }) {
+          var Counter = function (method, url, data) {
+            return $.ajax({
+              method: method,
+              url: `https://${api_server}/1.1${url}`,
+              headers: {
+                'X-LC-Id': "jT7i5auNazMHRONSPUHmcoko-gzGzoHsz",
+                'X-LC-Key': "dEWwuVre5Svmwvjw2DmcIbLy",
+                'Content-Type': 'application/json',
+              },
+              data: data,
+            });
+          };
+          
+          addCount(Counter);
+          
+        })
+    });
+  </script>
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+  
+  
+  <script src="/lib/needsharebutton/needsharebutton.js"></script>
+  <script>
+    
+      pbOptions = {};
+      
+        pbOptions.iconStyle = "box";
+      
+        pbOptions.boxForm = "horizontal";
+      
+        pbOptions.position = "topCenter";
+      
+        pbOptions.networks = "Linkedin,Weibo,Wechat,Twitter,Facebook,Pinterest,GooglePlus,Evernote,Reddit,Douban,QQZone,Mailto";
+      
+      new needShareButton('#needsharebutton-postbottom', pbOptions);
+    
+    
+  </script>
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

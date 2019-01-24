@@ -1,0 +1,1733 @@
+<!DOCTYPE html>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+<html class="theme-next gemini use-motion" lang="en">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2"/>
+<meta name="theme-color" content="#222"/>
+
+
+  
+  
+  <link rel="stylesheet" href="/lib/needsharebutton/needsharebutton.css"/>
+
+
+
+  
+  
+    
+    
+  <script src="/lib/pace/pace.min.js?v=1.0.2"></script>
+  <link rel="stylesheet" href="/lib/pace/pace-theme-flash.min.css?v=1.0.2"/>
+
+
+
+
+
+  <meta http-equiv="Cache-Control" content="no-transform"/>
+  <meta http-equiv="Cache-Control" content="no-siteapp"/>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext"/>
+  
+
+
+
+
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2"/>
+
+<link rel="stylesheet" href="/css/main.css?v=6.7.0"/>
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/favicon.ico?v=6.7.0">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon.ico?v=6.7.0">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon.ico?v=6.7.0">
+
+
+  <link rel="mask-icon" href="/images/favicon.ico?v=6.7.0" color="#222">
+
+
+
+
+
+
+
+<script id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Gemini',
+    version: '6.7.0',
+    sidebar: {"position":"left","display":"hide","offset":12,"b2t":true,"scrollpercent":false,"onmobile":false},
+    fancybox: false,
+    fastclick: false,
+    lazyload: false,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+  
+
+
+
+
+  <meta name="description" content="迎难而上，祝我好运。">
+<meta name="keywords" content="java,algorithm,interview,groupon">
+<meta property="og:type" content="article">
+<meta property="og:title" content="谷入普昂">
+<meta property="og:url" content="https://bobbyliujb.github.io/2018/01/16/groupon/index.html">
+<meta property="og:site_name" content="Bob_波波">
+<meta property="og:description" content="迎难而上，祝我好运。">
+<meta property="og:locale" content="en">
+<meta property="og:image" content="https://ww1.sinaimg.cn/large/9b3a5c2fgy1fgfeg0uu25j20eb09nt9j.jpg">
+<meta property="og:updated_time" content="2018-03-07T04:28:07.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="谷入普昂">
+<meta name="twitter:description" content="迎难而上，祝我好运。">
+<meta name="twitter:image" content="https://ww1.sinaimg.cn/large/9b3a5c2fgy1fgfeg0uu25j20eb09nt9j.jpg">
+
+
+
+
+
+
+  <link rel="canonical" href="https://bobbyliujb.github.io/2018/01/16/groupon/"/>
+
+
+
+<script id="page.configurations">
+  CONFIG.page = {
+    sidebar: "",
+  };
+</script>
+
+  <title>谷入普昂 | Bob_波波</title>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .motion-element,
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-title { opacity: initial; }
+
+  .use-motion .logo,
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="en">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Bob_波波</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+    
+    
+  </div>
+
+  <div class="site-nav-toggle">
+    <button aria-label="Toggle navigation bar">
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  
+    <ul id="menu" class="menu">
+      
+        
+        
+        
+          
+          <li class="menu-item menu-item-home">
+
+    
+    
+    
+      
+    
+
+    
+      
+    
+
+    <a href="/" rel="section"><i class="menu-item-icon fa fa-fw fa-home"></i> <br/>Home</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-tags">
+
+    
+    
+    
+      
+    
+
+    
+      
+    
+
+    <a href="/tags/" rel="section"><i class="menu-item-icon fa fa-fw fa-tags"></i> <br/>Tags<span class="badge">39</span></a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-categories">
+
+    
+    
+    
+      
+    
+
+    
+      
+    
+
+    <a href="/categories/" rel="section"><i class="menu-item-icon fa fa-fw fa-th"></i> <br/>Categories<span class="badge">3</span></a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-archives">
+
+    
+    
+    
+      
+    
+
+    
+      
+    
+
+    <a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br/>Archives<span class="badge">40</span></a>
+
+  </li>
+
+      
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />Search</a>
+        </li>
+      
+    </ul>
+  
+
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off"
+             placeholder="Searching..." spellcheck="false"
+             type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
+  
+</nav>
+
+
+
+  
+
+
+
+</div>
+    </header>
+
+    
+
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+            
+
+          
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://bobbyliujb.github.io/2018/01/16/groupon/"/>
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Bob_波波"/>
+      <meta itemprop="description" content="I'm a Software Engineer!"/>
+      <meta itemprop="image" content="/images/avatar.jpg"/>
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Bob_波波"/>
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">谷入普昂
+
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+
+              
+                
+              
+
+              <time title="Created: 2018-01-15 17:29:42" itemprop="dateCreated datePublished" datetime="2018-01-15T17:29:42-08:00">2018-01-15</time>
+            
+
+            
+              
+
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Edited on</span>
+                
+                <time title="Modified: 2018-03-06 20:28:07" itemprop="dateModified" datetime="2018-03-06T20:28:07-08:00">2018-03-06</time>
+              
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Tech/" itemprop="url" rel="index"><span itemprop="name">Tech</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2018/01/16/groupon/#comments" itemprop="discussionUrl">
+                
+                  <span class="post-comments-count disqus-comment-count"
+                        data-disqus-identifier="2018/01/16/groupon/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+             <span id="/2018/01/16/groupon/" class="leancloud_visitors" data-flag-title="谷入普昂">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">Views: </span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+            <div class="post-symbolscount">
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Symbols count in article: </span>
+                
+                <span title="Symbols count in article">45k</span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Reading time &asymp;</span>
+                
+                <span title="Reading time">47 mins.</span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>迎难而上，祝我好运。<br><a id="more"></a></p>
+<h4 id="LRU-Cache-146"><a href="#LRU-Cache-146" class="headerlink" title="LRU Cache(146)"></a>LRU Cache(<a href="https://leetcode.com/problems/lru-cache/description/" target="_blank" rel="external">146</a>)</h4><ul>
+<li>模拟Least Recently Used缓存，当要插入新的<code>entry(key, value)</code>时规模不够，最近最少用到的<code>entry</code>会被清除。要求get和put都是<code>O(1)</code>。</li>
+<li><p>由于有键值对，肯定要有Map。key是整数，而put的时候，value不能真的存给的整数value，而是存双向链表中的一个节点，该节点的val再存给定的整数value。put还需要考虑是否是更新，更新则要把原节点val更新后拖到头部；在get的时候，也要注意拖到链表头部。当需要移除最近最少使用元素的时候，就需要把最后一个节点删掉，同时在map中删掉，所以链表节点中还需要存key才能去map中删。双向链表根据节点来删除是<code>O(1)</code>的，因为可以直接访问前后两个节点（单向链表提供待删除节点和它前一个节点也可以做到constant time）。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div><div class="line">75</div><div class="line">76</div><div class="line">77</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">LRUCache</span> </span>&#123;</div><div class="line">    <span class="keyword">private</span> <span class="class"><span class="keyword">class</span> <span class="title">DoublyListNode</span> </span>&#123;</div><div class="line">        <span class="keyword">int</span> key;</div><div class="line">        <span class="keyword">int</span> value;</div><div class="line">        DoublyListNode prev;</div><div class="line">        DoublyListNode next;</div><div class="line">        <span class="function"><span class="keyword">private</span> <span class="title">DoublyListNode</span><span class="params">(<span class="keyword">int</span> key, <span class="keyword">int</span> value)</span> </span>&#123;</div><div class="line">            <span class="keyword">this</span>.key = key;</div><div class="line">            <span class="keyword">this</span>.value = value;</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">int</span> capacity;</div><div class="line">    <span class="keyword">int</span> currSize;</div><div class="line">    DoublyListNode head, tail;</div><div class="line">    HashMap&lt;Integer, DoublyListNode&gt; map;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="title">LRUCache</span><span class="params">(<span class="keyword">int</span> capacity)</span> </span>&#123;</div><div class="line">        <span class="keyword">this</span>.capacity = capacity;</div><div class="line">        map = <span class="keyword">new</span> HashMap&lt;Integer, DoublyListNode&gt;();</div><div class="line">        currSize = <span class="number">0</span>;</div><div class="line">        head = <span class="keyword">new</span> DoublyListNode(<span class="number">0</span>, <span class="number">0</span>);    <span class="comment">// 伪头部</span></div><div class="line">        tail = <span class="keyword">new</span> DoublyListNode(<span class="number">0</span>, <span class="number">0</span>);    <span class="comment">// 伪尾部</span></div><div class="line">        head.prev = <span class="keyword">null</span>;</div><div class="line">        head.next = tail;</div><div class="line">        tail.prev = head;</div><div class="line">        tail.next = <span class="keyword">null</span>;</div><div class="line">    &#125;</div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">get</span><span class="params">(<span class="keyword">int</span> key)</span> </span>&#123;</div><div class="line">        DoublyListNode node = map.get(key);</div><div class="line">        <span class="keyword">if</span> (node != <span class="keyword">null</span>) &#123;</div><div class="line">            moveToFirst(node);</div><div class="line">            <span class="keyword">return</span> node.value;</div><div class="line">        &#125; <span class="keyword">else</span> &#123;</div><div class="line">            <span class="keyword">return</span> -<span class="number">1</span>;</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">put</span><span class="params">(<span class="keyword">int</span> key, <span class="keyword">int</span> value)</span> </span>&#123;</div><div class="line">        DoublyListNode node = map.get(key);</div><div class="line">        <span class="keyword">if</span> (node == <span class="keyword">null</span>) &#123;</div><div class="line">            node = <span class="keyword">new</span> DoublyListNode(key, value);</div><div class="line">            currSize++;</div><div class="line">            <span class="keyword">if</span> (currSize &gt; capacity) &#123;</div><div class="line">                currSize--;</div><div class="line">                map.remove(popLast().key);  <span class="comment">// 尾部的</span></div><div class="line">            &#125;</div><div class="line">            add(node);</div><div class="line">            map.put(key, node);</div><div class="line">        &#125; <span class="keyword">else</span> &#123;</div><div class="line">            node.value = value;</div><div class="line">            moveToFirst(node);</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">    <span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">add</span><span class="params">(DoublyListNode node)</span> </span>&#123;</div><div class="line">        DoublyListNode nextOfHead = head.next;</div><div class="line">        head.next = node;       <span class="comment">// 插入到头部的下一位，需要调整头指针的指向</span></div><div class="line">        node.prev = head;</div><div class="line">        nextOfHead.prev = node;</div><div class="line">        node.next = nextOfHead;</div><div class="line">    &#125;</div><div class="line">    <span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">remove</span><span class="params">(DoublyListNode node)</span> </span>&#123;</div><div class="line">        DoublyListNode prevOfNode = node.prev;</div><div class="line">        DoublyListNode nextOfNode = node.next;</div><div class="line">        </div><div class="line">        prevOfNode.next = nextOfNode;</div><div class="line">        nextOfNode.prev = prevOfNode;</div><div class="line">    &#125;</div><div class="line">    <span class="function"><span class="keyword">private</span> DoublyListNode <span class="title">popLast</span><span class="params">()</span> </span>&#123;</div><div class="line">        DoublyListNode last = tail.prev;</div><div class="line">        remove(last);</div><div class="line">        <span class="keyword">return</span> last;</div><div class="line">    &#125;</div><div class="line">    <span class="comment">// 被get了，就需要挪到头部，先删除再插入到头部即可</span></div><div class="line">    <span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">moveToFirst</span><span class="params">(DoublyListNode node)</span> </span>&#123;</div><div class="line">        remove(node);</div><div class="line">        add(node);</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+</li>
+<li><p>follow-up：要求写成Generics的形式，不能认定键和值是int。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">LRUCache</span>&lt;<span class="title">T</span>, <span class="title">U</span>&gt; </span>&#123;</div><div class="line">    <span class="class"><span class="keyword">class</span> <span class="title">DoublyListNode</span> </span>&#123;</div><div class="line">        T key;</div><div class="line">        U val;</div><div class="line">        DoublyListNode prev;</div><div class="line">        DoublyListNode next;</div><div class="line"></div><div class="line">        <span class="function"><span class="keyword">public</span> <span class="title">DoublyListNode</span><span class="params">()</span> </span>&#123;</div><div class="line">            </div><div class="line">        &#125;</div><div class="line">        <span class="function"><span class="keyword">public</span> <span class="title">DoublyListNode</span><span class="params">(T key, U val)</span> </span>&#123;</div><div class="line">            <span class="keyword">this</span>.key = key;</div><div class="line">            <span class="keyword">this</span>.val = val;</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">int</span> capacity;</div><div class="line">    <span class="keyword">int</span> currSize;</div><div class="line">    DoublyListNode head, tail;</div><div class="line">    Map&lt;T, DoublyListNode&gt; map;</div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="title">LRUCache</span><span class="params">(<span class="keyword">int</span> capacity)</span> </span>&#123;</div><div class="line">        map = <span class="keyword">new</span> HashMap&lt;&gt;();</div><div class="line">        <span class="keyword">this</span>.capacity = capacity;</div><div class="line">        head = <span class="keyword">new</span> DoublyListNode();</div><div class="line">        tail = <span class="keyword">new</span> DoublyListNode();</div><div class="line">        head.prev = <span class="keyword">null</span>;</div><div class="line">        head.next = tail;</div><div class="line">        tail.prev = head;</div><div class="line">        tail.next = <span class="keyword">null</span>;</div><div class="line">    &#125;</div><div class="line">    </div><div class="line">    <span class="function"><span class="keyword">public</span> U <span class="title">get</span><span class="params">(T key)</span> </span>&#123;</div><div class="line">        <span class="keyword">if</span> (map.containsKey(key)) &#123;</div><div class="line">            moveToFirst(map.get(key));</div><div class="line">            <span class="keyword">return</span> map.get(key).val;</div><div class="line">        &#125; <span class="keyword">else</span> &#123;</div><div class="line">            <span class="keyword">return</span> <span class="keyword">null</span>;</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">    </div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">put</span><span class="params">(T key, U value)</span> </span>&#123;</div><div class="line">        <span class="keyword">if</span> (map.containsKey(key)) &#123;</div><div class="line">            remove(map.get(key));</div><div class="line">            DoublyListNode node = <span class="keyword">new</span> DoublyListNode(key, value);</div><div class="line">            map.put(key, node);</div><div class="line">            add(node);</div><div class="line">        &#125; <span class="keyword">else</span> &#123;</div><div class="line">            DoublyListNode node = <span class="keyword">new</span> DoublyListNode(key, value);</div><div class="line">            map.put(key, node);</div><div class="line">            add(node);</div><div class="line">            currSize++;</div><div class="line">            <span class="keyword">if</span> (currSize &gt; capacity) &#123;</div><div class="line">                map.remove(tail.prev.key);</div><div class="line">                remove(tail.prev);</div><div class="line">                currSize--;</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">    <span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">remove</span><span class="params">(DoublyListNode node)</span> </span>&#123;</div><div class="line">        DoublyListNode prev = node.prev;</div><div class="line">        prev.next = node.next;</div><div class="line">        node.next.prev = prev;</div><div class="line">    &#125;</div><div class="line">    <span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">add</span><span class="params">(DoublyListNode node)</span> </span>&#123;</div><div class="line">        DoublyListNode oldFirst = head.next;</div><div class="line">        node.next = oldFirst;</div><div class="line">        oldFirst.prev = node;</div><div class="line">        head.next = node;</div><div class="line">        node.prev = head;</div><div class="line">    &#125;</div><div class="line">    <span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">moveToFirst</span><span class="params">(DoublyListNode node)</span> </span>&#123;</div><div class="line">        remove(node);</div><div class="line">        add(node);</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<h4 id="奇偶归一"><a href="#奇偶归一" class="headerlink" title="奇偶归一"></a><a href="http://www.1point3acres.com/bbs/thread-202842-1-1.html" target="_blank" rel="external">奇偶归一</a></h4><ul>
+<li>对于任何一个数，如果是偶数的话就除以2，是奇数的话乘以3+1，最后这么算经过若干次运算总会变成1.给一个范围[m, n]，求其中所有数字算成1所需要的步数的最大值。</li>
+<li>大概考察的是cache提速。从m开始计算，将所有中间过程遇到的数字都存入map。<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">maxStep</span><span class="params">(<span class="keyword">int</span> m, <span class="keyword">int</span> n)</span> </span>&#123;</div><div class="line">        <span class="keyword">int</span> ans = <span class="number">0</span>;</div><div class="line">        Map&lt;Integer, Integer&gt; map = <span class="keyword">new</span> HashMap&lt;&gt;();</div><div class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = m; i &lt;= n; i++) &#123;</div><div class="line">            ans = Math.max(getStep(map, i), ans);</div><div class="line">        &#125;</div><div class="line">        <span class="keyword">return</span> ans;</div><div class="line">    &#125;</div><div class="line">    <span class="function"><span class="keyword">private</span> <span class="keyword">int</span> <span class="title">getStep</span><span class="params">(Map&lt;Integer, Integer&gt; map, <span class="keyword">int</span> num)</span> </span>&#123;</div><div class="line">        Queue&lt;Integer&gt; q = <span class="keyword">new</span> LinkedList&lt;&gt;();</div><div class="line">        <span class="keyword">while</span> (num != <span class="number">1</span> &amp;&amp; !map.containsKey(num)) &#123;</div><div class="line">            q.add(num);</div><div class="line">            <span class="keyword">if</span> (num % <span class="number">2</span> == <span class="number">1</span>) &#123;</div><div class="line">                num = num * <span class="number">3</span> + <span class="number">1</span>;</div><div class="line">            &#125; <span class="keyword">else</span> &#123;</div><div class="line">                num /= <span class="number">2</span>;</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line">        <span class="keyword">int</span> base = map.get(num);</div><div class="line">        <span class="keyword">int</span> ret = base + q.size();</div><div class="line">        <span class="keyword">while</span> (!q.isEmpty()) &#123;</div><div class="line">            map.put(q.peek(), base + q.size());</div><div class="line">            q.poll();</div><div class="line">        &#125;</div><div class="line">        <span class="keyword">return</span> ret;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<h4 id="215-kth-largest-element-in-an-array"><a href="#215-kth-largest-element-in-an-array" class="headerlink" title="215. kth-largest-element-in-an-array"></a><a href="https://leetcode.com/problems/kth-largest-element-in-an-array/#/description" target="_blank" rel="external">215. kth-largest-element-in-an-array</a></h4><ul>
+<li>求一个无序的int数组，经过排序后的第k个大的元素。</li>
+<li><p>ME：立刻想到了quickSort的应用，写出来是<a href="https://leetcode.com/submissions/detail/105500761/" target="_blank" rel="external">这样</a>。我在这里用的是『以首元素为pivot』，而不是之前一直写的『以中间元素为pivot』的快排，不太熟悉，参考了princeton课件。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">findKthLargest</span><span class="params">(<span class="keyword">int</span>[] nums, <span class="keyword">int</span> k)</span> </span>&#123;</div><div class="line">        <span class="keyword">if</span> (nums == <span class="keyword">null</span> || nums.length == <span class="number">0</span> || k &lt; <span class="number">1</span> || k &gt; nums.length) &#123;</div><div class="line">            <span class="keyword">return</span> <span class="number">0</span>;</div><div class="line">        &#125;</div><div class="line">        <span class="keyword">return</span> quickSort(nums, <span class="number">0</span>, nums.length - <span class="number">1</span>, k);</div><div class="line">    &#125;</div><div class="line">    <span class="function"><span class="keyword">private</span> <span class="keyword">int</span> <span class="title">quickSort</span><span class="params">(<span class="keyword">int</span>[] nums, <span class="keyword">int</span> start, <span class="keyword">int</span> end, <span class="keyword">int</span> k)</span> </span>&#123;</div><div class="line">        <span class="keyword">if</span> (start &gt;= end) &#123;</div><div class="line">            <span class="keyword">return</span> nums[start];</div><div class="line">        &#125;</div><div class="line">        <span class="keyword">int</span> pivot = nums[start], left = start, right = end + <span class="number">1</span>;</div><div class="line">        <span class="keyword">while</span> (left &lt; right) &#123;</div><div class="line">            <span class="keyword">while</span> (nums[++left] &lt; pivot) &#123;</div><div class="line">                <span class="keyword">if</span> (left == end) &#123;</div><div class="line">                    <span class="keyword">break</span>;</div><div class="line">                &#125;</div><div class="line">            &#125;</div><div class="line">            <span class="keyword">while</span> (nums[--right] &gt; pivot) &#123;</div><div class="line">                <span class="keyword">if</span> (right == start) &#123;</div><div class="line">                    <span class="keyword">break</span>;</div><div class="line">                &#125;</div><div class="line">            &#125;</div><div class="line">            <span class="keyword">if</span> (left &lt; right) &#123;</div><div class="line">                swap(nums, left, right);</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line">        swap(nums, start, right);</div><div class="line">        <span class="keyword">int</span> currK = end + <span class="number">1</span> - right;    <span class="comment">// 如果是求第k小的就不用这样转一下了</span></div><div class="line">        <span class="keyword">if</span> (currK == k) &#123;</div><div class="line">            <span class="keyword">return</span> nums[right];</div><div class="line">        &#125; <span class="keyword">else</span> <span class="keyword">if</span> (k &gt; currK) &#123;</div><div class="line">            <span class="keyword">return</span> quickSort(nums, start, right - <span class="number">1</span>, k - currK);</div><div class="line">        &#125; <span class="keyword">else</span> &#123;</div><div class="line">            <span class="keyword">return</span> quickSort(nums, right + <span class="number">1</span>, end, k);</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">    <span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">swap</span><span class="params">(<span class="keyword">int</span>[] nums, <span class="keyword">int</span> i, <span class="keyword">int</span> j)</span> </span>&#123;</div><div class="line">        <span class="keyword">if</span> (i == j) &#123;</div><div class="line">            <span class="keyword">return</span>;</div><div class="line">        &#125;</div><div class="line">        <span class="keyword">int</span> temp = nums[i];</div><div class="line">        nums[i] = nums[j];</div><div class="line">        nums[j] = temp;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p><img src="https://ww1.sinaimg.cn/large/9b3a5c2fgy1fgfeg0uu25j20eb09nt9j.jpg" alt=""></p>
+</li>
+<li>TA：<a href="https://discuss.leetcode.com/topic/14597/solution-explained" target="_blank" rel="external">这个</a>是一个总结，可以使用Java内置的priorityQueue（其实就是小根堆），将原数组的每个元素插入进去，始终维持规模为K，最后剩下的队首就是了。<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">findKthLargest</span><span class="params">(<span class="keyword">int</span>[] nums, <span class="keyword">int</span> k)</span> </span>&#123;</div><div class="line">    <span class="keyword">final</span> PriorityQueue&lt;Integer&gt; pq = <span class="keyword">new</span> PriorityQueue&lt;&gt;();    <span class="comment">// 第k小就反过来排序就好了</span></div><div class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> val : nums) &#123;</div><div class="line">        pq.offer(val);</div><div class="line"></div><div class="line">        <span class="keyword">if</span>(pq.size() &gt; k) &#123;</div><div class="line">            pq.poll();</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">return</span> pq.peek();</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<h4 id="692-top-k-frequent-words"><a href="#692-top-k-frequent-words" class="headerlink" title="692. top-k-frequent-words"></a><a href="https://leetcode.com/problems/top-k-frequent-words/description/" target="_blank" rel="external">692. top-k-frequent-words</a></h4><ul>
+<li>给一个String数组，求出现频率top k的字符串。</li>
+<li><p>跟<a href="https://leetcode.com/problems/top-k-frequent-elements/description/" target="_blank" rel="external">347</a>类似。先用Map存每个单词出现的频数，再自定义根据频数minHeap存这些Map.Entry，然后每次都check堆的规模，一旦大于k就直接把最小的poll出来，这样就保证在minHeap中的一定是top k.最后就直接逆序插入结果List。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</div><div class="line">    <span class="function"><span class="keyword">public</span> List&lt;String&gt; <span class="title">topKFrequent</span><span class="params">(String[] words, <span class="keyword">int</span> k)</span> </span>&#123;</div><div class="line">        List&lt;String&gt; ans = <span class="keyword">new</span> ArrayList&lt;&gt;();</div><div class="line">        <span class="keyword">if</span> (words == <span class="keyword">null</span> || words.length == <span class="number">0</span> || k == <span class="number">0</span>) &#123;</div><div class="line">            <span class="keyword">return</span> ans;</div><div class="line">        &#125;</div><div class="line">        <span class="comment">// 统计每个单词出现的频数</span></div><div class="line">        Map&lt;String, Integer&gt; map = <span class="keyword">new</span> HashMap&lt;&gt;();</div><div class="line">        <span class="keyword">for</span> (String word : words) &#123;</div><div class="line">            <span class="keyword">if</span> (!map.containsKey(word)) &#123;</div><div class="line">                map.put(word, <span class="number">1</span>);</div><div class="line">            &#125; <span class="keyword">else</span> &#123;</div><div class="line">                map.put(word, map.get(word) + <span class="number">1</span>);</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line">        <span class="comment">// 将entry按照频数从小到大插入PQ，若规模&gt;k则直接poll掉最小的</span></div><div class="line">        PriorityQueue&lt;Map.Entry&lt;String, Integer&gt;&gt; pq = <span class="keyword">new</span> PriorityQueue&lt;&gt;((a, b) -&gt; &#123;</div><div class="line">            <span class="keyword">return</span> a.getValue() != b.getValue()? </div><div class="line">                a.getValue() - b.getValue() : b.getKey().compareTo(a.getKey());</div><div class="line">        &#125;);</div><div class="line">        <span class="keyword">for</span> (Map.Entry&lt;String, Integer&gt; e : map.entrySet()) &#123;</div><div class="line">            pq.offer(e);</div><div class="line">            <span class="keyword">if</span> (pq.size() &gt; k) &#123;</div><div class="line">                pq.poll();</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line">        <span class="comment">// 取PQ元素，逆序插入结果</span></div><div class="line">        <span class="keyword">while</span> (!pq.isEmpty()) &#123;</div><div class="line">            ans.add(<span class="number">0</span>, pq.poll().getKey());</div><div class="line">        &#125;</div><div class="line">        <span class="keyword">return</span> ans;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+</li>
+<li><p>follow-up：如果给定的输入不是一个完整的数组，而是一个stream，即每次都只能取得一个单词，然后立即返回top k，如何改进？</p>
+</li>
+<li>关键在于无法在最开始就获得完整的频数统计Map，在插入minHeap的时候就无法知道后续的Entry需不需要覆盖PQ中的值。因此需要一个额外的Map记录具体那些Entry目前被存放在minHeap中；当新的单词出现，就先更新map中的项，然后再看看它是否在PQ中，在则需要更新（我只能想到把k个元素全抖出来再加进去），不在则跟minHeap的peek比较决定是否需要替换。这样时间是O(N)的统计频数、O(logN)的插入minHeap、O(KlogK)的更新(?)和最后O(K)的倒入List。</li>
+</ul>
+<h4 id="437-path-sum-iii"><a href="#437-path-sum-iii" class="headerlink" title="437. path-sum-iii"></a><a href="https://leetcode.com/problems/path-sum-iii/description/" target="_blank" rel="external">437. path-sum-iii</a></h4><ul>
+<li>给一个二叉树，给一个目标值sum，求有几条从上往下累加的路径之和等于sum。</li>
+<li><p>递归DFS，每次深入之前都先减掉当前节点的值。但这样子的时间复杂度是O(N^2)。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">pathSum</span><span class="params">(TreeNode root, <span class="keyword">int</span> sum)</span> </span>&#123;    <span class="comment">// calculate path num starting from root</span></div><div class="line">        <span class="keyword">if</span> (root == <span class="keyword">null</span>) &#123;</div><div class="line">            <span class="keyword">return</span> <span class="number">0</span>;</div><div class="line">        &#125;</div><div class="line">        <span class="keyword">return</span> dfs(root, sum)   <span class="comment">// taking the given node</span></div><div class="line">            + pathSum(root.left, sum) + pathSum(root.right, sum); <span class="comment">// start from left/right child</span></div><div class="line">    &#125;</div><div class="line">    <span class="function"><span class="keyword">private</span> <span class="keyword">int</span> <span class="title">dfs</span><span class="params">(TreeNode node, <span class="keyword">int</span> target)</span> </span>&#123;    <span class="comment">// dig to find path num taking current node</span></div><div class="line">        <span class="keyword">if</span> (node == <span class="keyword">null</span>) &#123;</div><div class="line">            <span class="keyword">return</span> <span class="number">0</span>;</div><div class="line">        &#125;</div><div class="line">        <span class="keyword">return</span> (node.val == target? <span class="number">1</span> : <span class="number">0</span>) + dfs(node.left, target - node.val) + dfs(node.right, target - node.val);</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+</li>
+<li><p>更高效的做法是利用Map做cache将中间算出来的结果暂存起来。在每一步DFS过程中，先累积当前节点的val到currSum，然后求(currSum - target)在map中是否有记录。然后就是往左右孩子递归求多少种ways。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">pathSum</span><span class="params">(TreeNode root, <span class="keyword">int</span> sum)</span> </span>&#123;</div><div class="line">        Map&lt;Integer, Integer&gt; map = <span class="keyword">new</span> HashMap&lt;&gt;();</div><div class="line">        map.put(<span class="number">0</span>, <span class="number">1</span>);</div><div class="line">        <span class="keyword">return</span> getPath(root, <span class="number">0</span>, sum, map);</div><div class="line">    &#125;</div><div class="line">    <span class="function"><span class="keyword">private</span> <span class="keyword">int</span> <span class="title">getPath</span><span class="params">(TreeNode root, <span class="keyword">int</span> currSum, <span class="keyword">int</span> target, Map&lt;Integer, Integer&gt; map)</span> </span>&#123;</div><div class="line">        <span class="keyword">if</span> (root == <span class="keyword">null</span>) &#123;</div><div class="line">            <span class="keyword">return</span> <span class="number">0</span>;</div><div class="line">        &#125;</div><div class="line">        currSum += root.val;</div><div class="line">        <span class="keyword">int</span> ways = map.getOrDefault(currSum - target, <span class="number">0</span>);       <span class="comment">// 为什么是currSum - target</span></div><div class="line">        map.put(currSum, map.getOrDefault(currSum, <span class="number">0</span>) + <span class="number">1</span>); </div><div class="line">        <span class="comment">// </span></div><div class="line">        ways += getPath(root.left, currSum, target, map) + getPath(root.right, currSum, target, map);</div><div class="line">        map.put(currSum, map.get(currSum) - <span class="number">1</span>);</div><div class="line">        <span class="keyword">return</span> ways;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<h4 id="322-coin-change"><a href="#322-coin-change" class="headerlink" title="322. coin-change"></a><a href="https://leetcode.com/problems/coin-change/#/description" target="_blank" rel="external">322. coin-change</a></h4><ul>
+<li>给一个数组表示有哪些面值的硬币，然后给一个目标值，求最少用多少枚硬币能达到的这个目标值。</li>
+<li><p>ME：这个很明显的DP，所以我会做，写出来是<a href="https://leetcode.com/submissions/detail/110001596/" target="_blank" rel="external">这样</a>。思路是从前往后更新DP数组，一开始全部初始化为-1表示不可达，dp[i]表示面值为i需要多少枚硬币，显然dp[0]应为0。对coin面值数组排序保证从小到大排列，然后开始从1更新。若<code>i - coin[j] &gt;= 0</code>说明可以从该状态加一枚coin[j]的硬币到达状态i，更新之，否则就可以直接跳出内层循环了，因为再往后看其他面值的coin只会负得更多。最后取dp[amount]即得。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">coinChange</span><span class="params">(<span class="keyword">int</span>[] coins, <span class="keyword">int</span> amount)</span> </span>&#123;</div><div class="line">        <span class="keyword">if</span> (coins == <span class="keyword">null</span> || coins.length == <span class="number">0</span>) &#123;</div><div class="line">            <span class="keyword">return</span> <span class="number">0</span>;</div><div class="line">        &#125;</div><div class="line">        Arrays.sort(coins);     <span class="comment">// 从小到大取硬币</span></div><div class="line">        <span class="keyword">int</span>[] dp = <span class="keyword">new</span> <span class="keyword">int</span> [amount + <span class="number">1</span>];</div><div class="line">        Arrays.fill(dp, -<span class="number">1</span>);    <span class="comment">// 初始化为-1表示无解</span></div><div class="line">        dp[<span class="number">0</span>] = <span class="number">0</span>;</div><div class="line">        </div><div class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt; dp.length; i++) &#123;           <span class="comment">// 从前往后更新每一个可能的值</span></div><div class="line">            <span class="keyword">for</span> (<span class="keyword">int</span> j = <span class="number">0</span>; j &lt; coins.length; j++) &#123;    <span class="comment">// 从小的面值开始更新</span></div><div class="line">                <span class="keyword">int</span> index = i - coins[j];</div><div class="line">                <span class="keyword">if</span> (index &gt;= <span class="number">0</span>) &#123;</div><div class="line">                    <span class="keyword">if</span> (dp[index] &gt;= <span class="number">0</span>) &#123;</div><div class="line">                        dp[i] = dp[i] &lt; <span class="number">0</span>? dp[index] + <span class="number">1</span>: Math.min(dp[i], dp[index] + <span class="number">1</span>);</div><div class="line">                    &#125;</div><div class="line">                &#125; <span class="keyword">else</span> &#123;</div><div class="line">                    <span class="keyword">break</span>;</div><div class="line">                &#125;</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line">        <span class="keyword">return</span> dp[amount];</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+</li>
+<li><p>TA：我的是Bottom-up的DP，从无到有累积到目标值。还有一种<a href="https://discuss.leetcode.com/topic/32489/java-both-iterative-and-recursive-solutions-with-explanations" target="_blank" rel="external">Top-down的思路</a>，利用递归来直接从目标值往回减。递归的结束条件有两种，一个是target减完变成了负数，则不存在，返回0；若target恰好是0，那么直接返回0表示不需要额外添加硬币；还有就是如果在之前的结果中已经计算出了DP的值，直接返回即可。否则就逐个取出coin面值，然后用当前target减去这个面值递归到下一层去看需要多少枚硬币，该结果如果存在，则加一即为当前target所需的硬币数。需要尝试所有面值的硬币来找到最小值。模仿出来是<a href="https://leetcode.com/submissions/detail/110003917/" target="_blank" rel="external">这样</a>。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">coinChange</span><span class="params">(<span class="keyword">int</span>[] coins, <span class="keyword">int</span> amount)</span> </span>&#123;</div><div class="line">        <span class="keyword">if</span> (coins == <span class="keyword">null</span> || coins.length == <span class="number">0</span>) &#123;</div><div class="line">            <span class="keyword">return</span> <span class="number">0</span>;</div><div class="line">        &#125;</div><div class="line">        <span class="keyword">return</span> helper(coins, amount, <span class="keyword">new</span> <span class="keyword">int</span> [amount]);</div><div class="line">    &#125;</div><div class="line">    <span class="function"><span class="keyword">private</span> <span class="keyword">int</span> <span class="title">helper</span><span class="params">(<span class="keyword">int</span>[] coins, <span class="keyword">int</span> target, <span class="keyword">int</span>[] dp)</span> </span>&#123;</div><div class="line">        <span class="keyword">if</span> (target &lt; <span class="number">0</span>) &#123;</div><div class="line">            <span class="keyword">return</span> -<span class="number">1</span>;  <span class="comment">// 硬币用过头了，不能继续</span></div><div class="line">        &#125;</div><div class="line">        <span class="keyword">if</span> (target == <span class="number">0</span>) &#123;</div><div class="line">            <span class="keyword">return</span> <span class="number">0</span>;   <span class="comment">// 不需要新的硬币了，直接返回</span></div><div class="line">        &#125;</div><div class="line">        <span class="keyword">if</span> (dp[target - <span class="number">1</span>] != <span class="number">0</span>) &#123;</div><div class="line">            <span class="keyword">return</span> dp[target - <span class="number">1</span>];</div><div class="line">        &#125;</div><div class="line">        <span class="comment">// 找到</span></div><div class="line">        <span class="keyword">int</span> min = Integer.MAX_VALUE;</div><div class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> coin: coins) &#123;</div><div class="line">            <span class="keyword">int</span> temp = helper(coins, target - coin, dp);    <span class="comment">// 当前target减去硬币面额需要多少枚</span></div><div class="line">            <span class="keyword">if</span> (temp &gt;= <span class="number">0</span>) &#123;</div><div class="line">                min = Math.min(temp + <span class="number">1</span>, min);</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line">        dp[target - <span class="number">1</span>] = min == Integer.MAX_VALUE? -<span class="number">1</span>: min; <span class="comment">// -1表示凑不出</span></div><div class="line">        <span class="keyword">return</span> dp[target - <span class="number">1</span>];</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<h4 id="238-product-of-array-except-self"><a href="#238-product-of-array-except-self" class="headerlink" title="238. product-of-array-except-self"></a><a href="https://leetcode.com/problems/product-of-array-except-self/#/description" target="_blank" rel="external">238. product-of-array-except-self</a></h4><ul>
+<li>给一个数组num[]，求对应长度的数组使得output[i]为所有数的积除了num[i]，要求O(N)且不能用除法。</li>
+<li>ME：不给我用除法我整个人是懵逼的，脑子一下转不过来，陷入江局。。。</li>
+<li><p>TA：<a href="https://discuss.leetcode.com/topic/37927/how-from-o-n-to-o-1" target="_blank" rel="external">这个</a>给出了如何从辅助数组到O(1)space的思考过程。首先这个辅助数组的方法我怎么就想不出来呢，left数组从左开始每一格存储的是『除了当前数字的前面数字之积』，right数组从右开始存储的是『除了当前数字的后续数字之积』，然后再来一波对应把left和right乘起来就得到了『除了当前数字前面和后面数字之积』。这怎么能想不到呐？？写出来是<a href="https://leetcode.com/submissions/detail/106219251/" target="_blank" rel="external">这样</a>。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</div><div class="line">    <span class="keyword">public</span> <span class="keyword">int</span>[] productExceptSelf(<span class="keyword">int</span>[] nums) &#123;</div><div class="line">        <span class="keyword">if</span> (nums == <span class="keyword">null</span> || nums.length &lt; <span class="number">1</span>) &#123;</div><div class="line">            <span class="keyword">return</span> <span class="keyword">new</span> <span class="keyword">int</span> [<span class="number">0</span>];</div><div class="line">        &#125;</div><div class="line">        <span class="keyword">int</span>[] ans = <span class="keyword">new</span> <span class="keyword">int</span> [nums.length];</div><div class="line">        <span class="keyword">int</span>[] left = <span class="keyword">new</span> <span class="keyword">int</span> [nums.length];</div><div class="line">        <span class="keyword">int</span>[] right = <span class="keyword">new</span> <span class="keyword">int</span> [nums.length];</div><div class="line">        left[<span class="number">0</span>] = <span class="number">1</span>;</div><div class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt; nums.length; i++) &#123;</div><div class="line">            left[i] = left[i - <span class="number">1</span>] * nums[i - <span class="number">1</span>];</div><div class="line">        &#125;</div><div class="line">        right[nums.length - <span class="number">1</span>] = <span class="number">1</span>;</div><div class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = nums.length - <span class="number">2</span>; i &gt;= <span class="number">0</span>; i--) &#123;</div><div class="line">            right[i] = right[i + <span class="number">1</span>] * nums[i + <span class="number">1</span>];</div><div class="line">        &#125;</div><div class="line">        </div><div class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; nums.length; i++) &#123;</div><div class="line">            ans[i] = left[i] * right[i];</div><div class="line">        &#125;</div><div class="line">        <span class="keyword">return</span> ans;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>至于从O( N )到O( 1 )的空间复杂度，知道了之后也没啥了，以后再碰到尽量想起来吧。既然每一个地方都需要用到它左边所有项之积和右边所有项之积，而如果只维护left和right两个值，无法在循环到第一位的时候就获得右边所有数的积，怎么办？答主的做法是在一步循环里，对两端进行更新，也就是每个位置会被更新两次，一次是随left更新，一次是随right更新，left和right就分别从左和从右向另一端去乘。妙哉！如果把这个one-pass拆开来写，就是<a href="https://discuss.leetcode.com/topic/19033/my-simple-java-solution" target="_blank" rel="external">这样的</a>.</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="keyword">int</span>[] productExceptSelf(<span class="keyword">int</span>[] nums) &#123;</div><div class="line">    <span class="keyword">int</span>[] result = <span class="keyword">new</span> <span class="keyword">int</span>[nums.length];</div><div class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>, tmp = <span class="number">1</span>; i &lt; nums.length; i++) &#123;</div><div class="line">        result[i] = tmp;</div><div class="line">        tmp *= nums[i];</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = nums.length - <span class="number">1</span>, tmp = <span class="number">1</span>; i &gt;= <span class="number">0</span>; i--) &#123;</div><div class="line">        result[i] *= tmp;</div><div class="line">        tmp *= nums[i];</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">return</span> result;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<h4 id="正则-10"><a href="#正则-10" class="headerlink" title="正则  10 "></a>正则 <a href="https://leetcode.com/problems/regular-expression-matching/description/" target="_blank" rel="external"> 10 </a></h4><ul>
+<li>输入两个字符串，写个支持<code>.</code>和<code>*</code>的正则表达式判断的method。</li>
+<li>目标字符串s和正则字符串p之间相互比较，就需要维护一个boolean的二维数组dp[i][j]，表示<code>s[0~i-1]</code>与<code>p[0~j-1]</code>是否匹配。<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</div><div class="line">  <span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">isMatch</span><span class="params">(String s, String p)</span> </span>&#123;</div><div class="line">      <span class="keyword">if</span> (s == <span class="keyword">null</span> || p == <span class="keyword">null</span> || s.equals(p)) &#123;</div><div class="line">          <span class="keyword">return</span> <span class="keyword">true</span>;</div><div class="line">      &#125;</div><div class="line">      <span class="keyword">char</span>[] sChar = s.toCharArray(), pChar = p.toCharArray();</div><div class="line">      <span class="keyword">int</span> m = sChar.length, n = pChar.length;</div><div class="line">      <span class="keyword">boolean</span>[][] dp = <span class="keyword">new</span> <span class="keyword">boolean</span> [m + <span class="number">1</span>][n + <span class="number">1</span>];</div><div class="line">      </div><div class="line">      <span class="comment">// initial the dp states</span></div><div class="line">      dp[<span class="number">0</span>][<span class="number">0</span>] = <span class="keyword">true</span>;</div><div class="line">      <span class="keyword">for</span> (<span class="keyword">int</span> j = <span class="number">2</span>; j &lt;= n; j++) &#123;</div><div class="line">          dp[<span class="number">0</span>][j] = pChar[j - <span class="number">1</span>] == <span class="string">'*'</span> &amp;&amp; dp[<span class="number">0</span>][j - <span class="number">2</span>];</div><div class="line">      &#125;</div><div class="line">      </div><div class="line">      <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= m; i++) &#123;</div><div class="line">          <span class="keyword">for</span> (<span class="keyword">int</span> j = <span class="number">1</span>; j &lt;= n; j++) &#123;</div><div class="line">              <span class="keyword">if</span> (pChar[j - <span class="number">1</span>] == <span class="string">'*'</span>) &#123;  </div><div class="line">                  <span class="comment">// check if ignoring curr pattern</span></div><div class="line">                  <span class="comment">// OR (the char is matched AND ignoring curr pattern)</span></div><div class="line">                  dp[i][j] = (dp[i][j - <span class="number">2</span>]) </div><div class="line">                      || ((sChar[i - <span class="number">1</span>] == pChar[j - <span class="number">2</span>] || pChar[j - <span class="number">2</span>] == <span class="string">'.'</span>) &amp;&amp; dp[i - <span class="number">1</span>][j]);</div><div class="line">              &#125; <span class="keyword">else</span> &#123;</div><div class="line">                  <span class="comment">// check if char is matched for curr pattern</span></div><div class="line">                  dp[i][j] = dp[i - <span class="number">1</span>][j - <span class="number">1</span>] </div><div class="line">                      &amp;&amp; (sChar[i - <span class="number">1</span>] == pChar[j - <span class="number">1</span>] || pChar[j - <span class="number">1</span>] == <span class="string">'.'</span>);</div><div class="line">              &#125;</div><div class="line">          &#125;</div><div class="line">      &#125;</div><div class="line">      <span class="keyword">return</span> dp[m][n];</div><div class="line">  &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<h4 id="4-Median-of-2-sorted-arrays"><a href="#4-Median-of-2-sorted-arrays" class="headerlink" title="4. Median of 2 sorted arrays"></a><a href="https://leetcode.com/problems/median-of-two-sorted-arrays/#/solutions" target="_blank" rel="external">4. Median of 2 sorted arrays</a></h4><ul>
+<li>给两个int数组，返回二者合并后的中位数。</li>
+<li><p>朴素的做法，逐个merge，然后分奇数、偶数求中位数。注意这里需要返回的是double。时间复杂度Linear,<code>O((m + n)/2)</code>。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">double</span> <span class="title">findMedianSortedArrays</span><span class="params">(<span class="keyword">int</span>[] nums1, <span class="keyword">int</span>[] nums2)</span> </span>&#123;</div><div class="line">    <span class="keyword">int</span> len_total = nums1.length + nums2.length;</div><div class="line">    <span class="keyword">int</span> len_total_half = len_total &gt;&gt; <span class="number">1</span>;</div><div class="line">    <span class="keyword">int</span>[] merged = <span class="keyword">new</span> <span class="keyword">int</span> [len_total];</div><div class="line">    </div><div class="line">    <span class="keyword">int</span> i = <span class="number">0</span>, j = <span class="number">0</span>, len = <span class="number">0</span>;</div><div class="line">    <span class="keyword">boolean</span> finished = <span class="keyword">false</span>;</div><div class="line">    <span class="keyword">while</span> (!finished &amp;&amp; i &lt; nums1.length &amp;&amp; j &lt; nums2.length) &#123;</div><div class="line">        <span class="keyword">if</span> (nums1[i] &lt; nums2[j]) &#123;</div><div class="line">            merged[len++] = nums1[i++];</div><div class="line">        &#125; <span class="keyword">else</span> &#123;</div><div class="line">            merged[len++] = nums2[j++];</div><div class="line">        &#125;</div><div class="line">        <span class="keyword">if</span> (len &gt; len_total_half) &#123;</div><div class="line">            finished = <span class="keyword">true</span>;</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">while</span> (!finished &amp;&amp; i &lt; nums1.length) &#123;</div><div class="line">        merged[len++] = nums1[i++];</div><div class="line">        <span class="keyword">if</span> (len &gt; len_total_half) &#123;</div><div class="line">            finished = <span class="keyword">true</span>;</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">while</span> (!finished &amp;&amp; j &lt; nums2.length) &#123;</div><div class="line">        merged[len++] = nums2[j++];</div><div class="line">        <span class="keyword">if</span> (len &gt; len_total_half) &#123;</div><div class="line">            finished = <span class="keyword">true</span>;</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">    </div><div class="line">    <span class="keyword">if</span> (len_total % <span class="number">2</span> == <span class="number">1</span>) &#123;</div><div class="line">        <span class="keyword">return</span> merged[len_total_half];</div><div class="line">    &#125; <span class="keyword">else</span> &#123;</div><div class="line">        <span class="keyword">return</span> (<span class="keyword">double</span>)((merged[len_total_half] + merged[len_total_half-<span class="number">1</span>])/<span class="number">2.0</span>);</div><div class="line">    &#125;</div></pre></td></tr></table></figure>
+</li>
+<li><p>follow-up：要求在O(log(m+n))的时间复杂度以内？</p>
+</li>
+<li>中位数可以把有序数组分成等长的两部分，因此在数组1取i个元素、数组2取j个元素，使得<code>i + j == 剩余数字个数</code>并且满足大小关系<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">double</span> <span class="title">findMedianSortedArrays</span><span class="params">(<span class="keyword">int</span>[] nums1, <span class="keyword">int</span>[] nums2)</span> </span>&#123;</div><div class="line">    <span class="keyword">if</span> (nums1 == <span class="keyword">null</span> || nums2 == <span class="keyword">null</span>) &#123;</div><div class="line">        <span class="keyword">return</span> <span class="number">0</span>;</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">int</span> m = nums1.length, n = nums2.length;</div><div class="line">    <span class="keyword">if</span> (nums1.length &gt; nums2.length) &#123;  <span class="comment">// ensure the len of 1 &lt;= 2</span></div><div class="line">        <span class="keyword">return</span> findMedianSortedArrays(nums2, nums1);</div><div class="line">    &#125;</div><div class="line">    </div><div class="line">    <span class="comment">// to ensure equality of the two parts after merged, i + j = m - i + n - j</span></div><div class="line">    <span class="keyword">int</span> iLo = <span class="number">0</span>, iHi = m, allMid = (n + m + <span class="number">1</span>) / <span class="number">2</span>; <span class="comment">// odd: i = j, even: i = j - 1</span></div><div class="line">    </div><div class="line">    <span class="comment">// i stands for "how many num taken from nums1 as front part" 0 ~ i-1 | i ~ m-1</span></div><div class="line">    <span class="comment">// j stands for "how many num taken from nums2 as front part" 0 ~ j-1 | j ~ n-1</span></div><div class="line">    <span class="keyword">while</span> (iLo &lt;= iHi) &#123;</div><div class="line">        <span class="keyword">int</span> i = (iLo + iHi) / <span class="number">2</span>, j = allMid - i;</div><div class="line">        </div><div class="line">        <span class="comment">// nums1[i-1], nums2[j-1] are the largest element of front part of nums1, nums2</span></div><div class="line">        <span class="comment">// nums1[i], nums2[j] are the smallest of lag part of nums1, nums2</span></div><div class="line">        <span class="keyword">if</span> (i &lt; m &amp;&amp; nums2[j - <span class="number">1</span>] &gt; nums1[i]) &#123; <span class="comment">// i not big enough</span></div><div class="line">            iLo = i + <span class="number">1</span>;</div><div class="line">        &#125; <span class="keyword">else</span> <span class="keyword">if</span> (i &gt; <span class="number">0</span> &amp;&amp; nums1[i - <span class="number">1</span>] &gt; nums2[j]) &#123;</div><div class="line">            iHi = i - <span class="number">1</span>;</div><div class="line">        &#125; <span class="keyword">else</span> &#123;</div><div class="line">            <span class="keyword">int</span> maxLeft = <span class="number">0</span>, minRight = <span class="number">0</span>;</div><div class="line">            <span class="keyword">if</span> (i == <span class="number">0</span>) &#123;</div><div class="line">                maxLeft = nums2[j - <span class="number">1</span>];</div><div class="line">            &#125; <span class="keyword">else</span> <span class="keyword">if</span> (j == <span class="number">0</span>) &#123;</div><div class="line">                maxLeft = nums1[i - <span class="number">1</span>];</div><div class="line">            &#125; <span class="keyword">else</span> &#123;</div><div class="line">                maxLeft = Math.max(nums1[i - <span class="number">1</span>], nums2[j - <span class="number">1</span>]);</div><div class="line">            &#125;</div><div class="line">            </div><div class="line">            <span class="keyword">if</span> ((m + n) % <span class="number">2</span> == <span class="number">1</span>) &#123; <span class="comment">// I think thats why to make (allMid = (n + m + 1)/2)</span></div><div class="line">                <span class="keyword">return</span> maxLeft;     <span class="comment">// -- to make left part always at least no fewer than right</span></div><div class="line">            &#125;</div><div class="line">            </div><div class="line">            <span class="keyword">if</span> (i == m) &#123;</div><div class="line">                minRight = nums2[j];</div><div class="line">            &#125; <span class="keyword">else</span> <span class="keyword">if</span> (j == n) &#123;</div><div class="line">                minRight = nums1[i];</div><div class="line">            &#125; <span class="keyword">else</span> &#123;</div><div class="line">                minRight = Math.min(nums1[i], nums2[j]);</div><div class="line">            &#125;</div><div class="line">            <span class="keyword">return</span> (maxLeft + minRight) / <span class="number">2.0</span>;</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">    </div><div class="line">    <span class="keyword">return</span> <span class="number">0</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<h4 id="5-Longest-palindromic-substring"><a href="#5-Longest-palindromic-substring" class="headerlink" title="5. Longest palindromic substring"></a><a href="https://leetcode.com/problems/longest-palindromic-substring/" target="_blank" rel="external">5. Longest palindromic substring</a></h4><ul>
+<li>给一个字符串，返回最长的回文子串（自对称）。</li>
+<li><p><a href="https://discuss.leetcode.com/topic/23498/very-simple-clean-java-solution/2" target="_blank" rel="external">这个</a>似乎也是暴力法，只是用了更优雅的方式——双指针分别扩展，而我的暴力法是双指针向中间合拢，扩展的方式在worst case下复杂度也是O( n^2 )。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</div><div class="line">    <span class="keyword">private</span> <span class="keyword">int</span> start, maxLen;</div><div class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">longestPalindrome</span><span class="params">(String s)</span> </span>&#123;</div><div class="line">        <span class="keyword">if</span> (s == <span class="keyword">null</span> || s.length() == <span class="number">0</span>) &#123;</div><div class="line">            <span class="keyword">return</span> <span class="string">""</span>;</div><div class="line">        &#125;</div><div class="line">        <span class="keyword">char</span>[] sChar = s.toCharArray();</div><div class="line">        start = <span class="number">0</span>;</div><div class="line">        maxLen = <span class="number">1</span>;</div><div class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; sChar.length; i++) &#123;</div><div class="line">            expand(sChar, i, i);        <span class="comment">// odd</span></div><div class="line">            expand(sChar, i, i + <span class="number">1</span>);    <span class="comment">// even</span></div><div class="line">        &#125;</div><div class="line">        <span class="keyword">return</span> s.substring(start, start + maxLen);</div><div class="line">    &#125;</div><div class="line">    <span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">expand</span><span class="params">(<span class="keyword">char</span>[] sChar, <span class="keyword">int</span> left, <span class="keyword">int</span> right)</span> </span>&#123;</div><div class="line">        <span class="keyword">while</span> (left &gt;= <span class="number">0</span> &amp;&amp; right &lt; sChar.length</div><div class="line">               &amp;&amp; sChar[left] == sChar[right]) &#123;</div><div class="line">            left--;</div><div class="line">            right++;</div><div class="line">        &#125;</div><div class="line">        <span class="keyword">if</span> (maxLen &lt; right - left - <span class="number">1</span>) &#123;    <span class="comment">// warning</span></div><div class="line">            start = left + <span class="number">1</span>;               <span class="comment">// warning not left</span></div><div class="line">            maxLen = right - left - <span class="number">1</span>;      <span class="comment">// warning</span></div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+</li>
+<li><p>这题也是典型的DP题，<code>dp[i][j]</code>表示字符串的<code>substring[i, j] - inclusive</code>是否自对称。当i、j对应位置的字符相等时，再看看它们所夹的i + 1、j - 1部分是否自对称即可。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</div><div class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">longestPalindrome</span><span class="params">(String s)</span> </span>&#123;</div><div class="line">        <span class="keyword">if</span> (s == <span class="keyword">null</span> || s.length() == <span class="number">0</span>) &#123;</div><div class="line">            <span class="keyword">return</span> <span class="string">""</span>;</div><div class="line">        &#125;</div><div class="line">        <span class="keyword">int</span> len = s.length();</div><div class="line">        <span class="keyword">boolean</span>[][] dp = <span class="keyword">new</span> <span class="keyword">boolean</span>[len][len];</div><div class="line">        <span class="keyword">int</span> maxLen = <span class="number">1</span>, start = <span class="number">0</span>;</div><div class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> right = <span class="number">1</span>; right &lt; len; right++) &#123;</div><div class="line">            <span class="keyword">for</span> (<span class="keyword">int</span> left = right; left &gt;= <span class="number">0</span>; left--) &#123;</div><div class="line">                dp[left][right] = s.charAt(left) == s.charAt(right) &amp;&amp; (right - left &lt; <span class="number">2</span> || dp[left + <span class="number">1</span>][right - <span class="number">1</span>]);</div><div class="line">                <span class="keyword">if</span> (dp[left][right] &amp;&amp; right - left + <span class="number">1</span> &gt; maxLen) &#123;</div><div class="line">                    maxLen = right - left + <span class="number">1</span>;</div><div class="line">                    start = left;</div><div class="line">                &#125;</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line">        <span class="keyword">return</span> s.substring(start, start + maxLen);</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<h4 id="3-sum"><a href="#3-sum" class="headerlink" title="3 sum"></a><a href="https://leetcode.com/problems/3sum/description/" target="_blank" rel="external">3 sum</a></h4><ul>
+<li>给一个数组，求其中所有的a, b, c使得<code>a + b + c == 0</code><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> List&lt;List&lt;Integer&gt;&gt; threeSum(<span class="keyword">int</span>[] nums) &#123;</div><div class="line">        List&lt;List&lt;Integer&gt;&gt; ans = <span class="keyword">new</span> ArrayList&lt;&gt;();</div><div class="line">        <span class="keyword">if</span> (nums == <span class="keyword">null</span> || nums.length == <span class="number">0</span>) &#123;</div><div class="line">            <span class="keyword">return</span> ans;</div><div class="line">        &#125;   </div><div class="line">        Arrays.sort(nums);</div><div class="line">        </div><div class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; nums.length; i++) &#123;</div><div class="line">            <span class="keyword">if</span> (i &gt; <span class="number">0</span> &amp;&amp; nums[i] == nums[i - <span class="number">1</span>]) &#123;</div><div class="line">                <span class="keyword">continue</span>;</div><div class="line">            &#125;</div><div class="line">            </div><div class="line">            <span class="comment">// 固定nums[i]用双指针找后面两个数b, c，使b + c == 0 - nums[i]</span></div><div class="line">            <span class="keyword">int</span> left = i + <span class="number">1</span>, right = nums.length - <span class="number">1</span>, target = <span class="number">0</span> - nums[i];</div><div class="line">            <span class="keyword">while</span> (left &lt; right) &#123;</div><div class="line">                <span class="keyword">int</span> sum = nums[left] + nums[right];</div><div class="line">                <span class="keyword">if</span> (sum == target) &#123;</div><div class="line">                    List&lt;Integer&gt; currList = <span class="keyword">new</span> ArrayList&lt;&gt;();</div><div class="line">                    currList.add(nums[i]);</div><div class="line">                    currList.add(nums[left]);</div><div class="line">                    currList.add(nums[right]);</div><div class="line">                    ans.add(currList);</div><div class="line">                    left++;</div><div class="line">                    right++;</div><div class="line">                    <span class="keyword">while</span> (left &lt; right &amp;&amp; nums[left] == nums[left - <span class="number">1</span>]) &#123;    <span class="comment">// 避免重复</span></div><div class="line">                        left++;</div><div class="line">                    &#125;</div><div class="line">                    <span class="keyword">while</span> (right &gt; left &amp;&amp; nums[right] == nums[right + <span class="number">1</span>]) &#123;  <span class="comment">// 避免重复</span></div><div class="line">                        right++;</div><div class="line">                    &#125;</div><div class="line">                &#125; <span class="keyword">else</span> <span class="keyword">if</span> (sum &lt; target) &#123;</div><div class="line">                    left++;</div><div class="line">                &#125; <span class="keyword">else</span> &#123;</div><div class="line">                    right--;</div><div class="line">                &#125;</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line">        <span class="keyword">return</span> ans;</div><div class="line">    &#125;</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<h4 id="202-happy-number"><a href="#202-happy-number" class="headerlink" title="202. happy-number"></a><a href="https://leetcode.com/problems/happy-number/#/description" target="_blank" rel="external">202. happy-number</a></h4><ul>
+<li>给一个正整数，判断它是否Happy。所谓happy指的是求各位的数字的平方和，得到的是1则是happy，不是1就继续这样算平方和。不是happy的数会陷入循环。</li>
+<li><p>ME：递归加Set标记是否轮回搞定。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">isHappy</span><span class="params">(<span class="keyword">int</span> n)</span> </span>&#123;</div><div class="line">        <span class="keyword">if</span> (n &lt; <span class="number">1</span>) &#123;</div><div class="line">            <span class="keyword">return</span> <span class="keyword">false</span>;</div><div class="line">        &#125;</div><div class="line">        HashSet&lt;Integer&gt; set = <span class="keyword">new</span> HashSet&lt;&gt;();</div><div class="line">        <span class="keyword">return</span> isHappy(n, set);</div><div class="line">    &#125;</div><div class="line">    <span class="function"><span class="keyword">private</span> <span class="keyword">boolean</span> <span class="title">isHappy</span><span class="params">(<span class="keyword">int</span> n, HashSet&lt;Integer&gt; set)</span> </span>&#123;</div><div class="line">        <span class="keyword">if</span> (set.contains(n)) &#123;</div><div class="line">            <span class="keyword">return</span> <span class="keyword">false</span>;</div><div class="line">        &#125;</div><div class="line">        set.add(n);</div><div class="line">        <span class="keyword">int</span> newN = <span class="number">0</span>;</div><div class="line">        <span class="keyword">while</span> (n != <span class="number">0</span>) &#123;</div><div class="line">            <span class="keyword">int</span> digit = n % <span class="number">10</span>;</div><div class="line">            newN += digit * digit;</div><div class="line">            n /= <span class="number">10</span>;</div><div class="line">        &#125;</div><div class="line">        <span class="keyword">if</span> (newN == <span class="number">1</span>) &#123;</div><div class="line">            <span class="keyword">return</span> <span class="keyword">true</span>;</div><div class="line">        &#125;</div><div class="line">        <span class="keyword">return</span> isHappy(newN, set);</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+</li>
+<li><p>TA：<a href="https://discuss.leetcode.com/topic/25026/beat-90-fast-easy-understand-java-solution-with-brief-explanation" target="_blank" rel="external">这个是Iterative版的set</a>，利用set.add判断是否出现重复。<a href="https://discuss.leetcode.com/topic/12587/my-solution-in-c-o-1-space-and-no-magic-math-property-involved" target="_blank" rel="external">这个借助Floyd Cycle Detection的答案更加妙</a>，来源于快慢指针检测链表中是否有环，这里也是这样，fast是每次往后算两步，slow是一步。当fast到达了1说明是happy，如果fast追上了slow说明成环了。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">isHappy</span><span class="params">(<span class="keyword">int</span> n)</span> </span>&#123;</div><div class="line">        <span class="keyword">int</span> slow, fast = n;</div><div class="line">        <span class="keyword">do</span> &#123;</div><div class="line">            slow = next(slow);</div><div class="line">            fast = next(next(fast));</div><div class="line">            <span class="keyword">if</span> (slow == <span class="number">1</span> || fast == <span class="number">1</span>) &#123;</div><div class="line">                <span class="keyword">return</span> <span class="keyword">true</span>;</div><div class="line">            &#125;</div><div class="line">        &#125; <span class="keyword">while</span> (slow != fast);</div><div class="line">        <span class="keyword">return</span> <span class="keyword">false</span>;</div><div class="line">    &#125;</div><div class="line">    </div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">next</span><span class="params">(<span class="keyword">int</span> n)</span> </span>&#123;</div><div class="line">        <span class="keyword">int</span> result = <span class="number">0</span>;</div><div class="line">        <span class="keyword">while</span> (n &gt; <span class="number">0</span>) &#123;</div><div class="line">            <span class="keyword">int</span> remainder = n % <span class="number">10</span>;</div><div class="line">            result += remainder * remainder;</div><div class="line">            n /= <span class="number">10</span>;</div><div class="line">        &#125;</div><div class="line">        <span class="keyword">return</span> result;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<h4 id="sort-array-with-only-0-and-1"><a href="#sort-array-with-only-0-and-1" class="headerlink" title="sort array with only 0 and 1"></a><a href="http://www.1point3acres.com/bbs/thread-167030-1-1.html" target="_blank" rel="external">sort array with only 0 and 1</a></h4><ul>
+<li>对一个只含有0和1的数组排序。</li>
+<li>前后双指针。</li>
+<li>木桶排序。</li>
+</ul>
+<h4 id="string-repetition"><a href="#string-repetition" class="headerlink" title="string repetition"></a><a href="http://www.1point3acres.com/bbs/forum.php?mod=viewthread&amp;tid=316930&amp;pid=3464536&amp;page=1&amp;extra=#pid3464536" target="_blank" rel="external">string repetition</a></h4><ul>
+<li>给一个String和重复次数N，返回重复这么多次的String。</li>
+<li>naive的办法是O(N)，但其实可以O(logN)，就是每次循环时折半，拼接之前将原字符串拼一遍。<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">public</span> String <span class="title">repeat</span><span class="params">(String str, <span class="keyword">int</span> num)</span> </span>&#123;</div><div class="line">    <span class="keyword">if</span> (num &lt;= <span class="number">0</span>) &#123;</div><div class="line">        <span class="keyword">return</span> <span class="string">""</span>;</div><div class="line">    &#125;</div><div class="line">    StringBuilder result = <span class="keyword">new</span> StringBuilder();</div><div class="line">    StringBuilder sb = <span class="keyword">new</span> StringBuilder(str);</div><div class="line"></div><div class="line">    <span class="keyword">while</span> (<span class="keyword">true</span>) &#123;</div><div class="line">        <span class="keyword">if</span> ((num &amp; <span class="number">1</span>) != <span class="number">0</span>) &#123;</div><div class="line">            result.append(sb);</div><div class="line">        &#125;</div><div class="line">        num /= <span class="number">2</span>;</div><div class="line">        <span class="keyword">if</span> (num == <span class="number">0</span>) &#123;</div><div class="line">            <span class="keyword">break</span>;</div><div class="line">        &#125;</div><div class="line">        sb.append(sb);</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">return</span> result.toString();</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<h4 id="366-find-leaves-of-binary-tree"><a href="#366-find-leaves-of-binary-tree" class="headerlink" title="366. find-leaves-of-binary-tree"></a><a href="https://leetcode.com/problems/find-leaves-of-binary-tree/description/" target="_blank" rel="external">366. find-leaves-of-binary-tree</a></h4><ul>
+<li>给一个二叉树，求一层层仰视时所能看到的节点，看完后删除这些节点后继续仰视下一层。注意不是层级遍历！</li>
+<li>其实就是利用高度的定义，对于每个节点对应地放到它所属的高度的位置即可。<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</div><div class="line">    <span class="keyword">public</span> List&lt;List&lt;Integer&gt;&gt; findLeaves(TreeNode root) &#123;</div><div class="line">        List&lt;List&lt;Integer&gt;&gt; ans = <span class="keyword">new</span> ArrayList&lt;&gt;();</div><div class="line">        height(root, ans);</div><div class="line">        <span class="keyword">return</span> ans;</div><div class="line">    &#125;</div><div class="line">    <span class="function"><span class="keyword">private</span> <span class="keyword">int</span> <span class="title">height</span><span class="params">(TreeNode node, List&lt;List&lt;Integer&gt;&gt; ans)</span> </span>&#123;</div><div class="line">        <span class="keyword">if</span> (node == <span class="keyword">null</span>) &#123;</div><div class="line">            <span class="keyword">return</span> -<span class="number">1</span>;  <span class="comment">// 保证叶子节点高度为0</span></div><div class="line">        &#125;</div><div class="line">        <span class="keyword">int</span> h = <span class="number">1</span> + Math.max(height(node.left, ans), height(node.right, ans));  <span class="comment">// 当前节点的高度 = 左右较大者 + 1</span></div><div class="line">        <span class="keyword">if</span> (ans.size() == h) &#123;  <span class="comment">// 叶子结点高度为0，索引也为0</span></div><div class="line">            ans.add(<span class="keyword">new</span> ArrayList&lt;&gt;());</div><div class="line">        &#125;</div><div class="line">        ans.get(h).add(node.val);</div><div class="line">        <span class="keyword">return</span> h;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<h4 id="513-find-bottom-left-tree-value"><a href="#513-find-bottom-left-tree-value" class="headerlink" title="513. find-bottom-left-tree-value"></a><a href="https://leetcode.com/problems/find-bottom-left-tree-value/description/" target="_blank" rel="external">513. find-bottom-left-tree-value</a></h4><ul>
+<li>给一个二叉树，求最下面一层最左边的节点。</li>
+<li><p>方法一：Iterative，从右往左进行层级遍历，最后一个遍历到的节点就是最下层的最左节点。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">findBottomLeftValue</span><span class="params">(TreeNode root)</span> </span>&#123;</div><div class="line">        Queue&lt;TreeNode&gt; q = <span class="keyword">new</span> LinkedList&lt;&gt;();</div><div class="line">        q.offer(root);</div><div class="line">        TreeNode curr = <span class="keyword">null</span>;</div><div class="line">        <span class="keyword">while</span> (!q.isEmpty()) &#123;</div><div class="line">            curr = q.poll();</div><div class="line">            <span class="keyword">if</span> (curr.right != <span class="keyword">null</span>) &#123;</div><div class="line">                q.offer(curr.right);</div><div class="line">            &#125;</div><div class="line">            <span class="keyword">if</span> (curr.left != <span class="keyword">null</span>) &#123;</div><div class="line">                q.offer(curr.left);</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line">        <span class="keyword">return</span> curr.val;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+</li>
+<li><p>方法二：Recursive, 正常地从左到右前序遍历，但是会track深度，第一个达到新的深度的节点就一定是最左边的。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</div><div class="line">    <span class="keyword">int</span> ans = <span class="number">0</span>, h = <span class="number">0</span>;</div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">findBottomLeftValue</span><span class="params">(TreeNode root)</span> </span>&#123;</div><div class="line">        find(root, <span class="number">1</span>);</div><div class="line">        <span class="keyword">return</span> ans;</div><div class="line">    &#125;</div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">find</span><span class="params">(TreeNode root, <span class="keyword">int</span> level)</span> </span>&#123;</div><div class="line">        <span class="keyword">if</span> (h &lt; level) &#123;</div><div class="line">            ans = root.val;</div><div class="line">            h = level;</div><div class="line">        &#125;</div><div class="line">        <span class="keyword">if</span> (root.left != <span class="keyword">null</span>) &#123;</div><div class="line">            find(root.left, level + <span class="number">1</span>);</div><div class="line">        &#125;</div><div class="line">        <span class="keyword">if</span> (root.right != <span class="keyword">null</span>) &#123;</div><div class="line">            find(root.right, level + <span class="number">1</span>);</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<h4 id="reverse-LinkedList"><a href="#reverse-LinkedList" class="headerlink" title="reverse LinkedList"></a><a href="http://www.1point3acres.com/bbs/thread-317293-1-1.html" target="_blank" rel="external">reverse LinkedList</a></h4><ul>
+<li>反转一个链表。</li>
+<li><p>Iterative: 用循环每次两两反转。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">reverseList</span><span class="params">(ListNode head)</span> </span>&#123;</div><div class="line">    <span class="keyword">if</span> (head == <span class="keyword">null</span> || head.next == <span class="keyword">null</span>) &#123;</div><div class="line">        <span class="keyword">return</span> head;</div><div class="line">    &#125;</div><div class="line">    ListNode prev = <span class="keyword">null</span>, curr = head;</div><div class="line">    <span class="keyword">while</span> (curr != <span class="keyword">null</span>) &#123;</div><div class="line">        ListNode currNext = curr.next;</div><div class="line">        curr.next = prev;</div><div class="line"></div><div class="line">        prev = curr;</div><div class="line">        curr = currNext;</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">return</span> prev;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+</li>
+<li><p>Recursive: 递归往后反转之后，当前节点的下一个节点就会变成最后一个节点，直接把当前节点拼到最后即可。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">public</span> ListNode <span class="title">reverseList</span><span class="params">(ListNode head)</span> </span>&#123;</div><div class="line">    <span class="keyword">if</span> (head == <span class="keyword">null</span> || head.next == <span class="keyword">null</span>) &#123;</div><div class="line">        <span class="keyword">return</span> head;</div><div class="line">    &#125;</div><div class="line">    ListNode newHead = reverseList(head.next);</div><div class="line">    head.next.next = head;</div><div class="line">    head.next = <span class="keyword">null</span>;</div><div class="line">    <span class="keyword">return</span> newHead;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<h4 id="186-reverse-words-in-a-string-ii"><a href="#186-reverse-words-in-a-string-ii" class="headerlink" title="186. reverse-words-in-a-string-ii"></a><a href="https://leetcode.com/problems/reverse-words-in-a-string-ii/description/" target="_blank" rel="external">186. reverse-words-in-a-string-ii</a></h4><ul>
+<li>给一个char数组，反转单词出现顺序。<code>I love programming</code>变成<code>programming love I</code>。</li>
+<li>先反转全部，再根据空格位置反转每个单词。<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">reverseWords</span><span class="params">(<span class="keyword">char</span>[] str)</span> </span>&#123;</div><div class="line">        <span class="keyword">if</span> (str == <span class="keyword">null</span> || str.length == <span class="number">0</span>) &#123;</div><div class="line">            <span class="keyword">return</span>;</div><div class="line">        &#125;</div><div class="line">        reverse(str, <span class="number">0</span>, str.length - <span class="number">1</span>);</div><div class="line">        <span class="keyword">int</span> start = <span class="number">0</span>;</div><div class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; str.length; i++) &#123;</div><div class="line">            <span class="keyword">if</span> (str[i] == <span class="string">' '</span>) &#123;</div><div class="line">                reverse(str, start, i - <span class="number">1</span>);</div><div class="line">                start = i + <span class="number">1</span>;</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line">        reverse(str, start, str.length - <span class="number">1</span>);</div><div class="line">    &#125;</div><div class="line">    <span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">reverse</span><span class="params">(<span class="keyword">char</span>[] str, <span class="keyword">int</span> start, <span class="keyword">int</span> end)</span> </span>&#123;</div><div class="line">        <span class="keyword">while</span> (start &lt; end) &#123;</div><div class="line">            <span class="keyword">char</span> temp = str[start];</div><div class="line">            str[start] = str[end];</div><div class="line">            str[end] = temp;</div><div class="line">            start++;</div><div class="line">            end--;</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<h4 id="implement-linkedhashmap"><a href="#implement-linkedhashmap" class="headerlink" title="implement linkedhashmap"></a><a href="http://www.1point3acres.com/bbs/thread-316367-1-1.html" target="_blank" rel="external">implement linkedhashmap</a></h4><ul>
+<li>HashMap：首先讨论普通的HashMap，底层其实就是Entry的数组(bucket)，根据hashCode找到bucket的存放位置，再根据equals判断key是否相等。每个Entry是一个节点，带有next引用，这样就可以形成一个链表了。</li>
+<li>LinkedHashMap：与HashMap相比，需要维护put时的顺序，这里是通过加入before和after来构建双向链表，put时就可以进行赋值这样在remove的时候也可以O(1)完成。为了方便删除，也可以用dummy头部的方式简化操作。</li>
+</ul>
+<h4 id="implement-priority-queue"><a href="#implement-priority-queue" class="headerlink" title="implement priority queue"></a><a href="https://www.glassdoor.com/Interview/Groupon-Software-Engineer-Interview-Questions-EI_IE301291.0,7_KO8,25.htm" target="_blank" rel="external">implement priority queue</a></h4><ul>
+<li>priority queue类似于小根堆，需要保证根节点比两个孩子都小就行了。<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">private</span> <span class="keyword">int</span> <span class="title">createMinHeap</span><span class="params">(ListNode[] lists, <span class="keyword">int</span> end)</span> </span>&#123;    <span class="comment">// end is inclusive</span></div><div class="line">    <span class="keyword">if</span> (end &lt; <span class="number">0</span> || end &gt; lists.length) &#123;</div><div class="line">        <span class="keyword">return</span> -<span class="number">1</span>;</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">if</span> (lists[<span class="number">0</span>] == <span class="keyword">null</span>) &#123;</div><div class="line">        swap(lists, <span class="number">0</span>, end);</div><div class="line">        <span class="keyword">if</span> (--end &lt;= <span class="number">0</span>) &#123;</div><div class="line">            <span class="keyword">return</span> end;</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = (end - <span class="number">1</span>)/<span class="number">2</span>; i &gt;= <span class="number">0</span>; i--) &#123;</div><div class="line">        end = maintainMinHeap(lists, i, end);</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">return</span> end;</div><div class="line">&#125;</div><div class="line"><span class="function"><span class="keyword">private</span> <span class="keyword">int</span> <span class="title">maintainMinHeap</span><span class="params">(ListNode[] lists, <span class="keyword">int</span> start, <span class="keyword">int</span> end)</span> </span>&#123;</div><div class="line">    <span class="keyword">if</span> (lists[<span class="number">0</span>] == <span class="keyword">null</span>) &#123;</div><div class="line">        swap(lists, <span class="number">0</span>, end);</div><div class="line">        <span class="keyword">if</span> (--end &lt;= <span class="number">0</span>) &#123;</div><div class="line">            <span class="keyword">return</span> end;</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">int</span> fatherIndex = start;</div><div class="line">    <span class="keyword">while</span> (fatherIndex &lt;= end) &#123;</div><div class="line">        <span class="keyword">int</span> smallerIndex = <span class="number">2</span>*fatherIndex + <span class="number">1</span>;</div><div class="line">        <span class="keyword">if</span> (smallerIndex &gt; end) &#123;</div><div class="line">            <span class="keyword">break</span>;</div><div class="line">        &#125; <span class="keyword">else</span> &#123;</div><div class="line">            <span class="keyword">if</span> (smallerIndex &lt; end </div><div class="line">               &amp;&amp; lists[smallerIndex+<span class="number">1</span>].val &lt; lists[smallerIndex].val) &#123;</div><div class="line">                smallerIndex ++; </div><div class="line">            &#125;</div><div class="line">            <span class="keyword">if</span> (lists[smallerIndex].val &lt; lists[fatherIndex].val) &#123;</div><div class="line">                swap(lists, fatherIndex, smallerIndex);</div><div class="line">                fatherIndex = smallerIndex;</div><div class="line">            &#125; <span class="keyword">else</span> &#123;</div><div class="line">                <span class="keyword">break</span>;</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">return</span> end;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<h4 id="572-subtree-of-another-tree"><a href="#572-subtree-of-another-tree" class="headerlink" title="572. subtree-of-another-tree"></a><a href="https://leetcode.com/problems/subtree-of-another-tree/description/" target="_blank" rel="external">572. subtree-of-another-tree</a></h4><ul>
+<li>给两棵树，判断后者是不是前者的子树。子树指的是还有一个任意节点为根的子树，结构、数值完全一样。</li>
+<li>递归搞定。先判断两个树是否相同，若相同直接就是子树了。若不同则需要到左右子树进行递归，判断t是否是左／右的子树。<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">isSubtree</span><span class="params">(TreeNode s, TreeNode t)</span> </span>&#123;</div><div class="line">        <span class="keyword">if</span> (s == <span class="keyword">null</span> &amp;&amp; t == <span class="keyword">null</span>) &#123;</div><div class="line">            <span class="keyword">return</span> <span class="keyword">true</span>;</div><div class="line">        &#125;</div><div class="line">        <span class="keyword">if</span> (s == <span class="keyword">null</span> || t == <span class="keyword">null</span>) &#123;</div><div class="line">            <span class="keyword">return</span> <span class="keyword">false</span>;</div><div class="line">        &#125;</div><div class="line">        <span class="keyword">return</span> isSame(s, t) ? <span class="keyword">true</span> : isSubtree(s.left, t) || isSubtree(s.right, t);</div><div class="line">    &#125;</div><div class="line">    <span class="function"><span class="keyword">private</span> <span class="keyword">boolean</span> <span class="title">isSame</span><span class="params">(TreeNode s, TreeNode t)</span> </span>&#123;</div><div class="line">        <span class="keyword">if</span> (s == <span class="keyword">null</span> &amp;&amp; t == <span class="keyword">null</span>) &#123;</div><div class="line">            <span class="keyword">return</span> <span class="keyword">true</span>;</div><div class="line">        &#125;</div><div class="line">        <span class="keyword">if</span> (s == <span class="keyword">null</span> || t == <span class="keyword">null</span>) &#123;</div><div class="line">            <span class="keyword">return</span> <span class="keyword">false</span>;</div><div class="line">        &#125;</div><div class="line">        <span class="keyword">return</span> s.val == t.val ? isSame(s.left, t.left) &amp;&amp; isSame(s.right, t.right) : <span class="keyword">false</span>;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<h4 id="remove-duplicates-from-sorted-array"><a href="#remove-duplicates-from-sorted-array" class="headerlink" title="remove-duplicates-from-sorted-array"></a><a href="https://leetcode.com/problems/remove-duplicates-from-sorted-array/#/description" target="_blank" rel="external">remove-duplicates-from-sorted-array</a></h4><ul>
+<li>给一个已排好序的int数组，删除其中的重复项，返回长度。玛德我一开始以为只需要返回一个长度而不用对原数组开刀，还在想这题这么衣洗。题目说的<code>leave beyond length</code>是说该长度之后数组里是什么内容不关心，又不是说besides。。。<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">removeDuplicates</span><span class="params">(<span class="keyword">int</span>[] nums)</span> </span>&#123;</div><div class="line">        <span class="keyword">if</span> (nums == <span class="keyword">null</span> || nums.length == <span class="number">0</span>) &#123;</div><div class="line">            <span class="keyword">return</span> <span class="number">0</span>;</div><div class="line">        &#125;</div><div class="line">        <span class="keyword">int</span> len = <span class="number">0</span>;</div><div class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; nums.length; i++) &#123;</div><div class="line">            <span class="keyword">if</span> (nums[len] != nums[i]) &#123; <span class="comment">// lazy move len</span></div><div class="line">                nums[++len] = nums[i];  <span class="comment">// when num[i] is diff from nums[len]</span></div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line">        <span class="keyword">return</span> ++len;   <span class="comment">// since last one cannot be compared to next different element</span></div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<h4 id="remove-duplicates-from-sorted-array-ii"><a href="#remove-duplicates-from-sorted-array-ii" class="headerlink" title="remove-duplicates-from-sorted-array-ii"></a><a href="https://leetcode.com/problems/remove-duplicates-from-sorted-array-ii/#/description" target="_blank" rel="external">remove-duplicates-from-sorted-array-ii</a></h4><ul>
+<li>给一个排好序的int数组，对它进行操作使得其中任意元素至多出现两次，返回经过修改后的数组长度。至于该长度之后的内容怎样，并不在意。</li>
+<li>定义窗口为2，判断当前数字和距离当前末尾往前两格的数字是否相等，不相等才能加入进来。<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">removeDuplicates</span><span class="params">(<span class="keyword">int</span>[] nums)</span> </span>&#123;</div><div class="line">        <span class="keyword">if</span> (nums == <span class="keyword">null</span> || nums.length == <span class="number">0</span>) &#123;</div><div class="line">            <span class="keyword">return</span> <span class="number">0</span>;</div><div class="line">        &#125;</div><div class="line">        <span class="keyword">int</span> n = nums.length;</div><div class="line">        <span class="keyword">int</span> i = <span class="number">0</span>;</div><div class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> num: nums) &#123;</div><div class="line">            <span class="keyword">if</span> (i &lt; <span class="number">2</span> || num &gt; nums[i - <span class="number">2</span>]) &#123;   </div><div class="line">                nums[i] = num;</div><div class="line">                i++;</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line">        <span class="keyword">return</span> i;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<h4 id="127-word-ladder"><a href="#127-word-ladder" class="headerlink" title="127. word-ladder"></a><a href="https://leetcode.com/problems/word-ladder/description/" target="_blank" rel="external">127. word-ladder</a></h4><p> 很图论的题，每一个单词看作节点，路径有无根据「能否改一个字母变成它」判断，在BFS过程中可达就直接入queue。<br> <figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">ladderLength</span><span class="params">(String beginWord, String endWord, List&lt;String&gt; wordList)</span> </span>&#123;</div><div class="line">        <span class="keyword">if</span> (beginWord == <span class="keyword">null</span> || endWord == <span class="keyword">null</span> || beginWord.length() == <span class="number">0</span> || endWord.length() == <span class="number">0</span></div><div class="line">          || beginWord.length() != endWord.length() || wordList == <span class="keyword">null</span> || wordList.size() == <span class="number">0</span>) &#123;</div><div class="line">            <span class="keyword">return</span> <span class="number">0</span>;</div><div class="line">        &#125;</div><div class="line">        Set&lt;String&gt; wordSet = <span class="keyword">new</span> HashSet&lt;&gt;(wordList);</div><div class="line">        Queue&lt;String&gt; toVisit = <span class="keyword">new</span> LinkedList&lt;&gt;();</div><div class="line">        bfs(beginWord, wordSet, toVisit);</div><div class="line">        <span class="keyword">int</span> dist = <span class="number">2</span>;</div><div class="line">        <span class="keyword">while</span> (!toVisit.isEmpty()) &#123;</div><div class="line">            <span class="keyword">int</span> size = toVisit.size();</div><div class="line">            <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; size; i++) &#123;</div><div class="line">                String curr = toVisit.poll();</div><div class="line">                <span class="keyword">if</span> (curr.equals(endWord)) &#123;</div><div class="line">                    <span class="keyword">return</span> dist;</div><div class="line">                &#125; <span class="keyword">else</span> &#123;</div><div class="line">                    bfs(curr, wordSet, toVisit);</div><div class="line">                &#125;</div><div class="line">            &#125;</div><div class="line">            dist++;</div><div class="line">        &#125;</div><div class="line">        <span class="keyword">return</span> <span class="number">0</span>;</div><div class="line">    &#125;</div><div class="line">    </div><div class="line">    <span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">bfs</span><span class="params">(String beginWord, Set&lt;String&gt; wordSet, Queue&lt;String&gt; toVisit)</span> </span>&#123;</div><div class="line">        wordSet.remove(beginWord);</div><div class="line">        StringBuilder sb = <span class="keyword">new</span> StringBuilder(beginWord);</div><div class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; sb.length(); i++) &#123;</div><div class="line">            <span class="keyword">char</span> origin = sb.charAt(i);</div><div class="line">            <span class="keyword">for</span> (<span class="keyword">int</span> k = <span class="number">0</span>; k &lt; <span class="number">26</span>; k++) &#123;</div><div class="line">                <span class="keyword">char</span> c = (<span class="keyword">char</span>)(<span class="string">'a'</span> + k);</div><div class="line">                sb.setCharAt(i, c);</div><div class="line">                String curr = sb.toString();</div><div class="line">                <span class="keyword">if</span> (wordSet.contains(curr)) &#123;</div><div class="line">                    toVisit.add(curr);</div><div class="line">                    wordSet.remove(curr);</div><div class="line">                &#125;</div><div class="line">            &#125;</div><div class="line">            sb.setCharAt(i, origin);</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<h4 id="126-word-ladder-ii"><a href="#126-word-ladder-ii" class="headerlink" title="126. word-ladder-ii"></a><a href="https://leetcode.com/problems/word-ladder-ii/#/description" target="_blank" rel="external">126. word-ladder-ii</a></h4><p> 词典中每一个词都是一个node，要从起点到终点，如果要记录这些最短的路径具体是怎么走的，就需要在BFS判断可不可达并构建临街表的基础上再来一个DFS，从起点开始一直往后（不走回头路利用的是后出现的节点的距离一定是先经过的节点的距离+1），如果到了终点就把经过的路径存起来。最后形成的就是路径的列表了。<br> <figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div><div class="line">75</div><div class="line">76</div><div class="line">77</div><div class="line">78</div><div class="line">79</div><div class="line">80</div><div class="line">81</div><div class="line">82</div><div class="line">83</div><div class="line">84</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</div><div class="line">    <span class="keyword">public</span> List&lt;List&lt;String&gt;&gt; findLadders(String beginWord, String endWord, List&lt;String&gt; wordList) &#123;</div><div class="line">        Set&lt;String&gt; wordSet = <span class="keyword">new</span> HashSet&lt;&gt;(wordList);</div><div class="line">        wordSet.add(beginWord);</div><div class="line">        Map&lt;String, List&lt;String&gt;&gt; neighborMap = <span class="keyword">new</span> HashMap&lt;&gt;();</div><div class="line">        Map&lt;String, Integer&gt; distanceMap = <span class="keyword">new</span> HashMap&lt;&gt;();</div><div class="line">        List&lt;List&lt;String&gt;&gt; ans = <span class="keyword">new</span> ArrayList&lt;&gt;();</div><div class="line"></div><div class="line">        bfs(beginWord, endWord, wordSet, neighborMap, distanceMap);</div><div class="line">        dfs(beginWord, endWord, neighborMap, distanceMap, <span class="keyword">new</span> Arraylist&lt;String&gt;(), ans);</div><div class="line">        <span class="keyword">return</span> ans;</div><div class="line">    &#125;</div><div class="line">    <span class="comment">// 用BFS构建邻接表并维护离起点的距离</span></div><div class="line">    <span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">bfs</span><span class="params">(String beginWord, String endWord, Set&lt;String&gt; wordSet, </span></span></div><div class="line"><span class="function"><span class="params">    Map&lt;String, List&lt;String&gt;&gt; neighborMap, Map&lt;String, Integer&gt; distanceMap)</span> </span>&#123;</div><div class="line">        <span class="keyword">for</span> (String word: wordSet) &#123;</div><div class="line">            neighborMap.put(word, <span class="keyword">new</span> ArrayList&lt;String&gt;());</div><div class="line">        &#125;</div><div class="line">        Queue&lt;String&gt; q = <span class="keyword">new</span> LinkedList&lt;&gt;();</div><div class="line">        q.add(beginWord);</div><div class="line">        distanceMap.put(beginWord, <span class="number">0</span>);</div><div class="line">        <span class="keyword">while</span> (!q.isEmpty()) &#123;</div><div class="line">            <span class="keyword">int</span> size = q.size();</div><div class="line">            <span class="keyword">boolean</span> reached = <span class="keyword">false</span>;</div><div class="line">            <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; size; i++) &#123;</div><div class="line">                String currWord = q.poll();</div><div class="line">                <span class="keyword">int</span> currDistance = distanceMap.get(currWord);</div><div class="line">                List&lt;String&gt; neighborList = getNeighborList(currWord, wordSet);</div><div class="line">                <span class="keyword">for</span> (String neighbor: neighborList) &#123;</div><div class="line">                    neighborMap.get(currWord).add(neighbor);</div><div class="line">                    <span class="keyword">if</span> (!distanceMap.containsKey(neighbor)) &#123;</div><div class="line">                        distanceMap.put(neighbor, currDistance + <span class="number">1</span>);</div><div class="line">                        <span class="keyword">if</span> (neighbor.equals(endWord)) &#123;</div><div class="line">                            reached = <span class="keyword">true</span>;</div><div class="line">                        &#125; <span class="keyword">else</span> &#123;</div><div class="line">                            q.add(neighbor);</div><div class="line">                        &#125;</div><div class="line">                    &#125;</div><div class="line">                &#125;</div><div class="line">            &#125;</div><div class="line">            <span class="keyword">if</span> (reached) &#123;</div><div class="line">                <span class="keyword">break</span>;</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">    <span class="comment">// 通过替换字母并判断是否在dict中产生给定词的邻居</span></div><div class="line">    <span class="function"><span class="keyword">private</span> List&lt;String&gt; <span class="title">getNeighborList</span><span class="params">(String currWord, Set&lt;String&gt; wordSet)</span> </span>&#123;</div><div class="line">        <span class="keyword">char</span>[] cstr = currWord.toCharArray();</div><div class="line">        List&lt;String&gt; ret = <span class="keyword">new</span> ArrayList&lt;&gt;();</div><div class="line"></div><div class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; cstr.length; i++) &#123;</div><div class="line">            <span class="keyword">char</span> origin = cstr[i];</div><div class="line">            <span class="keyword">for</span> (<span class="keyword">char</span> c = <span class="string">'a'</span>; c &lt;= <span class="string">'z'</span>; c++) &#123;</div><div class="line">                <span class="keyword">if</span> (c == origin) &#123;</div><div class="line">                    <span class="keyword">continue</span>;</div><div class="line">                &#125;</div><div class="line">                cstr[i] = c;</div><div class="line">                String temp = <span class="keyword">new</span> String(cstr);</div><div class="line">                <span class="keyword">if</span> (wordSet.contains(temp)) &#123;</div><div class="line">                    ret.add(temp);</div><div class="line">                &#125;</div><div class="line">            &#125;</div><div class="line">            cstr[i] = origin;</div><div class="line">        &#125;</div><div class="line">        <span class="keyword">return</span> ret;</div><div class="line">    &#125;</div><div class="line">    <span class="comment">// 从起点开始往它的邻居DFS</span></div><div class="line">    <span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">dfs</span><span class="params">(String currWord, String endWord, Map&lt;String, List&lt;String&gt;&gt; neighborMap,</span></span></div><div class="line"><span class="function"><span class="params">    Map&lt;String, Integer&gt; distanceMap, List&lt;String&gt; path, List&lt;List&lt;String&gt;&gt; ans)</span> </span>&#123;</div><div class="line">        path.add(currWord);</div><div class="line">        <span class="keyword">if</span> (currWord.equals(endWord)) &#123;</div><div class="line">            ans.add(<span class="keyword">new</span> ArrayList&lt;String&gt;(path));</div><div class="line">        &#125; <span class="keyword">else</span> &#123;</div><div class="line">            <span class="keyword">int</span> currDistance = distanceMap.get(currWord);</div><div class="line">            List&lt;String&gt; neighborList = neighborMap.get(currWord);</div><div class="line">            <span class="keyword">for</span> (String neighbor: neighborList) &#123;</div><div class="line">                <span class="keyword">if</span> (distanceMap.get(neighbor) == currDistance + <span class="number">1</span>) &#123;</div><div class="line">                    dfs(neighbor, endWord, neighborMap, distanceMap, path, ans);</div><div class="line">                &#125;</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line">        path.remove(path.size() - <span class="number">1</span>);</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<h4 id="BST验证"><a href="#BST验证" class="headerlink" title="BST验证"></a>BST验证</h4><ul>
+<li>常见的错误是直接greedy，只判断当前节点和孩子的大小。但BST的定义是比「所有的左子树都大、比右都小」。</li>
+<li><p>方法一：中序遍历时每次都判断前后两个元素的大小关系。又分为recursive和iterative的。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div></pre></td><td class="code"><pre><div class="line"> <span class="comment">// recursive: 全局的prev记录当前节点前一个是谁，比较大小</span></div><div class="line"><span class="keyword">private</span> TreeNode prev = <span class="keyword">null</span>;</div><div class="line"><span class="function"><span class="keyword">private</span> <span class="keyword">boolean</span> <span class="title">validateBST1</span><span class="params">(TreeNode root)</span> </span>&#123;</div><div class="line">    <span class="keyword">if</span> (root == <span class="keyword">null</span>) &#123;</div><div class="line">        <span class="keyword">return</span> <span class="keyword">true</span>;</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">if</span> (!validateBST1(root.left)) &#123;</div><div class="line">        <span class="keyword">return</span> <span class="keyword">false</span>;</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">if</span> (prev != <span class="keyword">null</span> &amp;&amp; prev.val &gt;= root.val) &#123;</div><div class="line">        <span class="keyword">return</span> <span class="keyword">false</span>;</div><div class="line">    &#125;</div><div class="line">    prev = root;</div><div class="line">    <span class="keyword">return</span> validateBST1(root.right);</div><div class="line">&#125;</div><div class="line"> </div><div class="line"><span class="comment">// iterative: 用stack不断深入左节点，直到空再将栈顶与prev比较，然后进入右子树，继续不断向左。</span></div><div class="line"><span class="function"><span class="keyword">private</span> <span class="keyword">boolean</span> <span class="title">validateBST2</span><span class="params">(TreeNode root)</span> </span>&#123;</div><div class="line">    <span class="keyword">if</span> (root == <span class="keyword">null</span>) &#123;</div><div class="line">        <span class="keyword">return</span> <span class="keyword">true</span>;</div><div class="line">    &#125;</div><div class="line">    Stack&lt;TreeNode&gt; stack = <span class="keyword">new</span> Stack&lt;&gt;();</div><div class="line">    TreeNode prev = <span class="keyword">null</span>;</div><div class="line">    <span class="keyword">while</span> (root != <span class="keyword">null</span> || !stack.isEmpty()) &#123;</div><div class="line">        <span class="keyword">while</span> (root != <span class="keyword">null</span>) &#123;</div><div class="line">            stack.push(root);</div><div class="line">            root = root.left;</div><div class="line">        &#125;</div><div class="line">        root = stack.pop();</div><div class="line">        <span class="keyword">if</span> (prev != <span class="keyword">null</span> &amp;&amp; prev.val &gt;= root.val) &#123;</div><div class="line">            <span class="keyword">return</span> <span class="keyword">false</span>;</div><div class="line">        &#125;</div><div class="line">        prev = root;</div><div class="line">        root = root.right;</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">return</span> <span class="keyword">true</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+</li>
+<li><p>方法二：分治，为左右子树给定范围（min, max），在递归时更新左子树的上界、更新右子树的下界。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">private</span> <span class="keyword">boolean</span> <span class="title">validateBST3</span><span class="params">(TreeNode root)</span> </span>&#123;</div><div class="line">    <span class="keyword">return</span> dvcq(root, Long.MIN_VALUE, Long.MAX_VALUE);</div><div class="line">&#125;</div><div class="line"><span class="function"><span class="keyword">private</span> <span class="keyword">boolean</span> <span class="title">dvcq</span><span class="params">(TreeNode root, <span class="keyword">long</span> min, <span class="keyword">long</span> max)</span> </span>&#123;</div><div class="line">    <span class="keyword">if</span> (root == <span class="keyword">null</span>) &#123;</div><div class="line">        <span class="keyword">return</span> <span class="keyword">true</span>;</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">if</span> (root.val &lt;= min || root.val &gt;= max) &#123;</div><div class="line">        <span class="keyword">return</span> <span class="keyword">false</span>;</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">return</span> dvcq(root.left, min, Math.min(root.val, max))</div><div class="line">            &amp;&amp; dvcq(root.right, Math.max(root.val, min), max);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<h4 id="22-generate-parentheses"><a href="#22-generate-parentheses" class="headerlink" title="22. generate-parentheses"></a><a href="https://leetcode.com/problems/generate-parentheses/#/description" target="_blank" rel="external">22. generate-parentheses</a></h4><ul>
+<li>给一个int表示括号的对儿数，输出所有符合括号匹配规则的字符串，存入List中返回。<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</div><div class="line">    <span class="function"><span class="keyword">public</span> List&lt;String&gt; <span class="title">generateParenthesis</span><span class="params">(<span class="keyword">int</span> n)</span> </span>&#123;</div><div class="line">        List&lt;String&gt; ans = <span class="keyword">new</span> ArrayList&lt;&gt;();</div><div class="line">        <span class="keyword">if</span> (n &lt; <span class="number">1</span>) &#123;</div><div class="line">            <span class="keyword">return</span> ans;</div><div class="line">        &#125;</div><div class="line">        </div><div class="line">        dfs(n, <span class="number">0</span>, <span class="number">0</span>, <span class="string">""</span>, ans);</div><div class="line">        <span class="keyword">return</span> ans;</div><div class="line">    &#125;</div><div class="line">    <span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">dfs</span><span class="params">(<span class="keyword">int</span> n, <span class="keyword">int</span> left, <span class="keyword">int</span> right, String s, List&lt;String&gt; ans)</span> </span>&#123;</div><div class="line">        <span class="keyword">if</span> (left == n &amp;&amp; right == n) &#123;</div><div class="line">            ans.add(s);</div><div class="line">            <span class="keyword">return</span>;</div><div class="line">        &#125;</div><div class="line">        <span class="keyword">if</span> (left &lt; n)</div><div class="line">            dfs(n, left + <span class="number">1</span>, right, s + <span class="string">"("</span>, ans);</div><div class="line">        </div><div class="line">        <span class="keyword">if</span> (right &lt; left)</div><div class="line">            dfs(n, left, right + <span class="number">1</span>, s + <span class="string">")"</span>, ans);</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</div><div class="line">    <span class="function"><span class="keyword">public</span> List&lt;String&gt; <span class="title">generateParenthesis</span><span class="params">(<span class="keyword">int</span> n)</span> </span>&#123;</div><div class="line">        List&lt;List&lt;String&gt;&gt; dp = <span class="keyword">new</span> ArrayList&lt;&gt;();</div><div class="line">        <span class="keyword">if</span> (n &lt; <span class="number">1</span>) &#123;</div><div class="line">            <span class="keyword">return</span> <span class="keyword">new</span> ArrayList&lt;String&gt;();</div><div class="line">        &#125;</div><div class="line">        </div><div class="line">        dp.add(Arrays.asList(<span class="string">""</span>));</div><div class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= n; i++) &#123;</div><div class="line">            List&lt;String&gt; curr = <span class="keyword">new</span> ArrayList&lt;&gt;();</div><div class="line">            <span class="keyword">for</span> (<span class="keyword">int</span> j = <span class="number">0</span>; j &lt; i; j++) &#123;</div><div class="line">                <span class="keyword">for</span> (String first: dp.get(j)) &#123;</div><div class="line">                    <span class="keyword">for</span> (String second: dp.get(i - <span class="number">1</span> - j)) &#123;</div><div class="line">                        curr.add(<span class="string">"("</span> + first + <span class="string">")"</span> + second);</div><div class="line">                    &#125;</div><div class="line">                &#125;</div><div class="line">            &#125;</div><div class="line">            dp.add(curr);</div><div class="line">        &#125;</div><div class="line">        </div><div class="line">        <span class="keyword">return</span> dp.get(n);</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<h4 id="袜子匹配"><a href="#袜子匹配" class="headerlink" title="袜子匹配"></a><a href="http://www.1point3acres.com/bbs/thread-322529-1-1.html" target="_blank" rel="external">袜子匹配</a></h4><ul>
+<li>给一个数组表示袜子的编号，匹配到一双之后就输出，未匹配的最后输出。例如<code>1, 3, 2, 1, 1, 2, 4</code>输出<code>1, 2, 3, 1, 4</code>.</li>
+<li>用LinkedHashSet维护插入Set的顺序。<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> List&lt;Integer&gt; <span class="title">matchSocks</span><span class="params">(List&lt;Integer&gt; socks)</span> </span>&#123;</div><div class="line">    Set&lt;Integer&gt; set = <span class="keyword">new</span> LinkedHashSet&lt;&gt;();</div><div class="line">    List&lt;Integer&gt; ans = <span class="keyword">new</span> ArrayList&lt;&gt;();</div><div class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> sock : socks) &#123;</div><div class="line">        <span class="keyword">if</span> (set.contains(sock)) &#123;</div><div class="line">            set.remove(sock);</div><div class="line">            ans.add(sock);</div><div class="line">        &#125; <span class="keyword">else</span> &#123;</div><div class="line">            set.add(sock);</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">    ans.addAll(set);</div><div class="line">    <span class="keyword">return</span> ans;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<h4 id="销售额统计"><a href="#销售额统计" class="headerlink" title="销售额统计"></a><a href="http://www.1point3acres.com/bbs/thread-322529-1-1.html" target="_blank" rel="external">销售额统计</a></h4><ul>
+<li>给一堆每一天的销售情况数据List，统计每一天销售最多货物的销售员，返回<code>Map&lt;String, String&gt;</code>，key是日期的字符串，value是售货员名字.</li>
+<li>从List中提取信息，对于每一天维护一个<code>Map&lt;String, Set&lt;Seller&gt;&gt;</code>，每一个Seller中有名字和count，此外还需要维护一个当天的最大值max的<code>Map&lt;String, Integer&gt;</code>，如果插入时发现count比max大就更新一波。</li>
+</ul>
+<h4 id="Vending-machine"><a href="#Vending-machine" class="headerlink" title="Vending machine"></a><a href="http://www.1point3acres.com/bbs/thread-313821-1-1.html" target="_blank" rel="external">Vending machine</a></h4><ul>
+<li>设计自动售货机。用户put required money or more, 给它相应的物品以及显示余额；用户didnt put enough money, 不给物品，显示商品所需实际价格。</li>
+<li>不知道具体是什么要求，如果只是判断钱够不够感觉只需要在一个方法里面放一个if就行了啊。<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">Item</span> </span>&#123;</div><div class="line">    String id;</div><div class="line">    <span class="keyword">double</span> price;</div><div class="line">    <span class="keyword">int</span> count;</div><div class="line">&#125;</div><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">VendingMachine</span> </span>&#123;</div><div class="line">    <span class="keyword">private</span> Map&lt;String, Item&gt; itemMap;</div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="title">VendingMachine</span><span class="params">(Map&lt;String, Item&gt; itemMap)</span> </span>&#123;</div><div class="line">        <span class="keyword">this</span>.itemMap = itemMap;</div><div class="line">    &#125;</div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">putMoney</span><span class="params">(String itemId, <span class="keyword">double</span> inputPrice)</span> </span>&#123;</div><div class="line">        Item item = itemMap.get(itemId);</div><div class="line">        <span class="keyword">if</span> (item.count == <span class="number">0</span>) &#123;</div><div class="line">            <span class="comment">// 没了</span></div><div class="line">            <span class="keyword">return</span>;</div><div class="line">        &#125;</div><div class="line">        <span class="keyword">if</span> (inputPrice &gt; item.price) &#123;</div><div class="line">            <span class="comment">// 显示余额</span></div><div class="line">        &#125; <span class="keyword">else</span> &#123;</div><div class="line">            <span class="comment">// 钱不够</span></div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+</li>
+</ul>
+
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+      <div>
+        <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+  <div>└(^o^)┘</div>
+  <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+    <span>Donate</span>
+  </button>
+  <div id="QR" style="display: none;">
+
+    
+      <div id="wechat" style="display: inline-block">
+        <img id="wechat_qr" src="/images/wechat.png" alt="Bob_波波 WeChat Pay"/>
+        <p>WeChat Pay</p>
+      </div>
+    
+
+    
+      <div id="alipay" style="display: inline-block">
+        <img id="alipay_qr" src="/images/alipay.png" alt="Bob_波波 Alipay"/>
+        <p>Alipay</p>
+      </div>
+    
+
+    
+
+  </div>
+</div>
+
+      </div>
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/java/" rel="tag"><i class="fa fa-tag"></i> java</a>
+          
+            <a href="/tags/algorithm/" rel="tag"><i class="fa fa-tag"></i> algorithm</a>
+          
+            <a href="/tags/interview/" rel="tag"><i class="fa fa-tag"></i> interview</a>
+          
+            <a href="/tags/groupon/" rel="tag"><i class="fa fa-tag"></i> groupon</a>
+          
+        </div>
+      
+
+      
+      
+        <div class="post-widgets">
+        
+
+        
+
+        
+          
+          <div class="social_share">
+            
+            
+               <div id="needsharebutton-postbottom">
+                 <span class="btn">
+                    <i class="fa fa-share-alt" aria-hidden="true"></i>
+                 </span>
+               </div>
+            
+          </div>
+        
+        </div>
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/01/06/java_leetcode5/" rel="next" title="Note for LeetCode in Java (401~800)">
+                <i class="fa fa-chevron-left"></i> Note for LeetCode in Java (401~800)
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2018/02/21/liveramp/" rel="prev" title="来福软谱">
+                来福软谱 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+  </div>
+
+
+          </div>
+          
+
+  
+    <div class="comments" id="comments">
+      <div id="disqus_thread">
+        <noscript>Please enable JavaScript to view the comments powered by Disqus.</noscript>
+      </div>
+    </div>
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Overview
+          </li>
+        </ul>
+      
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="/images/avatar.jpg"
+                alt="Bob_波波"/>
+            
+              <p class="site-author-name" itemprop="name">Bob_波波</p>
+              <p class="site-description motion-element" itemprop="description">I'm a Software Engineer!</p>
+          </div>
+
+          
+            <nav class="site-state motion-element">
+              
+                <div class="site-state-item site-state-posts">
+                
+                  <a href="/archives/">
+                
+                    <span class="site-state-item-count">40</span>
+                    <span class="site-state-item-name">posts</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-categories">
+                  <a href="/categories/index.html">
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">3</span>
+                    <span class="site-state-item-name">categories</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-tags">
+                  <a href="/tags/index.html">
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">39</span>
+                    <span class="site-state-item-name">tags</span>
+                  </a>
+                </div>
+              
+            </nav>
+          
+
+          
+
+          
+
+          
+
+          
+          
+
+          
+            
+          
+          
+
+        </div>
+      </div>
+
+      
+      <!--noindex-->
+        <div class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+            
+            
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#LRU-Cache-146"><span class="nav-text">LRU Cache(146)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#奇偶归一"><span class="nav-text">奇偶归一</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#215-kth-largest-element-in-an-array"><span class="nav-text">215. kth-largest-element-in-an-array</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#692-top-k-frequent-words"><span class="nav-text">692. top-k-frequent-words</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#437-path-sum-iii"><span class="nav-text">437. path-sum-iii</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#322-coin-change"><span class="nav-text">322. coin-change</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#238-product-of-array-except-self"><span class="nav-text">238. product-of-array-except-self</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#正则-10"><span class="nav-text">正则  10 </span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#4-Median-of-2-sorted-arrays"><span class="nav-text">4. Median of 2 sorted arrays</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#5-Longest-palindromic-substring"><span class="nav-text">5. Longest palindromic substring</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-sum"><span class="nav-text">3 sum</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#202-happy-number"><span class="nav-text">202. happy-number</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#sort-array-with-only-0-and-1"><span class="nav-text">sort array with only 0 and 1</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#string-repetition"><span class="nav-text">string repetition</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#366-find-leaves-of-binary-tree"><span class="nav-text">366. find-leaves-of-binary-tree</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#513-find-bottom-left-tree-value"><span class="nav-text">513. find-bottom-left-tree-value</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#reverse-LinkedList"><span class="nav-text">reverse LinkedList</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#186-reverse-words-in-a-string-ii"><span class="nav-text">186. reverse-words-in-a-string-ii</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#implement-linkedhashmap"><span class="nav-text">implement linkedhashmap</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#implement-priority-queue"><span class="nav-text">implement priority queue</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#572-subtree-of-another-tree"><span class="nav-text">572. subtree-of-another-tree</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#remove-duplicates-from-sorted-array"><span class="nav-text">remove-duplicates-from-sorted-array</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#remove-duplicates-from-sorted-array-ii"><span class="nav-text">remove-duplicates-from-sorted-array-ii</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#127-word-ladder"><span class="nav-text">127. word-ladder</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#126-word-ladder-ii"><span class="nav-text">126. word-ladder-ii</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#BST验证"><span class="nav-text">BST验证</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#22-generate-parentheses"><span class="nav-text">22. generate-parentheses</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#袜子匹配"><span class="nav-text">袜子匹配</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#销售额统计"><span class="nav-text">销售额统计</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Vending-machine"><span class="nav-text">Vending machine</span></a></li></ol></div>
+            
+
+          </div>
+        </div>
+      <!--/noindex-->
+      
+
+      
+        <div class="back-to-top">
+          <i class="fa fa-arrow-up"></i>
+          
+        </div>
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; 2016 – <span itemprop="copyrightYear">2019</span>
+  <span class="with-love" id="animate">
+    <i class="fa fa-futbol-o"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Bob_波波</span>
+
+  
+
+  
+</div>
+
+
+  <div class="powered-by">Powered by <a href="https://hexo.io" class="theme-link" rel="noopener" target="_blank">Hexo</a></div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">Theme – <a href="https://theme-next.org" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a></div>
+
+
+
+
+        
+<div class="busuanzi-count">
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  
+    <span class="site-uv" title="Total Visitors">
+      <i class="fa fa-user"></i>
+      <span class="busuanzi-value" id="busuanzi_value_site_uv"></span>
+    </span>
+  
+
+  
+    <span class="post-meta-divider">|</span>
+  
+
+  
+    <span class="site-pv" title="Total Views">
+      <i class="fa fa-history"></i>
+      <span class="busuanzi-value" id="busuanzi_value_site_pv"></span>
+    </span>
+  
+</div>
+
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+
+    
+
+    
+
+    
+      <div>
+        <!-- Go to www.addthis.com/dashboard to customize your tools -->
+<div class="addthis_inline_share_toolbox">
+  <script type = "text/javascript" src = "//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-593135f4e114024c" async = "async" ></script>
+</div>
+
+      </div>
+    
+  </div>
+
+  
+
+<script>
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+
+  
+
+
+  <script src="/js/src/utils.js?v=6.7.0"></script>
+
+  <script src="/js/src/motion.js?v=6.7.0"></script>
+
+
+
+  
+  
+
+
+  <script src="/js/src/affix.js?v=6.7.0"></script>
+
+  <script src="/js/src/schemes/pisces.js?v=6.7.0"></script>
+
+
+
+  
+  <script src="/js/src/scrollspy.js?v=6.7.0"></script>
+<script src="/js/src/post-details.js?v=6.7.0"></script>
+
+
+
+  
+
+
+  <script src="/js/src/bootstrap.js?v=6.7.0"></script>
+
+
+
+  
+
+  
+    <script id="dsq-count-scr" src="https://bobbyliujb.disqus.com/count.js" async></script>
+  
+
+  
+    <script>
+      var disqus_config = function () {
+        this.page.url = "https://bobbyliujb.github.io/2018/01/16/groupon/";
+        this.page.identifier = "2018/01/16/groupon/";
+        this.page.title = '谷入普昂';
+        };
+      function loadComments () {
+        var d = document, s = d.createElement('script');
+        s.src = 'https://bobbyliujb.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', '' + +new Date());
+        (d.head || d.body).appendChild(s);
+      }
+      
+        loadComments();
+      
+    </script>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  <script>
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').hide();
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.search-popup-overlay').click(onPopupClose);
+      $('.popup').toggle();
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+
+      // start loading animation
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
+          '<div id="search-loading-icon">' +
+          '<i class="fa fa-circle-o-notch fa-spin fa-3x fa-fw"></i>' +
+          '</div>' +
+          '</div>')
+        .css('overflow', 'hidden');
+      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
+
+      
+
+      $.ajax({
+        url: path,
+        dataType: isXml ? "xml" : "json",
+        async: true,
+        success: function(res) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = isXml ? $("entry", res).map(function() {
+            return {
+              title: $("title", this).text(),
+              content: $("content",this).text(),
+              url: $("url" , this).text()
+            };
+          }).get() : res;
+          var input = document.getElementById(search_id);
+          var resultContent = document.getElementById(content_id);
+          var inputEventFunction = function() {
+            var searchText = input.value.trim().toLowerCase();
+            var keywords = searchText.split(/[\s\-]+/);
+            if (keywords.length > 1) {
+              keywords.push(searchText);
+            }
+            var resultItems = [];
+            if (searchText.length > 0) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var hitCount = 0;
+                var searchTextCount = 0;
+                var title = data.title.trim();
+                var titleInLowerCase = title.toLowerCase();
+                var content = data.content.trim().replace(/<[^>]+>/g,"");
+                
+                var contentInLowerCase = content.toLowerCase();
+                var articleUrl = decodeURIComponent(data.url).replace(/\/{2,}/g, '/');
+                var indexOfTitle = [];
+                var indexOfContent = [];
+                // only match articles with not empty titles
+                if(title != '') {
+                  keywords.forEach(function(keyword) {
+                    function getIndexByWord(word, text, caseSensitive) {
+                      var wordLen = word.length;
+                      if (wordLen === 0) {
+                        return [];
+                      }
+                      var startPosition = 0, position = [], index = [];
+                      if (!caseSensitive) {
+                        text = text.toLowerCase();
+                        word = word.toLowerCase();
+                      }
+                      while ((position = text.indexOf(word, startPosition)) > -1) {
+                        index.push({position: position, word: word});
+                        startPosition = position + wordLen;
+                      }
+                      return index;
+                    }
+
+                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+                  });
+                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+                    isMatch = true;
+                    hitCount = indexOfTitle.length + indexOfContent.length;
+                  }
+                }
+
+                // show search results
+
+                if (isMatch) {
+                  // sort index by position of keyword
+
+                  [indexOfTitle, indexOfContent].forEach(function (index) {
+                    index.sort(function (itemLeft, itemRight) {
+                      if (itemRight.position !== itemLeft.position) {
+                        return itemRight.position - itemLeft.position;
+                      } else {
+                        return itemLeft.word.length - itemRight.word.length;
+                      }
+                    });
+                  });
+
+                  // merge hits into slices
+
+                  function mergeIntoSlice(text, start, end, index) {
+                    var item = index[index.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    var hits = [];
+                    var searchTextCountInSlice = 0;
+                    while (position + word.length <= end && index.length != 0) {
+                      if (word === searchText) {
+                        searchTextCountInSlice++;
+                      }
+                      hits.push({position: position, length: word.length});
+                      var wordEnd = position + word.length;
+
+                      // move to next position of hit
+
+                      index.pop();
+                      while (index.length != 0) {
+                        item = index[index.length - 1];
+                        position = item.position;
+                        word = item.word;
+                        if (wordEnd > position) {
+                          index.pop();
+                        } else {
+                          break;
+                        }
+                      }
+                    }
+                    searchTextCount += searchTextCountInSlice;
+                    return {
+                      hits: hits,
+                      start: start,
+                      end: end,
+                      searchTextCount: searchTextCountInSlice
+                    };
+                  }
+
+                  var slicesOfTitle = [];
+                  if (indexOfTitle.length != 0) {
+                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+                  }
+
+                  var slicesOfContent = [];
+                  while (indexOfContent.length != 0) {
+                    var item = indexOfContent[indexOfContent.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    // cut out 100 characters
+                    var start = position - 20;
+                    var end = position + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if (end < position + word.length) {
+                      end = position + word.length;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+                  }
+
+                  // sort slices in content by search text's count and hits' count
+
+                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                      return sliceRight.hits.length - sliceLeft.hits.length;
+                    } else {
+                      return sliceLeft.start - sliceRight.start;
+                    }
+                  });
+
+                  // select top N slices in content
+
+                  var upperBound = parseInt('10');
+                  if (upperBound >= 0) {
+                    slicesOfContent = slicesOfContent.slice(0, upperBound);
+                  }
+
+                  // highlight title and content
+
+                  function highlightKeyword(text, slice) {
+                    var result = '';
+                    var prevEnd = slice.start;
+                    slice.hits.forEach(function (hit) {
+                      result += text.substring(prevEnd, hit.position);
+                      var end = hit.position + hit.length;
+                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                      prevEnd = end;
+                    });
+                    result += text.substring(prevEnd, slice.end);
+                    return result;
+                  }
+
+                  var resultItem = '';
+
+                  if (slicesOfTitle.length != 0) {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+                  } else {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+                  }
+
+                  slicesOfContent.forEach(function (slice) {
+                    resultItem += "<a href='" + articleUrl + "'>" +
+                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                      "...</p>" + "</a>";
+                  });
+
+                  resultItem += "</li>";
+                  resultItems.push({
+                    item: resultItem,
+                    searchTextCount: searchTextCount,
+                    hitCount: hitCount,
+                    id: resultItems.length
+                  });
+                }
+              })
+            };
+            if (keywords.length === 1 && keywords[0] === "") {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x"></i></div>'
+            } else if (resultItems.length === 0) {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x"></i></div>'
+            } else {
+              resultItems.sort(function (resultLeft, resultRight) {
+                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+                  return resultRight.searchTextCount - resultLeft.searchTextCount;
+                } else if (resultLeft.hitCount !== resultRight.hitCount) {
+                  return resultRight.hitCount - resultLeft.hitCount;
+                } else {
+                  return resultRight.id - resultLeft.id;
+                }
+              });
+              var searchResultList = '<ul class=\"search-result-list\">';
+              resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if ('auto' === 'auto') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
+          proceedsearch();
+        }
+      });
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script>
+
+
+
+
+
+  
+
+  
+  <script>
+    
+    function addCount(Counter) {
+      var $visitors = $(".leancloud_visitors");
+      var url = $visitors.attr('id').trim();
+      var title = $visitors.attr('data-flag-title').trim();
+
+      Counter('get', '/classes/Counter', { where: JSON.stringify({ url }) })
+        .done(function ({ results }) {
+          if (results.length > 0) {
+            var counter = results[0];
+            
+            Counter('put', `/classes/Counter/${counter.objectId}`, JSON.stringify({ time: { "__op":"Increment", "amount":1 } }))
+            
+            .done(function () {
+                  var $element = $(document.getElementById(url));
+                  $element.find('.leancloud-visitors-count').text(counter.time + 1);
+            })
+            
+            .fail(function ({ responseJSON }) {
+                console.log('Failed to save Visitor num, with error message: ' + responseJSON.error);
+            })
+          } else {
+            
+              var $element = $(document.getElementById(url));
+              $element.find('.leancloud-visitors-count').text('Counter not initialized! See more at console err msg.');
+              console.error('ATTENTION! LeanCloud counter has security bug, see here how to solve it: https://github.com/theme-next/hexo-leancloud-counter-security. \n But you also can use LeanCloud without security, by set \'security\' option to \'false\'.');
+            
+          }
+        })
+      .fail(function ({ responseJSON }) {
+        console.log('LeanCloud Counter Error:' + responseJSON.code + " " + responseJSON.error);
+      });
+    }
+    
+
+    $(function() {
+      $.get('https://app-router.leancloud.cn/2/route?appId=' + "jT7i5auNazMHRONSPUHmcoko-gzGzoHsz")
+        .done(function ({ api_server }) {
+          var Counter = function (method, url, data) {
+            return $.ajax({
+              method: method,
+              url: `https://${api_server}/1.1${url}`,
+              headers: {
+                'X-LC-Id': "jT7i5auNazMHRONSPUHmcoko-gzGzoHsz",
+                'X-LC-Key': "dEWwuVre5Svmwvjw2DmcIbLy",
+                'Content-Type': 'application/json',
+              },
+              data: data,
+            });
+          };
+          
+          addCount(Counter);
+          
+        })
+    });
+  </script>
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+  
+  
+  <script src="/lib/needsharebutton/needsharebutton.js"></script>
+  <script>
+    
+      pbOptions = {};
+      
+        pbOptions.iconStyle = "box";
+      
+        pbOptions.boxForm = "horizontal";
+      
+        pbOptions.position = "topCenter";
+      
+        pbOptions.networks = "Linkedin,Weibo,Wechat,Twitter,Facebook,Pinterest,GooglePlus,Evernote,Reddit,Douban,QQZone,Mailto";
+      
+      new needShareButton('#needsharebutton-postbottom', pbOptions);
+    
+    
+  </script>
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
