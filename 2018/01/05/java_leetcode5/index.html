@@ -137,14 +137,14 @@
 
 
   <meta name="description" content="刷题。祝我好运。">
-<meta name="keywords" content="java,algorithm,interview,leetcode">
+<meta name="keywords" content="algorithm,java,interview,leetcode">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Note for LeetCode in Java (401~800)">
 <meta property="og:url" content="https://bobbyliujb.github.io/2018/01/05/java_leetcode5/index.html">
 <meta property="og:site_name" content="Bob_波波">
 <meta property="og:description" content="刷题。祝我好运。">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2019-08-14T05:15:46.739Z">
+<meta property="og:updated_time" content="2019-08-22T05:22:21.045Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Note for LeetCode in Java (401~800)">
 <meta name="twitter:description" content="刷题。祝我好运。">
@@ -470,7 +470,7 @@
                 
                   <span class="post-meta-item-text">Edited on</span>
                 
-                <time title="Modified: 2019-08-13 22:15:46" itemprop="dateModified" datetime="2019-08-13T22:15:46-07:00">2019-08-13</time>
+                <time title="Modified: 2019-08-21 22:22:21" itemprop="dateModified" datetime="2019-08-21T22:22:21-07:00">2019-08-21</time>
               
             
           </span>
@@ -929,7 +929,7 @@
 </ul>
 <h4 id="544-output-contest-matches"><a href="#544-output-contest-matches" class="headerlink" title="544. output-contest-matches"></a><a href="https://leetcode.com/problems/output-contest-matches/" target="_blank" rel="external">544. output-contest-matches</a></h4><ul>
 <li>给一个整数n表示有多少支队伍，返回这些队伍的对决情况。例如n = 4时，返回<code>((1,4),(2,3))</code>.</li>
-<li>有点类似动态规划，n个格子存放当前的对阵情况，队伍减半后再继续套。<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</div><div class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">findContestMatch</span><span class="params">(<span class="keyword">int</span> n)</span> </span>&#123;</div><div class="line">        <span class="keyword">if</span> (n &lt; <span class="number">2</span>) &#123;</div><div class="line">            <span class="keyword">return</span> <span class="string">""</span>;</div><div class="line">        &#125;</div><div class="line">        String[] bucket = <span class="keyword">new</span> String[n];</div><div class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; n; i++) &#123;</div><div class="line">            bucket[i] = String.valueOf(i + <span class="number">1</span>);</div><div class="line">        &#125;</div><div class="line">        </div><div class="line">        <span class="keyword">while</span> (n &gt; <span class="number">1</span>) &#123;</div><div class="line">            <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i * <span class="number">2</span> &lt; n; i++) &#123;</div><div class="line">                bucket[i] = <span class="string">"("</span> + bucket[i] + <span class="string">","</span> + bucket[n - i - <span class="number">1</span>] + <span class="string">")"</span>;</div><div class="line">            &#125;</div><div class="line">            n /= <span class="number">2</span>;</div><div class="line">        &#125;</div><div class="line">        <span class="keyword">return</span> bucket[<span class="number">0</span>];</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<li>有点类似动态规划，n个格子存放当前的对阵情况，队伍减半后再继续套。<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</div><div class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">findContestMatch</span><span class="params">(<span class="keyword">int</span> n)</span> </span>&#123;</div><div class="line">        <span class="keyword">if</span> (n &lt; <span class="number">2</span>) &#123;</div><div class="line">            <span class="keyword">return</span> <span class="string">""</span>;</div><div class="line">        &#125;</div><div class="line">        String[] bucket = <span class="keyword">new</span> String[n];</div><div class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; n; i++) &#123;</div><div class="line">            bucket[i] = String.valueOf(i + <span class="number">1</span>);  <span class="comment">// 初始化每个队伍</span></div><div class="line">        &#125;</div><div class="line">        </div><div class="line">        <span class="keyword">while</span> (n &gt; <span class="number">1</span>) &#123;</div><div class="line">            <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i * <span class="number">2</span> &lt; n; i++) &#123;</div><div class="line">                bucket[i] = <span class="string">"("</span> + bucket[i] + <span class="string">","</span> + bucket[n - i - <span class="number">1</span>] + <span class="string">")"</span>;    <span class="comment">// 前后对应着取对阵情况</span></div><div class="line">            &#125;</div><div class="line">            n /= <span class="number">2</span>;         <span class="comment">// 对半折后继续取</span></div><div class="line">        &#125;</div><div class="line">        <span class="keyword">return</span> bucket[<span class="number">0</span>];</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
 </li>
 </ul>
 <h4 id="545-boundary-of-binary-tree"><a href="#545-boundary-of-binary-tree" class="headerlink" title="545. boundary-of-binary-tree"></a><a href="https://leetcode.com/problems/boundary-of-binary-tree/description/" target="_blank" rel="external">545. boundary-of-binary-tree</a></h4><ul>
@@ -1620,9 +1620,9 @@
       
         <div class="post-tags">
           
-            <a href="/tags/java/" rel="tag"><i class="fa fa-tag"></i> java</a>
-          
             <a href="/tags/algorithm/" rel="tag"><i class="fa fa-tag"></i> algorithm</a>
+          
+            <a href="/tags/java/" rel="tag"><i class="fa fa-tag"></i> java</a>
           
             <a href="/tags/interview/" rel="tag"><i class="fa fa-tag"></i> interview</a>
           
@@ -1659,8 +1659,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2017/11/28/udacity/" rel="next" title="有代西滴">
-                <i class="fa fa-chevron-left"></i> 有代西滴
+              <a href="/2018/01/05/java_leetcode6/" rel="next" title="Note for LeetCode in Java (800+)">
+                <i class="fa fa-chevron-left"></i> Note for LeetCode in Java (800+)
               </a>
             
           </div>
@@ -1669,8 +1669,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2018/01/05/java_leetcode6/" rel="prev" title="Note for LeetCode in Java (800+)">
-                Note for LeetCode in Java (800+) <i class="fa fa-chevron-right"></i>
+              <a href="/2018/01/15/groupon/" rel="prev" title="谷入普昂">
+                谷入普昂 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
