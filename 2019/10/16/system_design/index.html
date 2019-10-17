@@ -139,14 +139,14 @@
   <meta name="description" content="系统设计学习笔记。祝我好运。">
 <meta name="keywords" content="interview,system,design">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Frugal Tips In the U.S.">
+<meta property="og:title" content="系统设计笔记">
 <meta property="og:url" content="https://bobbyliujb.github.io/2019/10/16/system_design/index.html">
 <meta property="og:site_name" content="Bob_波波">
 <meta property="og:description" content="系统设计学习笔记。祝我好运。">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2019-10-17T05:37:10.432Z">
+<meta property="og:updated_time" content="2019-10-17T05:39:42.115Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Frugal Tips In the U.S.">
+<meta name="twitter:title" content="系统设计笔记">
 <meta name="twitter:description" content="系统设计学习笔记。祝我好运。">
 
 
@@ -164,7 +164,7 @@
   };
 </script>
 
-  <title>Frugal Tips In the U.S. | Bob_波波</title>
+  <title>系统设计笔记 | Bob_波波</title>
   
 
 
@@ -427,7 +427,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">Frugal Tips In the U.S.
+          <h1 class="post-title" itemprop="name headline">系统设计笔记
 
               
             
@@ -453,7 +453,7 @@
                 
               
 
-              <time title="Created: 2019-10-16 22:02:39 / Modified: 22:37:10" itemprop="dateCreated datePublished" datetime="2019-10-16T22:02:39-07:00">2019-10-16</time>
+              <time title="Created: 2019-10-16 22:02:39 / Modified: 22:39:42" itemprop="dateCreated datePublished" datetime="2019-10-16T22:02:39-07:00">2019-10-16</time>
             
 
             
@@ -501,7 +501,7 @@
 
           
           
-             <span id="/2019/10/16/system_design/" class="leancloud_visitors" data-flag-title="Frugal Tips In the U.S.">
+             <span id="/2019/10/16/system_design/" class="leancloud_visitors" data-flag-title="系统设计笔记">
                <span class="post-meta-divider">|</span>
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -526,7 +526,7 @@
                 
                   <span class="post-meta-item-text">Symbols count in article: </span>
                 
-                <span title="Symbols count in article">451</span>
+                <span title="Symbols count in article">444</span>
               
 
               
@@ -568,7 +568,7 @@
 <li>显式地指明字符集，防止在插入时有特殊字符，导致代码中读取时于存入的值不一致/乱码。</li>
 <li>read-only和read-write的权限指向的数据库可能也有性能差异，query/report等操作都应指向RO终端。</li>
 <li>需要考虑数据量：比如每达到<code>若干百GB</code>之后需要对历史数据进行存档，或者考虑将数据表进行partition以保证读取的效率。</li>
-<li>数据转移的job尽可能分段、间隔地进行，而不是一口气全部migrate/backfill/bulkload/delete. 这样中途断掉后的挽救会容易许多。</li>
+<li>数据转移的job尽可能分段、间隔地进行，而不是一口气全部migrate/backfill/bulkload/delete，防止job中途崩了。</li>
 </ul>
 
       
@@ -1094,7 +1094,7 @@
       var disqus_config = function () {
         this.page.url = "https://bobbyliujb.github.io/2019/10/16/system_design/";
         this.page.identifier = "2019/10/16/system_design/";
-        this.page.title = 'Frugal Tips In the U.S.';
+        this.page.title = '系统设计笔记';
         };
       function loadComments () {
         var d = document, s = d.createElement('script');
