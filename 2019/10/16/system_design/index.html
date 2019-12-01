@@ -144,7 +144,7 @@
 <meta property="og:site_name" content="Bob_波波">
 <meta property="og:description" content="系统设计学习笔记。祝我好运。">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2019-11-01T04:42:06.720Z">
+<meta property="og:updated_time" content="2019-12-01T01:29:53.368Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="系统设计笔记">
 <meta name="twitter:description" content="系统设计学习笔记。祝我好运。">
@@ -470,7 +470,7 @@
                 
                   <span class="post-meta-item-text">Edited on</span>
                 
-                <time title="Modified: 2019-10-31 21:42:06" itemprop="dateModified" datetime="2019-10-31T21:42:06-07:00">2019-10-31</time>
+                <time title="Modified: 2019-11-30 17:29:53" itemprop="dateModified" datetime="2019-11-30T17:29:53-08:00">2019-11-30</time>
               
             
           </span>
@@ -538,7 +538,7 @@
                 
                   <span class="post-meta-item-text">Symbols count in article: </span>
                 
-                <span title="Symbols count in article">451</span>
+                <span title="Symbols count in article">1.7k</span>
               
 
               
@@ -552,7 +552,7 @@
                 
                   <span class="post-meta-item-text">Reading time &asymp;</span>
                 
-                <span title="Reading time">1 mins.</span>
+                <span title="Reading time">2 mins.</span>
               
             </div>
           
@@ -581,6 +581,46 @@
 <li>read-only和read-write的权限指向的数据库可能也有性能差异，query/report等操作都应指向RO终端。</li>
 <li>需要考虑数据量：比如每达到<code>若干百GB</code>之后需要对历史数据进行存档，或者考虑将数据表进行partition以保证读取的效率。</li>
 <li>数据转移的job尽可能分段、间隔地进行，而不是一口气全部migrate/backfill/bulkload/delete，防止job中途崩了。</li>
+</ul>
+<h3 id="分布式系统的主要特性"><a href="#分布式系统的主要特性" class="headerlink" title="分布式系统的主要特性"></a>分布式系统的主要特性</h3><h4 id="Scalability"><a href="#Scalability" class="headerlink" title="Scalability"></a>Scalability</h4><ul>
+<li>系统/服务是否能够evolve并handle增长的需求。随着系统自身规模增加，scalability通常下降，因为机器之间的物理距离、网速限制，或者任务本身就无法被分配到不同机器上执行。<ul>
+<li>horizaontal scaling: 用更多的机器，更加动态和灵活一些。</li>
+<li>vertical scaling: 在机器上堆更好更多更快的硬件cpu/ram/storage，通常涉及downtime以及升级的极限。</li>
+</ul>
+</li>
+</ul>
+<h4 id="Reliability"><a href="#Reliability" class="headerlink" title="Reliability"></a>Reliability</h4><ul>
+<li>系统在一定时间内宕机的概率。一个reliable的系统能够正常地完成任务而不会因为自身软/硬件的failure而宕机。</li>
+<li>reliable的分布式系统通常涉及redundancy，避免single point of failure.</li>
+</ul>
+<h4 id="Availability"><a href="#Availability" class="headerlink" title="Availability"></a>Availability</h4><ul>
+<li>系统在一定时间内正常工作的概率，downtime越少、越不频繁就越available。可以理解为「较低要求的reliablity」.</li>
+<li>如果系统reliable, 就是available的；但反过来，系统available，不一定reliable。</li>
+</ul>
+<h4 id="Efficiency"><a href="#Efficiency" class="headerlink" title="Efficiency"></a>Efficiency</h4><ul>
+<li>Latency(response time): 从接受到请求到第一次返回数据需要多久</li>
+<li>Throughput(bandwidith): 单位时间内能够发送多少</li>
+</ul>
+<h4 id="Serviceability-Managebility"><a href="#Serviceability-Managebility" class="headerlink" title="Serviceability/Managebility"></a>Serviceability/Managebility</h4><ul>
+<li>衡量系统的维修/维护的容易程度和所需时间。</li>
+<li>需要考虑如果出问题了是否容易诊断(log的重要性)，部署升级或修改的方便程度，能否自动恢复（针对间歇性宕机），是否有合适的monitor&amp;alert机.</li>
+</ul>
+<h3 id="Load-Balancing"><a href="#Load-Balancing" class="headerlink" title="Load Balancing"></a>Load Balancing</h3><ul>
+<li>负载均衡处在client和server之间，负责接受网络请求并分配到后端cluster，提高responsivenes和availability.</li>
+<li>如果想尽可能充分使用LB，可以考虑在client、WebServer、ApplicationServer、DBServer之间各加一层LB. 为了防止LB本身成为single point of failure，可以考虑对LB本身加上redundancy。</li>
+<li>除了提升availability、更高效，LB还可以提供机器学习的功能，类似于流量预判从而适当地scale等等。</li>
+<li>LB在确认server能正常响应后，就会通过某种算法将request导向server<ul>
+<li>Least connection: 根据active connection，选最少的那个</li>
+<li>Least Response Time: 根据响应时间，选最快的</li>
+<li>Least Bandwidth: 选择负载最轻的</li>
+<li>Round Robin: 轮流。或者根据机器本身的处理能力赋予权重，根据权重来RR.</li>
+<li>IP Hash: 将client的IP映射成hash再选择对应的server。</li>
+</ul>
+</li>
+</ul>
+<h3 id="Caching"><a href="#Caching" class="headerlink" title="Caching"></a>Caching</h3><hr>
+<h3 id="References"><a href="#References" class="headerlink" title="References"></a>References</h3><ul>
+<li><a href="https://www.educative.io/courses/grokking-the-system-design-interview" target="_blank" rel="external">grokking-the-system-design-interview</a></li>
 </ul>
 
       
@@ -926,7 +966,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#Database"><span class="nav-text">Database</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Best-Practices"><span class="nav-text">Best Practices</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#Database"><span class="nav-text">Database</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Best-Practices"><span class="nav-text">Best Practices</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#分布式系统的主要特性"><span class="nav-text">分布式系统的主要特性</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Scalability"><span class="nav-text">Scalability</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Reliability"><span class="nav-text">Reliability</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Availability"><span class="nav-text">Availability</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Efficiency"><span class="nav-text">Efficiency</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Serviceability-Managebility"><span class="nav-text">Serviceability/Managebility</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Load-Balancing"><span class="nav-text">Load Balancing</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Caching"><span class="nav-text">Caching</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#References"><span class="nav-text">References</span></a></li></ol></div>
             
 
           </div>
