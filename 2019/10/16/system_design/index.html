@@ -144,7 +144,7 @@
 <meta property="og:site_name" content="Bob_波波">
 <meta property="og:description" content="系统设计学习笔记。祝我好运。">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2019-12-05T06:30:49.785Z">
+<meta property="og:updated_time" content="2019-12-09T02:09:55.973Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="系统设计笔记">
 <meta name="twitter:description" content="系统设计学习笔记。祝我好运。">
@@ -470,7 +470,7 @@
                 
                   <span class="post-meta-item-text">Edited on</span>
                 
-                <time title="Modified: 2019-12-04 22:30:49" itemprop="dateModified" datetime="2019-12-04T22:30:49-08:00">2019-12-04</time>
+                <time title="Modified: 2019-12-08 18:09:55" itemprop="dateModified" datetime="2019-12-08T18:09:55-08:00">2019-12-08</time>
               
             
           </span>
@@ -538,7 +538,7 @@
                 
                   <span class="post-meta-item-text">Symbols count in article: </span>
                 
-                <span title="Symbols count in article">3k</span>
+                <span title="Symbols count in article">4k</span>
               
 
               
@@ -552,7 +552,7 @@
                 
                   <span class="post-meta-item-text">Reading time &asymp;</span>
                 
-                <span title="Reading time">3 mins.</span>
+                <span title="Reading time">4 mins.</span>
               
             </div>
           
@@ -644,7 +644,15 @@
 <li>Directory Based: 构建一个lookup的中间层，每次查数据时先经过lookup找到对应的DB server，再去实际的地方取数据。这样的好处是将DB access的代码从实际的系统中抽象出来，将来需要改变partition scheme的时候就不需要动系统本身了。</li>
 </ul>
 <h5 id="Partitioning-Criteria"><a href="#Partitioning-Criteria" class="headerlink" title="Partitioning Criteria"></a>Partitioning Criteria</h5><ul>
-<li>Key/Hash based: 对数据entity的关键属性hash后得到一个partition编号。</li>
+<li>Key/Hash based partitioning: 对数据entity的关键属性hash后得到一个partition编号，再根据这个编号找到服务器存取数据。由于hash函数是按照当前服务器总数定的，如果想加更多就需要downtime了。解决方法是使用<a href="https://blog.csdn.net/suifeng629/article/details/81567777" target="_blank" rel="external">consitent hashing</a>. consistent hashing思想是利用一个hash环，对数据和缓存机器都进行hash，每个数据都存在顺时针距离最近的机器上。这样当机器增加/减少时只有环上特定段的数据需要重新分配的新的机器上，对于其他数据没有影响。</li>
+<li>List partitioning: 每一个partition维护一个list of values，如果数据包含这个value就存入相应的partition，但效率不高。</li>
+<li>Round-robin partitioning: 轮流，i-th tuple直接存入<code>i % n</code>个partition。</li>
+<li>Composite partitioning: 结合上面几种，例如先用个简单的list、在内部再用hash based。其实consistent hashing也可以当作是一种结合式分区。</li>
+</ul>
+<h5 id="Problems-of-Partitioning"><a href="#Problems-of-Partitioning" class="headerlink" title="Problems of Partitioning"></a>Problems of Partitioning</h5><ul>
+<li>Joins and Denormalization: 如果table都在一个机器上，使用join操作非常正常。但是分散之后还想同时对多个table进行join就不那么feasibile了。解决方法是对数据库进行denormalize，这样之前执行过的join操作就可以在单个table上完成了，有点类似于数据备份，但这样也就需要处理数据不一致的问题了。</li>
+<li>Referential integrity: 类似于cross-partition query不可行，保证data integrity constraints如foreign keys之类的也很困难，在RDBMS不支持跨服务器的reference的情况下就需要在application level维护一些保证引用正确性的代码了。</li>
+<li>Rebalancing: 当请求集中在某些服务器时可能就需要考虑调整划分规则了，通常就涉及增加新的partition或在现有的partition内部进行rebalancing。使用directory based的操作可以避免downtime，但也增加了系统的复杂性和引入了single point-of-failure（中央查询都这样）。</li>
 </ul>
 <hr>
 <h3 id="References"><a href="#References" class="headerlink" title="References"></a>References</h3><ul>
@@ -994,7 +1002,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#分布式系统的主要特性"><span class="nav-text">分布式系统的主要特性</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Scalability"><span class="nav-text">Scalability</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Reliability"><span class="nav-text">Reliability</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Availability"><span class="nav-text">Availability</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Efficiency"><span class="nav-text">Efficiency</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Serviceability-Managebility"><span class="nav-text">Serviceability/Managebility</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Load-Balancing"><span class="nav-text">Load Balancing</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Caching"><span class="nav-text">Caching</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Database"><span class="nav-text">Database</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Best-Practices"><span class="nav-text">Best Practices</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Data-Partitioning"><span class="nav-text">Data Partitioning</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#Partitioning-Methods"><span class="nav-text">Partitioning Methods</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#Partitioning-Criteria"><span class="nav-text">Partitioning Criteria</span></a></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#References"><span class="nav-text">References</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#分布式系统的主要特性"><span class="nav-text">分布式系统的主要特性</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Scalability"><span class="nav-text">Scalability</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Reliability"><span class="nav-text">Reliability</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Availability"><span class="nav-text">Availability</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Efficiency"><span class="nav-text">Efficiency</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Serviceability-Managebility"><span class="nav-text">Serviceability/Managebility</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Load-Balancing"><span class="nav-text">Load Balancing</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Caching"><span class="nav-text">Caching</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Database"><span class="nav-text">Database</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Best-Practices"><span class="nav-text">Best Practices</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Data-Partitioning"><span class="nav-text">Data Partitioning</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#Partitioning-Methods"><span class="nav-text">Partitioning Methods</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#Partitioning-Criteria"><span class="nav-text">Partitioning Criteria</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#Problems-of-Partitioning"><span class="nav-text">Problems of Partitioning</span></a></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#References"><span class="nav-text">References</span></a></li></ol></div>
             
 
           </div>
