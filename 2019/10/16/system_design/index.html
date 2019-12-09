@@ -144,7 +144,7 @@
 <meta property="og:site_name" content="Bob_波波">
 <meta property="og:description" content="系统设计学习笔记。祝我好运。">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2019-12-09T02:09:55.973Z">
+<meta property="og:updated_time" content="2019-12-09T06:29:11.393Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="系统设计笔记">
 <meta name="twitter:description" content="系统设计学习笔记。祝我好运。">
@@ -470,7 +470,7 @@
                 
                   <span class="post-meta-item-text">Edited on</span>
                 
-                <time title="Modified: 2019-12-08 18:09:55" itemprop="dateModified" datetime="2019-12-08T18:09:55-08:00">2019-12-08</time>
+                <time title="Modified: 2019-12-08 22:29:11" itemprop="dateModified" datetime="2019-12-08T22:29:11-08:00">2019-12-08</time>
               
             
           </span>
@@ -654,6 +654,7 @@
 <li>Referential integrity: 类似于cross-partition query不可行，保证data integrity constraints如foreign keys之类的也很困难，在RDBMS不支持跨服务器的reference的情况下就需要在application level维护一些保证引用正确性的代码了。</li>
 <li>Rebalancing: 当请求集中在某些服务器时可能就需要考虑调整划分规则了，通常就涉及增加新的partition或在现有的partition内部进行rebalancing。使用directory based的操作可以避免downtime，但也增加了系统的复杂性和引入了single point-of-failure（中央查询都这样）。</li>
 </ul>
+<h4 id="Indexes"><a href="#Indexes" class="headerlink" title="Indexes"></a>Indexes</h4><p>数据量大的时候，为table建立index可以大大改善查找速度。</p>
 <hr>
 <h3 id="References"><a href="#References" class="headerlink" title="References"></a>References</h3><ul>
 <li><a href="https://www.educative.io/courses/grokking-the-system-design-interview" target="_blank" rel="external">grokking-the-system-design-interview</a></li>
@@ -1011,7 +1012,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#分布式系统的主要特性"><span class="nav-text">分布式系统的主要特性</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Scalability"><span class="nav-text">Scalability</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Reliability"><span class="nav-text">Reliability</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Availability"><span class="nav-text">Availability</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Efficiency"><span class="nav-text">Efficiency</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Serviceability-Managebility"><span class="nav-text">Serviceability/Managebility</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Load-Balancing"><span class="nav-text">Load Balancing</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Caching"><span class="nav-text">Caching</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Database"><span class="nav-text">Database</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Best-Practices"><span class="nav-text">Best Practices</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Data-Partitioning"><span class="nav-text">Data Partitioning</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#Partitioning-Methods"><span class="nav-text">Partitioning Methods</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#Partitioning-Criteria"><span class="nav-text">Partitioning Criteria</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#Problems-of-Partitioning"><span class="nav-text">Problems of Partitioning</span></a></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#References"><span class="nav-text">References</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#分布式系统的主要特性"><span class="nav-text">分布式系统的主要特性</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Scalability"><span class="nav-text">Scalability</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Reliability"><span class="nav-text">Reliability</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Availability"><span class="nav-text">Availability</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Efficiency"><span class="nav-text">Efficiency</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Serviceability-Managebility"><span class="nav-text">Serviceability/Managebility</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Load-Balancing"><span class="nav-text">Load Balancing</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Caching"><span class="nav-text">Caching</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Database"><span class="nav-text">Database</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Best-Practices"><span class="nav-text">Best Practices</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Data-Partitioning"><span class="nav-text">Data Partitioning</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#Partitioning-Methods"><span class="nav-text">Partitioning Methods</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#Partitioning-Criteria"><span class="nav-text">Partitioning Criteria</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#Problems-of-Partitioning"><span class="nav-text">Problems of Partitioning</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Indexes"><span class="nav-text">Indexes</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#References"><span class="nav-text">References</span></a></li></ol></div>
             
 
           </div>
