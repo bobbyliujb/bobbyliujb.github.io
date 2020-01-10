@@ -144,7 +144,7 @@
 <meta property="og:site_name" content="Bob_波波">
 <meta property="og:description" content="系统设计学习笔记。祝我好运。">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2019-12-09T06:29:11.393Z">
+<meta property="og:updated_time" content="2020-01-10T06:32:17.878Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="系统设计笔记">
 <meta name="twitter:description" content="系统设计学习笔记。祝我好运。">
@@ -470,7 +470,7 @@
                 
                   <span class="post-meta-item-text">Edited on</span>
                 
-                <time title="Modified: 2019-12-08 22:29:11" itemprop="dateModified" datetime="2019-12-08T22:29:11-08:00">2019-12-08</time>
+                <time title="Modified: 2020-01-09 22:32:17" itemprop="dateModified" datetime="2020-01-09T22:32:17-08:00">2020-01-09</time>
               
             
           </span>
@@ -538,7 +538,7 @@
                 
                   <span class="post-meta-item-text">Symbols count in article: </span>
                 
-                <span title="Symbols count in article">4k</span>
+                <span title="Symbols count in article">4.7k</span>
               
 
               
@@ -552,7 +552,7 @@
                 
                   <span class="post-meta-item-text">Reading time &asymp;</span>
                 
-                <span title="Reading time">4 mins.</span>
+                <span title="Reading time">5 mins.</span>
               
             </div>
           
@@ -654,7 +654,18 @@
 <li>Referential integrity: 类似于cross-partition query不可行，保证data integrity constraints如foreign keys之类的也很困难，在RDBMS不支持跨服务器的reference的情况下就需要在application level维护一些保证引用正确性的代码了。</li>
 <li>Rebalancing: 当请求集中在某些服务器时可能就需要考虑调整划分规则了，通常就涉及增加新的partition或在现有的partition内部进行rebalancing。使用directory based的操作可以避免downtime，但也增加了系统的复杂性和引入了single point-of-failure（中央查询都这样）。</li>
 </ul>
-<h4 id="Indexes"><a href="#Indexes" class="headerlink" title="Indexes"></a>Indexes</h4><p>数据量大的时候，为table建立index可以大大改善查找速度。</p>
+<h4 id="Indexes"><a href="#Indexes" class="headerlink" title="Indexes"></a>Indexes</h4><ul>
+<li>index本质上就是一个指出数据存储位置的额外的table，easily searchable by relavant information.</li>
+<li>数据量大的时候，为table建立index可以大大改善查找（retrieve）速度。尤其是在huge dataset中查找relatively small payload的时候，因为通过遍历查找实在太慢。此外数据可能被分散到不同的physical devices上，通过index也可以快速找到存储的位置。</li>
+<li>相反地，index本身可能日益增长，从而降低数据的增改删（CUD）过程，因此需要避免假如不必要的index，而且对于write heavy的数据表也需要考虑是否真的需要加index。</li>
+</ul>
+<h4 id="Proxies"><a href="#Proxies" class="headerlink" title="Proxies"></a>Proxies</h4><ul>
+<li>代理是在client和后端之间插入的一层（概念上的而非物理上的，它甚至可以在client自己身上），用于帮助client从后端获取resources. 在proxy上通常可以对request做筛选，logging, 变形(如加减headers、加密解密、压缩资源等). 有几种类别，比较流行的有：<ul>
+<li>Open Proxy: 公开的，毕竟维护代理需要成本，通常只允许特定的用户群访问。公开的代理又分为Transparent Proxy（除了proxy IP，从header里可以提取实际使用者IP）、Anonymous Proxy（只能知道proxy IP，无法知道真正使用者的IP）、混淆代理（只能知道proxy IP，用一个假的IP塞到header里）、Elite proxy（能知道IP但无法知道是否是在使用代理）。</li>
+<li>Reverse Proxy: 代替client去取resources.</li>
+</ul>
+</li>
+</ul>
 <hr>
 <h3 id="References"><a href="#References" class="headerlink" title="References"></a>References</h3><ul>
 <li><a href="https://www.educative.io/courses/grokking-the-system-design-interview" target="_blank" rel="external">grokking-the-system-design-interview</a></li>
@@ -1012,7 +1023,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#分布式系统的主要特性"><span class="nav-text">分布式系统的主要特性</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Scalability"><span class="nav-text">Scalability</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Reliability"><span class="nav-text">Reliability</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Availability"><span class="nav-text">Availability</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Efficiency"><span class="nav-text">Efficiency</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Serviceability-Managebility"><span class="nav-text">Serviceability/Managebility</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Load-Balancing"><span class="nav-text">Load Balancing</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Caching"><span class="nav-text">Caching</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Database"><span class="nav-text">Database</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Best-Practices"><span class="nav-text">Best Practices</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Data-Partitioning"><span class="nav-text">Data Partitioning</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#Partitioning-Methods"><span class="nav-text">Partitioning Methods</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#Partitioning-Criteria"><span class="nav-text">Partitioning Criteria</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#Problems-of-Partitioning"><span class="nav-text">Problems of Partitioning</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Indexes"><span class="nav-text">Indexes</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#References"><span class="nav-text">References</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#分布式系统的主要特性"><span class="nav-text">分布式系统的主要特性</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Scalability"><span class="nav-text">Scalability</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Reliability"><span class="nav-text">Reliability</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Availability"><span class="nav-text">Availability</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Efficiency"><span class="nav-text">Efficiency</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Serviceability-Managebility"><span class="nav-text">Serviceability/Managebility</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Load-Balancing"><span class="nav-text">Load Balancing</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Caching"><span class="nav-text">Caching</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Database"><span class="nav-text">Database</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Best-Practices"><span class="nav-text">Best Practices</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Data-Partitioning"><span class="nav-text">Data Partitioning</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#Partitioning-Methods"><span class="nav-text">Partitioning Methods</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#Partitioning-Criteria"><span class="nav-text">Partitioning Criteria</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#Problems-of-Partitioning"><span class="nav-text">Problems of Partitioning</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Indexes"><span class="nav-text">Indexes</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Proxies"><span class="nav-text">Proxies</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#References"><span class="nav-text">References</span></a></li></ol></div>
             
 
           </div>
