@@ -145,7 +145,7 @@
 <meta property="og:description" content="系统设计学习笔记。祝我好运。">
 <meta property="og:locale" content="en">
 <meta property="og:image" content="https://www.researchgate.net/profile/Joao_Lourenco11/publication/282519669/figure/fig1/AS:281002732736529@1444007680733/CAP-theorem-with-databases-that-choose-CA-CP-and-AP.png">
-<meta property="og:updated_time" content="2020-01-13T00:57:40.734Z">
+<meta property="og:updated_time" content="2020-01-13T02:00:52.077Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="系统设计笔记">
 <meta name="twitter:description" content="系统设计学习笔记。祝我好运。">
@@ -472,7 +472,7 @@
                 
                   <span class="post-meta-item-text">Edited on</span>
                 
-                <time title="Modified: 2020-01-12 16:57:40" itemprop="dateModified" datetime="2020-01-12T16:57:40-08:00">2020-01-12</time>
+                <time title="Modified: 2020-01-12 18:00:52" itemprop="dateModified" datetime="2020-01-12T18:00:52-08:00">2020-01-12</time>
               
             
           </span>
@@ -540,7 +540,7 @@
                 
                   <span class="post-meta-item-text">Symbols count in article: </span>
                 
-                <span title="Symbols count in article">6.6k</span>
+                <span title="Symbols count in article">7.2k</span>
               
 
               
@@ -696,7 +696,22 @@
 <li>Availability: 所有请求都会得到回应，success/failure都算是回应。通过replicate数据到不同服务器实现。</li>
 <li>Partition Tolerance: 系统能在节点之间信息丢失或部分失败的情况下继续工作。通过在节点和网络的各种组合中充分replicate实现。<br><img src="https://www.researchgate.net/profile/Joao_Lourenco11/publication/282519669/figure/fig1/AS:281002732736529@1444007680733/CAP-theorem-with-databases-that-choose-CA-CP-and-AP.png" alt="CAP relationship picture"></li>
 </ul>
-<h4 id="Consistent-Hashing"><a href="#Consistent-Hashing" class="headerlink" title="Consistent Hashing"></a>Consistent Hashing</h4><p> 分布式哈希表(DHT)在分布式系统中器关键作用，它可以确定数据存储在哪个节点上。</p>
+<h4 id="Consistent-Hashing"><a href="#Consistent-Hashing" class="headerlink" title="Consistent Hashing"></a>Consistent Hashing</h4><p> 分布式哈希表(DHT)在分布式系统中器关键作用，它可以快速确定数据存储在cluster中的哪个节点上。</p>
+<ul>
+<li>传统哈希：例如直接膜服务器个数，这样一旦增减节点所有的映射都会被破坏，而且数据并不是均匀分布的，而是可能集中到部分节点上。</li>
+<li>一致哈希：同样是哈希，当增减节点时节点minimize the reorganization，因此非常适合scalable cache system. 实现细节如下：<ol>
+<li>对一个list of servers，将他们映射成一定范围内的整数，放到一个环上，每个server就是环上的一个节点。</li>
+<li>对数据的映射则需要<ol>
+<li>将key映射成整数，定位到环上</li>
+<li>顺时针找到第一个server，数据就放在这上面</li>
+</ol>
+</li>
+<li>增加节点时，它所分隔的顺时针前续数据都需要放置到它上面，而不影响后续以及其他节点的数据</li>
+<li>删除节点时，将数据释放到顺时针的下一个节点即可，不影响其他节点的数据</li>
+</ol>
+</li>
+<li>虚拟节点：由于增减server时只能分担某个节点的负载，需要利用虚拟节点来实现负载均衡。虚拟节点就是将物理机器虚拟为一组节点(replicas)放到环上，每个cache与多个portions of ring联系起来了。存取数据时，映射到环上再找虚拟节点，就能定位到物理机器了。在增减物理机器时，也需要进行虚拟化，理想情况下新加入的虚拟节点就可以均衡地分担原有机器的负载了。</li>
+</ul>
 <h3 id="Proxies"><a href="#Proxies" class="headerlink" title="Proxies"></a>Proxies</h3><p>代理是在client和后端之间插入的一层（概念上的而非物理上的，它甚至可以在client自己身上），用于帮助client从后端获取resources. 在proxy上通常可以对request做筛选，logging, 变形(如加减headers、加密解密、压缩资源等). 有几种类别，比较流行的有：</p>
 <ul>
 <li>Open Proxy: 公开的，毕竟维护代理需要成本，通常只允许特定的用户群访问。公开的代理又分为<ul>
