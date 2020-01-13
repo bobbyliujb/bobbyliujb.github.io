@@ -144,10 +144,12 @@
 <meta property="og:site_name" content="Bob_波波">
 <meta property="og:description" content="系统设计学习笔记。祝我好运。">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2020-01-10T06:32:17.878Z">
+<meta property="og:image" content="https://www.researchgate.net/profile/Joao_Lourenco11/publication/282519669/figure/fig1/AS:281002732736529@1444007680733/CAP-theorem-with-databases-that-choose-CA-CP-and-AP.png">
+<meta property="og:updated_time" content="2020-01-13T00:57:40.734Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="系统设计笔记">
 <meta name="twitter:description" content="系统设计学习笔记。祝我好运。">
+<meta name="twitter:image" content="https://www.researchgate.net/profile/Joao_Lourenco11/publication/282519669/figure/fig1/AS:281002732736529@1444007680733/CAP-theorem-with-databases-that-choose-CA-CP-and-AP.png">
 
 
 
@@ -470,7 +472,7 @@
                 
                   <span class="post-meta-item-text">Edited on</span>
                 
-                <time title="Modified: 2020-01-09 22:32:17" itemprop="dateModified" datetime="2020-01-09T22:32:17-08:00">2020-01-09</time>
+                <time title="Modified: 2020-01-12 16:57:40" itemprop="dateModified" datetime="2020-01-12T16:57:40-08:00">2020-01-12</time>
               
             
           </span>
@@ -538,7 +540,7 @@
                 
                   <span class="post-meta-item-text">Symbols count in article: </span>
                 
-                <span title="Symbols count in article">4.7k</span>
+                <span title="Symbols count in article">6.6k</span>
               
 
               
@@ -552,7 +554,7 @@
                 
                   <span class="post-meta-item-text">Reading time &asymp;</span>
                 
-                <span title="Reading time">5 mins.</span>
+                <span title="Reading time">7 mins.</span>
               
             </div>
           
@@ -659,12 +661,52 @@
 <li>数据量大的时候，为table建立index可以大大改善查找（retrieve）速度。尤其是在huge dataset中查找relatively small payload的时候，因为通过遍历查找实在太慢。此外数据可能被分散到不同的physical devices上，通过index也可以快速找到存储的位置。</li>
 <li>相反地，index本身可能日益增长，从而降低数据的增改删（CUD）过程，因此需要避免假如不必要的index，而且对于write heavy的数据表也需要考虑是否真的需要加index。</li>
 </ul>
-<h4 id="Proxies"><a href="#Proxies" class="headerlink" title="Proxies"></a>Proxies</h4><ul>
-<li>代理是在client和后端之间插入的一层（概念上的而非物理上的，它甚至可以在client自己身上），用于帮助client从后端获取resources. 在proxy上通常可以对request做筛选，logging, 变形(如加减headers、加密解密、压缩资源等). 有几种类别，比较流行的有：<ul>
-<li>Open Proxy: 公开的，毕竟维护代理需要成本，通常只允许特定的用户群访问。公开的代理又分为Transparent Proxy（除了proxy IP，从header里可以提取实际使用者IP）、Anonymous Proxy（只能知道proxy IP，无法知道真正使用者的IP）、混淆代理（只能知道proxy IP，用一个假的IP塞到header里）、Elite proxy（能知道IP但无法知道是否是在使用代理）。</li>
-<li>Reverse Proxy: 代替client去取resources.</li>
+<h4 id="Redundancy-amp-Replication"><a href="#Redundancy-amp-Replication" class="headerlink" title="Redundancy &amp; Replication"></a>Redundancy &amp; Replication</h4><ul>
+<li>Redundancy: 作为备份或者提升系统性能时，将数据存放到多个机器上，当一个机器宕机不至于影响整体。</li>
+<li>Replication: 更进一步，在多个机器之间需要同步数据保证一致性。通常在DBMS中比较关注，通常是master-slave的形式。</li>
+</ul>
+<h4 id="SQL-amp-NoSQL"><a href="#SQL-amp-NoSQL" class="headerlink" title="SQL &amp; NoSQL"></a>SQL &amp; NoSQL</h4><ul>
+<li>SQL: relational DB将数据存在行和列中，每一行是一个entity，每一列包含所有entity的某个属性。例如MySQL, Postgres, MariaDB.</li>
+<li>NoSQL: 大致有如下常见类型<ul>
+<li>Key-Value Stores: 用一组键值对来存储信息，常见的有Redis, Voldemort和Dynamo.</li>
+<li>Document Databases: 数据存放在「document」中，group成「collections」。每个document可以有不同的结构，自由度很高。常见的有MongoDB和CouchDB.</li>
+<li>Wide-Column Databases: 强调列的一种数据库，column families是行的container。在操作时不需要预先知道所有的列，行也不需要包括相同的列，比较适合用在分析大数据上。常见的有Cassandra和HBase.</li>
+<li>Graph Databases: 用图的形式存储数据，每个entity是一个节点，连线表示数据之间的关系。常见的有Neo4J和InfiniteGraph.</li>
 </ul>
 </li>
+<li>SQL与NoSQL的区别：<br>| Aspect | SQL | NoSQL |<br>| :——-: | :——-: | :———-: |<br>| Storage | 用行和列来存储 | 有各种存储形式，如Key-value, document, graph和columnar |<br>| Schema | fixed. 在插入数据前必须确定列，每一行的每一列都必须有值(包括NULL); <br> 允许之后更改schema，但需要改动整个DB且涉及downtime | dynamic. 可以自由地增减「column」on the fly |<br>| Querying | 使用结构化查询语言(structured query language) | 查询关注的是a collection of documents(UnQL) |<br>| Scalability | vertically scalable，涉及硬件升级 | horizontally scalable，对单机硬件要求不高 |<br>| Reliablity or ACID Compliancy<br> Atomicity, Consistency, Isolation, Durability | 绝大多数relational DB都是ACID compliant | NoSQL牺牲了ACID换取performance&amp;scalability |</li>
+<li>何时选择SQL/NoSQL<ul>
+<li>选择SQL的情形<ul>
+<li>需要保证ACID compliance，尤其是commerce/financial data，数据integrity、transaction非常重要。</li>
+<li>数据本身就structured and unchanging，数据增长不迅猛，就不必要支持variety的数据类型和大流量了。</li>
+</ul>
+</li>
+<li>选择NoSQL的情形<ul>
+<li>存储大量没有特定结构/类型的数据，无需提前定好类型，之后存入数据也没有类型的限制。</li>
+<li>充分利用云计算和云存储，可以水平扩展提升速度，使得database不是系统的瓶颈。</li>
+<li>快速开发，不需要提前知道很多数据的确定细节，先打造出系统之后也可以在不涉及downtime的情况下往里塞各种类型的数据。</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h4 id="CAP-Theorem"><a href="#CAP-Theorem" class="headerlink" title="CAP Theorem"></a>CAP Theorem</h4><p> 一个分布式系统只可能在以下几个特性中三选二。</p>
+<ul>
+<li>Consistency: 所有节点的数据在同一时间是一致的。通过在保证update完成之前阻止read请求实现。</li>
+<li>Availability: 所有请求都会得到回应，success/failure都算是回应。通过replicate数据到不同服务器实现。</li>
+<li>Partition Tolerance: 系统能在节点之间信息丢失或部分失败的情况下继续工作。通过在节点和网络的各种组合中充分replicate实现。<br><img src="https://www.researchgate.net/profile/Joao_Lourenco11/publication/282519669/figure/fig1/AS:281002732736529@1444007680733/CAP-theorem-with-databases-that-choose-CA-CP-and-AP.png" alt="CAP relationship picture"></li>
+</ul>
+<h4 id="Consistent-Hashing"><a href="#Consistent-Hashing" class="headerlink" title="Consistent Hashing"></a>Consistent Hashing</h4><p> 分布式哈希表(DHT)在分布式系统中器关键作用，它可以确定数据存储在哪个节点上。</p>
+<h3 id="Proxies"><a href="#Proxies" class="headerlink" title="Proxies"></a>Proxies</h3><p>代理是在client和后端之间插入的一层（概念上的而非物理上的，它甚至可以在client自己身上），用于帮助client从后端获取resources. 在proxy上通常可以对request做筛选，logging, 变形(如加减headers、加密解密、压缩资源等). 有几种类别，比较流行的有：</p>
+<ul>
+<li>Open Proxy: 公开的，毕竟维护代理需要成本，通常只允许特定的用户群访问。公开的代理又分为<ul>
+<li>Transparent Proxy（除了proxy IP，从header里可以提取实际使用者IP）</li>
+<li>Anonymous Proxy（只能知道proxy IP，无法知道真正使用者的IP）</li>
+<li>Distorting Proxy混淆代理（只能知道proxy IP，用一个假的IP塞到header里）</li>
+<li>Elite proxy高匿代理（能知道IP但无法知道是否是在使用代理）。</li>
+</ul>
+</li>
+<li>Reverse Proxy: client访问proxy时由代理去取resources，client访问时并不知道它是proxy。通常反向代理和实际后端同处在一个内网中，可以抵御外部恶意访问，同时实现一些负载均衡。</li>
 </ul>
 <hr>
 <h3 id="References"><a href="#References" class="headerlink" title="References"></a>References</h3><ul>
@@ -1023,7 +1065,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#分布式系统的主要特性"><span class="nav-text">分布式系统的主要特性</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Scalability"><span class="nav-text">Scalability</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Reliability"><span class="nav-text">Reliability</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Availability"><span class="nav-text">Availability</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Efficiency"><span class="nav-text">Efficiency</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Serviceability-Managebility"><span class="nav-text">Serviceability/Managebility</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Load-Balancing"><span class="nav-text">Load Balancing</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Caching"><span class="nav-text">Caching</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Database"><span class="nav-text">Database</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Best-Practices"><span class="nav-text">Best Practices</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Data-Partitioning"><span class="nav-text">Data Partitioning</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#Partitioning-Methods"><span class="nav-text">Partitioning Methods</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#Partitioning-Criteria"><span class="nav-text">Partitioning Criteria</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#Problems-of-Partitioning"><span class="nav-text">Problems of Partitioning</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Indexes"><span class="nav-text">Indexes</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Proxies"><span class="nav-text">Proxies</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#References"><span class="nav-text">References</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#分布式系统的主要特性"><span class="nav-text">分布式系统的主要特性</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Scalability"><span class="nav-text">Scalability</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Reliability"><span class="nav-text">Reliability</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Availability"><span class="nav-text">Availability</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Efficiency"><span class="nav-text">Efficiency</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Serviceability-Managebility"><span class="nav-text">Serviceability/Managebility</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Load-Balancing"><span class="nav-text">Load Balancing</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Caching"><span class="nav-text">Caching</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Database"><span class="nav-text">Database</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Best-Practices"><span class="nav-text">Best Practices</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Data-Partitioning"><span class="nav-text">Data Partitioning</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#Partitioning-Methods"><span class="nav-text">Partitioning Methods</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#Partitioning-Criteria"><span class="nav-text">Partitioning Criteria</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#Problems-of-Partitioning"><span class="nav-text">Problems of Partitioning</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Indexes"><span class="nav-text">Indexes</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Redundancy-amp-Replication"><span class="nav-text">Redundancy & Replication</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#SQL-amp-NoSQL"><span class="nav-text">SQL & NoSQL</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#CAP-Theorem"><span class="nav-text">CAP Theorem</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Consistent-Hashing"><span class="nav-text">Consistent Hashing</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Proxies"><span class="nav-text">Proxies</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#References"><span class="nav-text">References</span></a></li></ol></div>
             
 
           </div>
