@@ -145,7 +145,7 @@
 <meta property="og:description" content="系统设计学习笔记。祝我好运。">
 <meta property="og:locale" content="en">
 <meta property="og:image" content="https://www.researchgate.net/profile/Joao_Lourenco11/publication/282519669/figure/fig1/AS:281002732736529@1444007680733/CAP-theorem-with-databases-that-choose-CA-CP-and-AP.png">
-<meta property="og:updated_time" content="2020-01-13T02:00:52.077Z">
+<meta property="og:updated_time" content="2020-01-13T02:35:12.910Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="系统设计笔记">
 <meta name="twitter:description" content="系统设计学习笔记。祝我好运。">
@@ -472,7 +472,7 @@
                 
                   <span class="post-meta-item-text">Edited on</span>
                 
-                <time title="Modified: 2020-01-12 18:00:52" itemprop="dateModified" datetime="2020-01-12T18:00:52-08:00">2020-01-12</time>
+                <time title="Modified: 2020-01-12 18:35:12" itemprop="dateModified" datetime="2020-01-12T18:35:12-08:00">2020-01-12</time>
               
             
           </span>
@@ -540,7 +540,7 @@
                 
                   <span class="post-meta-item-text">Symbols count in article: </span>
                 
-                <span title="Symbols count in article">7.2k</span>
+                <span title="Symbols count in article">7.7k</span>
               
 
               
@@ -554,7 +554,7 @@
                 
                   <span class="post-meta-item-text">Reading time &asymp;</span>
                 
-                <span title="Reading time">7 mins.</span>
+                <span title="Reading time">8 mins.</span>
               
             </div>
           
@@ -722,6 +722,18 @@
 </ul>
 </li>
 <li>Reverse Proxy: client访问proxy时由代理去取resources，client访问时并不知道它是proxy。通常反向代理和实际后端同处在一个内网中，可以抵御外部恶意访问，同时实现一些负载均衡。</li>
+</ul>
+<h3 id="Communication-Protocols"><a href="#Communication-Protocols" class="headerlink" title="Communication Protocols"></a>Communication Protocols</h3><p> 标准HTTP网络请求通常是这几步：</p>
+<ol>
+<li>client打开连接，向server请求数据</li>
+<li>server计算response</li>
+<li>server将数据发回给client<br>大致有以下几类通信方式：</li>
+</ol>
+<ul>
+<li>Ajax Polling: client间隔性地向server请求某些数据来进行update。当没有新内容时回复是空的，就造成了很多HTTP overhead。</li>
+<li>HTTP Long-Polling(Hanging GET): 和上面的polling类似，但server不是立刻回复，而是等待知道有update或者timeout才回复，而client在收到response的同时会立刻再发一个请求。这有可能造成request在server端堆积。</li>
+<li>WebSockets: 在一个TCP连接中提供全双通（full duplex）的通信渠道，一旦WebSocket handshake完成，连接就建立了，client和server都可以实时任意交换数据。</li>
+<li>Server-sent Events: client和server之间建立了一个persistent和长期的连接，当server在不断产生data或持续发送events的时候比较合适。</li>
 </ul>
 <hr>
 <h3 id="References"><a href="#References" class="headerlink" title="References"></a>References</h3><ul>
@@ -1080,7 +1092,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#分布式系统的主要特性"><span class="nav-text">分布式系统的主要特性</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Scalability"><span class="nav-text">Scalability</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Reliability"><span class="nav-text">Reliability</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Availability"><span class="nav-text">Availability</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Efficiency"><span class="nav-text">Efficiency</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Serviceability-Managebility"><span class="nav-text">Serviceability/Managebility</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Load-Balancing"><span class="nav-text">Load Balancing</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Caching"><span class="nav-text">Caching</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Database"><span class="nav-text">Database</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Best-Practices"><span class="nav-text">Best Practices</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Data-Partitioning"><span class="nav-text">Data Partitioning</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#Partitioning-Methods"><span class="nav-text">Partitioning Methods</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#Partitioning-Criteria"><span class="nav-text">Partitioning Criteria</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#Problems-of-Partitioning"><span class="nav-text">Problems of Partitioning</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Indexes"><span class="nav-text">Indexes</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Redundancy-amp-Replication"><span class="nav-text">Redundancy & Replication</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#SQL-amp-NoSQL"><span class="nav-text">SQL & NoSQL</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#CAP-Theorem"><span class="nav-text">CAP Theorem</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Consistent-Hashing"><span class="nav-text">Consistent Hashing</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Proxies"><span class="nav-text">Proxies</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#References"><span class="nav-text">References</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#分布式系统的主要特性"><span class="nav-text">分布式系统的主要特性</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Scalability"><span class="nav-text">Scalability</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Reliability"><span class="nav-text">Reliability</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Availability"><span class="nav-text">Availability</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Efficiency"><span class="nav-text">Efficiency</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Serviceability-Managebility"><span class="nav-text">Serviceability/Managebility</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Load-Balancing"><span class="nav-text">Load Balancing</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Caching"><span class="nav-text">Caching</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Database"><span class="nav-text">Database</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Best-Practices"><span class="nav-text">Best Practices</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Data-Partitioning"><span class="nav-text">Data Partitioning</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#Partitioning-Methods"><span class="nav-text">Partitioning Methods</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#Partitioning-Criteria"><span class="nav-text">Partitioning Criteria</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#Problems-of-Partitioning"><span class="nav-text">Problems of Partitioning</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Indexes"><span class="nav-text">Indexes</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Redundancy-amp-Replication"><span class="nav-text">Redundancy & Replication</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#SQL-amp-NoSQL"><span class="nav-text">SQL & NoSQL</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#CAP-Theorem"><span class="nav-text">CAP Theorem</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Consistent-Hashing"><span class="nav-text">Consistent Hashing</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Proxies"><span class="nav-text">Proxies</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Communication-Protocols"><span class="nav-text">Communication Protocols</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#References"><span class="nav-text">References</span></a></li></ol></div>
             
 
           </div>
