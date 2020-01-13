@@ -145,7 +145,7 @@
 <meta property="og:description" content="系统设计学习笔记。祝我好运。">
 <meta property="og:locale" content="en">
 <meta property="og:image" content="https://www.researchgate.net/profile/Joao_Lourenco11/publication/282519669/figure/fig1/AS:281002732736529@1444007680733/CAP-theorem-with-databases-that-choose-CA-CP-and-AP.png">
-<meta property="og:updated_time" content="2020-01-13T02:35:12.910Z">
+<meta property="og:updated_time" content="2020-01-13T02:38:13.789Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="系统设计笔记">
 <meta name="twitter:description" content="系统设计学习笔记。祝我好运。">
@@ -472,7 +472,7 @@
                 
                   <span class="post-meta-item-text">Edited on</span>
                 
-                <time title="Modified: 2020-01-12 18:35:12" itemprop="dateModified" datetime="2020-01-12T18:35:12-08:00">2020-01-12</time>
+                <time title="Modified: 2020-01-12 18:38:13" itemprop="dateModified" datetime="2020-01-12T18:38:13-08:00">2020-01-12</time>
               
             
           </span>
@@ -723,12 +723,13 @@
 </li>
 <li>Reverse Proxy: client访问proxy时由代理去取resources，client访问时并不知道它是proxy。通常反向代理和实际后端同处在一个内网中，可以抵御外部恶意访问，同时实现一些负载均衡。</li>
 </ul>
-<h3 id="Communication-Protocols"><a href="#Communication-Protocols" class="headerlink" title="Communication Protocols"></a>Communication Protocols</h3><p> 标准HTTP网络请求通常是这几步：</p>
+<h3 id="Communication-Protocols"><a href="#Communication-Protocols" class="headerlink" title="Communication Protocols"></a>Communication Protocols</h3><p>标准HTTP网络请求通常是这几步：</p>
 <ol>
 <li>client打开连接，向server请求数据</li>
 <li>server计算response</li>
-<li>server将数据发回给client<br>大致有以下几类通信方式：</li>
+<li>server将数据发回给client</li>
 </ol>
+<p>大致有以下几类通信方式：</p>
 <ul>
 <li>Ajax Polling: client间隔性地向server请求某些数据来进行update。当没有新内容时回复是空的，就造成了很多HTTP overhead。</li>
 <li>HTTP Long-Polling(Hanging GET): 和上面的polling类似，但server不是立刻回复，而是等待知道有update或者timeout才回复，而client在收到response的同时会立刻再发一个请求。这有可能造成request在server端堆积。</li>
