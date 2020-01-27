@@ -1,0 +1,1607 @@
+<!DOCTYPE html>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+<html class="theme-next gemini use-motion" lang="en">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2"/>
+<meta name="theme-color" content="#222"/>
+
+
+  
+  
+  <link rel="stylesheet" href="/lib/needsharebutton/needsharebutton.css"/>
+
+
+
+  
+  
+    
+    
+  <script src="/lib/pace/pace.min.js?v=1.0.2"></script>
+  <link rel="stylesheet" href="/lib/pace/pace-theme-flash.min.css?v=1.0.2"/>
+
+
+
+
+
+  <meta http-equiv="Cache-Control" content="no-transform"/>
+  <meta http-equiv="Cache-Control" content="no-siteapp"/>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext"/>
+  
+
+
+
+
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2"/>
+
+<link rel="stylesheet" href="/css/main.css?v=6.7.0"/>
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/favicon.ico?v=6.7.0">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon.ico?v=6.7.0">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon.ico?v=6.7.0">
+
+
+  <link rel="mask-icon" href="/images/favicon.ico?v=6.7.0" color="#222">
+
+
+
+
+
+
+
+<script id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Gemini',
+    version: '6.7.0',
+    sidebar: {"position":"left","display":"hide","offset":12,"b2t":true,"scrollpercent":false,"onmobile":false},
+    fancybox: false,
+    fastclick: false,
+    lazyload: false,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+  
+
+
+
+
+  <meta name="description" content="Some basic ideas of classic problems/algorithms.">
+<meta name="keywords" content="algorithm,java,interview">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Algorithm reference cheatsheet">
+<meta property="og:url" content="https://bobbyliujb.github.io/2017/09/05/cheatsheet/index.html">
+<meta property="og:site_name" content="Bob_波波">
+<meta property="og:description" content="Some basic ideas of classic problems/algorithms.">
+<meta property="og:locale" content="en">
+<meta property="og:updated_time" content="2019-01-05T08:20:39.673Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Algorithm reference cheatsheet">
+<meta name="twitter:description" content="Some basic ideas of classic problems/algorithms.">
+
+
+
+
+
+
+  <link rel="canonical" href="https://bobbyliujb.github.io/2017/09/05/cheatsheet/"/>
+
+
+
+<script id="page.configurations">
+  CONFIG.page = {
+    sidebar: "",
+  };
+</script>
+
+  <title>Algorithm reference cheatsheet | Bob_波波</title>
+  
+
+
+
+
+  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-118868735-1"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'UA-118868735-1');
+  </script>
+
+
+
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .motion-element,
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-title { opacity: initial; }
+
+  .use-motion .logo,
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="en">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Bob_波波</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+    
+    
+  </div>
+
+  <div class="site-nav-toggle">
+    <button aria-label="Toggle navigation bar">
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  
+    <ul id="menu" class="menu">
+      
+        
+        
+        
+          
+          <li class="menu-item menu-item-home">
+
+    
+    
+    
+      
+    
+
+    
+      
+    
+
+    <a href="/" rel="section"><i class="menu-item-icon fa fa-fw fa-home"></i> <br/>Home</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-tags">
+
+    
+    
+    
+      
+    
+
+    
+      
+    
+
+    <a href="/tags/" rel="section"><i class="menu-item-icon fa fa-fw fa-tags"></i> <br/>Tags<span class="badge">46</span></a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-categories">
+
+    
+    
+    
+      
+    
+
+    
+      
+    
+
+    <a href="/categories/" rel="section"><i class="menu-item-icon fa fa-fw fa-th"></i> <br/>Categories<span class="badge">4</span></a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-archives">
+
+    
+    
+    
+      
+    
+
+    
+      
+    
+
+    <a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br/>Archives<span class="badge">46</span></a>
+
+  </li>
+
+      
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />Search</a>
+        </li>
+      
+    </ul>
+  
+
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off"
+             placeholder="Searching..." spellcheck="false"
+             type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
+  
+</nav>
+
+
+
+  
+
+
+
+</div>
+    </header>
+
+    
+
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+            
+
+          
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://bobbyliujb.github.io/2017/09/05/cheatsheet/"/>
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Bob_波波"/>
+      <meta itemprop="description" content="I'm a Software Engineer!"/>
+      <meta itemprop="image" content="/images/avatar.jpg"/>
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Bob_波波"/>
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">Algorithm reference cheatsheet
+
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+
+              
+                
+              
+
+              <time title="Created: 2017-09-04 16:23:42" itemprop="dateCreated datePublished" datetime="2017-09-04T16:23:42-07:00">2017-09-04</time>
+            
+
+            
+              
+
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Edited on</span>
+                
+                <time title="Modified: 2019-01-05 00:20:39" itemprop="dateModified" datetime="2019-01-05T00:20:39-08:00">2019-01-05</time>
+              
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Tech/" itemprop="url" rel="index"><span itemprop="name">Tech</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2017/09/05/cheatsheet/#comments" itemprop="discussionUrl">
+                
+                  <span class="post-comments-count disqus-comment-count"
+                        data-disqus-identifier="2017/09/05/cheatsheet/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+             <span id="/2017/09/05/cheatsheet/" class="leancloud_visitors" data-flag-title="Algorithm reference cheatsheet">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">Views: </span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+            <div class="post-symbolscount">
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Symbols count in article: </span>
+                
+                <span title="Symbols count in article">18k</span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Reading time &asymp;</span>
+                
+                <span title="Reading time">19 mins.</span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>Some basic ideas of classic problems/algorithms.<br><a id="more"></a></p>
+<h4 id="BinarySearch"><a href="#BinarySearch" class="headerlink" title="BinarySearch"></a>BinarySearch</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div><div class="line">75</div><div class="line">76</div><div class="line">77</div><div class="line">78</div><div class="line">79</div><div class="line">80</div><div class="line">81</div><div class="line">82</div><div class="line">83</div><div class="line">84</div><div class="line">85</div><div class="line">86</div><div class="line">87</div><div class="line">88</div><div class="line">89</div><div class="line">90</div><div class="line">91</div><div class="line">92</div><div class="line">93</div><div class="line">94</div><div class="line">95</div><div class="line">96</div><div class="line">97</div><div class="line">98</div><div class="line">99</div><div class="line">100</div><div class="line">101</div><div class="line">102</div><div class="line">103</div><div class="line">104</div><div class="line">105</div><div class="line">106</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// without check（看后面那个统一的模版更好）</span></div><div class="line"><span class="comment">// able to find the first occurance, but not the insert position</span></div><div class="line"><span class="function"><span class="keyword">private</span> <span class="keyword">int</span> <span class="title">binarySearch</span><span class="params">(<span class="keyword">int</span>[] nums, <span class="keyword">int</span> target)</span> </span>&#123;</div><div class="line">    <span class="keyword">int</span> left = <span class="number">0</span>, right = nums.length - <span class="number">1</span>;</div><div class="line">    <span class="keyword">while</span> (left &lt; right) &#123;  <span class="comment">// no '='</span></div><div class="line">        <span class="keyword">int</span> mid = left + (right - left) / <span class="number">2</span>;</div><div class="line">        <span class="keyword">if</span> (target &gt; nums[mid]) &#123;</div><div class="line">            left = mid + <span class="number">1</span>;</div><div class="line">        &#125; <span class="keyword">else</span> &#123;</div><div class="line">            right = mid;    <span class="comment">// no '- 1'</span></div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">if</span> (nums[left] == target) &#123;</div><div class="line">        <span class="keyword">return</span> left;</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">return</span> -<span class="number">1</span>;</div><div class="line">&#125;</div><div class="line"><span class="comment">// able to find the last occurance</span></div><div class="line"><span class="function"><span class="keyword">private</span> <span class="keyword">int</span> <span class="title">binarySearch</span><span class="params">(<span class="keyword">int</span>[] nums, <span class="keyword">int</span> target)</span> </span>&#123;</div><div class="line">    <span class="keyword">int</span> left = <span class="number">0</span>, right = nums.length - <span class="number">1</span>;</div><div class="line">    <span class="keyword">while</span> (left &lt; right) &#123;  <span class="comment">// no '='</span></div><div class="line">        <span class="keyword">int</span> mid = left + (right - left) / <span class="number">2</span> + <span class="number">1</span>;    <span class="comment">// biase to right side</span></div><div class="line">        <span class="keyword">if</span> (target &lt; nums[mid]) &#123;</div><div class="line">            right = mid - <span class="number">1</span>;</div><div class="line">        &#125; <span class="keyword">else</span> &#123;</div><div class="line">            left = mid;</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">if</span> (nums[right] == target) &#123;</div><div class="line">        <span class="keyword">return</span> right;</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">return</span> -<span class="number">1</span>;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="comment">// with check</span></div><div class="line"><span class="function"><span class="keyword">private</span> <span class="keyword">int</span> <span class="title">binarySearch</span><span class="params">(<span class="keyword">int</span>[] nums, <span class="keyword">int</span> target)</span> </span>&#123;</div><div class="line">    <span class="keyword">int</span> left = <span class="number">0</span>, right = nums.length - <span class="number">1</span>;</div><div class="line">    <span class="keyword">while</span> (left &lt;= right) &#123;     <span class="comment">// has '=' here</span></div><div class="line">        <span class="keyword">int</span> mid = left + (right - left) / <span class="number">2</span>;</div><div class="line">        <span class="keyword">if</span> (target &gt; nums[mid]) &#123;</div><div class="line">            left = mid + <span class="number">1</span>;</div><div class="line">        &#125; <span class="keyword">else</span> <span class="keyword">if</span> (target &lt; nums[mid]) &#123;</div><div class="line">            right = mid - <span class="number">1</span>;    <span class="comment">// right move one more backward</span></div><div class="line">        &#125; <span class="keyword">else</span> &#123;</div><div class="line">            <span class="keyword">return</span> mid;</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">return</span> -<span class="number">1</span>;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="comment">// template from http://fihopzz.blogspot.com/2013/07/enter-post-title-here-binary-search-and.html</span></div><div class="line"><span class="function"><span class="keyword">private</span> <span class="keyword">int</span> <span class="title">binarySearchInsertionPos</span><span class="params">(<span class="keyword">int</span>[] nums, <span class="keyword">int</span> target)</span> </span>&#123;</div><div class="line">    <span class="keyword">int</span> start = -<span class="number">1</span>, end = nums.length;</div><div class="line">    <span class="keyword">while</span> (end - start &gt; <span class="number">1</span>) &#123;</div><div class="line">        <span class="keyword">int</span> mid = start + (end - start) / <span class="number">2</span>;</div><div class="line">        <span class="comment">// invariant relation: nums[start] &lt; target &lt;= nums[end]</span></div><div class="line">        <span class="keyword">if</span> (nums[mid] &gt;= target) &#123;</div><div class="line">            end = mid;</div><div class="line">        &#125; <span class="keyword">else</span> &#123;</div><div class="line">            start = mid;</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">return</span> end;</div><div class="line">&#125;</div><div class="line"><span class="function"><span class="keyword">private</span> <span class="keyword">int</span> <span class="title">binarySearchSqrt</span><span class="params">(<span class="keyword">int</span> x)</span> </span>&#123;</div><div class="line">    <span class="keyword">if</span> (x &lt; <span class="number">1</span>) &#123;</div><div class="line">        <span class="keyword">return</span> <span class="number">0</span>;</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">long</span> start = -<span class="number">1</span>, end = (<span class="keyword">long</span>)x + <span class="number">1</span>;</div><div class="line">    <span class="keyword">while</span> (end - start &gt; <span class="number">1</span>) &#123;</div><div class="line">        <span class="keyword">long</span> mid = start + (end - start) / <span class="number">2</span>;</div><div class="line">        <span class="comment">// invariant condition: start &lt;= target*target &lt; end</span></div><div class="line">        <span class="keyword">if</span> (mid &gt; x / mid) &#123;</div><div class="line">            end = mid;</div><div class="line">        &#125; <span class="keyword">else</span> &#123;</div><div class="line">            start = mid;</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">return</span> (<span class="keyword">int</span>)start;</div><div class="line">&#125;</div><div class="line"><span class="function"><span class="keyword">private</span> <span class="keyword">int</span> <span class="title">binarySearchFirst</span><span class="params">(<span class="keyword">int</span>[] nums, <span class="keyword">int</span> target)</span> </span>&#123;</div><div class="line">    <span class="keyword">int</span> start = -<span class="number">1</span>, end = nums.length;</div><div class="line">    <span class="keyword">while</span> (end - start &gt; <span class="number">1</span>) &#123;</div><div class="line">        <span class="keyword">int</span> mid = start + (end - start) / <span class="number">2</span>;</div><div class="line">        <span class="comment">// invariant relation: nums[start] &lt; target &lt;= nums[end]</span></div><div class="line">        <span class="keyword">if</span> (nums[mid] &gt;= target) &#123;</div><div class="line">            end = mid;</div><div class="line">        &#125; <span class="keyword">else</span> &#123;</div><div class="line">            start = mid;</div><div class="line">        &#125;</div><div class="line">    &#125; </div><div class="line">    <span class="keyword">return</span> end &lt; nums.length &amp;&amp; nums[end] == target ? end : -<span class="number">1</span>;</div><div class="line">&#125;</div><div class="line"><span class="function"><span class="keyword">private</span> <span class="keyword">int</span> <span class="title">binarySearchLast</span><span class="params">(<span class="keyword">int</span>[] nums, <span class="keyword">int</span> target)</span> </span>&#123;</div><div class="line">    <span class="keyword">int</span> start = -<span class="number">1</span>, end = nums.length;</div><div class="line">    <span class="keyword">while</span> (end - start &gt; <span class="number">1</span>) &#123;</div><div class="line">        <span class="keyword">int</span> mid = start + (end - start) / <span class="number">2</span>;</div><div class="line">        <span class="comment">// invariant relation: nums[start] &lt;= target &lt; nums[end]</span></div><div class="line">        <span class="keyword">if</span> (nums[mid] &lt;= target) &#123;</div><div class="line">            start = mid;</div><div class="line">        &#125; <span class="keyword">else</span> &#123;</div><div class="line">            end = mid;</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">return</span> start &gt;= <span class="number">0</span> &amp;&amp; nums[start] == target ? start : -<span class="number">1</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h4 id="Sort"><a href="#Sort" class="headerlink" title="Sort"></a>Sort</h4><h5 id="Selection-Sort"><a href="#Selection-Sort" class="headerlink" title="Selection Sort"></a>Selection Sort</h5><p> 外层循环i从头到尾、内层循环从i往后，每次找最小值所在的index，内层循环结束后和头部swap，这样每次都可以把当前最小值放到最前面。<br> <figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">selectionSort</span><span class="params">(<span class="keyword">int</span>[] arr)</span> </span>&#123;</div><div class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; arr.length; i++) &#123;</div><div class="line">        <span class="keyword">int</span> index = i;</div><div class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> j = i + <span class="number">1</span>; j &lt; arr.length; j++) &#123;</div><div class="line">            <span class="keyword">if</span> (arr[j] &lt; arr[index]) &#123;</div><div class="line">                index = j;</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line">        swap(arr, i, index);</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<h5 id="Insertion-Sort"><a href="#Insertion-Sort" class="headerlink" title="Insertion Sort"></a>Insertion Sort</h5><p> 外层循环i从前往后遍历，内层循环从i往前，每次将相邻的顺序反了的元素swap。<br> <figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">insertionSort</span><span class="params">(<span class="keyword">int</span>[] arr)</span> </span>&#123;</div><div class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; arr.length; i++) &#123;</div><div class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> j = i; j &gt; <span class="number">0</span> &amp;&amp; arr[j] &lt; arr[j - <span class="number">1</span>]; j--) &#123;</div><div class="line">            swap(arr, j, j - <span class="number">1</span>);</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<h5 id="Shell-Sort"><a href="#Shell-Sort" class="headerlink" title="Shell Sort"></a>Shell Sort</h5><p> 插入排序的升级版，循环的interval是从大到小的。排序的本质是消除逆序对，如果增大interval，则一次swap可能会消除更多的逆序对，因此可以突破O(N^2).<br> <figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">shellSort</span><span class="params">(<span class="keyword">int</span>[] arr)</span> </span>&#123;</div><div class="line">    <span class="keyword">int</span> h = <span class="number">1</span>;</div><div class="line">    <span class="keyword">while</span> (h &lt; arr.length / <span class="number">3</span>) &#123;</div><div class="line">        h = <span class="number">3</span> * h + <span class="number">1</span>;</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">while</span> (h &gt;= <span class="number">1</span>) &#123;</div><div class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = h; i &lt; arr.length; i++) &#123;</div><div class="line">            <span class="keyword">for</span> (<span class="keyword">int</span> j = i; j &gt;= h &amp;&amp; arr[j] &lt; arr[j - h]; j -= h) &#123;</div><div class="line">                swap(arr, j, j - h);</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line">        h /= <span class="number">3</span>;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<h5 id="Bubble-Sort"><a href="#Bubble-Sort" class="headerlink" title="Bubble Sort"></a>Bubble Sort</h5><p> 外层循环从头到尾，内层循环从尾到i + 1不断把较小值放到前面。<br> <figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">bubbleSort</span><span class="params">(<span class="keyword">int</span>[] arr)</span> </span>&#123;</div><div class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; arr.length; i++) &#123;</div><div class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> j = arr.length - <span class="number">1</span>; j &gt; i; j--) &#123;</div><div class="line">            <span class="keyword">if</span> (arr[j] &lt; arr[j - <span class="number">1</span>]) &#123;</div><div class="line">                swap(arr, j, j - <span class="number">1</span>);</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<h5 id="Bucket-Sort"><a href="#Bucket-Sort" class="headerlink" title="Bucket Sort"></a>Bucket Sort</h5><p> 木桶排序牺牲了空间换取速度，达到了O(N)。统计每个值出现的个数，然后依次放回原数组。<br> <figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">bucketSort</span><span class="params">(<span class="keyword">int</span>[] arr)</span> </span>&#123;</div><div class="line">    <span class="keyword">int</span> bucket = <span class="keyword">new</span> <span class="keyword">int</span> [<span class="number">1000010</span>];</div><div class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; arr.length; i++) &#123;</div><div class="line">        bucket[arr[i]]++;</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">int</span> j = <span class="number">0</span>, k = <span class="number">0</span>;</div><div class="line">    <span class="keyword">while</span> (j &lt; arr.length &amp;&amp; k &lt; bucket.length) &#123;</div><div class="line">        <span class="keyword">while</span> ((bucket[k]--) &gt; <span class="number">0</span>) &#123;</div><div class="line">            arr[j++] = k;</div><div class="line">        &#125;</div><div class="line">        k++;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<h5 id="Radix-Sort-TODO"><a href="#Radix-Sort-TODO" class="headerlink" title="Radix Sort[====TODO====]"></a>Radix Sort[====TODO====]</h5><p> 基数排序就是根据每个位数字大小，从个位数、十位数、百位数、千位数…存入bucket<br> <figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">radixSort</span><span class="params">(<span class="keyword">int</span>[] arr, <span class="keyword">int</span> radix, <span class="keyword">int</span> maxLen)</span> </span>&#123;</div><div class="line">    <span class="keyword">int</span>[] temp = <span class="keyword">new</span> <span class="keyword">int</span> [arr.length];</div><div class="line">    <span class="keyword">int</span>[] bucket = <span class="keyword">new</span> <span class="keyword">int</span> [radix];</div><div class="line"></div><div class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>, devide = <span class="number">1</span>; i &lt; maxLen; i++) &#123;</div><div class="line">        Arrays.fill(bucket, <span class="number">0</span>);</div><div class="line">        System.arraycopy(arr, <span class="number">0</span>, temp, <span class="number">0</span>, arr.length);</div><div class="line"></div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<h5 id="Merge-Sort"><a href="#Merge-Sort" class="headerlink" title="Merge Sort"></a>Merge Sort</h5><p> 分治法思想，将两个序列不断拆分，拆到不能再拆后分别排序后合并。归并排序（以及插入排序）是稳定的。<br> <figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">mergeSort</span><span class="params">(<span class="keyword">int</span>[] arr)</span> </span>&#123;</div><div class="line">    partition(arr, <span class="number">0</span>, arr.length - <span class="number">1</span>);</div><div class="line">&#125;</div><div class="line"><span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">partition</span><span class="params">(<span class="keyword">int</span>[] arr, <span class="keyword">int</span> start, <span class="keyword">int</span> end)</span> </span>&#123;</div><div class="line">    <span class="keyword">if</span> (start &gt;= end) &#123;</div><div class="line">        <span class="keyword">return</span>;</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">int</span> mid = (start + end) / <span class="number">2</span>;</div><div class="line">    partition(arr, start, mid);</div><div class="line">    partition(arr, mid + <span class="number">1</span>, end);</div><div class="line">    <span class="keyword">if</span> (arr[mid] &lt; arr[mid + <span class="number">1</span>]) &#123;</div><div class="line">        <span class="keyword">return</span>;</div><div class="line">    &#125;</div><div class="line">    merge(arr, start, mid, end);</div><div class="line">&#125;</div><div class="line"><span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">merge</span><span class="params">(<span class="keyword">int</span>[] arr, <span class="keyword">int</span> start, <span class="keyword">int</span> mid, <span class="keyword">int</span> end)</span> </span>&#123;</div><div class="line">    <span class="keyword">int</span> left = start, right = mid + <span class="number">1</span>, index = start;</div><div class="line">    <span class="keyword">int</span>[] temp = <span class="keyword">new</span> <span class="keyword">int</span> [arr.length];</div><div class="line"></div><div class="line">    <span class="keyword">while</span> (left &lt;= mid &amp;&amp; right &lt;= end) &#123;</div><div class="line">        <span class="keyword">if</span> (arr[left] &lt; arr[right]) &#123;</div><div class="line">            temp[index++] = arr[left++];</div><div class="line">        &#125; <span class="keyword">else</span> &#123;</div><div class="line">            temp[index++] = arr[right++];</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="keyword">while</span> (left &lt;= mid) &#123;</div><div class="line">        temp[index] = arr[left++];</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">while</span> (right &lt;= end) &#123;</div><div class="line">        temp[index] = arr[right++];</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="keyword">for</span> (index = start; index &lt;= end; index++) &#123;</div><div class="line">        arr[index] = temp[index];</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<h5 id="Quick-Sort-Shuffle"><a href="#Quick-Sort-Shuffle" class="headerlink" title="Quick Sort + Shuffle"></a>Quick Sort + Shuffle</h5><p> 定义一个pivot值，找到它的位置使得左边都小于等于它、右边都大于等于它，然后再递归到两边去排。最差情况出现在当已经有序的时候，退化成O(N^2)，因为每个pivot都要和后面的比较一波。<br> <figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">shuffle</span><span class="params">(<span class="keyword">int</span>[] arr)</span> </span>&#123;</div><div class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; arr.length; i++) &#123;</div><div class="line">        swap(arr, i, Random.nextInt(i + <span class="number">1</span>));</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line"><span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">quickSort</span><span class="params">(<span class="keyword">int</span>[] arr)</span> </span>&#123;</div><div class="line">    quickSort(arr, <span class="number">0</span>, arr.length - <span class="number">1</span>);</div><div class="line">&#125;</div><div class="line"><span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">quickSort</span><span class="params">(<span class="keyword">int</span>[] arr, <span class="keyword">int</span> start, <span class="keyword">int</span> end)</span> </span>&#123;</div><div class="line">    <span class="keyword">if</span> (start &gt;= end) &#123;</div><div class="line">        <span class="keyword">return</span>;</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">int</span> j = partition(arr, start, end);</div><div class="line">    quickSort(arr, start, j - <span class="number">1</span>);</div><div class="line">    quickSort(arr, j + <span class="number">1</span>, end);</div><div class="line">&#125;</div><div class="line"><span class="function"><span class="keyword">private</span> <span class="keyword">int</span> <span class="title">partition</span><span class="params">(<span class="keyword">int</span>[] arr, <span class="keyword">int</span> start, <span class="keyword">int</span> end)</span> </span>&#123;</div><div class="line">    <span class="keyword">int</span> left = start, right = end + <span class="number">1</span>, pivot = arr[start];</div><div class="line">    <span class="keyword">while</span> (<span class="keyword">true</span>) &#123;</div><div class="line">        <span class="keyword">while</span> (arr[++left] &lt; pivot) &#123;</div><div class="line">            <span class="keyword">if</span> (left == end) &#123;</div><div class="line">                <span class="keyword">break</span>;</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line">        <span class="keyword">while</span> (arr[--right] &gt; pivot) &#123;</div><div class="line">            <span class="keyword">if</span> (right == start) &#123;</div><div class="line">                <span class="keyword">break</span>;</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line">        <span class="keyword">if</span> (left &gt;= right) &#123;</div><div class="line">            <span class="keyword">break</span>;</div><div class="line">        &#125;</div><div class="line">        swap(arr, left, right);</div><div class="line">    &#125;</div><div class="line">    swap(arr, start, right); <span class="comment">// pivot放到它应该放的位置</span></div><div class="line">    <span class="keyword">return</span> right;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<h4 id="Big-Integer-Calculation"><a href="#Big-Integer-Calculation" class="headerlink" title="Big Integer Calculation"></a>Big Integer Calculation</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// https://discuss.leetcode.com/topic/30508/easiest-java-solution-with-graph-explanation/</span></div><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">Multiply</span> </span>&#123;</div><div class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">multiply</span><span class="params">(String num1, String num2)</span> </span>&#123;</div><div class="line">        <span class="keyword">if</span> (num1 == <span class="keyword">null</span> || num2 == <span class="keyword">null</span></div><div class="line">           || num1.length() == <span class="number">0</span> || num2.length() == <span class="number">0</span>) &#123;</div><div class="line">            <span class="keyword">return</span> <span class="string">""</span>;</div><div class="line">        &#125;</div><div class="line">        <span class="keyword">int</span> m = num1.length(), n = num2.length();</div><div class="line">        <span class="keyword">int</span>[] result = <span class="keyword">new</span> <span class="keyword">int</span> [m + n];</div><div class="line">        <span class="keyword">char</span>[] cnum1 = num1.toCharArray(), cnum2 = num2.toCharArray();</div><div class="line">        </div><div class="line">        <span class="comment">// from least significant bit</span></div><div class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = m - <span class="number">1</span>; i &gt;= <span class="number">0</span>; i--) &#123;</div><div class="line">            <span class="keyword">for</span> (<span class="keyword">int</span> j = n - <span class="number">1</span>; j &gt;= <span class="number">0</span>; j--) &#123;</div><div class="line">                <span class="keyword">int</span> mult = (cnum1[i] - <span class="string">'0'</span>) * (cnum2[j] - <span class="string">'0'</span>);</div><div class="line">                <span class="keyword">int</span> first = i + j, second = i + j + <span class="number">1</span>;</div><div class="line">                <span class="keyword">int</span> sum = mult + result[second];    <span class="comment">// add carry from prev steps</span></div><div class="line">                result[first] += sum / <span class="number">10</span>;  <span class="comment">// accumulate</span></div><div class="line">                result[second] = sum % <span class="number">10</span>;  <span class="comment">// overwrite</span></div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line">        </div><div class="line">        StringBuilder sb = <span class="keyword">new</span> StringBuilder();</div><div class="line">        <span class="keyword">int</span> i = <span class="number">0</span>;</div><div class="line">        <span class="comment">// find the first non-zero item</span></div><div class="line">        <span class="keyword">while</span> (i &lt; result.length &amp;&amp; sb.length() == <span class="number">0</span> &amp;&amp; result[i] == <span class="number">0</span>) &#123;</div><div class="line">            i++;</div><div class="line">        &#125;</div><div class="line">        <span class="keyword">while</span> (i &lt; result.length) &#123;</div><div class="line">            sb.append(result[i++]);</div><div class="line">        &#125;</div><div class="line">        <span class="keyword">return</span> sb.length() == <span class="number">0</span>? <span class="string">"0"</span>: sb.toString();</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="comment">// https://discuss.leetcode.com/topic/5425/short-and-easy-to-understand-solution?page=1</span></div><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">Power</span> </span>&#123;</div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">double</span> <span class="title">myPow</span><span class="params">(<span class="keyword">double</span> x, <span class="keyword">int</span> n)</span> </span>&#123;</div><div class="line">        <span class="keyword">if</span> (n == <span class="number">0</span> || x == <span class="number">1</span>) &#123;</div><div class="line">            <span class="keyword">return</span> <span class="number">1</span>;</div><div class="line">        &#125;</div><div class="line">        <span class="keyword">if</span> (n == Integer.MIN_VALUE) &#123;   <span class="comment">// 防止取负数之后越界</span></div><div class="line">            <span class="keyword">return</span> (<span class="number">1.0</span> / x) * myPow(x, n + <span class="number">1</span>);</div><div class="line">        &#125;</div><div class="line">        <span class="keyword">if</span> (n &lt; <span class="number">0</span>) &#123;</div><div class="line">            n = -n;</div><div class="line">            x = <span class="number">1.0</span> / x;</div><div class="line">        &#125;</div><div class="line">        <span class="keyword">return</span> (n &amp; <span class="number">1</span>) != <span class="number">0</span> ? x * myPow(x * x, n / <span class="number">2</span>) : myPow(x * x, n / <span class="number">2</span>); </div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h4 id="GCD"><a href="#GCD" class="headerlink" title="GCD"></a>GCD</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">findGcd</span><span class="params">(<span class="keyword">int</span> a, <span class="keyword">int</span> b)</span> </span>&#123;</div><div class="line">    <span class="keyword">return</span> (a == <span class="number">0</span> || b == <span class="number">0</span>) ? a + b : findGcd(b, a % b);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h4 id="Union-Find"><a href="#Union-Find" class="headerlink" title="Union Find"></a>Union Find</h4><p> 并查集：在UF类中维护一个id数组，这个id表示当前索引的祖宗的索引，若<code>id[idx] = idx</code>说明它本身就是老大，初始时每个元素都是自己的老大。<code>find(p)</code>函数就是返回p的老大的索引，<code>union(p, q)</code>函数就是将索引p和q两伙合并起来，分别找到p和q的老大索引pRoot和qRoot，但是他们谁隶属于谁呢？rank就是在这时候起作用，将rank高的保留，rank低的老大合并到更高的老大那去，若两个老大一样，就随意了，合并后新老大的rank要加加。在UF中还有一个count变量，其实就是算有几个独立老大的，初始时每个1都是老大，而每次成功调用union时count都会减减。<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">UF</span> </span>&#123;</div><div class="line">    <span class="keyword">private</span> <span class="keyword">int</span>[] id = <span class="keyword">null</span>;</div><div class="line">    <span class="keyword">private</span> <span class="keyword">int</span>[] rank = <span class="keyword">null</span>;</div><div class="line">    <span class="keyword">private</span> <span class="keyword">int</span> count = <span class="number">0</span>;</div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="title">UF</span><span class="params">(<span class="keyword">char</span>[][] grid)</span> </span>&#123;</div><div class="line">        id = <span class="keyword">new</span> <span class="keyword">int</span> [grid.length * grid[<span class="number">0</span>].length];</div><div class="line">        rank = <span class="keyword">new</span> <span class="keyword">int</span> [grid.length * grid[<span class="number">0</span>].length];</div><div class="line">        </div><div class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; grid.length; i++) &#123;</div><div class="line">            <span class="keyword">for</span> (<span class="keyword">int</span> j = <span class="number">0</span>; j &lt; grid[<span class="number">0</span>].length; j++) &#123;</div><div class="line">                <span class="keyword">if</span> (grid[i][j] == <span class="string">'1'</span>) &#123;</div><div class="line">                    count++;</div><div class="line">                &#125;</div><div class="line">                <span class="keyword">int</span> temp = i * grid[<span class="number">0</span>].length + j;</div><div class="line">                id[temp] = temp;</div><div class="line">                rank[temp] = <span class="number">0</span>;</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">find</span><span class="params">(<span class="keyword">int</span> p)</span> </span>&#123;</div><div class="line">        <span class="keyword">while</span> (id[p] != p) &#123;</div><div class="line">            id[p] = id[id[p]];</div><div class="line">            p = id[p];</div><div class="line">        &#125;</div><div class="line">        <span class="keyword">return</span> p;</div><div class="line">    &#125;</div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">union</span><span class="params">(<span class="keyword">int</span> p, <span class="keyword">int</span> q)</span> </span>&#123;</div><div class="line">        <span class="keyword">int</span> pRoot = find(p);</div><div class="line">        <span class="keyword">int</span> qRoot = find(q);</div><div class="line">        <span class="keyword">if</span> (pRoot == qRoot) &#123;</div><div class="line">            <span class="keyword">return</span>;</div><div class="line">        &#125;</div><div class="line">        <span class="keyword">if</span> (rank[pRoot] &gt; rank[qRoot]) &#123;</div><div class="line">            id[qRoot] = pRoot;</div><div class="line">        &#125; <span class="keyword">else</span> <span class="keyword">if</span> (rank[qRoot] &gt; rank[pRoot]) &#123;</div><div class="line">            id[pRoot] = qRoot;</div><div class="line">        &#125; <span class="keyword">else</span> &#123;</div><div class="line">            id[pRoot] = qRoot;</div><div class="line">            rank[qRoot] ++;</div><div class="line">        &#125;</div><div class="line">        count--;</div><div class="line">    &#125;</div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">isConnected</span><span class="params">(<span class="keyword">int</span> p, <span class="keyword">int</span> q)</span> </span>&#123;</div><div class="line">        <span class="keyword">return</span> find(p) == find(q);</div><div class="line">    &#125;</div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">getCount</span><span class="params">()</span> </span>&#123;</div><div class="line">        <span class="keyword">return</span> count;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<h4 id="Backtracking"><a href="#Backtracking" class="headerlink" title="Backtracking"></a>Backtracking</h4><h5 id="Subset-无重复元素"><a href="#Subset-无重复元素" class="headerlink" title="Subset(无重复元素)"></a><a href="https://leetcode.com/problems/subsets/" target="_blank" rel="external">Subset(无重复元素)</a></h5><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> List&lt;List&lt;Integer&gt;&gt; subsets(<span class="keyword">int</span>[] nums) &#123;</div><div class="line">    List&lt;List&lt;Integer&gt;&gt; list = <span class="keyword">new</span> ArrayList&lt;&gt;();</div><div class="line">    <span class="comment">//Arrays.sort(nums);</span></div><div class="line">    backtrack(list, <span class="keyword">new</span> ArrayList&lt;&gt;(), nums, <span class="number">0</span>);</div><div class="line">    <span class="keyword">return</span> list;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">backtrack</span><span class="params">(List&lt;List&lt;Integer&gt;&gt; list , List&lt;Integer&gt; tempList, <span class="keyword">int</span> [] nums, <span class="keyword">int</span> start)</span></span>&#123;</div><div class="line">    list.add(<span class="keyword">new</span> ArrayList&lt;&gt;(tempList));</div><div class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i = start; i &lt; nums.length; i++)&#123;</div><div class="line">        tempList.add(nums[i]);</div><div class="line">        backtrack(list, tempList, nums, i + <span class="number">1</span>);</div><div class="line">        tempList.remove(tempList.size() - <span class="number">1</span>);</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h5 id="Subset-有重复元素"><a href="#Subset-有重复元素" class="headerlink" title="Subset(有重复元素)"></a><a href="https://leetcode.com/problems/subsets-ii/" target="_blank" rel="external">Subset(有重复元素)</a></h5><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> List&lt;List&lt;Integer&gt;&gt; subsetsWithDup(<span class="keyword">int</span>[] nums) &#123;</div><div class="line">    List&lt;List&lt;Integer&gt;&gt; list = <span class="keyword">new</span> ArrayList&lt;&gt;();</div><div class="line">    Arrays.sort(nums);</div><div class="line">    backtrack(list, <span class="keyword">new</span> ArrayList&lt;&gt;(), nums, <span class="number">0</span>);</div><div class="line">    <span class="keyword">return</span> list;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">backtrack</span><span class="params">(List&lt;List&lt;Integer&gt;&gt; list, List&lt;Integer&gt; tempList, <span class="keyword">int</span> [] nums, <span class="keyword">int</span> start)</span></span>&#123;</div><div class="line">    list.add(<span class="keyword">new</span> ArrayList&lt;&gt;(tempList));</div><div class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i = start; i &lt; nums.length; i++)&#123;</div><div class="line">        <span class="keyword">if</span>(i &gt; start &amp;&amp; nums[i] == nums[i - <span class="number">1</span>]) </div><div class="line">            <span class="keyword">continue</span>; <span class="comment">// skip duplicates</span></div><div class="line">        tempList.add(nums[i]);</div><div class="line">        backtrack(list, tempList, nums, i + <span class="number">1</span>);</div><div class="line">        tempList.remove(tempList.size() - <span class="number">1</span>);</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h5 id="Permutations-无重复元素全排列"><a href="#Permutations-无重复元素全排列" class="headerlink" title="Permutations(无重复元素全排列)"></a><a href="https://leetcode.com/problems/permutations/" target="_blank" rel="external">Permutations(无重复元素全排列)</a></h5><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> List&lt;List&lt;Integer&gt;&gt; permute(<span class="keyword">int</span>[] nums) &#123;</div><div class="line">   List&lt;List&lt;Integer&gt;&gt; list = <span class="keyword">new</span> ArrayList&lt;&gt;();</div><div class="line">   <span class="comment">// Arrays.sort(nums); // not necessary</span></div><div class="line">   backtrack(list, <span class="keyword">new</span> ArrayList&lt;&gt;(), nums);</div><div class="line">   <span class="keyword">return</span> list;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">backtrack</span><span class="params">(List&lt;List&lt;Integer&gt;&gt; list, List&lt;Integer&gt; tempList, <span class="keyword">int</span> [] nums)</span></span>&#123;</div><div class="line">   <span class="keyword">if</span> (tempList.size() == nums.length) &#123;</div><div class="line">      list.add(<span class="keyword">new</span> ArrayList&lt;&gt;(tempList));</div><div class="line">   &#125; <span class="keyword">else</span> &#123;</div><div class="line">      <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; nums.length; i++) &#123; </div><div class="line">         <span class="keyword">if</span> (tempList.contains(nums[i])) <span class="keyword">continue</span>; <span class="comment">// element already exists, skip</span></div><div class="line">         tempList.add(nums[i]);</div><div class="line">         backtrack(list, tempList, nums);</div><div class="line">         tempList.remove(tempList.size() - <span class="number">1</span>);</div><div class="line">      &#125;</div><div class="line">   &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h5 id="Permutations-有重复元素全排列"><a href="#Permutations-有重复元素全排列" class="headerlink" title="Permutations(有重复元素全排列)"></a><a href="https://leetcode.com/problems/permutations-ii/" target="_blank" rel="external">Permutations(有重复元素全排列)</a></h5><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> List&lt;List&lt;Integer&gt;&gt; permuteUnique(<span class="keyword">int</span>[] nums) &#123;</div><div class="line">    List&lt;List&lt;Integer&gt;&gt; list = <span class="keyword">new</span> ArrayList&lt;&gt;();</div><div class="line">    Arrays.sort(nums);</div><div class="line">    backtrack(list, <span class="keyword">new</span> ArrayList&lt;&gt;(), nums, <span class="keyword">new</span> <span class="keyword">boolean</span>[nums.length]);</div><div class="line">    <span class="keyword">return</span> list;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">backtrack</span><span class="params">(List&lt;List&lt;Integer&gt;&gt; list, List&lt;Integer&gt; tempList, <span class="keyword">int</span> [] nums, <span class="keyword">boolean</span> [] used)</span></span>&#123;</div><div class="line">    <span class="keyword">if</span> (tempList.size() == nums.length) &#123;</div><div class="line">        list.add(<span class="keyword">new</span> ArrayList&lt;&gt;(tempList));</div><div class="line">    &#125; <span class="keyword">else</span> &#123;</div><div class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; nums.length; i++) &#123;</div><div class="line">            <span class="keyword">if</span> (used[i] || i &gt; <span class="number">0</span> &amp;&amp; nums[i] == nums[i-<span class="number">1</span>] &amp;&amp; !used[i - <span class="number">1</span>]) <span class="keyword">continue</span>;</div><div class="line">            used[i] = <span class="keyword">true</span>; </div><div class="line">            tempList.add(nums[i]);</div><div class="line">            backtrack(list, tempList, nums, used);</div><div class="line">            used[i] = <span class="keyword">false</span>; </div><div class="line">            tempList.remove(tempList.size() - <span class="number">1</span>);</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h5 id="Combinations"><a href="#Combinations" class="headerlink" title="Combinations"></a><a href="https://leetcode.com/problems/combinations/description/" target="_blank" rel="external">Combinations</a></h5><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</div><div class="line">    <span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">dfs</span><span class="params">(List&lt;List&lt;Integer&gt;&gt; ans, List&lt;Integer&gt; arr, <span class="keyword">int</span> n, <span class="keyword">int</span> k, <span class="keyword">int</span> start)</span> </span>&#123;</div><div class="line">        <span class="keyword">if</span> (arr.size() == k) &#123;</div><div class="line">            ans.add(<span class="keyword">new</span> ArrayList(arr));</div><div class="line">            <span class="keyword">return</span>;</div><div class="line">        &#125;</div><div class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = start; i &lt;= n; i++) &#123;</div><div class="line">            arr.add(i);</div><div class="line">            dfs(ans, arr, n, k, i+<span class="number">1</span>);</div><div class="line">            arr.remove(arr.size()-<span class="number">1</span>);</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">public</span> List&lt;List&lt;Integer&gt;&gt; combine(<span class="keyword">int</span> n, <span class="keyword">int</span> k) &#123;</div><div class="line">        List&lt;List&lt;Integer&gt;&gt; ans = <span class="keyword">new</span> ArrayList&lt;List&lt;Integer&gt;&gt;();</div><div class="line">        ArrayList&lt;Integer&gt; arr = <span class="keyword">new</span> ArrayList&lt;Integer&gt;();</div><div class="line">        <span class="keyword">if</span> (n &lt;= <span class="number">0</span>) &#123;</div><div class="line">            <span class="keyword">return</span> ans;</div><div class="line">        &#125;</div><div class="line">        dfs(ans, arr, n, k, <span class="number">1</span>);</div><div class="line">        <span class="keyword">return</span> ans;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h5 id="combination-sum（无重复元素可重复组合求和）"><a href="#combination-sum（无重复元素可重复组合求和）" class="headerlink" title="combination-sum（无重复元素可重复组合求和）"></a><a href="https://leetcode.com/problems/combination-sum/description/" target="_blank" rel="external">combination-sum（无重复元素可重复组合求和）</a></h5><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> List&lt;List&lt;Integer&gt;&gt; combinationSum(<span class="keyword">int</span>[] nums, <span class="keyword">int</span> target) &#123;</div><div class="line">    List&lt;List&lt;Integer&gt;&gt; list = <span class="keyword">new</span> ArrayList&lt;&gt;();</div><div class="line">    Arrays.sort(nums);</div><div class="line">    backtrack(list, <span class="keyword">new</span> ArrayList&lt;&gt;(), nums, target, <span class="number">0</span>);</div><div class="line">    <span class="keyword">return</span> list;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">backtrack</span><span class="params">(List&lt;List&lt;Integer&gt;&gt; list, List&lt;Integer&gt; tempList, <span class="keyword">int</span> [] nums, <span class="keyword">int</span> remain, <span class="keyword">int</span> start)</span></span>&#123;</div><div class="line">    <span class="keyword">if</span> (remain &lt; <span class="number">0</span>) <span class="keyword">return</span>;</div><div class="line">    <span class="keyword">else</span> <span class="keyword">if</span> (remain == <span class="number">0</span>) list.add(<span class="keyword">new</span> ArrayList&lt;&gt;(tempList));</div><div class="line">    <span class="keyword">else</span> &#123; </div><div class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = start; i &lt; nums.length; i++)&#123;</div><div class="line">            tempList.add(nums[i]);</div><div class="line">            backtrack(list, tempList, nums, remain - nums[i], i); <span class="comment">// not i + 1 because we can reuse same elements</span></div><div class="line">            tempList.remove(tempList.size() - <span class="number">1</span>);</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h5 id="combination-sum（有重复元素不可复用组合求和）"><a href="#combination-sum（有重复元素不可复用组合求和）" class="headerlink" title="combination-sum（有重复元素不可复用组合求和）"></a><a href="https://leetcode.com/problems/combination-sum-ii/description/" target="_blank" rel="external">combination-sum（有重复元素不可复用组合求和）</a></h5><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> List&lt;List&lt;Integer&gt;&gt; combinationSum2(<span class="keyword">int</span>[] nums, <span class="keyword">int</span> target) &#123;</div><div class="line">    List&lt;List&lt;Integer&gt;&gt; list = <span class="keyword">new</span> ArrayList&lt;&gt;();</div><div class="line">    Arrays.sort(nums);</div><div class="line">    backtrack(list, <span class="keyword">new</span> ArrayList&lt;&gt;(), nums, target, <span class="number">0</span>);</div><div class="line">    <span class="keyword">return</span> list;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">backtrack</span><span class="params">(List&lt;List&lt;Integer&gt;&gt; list, List&lt;Integer&gt; tempList, <span class="keyword">int</span> [] nums, <span class="keyword">int</span> remain, <span class="keyword">int</span> start)</span></span>&#123;</div><div class="line">    <span class="keyword">if</span> (remain &lt; <span class="number">0</span>) <span class="keyword">return</span>;</div><div class="line">    <span class="keyword">else</span> <span class="keyword">if</span> (remain == <span class="number">0</span>) list.add(<span class="keyword">new</span> ArrayList&lt;&gt;(tempList));</div><div class="line">    <span class="keyword">else</span> &#123;</div><div class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = start; i &lt; nums.length; i++)&#123;</div><div class="line">            <span class="keyword">if</span> (i &gt; start &amp;&amp; nums[i] == nums[i - <span class="number">1</span>]) <span class="keyword">continue</span>; <span class="comment">// skip duplicates</span></div><div class="line">            tempList.add(nums[i]);</div><div class="line">            backtrack(list, tempList, nums, remain - nums[i], i + <span class="number">1</span>);</div><div class="line">            tempList.remove(tempList.size() - <span class="number">1</span>); </div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h4 id="String"><a href="#String" class="headerlink" title="String"></a>String</h4><h5 id="substring-palindrome-516-647"><a href="#substring-palindrome-516-647" class="headerlink" title="substring palindrome: 516, 647."></a>substring palindrome: 516, 647.</h5><p><a href="https://leetcode.com/submissions/detail/121291766/" target="_blank" rel="external">https://leetcode.com/submissions/detail/121291766/</a><br><a href="https://leetcode.com/submissions/detail/121292245/" target="_blank" rel="external">https://leetcode.com/submissions/detail/121292245/</a></p>
+<ul>
+<li>DP State transition: <code>dp[i][j]</code> means taking char from i to j of original string, and check next char if it equals to the leading char of current row. If so, take the previous result <code>dp[i + 1][j - 1]</code> to update.</li>
+<li>Cached DFS: <a href="https://discuss.leetcode.com/topic/78603/straight-forward-java-dp-solution" target="_blank" rel="external">https://discuss.leetcode.com/topic/78603/straight-forward-java-dp-solution</a></li>
+</ul>
+<h4 id="Miscellaneous"><a href="#Miscellaneous" class="headerlink" title="Miscellaneous"></a>Miscellaneous</h4><p>Set TreeSet，HashSet区别<br>给一个dictionary，能不能放进内存。<br>Trie文本处理</p>
+
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+      <div>
+        <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+  <div>└(^o^)┘</div>
+  <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+    <span>Donate</span>
+  </button>
+  <div id="QR" style="display: none;">
+
+    
+      <div id="wechat" style="display: inline-block">
+        <img id="wechat_qr" src="/images/wechat.png" alt="Bob_波波 WeChat Pay"/>
+        <p>WeChat Pay</p>
+      </div>
+    
+
+    
+      <div id="alipay" style="display: inline-block">
+        <img id="alipay_qr" src="/images/alipay.png" alt="Bob_波波 Alipay"/>
+        <p>Alipay</p>
+      </div>
+    
+
+    
+    <br>
+    <div id="paypal-button">
+      <form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top">
+        <input type="hidden" name="cmd" value="_donations" />
+        <input type="hidden" name="business" value="XPMQMQD8XQUPL" />
+        <input type="hidden" name="currency_code" value="USD" />
+        <input type="image" src="https://www.paypalobjects.com/en_US/i/btn/btn_donateCC_LG.gif" border="0" name="submit" title="PayPal - The safer, easier way to pay online!" alt="Donate with PayPal button" />
+      </form>
+    </div>
+
+  </div>
+</div>
+
+      </div>
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/algorithm/" rel="tag"><i class="fa fa-tag"></i> algorithm</a>
+          
+            <a href="/tags/java/" rel="tag"><i class="fa fa-tag"></i> java</a>
+          
+            <a href="/tags/interview/" rel="tag"><i class="fa fa-tag"></i> interview</a>
+          
+        </div>
+      
+
+      
+      
+        <div class="post-widgets">
+        
+
+        
+
+        
+          
+          <div class="social_share">
+            
+            
+               <div id="needsharebutton-postbottom">
+                 <span class="btn">
+                    <i class="fa fa-share-alt" aria-hidden="true"></i>
+                 </span>
+               </div>
+            
+          </div>
+        
+        </div>
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2017/07/08/java_leetcode4/" rel="next" title="Note for LeetCode in Java (301~400)">
+                <i class="fa fa-chevron-left"></i> Note for LeetCode in Java (301~400)
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2017/10/21/interview_code_repo/" rel="prev" title="面试代码复习">
+                面试代码复习 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+  </div>
+
+
+          </div>
+          
+
+  
+    <div class="comments" id="comments">
+      <div id="disqus_thread">
+        <noscript>Please enable JavaScript to view the comments powered by Disqus.</noscript>
+      </div>
+    </div>
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Overview
+          </li>
+        </ul>
+      
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="/images/avatar.jpg"
+                alt="Bob_波波"/>
+            
+              <p class="site-author-name" itemprop="name">Bob_波波</p>
+              <p class="site-description motion-element" itemprop="description">I'm a Software Engineer!</p>
+          </div>
+
+          
+            <nav class="site-state motion-element">
+              
+                <div class="site-state-item site-state-posts">
+                
+                  <a href="/archives/">
+                
+                    <span class="site-state-item-count">46</span>
+                    <span class="site-state-item-name">posts</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-categories">
+                  <a href="/categories/index.html">
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">4</span>
+                    <span class="site-state-item-name">categories</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-tags">
+                  <a href="/tags/index.html">
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">46</span>
+                    <span class="site-state-item-name">tags</span>
+                  </a>
+                </div>
+              
+            </nav>
+          
+
+          
+
+          
+
+          
+
+          
+          
+
+          
+            
+          
+          
+
+        </div>
+      </div>
+
+      
+      <!--noindex-->
+        <div class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+            
+            
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#BinarySearch"><span class="nav-text">BinarySearch</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Sort"><span class="nav-text">Sort</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#Selection-Sort"><span class="nav-text">Selection Sort</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#Insertion-Sort"><span class="nav-text">Insertion Sort</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#Shell-Sort"><span class="nav-text">Shell Sort</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#Bubble-Sort"><span class="nav-text">Bubble Sort</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#Bucket-Sort"><span class="nav-text">Bucket Sort</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#Radix-Sort-TODO"><span class="nav-text">Radix Sort[====TODO====]</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#Merge-Sort"><span class="nav-text">Merge Sort</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#Quick-Sort-Shuffle"><span class="nav-text">Quick Sort + Shuffle</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Big-Integer-Calculation"><span class="nav-text">Big Integer Calculation</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#GCD"><span class="nav-text">GCD</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Union-Find"><span class="nav-text">Union Find</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Backtracking"><span class="nav-text">Backtracking</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#Subset-无重复元素"><span class="nav-text">Subset(无重复元素)</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#Subset-有重复元素"><span class="nav-text">Subset(有重复元素)</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#Permutations-无重复元素全排列"><span class="nav-text">Permutations(无重复元素全排列)</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#Permutations-有重复元素全排列"><span class="nav-text">Permutations(有重复元素全排列)</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#Combinations"><span class="nav-text">Combinations</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#combination-sum（无重复元素可重复组合求和）"><span class="nav-text">combination-sum（无重复元素可重复组合求和）</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#combination-sum（有重复元素不可复用组合求和）"><span class="nav-text">combination-sum（有重复元素不可复用组合求和）</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#String"><span class="nav-text">String</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#substring-palindrome-516-647"><span class="nav-text">substring palindrome: 516, 647.</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Miscellaneous"><span class="nav-text">Miscellaneous</span></a></li></ol></div>
+            
+
+          </div>
+        </div>
+      <!--/noindex-->
+      
+
+      
+        <div class="back-to-top">
+          <i class="fa fa-arrow-up"></i>
+          
+        </div>
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; 2016 – <span itemprop="copyrightYear">2020</span>
+  <span class="with-love" id="animate">
+    <i class="fa fa-futbol-o"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Bob_波波</span>
+
+  
+
+  
+</div>
+
+
+  <div class="powered-by">Powered by <a href="https://hexo.io" class="theme-link" rel="noopener" target="_blank">Hexo</a></div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">Theme – <a href="https://theme-next.org" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a></div>
+
+
+
+
+        
+<div class="busuanzi-count">
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  
+    <span class="site-uv" title="Total Visitors">
+      <i class="fa fa-user"></i>
+      <span class="busuanzi-value" id="busuanzi_value_site_uv"></span>
+    </span>
+  
+
+  
+    <span class="post-meta-divider">|</span>
+  
+
+  
+    <span class="site-pv" title="Total Views">
+      <i class="fa fa-history"></i>
+      <span class="busuanzi-value" id="busuanzi_value_site_pv"></span>
+    </span>
+  
+</div>
+
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+
+    
+
+    
+
+    
+      <div>
+        <!-- Go to www.addthis.com/dashboard to customize your tools -->
+<div class="addthis_inline_share_toolbox">
+  <script type = "text/javascript" src = "//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-593135f4e114024c" async = "async" ></script>
+</div>
+
+      </div>
+    
+  </div>
+
+  
+
+<script>
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+
+  
+
+
+  <script src="/js/src/utils.js?v=6.7.0"></script>
+
+  <script src="/js/src/motion.js?v=6.7.0"></script>
+
+
+
+  
+  
+
+
+  <script src="/js/src/affix.js?v=6.7.0"></script>
+
+  <script src="/js/src/schemes/pisces.js?v=6.7.0"></script>
+
+
+
+  
+  <script src="/js/src/scrollspy.js?v=6.7.0"></script>
+<script src="/js/src/post-details.js?v=6.7.0"></script>
+
+
+
+  
+
+
+  <script src="/js/src/bootstrap.js?v=6.7.0"></script>
+
+
+
+  
+
+  
+    <script id="dsq-count-scr" src="https://bobbyliujb.disqus.com/count.js" async></script>
+  
+
+  
+    <script>
+      var disqus_config = function () {
+        this.page.url = "https://bobbyliujb.github.io/2017/09/05/cheatsheet/";
+        this.page.identifier = "2017/09/05/cheatsheet/";
+        this.page.title = 'Algorithm reference cheatsheet';
+        };
+      function loadComments () {
+        var d = document, s = d.createElement('script');
+        s.src = 'https://bobbyliujb.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', '' + +new Date());
+        (d.head || d.body).appendChild(s);
+      }
+      
+        loadComments();
+      
+    </script>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  <script>
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').hide();
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.search-popup-overlay').click(onPopupClose);
+      $('.popup').toggle();
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+
+      // start loading animation
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
+          '<div id="search-loading-icon">' +
+          '<i class="fa fa-circle-o-notch fa-spin fa-3x fa-fw"></i>' +
+          '</div>' +
+          '</div>')
+        .css('overflow', 'hidden');
+      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
+
+      
+
+      $.ajax({
+        url: path,
+        dataType: isXml ? "xml" : "json",
+        async: true,
+        success: function(res) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = isXml ? $("entry", res).map(function() {
+            return {
+              title: $("title", this).text(),
+              content: $("content",this).text(),
+              url: $("url" , this).text()
+            };
+          }).get() : res;
+          var input = document.getElementById(search_id);
+          var resultContent = document.getElementById(content_id);
+          var inputEventFunction = function() {
+            var searchText = input.value.trim().toLowerCase();
+            var keywords = searchText.split(/[\s\-]+/);
+            if (keywords.length > 1) {
+              keywords.push(searchText);
+            }
+            var resultItems = [];
+            if (searchText.length > 0) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var hitCount = 0;
+                var searchTextCount = 0;
+                var title = data.title.trim();
+                var titleInLowerCase = title.toLowerCase();
+                var content = data.content.trim().replace(/<[^>]+>/g,"");
+                
+                var contentInLowerCase = content.toLowerCase();
+                var articleUrl = decodeURIComponent(data.url).replace(/\/{2,}/g, '/');
+                var indexOfTitle = [];
+                var indexOfContent = [];
+                // only match articles with not empty titles
+                if(title != '') {
+                  keywords.forEach(function(keyword) {
+                    function getIndexByWord(word, text, caseSensitive) {
+                      var wordLen = word.length;
+                      if (wordLen === 0) {
+                        return [];
+                      }
+                      var startPosition = 0, position = [], index = [];
+                      if (!caseSensitive) {
+                        text = text.toLowerCase();
+                        word = word.toLowerCase();
+                      }
+                      while ((position = text.indexOf(word, startPosition)) > -1) {
+                        index.push({position: position, word: word});
+                        startPosition = position + wordLen;
+                      }
+                      return index;
+                    }
+
+                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+                  });
+                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+                    isMatch = true;
+                    hitCount = indexOfTitle.length + indexOfContent.length;
+                  }
+                }
+
+                // show search results
+
+                if (isMatch) {
+                  // sort index by position of keyword
+
+                  [indexOfTitle, indexOfContent].forEach(function (index) {
+                    index.sort(function (itemLeft, itemRight) {
+                      if (itemRight.position !== itemLeft.position) {
+                        return itemRight.position - itemLeft.position;
+                      } else {
+                        return itemLeft.word.length - itemRight.word.length;
+                      }
+                    });
+                  });
+
+                  // merge hits into slices
+
+                  function mergeIntoSlice(text, start, end, index) {
+                    var item = index[index.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    var hits = [];
+                    var searchTextCountInSlice = 0;
+                    while (position + word.length <= end && index.length != 0) {
+                      if (word === searchText) {
+                        searchTextCountInSlice++;
+                      }
+                      hits.push({position: position, length: word.length});
+                      var wordEnd = position + word.length;
+
+                      // move to next position of hit
+
+                      index.pop();
+                      while (index.length != 0) {
+                        item = index[index.length - 1];
+                        position = item.position;
+                        word = item.word;
+                        if (wordEnd > position) {
+                          index.pop();
+                        } else {
+                          break;
+                        }
+                      }
+                    }
+                    searchTextCount += searchTextCountInSlice;
+                    return {
+                      hits: hits,
+                      start: start,
+                      end: end,
+                      searchTextCount: searchTextCountInSlice
+                    };
+                  }
+
+                  var slicesOfTitle = [];
+                  if (indexOfTitle.length != 0) {
+                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+                  }
+
+                  var slicesOfContent = [];
+                  while (indexOfContent.length != 0) {
+                    var item = indexOfContent[indexOfContent.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    // cut out 100 characters
+                    var start = position - 20;
+                    var end = position + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if (end < position + word.length) {
+                      end = position + word.length;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+                  }
+
+                  // sort slices in content by search text's count and hits' count
+
+                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                      return sliceRight.hits.length - sliceLeft.hits.length;
+                    } else {
+                      return sliceLeft.start - sliceRight.start;
+                    }
+                  });
+
+                  // select top N slices in content
+
+                  var upperBound = parseInt('10');
+                  if (upperBound >= 0) {
+                    slicesOfContent = slicesOfContent.slice(0, upperBound);
+                  }
+
+                  // highlight title and content
+
+                  function highlightKeyword(text, slice) {
+                    var result = '';
+                    var prevEnd = slice.start;
+                    slice.hits.forEach(function (hit) {
+                      result += text.substring(prevEnd, hit.position);
+                      var end = hit.position + hit.length;
+                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                      prevEnd = end;
+                    });
+                    result += text.substring(prevEnd, slice.end);
+                    return result;
+                  }
+
+                  var resultItem = '';
+
+                  if (slicesOfTitle.length != 0) {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+                  } else {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+                  }
+
+                  slicesOfContent.forEach(function (slice) {
+                    resultItem += "<a href='" + articleUrl + "'>" +
+                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                      "...</p>" + "</a>";
+                  });
+
+                  resultItem += "</li>";
+                  resultItems.push({
+                    item: resultItem,
+                    searchTextCount: searchTextCount,
+                    hitCount: hitCount,
+                    id: resultItems.length
+                  });
+                }
+              })
+            };
+            if (keywords.length === 1 && keywords[0] === "") {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x"></i></div>'
+            } else if (resultItems.length === 0) {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x"></i></div>'
+            } else {
+              resultItems.sort(function (resultLeft, resultRight) {
+                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+                  return resultRight.searchTextCount - resultLeft.searchTextCount;
+                } else if (resultLeft.hitCount !== resultRight.hitCount) {
+                  return resultRight.hitCount - resultLeft.hitCount;
+                } else {
+                  return resultRight.id - resultLeft.id;
+                }
+              });
+              var searchResultList = '<ul class=\"search-result-list\">';
+              resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if ('auto' === 'auto') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
+          proceedsearch();
+        }
+      });
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script>
+
+
+
+
+
+  
+
+  
+  <script>
+    
+    function addCount(Counter) {
+      var $visitors = $(".leancloud_visitors");
+      var url = $visitors.attr('id').trim();
+      var title = $visitors.attr('data-flag-title').trim();
+
+      Counter('get', '/classes/Counter', { where: JSON.stringify({ url }) })
+        .done(function ({ results }) {
+          if (results.length > 0) {
+            var counter = results[0];
+            
+            Counter('put', `/classes/Counter/${counter.objectId}`, JSON.stringify({ time: { "__op":"Increment", "amount":1 } }))
+            
+            .done(function () {
+                  var $element = $(document.getElementById(url));
+                  $element.find('.leancloud-visitors-count').text(counter.time + 1);
+            })
+            
+            .fail(function ({ responseJSON }) {
+                console.log('Failed to save Visitor num, with error message: ' + responseJSON.error);
+            })
+          } else {
+            
+              Counter('post', '/classes/Counter', JSON.stringify({ title: title, url: url, time: 1}))
+                .done(function () {
+                  var $element = $(document.getElementById(url));
+                  $element.find('.leancloud-visitors-count').text(1);
+                })
+                .fail(function () {
+                  console.log('Failed to create');
+                });
+            
+          }
+        })
+      .fail(function ({ responseJSON }) {
+        console.log('LeanCloud Counter Error:' + responseJSON.code + " " + responseJSON.error);
+      });
+    }
+    
+
+    $(function() {
+      $.get('https://app-router.leancloud.cn/2/route?appId=' + "jT7i5auNazMHRONSPUHmcoko-gzGzoHsz")
+        .done(function ({ api_server }) {
+          var Counter = function (method, url, data) {
+            return $.ajax({
+              method: method,
+              url: `https://${api_server}/1.1${url}`,
+              headers: {
+                'X-LC-Id': "jT7i5auNazMHRONSPUHmcoko-gzGzoHsz",
+                'X-LC-Key': "dEWwuVre5Svmwvjw2DmcIbLy",
+                'Content-Type': 'application/json',
+              },
+              data: data,
+            });
+          };
+          
+          addCount(Counter);
+          
+        })
+    });
+  </script>
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+  
+  
+  <script src="/lib/needsharebutton/needsharebutton.js"></script>
+  <script>
+    
+      pbOptions = {};
+      
+        pbOptions.iconStyle = "box";
+      
+        pbOptions.boxForm = "horizontal";
+      
+        pbOptions.position = "topCenter";
+      
+        pbOptions.networks = "Linkedin,Weibo,Wechat,Twitter,Facebook,Pinterest,GooglePlus,Evernote,Reddit,Douban,QQZone,Mailto";
+      
+      new needShareButton('#needsharebutton-postbottom', pbOptions);
+    
+    
+  </script>
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

@@ -1,0 +1,1640 @@
+<!DOCTYPE html>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+<html class="theme-next gemini use-motion" lang="en">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2"/>
+<meta name="theme-color" content="#222"/>
+
+
+  
+  
+  <link rel="stylesheet" href="/lib/needsharebutton/needsharebutton.css"/>
+
+
+
+  
+  
+    
+    
+  <script src="/lib/pace/pace.min.js?v=1.0.2"></script>
+  <link rel="stylesheet" href="/lib/pace/pace-theme-flash.min.css?v=1.0.2"/>
+
+
+
+
+
+  <meta http-equiv="Cache-Control" content="no-transform"/>
+  <meta http-equiv="Cache-Control" content="no-siteapp"/>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext"/>
+  
+
+
+
+
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2"/>
+
+<link rel="stylesheet" href="/css/main.css?v=6.7.0"/>
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/favicon.ico?v=6.7.0">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon.ico?v=6.7.0">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon.ico?v=6.7.0">
+
+
+  <link rel="mask-icon" href="/images/favicon.ico?v=6.7.0" color="#222">
+
+
+
+
+
+
+
+<script id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Gemini',
+    version: '6.7.0',
+    sidebar: {"position":"left","display":"hide","offset":12,"b2t":true,"scrollpercent":false,"onmobile":false},
+    fancybox: false,
+    fastclick: false,
+    lazyload: false,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+  
+
+
+
+
+  <meta name="description" content="迎难而上，祝我好运。">
+<meta name="keywords" content="algorithm,java,interview">
+<meta property="og:type" content="article">
+<meta property="og:title" content="面试代码复习">
+<meta property="og:url" content="https://bobbyliujb.github.io/2017/10/21/interview_code_repo/index.html">
+<meta property="og:site_name" content="Bob_波波">
+<meta property="og:description" content="迎难而上，祝我好运。">
+<meta property="og:locale" content="en">
+<meta property="og:updated_time" content="2017-12-08T01:17:35.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="面试代码复习">
+<meta name="twitter:description" content="迎难而上，祝我好运。">
+
+
+
+
+
+
+  <link rel="canonical" href="https://bobbyliujb.github.io/2017/10/21/interview_code_repo/"/>
+
+
+
+<script id="page.configurations">
+  CONFIG.page = {
+    sidebar: "",
+  };
+</script>
+
+  <title>面试代码复习 | Bob_波波</title>
+  
+
+
+
+
+  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-118868735-1"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'UA-118868735-1');
+  </script>
+
+
+
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .motion-element,
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-title { opacity: initial; }
+
+  .use-motion .logo,
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="en">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Bob_波波</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+    
+    
+  </div>
+
+  <div class="site-nav-toggle">
+    <button aria-label="Toggle navigation bar">
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  
+    <ul id="menu" class="menu">
+      
+        
+        
+        
+          
+          <li class="menu-item menu-item-home">
+
+    
+    
+    
+      
+    
+
+    
+      
+    
+
+    <a href="/" rel="section"><i class="menu-item-icon fa fa-fw fa-home"></i> <br/>Home</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-tags">
+
+    
+    
+    
+      
+    
+
+    
+      
+    
+
+    <a href="/tags/" rel="section"><i class="menu-item-icon fa fa-fw fa-tags"></i> <br/>Tags<span class="badge">46</span></a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-categories">
+
+    
+    
+    
+      
+    
+
+    
+      
+    
+
+    <a href="/categories/" rel="section"><i class="menu-item-icon fa fa-fw fa-th"></i> <br/>Categories<span class="badge">4</span></a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-archives">
+
+    
+    
+    
+      
+    
+
+    
+      
+    
+
+    <a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br/>Archives<span class="badge">46</span></a>
+
+  </li>
+
+      
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />Search</a>
+        </li>
+      
+    </ul>
+  
+
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off"
+             placeholder="Searching..." spellcheck="false"
+             type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
+  
+</nav>
+
+
+
+  
+
+
+
+</div>
+    </header>
+
+    
+
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+            
+
+          
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://bobbyliujb.github.io/2017/10/21/interview_code_repo/"/>
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Bob_波波"/>
+      <meta itemprop="description" content="I'm a Software Engineer!"/>
+      <meta itemprop="image" content="/images/avatar.jpg"/>
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Bob_波波"/>
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">面试代码复习
+
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+
+              
+                
+              
+
+              <time title="Created: 2017-10-20 17:23:42" itemprop="dateCreated datePublished" datetime="2017-10-20T17:23:42-07:00">2017-10-20</time>
+            
+
+            
+              
+
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Edited on</span>
+                
+                <time title="Modified: 2017-12-07 17:17:35" itemprop="dateModified" datetime="2017-12-07T17:17:35-08:00">2017-12-07</time>
+              
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Tech/" itemprop="url" rel="index"><span itemprop="name">Tech</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2017/10/21/interview_code_repo/#comments" itemprop="discussionUrl">
+                
+                  <span class="post-comments-count disqus-comment-count"
+                        data-disqus-identifier="2017/10/21/interview_code_repo/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+             <span id="/2017/10/21/interview_code_repo/" class="leancloud_visitors" data-flag-title="面试代码复习">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">Views: </span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+            <div class="post-symbolscount">
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Symbols count in article: </span>
+                
+                <span title="Symbols count in article">17k</span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Reading time &asymp;</span>
+                
+                <span title="Reading time">18 mins.</span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>迎难而上，祝我好运。<br><a id="more"></a></p>
+<h4 id="1-Two-Sum"><a href="#1-Two-Sum" class="headerlink" title="1. Two Sum"></a><a href="https://leetcode.com/problems/two-sum" target="_blank" rel="external">1. Two Sum</a></h4><ul>
+<li>给定一串整型数组，给一个目标值，求数组中唯一的一对数字，相加得到该目标值。</li>
+<li>需要考虑数组中可能有重复项，每个项只能用一次，答案一定存在且唯一。</li>
+<li>方法一：用hashmap记录数组中每一个值对应的首次出现的index。然后遍历数组求target减去当前项，看是否在map的key中并且不等于当前索引（只能用一次）。<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="keyword">int</span>[] twoSum(<span class="keyword">int</span>[] nums, <span class="keyword">int</span> target) &#123;</div><div class="line">    <span class="keyword">if</span> (nums == <span class="keyword">null</span> || nums.length == <span class="number">0</span>) &#123;</div><div class="line">        <span class="keyword">return</span> <span class="keyword">new</span> <span class="keyword">int</span>[<span class="number">0</span>];</div><div class="line">    &#125;</div><div class="line">    </div><div class="line">    <span class="comment">// take val as key and index as value in the map</span></div><div class="line">    Map&lt;Integer, Integer&gt; val2Index = <span class="keyword">new</span> HashMap&lt;&gt;();</div><div class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; nums.length; i++) &#123;</div><div class="line">        <span class="keyword">if</span> (!val2Index.containsKey(nums[i])) &#123;</div><div class="line">            val2Index.put(nums[i], i);</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">    </div><div class="line">    <span class="comment">// take the index of (target - nums[i]) out of map, if exists</span></div><div class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; nums.length; i++) &#123;</div><div class="line">        <span class="keyword">int</span> temp = target - nums[i];</div><div class="line">        <span class="keyword">if</span> (val2Index.containsKey(temp) &amp;&amp; val2Index.get(temp) != i) &#123;</div><div class="line">            <span class="keyword">return</span> <span class="keyword">new</span> <span class="keyword">int</span>[] &#123;i, val2Index.get(temp)&#125;;</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">return</span> <span class="keyword">new</span> <span class="keyword">int</span> [<span class="number">0</span>];</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<h4 id="2-Add-2-Num"><a href="#2-Add-2-Num" class="headerlink" title="2. Add 2 Num"></a><a href="https://leetcode.com/problems/add-two-numbers" target="_blank" rel="external">2. Add 2 Num</a></h4><ul>
+<li>给两个链表，每个节点是一个反序存放的数字（个-十-百-千-万），输出也是一个链表，每个节点就是那两个输入链表对应节点的值之和。</li>
+<li>需要考虑链表是否为空？会否有多余的0开头的节点？链表本身表示的数或者相加之后的结果是否越界都没关系，因为输入本身和结果都用链表表示。</li>
+<li>方法一：遍历之。<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">public</span> ListNode <span class="title">addTwoNumbers</span><span class="params">(ListNode l1, ListNode l2)</span> </span>&#123;</div><div class="line">    <span class="keyword">if</span> (l1 == <span class="keyword">null</span>) &#123;</div><div class="line">        <span class="keyword">return</span> l2;</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">if</span> (l2 == <span class="keyword">null</span>) &#123;</div><div class="line">        <span class="keyword">return</span> l1;</div><div class="line">    &#125;</div><div class="line">    </div><div class="line">    ListNode ans = <span class="keyword">new</span> ListNode(<span class="number">0</span>);</div><div class="line">    ListNode curr = ans;</div><div class="line">    <span class="keyword">int</span> carry = <span class="number">0</span>;</div><div class="line">    <span class="keyword">while</span> (l1 != <span class="keyword">null</span> &amp;&amp; l2 != <span class="keyword">null</span>) &#123;</div><div class="line">        <span class="keyword">int</span> val = l1.val + l2.val + carry;</div><div class="line">        carry = val / <span class="number">10</span>;</div><div class="line">        val = val % <span class="number">10</span>;</div><div class="line">        curr.next = <span class="keyword">new</span> ListNode(val);</div><div class="line">        l1 = l1.next;</div><div class="line">        l2 = l2.next;</div><div class="line">        curr = curr.next;</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">while</span> (l1 != <span class="keyword">null</span>) &#123;</div><div class="line">        <span class="keyword">int</span> val = l1.val + carry;</div><div class="line">        carry = val / <span class="number">10</span>;</div><div class="line">        val = val % <span class="number">10</span>;</div><div class="line">        curr.next = <span class="keyword">new</span> ListNode(val);</div><div class="line">        l1 = l1.next;</div><div class="line">        curr = curr.next;</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">while</span> (l2 != <span class="keyword">null</span>) &#123;</div><div class="line">        <span class="keyword">int</span> val = l2.val + carry;</div><div class="line">        carry = val / <span class="number">10</span>;</div><div class="line">        val = val % <span class="number">10</span>;</div><div class="line">        curr.next = <span class="keyword">new</span> ListNode(val);</div><div class="line">        l2 = l2.next;</div><div class="line">        curr = curr.next;</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">if</span> (carry &gt; <span class="number">0</span>) &#123;</div><div class="line">        curr.next = <span class="keyword">new</span> ListNode(carry);</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">return</span> ans.next;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<h4 id="3-Longest-substring"><a href="#3-Longest-substring" class="headerlink" title="3. Longest substring"></a><a href="https://leetcode.com/problems/longest-substring-without-repeating-characters/#/description" target="_blank" rel="external">3. Longest substring</a></h4><ul>
+<li>给一个字符串，找其中不含重复字符的最长子串的长度。</li>
+<li>考虑原字符串是否为null或<code>&quot;&quot;</code>？只含有一个字符？字符交替出现？</li>
+<li>子串问题，优先考虑双指针。右指针不断往后找字符，将字符及对应索引放入map，当发现已经存在key时，先计算目前长度更新到ans中，然后将左指针已到右指针指向字符上一次出现的位置的下一个或者不变（因为可能上一次出现的位置反而回退了）。<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">lengthOfLongestSubstring</span><span class="params">(String s)</span> </span>&#123;</div><div class="line">    <span class="keyword">if</span> (s == <span class="keyword">null</span> || s.length() == <span class="number">0</span>) &#123;</div><div class="line">        <span class="keyword">return</span> <span class="number">0</span>;</div><div class="line">    &#125;</div><div class="line">    Map&lt;Character, Integer&gt; map = <span class="keyword">new</span> HashMap&lt;&gt;();</div><div class="line">    <span class="keyword">char</span>[] sChar = s.toCharArray();</div><div class="line">    <span class="keyword">int</span> left = <span class="number">0</span>, right = <span class="number">0</span>, ans = <span class="number">1</span>;   <span class="comment">// warning not MIN_VALUE</span></div><div class="line">    <span class="keyword">for</span> (right = <span class="number">0</span>; right &lt; sChar.length; right++) &#123;</div><div class="line">        <span class="keyword">if</span> (!map.containsKey(sChar[right])) &#123;   <span class="comment">// first occurance</span></div><div class="line">            map.put(sChar[right], right);</div><div class="line">        &#125; <span class="keyword">else</span> &#123;</div><div class="line">            ans = Math.max(ans, right - left);  <span class="comment">// locate to last occurance</span></div><div class="line">            left = Math.max(map.get(sChar[right]) + <span class="number">1</span>, left);   <span class="comment">// move left. warning not go back</span></div><div class="line">            map.put(sChar[right], right);       <span class="comment">// update latest occurance</span></div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">return</span> Math.max(ans, right - left);     <span class="comment">// warning not ans</span></div><div class="line">&#125;</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<h4 id="4-Median-of-2-sorted-arrays"><a href="#4-Median-of-2-sorted-arrays" class="headerlink" title="4. Median of 2 sorted arrays"></a><a href="https://leetcode.com/problems/median-of-two-sorted-arrays/#/solutions" target="_blank" rel="external">4. Median of 2 sorted arrays</a></h4><ul>
+<li>给两个int数组，返回二者合并后的中位数。</li>
+<li><p>朴素的做法，逐个merge，然后分奇数、偶数求中位数。注意这里需要返回的是double。时间复杂度Linear,<code>O((m + n)/2)</code>。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">double</span> <span class="title">findMedianSortedArrays</span><span class="params">(<span class="keyword">int</span>[] nums1, <span class="keyword">int</span>[] nums2)</span> </span>&#123;</div><div class="line">    <span class="keyword">int</span> len_total = nums1.length + nums2.length;</div><div class="line">    <span class="keyword">int</span> len_total_half = len_total &gt;&gt; <span class="number">1</span>;</div><div class="line">    <span class="keyword">int</span>[] merged = <span class="keyword">new</span> <span class="keyword">int</span> [len_total];</div><div class="line">    </div><div class="line">    <span class="keyword">int</span> i = <span class="number">0</span>, j = <span class="number">0</span>, len = <span class="number">0</span>;</div><div class="line">    <span class="keyword">boolean</span> finished = <span class="keyword">false</span>;</div><div class="line">    <span class="keyword">while</span> (!finished &amp;&amp; i &lt; nums1.length &amp;&amp; j &lt; nums2.length) &#123;</div><div class="line">        <span class="keyword">if</span> (nums1[i] &lt; nums2[j]) &#123;</div><div class="line">            merged[len++] = nums1[i++];</div><div class="line">        &#125; <span class="keyword">else</span> &#123;</div><div class="line">            merged[len++] = nums2[j++];</div><div class="line">        &#125;</div><div class="line">        <span class="keyword">if</span> (len &gt; len_total_half) &#123;</div><div class="line">            finished = <span class="keyword">true</span>;</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">while</span> (!finished &amp;&amp; i &lt; nums1.length) &#123;</div><div class="line">        merged[len++] = nums1[i++];</div><div class="line">        <span class="keyword">if</span> (len &gt; len_total_half) &#123;</div><div class="line">            finished = <span class="keyword">true</span>;</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">while</span> (!finished &amp;&amp; j &lt; nums2.length) &#123;</div><div class="line">        merged[len++] = nums2[j++];</div><div class="line">        <span class="keyword">if</span> (len &gt; len_total_half) &#123;</div><div class="line">            finished = <span class="keyword">true</span>;</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">    </div><div class="line">    <span class="keyword">if</span> (len_total % <span class="number">2</span> == <span class="number">1</span>) &#123;</div><div class="line">        <span class="keyword">return</span> merged[len_total_half];</div><div class="line">    &#125; <span class="keyword">else</span> &#123;</div><div class="line">        <span class="keyword">return</span> (<span class="keyword">double</span>)((merged[len_total_half] + merged[len_total_half-<span class="number">1</span>])/<span class="number">2.0</span>);</div><div class="line">    &#125;</div></pre></td></tr></table></figure>
+</li>
+<li><p>follow-up：要求在O(log(m+n))的时间复杂度以内？</p>
+</li>
+<li>中位数可以把有序数组分成等长的两部分，因此在数组1取i个元素、数组2取j个元素，使得<code>i + j == 剩余数字个数</code>并且满足大小关系<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">double</span> <span class="title">findMedianSortedArrays</span><span class="params">(<span class="keyword">int</span>[] nums1, <span class="keyword">int</span>[] nums2)</span> </span>&#123;</div><div class="line">    <span class="keyword">if</span> (nums1 == <span class="keyword">null</span> || nums2 == <span class="keyword">null</span>) &#123;</div><div class="line">        <span class="keyword">return</span> <span class="number">0</span>;</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">int</span> m = nums1.length, n = nums2.length;</div><div class="line">    <span class="keyword">if</span> (nums1.length &gt; nums2.length) &#123;  <span class="comment">// ensure the len of 1 &lt;= 2</span></div><div class="line">        <span class="keyword">return</span> findMedianSortedArrays(nums2, nums1);</div><div class="line">    &#125;</div><div class="line">    </div><div class="line">    <span class="comment">// to ensure equality of the two parts after merged, i + j = m - i + n - j</span></div><div class="line">    <span class="keyword">int</span> iLo = <span class="number">0</span>, iHi = m, allMid = (n + m + <span class="number">1</span>) / <span class="number">2</span>; <span class="comment">// odd: i = j, even: i = j - 1</span></div><div class="line">    </div><div class="line">    <span class="comment">// i stands for "how many num taken from nums1 as front part" 0 ~ i-1 | i ~ m-1</span></div><div class="line">    <span class="comment">// j stands for "how many num taken from nums2 as front part" 0 ~ j-1 | j ~ n-1</span></div><div class="line">    <span class="keyword">while</span> (iLo &lt;= iHi) &#123;</div><div class="line">        <span class="keyword">int</span> i = (iLo + iHi) / <span class="number">2</span>, j = allMid - i;</div><div class="line">        </div><div class="line">        <span class="comment">// nums1[i-1], nums2[j-1] are the largest element of front part of nums1, nums2</span></div><div class="line">        <span class="comment">// nums1[i], nums2[j] are the smallest of lag part of nums1, nums2</span></div><div class="line">        <span class="keyword">if</span> (i &lt; m &amp;&amp; nums2[j - <span class="number">1</span>] &gt; nums1[i]) &#123; <span class="comment">// i not big enough</span></div><div class="line">            iLo = i + <span class="number">1</span>;</div><div class="line">        &#125; <span class="keyword">else</span> <span class="keyword">if</span> (i &gt; <span class="number">0</span> &amp;&amp; nums1[i - <span class="number">1</span>] &gt; nums2[j]) &#123;</div><div class="line">            iHi = i - <span class="number">1</span>;</div><div class="line">        &#125; <span class="keyword">else</span> &#123;</div><div class="line">            <span class="keyword">int</span> maxLeft = <span class="number">0</span>, minRight = <span class="number">0</span>;</div><div class="line">            <span class="keyword">if</span> (i == <span class="number">0</span>) &#123;</div><div class="line">                maxLeft = nums2[j - <span class="number">1</span>];</div><div class="line">            &#125; <span class="keyword">else</span> <span class="keyword">if</span> (j == <span class="number">0</span>) &#123;</div><div class="line">                maxLeft = nums1[i - <span class="number">1</span>];</div><div class="line">            &#125; <span class="keyword">else</span> &#123;</div><div class="line">                maxLeft = Math.max(nums1[i - <span class="number">1</span>], nums2[j - <span class="number">1</span>]);</div><div class="line">            &#125;</div><div class="line">            </div><div class="line">            <span class="keyword">if</span> ((m + n) % <span class="number">2</span> == <span class="number">1</span>) &#123; <span class="comment">// I think thats why to make (allMid = (n + m + 1)/2)</span></div><div class="line">                <span class="keyword">return</span> maxLeft;     <span class="comment">// -- to make left part always at least no fewer than right</span></div><div class="line">            &#125;</div><div class="line">            </div><div class="line">            <span class="keyword">if</span> (i == m) &#123;</div><div class="line">                minRight = nums2[j];</div><div class="line">            &#125; <span class="keyword">else</span> <span class="keyword">if</span> (j == n) &#123;</div><div class="line">                minRight = nums1[i];</div><div class="line">            &#125; <span class="keyword">else</span> &#123;</div><div class="line">                minRight = Math.min(nums1[i], nums2[j]);</div><div class="line">            &#125;</div><div class="line">            <span class="keyword">return</span> (maxLeft + minRight) / <span class="number">2.0</span>;</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">    </div><div class="line">    <span class="keyword">return</span> <span class="number">0</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<p>####<a href="https://leetcode.com/problems/frog-jump/description/" target="_blank" rel="external">403. frog-jump</a><br> 给一个数组表示石头所处的x坐标，青蛙每次只能跳上一次跳跃长度的-1,0,1三种可能，判断能否跳到最后一个石头。<br> 相当于BFS，每个石头处维护一个set存放他可以跳的长度，然后每次都往后跳看看能否有新的石头，有就更新那个石头的可跳长度。<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">canCross</span><span class="params">(<span class="keyword">int</span>[] stones)</span> </span>&#123;</div><div class="line">    <span class="keyword">if</span> (stones.length == <span class="number">0</span>) &#123;</div><div class="line">        <span class="keyword">return</span> <span class="keyword">true</span>;</div><div class="line">    &#125;</div><div class="line">    </div><div class="line">    HashMap&lt;Integer, HashSet&lt;Integer&gt;&gt; map = <span class="keyword">new</span> HashMap&lt;Integer, HashSet&lt;Integer&gt;&gt;(stones.length);</div><div class="line">    map.put(<span class="number">0</span>, <span class="keyword">new</span> HashSet&lt;Integer&gt;());</div><div class="line">    map.get(<span class="number">0</span>).add(<span class="number">1</span>);</div><div class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt; stones.length; i++) &#123;</div><div class="line">        map.put(stones[i], <span class="keyword">new</span> HashSet&lt;Integer&gt;() );</div><div class="line">    &#125;</div><div class="line">    </div><div class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; stones.length - <span class="number">1</span>; i++) &#123;</div><div class="line">        <span class="keyword">int</span> stone = stones[i];</div><div class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> step : map.get(stone)) &#123;</div><div class="line">            <span class="keyword">int</span> reach = step + stone;</div><div class="line">            <span class="keyword">if</span> (reach == stones[stones.length - <span class="number">1</span>]) &#123;</div><div class="line">                <span class="keyword">return</span> <span class="keyword">true</span>;</div><div class="line">            &#125;</div><div class="line">            HashSet&lt;Integer&gt; set = map.get(reach);</div><div class="line">            <span class="keyword">if</span> (set != <span class="keyword">null</span>) &#123;</div><div class="line">                set.add(step);</div><div class="line">                <span class="keyword">if</span> (step - <span class="number">1</span> &gt; <span class="number">0</span>) set.add(step - <span class="number">1</span>);</div><div class="line">                set.add(step + <span class="number">1</span>);</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">    </div><div class="line">    <span class="keyword">return</span> <span class="keyword">false</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<h4 id="249-group-shifted-strings"><a href="#249-group-shifted-strings" class="headerlink" title="249. group-shifted-strings"></a><a href="https://leetcode.com/problems/group-shifted-strings/description/" target="_blank" rel="external">249. group-shifted-strings</a></h4><p>给一个String的数组，要求将其中能通过平移相同offset后相同的字符串group在一起.<br>先根据第一个字母算出与<code>a</code>的offset，然后将后续所有字母都根据这个offset来挪，拼接成key存入map。<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</div><div class="line">    <span class="keyword">public</span> List&lt;List&lt;String&gt;&gt; groupStrings(String[] strings) &#123;</div><div class="line">        List&lt;List&lt;String&gt;&gt; result = <span class="keyword">new</span> ArrayList&lt;List&lt;String&gt;&gt;();</div><div class="line">        Map&lt;String, List&lt;String&gt;&gt; map = <span class="keyword">new</span> HashMap&lt;String, List&lt;String&gt;&gt;();</div><div class="line">        <span class="keyword">for</span> (String str : strings) &#123;</div><div class="line">            <span class="keyword">int</span> offset = str.charAt(<span class="number">0</span>) - <span class="string">'a'</span>;</div><div class="line">            String key = <span class="string">""</span>;</div><div class="line">            <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; str.length(); i++) &#123;</div><div class="line">                <span class="keyword">char</span> c = (<span class="keyword">char</span>) (str.charAt(i) - offset);</div><div class="line">                <span class="keyword">if</span> (c &lt; <span class="string">'a'</span>) &#123;</div><div class="line">                    c += <span class="number">26</span>;</div><div class="line">                &#125;</div><div class="line">                key += c;</div><div class="line">            &#125;</div><div class="line">            <span class="keyword">if</span> (!map.containsKey(key)) &#123;</div><div class="line">                List&lt;String&gt; list = <span class="keyword">new</span> ArrayList&lt;String&gt;();</div><div class="line">                map.put(key, list);</div><div class="line">            &#125;</div><div class="line">            map.get(key).add(str);</div><div class="line">        &#125;</div><div class="line">        <span class="keyword">for</span> (String key : map.keySet()) &#123;</div><div class="line">            List&lt;String&gt; list = map.get(key);</div><div class="line">            Collections.sort(list);</div><div class="line">            result.add(list);</div><div class="line">        &#125;</div><div class="line">        <span class="keyword">return</span> result;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<h4 id="Extra-tree"><a href="#Extra-tree" class="headerlink" title="[Extra][tree]"></a>[Extra][tree]</h4><p>给一个二叉树，和两个节点A，B，找出从A到B的路径，返回结果要求顺序存到一个链表中。<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div><div class="line">75</div><div class="line">76</div><div class="line">77</div><div class="line">78</div><div class="line">79</div><div class="line">80</div><div class="line">81</div><div class="line">82</div><div class="line">83</div><div class="line">84</div><div class="line">85</div><div class="line">86</div><div class="line">87</div><div class="line">88</div><div class="line">89</div><div class="line">90</div><div class="line">91</div><div class="line">92</div><div class="line">93</div><div class="line">94</div><div class="line">95</div><div class="line">96</div><div class="line">97</div><div class="line">98</div><div class="line">99</div><div class="line">100</div><div class="line">101</div><div class="line">102</div><div class="line">103</div><div class="line">104</div><div class="line">105</div><div class="line">106</div><div class="line">107</div><div class="line">108</div><div class="line">109</div><div class="line">110</div><div class="line">111</div><div class="line">112</div><div class="line">113</div><div class="line">114</div><div class="line">115</div><div class="line">116</div><div class="line">117</div><div class="line">118</div><div class="line">119</div><div class="line">120</div><div class="line">121</div><div class="line">122</div><div class="line">123</div><div class="line">124</div><div class="line">125</div><div class="line">126</div><div class="line">127</div><div class="line">128</div><div class="line">129</div><div class="line">130</div><div class="line">131</div><div class="line">132</div><div class="line">133</div><div class="line">134</div><div class="line">135</div><div class="line">136</div><div class="line">137</div><div class="line">138</div><div class="line">139</div><div class="line">140</div><div class="line">141</div><div class="line">142</div><div class="line">143</div><div class="line">144</div><div class="line">145</div><div class="line">146</div><div class="line">147</div><div class="line">148</div><div class="line">149</div><div class="line">150</div><div class="line">151</div><div class="line">152</div><div class="line">153</div><div class="line">154</div><div class="line">155</div><div class="line">156</div><div class="line">157</div><div class="line">158</div><div class="line">159</div><div class="line">160</div><div class="line">161</div><div class="line">162</div><div class="line">163</div><div class="line">164</div><div class="line">165</div><div class="line">166</div><div class="line">167</div><div class="line">168</div><div class="line">169</div><div class="line">170</div><div class="line">171</div><div class="line">172</div><div class="line">173</div><div class="line">174</div><div class="line">175</div><div class="line">176</div><div class="line">177</div><div class="line">178</div><div class="line">179</div><div class="line">180</div><div class="line">181</div><div class="line">182</div><div class="line">183</div><div class="line">184</div><div class="line">185</div><div class="line">186</div><div class="line">187</div><div class="line">188</div><div class="line">189</div><div class="line">190</div><div class="line">191</div><div class="line">192</div><div class="line">193</div><div class="line">194</div><div class="line">195</div><div class="line">196</div><div class="line">197</div><div class="line">198</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Apple</span> </span>&#123;</div><div class="line">	<span class="keyword">public</span> <span class="keyword">static</span> <span class="class"><span class="keyword">class</span> <span class="title">TreeNode</span> </span>&#123;</div><div class="line">		<span class="keyword">int</span> val;</div><div class="line">		TreeNode left;</div><div class="line">		TreeNode right;</div><div class="line">		<span class="function"><span class="keyword">public</span> <span class="title">TreeNode</span><span class="params">(<span class="keyword">int</span> val)</span> </span>&#123;</div><div class="line">			<span class="keyword">this</span>.val = val;</div><div class="line">		&#125;</div><div class="line">	&#125;</div><div class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</div><div class="line">		TreeNode root = <span class="keyword">new</span> TreeNode(<span class="number">0</span>);</div><div class="line">		TreeNode n1 = <span class="keyword">new</span> TreeNode(<span class="number">1</span>);</div><div class="line">		TreeNode n2 = <span class="keyword">new</span> TreeNode(<span class="number">2</span>);</div><div class="line">		TreeNode n3 = <span class="keyword">new</span> TreeNode(<span class="number">3</span>);</div><div class="line">		TreeNode n4 = <span class="keyword">new</span> TreeNode(<span class="number">4</span>);</div><div class="line">		TreeNode n5 = <span class="keyword">new</span> TreeNode(<span class="number">5</span>);</div><div class="line">		TreeNode n6 = <span class="keyword">new</span> TreeNode(<span class="number">6</span>);</div><div class="line">		TreeNode n7 = <span class="keyword">new</span> TreeNode(<span class="number">7</span>);</div><div class="line">		root.left = n1;</div><div class="line">		root.right = n2;</div><div class="line">		n1.left = n5;</div><div class="line">		n1.right = n6;</div><div class="line">		n2.left = n3;</div><div class="line">		n2.right = n4;</div><div class="line">		n3.left = n7;</div><div class="line">		System.out.println(findPathBetween(root, n2, n5));</div><div class="line">	&#125;</div><div class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">workBreak</span><span class="params">(String s, List&lt;String&gt; wordDict)</span> </span>&#123;</div><div class="line">		<span class="keyword">if</span> (s == <span class="keyword">null</span> || s.length() == <span class="number">0</span> || wordDict == <span class="keyword">null</span> || wordDict.size() == <span class="number">0</span>) &#123;</div><div class="line">			<span class="keyword">return</span> <span class="keyword">false</span>;</div><div class="line">		&#125;</div><div class="line">		Set&lt;String&gt; wordSet = <span class="keyword">new</span> HashSet&lt;&gt;();</div><div class="line">		<span class="keyword">int</span> maxLen = <span class="number">0</span>;</div><div class="line">		<span class="keyword">for</span> (String word: wordDict) &#123;</div><div class="line">			wordSet.add(word);</div><div class="line">			maxLen = Math.max(maxLen, word.length());</div><div class="line">		&#125;</div><div class="line">		<span class="keyword">boolean</span>[] dp = <span class="keyword">new</span> <span class="keyword">boolean</span> [s.length() + <span class="number">1</span>];</div><div class="line">		<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= s.length(); i++) &#123;</div><div class="line">			<span class="keyword">for</span> (<span class="keyword">int</span> j = i - <span class="number">1</span>; j &gt;= <span class="number">0</span> &amp;&amp; i - j &lt;= maxLen; j--) &#123;</div><div class="line">				<span class="keyword">if</span> (dp[j] &amp;&amp; wordSet.contains(s.substring(j, i))) &#123;</div><div class="line">					dp[i] = <span class="keyword">true</span>;</div><div class="line">					<span class="keyword">break</span>;</div><div class="line">				&#125;</div><div class="line">			&#125;</div><div class="line">		&#125;</div><div class="line">		<span class="keyword">return</span> dp[s.length()];</div><div class="line">	&#125;</div><div class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">firstUniqChar2</span><span class="params">(String s)</span> </span>&#123;</div><div class="line">        <span class="keyword">if</span> (s == <span class="keyword">null</span> || s.length() == <span class="number">0</span>) &#123;</div><div class="line">            <span class="keyword">return</span> -<span class="number">1</span>;</div><div class="line">        &#125;</div><div class="line">        <span class="keyword">char</span>[] sChar = s.toCharArray();</div><div class="line">        <span class="keyword">int</span>[] bucket = <span class="keyword">new</span> <span class="keyword">int</span> [<span class="number">256</span>];</div><div class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; sChar.length; i++) &#123;</div><div class="line">        	bucket[sChar[i]]++;</div><div class="line">        &#125;</div><div class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; sChar.length; i++) &#123;</div><div class="line">        	<span class="keyword">if</span> (bucket[sChar[i]] == <span class="number">1</span>) &#123;</div><div class="line">        		<span class="keyword">return</span> i;</div><div class="line">        	&#125;</div><div class="line">        &#125;</div><div class="line">        <span class="keyword">return</span> -<span class="number">1</span>;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">firstUniqChar1</span><span class="params">(String s)</span> </span>&#123;</div><div class="line">        <span class="keyword">if</span> (s == <span class="keyword">null</span> || s.length() == <span class="number">0</span>) &#123;</div><div class="line">            <span class="keyword">return</span> -<span class="number">1</span>;</div><div class="line">        &#125;</div><div class="line">        <span class="keyword">char</span>[] sChar = s.toCharArray();</div><div class="line">        <span class="keyword">int</span>[] bucket = <span class="keyword">new</span> <span class="keyword">int</span> [<span class="number">256</span>];</div><div class="line">        Map&lt;Character, Integer&gt; map = <span class="keyword">new</span> LinkedHashMap&lt;&gt;();</div><div class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; sChar.length; i++) &#123;</div><div class="line">            <span class="keyword">if</span> (bucket[sChar[i]]++ == <span class="number">0</span>) &#123;</div><div class="line">                map.put(sChar[i], i);</div><div class="line">            &#125; <span class="keyword">else</span> &#123;</div><div class="line">                map.remove(sChar[i]);</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line">        Iterator it = map.entrySet().iterator();</div><div class="line">        <span class="keyword">if</span> (it.hasNext()) &#123;</div><div class="line">            Map.Entry pair = (Map.Entry)it.next();</div><div class="line">            <span class="keyword">return</span> (Integer)pair.getValue();</div><div class="line">        &#125;</div><div class="line">        <span class="keyword">return</span> -<span class="number">1</span>;</div><div class="line">    &#125;</div><div class="line">	<span class="function"><span class="keyword">private</span> <span class="keyword">static</span> TreeNode <span class="title">getLCA</span><span class="params">(TreeNode root, TreeNode n1, TreeNode n2)</span> </span>&#123;</div><div class="line">		<span class="keyword">if</span> (root == <span class="keyword">null</span>) &#123;</div><div class="line">			<span class="keyword">return</span> <span class="keyword">null</span>;</div><div class="line">		&#125;</div><div class="line">		<span class="keyword">if</span> (root == n1 || root == n2) &#123;</div><div class="line">			<span class="keyword">return</span> root;</div><div class="line">		&#125;</div><div class="line">		TreeNode left = getLCA(root.left, n1, n2);</div><div class="line">		TreeNode right = getLCA(root.right, n1, n2);</div><div class="line">		<span class="keyword">if</span> (left != <span class="keyword">null</span> &amp;&amp; right != <span class="keyword">null</span>) &#123;</div><div class="line">			<span class="keyword">return</span> root;</div><div class="line">		&#125;</div><div class="line">		<span class="keyword">if</span> (left == <span class="keyword">null</span> &amp;&amp; right == <span class="keyword">null</span>) &#123;</div><div class="line">			<span class="keyword">return</span> <span class="keyword">null</span>;</div><div class="line">		&#125;</div><div class="line">		<span class="keyword">return</span> left == <span class="keyword">null</span>? right: left;</div><div class="line">	&#125;</div><div class="line"></div><div class="line">	<span class="keyword">private</span> TreeNode prev1 = <span class="keyword">null</span>;</div><div class="line">	<span class="function"><span class="keyword">private</span> <span class="keyword">boolean</span> <span class="title">validateBST1</span><span class="params">(TreeNode root)</span> </span>&#123;</div><div class="line">		<span class="keyword">if</span> (root == <span class="keyword">null</span>) &#123;</div><div class="line">			<span class="keyword">return</span> <span class="keyword">true</span>;</div><div class="line">		&#125;</div><div class="line">		<span class="keyword">if</span> (!validateBST1(root.left)) &#123;</div><div class="line">			<span class="keyword">return</span> <span class="keyword">false</span>;</div><div class="line">		&#125;</div><div class="line">		<span class="keyword">if</span> (prev1 != <span class="keyword">null</span> &amp;&amp; prev1.val &gt;= root.val) &#123;</div><div class="line">			<span class="keyword">return</span> <span class="keyword">false</span>;</div><div class="line">		&#125;</div><div class="line">		prev1 = root;</div><div class="line">		<span class="keyword">return</span> validateBST1(root.right);</div><div class="line">	&#125;</div><div class="line">	<span class="function"><span class="keyword">private</span> <span class="keyword">boolean</span> <span class="title">validateBST2</span><span class="params">(TreeNode root)</span> </span>&#123;</div><div class="line">		<span class="keyword">if</span> (root == <span class="keyword">null</span>) &#123;</div><div class="line">			<span class="keyword">return</span> <span class="keyword">true</span>;</div><div class="line">		&#125;</div><div class="line">		Stack&lt;TreeNode&gt; stack = <span class="keyword">new</span> Stack&lt;&gt;();</div><div class="line">		TreeNode prev = <span class="keyword">null</span>;</div><div class="line">		<span class="keyword">while</span> (root != <span class="keyword">null</span> || !stack.isEmpty()) &#123;</div><div class="line">			<span class="keyword">while</span> (root != <span class="keyword">null</span>) &#123;</div><div class="line">				stack.push(root);</div><div class="line">				root = root.left;</div><div class="line">			&#125;</div><div class="line">			root = stack.pop();</div><div class="line">			<span class="keyword">if</span> (prev != <span class="keyword">null</span> &amp;&amp; prev.val &gt;= root.val) &#123;</div><div class="line">				<span class="keyword">return</span> <span class="keyword">false</span>;</div><div class="line">			&#125;</div><div class="line">			prev = root;</div><div class="line">			root = root.right;</div><div class="line">		&#125;</div><div class="line">		<span class="keyword">return</span> <span class="keyword">true</span>;</div><div class="line">	&#125;</div><div class="line">	<span class="function"><span class="keyword">private</span> <span class="keyword">boolean</span> <span class="title">validateBST3</span><span class="params">(TreeNode root)</span> </span>&#123;</div><div class="line">		<span class="keyword">return</span> dvcq(root, Long.MIN_VALUE, Long.MAX_VALUE);</div><div class="line">	&#125;</div><div class="line">	<span class="function"><span class="keyword">private</span> <span class="keyword">boolean</span> <span class="title">dvcq</span><span class="params">(TreeNode root, <span class="keyword">long</span> min, <span class="keyword">long</span> max)</span> </span>&#123;</div><div class="line">		<span class="keyword">if</span> (root == <span class="keyword">null</span>) &#123;</div><div class="line">			<span class="keyword">return</span> <span class="keyword">true</span>;</div><div class="line">		&#125;</div><div class="line">		<span class="keyword">if</span> (root.val &lt;= min || root.val &gt;= max) &#123;</div><div class="line">			<span class="keyword">return</span> <span class="keyword">false</span>;</div><div class="line">		&#125;</div><div class="line">		<span class="keyword">return</span> dvcq(root.left, min, Math.min(root.val, max))</div><div class="line">				&amp;&amp; dvcq(root.right, Math.max(root.val, min), max);</div><div class="line">	&#125;</div><div class="line">	</div><div class="line">	<span class="function"><span class="keyword">private</span> <span class="keyword">static</span> String <span class="title">findPathBetween</span><span class="params">(TreeNode root, TreeNode start, TreeNode end)</span> </span>&#123;</div><div class="line">		<span class="keyword">if</span> (root == <span class="keyword">null</span>) &#123;</div><div class="line">			<span class="keyword">return</span> <span class="string">""</span>;</div><div class="line">		&#125;</div><div class="line">		TreeNode lca = getLCA(root, start, end);</div><div class="line">		List&lt;TreeNode&gt; pathToStart = <span class="keyword">new</span> ArrayList&lt;TreeNode&gt;();</div><div class="line">		findPathTo(lca, start, pathToStart);</div><div class="line">		List&lt;TreeNode&gt; pathToEnd = <span class="keyword">new</span> ArrayList&lt;TreeNode&gt;();</div><div class="line">		findPathTo(lca, end, pathToEnd);</div><div class="line">		</div><div class="line">		StringBuilder sb = <span class="keyword">new</span> StringBuilder();</div><div class="line">		<span class="keyword">for</span> (<span class="keyword">int</span> i = pathToStart.size() - <span class="number">1</span>; i &gt; <span class="number">0</span>; i--) &#123;</div><div class="line">			<span class="keyword">if</span> (sb.length() == <span class="number">0</span>) &#123;</div><div class="line">				sb.append(pathToStart.get(i).val);</div><div class="line">			&#125; <span class="keyword">else</span> &#123;</div><div class="line">				sb.append(<span class="string">"-&gt;"</span>);</div><div class="line">				sb.append(pathToStart.get(i).val);</div><div class="line">			&#125;</div><div class="line">		&#125;</div><div class="line">		<span class="keyword">for</span> (TreeNode node : pathToEnd) &#123;</div><div class="line">			sb.append(<span class="string">"-&gt;"</span>);</div><div class="line">			sb.append(node.val);</div><div class="line">		&#125;</div><div class="line">		<span class="keyword">return</span> sb.toString();</div><div class="line">		</div><div class="line">	&#125;</div><div class="line">	<span class="function"><span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">boolean</span> <span class="title">findPathTo</span><span class="params">(TreeNode start, TreeNode end, List&lt;TreeNode&gt; curr)</span> </span>&#123;</div><div class="line">		curr.add(start);</div><div class="line">		<span class="keyword">if</span> (start == end) &#123;</div><div class="line">			<span class="keyword">return</span> <span class="keyword">true</span>;</div><div class="line">		&#125; <span class="keyword">else</span> &#123;</div><div class="line">			<span class="keyword">if</span> (start.left != <span class="keyword">null</span>) &#123;</div><div class="line">				<span class="keyword">if</span> (findPathTo(start.left, end, curr)) &#123;</div><div class="line">					<span class="keyword">return</span> <span class="keyword">true</span>;</div><div class="line">				&#125;</div><div class="line">			&#125;</div><div class="line">			<span class="keyword">if</span> (start.right != <span class="keyword">null</span>) &#123;</div><div class="line">				<span class="keyword">if</span> (findPathTo(start.right, end, curr)) &#123;</div><div class="line">					<span class="keyword">return</span> <span class="keyword">true</span>;</div><div class="line">				&#125;</div><div class="line">			&#125;</div><div class="line">		&#125;</div><div class="line">		curr.remove(curr.size() - <span class="number">1</span>);</div><div class="line">		<span class="keyword">return</span> <span class="keyword">false</span>;</div><div class="line">	&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<h4 id="extra-interval"><a href="#extra-interval" class="headerlink" title="[extra][interval]"></a>[extra][interval]</h4><p> 给两个interval的数组，求二者overlap的部分.<br> 定义一个endCurr表示当前的结尾，然后取两个数组中start较小的与它比较，如果重合就将start为起点、endCurr为结尾new一个新的interval存入结果，然后更新endCurr（如果比该start处对应的end小了的话）<br> <figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">public</span> List&lt;Interval&gt; <span class="title">findOverlapping</span><span class="params">(Interval[] i1, Interval[] i2)</span> </span>&#123;</div><div class="line">    List&lt;Interval&gt; res = <span class="keyword">new</span> ArrayList&lt;Interval&gt;();</div><div class="line">    <span class="keyword">int</span> i = <span class="number">0</span>;</div><div class="line">    <span class="keyword">int</span> j = <span class="number">0</span>;</div><div class="line">    <span class="keyword">int</span> endCurr = i1[<span class="number">0</span>].start &gt; i2[<span class="number">0</span>].start ? i2[<span class="number">0</span>].start : i1[<span class="number">0</span>].start;</div><div class="line">    <span class="keyword">while</span> (i &lt; i1.length &amp;&amp; j &lt; i2.length) &#123;</div><div class="line">        <span class="keyword">if</span> (i1[i].start &gt; i2[j].start) &#123;</div><div class="line">            <span class="keyword">if</span> (i2[j].start &lt; endCurr) &#123;</div><div class="line">                Interval temp = <span class="keyword">new</span> Interval(i2[j].start, endCurr);</div><div class="line">                res.add(temp);</div><div class="line">            &#125;</div><div class="line">            endCurr = Math.max(i2[j].end, endCurr);</div><div class="line">            j++;</div><div class="line">        &#125; <span class="keyword">else</span> &#123;</div><div class="line">            <span class="keyword">if</span> (i1[i].start &lt; endCurr) &#123;</div><div class="line">                Interval temp = <span class="keyword">new</span> Interval(i1[i].start, endCurr);</div><div class="line">                res.add(temp);</div><div class="line">            &#125;</div><div class="line">            endCurr = Math.max(i1[i].end, endCurr);</div><div class="line">            i++;</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">return</span> res;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<h4 id="Linux命令行"><a href="#Linux命令行" class="headerlink" title="Linux命令行"></a>Linux命令行</h4><h5 id="awk-分析与处理"><a href="#awk-分析与处理" class="headerlink" title="awk:分析与处理"></a>awk:分析与处理</h5><ul>
+<li>对文本进行逐行分段处理，<code>awk &#39;条件类型1{动作1} 条件类型2{动作2}&#39; filename</code>. awk的处理流程是:<ol>
+<li>读第一行, 将第一行资料填入变量 $0, $1… 等变量中</li>
+<li>依据条件限制, 执行动作(awk一次处理是一行, 而一次中处理的最小单位是一个区域)</li>
+<li>接下来执行下一行</li>
+</ol>
+</li>
+<li>三个变量：NF: 每一行处理的字段数，NR 目前处理到第几行，FS 目前的分隔符。<h5 id="sed-编辑"><a href="#sed-编辑" class="headerlink" title="sed:编辑"></a>sed:编辑</h5>以行为单位的文本编辑工具，sed可以直接修改档案，<code>sed [-nef] &#39;[动作]&#39; [输入文本]</code></li>
+<li>-n : 安静模式, 一般sed用法中, 来自stdin的数据一般会被列出到屏幕上, 如果使用-n参数后, 只有经过sed处理的那一行被列出来.</li>
+<li>-e : 多重编辑, 比如你同时又想删除某行, 又想改变其他行, 那么可以用 sed -e ‘1,5d’ -e ‘s/abc/xxx/g’ filename</li>
+<li>-f : 首先将 sed的动作写在一个档案内, 然后通过 sed -f scriptfile 就可以直接执行 scriptfile 内的sed动作 (没有实验成功, 不推荐使用)</li>
+<li>-i : 直接编辑, 这回就是真的改变文件中的内容了, 别的都只是改变显示. (不推荐使用)<br>动作:</li>
+<li>a 新增, a 后面可以接字符串, 而这个字符串会在新的一行出现. (下一行)</li>
+<li>c 取代, c 后面的字符串, 这些字符串可以取代 n1,n2之间的行</li>
+<li>d 删除, 后面不接任何东西</li>
+<li>i 插入, 后面的字符串, 会在上一行出现</li>
+<li>p 打印, 将选择的资料列出, 通常和 sed -n 一起运作 sed -n ‘3p’ 只打印第3行</li>
+<li>s 取代, 类似vi中的取代, 1,20s/old/new/g<h5 id="grep-截取"><a href="#grep-截取" class="headerlink" title="grep:截取"></a>grep:截取</h5>文本搜集工具, 结合正则表达式非常强大.<code>grep [要匹配的内容] [文件名]</code>.</li>
+<li>-c : 只输出匹配的行</li>
+<li>-I : 不区分大小写</li>
+<li>-h : 查询多文件时不显示文件名</li>
+<li>-l : 查询多文件时, 只输出包含匹配字符的文件名</li>
+<li>-n : 显示匹配的行号及行</li>
+<li>-v : 显示不包含匹配文本的所有行(我经常用除去grep本身)<h5 id="tail"><a href="#tail" class="headerlink" title="tail"></a>tail</h5></li>
+<li>从文档末尾往前取</li>
+</ul>
+
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+      <div>
+        <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+  <div>└(^o^)┘</div>
+  <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+    <span>Donate</span>
+  </button>
+  <div id="QR" style="display: none;">
+
+    
+      <div id="wechat" style="display: inline-block">
+        <img id="wechat_qr" src="/images/wechat.png" alt="Bob_波波 WeChat Pay"/>
+        <p>WeChat Pay</p>
+      </div>
+    
+
+    
+      <div id="alipay" style="display: inline-block">
+        <img id="alipay_qr" src="/images/alipay.png" alt="Bob_波波 Alipay"/>
+        <p>Alipay</p>
+      </div>
+    
+
+    
+    <br>
+    <div id="paypal-button">
+      <form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top">
+        <input type="hidden" name="cmd" value="_donations" />
+        <input type="hidden" name="business" value="XPMQMQD8XQUPL" />
+        <input type="hidden" name="currency_code" value="USD" />
+        <input type="image" src="https://www.paypalobjects.com/en_US/i/btn/btn_donateCC_LG.gif" border="0" name="submit" title="PayPal - The safer, easier way to pay online!" alt="Donate with PayPal button" />
+      </form>
+    </div>
+
+  </div>
+</div>
+
+      </div>
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/algorithm/" rel="tag"><i class="fa fa-tag"></i> algorithm</a>
+          
+            <a href="/tags/java/" rel="tag"><i class="fa fa-tag"></i> java</a>
+          
+            <a href="/tags/interview/" rel="tag"><i class="fa fa-tag"></i> interview</a>
+          
+        </div>
+      
+
+      
+      
+        <div class="post-widgets">
+        
+
+        
+
+        
+          
+          <div class="social_share">
+            
+            
+               <div id="needsharebutton-postbottom">
+                 <span class="btn">
+                    <i class="fa fa-share-alt" aria-hidden="true"></i>
+                 </span>
+               </div>
+            
+          </div>
+        
+        </div>
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2017/09/05/cheatsheet/" rel="next" title="Algorithm reference cheatsheet">
+                <i class="fa fa-chevron-left"></i> Algorithm reference cheatsheet
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2017/10/21/zillow/" rel="prev" title="滋衣螺古如普">
+                滋衣螺古如普 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+  </div>
+
+
+          </div>
+          
+
+  
+    <div class="comments" id="comments">
+      <div id="disqus_thread">
+        <noscript>Please enable JavaScript to view the comments powered by Disqus.</noscript>
+      </div>
+    </div>
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Overview
+          </li>
+        </ul>
+      
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="/images/avatar.jpg"
+                alt="Bob_波波"/>
+            
+              <p class="site-author-name" itemprop="name">Bob_波波</p>
+              <p class="site-description motion-element" itemprop="description">I'm a Software Engineer!</p>
+          </div>
+
+          
+            <nav class="site-state motion-element">
+              
+                <div class="site-state-item site-state-posts">
+                
+                  <a href="/archives/">
+                
+                    <span class="site-state-item-count">46</span>
+                    <span class="site-state-item-name">posts</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-categories">
+                  <a href="/categories/index.html">
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">4</span>
+                    <span class="site-state-item-name">categories</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-tags">
+                  <a href="/tags/index.html">
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">46</span>
+                    <span class="site-state-item-name">tags</span>
+                  </a>
+                </div>
+              
+            </nav>
+          
+
+          
+
+          
+
+          
+
+          
+          
+
+          
+            
+          
+          
+
+        </div>
+      </div>
+
+      
+      <!--noindex-->
+        <div class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+            
+            
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-Two-Sum"><span class="nav-text">1. Two Sum</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-Add-2-Num"><span class="nav-text">2. Add 2 Num</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-Longest-substring"><span class="nav-text">3. Longest substring</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#4-Median-of-2-sorted-arrays"><span class="nav-text">4. Median of 2 sorted arrays</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#249-group-shifted-strings"><span class="nav-text">249. group-shifted-strings</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Extra-tree"><span class="nav-text">[Extra][tree]</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#extra-interval"><span class="nav-text">[extra][interval]</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Linux命令行"><span class="nav-text">Linux命令行</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#awk-分析与处理"><span class="nav-text">awk:分析与处理</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#sed-编辑"><span class="nav-text">sed:编辑</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#grep-截取"><span class="nav-text">grep:截取</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#tail"><span class="nav-text">tail</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </div>
+      <!--/noindex-->
+      
+
+      
+        <div class="back-to-top">
+          <i class="fa fa-arrow-up"></i>
+          
+        </div>
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; 2016 – <span itemprop="copyrightYear">2020</span>
+  <span class="with-love" id="animate">
+    <i class="fa fa-futbol-o"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Bob_波波</span>
+
+  
+
+  
+</div>
+
+
+  <div class="powered-by">Powered by <a href="https://hexo.io" class="theme-link" rel="noopener" target="_blank">Hexo</a></div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">Theme – <a href="https://theme-next.org" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a></div>
+
+
+
+
+        
+<div class="busuanzi-count">
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  
+    <span class="site-uv" title="Total Visitors">
+      <i class="fa fa-user"></i>
+      <span class="busuanzi-value" id="busuanzi_value_site_uv"></span>
+    </span>
+  
+
+  
+    <span class="post-meta-divider">|</span>
+  
+
+  
+    <span class="site-pv" title="Total Views">
+      <i class="fa fa-history"></i>
+      <span class="busuanzi-value" id="busuanzi_value_site_pv"></span>
+    </span>
+  
+</div>
+
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+
+    
+
+    
+
+    
+      <div>
+        <!-- Go to www.addthis.com/dashboard to customize your tools -->
+<div class="addthis_inline_share_toolbox">
+  <script type = "text/javascript" src = "//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-593135f4e114024c" async = "async" ></script>
+</div>
+
+      </div>
+    
+  </div>
+
+  
+
+<script>
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+
+  
+
+
+  <script src="/js/src/utils.js?v=6.7.0"></script>
+
+  <script src="/js/src/motion.js?v=6.7.0"></script>
+
+
+
+  
+  
+
+
+  <script src="/js/src/affix.js?v=6.7.0"></script>
+
+  <script src="/js/src/schemes/pisces.js?v=6.7.0"></script>
+
+
+
+  
+  <script src="/js/src/scrollspy.js?v=6.7.0"></script>
+<script src="/js/src/post-details.js?v=6.7.0"></script>
+
+
+
+  
+
+
+  <script src="/js/src/bootstrap.js?v=6.7.0"></script>
+
+
+
+  
+
+  
+    <script id="dsq-count-scr" src="https://bobbyliujb.disqus.com/count.js" async></script>
+  
+
+  
+    <script>
+      var disqus_config = function () {
+        this.page.url = "https://bobbyliujb.github.io/2017/10/21/interview_code_repo/";
+        this.page.identifier = "2017/10/21/interview_code_repo/";
+        this.page.title = '面试代码复习';
+        };
+      function loadComments () {
+        var d = document, s = d.createElement('script');
+        s.src = 'https://bobbyliujb.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', '' + +new Date());
+        (d.head || d.body).appendChild(s);
+      }
+      
+        loadComments();
+      
+    </script>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  <script>
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').hide();
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.search-popup-overlay').click(onPopupClose);
+      $('.popup').toggle();
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+
+      // start loading animation
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
+          '<div id="search-loading-icon">' +
+          '<i class="fa fa-circle-o-notch fa-spin fa-3x fa-fw"></i>' +
+          '</div>' +
+          '</div>')
+        .css('overflow', 'hidden');
+      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
+
+      
+
+      $.ajax({
+        url: path,
+        dataType: isXml ? "xml" : "json",
+        async: true,
+        success: function(res) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = isXml ? $("entry", res).map(function() {
+            return {
+              title: $("title", this).text(),
+              content: $("content",this).text(),
+              url: $("url" , this).text()
+            };
+          }).get() : res;
+          var input = document.getElementById(search_id);
+          var resultContent = document.getElementById(content_id);
+          var inputEventFunction = function() {
+            var searchText = input.value.trim().toLowerCase();
+            var keywords = searchText.split(/[\s\-]+/);
+            if (keywords.length > 1) {
+              keywords.push(searchText);
+            }
+            var resultItems = [];
+            if (searchText.length > 0) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var hitCount = 0;
+                var searchTextCount = 0;
+                var title = data.title.trim();
+                var titleInLowerCase = title.toLowerCase();
+                var content = data.content.trim().replace(/<[^>]+>/g,"");
+                
+                var contentInLowerCase = content.toLowerCase();
+                var articleUrl = decodeURIComponent(data.url).replace(/\/{2,}/g, '/');
+                var indexOfTitle = [];
+                var indexOfContent = [];
+                // only match articles with not empty titles
+                if(title != '') {
+                  keywords.forEach(function(keyword) {
+                    function getIndexByWord(word, text, caseSensitive) {
+                      var wordLen = word.length;
+                      if (wordLen === 0) {
+                        return [];
+                      }
+                      var startPosition = 0, position = [], index = [];
+                      if (!caseSensitive) {
+                        text = text.toLowerCase();
+                        word = word.toLowerCase();
+                      }
+                      while ((position = text.indexOf(word, startPosition)) > -1) {
+                        index.push({position: position, word: word});
+                        startPosition = position + wordLen;
+                      }
+                      return index;
+                    }
+
+                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+                  });
+                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+                    isMatch = true;
+                    hitCount = indexOfTitle.length + indexOfContent.length;
+                  }
+                }
+
+                // show search results
+
+                if (isMatch) {
+                  // sort index by position of keyword
+
+                  [indexOfTitle, indexOfContent].forEach(function (index) {
+                    index.sort(function (itemLeft, itemRight) {
+                      if (itemRight.position !== itemLeft.position) {
+                        return itemRight.position - itemLeft.position;
+                      } else {
+                        return itemLeft.word.length - itemRight.word.length;
+                      }
+                    });
+                  });
+
+                  // merge hits into slices
+
+                  function mergeIntoSlice(text, start, end, index) {
+                    var item = index[index.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    var hits = [];
+                    var searchTextCountInSlice = 0;
+                    while (position + word.length <= end && index.length != 0) {
+                      if (word === searchText) {
+                        searchTextCountInSlice++;
+                      }
+                      hits.push({position: position, length: word.length});
+                      var wordEnd = position + word.length;
+
+                      // move to next position of hit
+
+                      index.pop();
+                      while (index.length != 0) {
+                        item = index[index.length - 1];
+                        position = item.position;
+                        word = item.word;
+                        if (wordEnd > position) {
+                          index.pop();
+                        } else {
+                          break;
+                        }
+                      }
+                    }
+                    searchTextCount += searchTextCountInSlice;
+                    return {
+                      hits: hits,
+                      start: start,
+                      end: end,
+                      searchTextCount: searchTextCountInSlice
+                    };
+                  }
+
+                  var slicesOfTitle = [];
+                  if (indexOfTitle.length != 0) {
+                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+                  }
+
+                  var slicesOfContent = [];
+                  while (indexOfContent.length != 0) {
+                    var item = indexOfContent[indexOfContent.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    // cut out 100 characters
+                    var start = position - 20;
+                    var end = position + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if (end < position + word.length) {
+                      end = position + word.length;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+                  }
+
+                  // sort slices in content by search text's count and hits' count
+
+                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                      return sliceRight.hits.length - sliceLeft.hits.length;
+                    } else {
+                      return sliceLeft.start - sliceRight.start;
+                    }
+                  });
+
+                  // select top N slices in content
+
+                  var upperBound = parseInt('10');
+                  if (upperBound >= 0) {
+                    slicesOfContent = slicesOfContent.slice(0, upperBound);
+                  }
+
+                  // highlight title and content
+
+                  function highlightKeyword(text, slice) {
+                    var result = '';
+                    var prevEnd = slice.start;
+                    slice.hits.forEach(function (hit) {
+                      result += text.substring(prevEnd, hit.position);
+                      var end = hit.position + hit.length;
+                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                      prevEnd = end;
+                    });
+                    result += text.substring(prevEnd, slice.end);
+                    return result;
+                  }
+
+                  var resultItem = '';
+
+                  if (slicesOfTitle.length != 0) {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+                  } else {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+                  }
+
+                  slicesOfContent.forEach(function (slice) {
+                    resultItem += "<a href='" + articleUrl + "'>" +
+                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                      "...</p>" + "</a>";
+                  });
+
+                  resultItem += "</li>";
+                  resultItems.push({
+                    item: resultItem,
+                    searchTextCount: searchTextCount,
+                    hitCount: hitCount,
+                    id: resultItems.length
+                  });
+                }
+              })
+            };
+            if (keywords.length === 1 && keywords[0] === "") {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x"></i></div>'
+            } else if (resultItems.length === 0) {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x"></i></div>'
+            } else {
+              resultItems.sort(function (resultLeft, resultRight) {
+                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+                  return resultRight.searchTextCount - resultLeft.searchTextCount;
+                } else if (resultLeft.hitCount !== resultRight.hitCount) {
+                  return resultRight.hitCount - resultLeft.hitCount;
+                } else {
+                  return resultRight.id - resultLeft.id;
+                }
+              });
+              var searchResultList = '<ul class=\"search-result-list\">';
+              resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if ('auto' === 'auto') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
+          proceedsearch();
+        }
+      });
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script>
+
+
+
+
+
+  
+
+  
+  <script>
+    
+    function addCount(Counter) {
+      var $visitors = $(".leancloud_visitors");
+      var url = $visitors.attr('id').trim();
+      var title = $visitors.attr('data-flag-title').trim();
+
+      Counter('get', '/classes/Counter', { where: JSON.stringify({ url }) })
+        .done(function ({ results }) {
+          if (results.length > 0) {
+            var counter = results[0];
+            
+            Counter('put', `/classes/Counter/${counter.objectId}`, JSON.stringify({ time: { "__op":"Increment", "amount":1 } }))
+            
+            .done(function () {
+                  var $element = $(document.getElementById(url));
+                  $element.find('.leancloud-visitors-count').text(counter.time + 1);
+            })
+            
+            .fail(function ({ responseJSON }) {
+                console.log('Failed to save Visitor num, with error message: ' + responseJSON.error);
+            })
+          } else {
+            
+              Counter('post', '/classes/Counter', JSON.stringify({ title: title, url: url, time: 1}))
+                .done(function () {
+                  var $element = $(document.getElementById(url));
+                  $element.find('.leancloud-visitors-count').text(1);
+                })
+                .fail(function () {
+                  console.log('Failed to create');
+                });
+            
+          }
+        })
+      .fail(function ({ responseJSON }) {
+        console.log('LeanCloud Counter Error:' + responseJSON.code + " " + responseJSON.error);
+      });
+    }
+    
+
+    $(function() {
+      $.get('https://app-router.leancloud.cn/2/route?appId=' + "jT7i5auNazMHRONSPUHmcoko-gzGzoHsz")
+        .done(function ({ api_server }) {
+          var Counter = function (method, url, data) {
+            return $.ajax({
+              method: method,
+              url: `https://${api_server}/1.1${url}`,
+              headers: {
+                'X-LC-Id': "jT7i5auNazMHRONSPUHmcoko-gzGzoHsz",
+                'X-LC-Key': "dEWwuVre5Svmwvjw2DmcIbLy",
+                'Content-Type': 'application/json',
+              },
+              data: data,
+            });
+          };
+          
+          addCount(Counter);
+          
+        })
+    });
+  </script>
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+  
+  
+  <script src="/lib/needsharebutton/needsharebutton.js"></script>
+  <script>
+    
+      pbOptions = {};
+      
+        pbOptions.iconStyle = "box";
+      
+        pbOptions.boxForm = "horizontal";
+      
+        pbOptions.position = "topCenter";
+      
+        pbOptions.networks = "Linkedin,Weibo,Wechat,Twitter,Facebook,Pinterest,GooglePlus,Evernote,Reddit,Douban,QQZone,Mailto";
+      
+      new needShareButton('#needsharebutton-postbottom', pbOptions);
+    
+    
+  </script>
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

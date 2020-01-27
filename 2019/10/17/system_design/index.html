@@ -1,0 +1,1795 @@
+<!DOCTYPE html>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+<html class="theme-next gemini use-motion" lang="en">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2"/>
+<meta name="theme-color" content="#222"/>
+
+
+  
+  
+  <link rel="stylesheet" href="/lib/needsharebutton/needsharebutton.css"/>
+
+
+
+  
+  
+    
+    
+  <script src="/lib/pace/pace.min.js?v=1.0.2"></script>
+  <link rel="stylesheet" href="/lib/pace/pace-theme-flash.min.css?v=1.0.2"/>
+
+
+
+
+
+  <meta http-equiv="Cache-Control" content="no-transform"/>
+  <meta http-equiv="Cache-Control" content="no-siteapp"/>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext"/>
+  
+
+
+
+
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2"/>
+
+<link rel="stylesheet" href="/css/main.css?v=6.7.0"/>
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/favicon.ico?v=6.7.0">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon.ico?v=6.7.0">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon.ico?v=6.7.0">
+
+
+  <link rel="mask-icon" href="/images/favicon.ico?v=6.7.0" color="#222">
+
+
+
+
+
+
+
+<script id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Gemini',
+    version: '6.7.0',
+    sidebar: {"position":"left","display":"hide","offset":12,"b2t":true,"scrollpercent":false,"onmobile":false},
+    fancybox: false,
+    fastclick: false,
+    lazyload: false,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+  
+
+
+
+
+  <meta name="description" content="系统设计学习笔记。祝我好运。">
+<meta name="keywords" content="interview,system,design">
+<meta property="og:type" content="article">
+<meta property="og:title" content="系统设计笔记">
+<meta property="og:url" content="https://bobbyliujb.github.io/2019/10/17/system_design/index.html">
+<meta property="og:site_name" content="Bob_波波">
+<meta property="og:description" content="系统设计学习笔记。祝我好运。">
+<meta property="og:locale" content="en">
+<meta property="og:image" content="https://www.researchgate.net/profile/Joao_Lourenco11/publication/282519669/figure/fig1/AS:281002732736529@1444007680733/CAP-theorem-with-databases-that-choose-CA-CP-and-AP.png">
+<meta property="og:updated_time" content="2020-01-27T08:55:08.776Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="系统设计笔记">
+<meta name="twitter:description" content="系统设计学习笔记。祝我好运。">
+<meta name="twitter:image" content="https://www.researchgate.net/profile/Joao_Lourenco11/publication/282519669/figure/fig1/AS:281002732736529@1444007680733/CAP-theorem-with-databases-that-choose-CA-CP-and-AP.png">
+
+
+
+
+
+
+  <link rel="canonical" href="https://bobbyliujb.github.io/2019/10/17/system_design/"/>
+
+
+
+<script id="page.configurations">
+  CONFIG.page = {
+    sidebar: "",
+  };
+</script>
+
+  <title>系统设计笔记 | Bob_波波</title>
+  
+
+
+
+
+  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-118868735-1"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'UA-118868735-1');
+  </script>
+
+
+
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .motion-element,
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-title { opacity: initial; }
+
+  .use-motion .logo,
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="en">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Bob_波波</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+    
+    
+  </div>
+
+  <div class="site-nav-toggle">
+    <button aria-label="Toggle navigation bar">
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  
+    <ul id="menu" class="menu">
+      
+        
+        
+        
+          
+          <li class="menu-item menu-item-home">
+
+    
+    
+    
+      
+    
+
+    
+      
+    
+
+    <a href="/" rel="section"><i class="menu-item-icon fa fa-fw fa-home"></i> <br/>Home</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-tags">
+
+    
+    
+    
+      
+    
+
+    
+      
+    
+
+    <a href="/tags/" rel="section"><i class="menu-item-icon fa fa-fw fa-tags"></i> <br/>Tags<span class="badge">46</span></a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-categories">
+
+    
+    
+    
+      
+    
+
+    
+      
+    
+
+    <a href="/categories/" rel="section"><i class="menu-item-icon fa fa-fw fa-th"></i> <br/>Categories<span class="badge">4</span></a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-archives">
+
+    
+    
+    
+      
+    
+
+    
+      
+    
+
+    <a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br/>Archives<span class="badge">46</span></a>
+
+  </li>
+
+      
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />Search</a>
+        </li>
+      
+    </ul>
+  
+
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off"
+             placeholder="Searching..." spellcheck="false"
+             type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
+  
+</nav>
+
+
+
+  
+
+
+
+</div>
+    </header>
+
+    
+
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+            
+
+          
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://bobbyliujb.github.io/2019/10/17/system_design/"/>
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Bob_波波"/>
+      <meta itemprop="description" content="I'm a Software Engineer!"/>
+      <meta itemprop="image" content="/images/avatar.jpg"/>
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Bob_波波"/>
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">系统设计笔记
+
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+
+              
+                
+              
+
+              <time title="Created: 2019-10-16 22:02:39" itemprop="dateCreated datePublished" datetime="2019-10-16T22:02:39-07:00">2019-10-16</time>
+            
+
+            
+              
+
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Edited on</span>
+                
+                <time title="Modified: 2020-01-27 00:55:08" itemprop="dateModified" datetime="2020-01-27T00:55:08-08:00">2020-01-27</time>
+              
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Tech/" itemprop="url" rel="index"><span itemprop="name">Tech</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2019/10/17/system_design/#comments" itemprop="discussionUrl">
+                
+                  <span class="post-comments-count disqus-comment-count"
+                        data-disqus-identifier="2019/10/17/system_design/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+             <span id="/2019/10/17/system_design/" class="leancloud_visitors" data-flag-title="系统设计笔记">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">Views: </span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+            <div class="post-symbolscount">
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Symbols count in article: </span>
+                
+                <span title="Symbols count in article">8.8k</span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Reading time &asymp;</span>
+                
+                <span title="Reading time">9 mins.</span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>系统设计学习笔记。祝我好运。<br><a id="more"></a></p>
+<h2 id="基础知识讲解"><a href="#基础知识讲解" class="headerlink" title="基础知识讲解"></a>基础知识讲解</h2><h3 id="分布式系统的主要特性"><a href="#分布式系统的主要特性" class="headerlink" title="分布式系统的主要特性"></a>分布式系统的主要特性</h3><h4 id="Scalability"><a href="#Scalability" class="headerlink" title="Scalability"></a>Scalability</h4><ul>
+<li>系统/服务是否能够evolve并handle增长的需求。随着系统自身规模增加，scalability通常下降，因为机器之间的物理距离、网速限制，或者任务本身就无法被分配到不同机器上执行。<ul>
+<li>horizaontal scaling: 用更多的机器，更加动态和灵活一些。</li>
+<li>vertical scaling: 在机器上堆更好更多更快的硬件cpu/ram/storage，通常涉及downtime以及升级的极限。</li>
+</ul>
+</li>
+</ul>
+<h4 id="Reliability"><a href="#Reliability" class="headerlink" title="Reliability"></a>Reliability</h4><ul>
+<li>系统在一定时间内宕机的概率。一个reliable的系统能够正常地完成任务而不会因为自身软/硬件的failure甚至人为的fault而宕机。</li>
+<li>reliable的分布式系统通常涉及redundancy，避免single point of failure.</li>
+</ul>
+<h4 id="Availability"><a href="#Availability" class="headerlink" title="Availability"></a>Availability</h4><ul>
+<li>系统在一定时间内正常工作的概率，downtime越少、越不频繁就越available。可以理解为「较低要求的reliablity」.</li>
+<li>如果系统reliable, 就是available的；但反过来，系统available，不一定reliable。</li>
+</ul>
+<h4 id="Efficiency"><a href="#Efficiency" class="headerlink" title="Efficiency"></a>Efficiency</h4><ul>
+<li>Latency(response time): 从接受到请求到第一次返回数据需要多久</li>
+<li>Throughput(bandwidith): 单位时间内能够发送多少</li>
+</ul>
+<h4 id="Serviceability-Managebility"><a href="#Serviceability-Managebility" class="headerlink" title="Serviceability/Managebility"></a>Serviceability/Managebility</h4><ul>
+<li>衡量系统的维修/维护的容易程度和所需时间。</li>
+<li>需要考虑如果出问题了是否容易诊断(log的重要性)，部署升级或修改的方便程度，能否自动恢复（针对间歇性宕机），是否有合适的monitor&amp;alert机.</li>
+</ul>
+<h3 id="Load-Balancing"><a href="#Load-Balancing" class="headerlink" title="Load Balancing"></a>Load Balancing</h3><ul>
+<li>负载均衡处在client和server之间，负责接受网络请求并分配到后端cluster，提高responsivenes和availability.</li>
+<li>如果想尽可能充分使用LB，可以考虑在client、WebServer、ApplicationServer、DBServer之间各加一层LB. 为了防止LB本身成为single point of failure，可以考虑对LB本身加上redundancy。</li>
+<li>除了提升availability、更高效，LB还可以提供机器学习的功能，类似于流量预判从而适当地scale等等。</li>
+<li>LB在确认server能正常响应后，就会通过某种算法将request导向server<ul>
+<li>Least connection: 根据active connection，选最少的那个</li>
+<li>Least Response Time: 根据响应时间，选最快的</li>
+<li>Least Bandwidth: 选择负载最轻的</li>
+<li>Round Robin: 轮流。或者根据机器本身的处理能力赋予权重，根据权重来RR.</li>
+<li>IP Hash: 将client的IP映射成hash再选择对应的server。</li>
+</ul>
+</li>
+</ul>
+<h3 id="Caching"><a href="#Caching" class="headerlink" title="Caching"></a>Caching</h3><ul>
+<li>Locality of reference: 缓存的思想是「最近请求过的数据很可能会再次被请求」. 通常尽可能设置在接近client的layer，这样就可以尽可能减少后续牵涉的layer了。</li>
+<li>Content Distribution Network: CDN是大量静态数据static media的缓存，通常当请求达到一定规模时才会用CDN。如果系统尚且比较小但确实有一些反复被请求的静态数据，可以将这部分直接存到一个subdomain例如<code>static.blah.com</code>，用轻量级的http服务器例如Nginx快速返回这部分数据。</li>
+<li>cache invalidation: 当数据改变时，缓存也需要相应地标记为失效，这样访问时才不会有inconsistency.<ul>
+<li>write-through cache: 数据会同时存入DB和cache，这样可以保证完全一致且数据不会丢，但要写入两个地方才返回，速度比较慢。</li>
+<li>write-around cache: 数据只存入DB，访问到cache会是一个miss，再去DB取最新的数据，速度更慢。</li>
+<li>write-back cache: 数据只存入cache，隔一段时间或在某种条件下才会写入DB，速度最快，但也有丢失数据的风险。</li>
+</ul>
+</li>
+<li>cache eviction: 缓存容量有限，就需要排掉一些数据<ul>
+<li>FIFO: 按存入的时间顺序，旧的先出去</li>
+<li>LIFO: 按存入的时间顺序，新的先出去</li>
+<li>LRU: 按hit的时间顺序，远古hit的先出去</li>
+<li>MRU: 按hit的时间顺序，最近hit的先出去</li>
+<li>LFU: 按hit的频率顺序，最少hit的先出去</li>
+<li>Random Replacement: 随机出去</li>
+</ul>
+</li>
+</ul>
+<h3 id="Database"><a href="#Database" class="headerlink" title="Database"></a>Database</h3><h4 id="Best-Practices"><a href="#Best-Practices" class="headerlink" title="Best Practices"></a>Best Practices</h4><ul>
+<li>所有的表都需要有primary/unique key/necessary index. 相应地，在DAO中query时用到的where clause都用到相应的key/index。</li>
+<li>在DAO中query时只取需要用到的数据，尽可能避免<code>SELECT *</code>传回row中所有的东西.</li>
+<li>及时删除不需要的key/index，否则写入会花时间在不必要的索引上。</li>
+<li>显式地指明字符集，防止在插入时有特殊字符，导致代码中读取时于存入的值不一致/乱码。</li>
+<li>read-only和read-write的权限指向的数据库可能也有性能差异，query/report等操作都应指向RO终端。</li>
+<li>需要考虑数据量：比如每达到<code>若干百GB</code>之后需要对历史数据进行存档，或者考虑将数据表进行partition以保证读取的效率。</li>
+<li>数据转移的job尽可能分段、间隔地进行，而不是一口气全部migrate/backfill/bulkload/delete，防止job中途崩了。</li>
+</ul>
+<h4 id="Data-Partitioning"><a href="#Data-Partitioning" class="headerlink" title="Data Partitioning"></a>Data Partitioning</h4><p>数据拆分的思想是到达某个scale界限的时候，水平地增加机器要比升级成更6的机器更便宜和可行。</p>
+<h5 id="Partitioning-Methods"><a href="#Partitioning-Methods" class="headerlink" title="Partitioning Methods"></a>Partitioning Methods</h5><ul>
+<li>Horizontal(Data Sharding): 将不同的record row按照某种规则存入不同的table中。例如range based partitioning就是根据某个column的值的范围拆分，存入相应的表中。但这个range如果设的不好就会造成unbalanced的问题。</li>
+<li>Vertical: 将不同的column存入不同的表中，其实就是利用DB本身JOIN的特性，实现很方便且对系统影响并不大。但当数据进一步增加时，每个表中的行数可能就需要进一步拆分了。</li>
+<li>Directory Based: 构建一个lookup的中间层，每次查数据时先经过lookup找到对应的DB server，再去实际的地方取数据。这样的好处是将DB access的代码从实际的系统中抽象出来，将来需要改变partition scheme的时候就不需要动系统本身了。</li>
+</ul>
+<h5 id="Partitioning-Criteria"><a href="#Partitioning-Criteria" class="headerlink" title="Partitioning Criteria"></a>Partitioning Criteria</h5><ul>
+<li>Key/Hash based partitioning: 对数据entity的关键属性hash后得到一个partition编号，再根据这个编号找到服务器存取数据。由于hash函数是按照当前服务器总数定的，如果想加更多就需要downtime了。解决方法是使用<a href="https://blog.csdn.net/suifeng629/article/details/81567777" target="_blank" rel="external">consitent hashing</a>. consistent hashing思想是利用一个hash环，对数据和缓存机器都进行hash，每个数据都存在顺时针距离最近的机器上。这样当机器增加/减少时只有环上特定段的数据需要重新分配的新的机器上，对于其他数据没有影响。</li>
+<li>List partitioning: 每一个partition维护一个list of values，如果数据包含这个value就存入相应的partition，但效率不高。</li>
+<li>Round-robin partitioning: 轮流，i-th tuple直接存入<code>i % n</code>个partition。</li>
+<li>Composite partitioning: 结合上面几种，例如先用个简单的list、在内部再用hash based。其实consistent hashing也可以当作是一种结合式分区。</li>
+</ul>
+<h5 id="Problems-of-Partitioning"><a href="#Problems-of-Partitioning" class="headerlink" title="Problems of Partitioning"></a>Problems of Partitioning</h5><ul>
+<li>Joins and Denormalization: 如果table都在一个机器上，使用join操作非常正常。但是分散之后还想同时对多个table进行join就不那么feasibile了。解决方法是对数据库进行denormalize，这样之前执行过的join操作就可以在单个table上完成了，有点类似于数据备份，但这样也就需要处理数据不一致的问题了。</li>
+<li>Referential integrity: 类似于cross-partition query不可行，保证data integrity constraints如foreign keys之类的也很困难，在RDBMS不支持跨服务器的reference的情况下就需要在application level维护一些保证引用正确性的代码了。</li>
+<li>Rebalancing: 当请求集中在某些服务器时可能就需要考虑调整划分规则了，通常就涉及增加新的partition或在现有的partition内部进行rebalancing。使用directory based的操作可以避免downtime，但也增加了系统的复杂性和引入了single point-of-failure（中央查询都这样）。</li>
+</ul>
+<h4 id="Indexes"><a href="#Indexes" class="headerlink" title="Indexes"></a>Indexes</h4><ul>
+<li>index本质上就是一个指出数据存储位置的额外的table，easily searchable by relavant information.</li>
+<li>数据量大的时候，为table建立index可以大大改善查找（retrieve）速度。尤其是在huge dataset中查找relatively small payload的时候，因为通过遍历查找实在太慢。此外数据可能被分散到不同的physical devices上，通过index也可以快速找到存储的位置。</li>
+<li>相反地，index本身可能日益增长，从而降低数据的增改删（CUD）过程，因此需要避免假如不必要的index，而且对于write heavy的数据表也需要考虑是否真的需要加index。</li>
+</ul>
+<h4 id="Redundancy-amp-Replication"><a href="#Redundancy-amp-Replication" class="headerlink" title="Redundancy &amp; Replication"></a>Redundancy &amp; Replication</h4><ul>
+<li>Redundancy: 作为备份或者提升系统性能时，将数据存放到多个机器上，当一个机器宕机不至于影响整体。</li>
+<li>Replication: 更进一步，在多个机器之间需要同步数据保证一致性。通常在DBMS中比较关注，通常是master-slave的形式。</li>
+</ul>
+<h4 id="SQL-amp-NoSQL"><a href="#SQL-amp-NoSQL" class="headerlink" title="SQL &amp; NoSQL"></a>SQL &amp; NoSQL</h4><ul>
+<li>SQL: relational DB将数据存在行和列中，每一行是一个entity，每一列包含所有entity的某个属性。例如MySQL, Postgres, MariaDB.</li>
+<li>NoSQL: 大致有如下常见类型<ul>
+<li>Key-Value Stores: 用一组键值对来存储信息，常见的有Redis, Voldemort和Dynamo.</li>
+<li>Document Databases: 数据存放在「document」中，group成「collections」。每个document可以有不同的结构，自由度很高。常见的有MongoDB和CouchDB.</li>
+<li>Wide-Column Databases: 强调列的一种数据库，column families是行的container。在操作时不需要预先知道所有的列，行也不需要包括相同的列，比较适合用在分析大数据上。常见的有Cassandra和HBase.</li>
+<li>Graph Databases: 用图的形式存储数据，每个entity是一个节点，连线表示数据之间的关系。常见的有Neo4J和InfiniteGraph.</li>
+</ul>
+</li>
+<li>SQL与NoSQL的区别：<br>| Aspect | SQL | NoSQL |<br>| :——-: | :——-: | :———-: |<br>| Storage | 用行和列来存储 | 有各种存储形式，如Key-value, document, graph和columnar |<br>| Schema | fixed. 在插入数据前必须确定列，每一行的每一列都必须有值(包括NULL); <br> 允许之后更改schema，但需要改动整个DB且涉及downtime | dynamic. 可以自由地增减「column」on the fly |<br>| Querying | 使用结构化查询语言(structured query language) | 查询关注的是a collection of documents(UnQL) |<br>| Scalability | vertically scalable，涉及硬件升级 | horizontally scalable，对单机硬件要求不高 |<br>| Reliablity or ACID Compliancy<br> Atomicity, Consistency, Isolation, Durability | 绝大多数relational DB都是ACID compliant | NoSQL牺牲了ACID换取performance&amp;scalability |</li>
+<li>何时选择SQL/NoSQL<ul>
+<li>选择SQL的情形<ul>
+<li>需要保证ACID compliance，尤其是commerce/financial data，数据integrity、transaction非常重要。</li>
+<li>数据本身就structured and unchanging，数据增长不迅猛，就不必要支持variety的数据类型和大流量了。</li>
+</ul>
+</li>
+<li>选择NoSQL的情形<ul>
+<li>存储大量没有特定结构/类型的数据，无需提前定好类型，之后存入数据也没有类型的限制。</li>
+<li>充分利用云计算和云存储，可以水平扩展提升速度，使得database不是系统的瓶颈。</li>
+<li>快速开发，不需要提前知道很多数据的确定细节，先打造出系统之后也可以在不涉及downtime的情况下往里塞各种类型的数据。</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h4 id="CAP-Theorem"><a href="#CAP-Theorem" class="headerlink" title="CAP Theorem"></a>CAP Theorem</h4><p> 一个分布式系统只可能在以下几个特性中三选二。</p>
+<ul>
+<li>Consistency: 所有节点的数据在同一时间是一致的。通过在保证update完成之前阻止read请求实现。</li>
+<li>Availability: 所有请求都会得到回应，success/failure都算是回应。通过replicate数据到不同服务器实现。</li>
+<li>Partition Tolerance: 系统能在节点之间信息丢失或部分失败的情况下继续工作。通过在节点和网络的各种组合中充分replicate实现。<br><img src="https://www.researchgate.net/profile/Joao_Lourenco11/publication/282519669/figure/fig1/AS:281002732736529@1444007680733/CAP-theorem-with-databases-that-choose-CA-CP-and-AP.png" alt="CAP relationship picture"></li>
+</ul>
+<h4 id="Consistent-Hashing"><a href="#Consistent-Hashing" class="headerlink" title="Consistent Hashing"></a>Consistent Hashing</h4><p> 分布式哈希表(DHT)在分布式系统中器关键作用，它可以快速确定数据存储在cluster中的哪个节点上。</p>
+<ul>
+<li>传统哈希：例如直接膜服务器个数，这样一旦增减节点所有的映射都会被破坏，而且数据并不是均匀分布的，而是可能集中到部分节点上。</li>
+<li>一致哈希：同样是哈希，当增减节点时节点minimize the reorganization，因此非常适合scalable cache system. 实现细节如下：<ol>
+<li>对一个list of servers，将他们映射成一定范围内的整数，放到一个环上，每个server就是环上的一个节点。</li>
+<li>对数据的映射则需要<ol>
+<li>将key映射成整数，定位到环上</li>
+<li>顺时针找到第一个server，数据就放在这上面</li>
+</ol>
+</li>
+<li>增加节点时，它所分隔的顺时针前续数据都需要放置到它上面，而不影响后续以及其他节点的数据</li>
+<li>删除节点时，将数据释放到顺时针的下一个节点即可，不影响其他节点的数据</li>
+</ol>
+</li>
+<li>虚拟节点：由于增减server时只能分担某个节点的负载，需要利用虚拟节点来实现负载均衡。虚拟节点就是将物理机器虚拟为一组节点(replicas)放到环上，每个cache与多个portions of ring联系起来了。存取数据时，映射到环上再找虚拟节点，就能定位到物理机器了。在增减物理机器时，也需要进行虚拟化，理想情况下新加入的虚拟节点就可以均衡地分担原有机器的负载了。</li>
+</ul>
+<h3 id="Proxies"><a href="#Proxies" class="headerlink" title="Proxies"></a>Proxies</h3><p>代理是在client和后端之间插入的一层（概念上的而非物理上的，它甚至可以在client自己身上），用于帮助client从后端获取resources. 在proxy上通常可以对request做筛选，logging, 变形(如加减headers、加密解密、压缩资源等). 有几种类别，比较流行的有：</p>
+<ul>
+<li>Open Proxy: 公开的，毕竟维护代理需要成本，通常只允许特定的用户群访问。公开的代理又分为<ul>
+<li>Transparent Proxy（除了proxy IP，从header里可以提取实际使用者IP）</li>
+<li>Anonymous Proxy（只能知道proxy IP，无法知道真正使用者的IP）</li>
+<li>Distorting Proxy混淆代理（只能知道proxy IP，用一个假的IP塞到header里）</li>
+<li>Elite proxy高匿代理（能知道IP但无法知道是否是在使用代理）。</li>
+</ul>
+</li>
+<li>Reverse Proxy: client访问proxy时由代理去取resources，client访问时并不知道它是proxy。通常反向代理和实际后端同处在一个内网中，可以抵御外部恶意访问，同时实现一些负载均衡。</li>
+</ul>
+<h3 id="Communication-Protocols"><a href="#Communication-Protocols" class="headerlink" title="Communication Protocols"></a>Communication Protocols</h3><p>标准HTTP网络请求通常是这几步：</p>
+<ol>
+<li>client打开连接，向server请求数据</li>
+<li>server计算response</li>
+<li>server将数据发回给client</li>
+</ol>
+<p>大致有以下几类通信方式：</p>
+<ul>
+<li>Ajax Polling: client间隔性地向server请求某些数据来进行update。当没有新内容时回复是空的，就造成了很多HTTP overhead。</li>
+<li>HTTP Long-Polling(Hanging GET): 和上面的polling类似，但server不是立刻回复，而是等待知道有update或者timeout才回复，而client在收到response的同时会立刻再发一个请求。这有可能造成request在server端堆积。</li>
+<li>WebSockets: 在一个TCP连接中提供全双通（full duplex）的通信渠道，一旦WebSocket handshake完成，连接就建立了，client和server都可以实时任意交换数据。</li>
+<li>Server-sent Events: client和server之间建立了一个persistent和长期的连接，当server在不断产生data或持续发送events的时候比较合适。</li>
+</ul>
+<h2 id="系统设计面试"><a href="#系统设计面试" class="headerlink" title="系统设计面试"></a>系统设计面试</h2><h3 id="解题步骤"><a href="#解题步骤" class="headerlink" title="解题步骤"></a>解题步骤</h3><ol>
+<li>Requirement Clarification<ul>
+<li>scope大致是多大的？</li>
+<li>支持用户的哪些操作？是否需要根据搜索/写入做优化？</li>
+<li>后台/entity需要储存哪些类型的数据？</li>
+<li>是否需要支持一些机器学习模型如推荐热搜？</li>
+<li>是否有一些后台push notification的操作？</li>
+</ul>
+</li>
+<li>Back-of-the-envelope estimation 估算系统规模<ul>
+<li>系统的scale是怎样的？（单位时间内新增内容/查询次数）</li>
+<li>需要多少的storage和cache？这涉及不同的DB选择</li>
+<li>网络bandwidth是怎么样的？这涉及之后的traffic management和load balancing.</li>
+</ul>
+</li>
+<li>System interface definition 将系统对外开放的API写出来<ul>
+<li>将contract翻译成函数+参数的形式</li>
+<li>确保包括了出题人所有想要的操作</li>
+</ul>
+</li>
+<li>Defining Data Model<ul>
+<li>可以理解为数据库中需要存储的entity，clarify数据是如何在系统中各个component之间流动的</li>
+<li>guide for data partitioning and management比如storage, transportation, encryption.</li>
+</ul>
+</li>
+<li>High-level Design<ul>
+<li>画一个系统关键component的图，将每个操作end-to-end都过一遍</li>
+<li>标配是client - LB - ApplicationServer - DB/File Storage(pic,video).</li>
+</ul>
+</li>
+<li>Detailed Design<ul>
+<li>将系统中关键的两三个component拎出来解释有哪些实现方式和对应的pros&amp;cons.</li>
+<li>在讨论时可以举一些场景例子解释在哪些情况下有优势，而不能解决哪些情况。缓存设在哪层会产生哪些好处/不足。根据需求是否有些小hack可以做，好处坏处是什么。</li>
+</ul>
+</li>
+<li>Identifying and Resolving bottlenecks 找出系统瓶颈并提供mitigate方案<ul>
+<li>Single Point of Failure？</li>
+<li>Data Replicas保证在少量数据库崩时还能提供数据？</li>
+<li>Server Replicas保证在少量服务器崩时还能提供服务？</li>
+<li>如何monitor并设置alert？阈值是多少？</li>
+</ul>
+</li>
+</ol>
+<h3 id="模拟题"><a href="#模拟题" class="headerlink" title="模拟题"></a>模拟题</h3><h4 id="URL-Shortening-service"><a href="#URL-Shortening-service" class="headerlink" title="URL Shortening service"></a>URL Shortening service</h4><ul>
+<li></li>
+</ul>
+<hr>
+<h3 id="References"><a href="#References" class="headerlink" title="References"></a>References</h3><ul>
+<li><a href="https://www.educative.io/courses/grokking-the-system-design-interview" target="_blank" rel="external">grokking-the-system-design-interview</a></li>
+</ul>
+
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+      <div>
+        <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+  <div>└(^o^)┘</div>
+  <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+    <span>Donate</span>
+  </button>
+  <div id="QR" style="display: none;">
+
+    
+      <div id="wechat" style="display: inline-block">
+        <img id="wechat_qr" src="/images/wechat.png" alt="Bob_波波 WeChat Pay"/>
+        <p>WeChat Pay</p>
+      </div>
+    
+
+    
+      <div id="alipay" style="display: inline-block">
+        <img id="alipay_qr" src="/images/alipay.png" alt="Bob_波波 Alipay"/>
+        <p>Alipay</p>
+      </div>
+    
+
+    
+    <br>
+    <div id="paypal-button">
+      <form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top">
+        <input type="hidden" name="cmd" value="_donations" />
+        <input type="hidden" name="business" value="XPMQMQD8XQUPL" />
+        <input type="hidden" name="currency_code" value="USD" />
+        <input type="image" src="https://www.paypalobjects.com/en_US/i/btn/btn_donateCC_LG.gif" border="0" name="submit" title="PayPal - The safer, easier way to pay online!" alt="Donate with PayPal button" />
+      </form>
+    </div>
+
+  </div>
+</div>
+
+      </div>
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/interview/" rel="tag"><i class="fa fa-tag"></i> interview</a>
+          
+            <a href="/tags/system/" rel="tag"><i class="fa fa-tag"></i> system</a>
+          
+            <a href="/tags/design/" rel="tag"><i class="fa fa-tag"></i> design</a>
+          
+        </div>
+      
+
+      
+      
+        <div class="post-widgets">
+        
+
+        
+
+        
+          
+          <div class="social_share">
+            
+            
+               <div id="needsharebutton-postbottom">
+                 <span class="btn">
+                    <i class="fa fa-share-alt" aria-hidden="true"></i>
+                 </span>
+               </div>
+            
+          </div>
+        
+        </div>
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2019/09/23/java_leetcode7/" rel="next" title="Note for LeetCode in Java (1200+)">
+                <i class="fa fa-chevron-left"></i> Note for LeetCode in Java (1200+)
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2019/11/01/sde_cultivation/" rel="prev" title="码农的自我修养">
+                码农的自我修养 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+  </div>
+
+
+          </div>
+          
+
+  
+    <div class="comments" id="comments">
+      <div id="disqus_thread">
+        <noscript>Please enable JavaScript to view the comments powered by Disqus.</noscript>
+      </div>
+    </div>
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Overview
+          </li>
+        </ul>
+      
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="/images/avatar.jpg"
+                alt="Bob_波波"/>
+            
+              <p class="site-author-name" itemprop="name">Bob_波波</p>
+              <p class="site-description motion-element" itemprop="description">I'm a Software Engineer!</p>
+          </div>
+
+          
+            <nav class="site-state motion-element">
+              
+                <div class="site-state-item site-state-posts">
+                
+                  <a href="/archives/">
+                
+                    <span class="site-state-item-count">46</span>
+                    <span class="site-state-item-name">posts</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-categories">
+                  <a href="/categories/index.html">
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">4</span>
+                    <span class="site-state-item-name">categories</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-tags">
+                  <a href="/tags/index.html">
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">46</span>
+                    <span class="site-state-item-name">tags</span>
+                  </a>
+                </div>
+              
+            </nav>
+          
+
+          
+
+          
+
+          
+
+          
+          
+
+          
+            
+          
+          
+
+        </div>
+      </div>
+
+      
+      <!--noindex-->
+        <div class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+            
+            
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#基础知识讲解"><span class="nav-text">基础知识讲解</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#分布式系统的主要特性"><span class="nav-text">分布式系统的主要特性</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Scalability"><span class="nav-text">Scalability</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Reliability"><span class="nav-text">Reliability</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Availability"><span class="nav-text">Availability</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Efficiency"><span class="nav-text">Efficiency</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Serviceability-Managebility"><span class="nav-text">Serviceability/Managebility</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Load-Balancing"><span class="nav-text">Load Balancing</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Caching"><span class="nav-text">Caching</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Database"><span class="nav-text">Database</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Best-Practices"><span class="nav-text">Best Practices</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Data-Partitioning"><span class="nav-text">Data Partitioning</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#Partitioning-Methods"><span class="nav-text">Partitioning Methods</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#Partitioning-Criteria"><span class="nav-text">Partitioning Criteria</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#Problems-of-Partitioning"><span class="nav-text">Problems of Partitioning</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Indexes"><span class="nav-text">Indexes</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Redundancy-amp-Replication"><span class="nav-text">Redundancy & Replication</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#SQL-amp-NoSQL"><span class="nav-text">SQL & NoSQL</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#CAP-Theorem"><span class="nav-text">CAP Theorem</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Consistent-Hashing"><span class="nav-text">Consistent Hashing</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Proxies"><span class="nav-text">Proxies</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Communication-Protocols"><span class="nav-text">Communication Protocols</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#系统设计面试"><span class="nav-text">系统设计面试</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#解题步骤"><span class="nav-text">解题步骤</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#模拟题"><span class="nav-text">模拟题</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#URL-Shortening-service"><span class="nav-text">URL Shortening service</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#References"><span class="nav-text">References</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </div>
+      <!--/noindex-->
+      
+
+      
+        <div class="back-to-top">
+          <i class="fa fa-arrow-up"></i>
+          
+        </div>
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; 2016 – <span itemprop="copyrightYear">2020</span>
+  <span class="with-love" id="animate">
+    <i class="fa fa-futbol-o"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Bob_波波</span>
+
+  
+
+  
+</div>
+
+
+  <div class="powered-by">Powered by <a href="https://hexo.io" class="theme-link" rel="noopener" target="_blank">Hexo</a></div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">Theme – <a href="https://theme-next.org" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a></div>
+
+
+
+
+        
+<div class="busuanzi-count">
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  
+    <span class="site-uv" title="Total Visitors">
+      <i class="fa fa-user"></i>
+      <span class="busuanzi-value" id="busuanzi_value_site_uv"></span>
+    </span>
+  
+
+  
+    <span class="post-meta-divider">|</span>
+  
+
+  
+    <span class="site-pv" title="Total Views">
+      <i class="fa fa-history"></i>
+      <span class="busuanzi-value" id="busuanzi_value_site_pv"></span>
+    </span>
+  
+</div>
+
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+
+    
+
+    
+
+    
+      <div>
+        <!-- Go to www.addthis.com/dashboard to customize your tools -->
+<div class="addthis_inline_share_toolbox">
+  <script type = "text/javascript" src = "//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-593135f4e114024c" async = "async" ></script>
+</div>
+
+      </div>
+    
+  </div>
+
+  
+
+<script>
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+
+  
+
+
+  <script src="/js/src/utils.js?v=6.7.0"></script>
+
+  <script src="/js/src/motion.js?v=6.7.0"></script>
+
+
+
+  
+  
+
+
+  <script src="/js/src/affix.js?v=6.7.0"></script>
+
+  <script src="/js/src/schemes/pisces.js?v=6.7.0"></script>
+
+
+
+  
+  <script src="/js/src/scrollspy.js?v=6.7.0"></script>
+<script src="/js/src/post-details.js?v=6.7.0"></script>
+
+
+
+  
+
+
+  <script src="/js/src/bootstrap.js?v=6.7.0"></script>
+
+
+
+  
+
+  
+    <script id="dsq-count-scr" src="https://bobbyliujb.disqus.com/count.js" async></script>
+  
+
+  
+    <script>
+      var disqus_config = function () {
+        this.page.url = "https://bobbyliujb.github.io/2019/10/17/system_design/";
+        this.page.identifier = "2019/10/17/system_design/";
+        this.page.title = '系统设计笔记';
+        };
+      function loadComments () {
+        var d = document, s = d.createElement('script');
+        s.src = 'https://bobbyliujb.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', '' + +new Date());
+        (d.head || d.body).appendChild(s);
+      }
+      
+        loadComments();
+      
+    </script>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  <script>
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').hide();
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.search-popup-overlay').click(onPopupClose);
+      $('.popup').toggle();
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+
+      // start loading animation
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
+          '<div id="search-loading-icon">' +
+          '<i class="fa fa-circle-o-notch fa-spin fa-3x fa-fw"></i>' +
+          '</div>' +
+          '</div>')
+        .css('overflow', 'hidden');
+      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
+
+      
+
+      $.ajax({
+        url: path,
+        dataType: isXml ? "xml" : "json",
+        async: true,
+        success: function(res) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = isXml ? $("entry", res).map(function() {
+            return {
+              title: $("title", this).text(),
+              content: $("content",this).text(),
+              url: $("url" , this).text()
+            };
+          }).get() : res;
+          var input = document.getElementById(search_id);
+          var resultContent = document.getElementById(content_id);
+          var inputEventFunction = function() {
+            var searchText = input.value.trim().toLowerCase();
+            var keywords = searchText.split(/[\s\-]+/);
+            if (keywords.length > 1) {
+              keywords.push(searchText);
+            }
+            var resultItems = [];
+            if (searchText.length > 0) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var hitCount = 0;
+                var searchTextCount = 0;
+                var title = data.title.trim();
+                var titleInLowerCase = title.toLowerCase();
+                var content = data.content.trim().replace(/<[^>]+>/g,"");
+                
+                var contentInLowerCase = content.toLowerCase();
+                var articleUrl = decodeURIComponent(data.url).replace(/\/{2,}/g, '/');
+                var indexOfTitle = [];
+                var indexOfContent = [];
+                // only match articles with not empty titles
+                if(title != '') {
+                  keywords.forEach(function(keyword) {
+                    function getIndexByWord(word, text, caseSensitive) {
+                      var wordLen = word.length;
+                      if (wordLen === 0) {
+                        return [];
+                      }
+                      var startPosition = 0, position = [], index = [];
+                      if (!caseSensitive) {
+                        text = text.toLowerCase();
+                        word = word.toLowerCase();
+                      }
+                      while ((position = text.indexOf(word, startPosition)) > -1) {
+                        index.push({position: position, word: word});
+                        startPosition = position + wordLen;
+                      }
+                      return index;
+                    }
+
+                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+                  });
+                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+                    isMatch = true;
+                    hitCount = indexOfTitle.length + indexOfContent.length;
+                  }
+                }
+
+                // show search results
+
+                if (isMatch) {
+                  // sort index by position of keyword
+
+                  [indexOfTitle, indexOfContent].forEach(function (index) {
+                    index.sort(function (itemLeft, itemRight) {
+                      if (itemRight.position !== itemLeft.position) {
+                        return itemRight.position - itemLeft.position;
+                      } else {
+                        return itemLeft.word.length - itemRight.word.length;
+                      }
+                    });
+                  });
+
+                  // merge hits into slices
+
+                  function mergeIntoSlice(text, start, end, index) {
+                    var item = index[index.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    var hits = [];
+                    var searchTextCountInSlice = 0;
+                    while (position + word.length <= end && index.length != 0) {
+                      if (word === searchText) {
+                        searchTextCountInSlice++;
+                      }
+                      hits.push({position: position, length: word.length});
+                      var wordEnd = position + word.length;
+
+                      // move to next position of hit
+
+                      index.pop();
+                      while (index.length != 0) {
+                        item = index[index.length - 1];
+                        position = item.position;
+                        word = item.word;
+                        if (wordEnd > position) {
+                          index.pop();
+                        } else {
+                          break;
+                        }
+                      }
+                    }
+                    searchTextCount += searchTextCountInSlice;
+                    return {
+                      hits: hits,
+                      start: start,
+                      end: end,
+                      searchTextCount: searchTextCountInSlice
+                    };
+                  }
+
+                  var slicesOfTitle = [];
+                  if (indexOfTitle.length != 0) {
+                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+                  }
+
+                  var slicesOfContent = [];
+                  while (indexOfContent.length != 0) {
+                    var item = indexOfContent[indexOfContent.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    // cut out 100 characters
+                    var start = position - 20;
+                    var end = position + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if (end < position + word.length) {
+                      end = position + word.length;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+                  }
+
+                  // sort slices in content by search text's count and hits' count
+
+                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                      return sliceRight.hits.length - sliceLeft.hits.length;
+                    } else {
+                      return sliceLeft.start - sliceRight.start;
+                    }
+                  });
+
+                  // select top N slices in content
+
+                  var upperBound = parseInt('10');
+                  if (upperBound >= 0) {
+                    slicesOfContent = slicesOfContent.slice(0, upperBound);
+                  }
+
+                  // highlight title and content
+
+                  function highlightKeyword(text, slice) {
+                    var result = '';
+                    var prevEnd = slice.start;
+                    slice.hits.forEach(function (hit) {
+                      result += text.substring(prevEnd, hit.position);
+                      var end = hit.position + hit.length;
+                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                      prevEnd = end;
+                    });
+                    result += text.substring(prevEnd, slice.end);
+                    return result;
+                  }
+
+                  var resultItem = '';
+
+                  if (slicesOfTitle.length != 0) {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+                  } else {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+                  }
+
+                  slicesOfContent.forEach(function (slice) {
+                    resultItem += "<a href='" + articleUrl + "'>" +
+                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                      "...</p>" + "</a>";
+                  });
+
+                  resultItem += "</li>";
+                  resultItems.push({
+                    item: resultItem,
+                    searchTextCount: searchTextCount,
+                    hitCount: hitCount,
+                    id: resultItems.length
+                  });
+                }
+              })
+            };
+            if (keywords.length === 1 && keywords[0] === "") {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x"></i></div>'
+            } else if (resultItems.length === 0) {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x"></i></div>'
+            } else {
+              resultItems.sort(function (resultLeft, resultRight) {
+                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+                  return resultRight.searchTextCount - resultLeft.searchTextCount;
+                } else if (resultLeft.hitCount !== resultRight.hitCount) {
+                  return resultRight.hitCount - resultLeft.hitCount;
+                } else {
+                  return resultRight.id - resultLeft.id;
+                }
+              });
+              var searchResultList = '<ul class=\"search-result-list\">';
+              resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if ('auto' === 'auto') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
+          proceedsearch();
+        }
+      });
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script>
+
+
+
+
+
+  
+
+  
+  <script>
+    
+    function addCount(Counter) {
+      var $visitors = $(".leancloud_visitors");
+      var url = $visitors.attr('id').trim();
+      var title = $visitors.attr('data-flag-title').trim();
+
+      Counter('get', '/classes/Counter', { where: JSON.stringify({ url }) })
+        .done(function ({ results }) {
+          if (results.length > 0) {
+            var counter = results[0];
+            
+            Counter('put', `/classes/Counter/${counter.objectId}`, JSON.stringify({ time: { "__op":"Increment", "amount":1 } }))
+            
+            .done(function () {
+                  var $element = $(document.getElementById(url));
+                  $element.find('.leancloud-visitors-count').text(counter.time + 1);
+            })
+            
+            .fail(function ({ responseJSON }) {
+                console.log('Failed to save Visitor num, with error message: ' + responseJSON.error);
+            })
+          } else {
+            
+              Counter('post', '/classes/Counter', JSON.stringify({ title: title, url: url, time: 1}))
+                .done(function () {
+                  var $element = $(document.getElementById(url));
+                  $element.find('.leancloud-visitors-count').text(1);
+                })
+                .fail(function () {
+                  console.log('Failed to create');
+                });
+            
+          }
+        })
+      .fail(function ({ responseJSON }) {
+        console.log('LeanCloud Counter Error:' + responseJSON.code + " " + responseJSON.error);
+      });
+    }
+    
+
+    $(function() {
+      $.get('https://app-router.leancloud.cn/2/route?appId=' + "jT7i5auNazMHRONSPUHmcoko-gzGzoHsz")
+        .done(function ({ api_server }) {
+          var Counter = function (method, url, data) {
+            return $.ajax({
+              method: method,
+              url: `https://${api_server}/1.1${url}`,
+              headers: {
+                'X-LC-Id': "jT7i5auNazMHRONSPUHmcoko-gzGzoHsz",
+                'X-LC-Key': "dEWwuVre5Svmwvjw2DmcIbLy",
+                'Content-Type': 'application/json',
+              },
+              data: data,
+            });
+          };
+          
+          addCount(Counter);
+          
+        })
+    });
+  </script>
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+  
+  
+  <script src="/lib/needsharebutton/needsharebutton.js"></script>
+  <script>
+    
+      pbOptions = {};
+      
+        pbOptions.iconStyle = "box";
+      
+        pbOptions.boxForm = "horizontal";
+      
+        pbOptions.position = "topCenter";
+      
+        pbOptions.networks = "Linkedin,Weibo,Wechat,Twitter,Facebook,Pinterest,GooglePlus,Evernote,Reddit,Douban,QQZone,Mailto";
+      
+      new needShareButton('#needsharebutton-postbottom', pbOptions);
+    
+    
+  </script>
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
