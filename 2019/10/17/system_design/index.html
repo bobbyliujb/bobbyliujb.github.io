@@ -145,7 +145,7 @@
 <meta property="og:description" content="系统设计学习笔记。祝我好运。">
 <meta property="og:locale" content="en">
 <meta property="og:image" content="https://www.researchgate.net/profile/Joao_Lourenco11/publication/282519669/figure/fig1/AS:281002732736529@1444007680733/CAP-theorem-with-databases-that-choose-CA-CP-and-AP.png">
-<meta property="og:updated_time" content="2020-01-27T08:55:08.776Z">
+<meta property="og:updated_time" content="2020-01-28T13:39:04.285Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="系统设计笔记">
 <meta name="twitter:description" content="系统设计学习笔记。祝我好运。">
@@ -472,7 +472,7 @@
                 
                   <span class="post-meta-item-text">Edited on</span>
                 
-                <time title="Modified: 2020-01-27 00:55:08" itemprop="dateModified" datetime="2020-01-27T00:55:08-08:00">2020-01-27</time>
+                <time title="Modified: 2020-01-28 05:39:04" itemprop="dateModified" datetime="2020-01-28T05:39:04-08:00">2020-01-28</time>
               
             
           </span>
@@ -540,7 +540,7 @@
                 
                   <span class="post-meta-item-text">Symbols count in article: </span>
                 
-                <span title="Symbols count in article">8.8k</span>
+                <span title="Symbols count in article">9.7k</span>
               
 
               
@@ -554,7 +554,7 @@
                 
                   <span class="post-meta-item-text">Reading time &asymp;</span>
                 
-                <span title="Reading time">9 mins.</span>
+                <span title="Reading time">10 mins.</span>
               
             </div>
           
@@ -779,9 +779,55 @@
 </ul>
 </li>
 </ol>
-<h3 id="模拟题"><a href="#模拟题" class="headerlink" title="模拟题"></a>模拟题</h3><h4 id="URL-Shortening-service"><a href="#URL-Shortening-service" class="headerlink" title="URL Shortening service"></a>URL Shortening service</h4><ul>
+<h3 id="模拟题"><a href="#模拟题" class="headerlink" title="模拟题"></a>模拟题</h3><h4 id="URL-Shortening-service"><a href="#URL-Shortening-service" class="headerlink" title="URL Shortening service"></a>URL Shortening service</h4><ol>
+<li>需求分析<ul>
+<li>Functional<ul>
+<li>输入一个长链接，生成唯一且更短的链接。</li>
+<li>输入短链接，需要重定向到原链接</li>
+<li>如果愿意，用户可以customize生成的短链接</li>
+<li>短链接不是永久的，用户可以定义expiration</li>
+</ul>
+</li>
+<li>Non-functional<ul>
+<li>Highly available，否则短链接都没法用了</li>
+<li>Minimal latency，最短时间完成转换</li>
+<li>短链接不能guessable/predictable</li>
+</ul>
+</li>
+<li>Advanced<ul>
+<li>Analytics friendly，方便统计redirect数据</li>
+<li>支持REST API，其他service可以call我们的service</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Capacity Estimation and Constraints<ul>
+<li>Traffic Estimates<ul>
+<li>读操作（redirect from short URL）要多于写操作（create new URL），具体比例假设是100:1</li>
+<li>如果每个月需要生成500 Million的新短链接,对应到QPS就是<code>500M / (30 * 24 * 3600) = 200</code>; 那么每个月redirect次数是50 Billion，对应到QPS就是20K/s.</li>
+</ul>
+</li>
+<li>Storage Estimates<ul>
+<li>假设每个长短链接对需要存储5年，每个存储对象大概500 bytes，则需要的存储空间为<code>500M * 5yr * 12mo * 500bytes = 15TB</code></li>
+</ul>
+</li>
+<li>Bandwidth Estimates<ul>
+<li>写入操作QPS为200/s，incoming data大概是<code>200/s * 500bytes = 100KB/s</code>.</li>
+<li>读取（redirect）操作QPS为20K/s，outgoing data大概是<code>20K/s * 500bytes = 10MB/s</code>.</li>
+</ul>
+</li>
+<li>Memory Estimates<ul>
+<li>其实就是考虑缓存。80-20rule指的是20%的热门URL产生的80%的流量，那么我们需要将这20%的对象存在内存中。</li>
+<li>假设缓存每天更新，只需要存当天的20%的read requests，即<code>20K/s * 3600s * 24hr * 500bytes * 20% = 170GB</code>. 不过其中可能有很多重复的hit，因此实际占用的可能少于170GB。</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>System APIs<ul>
 <li></li>
 </ul>
+</li>
+</ol>
 <hr>
 <h3 id="References"><a href="#References" class="headerlink" title="References"></a>References</h3><ul>
 <li><a href="https://www.educative.io/courses/grokking-the-system-design-interview" target="_blank" rel="external">grokking-the-system-design-interview</a></li>
