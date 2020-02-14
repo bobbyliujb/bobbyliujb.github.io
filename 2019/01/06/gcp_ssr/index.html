@@ -144,7 +144,7 @@
 <meta property="og:site_name" content="Bob_波波">
 <meta property="og:description" content="工具忘记续费了，只能自己找个脚本丢到gcp上跑，看能不能凑合用。。">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2019-01-06T06:26:26.486Z">
+<meta property="og:updated_time" content="2020-02-14T13:07:18.504Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="使用Google Cloud Platform运行SSR实现FQ">
 <meta name="twitter:description" content="工具忘记续费了，只能自己找个脚本丢到gcp上跑，看能不能凑合用。。">
@@ -453,12 +453,24 @@
                 
               
 
-              <time title="Created: 2019-01-05 21:20:42 / Modified: 22:26:26" itemprop="dateCreated datePublished" datetime="2019-01-05T21:20:42-08:00">2019-01-05</time>
+              <time title="Created: 2019-01-05 21:20:42" itemprop="dateCreated datePublished" datetime="2019-01-05T21:20:42-08:00">2019-01-05</time>
             
 
             
               
 
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Edited on</span>
+                
+                <time title="Modified: 2020-02-14 05:07:18" itemprop="dateModified" datetime="2020-02-14T05:07:18-08:00">2020-02-14</time>
               
             
           </span>
@@ -526,7 +538,7 @@
                 
                   <span class="post-meta-item-text">Symbols count in article: </span>
                 
-                <span title="Symbols count in article">1.2k</span>
+                <span title="Symbols count in article">1.4k</span>
               
 
               
@@ -582,6 +594,8 @@
 </ol>
 <h3 id="使用Yankee魔改BBR内核"><a href="#使用Yankee魔改BBR内核" class="headerlink" title="使用Yankee魔改BBR内核"></a>使用Yankee魔改BBR内核</h3><p> 据说这个可以提升网速，试试看吧。<br> <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">wget -N --no-check-certificate https://raw.githubusercontent.com/FunctionClub/YankeeBBR/master/bbr.sh</div><div class="line">sudo bash bbr.sh install</div></pre></td></tr></table></figure></p>
 <p> 弹出询问是否放弃卸载内核，选择No后就会卸载并询问是否重启。开启BBR网络拥塞控制，看到tsunami就是正在运行。<br> <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">sudo bash bbr.sh start</div><div class="line">sysctl net.ipv4.tcp_available_congestion_control</div></pre></td></tr></table></figure></p>
+<h3 id="v2ray"><a href="#v2ray" class="headerlink" title="v2ray"></a>v2ray</h3><p> SS似乎总是会被发现，所以尝试其他工具。以下教程搬运自<a href="https://github.com/Crownzhu/v2ray_SS--GCP" target="_blank" rel="external">v2ray_SS–GCP repo</a><br> <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">git clone https://github.com/Crownzhu/v2ray_SS--GCP</div><div class="line">cd v2ray_SS--GoogleCloud</div><div class="line">chmod +x install.sh</div><div class="line">./install.sh local</div></pre></td></tr></table></figure></p>
+<p> 按照弹窗依次选择即可，除了设置密码一路回车都可以。这里还有一个估计是第三方的教程，例如<a href="https://233v2.com/post/16/" target="_blank" rel="external">在gcp上搭建v2ray</a>。</p>
 
       
     </div>
@@ -933,7 +947,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#GCP创建服务器"><span class="nav-text">GCP创建服务器</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#运行SSR-server脚本"><span class="nav-text">运行SSR server脚本</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#使用Yankee魔改BBR内核"><span class="nav-text">使用Yankee魔改BBR内核</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#GCP创建服务器"><span class="nav-text">GCP创建服务器</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#运行SSR-server脚本"><span class="nav-text">运行SSR server脚本</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#使用Yankee魔改BBR内核"><span class="nav-text">使用Yankee魔改BBR内核</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#v2ray"><span class="nav-text">v2ray</span></a></li></ol></div>
             
 
           </div>
