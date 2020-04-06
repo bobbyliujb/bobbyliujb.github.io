@@ -137,14 +137,14 @@
 
 
   <meta name="description" content="刷题。祝我好运。">
-<meta name="keywords" content="algorithm,java,interview,leetcode">
+<meta name="keywords" content="java,algorithm,interview,leetcode">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Note for LeetCode in Java (301~400)">
 <meta property="og:url" content="https://bobbyliujb.github.io/2017/07/08/java_leetcode4/index.html">
 <meta property="og:site_name" content="Bob_波波">
 <meta property="og:description" content="刷题。祝我好运。">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2020-03-08T11:31:08.640Z">
+<meta property="og:updated_time" content="2020-03-10T11:51:19.368Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Note for LeetCode in Java (301~400)">
 <meta name="twitter:description" content="刷题。祝我好运。">
@@ -470,7 +470,7 @@
                 
                   <span class="post-meta-item-text">Edited on</span>
                 
-                <time title="Modified: 2020-03-08 04:31:08" itemprop="dateModified" datetime="2020-03-08T04:31:08-07:00">2020-03-08</time>
+                <time title="Modified: 2020-03-10 04:51:19" itemprop="dateModified" datetime="2020-03-10T04:51:19-07:00">2020-03-10</time>
               
             
           </span>
@@ -538,7 +538,7 @@
                 
                   <span class="post-meta-item-text">Symbols count in article: </span>
                 
-                <span title="Symbols count in article">59k</span>
+                <span title="Symbols count in article">62k</span>
               
 
               
@@ -552,7 +552,7 @@
                 
                   <span class="post-meta-item-text">Reading time &asymp;</span>
                 
-                <span title="Reading time">1:01</span>
+                <span title="Reading time">1:04</span>
               
             </div>
           
@@ -726,8 +726,10 @@
 </ul>
 <h4 id="336-palindrome-pairs"><a href="#336-palindrome-pairs" class="headerlink" title="336. palindrome-pairs"></a><a href="https://leetcode.com/problems/palindrome-pairs/#/description" target="_blank" rel="external">336. palindrome-pairs</a></h4><ul>
 <li>给一个字符串数组，求索引对的List使得word[i]和word[j]拼接而成的字符串自对称。</li>
-<li>ME：第一反应和前面的<a href="https://leetcode.com/problems/shortest-palindrome/#/description" target="_blank" rel="external">214. shortest-palindrome</a>有点像，但那个是在前面拼接最短<br>的字符串使之自对称，但这里不论长短、前后，能使它自对称就OK。然而不会啊。。。</li>
+<li>ME：第一反应和前面的<a href="https://leetcode.com/problems/shortest-palindrome/#/description" target="_blank" rel="external">214. shortest-palindrome</a>有点像，但那个是在前面拼接最短的字符串使之自对称，但这里不论长短、前后，能使它自对称就OK。然而不会啊。。。</li>
 <li>TA：我擦，没想到<a href="https://discuss.leetcode.com/topic/40657/150-ms-45-lines-java-solution" target="_blank" rel="external">这样直接暴力破解</a>也可以，写出来是<a href="https://leetcode.com/submissions/detail/110418729/" target="_blank" rel="external">这样</a>。先一波流把每个字符串放到Map中形成字符串袄索引的映射，然后取每个字符串，用内层循环截成前后两个部分，判断是否对称，然后再适当反转后查找是否存在于Map中，对应添加即可。需要注意的是防止重复，可能需要根据长度判断取还是不取。不过其实这题考察的是Trie结构，所以不提倡前面的暴力法，得看<a href="https://discuss.leetcode.com/topic/39585/o-n-k-2-java-solution-with-trie-structure-n-total-number-of-words-k-average-length-of-each-word" target="_blank" rel="external">这个</a>。</li>
+<li>方法一: 一个字符串能和另一个组成palidrome分三种情况，一是自身和对方长度长度相等且互为reverse；二是自身前半部分是pali，只需要后半部分能找到对应的reverse即可，将reverse拼在前方；三是自身的后半部分是pali，只需要前半部分找到对应reverse即可，reverse拼在后方。假设最长的字符串长度为k，时间复杂度为<code>O(k^2 * N)</code>，其中的<code>k^2</code>消耗在找所有的prefix/suffix上。<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</div><div class="line">    <span class="keyword">public</span> List&lt;List&lt;Integer&gt;&gt; palindromePairs(String[] words) &#123;</div><div class="line">        List&lt;List&lt;Integer&gt;&gt; retVal = <span class="keyword">new</span> ArrayList&lt;&gt;();</div><div class="line">        <span class="keyword">if</span> (words == <span class="keyword">null</span> || words.length == <span class="number">0</span>) &#123;</div><div class="line">            <span class="keyword">return</span> retVal;</div><div class="line">        &#125;</div><div class="line">        Map&lt;String, Integer&gt; word2Index = <span class="keyword">new</span> HashMap&lt;&gt;();</div><div class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; words.length; i++) &#123;</div><div class="line">            word2Index.put(words[i], i);</div><div class="line">        &#125;</div><div class="line">        </div><div class="line">        <span class="keyword">for</span> (String word : words) &#123;</div><div class="line">            <span class="keyword">int</span> currIndex = word2Index.get(word);</div><div class="line">            <span class="comment">// word + reverse的形式</span></div><div class="line">            String rev = <span class="keyword">new</span> StringBuilder(word).reverse().toString();</div><div class="line">            <span class="keyword">if</span> (!word.equals(rev) &amp;&amp; word2Index.containsKey(rev)) &#123;</div><div class="line">                retVal.add(Arrays.asList(currIndex, word2Index.get(rev)));</div><div class="line">            &#125;</div><div class="line">            </div><div class="line">            <span class="comment">// [prefix + pali] + prefixReverse的形式</span></div><div class="line">            List&lt;String&gt; prefixes = getPrefixesBeforePali(word);</div><div class="line">            <span class="keyword">for</span> (String prefix : prefixes) &#123;</div><div class="line">                String prefixReverse = <span class="keyword">new</span> StringBuilder(prefix).reverse().toString();</div><div class="line">                <span class="keyword">if</span> (word2Index.containsKey(prefixReverse)) &#123;</div><div class="line">                    retVal.add(Arrays.asList(currIndex, word2Index.get(prefixReverse)));</div><div class="line">                &#125;</div><div class="line">            &#125;</div><div class="line">            </div><div class="line">            <span class="comment">// suffixReverse + [pali + suffix]的形式</span></div><div class="line">            List&lt;String&gt; suffixes = getSuffixesAfterPali(word);</div><div class="line">            <span class="keyword">for</span> (String suffix : suffixes) &#123;</div><div class="line">                String suffixReverse = <span class="keyword">new</span> StringBuilder(suffix).reverse().toString();</div><div class="line">                <span class="keyword">if</span> (word2Index.containsKey(suffixReverse)) &#123;</div><div class="line">                    retVal.add(Arrays.asList(word2Index.get(suffixReverse), currIndex));</div><div class="line">                &#125;</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line">        <span class="keyword">return</span> retVal;</div><div class="line">    &#125;</div><div class="line">    <span class="function"><span class="keyword">private</span> List&lt;String&gt; <span class="title">getPrefixesBeforePali</span><span class="params">(String word)</span> </span>&#123;</div><div class="line">        List&lt;String&gt; retVal = <span class="keyword">new</span> ArrayList&lt;&gt;();</div><div class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; word.length(); i++) &#123;</div><div class="line">            <span class="keyword">if</span> (isValidPali(word, i, word.length() - <span class="number">1</span>)) &#123;</div><div class="line">                retVal.add(word.substring(<span class="number">0</span>, i));</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line">        <span class="keyword">return</span> retVal;</div><div class="line">    &#125;</div><div class="line">    <span class="function"><span class="keyword">private</span> List&lt;String&gt; <span class="title">getSuffixesAfterPali</span><span class="params">(String word)</span> </span>&#123;</div><div class="line">        List&lt;String&gt; retVal = <span class="keyword">new</span> ArrayList&lt;&gt;();</div><div class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; word.length(); i++) &#123;</div><div class="line">            <span class="keyword">if</span> (isValidPali(word, <span class="number">0</span>, i)) &#123;</div><div class="line">                retVal.add(word.substring(i + <span class="number">1</span>, word.length()));</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line">        <span class="keyword">return</span> retVal;</div><div class="line">    &#125;</div><div class="line">    <span class="function"><span class="keyword">private</span> <span class="keyword">boolean</span> <span class="title">isValidPali</span><span class="params">(String str, <span class="keyword">int</span> left, <span class="keyword">int</span> right)</span> </span>&#123;</div><div class="line">        <span class="keyword">while</span> (left &lt; right) &#123;</div><div class="line">            <span class="keyword">if</span> (str.charAt(left++) != str.charAt(right--)) &#123;</div><div class="line">                <span class="keyword">return</span> <span class="keyword">false</span>;</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line">        <span class="keyword">return</span> <span class="keyword">true</span>;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+</li>
 </ul>
 <h4 id="337-house-robber-iii"><a href="#337-house-robber-iii" class="headerlink" title="337. house-robber-iii"></a><a href="https://leetcode.com/problems/house-robber-iii/#/description" target="_blank" rel="external">337. house-robber-iii</a></h4><ul>
 <li>给一个二叉树，每个节点表示所能抢到的钱财，强盗不能同时抢具有直接父子关系的两个节点。求最大收益。</li>
@@ -1112,9 +1114,9 @@
       
         <div class="post-tags">
           
-            <a href="/tags/algorithm/" rel="tag"><i class="fa fa-tag"></i> algorithm</a>
-          
             <a href="/tags/java/" rel="tag"><i class="fa fa-tag"></i> java</a>
+          
+            <a href="/tags/algorithm/" rel="tag"><i class="fa fa-tag"></i> algorithm</a>
           
             <a href="/tags/interview/" rel="tag"><i class="fa fa-tag"></i> interview</a>
           
