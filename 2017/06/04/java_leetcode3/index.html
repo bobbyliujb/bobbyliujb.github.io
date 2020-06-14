@@ -137,7 +137,7 @@
 
 
   <meta name="description" content="刷题。祝我好运。">
-<meta name="keywords" content="algorithm,java,interview,leetcode">
+<meta name="keywords" content="interview,java,algorithm,leetcode">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Note for LeetCode in Java (201~300)">
 <meta property="og:url" content="https://bobbyliujb.github.io/2017/06/04/java_leetcode3/index.html">
@@ -145,7 +145,7 @@
 <meta property="og:description" content="刷题。祝我好运。">
 <meta property="og:locale" content="en">
 <meta property="og:image" content="https://ww1.sinaimg.cn/large/9b3a5c2fgy1fgfeg0uu25j20eb09nt9j.jpg">
-<meta property="og:updated_time" content="2020-04-06T13:48:10.969Z">
+<meta property="og:updated_time" content="2020-06-13T03:19:58.489Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Note for LeetCode in Java (201~300)">
 <meta name="twitter:description" content="刷题。祝我好运。">
@@ -472,7 +472,7 @@
                 
                   <span class="post-meta-item-text">Edited on</span>
                 
-                <time title="Modified: 2020-04-06 06:48:10" itemprop="dateModified" datetime="2020-04-06T06:48:10-07:00">2020-04-06</time>
+                <time title="Modified: 2020-06-12 20:19:58" itemprop="dateModified" datetime="2020-06-12T20:19:58-07:00">2020-06-12</time>
               
             
           </span>
@@ -540,7 +540,7 @@
                 
                   <span class="post-meta-item-text">Symbols count in article: </span>
                 
-                <span title="Symbols count in article">59k</span>
+                <span title="Symbols count in article">60k</span>
               
 
               
@@ -554,7 +554,7 @@
                 
                   <span class="post-meta-item-text">Reading time &asymp;</span>
                 
-                <span title="Reading time">1:02</span>
+                <span title="Reading time">1:03</span>
               
             </div>
           
@@ -752,7 +752,8 @@
 <h4 id="234-palindrome-linked-list"><a href="#234-palindrome-linked-list" class="headerlink" title="234. palindrome-linked-list"></a><a href="https://leetcode.com/problems/palindrome-linked-list/#/description" target="_blank" rel="external">234. palindrome-linked-list</a></h4><ul>
 <li>判断一个链表是否自对称。</li>
 <li>ME：一开始<a href="https://leetcode.com/submissions/detail/106042719/" target="_blank" rel="external">用了Stack</a>，后来<a href="https://leetcode.com/submissions/detail/106092627/" target="_blank" rel="external">直接把前半部分链表反转了</a>。利用快慢指针找到中间节点，再根据fast指针后续的情况判断出总节点的奇偶，微调一下，然后pop栈比较、或者直接把前面反转后的链表和后续链表比较。</li>
-<li>TA：没啥吧，不过<a href="https://discuss.leetcode.com/topic/18533/reversing-a-list-is-not-considered-o-1-space" target="_blank" rel="external">这里有两个大神争论</a>什么叫作『O( 1 ) space』。</li>
+<li>TA：没啥吧，不过<a href="https://discuss.leetcode.com/topic/18533/reversing-a-list-is-not-considered-o-1-space" target="_blank" rel="external">这里有两个大神争论</a>什么叫作『O(1) space』。<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">isPalindrome</span><span class="params">(ListNode head)</span> </span>&#123;</div><div class="line">        <span class="keyword">if</span> (head == <span class="keyword">null</span> || head.next == <span class="keyword">null</span>) &#123;</div><div class="line">            <span class="keyword">return</span> <span class="keyword">true</span>;</div><div class="line">        &#125;</div><div class="line">        ListNode slow = head, fast = head, prev = <span class="keyword">null</span>;</div><div class="line">        <span class="keyword">while</span> (fast != <span class="keyword">null</span> &amp;&amp; fast.next != <span class="keyword">null</span>) &#123;</div><div class="line">            prev = slow;</div><div class="line">            slow = slow.next;</div><div class="line">            fast = fast.next.next;</div><div class="line">        &#125;</div><div class="line">        <span class="keyword">if</span> (fast != <span class="keyword">null</span>) &#123;</div><div class="line">            prev = slow;</div><div class="line">            slow = slow.next;</div><div class="line">        &#125;</div><div class="line">        </div><div class="line">        ListNode left = head, right = reverse(slow), head2 = right;</div><div class="line">        <span class="keyword">while</span> (right != <span class="keyword">null</span>) &#123;</div><div class="line">            <span class="keyword">if</span> (left.val != right.val) &#123;</div><div class="line">                <span class="keyword">return</span> <span class="keyword">false</span>;</div><div class="line">            &#125;</div><div class="line">            left = left.next;</div><div class="line">            right = right.next;</div><div class="line">        &#125;</div><div class="line">        <span class="comment">// prev.next = reverse(head2);</span></div><div class="line">        <span class="keyword">return</span> <span class="keyword">true</span>;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">private</span> ListNode <span class="title">reverse</span><span class="params">(ListNode head)</span> </span>&#123;</div><div class="line">        ListNode pre = <span class="keyword">null</span>, cur = head;</div><div class="line">        <span class="keyword">while</span> (cur != <span class="keyword">null</span>) &#123;</div><div class="line">            ListNode next = cur.next;</div><div class="line">            cur.next = pre;</div><div class="line">            pre = cur;</div><div class="line">            cur = next;</div><div class="line">        &#125;</div><div class="line">        <span class="keyword">return</span> pre;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+</li>
 </ul>
 <h4 id="235-lowest-common-ancestor-of-a-binary-search-tree"><a href="#235-lowest-common-ancestor-of-a-binary-search-tree" class="headerlink" title="235. lowest-common-ancestor-of-a-binary-search-tree"></a><a href="https://leetcode.com/problems/lowest-common-ancestor-of-a-binary-search-tree/#/description" target="_blank" rel="external">235. lowest-common-ancestor-of-a-binary-search-tree</a></h4><ul>
 <li>给一个BST的根节点，给其中的两个节点，求二者最低层的共同的祖先。</li>
@@ -1062,11 +1063,11 @@
       
         <div class="post-tags">
           
-            <a href="/tags/algorithm/" rel="tag"><i class="fa fa-tag"></i> algorithm</a>
+            <a href="/tags/interview/" rel="tag"><i class="fa fa-tag"></i> interview</a>
           
             <a href="/tags/java/" rel="tag"><i class="fa fa-tag"></i> java</a>
           
-            <a href="/tags/interview/" rel="tag"><i class="fa fa-tag"></i> interview</a>
+            <a href="/tags/algorithm/" rel="tag"><i class="fa fa-tag"></i> algorithm</a>
           
             <a href="/tags/leetcode/" rel="tag"><i class="fa fa-tag"></i> leetcode</a>
           

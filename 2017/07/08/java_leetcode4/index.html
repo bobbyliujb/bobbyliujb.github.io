@@ -137,14 +137,14 @@
 
 
   <meta name="description" content="刷题。祝我好运。">
-<meta name="keywords" content="algorithm,java,interview,leetcode">
+<meta name="keywords" content="interview,java,algorithm,leetcode">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Note for LeetCode in Java (301~400)">
 <meta property="og:url" content="https://bobbyliujb.github.io/2017/07/08/java_leetcode4/index.html">
 <meta property="og:site_name" content="Bob&#39;s Blog">
 <meta property="og:description" content="刷题。祝我好运。">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2020-03-10T11:51:19.368Z">
+<meta property="og:updated_time" content="2020-06-09T09:32:20.835Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Note for LeetCode in Java (301~400)">
 <meta name="twitter:description" content="刷题。祝我好运。">
@@ -470,7 +470,7 @@
                 
                   <span class="post-meta-item-text">Edited on</span>
                 
-                <time title="Modified: 2020-03-10 04:51:19" itemprop="dateModified" datetime="2020-03-10T04:51:19-07:00">2020-03-10</time>
+                <time title="Modified: 2020-06-09 02:32:20" itemprop="dateModified" datetime="2020-06-09T02:32:20-07:00">2020-06-09</time>
               
             
           </span>
@@ -538,7 +538,7 @@
                 
                   <span class="post-meta-item-text">Symbols count in article: </span>
                 
-                <span title="Symbols count in article">62k</span>
+                <span title="Symbols count in article">64k</span>
               
 
               
@@ -552,7 +552,7 @@
                 
                   <span class="post-meta-item-text">Reading time &asymp;</span>
                 
-                <span title="Reading time">1:04</span>
+                <span title="Reading time">1:07</span>
               
             </div>
           
@@ -811,7 +811,8 @@
 <li>给一个数组，存放的是各个信封的规格，要让信封能套进去必须长和宽都小于外面的信封，求最多可以有多少个信封套在一起。</li>
 <li>ME：搞了半天没搞出来，各种WA。</li>
 <li>TA：<a href="https://discuss.leetcode.com/topic/47469/java-nlogn-solution-with-explanation" target="_blank" rel="external">这个利用Arrays.binarySearch的方法</a>真的给力。Arrays.binarySearch方法的定义可以看<a href="http://docs.oracle.com/javase/7/docs/api/java/util/Arrays.html#binarySearch(float[],%20int,%20int,%20float" target="_blank" rel="external">这里</a> )，有一个很叼的地方是这个二分查找在搜索不到key的情况下会返回<code>- 插入索引 - 1</code>，这样就可以直接知道往哪里插入了。算法总思路是，先根据信封的[0]从小到大排序，[0]相等的情况下[1]大的排在前面。然后遍历原数组，根据[1]去二分查找DP数组，找不到就更正index为最小的大于目标值的索引，然后直接覆盖或插入，最后返回DP的有效长度即可。写出来是<a href="https://leetcode.com/submissions/detail/110655150/" target="_blank" rel="external">这样</a>。还有一个<a href="https://discuss.leetcode.com/topic/47404/simple-dp-solution/" target="_blank" rel="external">完全暴力的方法</a>，我一开始就打算这么搞的不过没有注意到更新的时候需要Math.max一下，正解写出来是<a href="https://leetcode.com/submissions/detail/110656111/" target="_blank" rel="external">这样</a>。还有个大神提出信封在现实中肯定可以旋转之后塞进去，挺有意思。</li>
-<li>Arrays.sort自定义排序参考了<a href="https://discuss.leetcode.com/topic/22482/short-java-solution" target="_blank" rel="external">这个</a>，传入第二个参数<code>(a, b) -&gt; { if return xxx }</code>。</li>
+<li>Arrays.sort自定义排序参考了<a href="https://discuss.leetcode.com/topic/22482/short-java-solution" target="_blank" rel="external">这个</a>，传入第二个参数<code>(a, b) -&gt; { if return xxx }</code>。<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">maxEnvelopes</span><span class="params">(<span class="keyword">int</span>[][] envelopes)</span> </span>&#123;</div><div class="line">        <span class="keyword">if</span> (envelopes == <span class="keyword">null</span> || envelopes.length == <span class="number">0</span>) &#123;</div><div class="line">            <span class="keyword">return</span> <span class="number">0</span>;</div><div class="line">        &#125;</div><div class="line">        <span class="comment">// 先按照宽度升序排序，然后按照高度降序排序</span></div><div class="line">        Arrays.sort(envelopes, (a, b) -&gt; a[<span class="number">0</span>] == b[<span class="number">0</span>] ? b[<span class="number">1</span>] - a[<span class="number">1</span>] : a[<span class="number">0</span>] - b[<span class="number">0</span>]);</div><div class="line">        </div><div class="line">        <span class="keyword">int</span>[] heights = <span class="keyword">new</span> <span class="keyword">int</span>[envelopes.length];</div><div class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; envelopes.length; i++) &#123;</div><div class="line">            heights[i] = envelopes[i][<span class="number">1</span>];</div><div class="line">        &#125;</div><div class="line">        <span class="comment">// 在宽度是升序的情况下，只要保证高度升序即可嵌套</span></div><div class="line">        <span class="keyword">return</span> getLenOfLongestIncreasingSequence(heights);</div><div class="line">    &#125;</div><div class="line">    <span class="comment">// https://labuladong.gitbook.io/algo/dong-tai-gui-hua-xi-lie/dong-tai-gui-hua-she-ji-zui-chang-di-zeng-zi-xu-lie</span></div><div class="line">    <span class="function"><span class="keyword">private</span> <span class="keyword">int</span> <span class="title">getLenOfLongestIncreasingSequence</span><span class="params">(<span class="keyword">int</span>[] nums)</span> </span>&#123; <span class="comment">// O(NlogN)</span></div><div class="line">        <span class="keyword">int</span> piles = <span class="number">0</span>;</div><div class="line">        <span class="keyword">int</span>[] tops = <span class="keyword">new</span> <span class="keyword">int</span>[nums.length];</div><div class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> num : nums) &#123;</div><div class="line">            <span class="keyword">int</span> index = binarySearchInsertion(tops, piles, num);</div><div class="line">            tops[index] = num;</div><div class="line">            <span class="keyword">if</span> (index == piles) &#123;</div><div class="line">                piles++;</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line">        <span class="keyword">return</span> piles;</div><div class="line">    &#125;</div><div class="line">    <span class="function"><span class="keyword">private</span> <span class="keyword">int</span> <span class="title">binarySearchInsertion</span><span class="params">(<span class="keyword">int</span>[] nums, <span class="keyword">int</span> len, <span class="keyword">int</span> target)</span> </span>&#123;</div><div class="line">        <span class="keyword">int</span> left = <span class="number">0</span>, right = len;</div><div class="line">        <span class="keyword">while</span> (left &lt; right) &#123;</div><div class="line">            <span class="keyword">int</span> mid = left + (right - left) / <span class="number">2</span>;</div><div class="line">            <span class="keyword">if</span> (nums[mid] &gt;= target) &#123;</div><div class="line">                right = mid;</div><div class="line">            &#125; <span class="keyword">else</span> &#123;</div><div class="line">                left = mid + <span class="number">1</span>;</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line">        <span class="keyword">return</span> left;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+</li>
 </ul>
 <h4 id="355-design-twitter"><a href="#355-design-twitter" class="headerlink" title="355. design-twitter"></a><a href="https://leetcode.com/problems/design-twitter/#/description" target="_blank" rel="external">355. design-twitter</a></h4><ul>
 <li>设计题，模拟twitter的发推、关注、取关操作，以及对于给定用户返回最近10条应当显示的推文id。</li>
@@ -913,8 +914,12 @@
 </ul>
 <h4 id="372-super-pow"><a href="#372-super-pow" class="headerlink" title="372. super-pow"></a><a href="https://leetcode.com/problems/super-pow/#/description" target="_blank" rel="external">372. super-pow</a></h4><ul>
 <li>给一个整数a表示底数，给一个数组形式的超大整数b表示幂，求(a ^ b) % 1337的值。</li>
-<li>ME：完全懵逼，这题干啥子咧。。。</li>
-<li>TA：</li>
+<li><p>利用<code>num ^ 1,2,3,4 = (num ^ 1,2,3) ^ 10 * a ^ 4</code>，也就是按照个十百千万来拆分大数，再利用递归解决括号中间的部分。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</div><div class="line">    <span class="keyword">private</span> <span class="keyword">final</span> <span class="keyword">int</span> MOD = <span class="number">1337</span>;</div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">superPow</span><span class="params">(<span class="keyword">int</span> a, <span class="keyword">int</span>[] b)</span> </span>&#123;</div><div class="line">        <span class="keyword">return</span> superPow(a, b, b.length - <span class="number">1</span>);</div><div class="line">    &#125;</div><div class="line">    <span class="function"><span class="keyword">private</span> <span class="keyword">int</span> <span class="title">superPow</span><span class="params">(<span class="keyword">int</span> a, <span class="keyword">int</span>[] b, <span class="keyword">int</span> index)</span> </span>&#123;</div><div class="line">        <span class="keyword">if</span> (index &lt; <span class="number">0</span>) &#123;</div><div class="line">            <span class="keyword">return</span> <span class="number">1</span>;</div><div class="line">        &#125;</div><div class="line">        <span class="keyword">int</span> part1 = getPow(a, b[index]);</div><div class="line">        <span class="keyword">int</span> part2 = getPow(superPow(a, b, index - <span class="number">1</span>), <span class="number">10</span>);</div><div class="line">        <span class="keyword">return</span> (part1 * part2) % MOD;</div><div class="line">    &#125;</div><div class="line">    <span class="function"><span class="keyword">private</span> <span class="keyword">int</span> <span class="title">getPow</span><span class="params">(<span class="keyword">int</span> a, <span class="keyword">int</span> k)</span> </span>&#123;</div><div class="line">        <span class="keyword">if</span> (a == <span class="number">1</span> || k == <span class="number">0</span>) &#123;</div><div class="line">            <span class="keyword">return</span> <span class="number">1</span>;</div><div class="line">        &#125;</div><div class="line">        a %= MOD;</div><div class="line">        <span class="keyword">int</span> retVal = <span class="number">1</span>;</div><div class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; k; i++) &#123;</div><div class="line">            retVal *= a;</div><div class="line">            retVal %= MOD;</div><div class="line">        &#125;</div><div class="line">        <span class="keyword">return</span> retVal;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+</li>
+<li><p>优化：这里的getPow可以利用以下公式加速：<br><a href="https://gblobscdn.gitbook.com/assets%2F-LrtQOWSnDdXhp3kYN4k%2F-M5mNKb1DvzLOmKFp0Tr%2F-M5mNMdVfjf4_eOBjHcJ%2Fformula2.png?alt=media" target="_blank" rel="external">!img</a></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">private</span> <span class="keyword">int</span> <span class="title">getPow</span><span class="params">(<span class="keyword">int</span> a, <span class="keyword">int</span> k)</span> </span>&#123;</div><div class="line">    <span class="keyword">if</span> (a == <span class="number">1</span> || k == <span class="number">0</span>) &#123;</div><div class="line">        <span class="keyword">return</span> <span class="number">1</span>;</div><div class="line">    &#125;</div><div class="line">    a %= MOD;</div><div class="line">    <span class="comment">// 偶数砍半</span></div><div class="line">    <span class="keyword">if</span> (k % <span class="number">2</span> == <span class="number">0</span>) &#123;</div><div class="line">        <span class="keyword">int</span> half = getPow(a, k / <span class="number">2</span>);</div><div class="line">        <span class="keyword">return</span> (half * half) % MOD;</div><div class="line">    &#125; <span class="keyword">else</span> &#123;</div><div class="line">        <span class="keyword">return</span> (a * getPow(a, k - <span class="number">1</span>)) % MOD;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+</li>
 </ul>
 <h4 id="373-find-k-pairs-with-smallest-sums"><a href="#373-find-k-pairs-with-smallest-sums" class="headerlink" title="373. find-k-pairs-with-smallest-sums"></a><a href="https://leetcode.com/problems/find-k-pairs-with-smallest-sums/description/" target="_blank" rel="external">373. find-k-pairs-with-smallest-sums</a></h4><ul>
 <li>给两个排好序的递增int数组，要求从两个数组中分别取一个元素出来组成的数对之和小者排在前面，求前k个这样的组合。</li>
@@ -1080,11 +1085,11 @@
       
         <div class="post-tags">
           
-            <a href="/tags/algorithm/" rel="tag"><i class="fa fa-tag"></i> algorithm</a>
+            <a href="/tags/interview/" rel="tag"><i class="fa fa-tag"></i> interview</a>
           
             <a href="/tags/java/" rel="tag"><i class="fa fa-tag"></i> java</a>
           
-            <a href="/tags/interview/" rel="tag"><i class="fa fa-tag"></i> interview</a>
+            <a href="/tags/algorithm/" rel="tag"><i class="fa fa-tag"></i> algorithm</a>
           
             <a href="/tags/leetcode/" rel="tag"><i class="fa fa-tag"></i> leetcode</a>
           
