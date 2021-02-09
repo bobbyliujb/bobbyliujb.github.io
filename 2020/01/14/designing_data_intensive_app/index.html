@@ -139,14 +139,14 @@
   <meta name="description" content="系统设计读书笔记。祝我好运。">
 <meta name="keywords" content="interview,system,design">
 <meta property="og:type" content="article">
-<meta property="og:title" content="系统设计笔记">
+<meta property="og:title" content="Design Data Intensive Applications读书笔记">
 <meta property="og:url" content="https://bobbyliujb.github.io/2020/01/14/designing_data_intensive_app/index.html">
-<meta property="og:site_name" content="Bob_波波">
+<meta property="og:site_name" content="Bob&#39;s Blog">
 <meta property="og:description" content="系统设计读书笔记。祝我好运。">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2020-01-19T07:04:03.505Z">
+<meta property="og:updated_time" content="2020-02-11T11:59:27.435Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="系统设计笔记">
+<meta name="twitter:title" content="Design Data Intensive Applications读书笔记">
 <meta name="twitter:description" content="系统设计读书笔记。祝我好运。">
 
 
@@ -164,7 +164,7 @@
   };
 </script>
 
-  <title>系统设计笔记 | Bob_波波</title>
+  <title>Design Data Intensive Applications读书笔记 | Bob's Blog</title>
   
 
 
@@ -231,7 +231,7 @@
     <div class="custom-logo-site-title">
       <a href="/" class="brand" rel="start">
         <span class="logo-line-before"><i></i></span>
-        <span class="site-title">Bob_波波</span>
+        <span class="site-title">Bob's Blog</span>
         <span class="logo-line-after"><i></i></span>
       </a>
     </div>
@@ -289,7 +289,7 @@
       
     
 
-    <a href="/tags/" rel="section"><i class="menu-item-icon fa fa-fw fa-tags"></i> <br/>Tags<span class="badge">46</span></a>
+    <a href="/tags/" rel="section"><i class="menu-item-icon fa fa-fw fa-tags"></i> <br/>Tags<span class="badge">49</span></a>
 
   </li>
         
@@ -327,7 +327,7 @@
       
     
 
-    <a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br/>Archives<span class="badge">46</span></a>
+    <a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br/>Archives<span class="badge">48</span></a>
 
   </li>
 
@@ -413,13 +413,13 @@
     <link itemprop="mainEntityOfPage" href="https://bobbyliujb.github.io/2020/01/14/designing_data_intensive_app/"/>
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Bob_波波"/>
+      <meta itemprop="name" content="Bob"/>
       <meta itemprop="description" content="I'm a Software Engineer!"/>
       <meta itemprop="image" content="/images/avatar.jpg"/>
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Bob_波波"/>
+      <meta itemprop="name" content="Bob's Blog"/>
     </span>
 
     
@@ -427,7 +427,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">系统设计笔记
+          <h1 class="post-title" itemprop="name headline">Design Data Intensive Applications读书笔记
 
               
             
@@ -470,7 +470,7 @@
                 
                   <span class="post-meta-item-text">Edited on</span>
                 
-                <time title="Modified: 2020-01-18 23:04:03" itemprop="dateModified" datetime="2020-01-18T23:04:03-08:00">2020-01-18</time>
+                <time title="Modified: 2020-02-11 03:59:27" itemprop="dateModified" datetime="2020-02-11T03:59:27-08:00">2020-02-11</time>
               
             
           </span>
@@ -513,7 +513,7 @@
 
           
           
-             <span id="/2020/01/14/designing_data_intensive_app/" class="leancloud_visitors" data-flag-title="系统设计笔记">
+             <span id="/2020/01/14/designing_data_intensive_app/" class="leancloud_visitors" data-flag-title="Design Data Intensive Applications读书笔记">
                <span class="post-meta-divider">|</span>
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -538,7 +538,7 @@
                 
                   <span class="post-meta-item-text">Symbols count in article: </span>
                 
-                <span title="Symbols count in article">1.8k</span>
+                <span title="Symbols count in article">14k</span>
               
 
               
@@ -552,7 +552,7 @@
                 
                   <span class="post-meta-item-text">Reading time &asymp;</span>
                 
-                <span title="Reading time">2 mins.</span>
+                <span title="Reading time">14 mins.</span>
               
             </div>
           
@@ -573,7 +573,7 @@
 
       
         <p>系统设计读书笔记。祝我好运。<br><a id="more"></a></p>
-<h2 id="Chapter-1"><a href="#Chapter-1" class="headerlink" title="Chapter 1"></a>Chapter 1</h2><h3 id="Reliability"><a href="#Reliability" class="headerlink" title="Reliability"></a>Reliability</h3><p> 系统能持续正常工作，即便遇到hardware/software faults甚至human errors.<br> fault: 系统中的一个component deviated from its spec.<br> failure: system as a whole stops providing required service.<br> 由于出现fault的几率不可能为0，因此倾向于设计fault-tolerant而不是fault-preventing的系统。</p>
+<h2 id="Chapter-1-Relable-Scalable-and-Maintainable"><a href="#Chapter-1-Relable-Scalable-and-Maintainable" class="headerlink" title="Chapter 1: Relable, Scalable and Maintainable"></a>Chapter 1: Relable, Scalable and Maintainable</h2><h3 id="Reliability"><a href="#Reliability" class="headerlink" title="Reliability"></a>Reliability</h3><p> 系统能持续正常工作，即便遇到hardware/software faults甚至human errors.<br> fault: 系统中的一个component deviated from its spec.<br> failure: system as a whole stops providing required service.<br> 由于出现fault的几率不可能为0，因此倾向于设计fault-tolerant而不是fault-preventing的系统。</p>
 <h4 id="Hardware-Faults"><a href="#Hardware-Faults" class="headerlink" title="Hardware Faults"></a>Hardware Faults</h4><ul>
 <li>计算机系统中的硬盘、内存、power grid等等零件都可能出问题，这可以通过redundancy来减少整个系统宕机的概率。</li>
 <li>随着数据量增加，增加备份也无法解决，就需要考虑如何在某个机器宕机的情况下通过软件调度来防止整个服务崩溃。</li>
@@ -604,6 +604,201 @@
 <li>SLO/SLA: Service Level Objective/Agreements, 用percentile来判断系统是否up。</li>
 <li>Load generating: 一定要independent of response time才能模拟真实情况，不能等到收到响应才轰下一个请求。</li>
 </ul>
+<h3 id="Maintainability"><a href="#Maintainability" class="headerlink" title="Maintainability"></a>Maintainability</h3><p> 软件开发本身开销不算最大，日后的维护、升级、迁移是大头。</p>
+<h4 id="Operability"><a href="#Operability" class="headerlink" title="Operability"></a>Operability</h4><p> 保证operation组能让系统保持运行.</p>
+<ul>
+<li>高质量的monitoring</li>
+<li>适当的logging来track down出问题（结果不对或者速度太慢）的根源</li>
+<li>保证系统能升级，尤其是security patches.</li>
+<li>正确的configuration</li>
+<li>开发时遵循best practice</li>
+</ul>
+<h4 id="Simplicity"><a href="#Simplicity" class="headerlink" title="Simplicity"></a>Simplicity</h4><p> 保证代码简介，让新加入的码农也能理解代码。一个很有效的方法是abstraction，用high-level的类来描述统一的行为。</p>
+<ul>
+<li>防止explosion of the state space</li>
+<li>让系统中的modules尽量decouple，减少dependencies</li>
+<li>保证一致的naming</li>
+<li>减少短视的hacks</li>
+</ul>
+<h4 id="Evolvability"><a href="#Evolvability" class="headerlink" title="Evolvability"></a>Evolvability</h4><p> 方便后续rafactor、加入新feature，与前面的simplicity息息相关。</p>
+<ul>
+<li>Agile working patterns比较方便change</li>
+<li>TDD: test-driven development</li>
+</ul>
+<h2 id="Chapter-2-Data-Models-and-Query-Languages"><a href="#Chapter-2-Data-Models-and-Query-Languages" class="headerlink" title="Chapter 2: Data Models and Query Languages"></a>Chapter 2: Data Models and Query Languages</h2><p> 分层式系统中，每一层都隐藏下层的complexity，向上层提供clean data model。</p>
+<h3 id="Relational-Model-v-s-Document-Model"><a href="#Relational-Model-v-s-Document-Model" class="headerlink" title="Relational Model v.s. Document Model"></a>Relational Model v.s. Document Model</h3><ul>
+<li>relational有严格的schema，且方便处理transactional process.</li>
+<li>NoSQL(Not only SQL)对于大数据、write heavy的场景更具有scalability，且可定制query<ul>
+<li>schema flexibility</li>
+<li>better performance due to locality</li>
+<li>closer to the data structure in the application code level</li>
+</ul>
+</li>
+<li>Object-Relational Mismatch: 在代码中和在数据库中的model并不是一致的，尽管有ORM帮忙转换，但本质上还是无法保证一一对应。例如领英中一个人物毕业的学校、就职的公司通常都会有另外的table来存，再通过各种join来取，而不是直接存在用户table里。</li>
+<li>Normalization: 在relationalDB中通常用ID来定位records，是因为它只在数据库中有意义，而对人类有意义的内容存在table中，防止了存储重复信息到每一行中。此外用ID而不是plain-text还可以防止ambiguity，提高update的容易程度，更好地localization，更方便搜索等。</li>
+<li>Many-to-One: Normalization需要有多个entity归属于同一个category的情况才值得normalize，否则就还是像document一样save nested records within their parent record.</li>
+</ul>
+<h4 id="SQL-NoSQL的优势劣势"><a href="#SQL-NoSQL的优势劣势" class="headerlink" title="SQL/NoSQL的优势劣势"></a>SQL/NoSQL的优势劣势</h4><ul>
+<li>若系统中的数据本身就有类似document的一对多结构，比如a tree of one-to-many &amp;&amp; the tree is loaded at once，或者records之间没有关联，那么用Document DB就好，relational需要shredding，即把数据打碎存在不同的table中。</li>
+<li>若数据是interconnected, many-to-many，那还是relational自带的join比较方便管理数据之间的关系，强行用document还需要自己模拟join的代码（多次query）</li>
+<li>Schema flexibility: 准确地说是schema-on-read(结构是implicit的，只有读取的时候才会interpret)；而relational则是schema-on-write（explicit structure, 数据库会确保存入时符合格式）。当需要改变data format的时候，schema-less只要在代码层面加上针对新、旧数据读取的判断代码即可，而relational就需要migration进行ALTER（通常几ms就完成，除了mysql会复制所有数据）。此外，如果存储对象中有很多种类的数据，或者数据的结构时收外部系统控制的，这时规定schema的话hurt more than it helps.</li>
+<li>Data Locality: document存储通常会直接读取整个block，如果确实需要这么多数据（如渲染网页）那么就有locality的优势，relational需要在各个table间收集再返回整个block（虽然Google’s Spanner DB也可以一次读一个block）。但document的缺陷是写入时需要对整个block重写，因此要尽量避免增加row size，在不改变encoded size of a document的情况下修改可以in-place完成。</li>
+<li>Convergence: relational DB逐渐支持存储JSON blob，document DB也逐渐支持join操作，两者正在融合各自的优势，代码层面就可以根据应用场景选择代码实现。</li>
+</ul>
+<h3 id="Query-Language-for-Data"><a href="#Query-Language-for-Data" class="headerlink" title="Query Language for Data"></a>Query Language for Data</h3><ul>
+<li>Imperative: 按照一定顺序执行给定操作，如代码中的for-loop。</li>
+<li>Declarative: SQL只给定所需data的pattern（取的条件和返回的顺序等）。更简洁且隐藏了底层的优化，且支持并行计算。</li>
+<li>CSS selector就是个declarative例子，不需要javascript循环查找特定的元素。</li>
+<li>Map-Reduce Query: map和reduce两个纯粹的function实现query，介于imperative和declarative之间（需要写函数，支持并行）</li>
+</ul>
+<h3 id="Graph-Like-Data-Models"><a href="#Graph-Like-Data-Models" class="headerlink" title="Graph-Like Data Models"></a>Graph-Like Data Models</h3><ul>
+<li>如果many-to-many关系很强，需要考虑用graph存放数据。</li>
+<li>图由vertices和edges组成。vertices并不一定是相同类型的东西，例如fb中每个节点可以是用户/评论/登陆等事件。</li>
+<li>若用relational DB表示图，需要两个表：一个存放vertices（含id和属性键值对），一个存放边（含id、始终点、label、属性键值对）。</li>
+<li>任何vertex都可以连接到任何vertex；给定任何vertex，可以知道输入/输出的边，从而遍历整个图（双向）；合理使用label可以将大量信息存在一个图中。</li>
+</ul>
+<h2 id="Chapter-3-Storage-and-Retrieval"><a href="#Chapter-3-Storage-and-Retrieval" class="headerlink" title="Chapter 3: Storage and Retrieval"></a>Chapter 3: Storage and Retrieval</h2><p> 虽然我们并不会实现数据存储引擎，但有必要了解底层具体实现，以选择更适合应用（如analytics为主还是transactinal workload为主）的引擎。</p>
+<h3 id="Data-Structures-in-Relational-DB"><a href="#Data-Structures-in-Relational-DB" class="headerlink" title="Data Structures in Relational DB"></a>Data Structures in Relational DB</h3><p> 主流存储引擎分为log-structured和page-oriented。log-strutured底层实现其实就是log（append-only sequence of records），涉及concurrency control, reclaiming disk space, hanling errors, etc. log的特点是写入很快，但查找如果不加优化就是O(N)的，因此需要开发者根据query的pattern加上合适的index提升查找速度。</p>
+<h4 id="Hash-Indexes"><a href="#Hash-Indexes" class="headerlink" title="Hash Indexes"></a>Hash Indexes</h4><ul>
+<li>假设存储的是key-value型的数据，在内存中维护一个hashmap，每次写入数据时往hashmap里放key和对应在log文件中的byte offset方便查找即可。注意这个log只能append，因此每次都无脑地往hashmap里更新key-offset即可。</li>
+<li>为了防止log过大，可以用segment的方法拆分到不同file中，再定时执行compaction只保留最末的key并merge。</li>
+<li>删除key则需要一个特殊的标识tombstone，这样在后续的merge中对应的key就会被删。</li>
+<li>crash recovery: 内存一崩就全没，因此可以dump到硬盘上，崩后重新读入内存。由于只允许append，因此不需要检测更新到一半崩溃的问题。</li>
+<li>partially written data: Bitcask files含有checksum保证文件准确完整。</li>
+<li>concurrency control: 既然只允许append，就只允许一个writer就好了。</li>
+<li>不足：a) index必须全部容纳到内存中，因此key的数量有限。 b) Range query并不高效，需要现在hashmap中作一个range查找再去file中读取。</li>
+</ul>
+<h4 id="Sorted-String-Tables-and-Log-Structured-Merge-Trees"><a href="#Sorted-String-Tables-and-Log-Structured-Merge-Trees" class="headerlink" title="Sorted String Tables and Log-Structured Merge-Trees"></a>Sorted String Tables and Log-Structured Merge-Trees</h4><ul>
+<li>将log中的key排序存放，在merge segment的时候就用mergesort即可快速合并，如果在多个segment中出现相同的key则保留最晚被修改的segment即可。</li>
+<li>内存中hashmap只需要存一部分key的offset即可，快速定位到前后两个key之后查找即可。</li>
+<li>在disk上维持sorted structure是可行的，如B-tree，但更方便的还是用in-memory的red-black tree或者AVL Tree，之后再写入logfile。<ol>
+<li>每次写入都存入in-memory balanced tree structure（memtable）.</li>
+<li>到达一定阈值后存入disk，这就是most recent segment。</li>
+<li>读取时先尝试从in-memory读，没有再按照时间顺序从最近到最古老的logfile中查找。</li>
+<li>时不时进行merging and compaction来取出重复的/删除了的key。</li>
+<li>为了防止in-memory的宕机丢失，可以纯append到一个单独的file当中，不必维持顺序，宕机后重新读取再排序即可。</li>
+</ol>
+</li>
+</ul>
+<h4 id="B-Trees（最流行的index方式。）"><a href="#B-Trees（最流行的index方式。）" class="headerlink" title="B-Trees（最流行的index方式。）"></a>B-Trees（最流行的index方式。）</h4><ul>
+<li>也需要维护排好序的key，不是将数据存到segment中，而是将数据拆分成固定大小（通常4KB左右）的disk blocks/pages，每个block通过地址来定位。每个block中存放key-value/addr，有点类似指针的概念，但不是内存而是disk。</li>
+<li>查找是根据key，在某个范围内的需要跳转到某个地址查找，这样一路查找到leaf page就可以得到value或者存放的地址。branching factor通常是几百。</li>
+<li>增加则是到leaf page直接加，如果该page剩余空间不足，则将它拆分成两个half full page，插入后更新parent page，加入一个key指向拆分出来的新page的头部。这一系列操作一旦崩了，就会丢失数据，因此需要额外的write-ahead log，一个append-only的存放所有修改操作的文件，方便恢复数据。</li>
+<li>concurrency control: 需要latches(轻量级锁)来保证数据一致。</li>
+</ul>
+<h4 id="B-Tree-v-s-LSM-Trees"><a href="#B-Tree-v-s-LSM-Trees" class="headerlink" title="B-Tree v.s. LSM-Trees"></a>B-Tree v.s. LSM-Trees</h4><ul>
+<li>LSM写入更快，B-Tree写入时由于WAL的存在需要写两次，如果涉及page split那就更复杂了。Log-structure由于merging和compaction也需要多次写数据，但这个write-amplification还是更快，因为是sequential的在disk上优势更大。</li>
+<li>LSM产生的文件更小，B-Tree可能在page末尾有没用上的空间，LSM一波compaction能省很多空间。</li>
+<li>LSM的compaction过程可能影响正常的读写速度，毕竟disk资源有限。</li>
+<li>LSM的compaction可能跟不上正常写入的速度，这样disk会最终被占满，而读取也会变慢。</li>
+<li>B-tree的一个优势是每个key只会在index中出现一次，这样可以保证强transaction.</li>
+</ul>
+<h4 id="Other-Index-Structures"><a href="#Other-Index-Structures" class="headerlink" title="Other Index Structures"></a>Other Index Structures</h4><ul>
+<li>除了key-value这种primary index，很多时候还需要加secondary index，即允许重复的key对应不同的value。实现方式可以是将value存成list，或者将key加上id使其unique.</li>
+<li>Heap file index: key指向一个heapfile，值统一存在heap中，每个index就指向heap中的一个位置即可。</li>
+<li>clustered index: 将所有数据直接存储在index之内，而不只是一个reference。这样可以减少在heapfile中查找的时间。</li>
+<li>covering index: 二者的结合，部分indexes cover了数据，其他的则还是需要到实际file中查找。</li>
+<li>multi-column indexes: 同时查找多个keys。例如concatenated index就是将多个index拼接起来如(a-b-c),但无法高效查找b/c/b-c. 当然也可以将多维的转换为一维的再使用B-Tree，另外是更高级的multi-dimentional indexes如R-Tree. </li>
+<li>full-text search and fuzzy indexes: 允许模糊搜索，不用完全和key吻合（拼错）或允许同义词。例如Lucene就允许搜索一定edit distance之内的词。</li>
+<li>in-memory DB: Memcache本意是用来缓存的，但也可以作为DB，只需要提升durability通过在disk写changelog，或时不时往disk写snapshot，或replicate到其他机器。需要指出的是in-memory速度快主要不是来自于从内存中读数据，而是因为它避免了将数据encode成方便存入disk的结构。例如Redis可以存priorityQueue和set等。in-memoryDB可容纳数据的大小也可以超过物理内存，因为可以swap（系统的swap是以memory page为单位，这里的swap是以每一行record为单位）。</li>
+<li>NVM: non-volatile memory，不需要swap也可以在内存里长久地存数据了。</li>
+</ul>
+<h3 id="Transaction-Processing-or-Analytics"><a href="#Transaction-Processing-or-Analytics" class="headerlink" title="Transaction Processing or Analytics?"></a>Transaction Processing or Analytics?</h3><p> transaction意思是a group of reads and writes that form a logical unit. 它并不需要保证ACID，只需要提供低延迟的读写。<br> | Property | Transaction processing systems(OLTP) | Analytic systems(OLAP) |<br> | :——-: | :——-: | :———-: |<br> |读|每次按照key来query少量数据|aggregate大量数据|<br> |写|random-access, 来自用户的低延迟写|Bulk import(ETL)或事件流|<br> |主要用于|用户通过web访问|内部数据分析，支持决策|<br> |数据表示的是|数据当前最新的状态|history of events over time|<br> |Dataset size|Gigabytes to Terabytes|Terabytes to Petabytes|</p>
+<h4 id="Data-Warehousing"><a href="#Data-Warehousing" class="headerlink" title="Data Warehousing"></a>Data Warehousing</h4><ul>
+<li>如果直接在OLTP数据库上进行数据分析，很可能会影响正常执行的来自用户的query。因此需要利用Extract-Transform-Load将数据转入独立的Data Warehouse后再做分析。</li>
+<li>indexing对于OLTP数据库有很大帮助，但对于analytics不是很好。</li>
+<li>DB vendors要么专注transaction processing，要么专注analytics workloads.</li>
+<li>star schema: 将各个独立的table之间的关系visualize了。dim_table就是各个独立的表（who, where, when ,how, why），fact_table就集合了所有dim表的column，显示地表示数据之间的关系。</li>
+</ul>
+<h3 id="Column-Oriented-Storage"><a href="#Column-Oriented-Storage" class="headerlink" title="Column-Oriented Storage"></a>Column-Oriented Storage</h3><ul>
+<li>通常fact表的列多大100+，行数达到trillions，因此在fact表上做query需要优化。</li>
+<li>analytics中每次select用不到那么多列，通常只需要4～5列。</li>
+<li>通常OLTP DB都是row-oriented，在不需要用到所有列的情况下还是会load很多无用的属性进内存，然后再根据WHERE筛选。因此可以存成column-oriented，这样可以减少很多不必要的load.</li>
+<li>Column Compression: 每个column中所有的值可能有很多重复的，因此可以利用bitmap进行encoding，减少每一列需要存储的数据量。</li>
+<li>vectorized processing: bandwidth瓶颈除了从disk载入内存外，还有内存到CPU cache. 为了充分利用CPU的cache，需要尽量让数据能fit到L1 cache里面。</li>
+<li>写入column-oriented的DB不是很直接，例如B-Tree涉及compression就很可能需要将所有column files都重写一遍了。但LSM可以先存入内存，然后才写入diskfile，之后才会merge，这正是Vertica底层实现。</li>
+</ul>
+<h4 id="Sort-Order-in-Column-Storage"><a href="#Sort-Order-in-Column-Storage" class="headerlink" title="Sort Order in Column Storage"></a>Sort Order in Column Storage</h4><ul>
+<li>根据query pattern选择对某些列进行排序。每次需要一整行地进行排序才能保证同一行的来自同一个entity。</li>
+<li>sorted的好处是bitmap压缩时可以节省bit，因为可以保证相同的value排序后是相邻的。</li>
+<li>在设置replica时可以将不同的sorted order存入不同的replica中，按需选择即可。</li>
+</ul>
+<h4 id="Materialize-Aggregation"><a href="#Materialize-Aggregation" class="headerlink" title="Materialize Aggregation"></a>Materialize Aggregation</h4><ul>
+<li>data warehouse中很可能会反复调用相同的count/sum/avg/min/max，因此可以将这些常用的query缓存起来。</li>
+<li>materialized view: 将常用结果存入独立的表中。OLTP中不常用，因为write-heavy，每次写都需要更新这些缓存的数据，速度慢。</li>
+<li>data cube: 额外维护一些cell，每个cell存放特定column组合的aggregate数据，在这些cell上进行aggregate就快多了。</li>
+</ul>
+<h2 id="Chapter-4-Encoding-and-Evolution"><a href="#Chapter-4-Encoding-and-Evolution" class="headerlink" title="Chapter 4: Encoding and Evolution"></a>Chapter 4: Encoding and Evolution</h2><ul>
+<li>系统总是在变化的，因此DB也难免需要更改schema。对于schema-on-write，DB有唯一指定的schema，可以通过migration(ALTER)实现；schema-on-read则涉及对代码的升级。</li>
+<li>对于server-side应用，可以用rolling upgrade，将新代码部署到一个node上再逐步推广，防止全部down。对于client-side应用，就at the mercy of the user了，只能等客户自己更新。</li>
+<li>由于可能同时存在新旧版本的代码/数据，需要注意backward compatibility（新代码可以读旧代码写入的数据）和forward compatibility（旧代码也能读新代码写入的数据）。</li>
+</ul>
+<h3 id="Formats-for-Encoding-Data"><a href="#Formats-for-Encoding-Data" class="headerlink" title="Formats for Encoding Data"></a>Formats for Encoding Data</h3><p> Encoding/Decoding指的是将数据在内存结构（objects/structs/lists/arrays/hashtables/trees）和传输存储结构（self-contained sequence of bytes）相互转换。</p>
+<h4 id="Language-Specific-Formats"><a href="#Language-Specific-Formats" class="headerlink" title="Language-Specific Formats"></a>Language-Specific Formats</h4><p> 部分编程语言自带将in-memory object转成byte sequence的库，使用倒是非常方便，但弊端也很多，因此尽可能避免使用。</p>
+<ul>
+<li>生成出来的byte seq通常和语言绑定，无法简单地在另一个语言上decode。</li>
+<li>decode的时候需要instantiate各种类，攻击者可能利用这个随机decode并执行随机代码。</li>
+<li>versioning data也是问题，通常不支持compatibility.</li>
+<li>效率不高，如CPU处理时间、生成的byte seq占据空间等。</li>
+</ul>
+<h4 id="JSON-XML-and-Binary-Variants"><a href="#JSON-XML-and-Binary-Variants" class="headerlink" title="JSON, XML and Binary Variants"></a>JSON, XML and Binary Variants</h4><ul>
+<li>通常他们已经是不错的选择了，虽然仍有一些缺陷需要指出：<ul>
+<li>encoding for numbers比较模糊，例如XML和CSV不区分数字和字符串，JSON不区分整数、小数，对于大数字支持不佳等。</li>
+<li>JSON和XML支持unicode，但是不支持binary strings，往往需要转成Base64存入，这样占空间多了33%</li>
+<li>XML和JSON可能需要在代码层面写死schema才能正确地读写。</li>
+<li>CSV没有schema，但本身比较模糊，对于escape有正式的规定但很多库没有正确实现。</li>
+</ul>
+</li>
+<li>Binary Encoding: JSON比XML更简介，但还是占用较多空间。JSON的binary encoding “MessagePack”利用byte头部规定后续的种类、长度，从而将JSON转换成binary encoding.</li>
+<li>Thrift：Facebook发明的encode/decode库，定义schema，其中包含了tag、数据类型。<ul>
+<li>BinaryProtocol：和MessagePack相比，无需在binary中重复存tag，只有tagNumber和数据类型。</li>
+<li>CompactProtocol: 将数据类型和tagNumber压缩到一起</li>
+</ul>
+</li>
+<li>Protocol Buffer: Google发明的encode/decode库，定义schema，其中包含了tag、数据类型。和Thrift CompactProtocol类似，将fieldType和tagNumber融合。</li>
+<li>Field Tags Evolutions: 可以任意往schema中添加新的field，只是不能规定是required，因为旧代码也需要读懂新的schema。而只要有不重复的tagNumber，新代码也可以读懂旧代码写的数据。如果想删除field，则只能删除optional的，且不能再使用被删掉的tagNumber.</li>
+<li>Datatypes Evolutions: 一定程度是允许的，但需要注意32-bit和64-bit只能是单向的转换，不能降低精度。</li>
+<li>Avro: Apache发明的encode/decode库，定义schema，其中没有tagNumber，直接存域名、数据类型。encode后的binary直接是长度+内容的形式拼接而成，需要读写双方都按照约定的schema严格操作。<ul>
+<li>读写双方的schema不用完全一致，只需要compatible即可。</li>
+<li>schema evolution也是可行的，只是需要注意前后兼容性，只能添加或删除带有默认值的field。注意null在Avro中只有当它在union branch中才是合法的默认值。</li>
+<li>reader如何知道writer的schema呢？毕竟在每一个record都附带schema很浪费空间。这就需要直冲Avro的应用场景了：(1) 大文件，含有大量records，就只需要一份schema; (2) 含有独立写入record的数据库，维护不同version的schema，按需读取; (3) 通过网络发送数据时可以在建立连接时就确定schema，之后的数据就按照该schema解读。</li>
+<li>Dynamiccaly generated schemas: Avro对频繁更新的schema更友好，因为每次改变后只需要从DB export成Avro schema即可。而Thrift/ProtoBuf则需要手动改变DB -&gt; field tags的映射。</li>
+<li>Code generation: 静态类型语言如Java/Cpp/C#都需要在读取数据时指明类型，但JS/Ruby/Python就不用。Thrift和ProtoBuf依赖于code generation，而Avro可以在不生成代码的情况下正常进行analyze.</li>
+</ul>
+</li>
+</ul>
+<h4 id="Modes-of-Dataflow"><a href="#Modes-of-Dataflow" class="headerlink" title="Modes of Dataflow"></a>Modes of Dataflow</h4><h5 id="Dataflow-Through-Databases"><a href="#Dataflow-Through-Databases" class="headerlink" title="Dataflow Through Databases"></a>Dataflow Through Databases</h5><ul>
+<li>可以理解为sending a message to a future self，先写入，之后读出来，因此backward compatible很重要。另一方面如果rolling upgrade，新的代码写入而旧的代码需要读取，则需要考虑forward compatible.</li>
+<li>数据可能在DB中存放很久，若更新schema，理论上可以全部重新写一遍，但更普遍的做法是在读的时候填充以前不存在的field，这样就变相允许schema evolution了。</li>
+<li>Archival存储通常就直接用最新的schema dump到数据库，这样就包含了各种不同历史时期写入的数据了，用Avro进行分析比较合适。</li>
+</ul>
+<h5 id="Dataflow-Through-Services"><a href="#Dataflow-Through-Services" class="headerlink" title="Dataflow Through Services"></a>Dataflow Through Services</h5><ul>
+<li>最常见的就是server-client结构了，通过API call进行数据交换。server本身也可以是client，这样就把一个复杂的系统decompose成独立的子系统，每个子系统可以独立维护、改变，这就是SOA/微服务架构。</li>
+<li>REST: 思想是用url来辨认资源，并用HTTP的特性实现缓存管理、身份验证、内容类型交换等。</li>
+<li>SOAP: 基于XML的一种规范，尽可能不依赖HTTP的特性而使用自身的<code>WS-*</code>特性。</li>
+<li>RPC: remote procedure call本意是想让请求远程服务和调用本地函数一样方便。但缺陷很明显：<ul>
+<li>本地函数调用要么成功要么失败，远程调用无法控制，因为牵扯网络问题，可能需要重发</li>
+<li>本地函数调用要么返回结果、抛异常、或死循环毫无回应；而远程调用可能timeout无法回复，也可能request没发成功，无法知道原因</li>
+<li>无脑重发请求也不科学，可能请求已经执行成功而回复丢失，并不需要重发</li>
+<li>本地函数执行时间基本恒定，而远程调用牵扯的因素就多多了</li>
+<li>本地调用时参数可以直接用索引、指针传，发送远程就要encode，复杂很多，占用空间也大</li>
+<li>远程函数的实现可能是不同的语言，需要将参数翻译成对应的type才能执行</li>
+</ul>
+</li>
+<li>进化版RPC: 承认远程调用与本地调用的区别，例如引入Futures/Promoises来实现asynchronized调用，可以并行调用多个远程服务。</li>
+</ul>
+<h5 id="Message-Passing-Dataflow"><a href="#Message-Passing-Dataflow" class="headerlink" title="Message-Passing Dataflow"></a>Message-Passing Dataflow</h5><ul>
+<li>异步传送消息到一个中间的message broker/message queue中，由接收方从中读取，注意是单向的，要想回复就得走另一个中间件。这样比直接用RPC发送有以下好处<ul>
+<li>中间件有buffer作用，防止接收方爆炸</li>
+<li>自动重发，如果监测到crash</li>
+<li>发送者不需要知道接受者的ip/端口</li>
+<li>同一个消息可以同时发给多个接收方</li>
+<li>解耦合：发送方只负责发，不需要关心谁consume.</li>
+</ul>
+</li>
+<li>Message Broker: 一个进程发送到一个named queue/topic，broker确保这些信息最终会递送到consumers/subscribers处。如果需要，接收方可以chain一个另外的queue/topic进行回复。在queue中的通常就是byte和metadata，不是特定的data model.</li>
+<li>Distributed Actors Framework: actor model用于单一进程的concurrency控制，逻辑不在thread level而是封装到了actor中。一个actor就是一个client/entity，通过发送消息和其他actors互动。若将服务分布到多个node上就形成了分布式actor，如果需要跨node就需要encode成byte sequence通过网络发送。这时候如果要保证前后兼容性和rolling upgrade，可能需要对框架做一些customize，例如替换掉内置的encode库。</li>
+</ul>
 <hr>
 <h3 id="References"><a href="#References" class="headerlink" title="References"></a>References</h3><ul>
 <li><a href="https://www.amazon.com/Designing-Data-Intensive-Applications-Reliable-Maintainable/dp/1449373321" target="_blank" rel="external">Designing Data-Intensive Applications</a></li>
@@ -613,6 +808,10 @@
     </div>
 
     
+      
+
+
+    
 
     
     
@@ -623,44 +822,6 @@
     
       
     
-    
-      <div>
-        <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
-  <div>└(^o^)┘</div>
-  <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
-    <span>Donate</span>
-  </button>
-  <div id="QR" style="display: none;">
-
-    
-      <div id="wechat" style="display: inline-block">
-        <img id="wechat_qr" src="/images/wechat.png" alt="Bob_波波 WeChat Pay"/>
-        <p>WeChat Pay</p>
-      </div>
-    
-
-    
-      <div id="alipay" style="display: inline-block">
-        <img id="alipay_qr" src="/images/alipay.png" alt="Bob_波波 Alipay"/>
-        <p>Alipay</p>
-      </div>
-    
-
-    
-    <br>
-    <div id="paypal-button">
-      <form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top">
-        <input type="hidden" name="cmd" value="_donations" />
-        <input type="hidden" name="business" value="XPMQMQD8XQUPL" />
-        <input type="hidden" name="currency_code" value="USD" />
-        <input type="image" src="https://www.paypalobjects.com/en_US/i/btn/btn_donateCC_LG.gif" border="0" name="submit" title="PayPal - The safer, easier way to pay online!" alt="Donate with PayPal button" />
-      </form>
-    </div>
-
-  </div>
-</div>
-
-      </div>
     
 
     
@@ -715,6 +876,10 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2020/04/08/bq/" rel="prev" title="行为面试笔记">
+                行为面试笔记 <i class="fa fa-chevron-right"></i>
+              </a>
             
           </div>
         </div>
@@ -782,9 +947,9 @@
             
               <img class="site-author-image" itemprop="image"
                 src="/images/avatar.jpg"
-                alt="Bob_波波"/>
+                alt="Bob"/>
             
-              <p class="site-author-name" itemprop="name">Bob_波波</p>
+              <p class="site-author-name" itemprop="name">Bob</p>
               <p class="site-description motion-element" itemprop="description">I'm a Software Engineer!</p>
           </div>
 
@@ -795,7 +960,7 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">46</span>
+                    <span class="site-state-item-count">48</span>
                     <span class="site-state-item-name">posts</span>
                   </a>
                 </div>
@@ -921,7 +1086,13 @@
                     
                       
                     
-                    <span class="site-state-item-count">46</span>
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">49</span>
                     <span class="site-state-item-name">tags</span>
                   </a>
                 </div>
@@ -957,7 +1128,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Chapter-1"><span class="nav-text">Chapter 1</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Reliability"><span class="nav-text">Reliability</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Hardware-Faults"><span class="nav-text">Hardware Faults</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Software-Faults"><span class="nav-text">Software Faults</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Human-Errors"><span class="nav-text">Human Errors</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Scalability"><span class="nav-text">Scalability</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#如何衡量Load"><span class="nav-text">如何衡量Load</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#如何衡量Performance"><span class="nav-text">如何衡量Performance</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#References"><span class="nav-text">References</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Chapter-1-Relable-Scalable-and-Maintainable"><span class="nav-text">Chapter 1: Relable, Scalable and Maintainable</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Reliability"><span class="nav-text">Reliability</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Hardware-Faults"><span class="nav-text">Hardware Faults</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Software-Faults"><span class="nav-text">Software Faults</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Human-Errors"><span class="nav-text">Human Errors</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Scalability"><span class="nav-text">Scalability</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#如何衡量Load"><span class="nav-text">如何衡量Load</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#如何衡量Performance"><span class="nav-text">如何衡量Performance</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Maintainability"><span class="nav-text">Maintainability</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Operability"><span class="nav-text">Operability</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Simplicity"><span class="nav-text">Simplicity</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Evolvability"><span class="nav-text">Evolvability</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Chapter-2-Data-Models-and-Query-Languages"><span class="nav-text">Chapter 2: Data Models and Query Languages</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Relational-Model-v-s-Document-Model"><span class="nav-text">Relational Model v.s. Document Model</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#SQL-NoSQL的优势劣势"><span class="nav-text">SQL/NoSQL的优势劣势</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Query-Language-for-Data"><span class="nav-text">Query Language for Data</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Graph-Like-Data-Models"><span class="nav-text">Graph-Like Data Models</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Chapter-3-Storage-and-Retrieval"><span class="nav-text">Chapter 3: Storage and Retrieval</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Data-Structures-in-Relational-DB"><span class="nav-text">Data Structures in Relational DB</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Hash-Indexes"><span class="nav-text">Hash Indexes</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Sorted-String-Tables-and-Log-Structured-Merge-Trees"><span class="nav-text">Sorted String Tables and Log-Structured Merge-Trees</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#B-Trees（最流行的index方式。）"><span class="nav-text">B-Trees（最流行的index方式。）</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#B-Tree-v-s-LSM-Trees"><span class="nav-text">B-Tree v.s. LSM-Trees</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Other-Index-Structures"><span class="nav-text">Other Index Structures</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Transaction-Processing-or-Analytics"><span class="nav-text">Transaction Processing or Analytics?</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Data-Warehousing"><span class="nav-text">Data Warehousing</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Column-Oriented-Storage"><span class="nav-text">Column-Oriented Storage</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Sort-Order-in-Column-Storage"><span class="nav-text">Sort Order in Column Storage</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Materialize-Aggregation"><span class="nav-text">Materialize Aggregation</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Chapter-4-Encoding-and-Evolution"><span class="nav-text">Chapter 4: Encoding and Evolution</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Formats-for-Encoding-Data"><span class="nav-text">Formats for Encoding Data</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Language-Specific-Formats"><span class="nav-text">Language-Specific Formats</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#JSON-XML-and-Binary-Variants"><span class="nav-text">JSON, XML and Binary Variants</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Modes-of-Dataflow"><span class="nav-text">Modes of Dataflow</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#Dataflow-Through-Databases"><span class="nav-text">Dataflow Through Databases</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#Dataflow-Through-Services"><span class="nav-text">Dataflow Through Services</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#Message-Passing-Dataflow"><span class="nav-text">Message-Passing Dataflow</span></a></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#References"><span class="nav-text">References</span></a></li></ol></li></ol></div>
             
 
           </div>
@@ -982,11 +1153,11 @@
 
     <footer id="footer" class="footer">
       <div class="footer-inner">
-        <div class="copyright">&copy; 2016 – <span itemprop="copyrightYear">2020</span>
+        <div class="copyright">&copy; 2016 – <span itemprop="copyrightYear">2021</span>
   <span class="with-love" id="animate">
     <i class="fa fa-futbol-o"></i>
   </span>
-  <span class="author" itemprop="copyrightHolder">Bob_波波</span>
+  <span class="author" itemprop="copyrightHolder">Bob</span>
 
   
 
@@ -1145,7 +1316,7 @@
       var disqus_config = function () {
         this.page.url = "https://bobbyliujb.github.io/2020/01/14/designing_data_intensive_app/";
         this.page.identifier = "2020/01/14/designing_data_intensive_app/";
-        this.page.title = '系统设计笔记';
+        this.page.title = 'Design Data Intensive Applications读书笔记';
         };
       function loadComments () {
         var d = document, s = d.createElement('script');

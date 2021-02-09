@@ -141,11 +141,11 @@
 <meta property="og:type" content="article">
 <meta property="og:title" content="系统设计笔记">
 <meta property="og:url" content="https://bobbyliujb.github.io/2019/10/16/system_design/index.html">
-<meta property="og:site_name" content="Bob_波波">
+<meta property="og:site_name" content="Bob&#39;s Blog">
 <meta property="og:description" content="系统设计学习笔记。祝我好运。">
 <meta property="og:locale" content="en">
 <meta property="og:image" content="https://www.researchgate.net/profile/Joao_Lourenco11/publication/282519669/figure/fig1/AS:281002732736529@1444007680733/CAP-theorem-with-databases-that-choose-CA-CP-and-AP.png">
-<meta property="og:updated_time" content="2020-01-16T06:15:39.239Z">
+<meta property="og:updated_time" content="2020-01-28T13:39:04.285Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="系统设计笔记">
 <meta name="twitter:description" content="系统设计学习笔记。祝我好运。">
@@ -166,7 +166,7 @@
   };
 </script>
 
-  <title>系统设计笔记 | Bob_波波</title>
+  <title>系统设计笔记 | Bob's Blog</title>
   
 
 
@@ -233,7 +233,7 @@
     <div class="custom-logo-site-title">
       <a href="/" class="brand" rel="start">
         <span class="logo-line-before"><i></i></span>
-        <span class="site-title">Bob_波波</span>
+        <span class="site-title">Bob's Blog</span>
         <span class="logo-line-after"><i></i></span>
       </a>
     </div>
@@ -291,7 +291,7 @@
       
     
 
-    <a href="/tags/" rel="section"><i class="menu-item-icon fa fa-fw fa-tags"></i> <br/>Tags<span class="badge">46</span></a>
+    <a href="/tags/" rel="section"><i class="menu-item-icon fa fa-fw fa-tags"></i> <br/>Tags<span class="badge">49</span></a>
 
   </li>
         
@@ -329,7 +329,7 @@
       
     
 
-    <a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br/>Archives<span class="badge">46</span></a>
+    <a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br/>Archives<span class="badge">48</span></a>
 
   </li>
 
@@ -415,13 +415,13 @@
     <link itemprop="mainEntityOfPage" href="https://bobbyliujb.github.io/2019/10/16/system_design/"/>
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Bob_波波"/>
+      <meta itemprop="name" content="Bob"/>
       <meta itemprop="description" content="I'm a Software Engineer!"/>
       <meta itemprop="image" content="/images/avatar.jpg"/>
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Bob_波波"/>
+      <meta itemprop="name" content="Bob's Blog"/>
     </span>
 
     
@@ -472,7 +472,7 @@
                 
                   <span class="post-meta-item-text">Edited on</span>
                 
-                <time title="Modified: 2020-01-15 22:15:39" itemprop="dateModified" datetime="2020-01-15T22:15:39-08:00">2020-01-15</time>
+                <time title="Modified: 2020-01-28 05:39:04" itemprop="dateModified" datetime="2020-01-28T05:39:04-08:00">2020-01-28</time>
               
             
           </span>
@@ -540,7 +540,7 @@
                 
                   <span class="post-meta-item-text">Symbols count in article: </span>
                 
-                <span title="Symbols count in article">7.7k</span>
+                <span title="Symbols count in article">9.7k</span>
               
 
               
@@ -554,7 +554,7 @@
                 
                   <span class="post-meta-item-text">Reading time &asymp;</span>
                 
-                <span title="Reading time">8 mins.</span>
+                <span title="Reading time">10 mins.</span>
               
             </div>
           
@@ -736,7 +736,99 @@
 <li>WebSockets: 在一个TCP连接中提供全双通（full duplex）的通信渠道，一旦WebSocket handshake完成，连接就建立了，client和server都可以实时任意交换数据。</li>
 <li>Server-sent Events: client和server之间建立了一个persistent和长期的连接，当server在不断产生data或持续发送events的时候比较合适。</li>
 </ul>
-<h2 id="系统设计面试"><a href="#系统设计面试" class="headerlink" title="系统设计面试"></a>系统设计面试</h2><h3 id="解题步骤"><a href="#解题步骤" class="headerlink" title="解题步骤"></a>解题步骤</h3><hr>
+<h2 id="系统设计面试"><a href="#系统设计面试" class="headerlink" title="系统设计面试"></a>系统设计面试</h2><h3 id="解题步骤"><a href="#解题步骤" class="headerlink" title="解题步骤"></a>解题步骤</h3><ol>
+<li>Requirement Clarification<ul>
+<li>scope大致是多大的？</li>
+<li>支持用户的哪些操作？是否需要根据搜索/写入做优化？</li>
+<li>后台/entity需要储存哪些类型的数据？</li>
+<li>是否需要支持一些机器学习模型如推荐热搜？</li>
+<li>是否有一些后台push notification的操作？</li>
+</ul>
+</li>
+<li>Back-of-the-envelope estimation 估算系统规模<ul>
+<li>系统的scale是怎样的？（单位时间内新增内容/查询次数）</li>
+<li>需要多少的storage和cache？这涉及不同的DB选择</li>
+<li>网络bandwidth是怎么样的？这涉及之后的traffic management和load balancing.</li>
+</ul>
+</li>
+<li>System interface definition 将系统对外开放的API写出来<ul>
+<li>将contract翻译成函数+参数的形式</li>
+<li>确保包括了出题人所有想要的操作</li>
+</ul>
+</li>
+<li>Defining Data Model<ul>
+<li>可以理解为数据库中需要存储的entity，clarify数据是如何在系统中各个component之间流动的</li>
+<li>guide for data partitioning and management比如storage, transportation, encryption.</li>
+</ul>
+</li>
+<li>High-level Design<ul>
+<li>画一个系统关键component的图，将每个操作end-to-end都过一遍</li>
+<li>标配是client - LB - ApplicationServer - DB/File Storage(pic,video).</li>
+</ul>
+</li>
+<li>Detailed Design<ul>
+<li>将系统中关键的两三个component拎出来解释有哪些实现方式和对应的pros&amp;cons.</li>
+<li>在讨论时可以举一些场景例子解释在哪些情况下有优势，而不能解决哪些情况。缓存设在哪层会产生哪些好处/不足。根据需求是否有些小hack可以做，好处坏处是什么。</li>
+</ul>
+</li>
+<li>Identifying and Resolving bottlenecks 找出系统瓶颈并提供mitigate方案<ul>
+<li>Single Point of Failure？</li>
+<li>Data Replicas保证在少量数据库崩时还能提供数据？</li>
+<li>Server Replicas保证在少量服务器崩时还能提供服务？</li>
+<li>如何monitor并设置alert？阈值是多少？</li>
+</ul>
+</li>
+</ol>
+<h3 id="模拟题"><a href="#模拟题" class="headerlink" title="模拟题"></a>模拟题</h3><h4 id="URL-Shortening-service"><a href="#URL-Shortening-service" class="headerlink" title="URL Shortening service"></a>URL Shortening service</h4><ol>
+<li>需求分析<ul>
+<li>Functional<ul>
+<li>输入一个长链接，生成唯一且更短的链接。</li>
+<li>输入短链接，需要重定向到原链接</li>
+<li>如果愿意，用户可以customize生成的短链接</li>
+<li>短链接不是永久的，用户可以定义expiration</li>
+</ul>
+</li>
+<li>Non-functional<ul>
+<li>Highly available，否则短链接都没法用了</li>
+<li>Minimal latency，最短时间完成转换</li>
+<li>短链接不能guessable/predictable</li>
+</ul>
+</li>
+<li>Advanced<ul>
+<li>Analytics friendly，方便统计redirect数据</li>
+<li>支持REST API，其他service可以call我们的service</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Capacity Estimation and Constraints<ul>
+<li>Traffic Estimates<ul>
+<li>读操作（redirect from short URL）要多于写操作（create new URL），具体比例假设是100:1</li>
+<li>如果每个月需要生成500 Million的新短链接,对应到QPS就是<code>500M / (30 * 24 * 3600) = 200</code>; 那么每个月redirect次数是50 Billion，对应到QPS就是20K/s.</li>
+</ul>
+</li>
+<li>Storage Estimates<ul>
+<li>假设每个长短链接对需要存储5年，每个存储对象大概500 bytes，则需要的存储空间为<code>500M * 5yr * 12mo * 500bytes = 15TB</code></li>
+</ul>
+</li>
+<li>Bandwidth Estimates<ul>
+<li>写入操作QPS为200/s，incoming data大概是<code>200/s * 500bytes = 100KB/s</code>.</li>
+<li>读取（redirect）操作QPS为20K/s，outgoing data大概是<code>20K/s * 500bytes = 10MB/s</code>.</li>
+</ul>
+</li>
+<li>Memory Estimates<ul>
+<li>其实就是考虑缓存。80-20rule指的是20%的热门URL产生的80%的流量，那么我们需要将这20%的对象存在内存中。</li>
+<li>假设缓存每天更新，只需要存当天的20%的read requests，即<code>20K/s * 3600s * 24hr * 500bytes * 20% = 170GB</code>. 不过其中可能有很多重复的hit，因此实际占用的可能少于170GB。</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>System APIs<ul>
+<li></li>
+</ul>
+</li>
+</ol>
+<hr>
 <h3 id="References"><a href="#References" class="headerlink" title="References"></a>References</h3><ul>
 <li><a href="https://www.educative.io/courses/grokking-the-system-design-interview" target="_blank" rel="external">grokking-the-system-design-interview</a></li>
 </ul>
@@ -745,6 +837,10 @@
     </div>
 
     
+      
+
+
+    
 
     
     
@@ -755,44 +851,6 @@
     
       
     
-    
-      <div>
-        <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
-  <div>└(^o^)┘</div>
-  <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
-    <span>Donate</span>
-  </button>
-  <div id="QR" style="display: none;">
-
-    
-      <div id="wechat" style="display: inline-block">
-        <img id="wechat_qr" src="/images/wechat.png" alt="Bob_波波 WeChat Pay"/>
-        <p>WeChat Pay</p>
-      </div>
-    
-
-    
-      <div id="alipay" style="display: inline-block">
-        <img id="alipay_qr" src="/images/alipay.png" alt="Bob_波波 Alipay"/>
-        <p>Alipay</p>
-      </div>
-    
-
-    
-    <br>
-    <div id="paypal-button">
-      <form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top">
-        <input type="hidden" name="cmd" value="_donations" />
-        <input type="hidden" name="business" value="XPMQMQD8XQUPL" />
-        <input type="hidden" name="currency_code" value="USD" />
-        <input type="image" src="https://www.paypalobjects.com/en_US/i/btn/btn_donateCC_LG.gif" border="0" name="submit" title="PayPal - The safer, easier way to pay online!" alt="Donate with PayPal button" />
-      </form>
-    </div>
-
-  </div>
-</div>
-
-      </div>
     
 
     
@@ -838,8 +896,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2019/09/22/java_leetcode7/" rel="next" title="Note for LeetCode in Java (1200+)">
-                <i class="fa fa-chevron-left"></i> Note for LeetCode in Java (1200+)
+              <a href="/2019/09/22/java_leetcode7/" rel="next" title="Note for LeetCode in Java (1200 ~ 1600)">
+                <i class="fa fa-chevron-left"></i> Note for LeetCode in Java (1200 ~ 1600)
               </a>
             
           </div>
@@ -918,9 +976,9 @@
             
               <img class="site-author-image" itemprop="image"
                 src="/images/avatar.jpg"
-                alt="Bob_波波"/>
+                alt="Bob"/>
             
-              <p class="site-author-name" itemprop="name">Bob_波波</p>
+              <p class="site-author-name" itemprop="name">Bob</p>
               <p class="site-description motion-element" itemprop="description">I'm a Software Engineer!</p>
           </div>
 
@@ -931,7 +989,7 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">46</span>
+                    <span class="site-state-item-count">48</span>
                     <span class="site-state-item-name">posts</span>
                   </a>
                 </div>
@@ -1057,7 +1115,13 @@
                     
                       
                     
-                    <span class="site-state-item-count">46</span>
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">49</span>
                     <span class="site-state-item-name">tags</span>
                   </a>
                 </div>
@@ -1093,7 +1157,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#基础知识讲解"><span class="nav-text">基础知识讲解</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#分布式系统的主要特性"><span class="nav-text">分布式系统的主要特性</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Scalability"><span class="nav-text">Scalability</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Reliability"><span class="nav-text">Reliability</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Availability"><span class="nav-text">Availability</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Efficiency"><span class="nav-text">Efficiency</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Serviceability-Managebility"><span class="nav-text">Serviceability/Managebility</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Load-Balancing"><span class="nav-text">Load Balancing</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Caching"><span class="nav-text">Caching</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Database"><span class="nav-text">Database</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Best-Practices"><span class="nav-text">Best Practices</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Data-Partitioning"><span class="nav-text">Data Partitioning</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#Partitioning-Methods"><span class="nav-text">Partitioning Methods</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#Partitioning-Criteria"><span class="nav-text">Partitioning Criteria</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#Problems-of-Partitioning"><span class="nav-text">Problems of Partitioning</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Indexes"><span class="nav-text">Indexes</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Redundancy-amp-Replication"><span class="nav-text">Redundancy & Replication</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#SQL-amp-NoSQL"><span class="nav-text">SQL & NoSQL</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#CAP-Theorem"><span class="nav-text">CAP Theorem</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Consistent-Hashing"><span class="nav-text">Consistent Hashing</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Proxies"><span class="nav-text">Proxies</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Communication-Protocols"><span class="nav-text">Communication Protocols</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#系统设计面试"><span class="nav-text">系统设计面试</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#解题步骤"><span class="nav-text">解题步骤</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#References"><span class="nav-text">References</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#基础知识讲解"><span class="nav-text">基础知识讲解</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#分布式系统的主要特性"><span class="nav-text">分布式系统的主要特性</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Scalability"><span class="nav-text">Scalability</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Reliability"><span class="nav-text">Reliability</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Availability"><span class="nav-text">Availability</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Efficiency"><span class="nav-text">Efficiency</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Serviceability-Managebility"><span class="nav-text">Serviceability/Managebility</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Load-Balancing"><span class="nav-text">Load Balancing</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Caching"><span class="nav-text">Caching</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Database"><span class="nav-text">Database</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Best-Practices"><span class="nav-text">Best Practices</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Data-Partitioning"><span class="nav-text">Data Partitioning</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#Partitioning-Methods"><span class="nav-text">Partitioning Methods</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#Partitioning-Criteria"><span class="nav-text">Partitioning Criteria</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#Problems-of-Partitioning"><span class="nav-text">Problems of Partitioning</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Indexes"><span class="nav-text">Indexes</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Redundancy-amp-Replication"><span class="nav-text">Redundancy & Replication</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#SQL-amp-NoSQL"><span class="nav-text">SQL & NoSQL</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#CAP-Theorem"><span class="nav-text">CAP Theorem</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Consistent-Hashing"><span class="nav-text">Consistent Hashing</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Proxies"><span class="nav-text">Proxies</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Communication-Protocols"><span class="nav-text">Communication Protocols</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#系统设计面试"><span class="nav-text">系统设计面试</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#解题步骤"><span class="nav-text">解题步骤</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#模拟题"><span class="nav-text">模拟题</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#URL-Shortening-service"><span class="nav-text">URL Shortening service</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#References"><span class="nav-text">References</span></a></li></ol></li></ol></div>
             
 
           </div>
@@ -1118,11 +1182,11 @@
 
     <footer id="footer" class="footer">
       <div class="footer-inner">
-        <div class="copyright">&copy; 2016 – <span itemprop="copyrightYear">2020</span>
+        <div class="copyright">&copy; 2016 – <span itemprop="copyrightYear">2021</span>
   <span class="with-love" id="animate">
     <i class="fa fa-futbol-o"></i>
   </span>
-  <span class="author" itemprop="copyrightHolder">Bob_波波</span>
+  <span class="author" itemprop="copyrightHolder">Bob</span>
 
   
 
