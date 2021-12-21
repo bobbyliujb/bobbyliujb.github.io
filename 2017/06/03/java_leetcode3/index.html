@@ -137,7 +137,7 @@
 
 
   <meta name="description" content="刷题。祝我好运。">
-<meta name="keywords" content="java,algorithm,interview,leetcode">
+<meta name="keywords" content="interview,java,algorithm,leetcode">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Note for LeetCode in Java (201~300)">
 <meta property="og:url" content="https://bobbyliujb.github.io/2017/06/03/java_leetcode3/index.html">
@@ -145,7 +145,7 @@
 <meta property="og:description" content="刷题。祝我好运。">
 <meta property="og:locale" content="en">
 <meta property="og:image" content="https://ww1.sinaimg.cn/large/9b3a5c2fgy1fgfeg0uu25j20eb09nt9j.jpg">
-<meta property="og:updated_time" content="2020-06-13T03:19:58.489Z">
+<meta property="og:updated_time" content="2021-04-27T04:11:03.906Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Note for LeetCode in Java (201~300)">
 <meta name="twitter:description" content="刷题。祝我好运。">
@@ -472,7 +472,7 @@
                 
                   <span class="post-meta-item-text">Edited on</span>
                 
-                <time title="Modified: 2020-06-12 20:19:58" itemprop="dateModified" datetime="2020-06-12T20:19:58-07:00">2020-06-12</time>
+                <time title="Modified: 2021-04-26 21:11:03" itemprop="dateModified" datetime="2021-04-26T21:11:03-07:00">2021-04-26</time>
               
             
           </span>
@@ -540,7 +540,7 @@
                 
                   <span class="post-meta-item-text">Symbols count in article: </span>
                 
-                <span title="Symbols count in article">60k</span>
+                <span title="Symbols count in article">61k</span>
               
 
               
@@ -646,6 +646,8 @@
 <li>给一个字符串，在它的前面增加尽量短的字符串拼接而成的新字符串自对称。</li>
 <li>ME：想到<a href="https://leetcode.com/submissions/detail/105487474/" target="_blank" rel="external">这个方法</a>，自我感觉良好，但中间还是出了很多WA。从中间开始往两边拓展，判断是否对称，让这个『中间』的指针从正中间逐步往字符串头部挪，这样就能找到靠近头部的已经自对称的片段，然后把剩余不对称的拼上去就好了。</li>
 <li>TA：<a href="https://discuss.leetcode.com/topic/21068/my-7-lines-recursive-java-solution/" target="_blank" rel="external">这个</a>的前半部分找自对称的子字符串的那段代码实在太强！从后往前，如果前后指针对应字符相等则前指针++，后指针则不论什么时候都一直–，循环重点是后指针到达起点。此时前指针j所在的位置就是不对称部分的开端，那么这一部分就是需要反转并拼在最前面的部分了。但是这还没完，此时（0，j）这一部分还不能断言就是对称的，例如<a href="https://discuss.leetcode.com/topic/21068/my-7-lines-recursive-java-solution/18" target="_blank" rel="external">例子</a><code>&quot;abacfghcabakmnchgfcabaiuytrcfghcnmkabachgfcaba&quot;</code>，因此需要递归地处理( 0,j )这一部分。此外还有一个<a href="https://discuss.leetcode.com/topic/27261/clean-kmp-solution-with-super-detailed-explanation" target="_blank" rel="external">KMP的方法</a>，这个真是一头雾水，有个<a href="http://blog.csdn.net/joylnwang/article/details/6778316/" target="_blank" rel="external">博客</a>可以看看，不过先放一放吧。。。</li>
+<li>KMP是找common prefix和suffix，自对称是看字符串正读、反渎一摸一样，因此考虑将字符串翻转后拼接到原字符串上，就可以用KMP找prefix和suffix，前半部分是prefix、后半部分是suffix，相等则说明那一段从前往后和从后往前是一样的。<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</div><div class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">shortestPalindrome</span><span class="params">(String s)</span> </span>&#123;</div><div class="line">        <span class="keyword">if</span> (s == <span class="keyword">null</span> || s.length() == <span class="number">0</span>) &#123;</div><div class="line">            <span class="keyword">return</span> s;</div><div class="line">        &#125;</div><div class="line">        String rev = <span class="keyword">new</span> StringBuilder(s).reverse().toString();</div><div class="line">        String mirrored = s + <span class="string">"$"</span> + rev;</div><div class="line">        <span class="keyword">int</span> len = mirrored.length();</div><div class="line">        <span class="keyword">int</span>[] dp = <span class="keyword">new</span> <span class="keyword">int</span>[len];</div><div class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt; len; i++) &#123;</div><div class="line">            <span class="keyword">int</span> j = dp[i - <span class="number">1</span>];</div><div class="line">            <span class="keyword">while</span> (j &gt; <span class="number">0</span> &amp;&amp; mirrored.charAt(i) != mirrored.charAt(j)) &#123;</div><div class="line">                j = dp[j - <span class="number">1</span>];</div><div class="line">            &#125;</div><div class="line">            <span class="keyword">if</span> (mirrored.charAt(i) == mirrored.charAt(j)) &#123;</div><div class="line">                j++;</div><div class="line">            &#125;</div><div class="line">            dp[i] = j;</div><div class="line">        &#125;</div><div class="line">        <span class="keyword">return</span> rev.substring(<span class="number">0</span>, s.length() - dp[len - <span class="number">1</span>]) + s;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+</li>
 </ul>
 <h4 id="215-kth-largest-element-in-an-array"><a href="#215-kth-largest-element-in-an-array" class="headerlink" title="215. kth-largest-element-in-an-array"></a><a href="https://leetcode.com/problems/kth-largest-element-in-an-array/#/description" target="_blank" rel="external">215. kth-largest-element-in-an-array</a></h4><ul>
 <li>求一个无序的int数组，经过排序后的第k个大的元素。</li>
@@ -936,11 +938,11 @@
 </ul>
 <h4 id="277-find-the-celebrity"><a href="#277-find-the-celebrity" class="headerlink" title="277. find-the-celebrity"></a><a href="https://leetcode.com/problems/find-the-celebrity/description/" target="_blank" rel="external">277. find-the-celebrity</a></h4><ul>
 <li>给一个API函数判断i是否认识j，celebrity的定义是在n个人中，n-1个人都认识他、他却完全不认识他们。</li>
-<li><p>O(n^2)搞定，对于每个人，一旦他认识别人、或者别人不认识他就跳出循环。</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div></pre></td><td class="code"><pre><div class="line"><span class="comment">/* The knows API is defined in the parent class Relation.</span></div><div class="line"><span class="comment">      boolean knows(int a, int b); */</span></div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Solution</span> <span class="keyword">extends</span> <span class="title">Relation</span> </span>&#123;</div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">findCelebrity</span><span class="params">(<span class="keyword">int</span> n)</span> </span>&#123;</div><div class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; n; i++) &#123;</div><div class="line">            <span class="keyword">boolean</span> found = <span class="keyword">true</span>;</div><div class="line">            <span class="keyword">for</span> (<span class="keyword">int</span> j = <span class="number">0</span>; j &lt; n; j++) &#123;</div><div class="line">                <span class="keyword">if</span> (j == i) &#123;</div><div class="line">                    <span class="keyword">continue</span>;</div><div class="line">                &#125;</div><div class="line">                <span class="keyword">if</span> (!knows(j, i) || knows(i, j)) &#123;  <span class="comment">// 看别人是否都认识i且i完全不认识别人</span></div><div class="line">                    found = <span class="keyword">false</span>;</div><div class="line">                    <span class="keyword">break</span>;</div><div class="line">                &#125;</div><div class="line">            &#125;</div><div class="line">            <span class="keyword">if</span> (found) &#123;</div><div class="line">                <span class="keyword">return</span> i;</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line">        <span class="keyword">return</span> -<span class="number">1</span>;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-</li>
+<li>O(n^2)搞定，对于每个人，一旦他认识别人、或者别人不认识他就跳出循环。</li>
 <li><p>此外还有一种更巧妙的办法，从头开始一个pass，判断如果i认识j则把candidate设为j，如果i不认识j则j不可能是candidate；然后再一个pass看这个candidate是不是不认识所有人、且所有人都认识他。</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">findCelebrity</span><span class="params">(<span class="keyword">int</span> n)</span> </span>&#123;</div><div class="line">    <span class="keyword">int</span> candidate = <span class="number">0</span>;      <span class="comment">// 先假设第一个人是名人</span></div><div class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt; n; i++) &#123;   <span class="comment">// 他认识别人就，把他排除掉了</span></div><div class="line">        <span class="keyword">if</span> (knows(candidate, i)) candidate = i;</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; n; i++) &#123;   <span class="comment">// 确认他是否认识某个人或者某个人不认识他，那他也不是名人</span></div><div class="line">        <span class="keyword">if</span> (i != candidate &amp;&amp; (knows(candidate, i) || !knows(i, candidate))) <span class="keyword">return</span> -<span class="number">1</span>;</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">return</span> candidate;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+</li>
+<li><p>follow-up：如果knows的开销很大怎么优化？call是肯定要call的，就是如何在知道结果的时候存下来？cache。真的需要cache吗？不见得，因为在第二次循环的时候其实是知道一部分结果的，这些部分完全不需要再call一次know。</p>
 </li>
 </ul>
 <h4 id="278-first-bad-version"><a href="#278-first-bad-version" class="headerlink" title="278. first-bad-version"></a><a href="https://leetcode.com/problems/first-bad-version/#/description" target="_blank" rel="external">278. first-bad-version</a></h4><ul>
@@ -1063,11 +1065,11 @@
       
         <div class="post-tags">
           
+            <a href="/tags/interview/" rel="tag"><i class="fa fa-tag"></i> interview</a>
+          
             <a href="/tags/java/" rel="tag"><i class="fa fa-tag"></i> java</a>
           
             <a href="/tags/algorithm/" rel="tag"><i class="fa fa-tag"></i> algorithm</a>
-          
-            <a href="/tags/interview/" rel="tag"><i class="fa fa-tag"></i> interview</a>
           
             <a href="/tags/leetcode/" rel="tag"><i class="fa fa-tag"></i> leetcode</a>
           

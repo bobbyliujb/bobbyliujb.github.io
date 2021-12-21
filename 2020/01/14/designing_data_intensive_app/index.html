@@ -144,7 +144,7 @@
 <meta property="og:site_name" content="Bob&#39;s Blog">
 <meta property="og:description" content="系统设计读书笔记。祝我好运。">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2020-02-11T11:59:27.435Z">
+<meta property="og:updated_time" content="2021-05-03T00:35:11.093Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Design Data Intensive Applications读书笔记">
 <meta name="twitter:description" content="系统设计读书笔记。祝我好运。">
@@ -470,7 +470,7 @@
                 
                   <span class="post-meta-item-text">Edited on</span>
                 
-                <time title="Modified: 2020-02-11 03:59:27" itemprop="dateModified" datetime="2020-02-11T03:59:27-08:00">2020-02-11</time>
+                <time title="Modified: 2021-05-02 17:35:11" itemprop="dateModified" datetime="2021-05-02T17:35:11-07:00">2021-05-02</time>
               
             
           </span>
@@ -538,7 +538,7 @@
                 
                   <span class="post-meta-item-text">Symbols count in article: </span>
                 
-                <span title="Symbols count in article">14k</span>
+                <span title="Symbols count in article">21k</span>
               
 
               
@@ -552,7 +552,7 @@
                 
                   <span class="post-meta-item-text">Reading time &asymp;</span>
                 
-                <span title="Reading time">14 mins.</span>
+                <span title="Reading time">22 mins.</span>
               
             </div>
           
@@ -656,8 +656,9 @@
 <li>图由vertices和edges组成。vertices并不一定是相同类型的东西，例如fb中每个节点可以是用户/评论/登陆等事件。</li>
 <li>若用relational DB表示图，需要两个表：一个存放vertices（含id和属性键值对），一个存放边（含id、始终点、label、属性键值对）。</li>
 <li>任何vertex都可以连接到任何vertex；给定任何vertex，可以知道输入/输出的边，从而遍历整个图（双向）；合理使用label可以将大量信息存在一个图中。</li>
+<li>Neo4j目前最流行，index free graph DB.</li>
 </ul>
-<h2 id="Chapter-3-Storage-and-Retrieval"><a href="#Chapter-3-Storage-and-Retrieval" class="headerlink" title="Chapter 3: Storage and Retrieval"></a>Chapter 3: Storage and Retrieval</h2><p> 虽然我们并不会实现数据存储引擎，但有必要了解底层具体实现，以选择更适合应用（如analytics为主还是transactinal workload为主）的引擎。</p>
+<h2 id="Chapter-3-Storage-and-Retrieval"><a href="#Chapter-3-Storage-and-Retrieval" class="headerlink" title="Chapter 3: Storage and Retrieval"></a>Chapter 3: Storage and Retrieval</h2><p> 虽然我们并不会实现数据存储引擎，但有必要了解底层具体实现，以选择更适合应用（如analytics为主还是transactional workload为主）的引擎。<br> Access pattern? Read heavy, write heavy, read/write ratio? Read from id/name? Write key uniqueness?</p>
 <h3 id="Data-Structures-in-Relational-DB"><a href="#Data-Structures-in-Relational-DB" class="headerlink" title="Data Structures in Relational DB"></a>Data Structures in Relational DB</h3><p> 主流存储引擎分为log-structured和page-oriented。log-strutured底层实现其实就是log（append-only sequence of records），涉及concurrency control, reclaiming disk space, hanling errors, etc. log的特点是写入很快，但查找如果不加优化就是O(N)的，因此需要开发者根据query的pattern加上合适的index提升查找速度。</p>
 <h4 id="Hash-Indexes"><a href="#Hash-Indexes" class="headerlink" title="Hash Indexes"></a>Hash Indexes</h4><ul>
 <li>假设存储的是key-value型的数据，在内存中维护一个hashmap，每次写入数据时往hashmap里放key和对应在log文件中的byte offset方便查找即可。注意这个log只能append，因此每次都无脑地往hashmap里更新key-offset即可。</li>
@@ -667,8 +668,9 @@
 <li>partially written data: Bitcask files含有checksum保证文件准确完整。</li>
 <li>concurrency control: 既然只允许append，就只允许一个writer就好了。</li>
 <li>不足：a) index必须全部容纳到内存中，因此key的数量有限。 b) Range query并不高效，需要现在hashmap中作一个range查找再去file中读取。</li>
+<li>multi-field index: Postrgres支持R-tree算法，利用rectangular来定位索引。</li>
 </ul>
-<h4 id="Sorted-String-Tables-and-Log-Structured-Merge-Trees"><a href="#Sorted-String-Tables-and-Log-Structured-Merge-Trees" class="headerlink" title="Sorted String Tables and Log-Structured Merge-Trees"></a>Sorted String Tables and Log-Structured Merge-Trees</h4><ul>
+<h4 id="Sorted-String-Tables-SSTables-and-Log-Structured-Merge-Trees"><a href="#Sorted-String-Tables-SSTables-and-Log-Structured-Merge-Trees" class="headerlink" title="Sorted String Tables(SSTables) and Log-Structured Merge-Trees"></a>Sorted String Tables(SSTables) and Log-Structured Merge-Trees</h4><ul>
 <li>将log中的key排序存放，在merge segment的时候就用mergesort即可快速合并，如果在多个segment中出现相同的key则保留最晚被修改的segment即可。</li>
 <li>内存中hashmap只需要存一部分key的offset即可，快速定位到前后两个key之后查找即可。</li>
 <li>在disk上维持sorted structure是可行的，如B-tree，但更方便的还是用in-memory的red-black tree或者AVL Tree，之后再写入logfile。<ol>
@@ -691,10 +693,14 @@
 <li>LSM产生的文件更小，B-Tree可能在page末尾有没用上的空间，LSM一波compaction能省很多空间。</li>
 <li>LSM的compaction过程可能影响正常的读写速度，毕竟disk资源有限。</li>
 <li>LSM的compaction可能跟不上正常写入的速度，这样disk会最终被占满，而读取也会变慢。</li>
-<li>B-tree的一个优势是每个key只会在index中出现一次，这样可以保证强transaction.</li>
+<li>LSM的key存在多个地方，B-tree的一个优势是每个key只会在index中出现一次，这样可以保证强transaction.</li>
 </ul>
 <h4 id="Other-Index-Structures"><a href="#Other-Index-Structures" class="headerlink" title="Other Index Structures"></a>Other Index Structures</h4><ul>
-<li>除了key-value这种primary index，很多时候还需要加secondary index，即允许重复的key对应不同的value。实现方式可以是将value存成list，或者将key加上id使其unique.</li>
+<li>除了key-value这种primary index，很多时候还需要加secondary index，即允许重复的key对应不同的value。实现方式可以是将value存成list，或者将key加上id使其unique.<ul>
+<li>global secondary index: write慢，因为需要存入各个partition；read就很快，因为明确知道存在哪个partition。</li>
+<li>local secondary index: write会很快，因为只需要写入一个partition，但read就慢，因为需要fan-out找所有partition。</li>
+</ul>
+</li>
 <li>Heap file index: key指向一个heapfile，值统一存在heap中，每个index就指向heap中的一个位置即可。</li>
 <li>clustered index: 将所有数据直接存储在index之内，而不只是一个reference。这样可以减少在heapfile中查找的时间。</li>
 <li>covering index: 二者的结合，部分indexes cover了数据，其他的则还是需要到实际file中查找。</li>
@@ -717,6 +723,8 @@
 <li>Column Compression: 每个column中所有的值可能有很多重复的，因此可以利用bitmap进行encoding，减少每一列需要存储的数据量。</li>
 <li>vectorized processing: bandwidth瓶颈除了从disk载入内存外，还有内存到CPU cache. 为了充分利用CPU的cache，需要尽量让数据能fit到L1 cache里面。</li>
 <li>写入column-oriented的DB不是很直接，例如B-Tree涉及compression就很可能需要将所有column files都重写一遍了。但LSM可以先存入内存，然后才写入diskfile，之后才会merge，这正是Vertica底层实现。</li>
+<li>Wide columne Database不是column oriented storage. 比如Cassandra和HBase是wide column DB但他们不是column oriented，因为他们同一个column family是一起读取的。真正的column oriented会是每个column一个file。</li>
+<li>parquet是一个column oriented非常高效的一种file format，兼容hadoop、spark计算框架，和查询引擎hive。</li>
 </ul>
 <h4 id="Sort-Order-in-Column-Storage"><a href="#Sort-Order-in-Column-Storage" class="headerlink" title="Sort Order in Column Storage"></a>Sort Order in Column Storage</h4><ul>
 <li>根据query pattern选择对某些列进行排序。每次需要一整行地进行排序才能保证同一行的来自同一个entity。</li>
@@ -727,6 +735,14 @@
 <li>data warehouse中很可能会反复调用相同的count/sum/avg/min/max，因此可以将这些常用的query缓存起来。</li>
 <li>materialized view: 将常用结果存入独立的表中。OLTP中不常用，因为write-heavy，每次写都需要更新这些缓存的数据，速度慢。</li>
 <li>data cube: 额外维护一些cell，每个cell存放特定column组合的aggregate数据，在这些cell上进行aggregate就快多了。</li>
+</ul>
+<h3 id="总结与比较"><a href="#总结与比较" class="headerlink" title="总结与比较"></a>总结与比较</h3><ul>
+<li>Analytics DB: column oriented，主要是data analysis用，如Presto, Hive, Parquet格式</li>
+<li>Transactional DB: row oriented.<ul>
+<li>B-tree: performance稳定，transaction handle比较好，read比较fragmented。如MySQL、PostgreSQL、MongoDB。</li>
+<li>Log Structured Storage: sequential write效率高，但tune得不好可能由于compaction影响性能甚至不predictable。如Cassandra、HBase。</li>
+</ul>
+</li>
 </ul>
 <h2 id="Chapter-4-Encoding-and-Evolution"><a href="#Chapter-4-Encoding-and-Evolution" class="headerlink" title="Chapter 4: Encoding and Evolution"></a>Chapter 4: Encoding and Evolution</h2><ul>
 <li>系统总是在变化的，因此DB也难免需要更改schema。对于schema-on-write，DB有唯一指定的schema，可以通过migration(ALTER)实现；schema-on-read则涉及对代码的升级。</li>
@@ -749,13 +765,13 @@
 <li>CSV没有schema，但本身比较模糊，对于escape有正式的规定但很多库没有正确实现。</li>
 </ul>
 </li>
-<li>Binary Encoding: JSON比XML更简介，但还是占用较多空间。JSON的binary encoding “MessagePack”利用byte头部规定后续的种类、长度，从而将JSON转换成binary encoding.</li>
+<li>Binary Encoding: JSON比XML更简洁，但还是占用较多空间。JSON的binary encoding “MessagePack”利用byte头部规定后续的种类、长度，从而将JSON转换成binary encoding.</li>
 <li>Thrift：Facebook发明的encode/decode库，定义schema，其中包含了tag、数据类型。<ul>
 <li>BinaryProtocol：和MessagePack相比，无需在binary中重复存tag，只有tagNumber和数据类型。</li>
 <li>CompactProtocol: 将数据类型和tagNumber压缩到一起</li>
 </ul>
 </li>
-<li>Protocol Buffer: Google发明的encode/decode库，定义schema，其中包含了tag、数据类型。和Thrift CompactProtocol类似，将fieldType和tagNumber融合。</li>
+<li>Protocol Buffer: Google发明的encode/decode库，定义schema，其中包含了tag、数据类型。和Thrift CompactProtocol类似，将fieldType和tagNumber融合。 </li>
 <li>Field Tags Evolutions: 可以任意往schema中添加新的field，只是不能规定是required，因为旧代码也需要读懂新的schema。而只要有不重复的tagNumber，新代码也可以读懂旧代码写的数据。如果想删除field，则只能删除optional的，且不能再使用被删掉的tagNumber.</li>
 <li>Datatypes Evolutions: 一定程度是允许的，但需要注意32-bit和64-bit只能是单向的转换，不能降低精度。</li>
 <li>Avro: Apache发明的encode/decode库，定义schema，其中没有tagNumber，直接存域名、数据类型。encode后的binary直接是长度+内容的形式拼接而成，需要读写双方都按照约定的schema严格操作。<ul>
@@ -774,9 +790,9 @@
 </ul>
 <h5 id="Dataflow-Through-Services"><a href="#Dataflow-Through-Services" class="headerlink" title="Dataflow Through Services"></a>Dataflow Through Services</h5><ul>
 <li>最常见的就是server-client结构了，通过API call进行数据交换。server本身也可以是client，这样就把一个复杂的系统decompose成独立的子系统，每个子系统可以独立维护、改变，这就是SOA/微服务架构。</li>
-<li>REST: 思想是用url来辨认资源，并用HTTP的特性实现缓存管理、身份验证、内容类型交换等。</li>
+<li>REST: 是一种phylosophy, 思想是用url来辨认资源，并用HTTP的特性实现缓存管理、身份验证、内容类型交换等，efficiency较低，主要针对public。</li>
 <li>SOAP: 基于XML的一种规范，尽可能不依赖HTTP的特性而使用自身的<code>WS-*</code>特性。</li>
-<li>RPC: remote procedure call本意是想让请求远程服务和调用本地函数一样方便。但缺陷很明显：<ul>
+<li>RPC: remote procedure call本意是想让请求远程服务和调用本地函数一样方便， binary encoding使得它efficiency较高，主要用于internal的。但缺陷很明显：unpredictable, waste of resource for encoding<ul>
 <li>本地函数调用要么成功要么失败，远程调用无法控制，因为牵扯网络问题，可能需要重发</li>
 <li>本地函数调用要么返回结果、抛异常、或死循环毫无回应；而远程调用可能timeout无法回复，也可能request没发成功，无法知道原因</li>
 <li>无脑重发请求也不科学，可能请求已经执行成功而回复丢失，并不需要重发</li>
@@ -798,6 +814,118 @@
 </li>
 <li>Message Broker: 一个进程发送到一个named queue/topic，broker确保这些信息最终会递送到consumers/subscribers处。如果需要，接收方可以chain一个另外的queue/topic进行回复。在queue中的通常就是byte和metadata，不是特定的data model.</li>
 <li>Distributed Actors Framework: actor model用于单一进程的concurrency控制，逻辑不在thread level而是封装到了actor中。一个actor就是一个client/entity，通过发送消息和其他actors互动。若将服务分布到多个node上就形成了分布式actor，如果需要跨node就需要encode成byte sequence通过网络发送。这时候如果要保证前后兼容性和rolling upgrade，可能需要对框架做一些customize，例如替换掉内置的encode库。</li>
+</ul>
+<h2 id="Chapter-5-Replication"><a href="#Chapter-5-Replication" class="headerlink" title="Chapter 5: Replication"></a>Chapter 5: Replication</h2><p>为了给用户提供地理上更近的dc、保证部分dc宕机后仍能工作、增加读吞吐量，我们需要将数据复制多几分存入不同的node中，难点在于如何更新这些replica。replication vs isolation: replication是leader告诉follower做什么就什么，isolation/concurrency_control是多个request到同一个节点需要决定采用谁作为winner。</p>
+<h4 id="Leader-and-Follower"><a href="#Leader-and-Follower" class="headerlink" title="Leader and Follower"></a>Leader and Follower</h4><ul>
+<li>leader负责存write（当然也可以read），follower可以read。每次有update时由leader推送给followers</li>
+<li>通常可以设置是synchronous还是async，通常follower都是async的不然delay太大。设置成sync实际指的是一个follower是sync其余的全部是async。</li>
+<li>SQL(PostgreSQL, MySQL), NoSQL(MongoDB, Expresso), distributed message brokers(Kafka, RabbitMQ)都采用这种模式</li>
+</ul>
+<h5 id="Add-Followers"><a href="#Add-Followers" class="headerlink" title="Add Followers"></a>Add Followers</h5><ol>
+<li>在某一时刻（traffic少时）take a snapshot。尽可能不lock写操作以防损害availability</li>
+<li>将snapshot从leader复制到follower</li>
+<li>follower向leader请求从snapshot到当前的所有更新，需要提供取snapshot的时刻（Postgres叫log sequence number）</li>
+<li>follower同步完后就caught up了</li>
+</ol>
+<h5 id="Follower-Outages-Catch-up-Recovery"><a href="#Follower-Outages-Catch-up-Recovery" class="headerlink" title="Follower Outages (Catch-up Recovery)"></a>Follower Outages (Catch-up Recovery)</h5><ul>
+<li>每个节点都会维护一个log，因此可以知道从什么时刻开始损失data，起来后找leader要损失的data即可</li>
+<li>statement: 最compact的方式，但可能为了一个很小的更新跑一个开销很大的query。</li>
+<li>Write-ahead log: 本身是用于durablilty的（B-tree write时会写log，crash-recovery用的），格式是byte sequence，需要node内部的实现、版本是相兼容的。Postgres/oracle用这种。</li>
+<li>Logical log: 专门用于replication的，描述row-level write的，有先后顺序，兼容性好。MySQL用这种。</li>
+<li>Trigger based: overhead较高</li>
+</ul>
+<h5 id="Leader-Outages-Failover"><a href="#Leader-Outages-Failover" class="headerlink" title="Leader Outages (Failover)"></a>Leader Outages (Failover)</h5><ol>
+<li>确认leader挂了：通过headtbeat看看能否timeout之内收到响应。但这个timeout时间需要tune</li>
+<li>找新的leader：通常取拥有最新data的。损失掉的data无法挽回，可能会导致corrupted data（例如self-increment id重复使用造成数据泄漏）</li>
+<li>配置剩余node让他们承认新leader，包括挂掉的leader起来后也需要知道自己成了follower。当系统同时出现两个leader就很糟糕了。</li>
+</ol>
+<h5 id="Replication-Lag"><a href="#Replication-Lag" class="headerlink" title="Replication Lag"></a>Replication Lag</h5><ul>
+<li>当数据更新不及时，follower的数据和leader不一致。eventual consistency并不在意多久会同步。</li>
+<li>Read-after-write consistency: 读必须在写之后，通过只从leader读用户可能修改过的data、在多少多少秒之内从leader读、记录最后一次写的timestamp等</li>
+<li>Monotonic reads: 不保证strong consistency，但保证用户连续多次读取的结果是按照时间先后顺序的（因果性casuality），不会read back of the time，例如先看见一条评论刷新一下就不见了。可以通过route to the same follower实现。</li>
+<li>Consistent prefix reads: 一系列write发生时，任何后续的读取都会按照写入顺序读到结果，尽管不一定是最新的。可以通过route to the same leader实现。</li>
+</ul>
+<h4 id="Multi-Leader-Replication"><a href="#Multi-Leader-Replication" class="headerlink" title="Multi-Leader Replication"></a>Multi-Leader Replication</h4><ul>
+<li>由于有多个leader，意味着write可能出现conflict，如先后修改某个record为不同值、或预定系统中出现多个leader同时占用某个资源。</li>
+<li>transaction为了防止double spending，为了避免出现写conflict造成$$问题，通常只允许一个datacenter，只有一个leader，这样就不会出现两次交易都ok，但covergent的状态是不合理的（如账面为负数了）。</li>
+<li>detect conflict: 关键在于apply update的顺序，用timestamp不够可靠（每个机器自身的时间不准确）、version vectors也不够靠谱，因此尽量避免使用multi-leader replication.</li>
+<li>CRDT(conflict-free replicated data type): 接受写入的所有东西，读的时候把所有存下来的内容都返回，是client的responsbility来确定最终采用什么数据，有点像unordered hashmap。由于没有data loss所以没有conflict，但client的逻辑会非常复杂。</li>
+<li>Event Sourcing: 不存snapshot，存full history，按需生成snapshot.</li>
+<li>Mergeable persistent data structures: 显示记录history，用类似git版本管理的three-way merge function。</li>
+<li>Operational Transformation: 用于并发编辑ordered list的，google doc用的这种。</li>
+</ul>
+<h4 id="Leaderless-Replication-Dynamo-Style"><a href="#Leaderless-Replication-Dynamo-Style" class="headerlink" title="Leaderless Replication(Dynamo Style)"></a>Leaderless Replication(Dynamo Style)</h4><ul>
+<li>没有所谓的leader，所有node都接受read和write，但read和write会分发给每一个节点确保一致，通过version确定最新版数据。Dynamo, Cassandra都是这种。</li>
+<li>Read repair: 在read的时候可能发现一部分replica数据过时了，这时会触发write进行更新</li>
+<li>Anti-entropy process: 在后台定时比较replica的数据，如有需要就复制</li>
+<li>不能保证transaction，是一个best effort的DB。</li>
+</ul>
+<h5 id="Quorum"><a href="#Quorum" class="headerlink" title="Quorum"></a>Quorum</h5><ul>
+<li>写的时候定义n个节点里 &gt;= w个节点成功才是valid的、读的时候定义 &gt;= r个节点成功才是valid的，这里的w和r通常是<code>ceil(n+1 / 2)</code>保证至少有一个节点是最新数据。w + r &gt; n时就能tolerate一些down的节点，同时数据至少一个是最新的。</li>
+<li>request都是同时发出的，因此当写收到的response &gt;= w或读收到的 &gt;= r就可以直接返回了。</li>
+<li>实际使用中有很多edge cases无法保证返回的是最新数据，因此只能保证eventual consistency</li>
+<li>由于在leader-less中写的顺序并不是保证按照发生顺序的，因此就operability来说只能估计数据有多stale。</li>
+<li>Sloppy Quorum可以理解为不那么严格执行的restriction，当没有w个好的节点时能够暂时写入不在n个节点中的其他节点，之后在hinted handoff时才会写回之前fail的节点。</li>
+</ul>
+<h5 id="Detecting-Concurrent-Writes"><a href="#Detecting-Concurrent-Writes" class="headerlink" title="Detecting Concurrent Writes"></a>Detecting Concurrent Writes</h5><ul>
+<li>虽然leaderless说是可以保证eventual consistency，他们自动同步非常不靠谱</li>
+<li>Dynamo将conflict resolution甩锅给用户自己定义/实现。</li>
+</ul>
+<h2 id="Chapter-6-Partition-Sharding-driven-by-scalability"><a href="#Chapter-6-Partition-Sharding-driven-by-scalability" class="headerlink" title="Chapter 6: Partition/Sharding (driven by scalability)"></a>Chapter 6: Partition/Sharding (driven by scalability)</h2><p> 将数据拆分开分布在不同的分区里，每个数据只能属于一个分区，<strong>加强scalability</strong>和fault-tolerence，通常结合replication使用，这样数据虽然只在一个分区里，但在不同节点都有备份。</p>
+<h3 id="Partitioning-of-Key-Value-Data"><a href="#Partitioning-of-Key-Value-Data" class="headerlink" title="Partitioning of Key-Value Data"></a>Partitioning of Key-Value Data</h3><p> 分区不希望skew造成一个分区特别臃肿（hotspot），也不能随机分不然查找很慢。</p>
+<h4 id="By-Key-Range-Bigtable-HBase"><a href="#By-Key-Range-Bigtable-HBase" class="headerlink" title="By Key Range (Bigtable, HBase)"></a>By Key Range (Bigtable, HBase)</h4><ul>
+<li>类似于字典里排序，将key按照一定的range划分存储，需要有pre-knowledge。这个range可能是admin定义、也可能是DB自动选择并更新</li>
+<li>在每个partition内部key也是排好序的方便查找</li>
+<li>依然有hotspot，例如连续读取的传感器数据，按照timestamp分区的话就是在最新的分区疯狂write/read，可以结合别的key进一步分区（先按照传感器id、再按时间），不过查找时就需要range search了。</li>
+</ul>
+<h4 id="By-Hash-of-Key-Cassandra-MongoDB"><a href="#By-Hash-of-Key-Cassandra-MongoDB" class="headerlink" title="By Hash of Key (Cassandra, MongoDB)"></a>By Hash of Key (Cassandra, MongoDB)</h4><ul>
+<li>好的hash可以对于skew的input生成均匀分布的output</li>
+<li>语言内置的hash不能用如java、ruby，因为不同的process可能hash结果不同。</li>
+<li>正是因为hash出来结果分布均匀，进行range query时很低效，因为原本相邻的key都打散了，因此Riak之类的都不支持primary key的range query。</li>
+<li>Cassandra对compound primary key的第一个column做hash划分、再对剩余column做Key Range划分。</li>
+</ul>
+<h4 id="Relieve-Hot-Spots"><a href="#Relieve-Hot-Spots" class="headerlink" title="Relieve Hot Spots"></a>Relieve Hot Spots</h4><ul>
+<li>Hash只能缓解skew但没法避免，因为只要是相同的id就一定会hash成相同的key，对于名人推特的爆炸评论可能就会同时写到一个partition。</li>
+<li>可以在写时加个随机数（两位数以内就能有100种可能），在读的时候就需要从这100个里面都读</li>
+<li>需要bookkeeper分辨哪些id需要hash时加随机数。</li>
+</ul>
+<h3 id="Partitioning-Secondary-Indexes"><a href="#Partitioning-Secondary-Indexes" class="headerlink" title="Partitioning Secondary Indexes"></a>Partitioning Secondary Indexes</h3><p> index不能uniquely identify a record，但可以高效查找某个值的occurence。89</p>
+<h4 id="By-Document-Local-Index"><a href="#By-Document-Local-Index" class="headerlink" title="By Document (Local Index)"></a>By Document (Local Index)</h4><ul>
+<li>每个partition完全独立，维护的secondary index也只会指向自己持有的record</li>
+<li>写入新纪录的时候只涉及当前id所在的partition。</li>
+<li>读（根据index进行filter）的时候需要到所有的partition读取所有符合条件的record，这个过程叫scatter/gather。</li>
+<li>MongoDB, Riak, Cassandra, ElasticSearch用的这个</li>
+</ul>
+<h4 id="By-Term-Global-Index"><a href="#By-Term-Global-Index" class="headerlink" title="By Term (Global Index)"></a>By Term (Global Index)</h4><ul>
+<li>每个index包含了所有符合条件的record id，无论是否在当前的partition上。</li>
+<li>index按照term或hash of term进行partition，这个index不会出现在别的partition里。</li>
+<li>读很高效，根据term取对应的partition找到所有id，再到对应各个partition取record即可。</li>
+<li>写比较复杂，因为一条record里的各个index可能分布在不同的partition里，需要distributed transaction across all partitions，通常是async的。</li>
+<li>DynamoDB用的这种。</li>
+</ul>
+<h3 id="Rebalancing"><a href="#Rebalancing" class="headerlink" title="Rebalancing"></a>Rebalancing</h3><p> 当node的硬件需要升级或者故障需要替换，就需要migrate现有的partition。需要尽量保证各个partition的分布均匀，同时随着node数量继续增加不会出现不必要的migrate。</p>
+<h4 id="Fixed-number-of-partitions"><a href="#Fixed-number-of-partitions" class="headerlink" title="Fixed number of partitions"></a>Fixed number of partitions</h4><ul>
+<li>将每个node的partition切分得较小，这样当新的node加进来就只需要从每个node弄一小部分出来，每一个partition可以理解为一个独立的db系统比如mysql，因此切割过细会有很大overhead。</li>
+<li>注意变的是assignment of partition to the nodes；key-&gt;partition和partition数量都不变。</li>
+<li>partition数量不变，决定每个partition的size非常关键，需要对数据/traffic有足够的认识和估计，不适用于data会疯狂增长的数据（否则重新split非常麻烦）。</li>
+<li>Riak, Elasticsearch, Couchbase, Voldemort用这种.</li>
+</ul>
+<h4 id="Dynamic-partitioning"><a href="#Dynamic-partitioning" class="headerlink" title="Dynamic partitioning"></a>Dynamic partitioning</h4><ul>
+<li>key range DB要是没有设置好boundary，很可能在fixed num里面把所有数据都存在一个partition里面了。</li>
+<li>每个partition的volume会根据size of the dataset决定是否merge或者split。</li>
+<li>适用于key range DB(HBase)和hash key(MongoDB).</li>
+</ul>
+<h4 id="Partition-proportional-to-nodes"><a href="#Partition-proportional-to-nodes" class="headerlink" title="Partition proportional to nodes"></a>Partition proportional to nodes</h4><ul>
+<li>每个node内的partition数量是固定的，当加入新的node时也就顺势增加partition了。</li>
+<li>unfair split: 加入node的时候会随机选现有的partition进行split然后存入新加入的node，这个过程可能会不均衡，随着时间会慢慢重新均衡。</li>
+<li>Cassandra和Ketama用的这个。</li>
+</ul>
+<h3 id="Routing-Requests"><a href="#Routing-Requests" class="headerlink" title="Routing Requests"></a>Routing Requests</h3><p>随着rabalance，每个partition存放的node都一直在变，需要知道怎么找到partition所处的node才能取数据。有以下几种方法：</p>
+<ul>
+<li>knowledge在每个node（传话筒）：client随机连接节点(RoundRobin LB)，该节点确定partition在哪并发送query到正确地址，最后返回结果。Cassandra, Riak用这种。可以用gossip，也可以用ZooKeeper.</li>
+<li>knowledge在routing tier: 有一个转发层维护数据的存储位置，定向转发request。通常会结合一个独立的coordination service如ZooKeeper来维护cluster的metadata(partition -&gt; nodes)，每当partition有变化就会通知routing tier. Expresso, HBase, Kafka用这种。</li>
+<li>knowledge在client（直连）：client需要维护数据存储位置，直接找到节点取数据，注意这个client不是终端用户，而是data center里的另一个service，不然就泄露了。</li>
+<li>Kubernete也提供service discovery</li>
 </ul>
 <hr>
 <h3 id="References"><a href="#References" class="headerlink" title="References"></a>References</h3><ul>
@@ -1128,7 +1256,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Chapter-1-Relable-Scalable-and-Maintainable"><span class="nav-text">Chapter 1: Relable, Scalable and Maintainable</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Reliability"><span class="nav-text">Reliability</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Hardware-Faults"><span class="nav-text">Hardware Faults</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Software-Faults"><span class="nav-text">Software Faults</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Human-Errors"><span class="nav-text">Human Errors</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Scalability"><span class="nav-text">Scalability</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#如何衡量Load"><span class="nav-text">如何衡量Load</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#如何衡量Performance"><span class="nav-text">如何衡量Performance</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Maintainability"><span class="nav-text">Maintainability</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Operability"><span class="nav-text">Operability</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Simplicity"><span class="nav-text">Simplicity</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Evolvability"><span class="nav-text">Evolvability</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Chapter-2-Data-Models-and-Query-Languages"><span class="nav-text">Chapter 2: Data Models and Query Languages</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Relational-Model-v-s-Document-Model"><span class="nav-text">Relational Model v.s. Document Model</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#SQL-NoSQL的优势劣势"><span class="nav-text">SQL/NoSQL的优势劣势</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Query-Language-for-Data"><span class="nav-text">Query Language for Data</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Graph-Like-Data-Models"><span class="nav-text">Graph-Like Data Models</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Chapter-3-Storage-and-Retrieval"><span class="nav-text">Chapter 3: Storage and Retrieval</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Data-Structures-in-Relational-DB"><span class="nav-text">Data Structures in Relational DB</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Hash-Indexes"><span class="nav-text">Hash Indexes</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Sorted-String-Tables-and-Log-Structured-Merge-Trees"><span class="nav-text">Sorted String Tables and Log-Structured Merge-Trees</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#B-Trees（最流行的index方式。）"><span class="nav-text">B-Trees（最流行的index方式。）</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#B-Tree-v-s-LSM-Trees"><span class="nav-text">B-Tree v.s. LSM-Trees</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Other-Index-Structures"><span class="nav-text">Other Index Structures</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Transaction-Processing-or-Analytics"><span class="nav-text">Transaction Processing or Analytics?</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Data-Warehousing"><span class="nav-text">Data Warehousing</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Column-Oriented-Storage"><span class="nav-text">Column-Oriented Storage</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Sort-Order-in-Column-Storage"><span class="nav-text">Sort Order in Column Storage</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Materialize-Aggregation"><span class="nav-text">Materialize Aggregation</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Chapter-4-Encoding-and-Evolution"><span class="nav-text">Chapter 4: Encoding and Evolution</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Formats-for-Encoding-Data"><span class="nav-text">Formats for Encoding Data</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Language-Specific-Formats"><span class="nav-text">Language-Specific Formats</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#JSON-XML-and-Binary-Variants"><span class="nav-text">JSON, XML and Binary Variants</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Modes-of-Dataflow"><span class="nav-text">Modes of Dataflow</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#Dataflow-Through-Databases"><span class="nav-text">Dataflow Through Databases</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#Dataflow-Through-Services"><span class="nav-text">Dataflow Through Services</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#Message-Passing-Dataflow"><span class="nav-text">Message-Passing Dataflow</span></a></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#References"><span class="nav-text">References</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Chapter-1-Relable-Scalable-and-Maintainable"><span class="nav-text">Chapter 1: Relable, Scalable and Maintainable</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Reliability"><span class="nav-text">Reliability</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Hardware-Faults"><span class="nav-text">Hardware Faults</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Software-Faults"><span class="nav-text">Software Faults</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Human-Errors"><span class="nav-text">Human Errors</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Scalability"><span class="nav-text">Scalability</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#如何衡量Load"><span class="nav-text">如何衡量Load</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#如何衡量Performance"><span class="nav-text">如何衡量Performance</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Maintainability"><span class="nav-text">Maintainability</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Operability"><span class="nav-text">Operability</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Simplicity"><span class="nav-text">Simplicity</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Evolvability"><span class="nav-text">Evolvability</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Chapter-2-Data-Models-and-Query-Languages"><span class="nav-text">Chapter 2: Data Models and Query Languages</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Relational-Model-v-s-Document-Model"><span class="nav-text">Relational Model v.s. Document Model</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#SQL-NoSQL的优势劣势"><span class="nav-text">SQL/NoSQL的优势劣势</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Query-Language-for-Data"><span class="nav-text">Query Language for Data</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Graph-Like-Data-Models"><span class="nav-text">Graph-Like Data Models</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Chapter-3-Storage-and-Retrieval"><span class="nav-text">Chapter 3: Storage and Retrieval</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Data-Structures-in-Relational-DB"><span class="nav-text">Data Structures in Relational DB</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Hash-Indexes"><span class="nav-text">Hash Indexes</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Sorted-String-Tables-SSTables-and-Log-Structured-Merge-Trees"><span class="nav-text">Sorted String Tables(SSTables) and Log-Structured Merge-Trees</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#B-Trees（最流行的index方式。）"><span class="nav-text">B-Trees（最流行的index方式。）</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#B-Tree-v-s-LSM-Trees"><span class="nav-text">B-Tree v.s. LSM-Trees</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Other-Index-Structures"><span class="nav-text">Other Index Structures</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Transaction-Processing-or-Analytics"><span class="nav-text">Transaction Processing or Analytics?</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Data-Warehousing"><span class="nav-text">Data Warehousing</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Column-Oriented-Storage"><span class="nav-text">Column-Oriented Storage</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Sort-Order-in-Column-Storage"><span class="nav-text">Sort Order in Column Storage</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Materialize-Aggregation"><span class="nav-text">Materialize Aggregation</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#总结与比较"><span class="nav-text">总结与比较</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Chapter-4-Encoding-and-Evolution"><span class="nav-text">Chapter 4: Encoding and Evolution</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Formats-for-Encoding-Data"><span class="nav-text">Formats for Encoding Data</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Language-Specific-Formats"><span class="nav-text">Language-Specific Formats</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#JSON-XML-and-Binary-Variants"><span class="nav-text">JSON, XML and Binary Variants</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Modes-of-Dataflow"><span class="nav-text">Modes of Dataflow</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#Dataflow-Through-Databases"><span class="nav-text">Dataflow Through Databases</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#Dataflow-Through-Services"><span class="nav-text">Dataflow Through Services</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#Message-Passing-Dataflow"><span class="nav-text">Message-Passing Dataflow</span></a></li></ol></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Chapter-5-Replication"><span class="nav-text">Chapter 5: Replication</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Leader-and-Follower"><span class="nav-text">Leader and Follower</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#Add-Followers"><span class="nav-text">Add Followers</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#Follower-Outages-Catch-up-Recovery"><span class="nav-text">Follower Outages (Catch-up Recovery)</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#Leader-Outages-Failover"><span class="nav-text">Leader Outages (Failover)</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#Replication-Lag"><span class="nav-text">Replication Lag</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Multi-Leader-Replication"><span class="nav-text">Multi-Leader Replication</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Leaderless-Replication-Dynamo-Style"><span class="nav-text">Leaderless Replication(Dynamo Style)</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#Quorum"><span class="nav-text">Quorum</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#Detecting-Concurrent-Writes"><span class="nav-text">Detecting Concurrent Writes</span></a></li></ol></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Chapter-6-Partition-Sharding-driven-by-scalability"><span class="nav-text">Chapter 6: Partition/Sharding (driven by scalability)</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Partitioning-of-Key-Value-Data"><span class="nav-text">Partitioning of Key-Value Data</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#By-Key-Range-Bigtable-HBase"><span class="nav-text">By Key Range (Bigtable, HBase)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#By-Hash-of-Key-Cassandra-MongoDB"><span class="nav-text">By Hash of Key (Cassandra, MongoDB)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Relieve-Hot-Spots"><span class="nav-text">Relieve Hot Spots</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Partitioning-Secondary-Indexes"><span class="nav-text">Partitioning Secondary Indexes</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#By-Document-Local-Index"><span class="nav-text">By Document (Local Index)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#By-Term-Global-Index"><span class="nav-text">By Term (Global Index)</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Rebalancing"><span class="nav-text">Rebalancing</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Fixed-number-of-partitions"><span class="nav-text">Fixed number of partitions</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Dynamic-partitioning"><span class="nav-text">Dynamic partitioning</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Partition-proportional-to-nodes"><span class="nav-text">Partition proportional to nodes</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Routing-Requests"><span class="nav-text">Routing Requests</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#References"><span class="nav-text">References</span></a></li></ol></li></ol></div>
             
 
           </div>

@@ -145,7 +145,7 @@
 <meta property="og:description" content="系统设计学习笔记。祝我好运。">
 <meta property="og:locale" content="en">
 <meta property="og:image" content="https://www.researchgate.net/profile/Joao_Lourenco11/publication/282519669/figure/fig1/AS:281002732736529@1444007680733/CAP-theorem-with-databases-that-choose-CA-CP-and-AP.png">
-<meta property="og:updated_time" content="2020-01-28T13:39:04.285Z">
+<meta property="og:updated_time" content="2021-06-14T00:58:27.204Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="系统设计笔记">
 <meta name="twitter:description" content="系统设计学习笔记。祝我好运。">
@@ -472,7 +472,7 @@
                 
                   <span class="post-meta-item-text">Edited on</span>
                 
-                <time title="Modified: 2020-01-28 05:39:04" itemprop="dateModified" datetime="2020-01-28T05:39:04-08:00">2020-01-28</time>
+                <time title="Modified: 2021-06-13 17:58:27" itemprop="dateModified" datetime="2021-06-13T17:58:27-07:00">2021-06-13</time>
               
             
           </span>
@@ -540,7 +540,7 @@
                 
                   <span class="post-meta-item-text">Symbols count in article: </span>
                 
-                <span title="Symbols count in article">9.7k</span>
+                <span title="Symbols count in article">26k</span>
               
 
               
@@ -554,7 +554,7 @@
                 
                   <span class="post-meta-item-text">Reading time &asymp;</span>
                 
-                <span title="Reading time">10 mins.</span>
+                <span title="Reading time">27 mins.</span>
               
             </div>
           
@@ -575,6 +575,12 @@
 
       
         <p>系统设计学习笔记。祝我好运。<br><a id="more"></a></p>
+<h2 id="考点"><a href="#考点" class="headerlink" title="考点"></a>考点</h2><ul>
+<li>Communication</li>
+<li>Working Solution</li>
+<li>Walk through your solution and provide reasoning</li>
+<li>Trade-offs and optimizations</li>
+</ul>
 <h2 id="基础知识讲解"><a href="#基础知识讲解" class="headerlink" title="基础知识讲解"></a>基础知识讲解</h2><h3 id="分布式系统的主要特性"><a href="#分布式系统的主要特性" class="headerlink" title="分布式系统的主要特性"></a>分布式系统的主要特性</h3><h4 id="Scalability"><a href="#Scalability" class="headerlink" title="Scalability"></a>Scalability</h4><ul>
 <li>系统/服务是否能够evolve并handle增长的需求。随着系统自身规模增加，scalability通常下降，因为机器之间的物理距离、网速限制，或者任务本身就无法被分配到不同机器上执行。<ul>
 <li>horizaontal scaling: 用更多的机器，更加动态和灵活一些。</li>
@@ -608,6 +614,11 @@
 <li>Least Bandwidth: 选择负载最轻的</li>
 <li>Round Robin: 轮流。或者根据机器本身的处理能力赋予权重，根据权重来RR.</li>
 <li>IP Hash: 将client的IP映射成hash再选择对应的server。</li>
+</ul>
+</li>
+<li>TCP版LB v.s. HTTP版LB<ul>
+<li>TCP LB速度快，只负责转发，不检查内容</li>
+<li>HTTP LB可以实现复杂的逻辑，例如根据传输数据内容决定向哪个特定server转发</li>
 </ul>
 </li>
 </ul>
@@ -652,9 +663,18 @@
 <li>Composite partitioning: 结合上面几种，例如先用个简单的list、在内部再用hash based。其实consistent hashing也可以当作是一种结合式分区。</li>
 </ul>
 <h5 id="Problems-of-Partitioning"><a href="#Problems-of-Partitioning" class="headerlink" title="Problems of Partitioning"></a>Problems of Partitioning</h5><ul>
-<li>Joins and Denormalization: 如果table都在一个机器上，使用join操作非常正常。但是分散之后还想同时对多个table进行join就不那么feasibile了。解决方法是对数据库进行denormalize，这样之前执行过的join操作就可以在单个table上完成了，有点类似于数据备份，但这样也就需要处理数据不一致的问题了。</li>
+<li>Joins and Denormalization: 如果table都在一个机器上，使用join操作非常正常。但是分散之后还想同时对多个table进行join就不那么feasibile了。解决方法是对数据库进行denormalize，（normalize指的是各个表之间存储的数据尽可能不重复）这样之前执行过的join操作就可以在单个table上完成了，有点类似于数据备份，但这样也就需要处理数据不一致的问题了。</li>
 <li>Referential integrity: 类似于cross-partition query不可行，保证data integrity constraints如foreign keys之类的也很困难，在RDBMS不支持跨服务器的reference的情况下就需要在application level维护一些保证引用正确性的代码了。</li>
 <li>Rebalancing: 当请求集中在某些服务器时可能就需要考虑调整划分规则了，通常就涉及增加新的partition或在现有的partition内部进行rebalancing。使用directory based的操作可以避免downtime，但也增加了系统的复杂性和引入了single point-of-failure（中央查询都这样）。</li>
+</ul>
+<h5 id="Hot-Partition"><a href="#Hot-Partition" class="headerlink" title="Hot Partition"></a>Hot Partition</h5><ul>
+<li>对于一些热门的资源，可能短时间内所有request都会指向同一个partition，造成hot / overload partition持续写入.</li>
+<li>解决方法<ul>
+<li>在简单的hash(uuid)基础上加入event_time信息，这样当前这个interval内会全部涌入一个partiton、下一个interval就会去别的partition，平均来看就spread out了。</li>
+<li>split hot partiton into two new partitons，类似于consistent hashing.</li>
+<li>explicitly allocate dedicated partitions，手动将经常被访问的partition分散开来。</li>
+</ul>
+</li>
 </ul>
 <h4 id="Indexes"><a href="#Indexes" class="headerlink" title="Indexes"></a>Indexes</h4><ul>
 <li>index本质上就是一个指出数据存储位置的额外的table，easily searchable by relavant information.</li>
@@ -723,52 +743,110 @@
 </li>
 <li>Reverse Proxy: client访问proxy时由代理去取resources，client访问时并不知道它是proxy。通常反向代理和实际后端同处在一个内网中，可以抵御外部恶意访问，同时实现一些负载均衡。</li>
 </ul>
-<h3 id="Communication-Protocols"><a href="#Communication-Protocols" class="headerlink" title="Communication Protocols"></a>Communication Protocols</h3><p>标准HTTP网络请求通常是这几步：</p>
-<ol>
+<h3 id="Communication-Protocols"><a href="#Communication-Protocols" class="headerlink" title="Communication Protocols"></a>Communication Protocols</h3><h4 id="标准HTTP网络请求通常是这几步："><a href="#标准HTTP网络请求通常是这几步：" class="headerlink" title="标准HTTP网络请求通常是这几步："></a>标准HTTP网络请求通常是这几步：</h4><ol>
 <li>client打开连接，向server请求数据</li>
 <li>server计算response</li>
 <li>server将数据发回给client</li>
 </ol>
-<p>大致有以下几类通信方式：</p>
-<ul>
+<h4 id="大致有以下几类通信方式："><a href="#大致有以下几类通信方式：" class="headerlink" title="大致有以下几类通信方式："></a>大致有以下几类通信方式：</h4><ul>
 <li>Ajax Polling: client间隔性地向server请求某些数据来进行update。当没有新内容时回复是空的，就造成了很多HTTP overhead。</li>
-<li>HTTP Long-Polling(Hanging GET): 和上面的polling类似，但server不是立刻回复，而是等待知道有update或者timeout才回复，而client在收到response的同时会立刻再发一个请求。这有可能造成request在server端堆积。</li>
+<li>HTTP Long-Polling(Hanging GET): 和上面的polling类似，但server不是立刻回复，而是等待直到有update或者timeout才回复，而client在收到response的同时会立刻再发一个请求。这有可能造成request在server端堆积。</li>
 <li>WebSockets: 在一个TCP连接中提供全双通（full duplex）的通信渠道，一旦WebSocket handshake完成，连接就建立了，client和server都可以实时任意交换数据。</li>
 <li>Server-sent Events: client和server之间建立了一个persistent和长期的连接，当server在不断产生data或持续发送events的时候比较合适。</li>
 </ul>
-<h2 id="系统设计面试"><a href="#系统设计面试" class="headerlink" title="系统设计面试"></a>系统设计面试</h2><h3 id="解题步骤"><a href="#解题步骤" class="headerlink" title="解题步骤"></a>解题步骤</h3><ol>
-<li>Requirement Clarification<ul>
-<li>scope大致是多大的？</li>
-<li>支持用户的哪些操作？是否需要根据搜索/写入做优化？</li>
+<h4 id="message-format"><a href="#message-format" class="headerlink" title="message format"></a>message format</h4><ul>
+<li>textual（如xml, csv, json）：广泛使用，human-readable, 但数据复杂、数据size更大、scalability不如binary.</li>
+<li>binary（如thrift, proto-buf）：compact, faster to parse，因为schema严格、用tag取代tagName，但需要share and sync schema format</li>
+</ul>
+<h3 id="performance-testing"><a href="#performance-testing" class="headerlink" title="performance testing"></a>performance testing</h3><ul>
+<li>load testing: measure behavior of a system under a specific expected load, 用来确认scalable、能承受load</li>
+<li>stress testing: test beyond the normal capacity, often to a breaking point，找到什么部分最先崩溃memory/cpu/diskIO</li>
+<li>soak testing: test with typical load for extended period of time，找到leak in resources如memory leak</li>
+</ul>
+<h2 id="系统设计面试"><a href="#系统设计面试" class="headerlink" title="系统设计面试"></a>系统设计面试</h2><h3 id="积木"><a href="#积木" class="headerlink" title="积木"></a>积木</h3><ul>
+<li>In-memory: Redis(p50=1ms，可以shard), memcache</li>
+<li>Leaderless replica: DynamoDB(inf scale几千个node且perf是线性增加), Cassandra</li>
+<li>SQL: MySQL(单机p50=10ms，还可vrtc/hrzt sharding), PostgreSQL。</li>
+<li>Sharded SQL: ZooKeeper + MySQL</li>
+<li>Analytics DB: Redshift, column-oriented DB</li>
+<li>Kafka(单DC p50=5ms, 多DC p50=100+ms), Flink: 保证scalability和durability，用在dashboard和report上。</li>
+</ul>
+<h4 id="数据库-缓存-队列选择"><a href="#数据库-缓存-队列选择" class="headerlink" title="数据库/缓存/队列选择"></a>数据库/缓存/队列选择</h4><ul>
+<li>SQL: 有严格的transaction；有rich sql query如join/group by，不过需要小心sharding时key的选择<ul>
+<li>MySQL: 轻快。改schema时会全复制。</li>
+<li>Postgres: tuple不会更改，update其实是插入。alter比较好，支持的功能全面。</li>
+</ul>
+</li>
+<li>NoSQL: 格式本身就是key-value对儿；有规律的access pattern；需要flexible schema。DynamoDB(每行400K)</li>
+<li>S3: big object或媒体文件。</li>
+<li>Redis: write都单线程处理(100k QPS), read是多线程，保证serialized transaction，但durability有问题。</li>
+<li>MessageQueue: 主要放metadata因此不能放很大的内容，size比较固定。</li>
+</ul>
+<h4 id="两种disagree"><a href="#两种disagree" class="headerlink" title="两种disagree"></a>两种disagree</h4><ul>
+<li>foundamentally not working: 理论上根本就不work</li>
+<li>not the best design: 直觉这个可能不是最优解，可能是tool限制，但面试中给出working solution，good enough就好了。</li>
+</ul>
+<h3 id="解题步骤"><a href="#解题步骤" class="headerlink" title="解题步骤"></a>解题步骤</h3><ol>
+<li>10 min Requirement Clarification<ul>
+<li>User/costomers<ul>
+<li>Who will use the system? real world customers? internal users? consumed by other serivce/pipeline?</li>
+<li>How will the system be used? offline? real-time?</li>
+</ul>
+</li>
+<li>Scale(read and write)大致是多大的？Daily Active Users?<ul>
+<li>How many read QPS?</li>
+<li>How much data is qureied per request?</li>
+<li>What’s the traffic pattern? any spike?</li>
+</ul>
+</li>
+<li>Performance<ul>
+<li>What is expected write-to-read data delay?</li>
+<li>What is expected p99 latency for read queries?</li>
+</ul>
+</li>
+<li>支持用户的哪些操作？是否需要根据搜索/写入做优化？需要自己come up with一些near future的新功能，需要培养business sense.</li>
 <li>后台/entity需要储存哪些类型的数据？</li>
 <li>是否需要支持一些机器学习模型如推荐热搜？</li>
 <li>是否有一些后台push notification的操作？</li>
+<li>分清楚MVP, bonus feature.</li>
+<li>non-functional requirement: availability, reliability, consistency, real-time.</li>
+<li>Cost:<ul>
+<li>Should we consider the $ cost? indicates open-source.</li>
+<li>Should we consider maintainence cost? indicates public cloud resource providers.///</li>
 </ul>
 </li>
-<li>Back-of-the-envelope estimation 估算系统规模<ul>
+</ul>
+</li>
+<li>10 min Back-of-the-envelope estimation 估算系统规模<ul>
 <li>系统的scale是怎样的？（单位时间内新增内容/查询次数）</li>
 <li>需要多少的storage和cache？这涉及不同的DB选择</li>
 <li>网络bandwidth是怎么样的？这涉及之后的traffic management和load balancing.</li>
+<li><code>&gt;1000 QPS</code>的时候就需要partition了。</li>
+<li>单个MySQL大概不超过<code>500GB</code>.</li>
 </ul>
 </li>
-<li>System interface definition 将系统对外开放的API写出来<ul>
-<li>将contract翻译成函数+参数的形式</li>
-<li>确保包括了出题人所有想要的操作</li>
-</ul>
-</li>
-<li>Defining Data Model<ul>
-<li>可以理解为数据库中需要存储的entity，clarify数据是如何在系统中各个component之间流动的</li>
-<li>guide for data partitioning and management比如storage, transportation, encryption.</li>
-</ul>
-</li>
-<li>High-level Design<ul>
+<li>10 min Architecture + Database (High-level Design)<ul>
+<li>Stateless Service: HTTP+LB，基本就要cover前面的feature</li>
+<li>Stateful Service: websocket/polling，例如slack发消息、在线离线</li>
+<li>3rd-party: 需要假设他们不可靠，需要retry，怎么防止重复request，</li>
 <li>画一个系统关键component的图，将每个操作end-to-end都过一遍</li>
 <li>标配是client - LB - ApplicationServer - DB/File Storage(pic,video).</li>
 </ul>
 </li>
-<li>Detailed Design<ul>
+<li>10 min System interface definition 将系统对外开放的API写出来<ul>
+<li>将contract翻译成函数+参数的形式</li>
+<li>确保包括了出题人所有想要的操作</li>
+</ul>
+</li>
+<li>10 minDefining Data Model<ul>
+<li>可以理解为数据库中需要存储的entity，clarify数据是如何在系统中各个component之间流动的</li>
+<li>guide for data partitioning and management比如storage, transportation, encryption.</li>
+</ul>
+</li>
+<li>10 min Detailed Design<ul>
 <li>将系统中关键的两三个component拎出来解释有哪些实现方式和对应的pros&amp;cons.</li>
 <li>在讨论时可以举一些场景例子解释在哪些情况下有优势，而不能解决哪些情况。缓存设在哪层会产生哪些好处/不足。根据需求是否有些小hack可以做，好处坏处是什么。</li>
+<li>How to sca</li>
 </ul>
 </li>
 <li>Identifying and Resolving bottlenecks 找出系统瓶颈并提供mitigate方案<ul>
@@ -779,7 +857,224 @@
 </ul>
 </li>
 </ol>
-<h3 id="模拟题"><a href="#模拟题" class="headerlink" title="模拟题"></a>模拟题</h3><h4 id="URL-Shortening-service"><a href="#URL-Shortening-service" class="headerlink" title="URL Shortening service"></a>URL Shortening service</h4><ol>
+<h3 id="模拟题"><a href="#模拟题" class="headerlink" title="模拟题"></a>模拟题</h3><h4 id="Design-Slack"><a href="#Design-Slack" class="headerlink" title="Design Slack"></a>Design Slack</h4><ol>
+<li>Use Case<ul>
+<li>Functional: 这个需求太大了，可不可以分成MVP版本和后续bonus版本。<ul>
+<li>Direct Messsage</li>
+<li>Channel Message</li>
+<li>Multimedia Message</li>
+<li>Link preview</li>
+<li>Search history</li>
+<li>Bonus: Group Membership, Notification, Highlight unread message</li>
+</ul>
+</li>
+<li>Non-functional: 需要一上来就问用户数量级，例如日活200M，那平均到每秒就是/10^5左右，然后可能PEAK单独乘个5。<ul>
+<li>High availability</li>
+<li>High reliability(没有数据丢失)</li>
+<li>Consistent</li>
+<li>High performance: real time</li>
+</ul>
+</li>
+<li>Not covered:<ul>
+<li>Authentication/Authorization</li>
+<li>Mobile/Web Client Side</li>
+<li>Throttle: 1s upto 10msg</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Constraints 分别计算QPS和data_volume<ul>
+<li>One domain</li>
+<li>DAU: 10M</li>
+<li>Peak direct message: 10M <em> 100条 </em> 5倍于平时 / 86400 = 50K msg/s</li>
+<li>每条msg多大？100bytes</li>
+<li>Peak throughput: 50000 * 100 / 1000 = 100MB/s</li>
+<li>Storage per day: 100MB * 86400 = 10TB</li>
+<li>Group limit: 1000 members in a group</li>
+</ul>
+</li>
+<li>Architecture &amp; Database<br>分成不同的microservice进行互动，每个service的特征也就基本决定了选择什么DB和cache。<ul>
+<li>Account service: manage user info (SQL + redis/memcache)</li>
+<li>Friends service: may not need in slack (SQL + redis/memcache)</li>
+<li>Group service: manage group membership info (SQL + redis/memcache)</li>
+<li>Media service: process uploaded multi-media/linke info (amz S3 + Content Delivery Network加速查找媒体文件)</li>
+<li>Notification service: notify users for new message (Kafka topic) 这里值得提一句exactly once的notify非常复杂，需要做2-phase commit.</li>
+<li>Message storage service: store message (DynamoDB, infinite scale，对应的cache叫DAX) Cassandra和dynamo类似比如hinted handoff(for consistency)，但也有区别，如cassandra conflict是last-write-win.</li>
+<li>Message search service: message search index and lookup，每个message发完要async到这里来index一下，用elasticsearch做搜索，用lucene，用inverted index实现。</li>
+<li>Emoji Service: 对message的回应。存放在redis，不过缺陷是data loss.</li>
+<li>Channel service: 决定每个request该到哪个service去</li>
+</ul>
+</li>
+<li>API设计<br>REST或gRPC/Thrift. gRPC用的是protobuf，比thrift成熟一些。<br>Public API:<ul>
+<li>打开页面<code>getChannels(user_id)</code><ul>
+<li>store last viewed channel</li>
+<li>store visible channels: (recent DM &amp; membership fo the group)</li>
+<li>show unread msg/last msg preview: denormalized data</li>
+</ul>
+</li>
+<li>发消息<code>SendMessage(sender_id, receiver_id, message_type, message_text, media_id)</code><ul>
+<li>message_type 可以是DM或group </li>
+<li>create_timestamp, update_timestamp, expiration_time, state会被channel service加进去</li>
+<li>state可以是received/sent/notified/viewed/deleted.</li>
+</ul>
+</li>
+<li><code>updateMessage(message_id, message)</code></li>
+<li><code>uploadFile(user_id, permission_group, file_description, extra_metadata)</code>: 常见的upload file都是用一个MessageQueue或workerPull处理的。当用户上传图片，服务器生成随机key，在s3上申请地址，将media连同key传输过去，复制备份，postprocesssing后服务器将media+key的URL存入user profile. 顺便讲解一下link preview, 可以是sender-side（发送方随着链接生成preview两个打包发送，不过这样可以伪造）或receipient-side（接收方只在收到链接时生成preview）或server-side（由服务器生成preview，不过也可以通过识别server进行伪造preview）。</li>
+<li><code>lookupEntity(user_id)</code>: 内部用Trie实现，快速查找，可能存在客户端。</li>
+<li><code>joinGroup(user_id, group_id)</code></li>
+<li><code>getDirectMessage(user_id, friend_id)</code></li>
+<li><code>getGroupMessages(user_id, group_id)</code></li>
+<li>CRUD for group info</li>
+<li>CRUD for user info<br>Internal API: 内部service之间处理数据使用</li>
+<li>media service: <code>processMedia(media_id)</code>: 包括replicate media, post-processing(generate preview/thumbnail), distribute to CDN（media chop成很小部分例如几秒）。</li>
+<li>notification service: <code>notifyUser(user_id, sender_id, message_id, msg_preview)</code>,可以用DB或kafka，request thru message queue, async把message交到worker pool，之后会有handler来发消息（call特定API如websocket/苹果安卓的推送API），接到receipt之后可以用DB存下来，如果call了通知API返回成功了message的state才会标记成notified，如果没成功会有个background job check一下尝试重call notification endpoint.</li>
+</ul>
+</li>
+<li><p>Data Model</p>
+<ul>
+<li><p>User table (SQL mysql单机平均p50也就5ms):</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">id uuid (shard key)</div><div class="line">name string</div><div class="line">status online/offline (websocket可以做，只要没expire就是在线)</div><div class="line">location string</div><div class="line">team string</div></pre></td></tr></table></figure>
+</li>
+<li><p>Friend table (SQL):</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">user_id_1 uuid (shard key)</div><div class="line">user_id_2 uuid</div><div class="line">connected_date date</div><div class="line">last_view_date date</div></pre></td></tr></table></figure>
+</li>
+<li><p>Group membership table (SQL):</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">group_id uuid</div><div class="line">user_id uuid (shard key)</div><div class="line">join_date date</div><div class="line">role admin/member</div><div class="line">last_view_date date</div></pre></td></tr></table></figure>
+</li>
+<li><p>Channel table (redis can handle 100k RPS):</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">key: user_id</div><div class="line">value: list of jsons like: </div><div class="line">group/user_uuid &#123;</div><div class="line">  channel_name,</div><div class="line">  unread_msg: 10,</div><div class="line">  last_msg_preview: ok...</div><div class="line">  timestamp: xxx</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+</li>
+<li><p>message storage table (dynamodb):</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">container_id: group_id for groupchat, sorted&#123;userId1+userId2&#125; for DM (partition_key)</div><div class="line">timestamp_msg_id: (sort_key)</div><div class="line">msg_id: uuid</div><div class="line">sender_id: uuid</div><div class="line">message: string</div><div class="line">created_timestamp: timestamp</div><div class="line">updated_timestamp: timestamp</div></pre></td></tr></table></figure>
+</li>
+<li><p>emoji table (redis):</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">key: msg_id</div><div class="line">value: list of json like</div><div class="line">user_id &#123;</div><div class="line">  name,</div><div class="line">  emoji</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+</li>
+</ul>
+</li>
+</ol>
+<h4 id="Design-Web-Crawler"><a href="#Design-Web-Crawler" class="headerlink" title="Design Web Crawler"></a>Design Web Crawler</h4><ol>
+<li>Business/Use Case<ul>
+<li>Functional:</li>
+</ul>
+<ul>
+<li>a list of domain and seed URL</li>
+<li>async crawl</li>
+<li>parse document contents and store the data. need to index the contents</li>
+<li>discover new urls and add to unvisited urls</li>
+</ul>
+<ul>
+<li>Non-functional:</li>
+</ul>
+<ul>
+<li>High scalability; Flexibility in Scale(因为可能一开始没法估计有多少个url，可以逐渐增加机器)</li>
+<li>Fault Tolerant（从任何一个部分无缝连接地重启）; Idempotent</li>
+<li>Schema flexible &amp; extensible (当field变多需要能够adapt)</li>
+</ul>
+<ul>
+<li>Not covered:</li>
+</ul>
+<ul>
+<li>server side authentication</li>
+<li>server side throttle &amp; rate limiting</li>
+</ul>
+</li>
+<li>Constraints Calc<ul>
+<li>Empirical results driven</li>
+<li>DB: data size is the limitation; foresee the growth?</li>
+<li>server side throttling bottleneck:</li>
+</ul>
+<ul>
+<li>different account</li>
+<li>different IP across nodes</li>
+<li>don’t bring down the crawlee</li>
+<li>same node to crawl diff sites in parallel</li>
+</ul>
+</li>
+<li>Architecture<ul>
+<li>scheduler: 定时重复或者ondemand来爬虫，将一些seed写入metadata. 确定需要crawl哪里后将seed插入record（重复就abort）不等crawler来执行、将progress更新进metadata，出错就从读seed开始。</li>
+<li>crawler: 从metadata读url，deep copy把未整理的内容存入raw data. stateless，读url，如果db中显示已经爬过了就跳过、crawl完就存入rawdata并更新state为CRAWLED.</li>
+<li>parser: async地读取内容，把后续url也存入metadata，这一步也要去重. 读需要parse的record然后尝试parse，如果失败就更新state为STUCK，成功就存入cleaned_data并更新为PROCESSED.</li>
+<li>sweeper: 监控进度，重试crawler/parser。notify the failure/unexpected schema. 需要把STUCK的都重试下，或者发notification。或者通过检测时间差看看是否长时间queue了或者一直还在crawl，也重新入queue.<br>在scheduler和crawler、crawler和parser之间都是用message queue，这样是async的可以保证separate of concern.</li>
+</ul>
+</li>
+<li>API Design<ul>
+<li><code>addScheduledCrawl(domainNames, cronExpression)</code></li>
+<li><code>startCrawling(domainNames, iteration, blacklistUrls)</code></li>
+</ul>
+</li>
+<li>DB choice<ul>
+<li>raw data(crawl出来的)：key-value，可以用s3/dynamo/cassandra/mongoDB</li>
+<li>cleaned data: 需要durability和transaction所以用SQL</li>
+<li>metadataL SQL</li>
+</ul>
+</li>
+<li><p>Data Model</p>
+<ul>
+<li><p>raw_data(S3):</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">id uuid,</div><div class="line">raw_data html/json,</div><div class="line">created_at timestamp</div></pre></td></tr></table></figure>
+</li>
+<li><p>cleaned_data(SQL):</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">hash_of_url_iteration string,   （这样可以去重且不影响retry）</div><div class="line">type scheduled/triggered,</div><div class="line">url string,</div><div class="line">iteration int,</div><div class="line">extracted_field...</div></pre></td></tr></table></figure>
+</li>
+<li><p>metadata(SQL):</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div></pre></td><td class="code"><pre><div class="line">// schedule table</div><div class="line">id uuid,</div><div class="line">cron string with crontab format,</div><div class="line">created_by string,</div><div class="line">created_at timestamp,</div><div class="line">name string,</div><div class="line">urls string,</div><div class="line">state ON/PAUSED/OFF</div><div class="line"></div><div class="line"></div><div class="line">// iteration_progress</div><div class="line">schedule_id uuid,</div><div class="line">iteration int,</div><div class="line">started_at timestamp,</div><div class="line">urls_found int,</div><div class="line">stuck_count int,</div><div class="line">crawled int,</div><div class="line">processed int</div><div class="line"></div><div class="line"></div><div class="line">// url_record</div><div class="line">hash_of_url_iteration string,</div><div class="line">url string,</div><div class="line">iteration int,</div><div class="line">state QUEUED/CRAWLED/PROCESSED/STUCK,</div><div class="line">created_at timestamp,</div><div class="line">updated_at timestamp,</div><div class="line">notified boolean,</div><div class="line">deleted boolean</div></pre></td></tr></table></figure>
+</li>
+</ul>
+</li>
+</ol>
+<h4 id="Design-ticket-booking-system-12306"><a href="#Design-ticket-booking-system-12306" class="headerlink" title="Design ticket booking system (12306)"></a>Design ticket booking system (12306)</h4><ol>
+<li>Business<ul>
+<li>Functional</li>
+</ul>
+<ul>
+<li>search route</li>
+<li>route breaking</li>
+<li>book route ticket</li>
+<li>show remaining ticket</li>
+<li>seat reservation</li>
+<li>cancel any time</li>
+</ul>
+<ul>
+<li>Non-functional</li>
+</ul>
+<ul>
+<li>reliable</li>
+<li>performant</li>
+<li>race-condition: 抢座可能会出现read-modify-write conflict，通过row level 2-phase locking解决：取non-exclusive读锁，要下单时要变成exclusive的写锁，此时其他读锁都会被踢出去。这个QPS=100K. 还结合multi-version concurrency control。此外还可以考虑MySQL和Postgres的snapshot isolation，读可能会有stale数据但不会被写block、写也不会被读block。</li>
+<li>transactional; financial related</li>
+</ul>
+<ul>
+<li>Not covered</li>
+</ul>
+<ul>
+<li>payment</li>
+<li>capcha</li>
+<li>throttle at LB</li>
+</ul>
+</li>
+<li>Constraints<ul>
+<li>QPS 1M, grow to &gt;10M. Peak: 10M/10k trains = 1k QPS per train; 假设没那么多车次，就按10K QPS好了</li>
+<li>Read-Write Ratio: 假设是10:1，那就对于每个车次有100K，单个SQL的shard也是可以handle的。</li>
+</ul>
+</li>
+<li>Architecture<ul>
+<li>Load Balancer</li>
+<li>Booking Service</li>
+<li>Seat Allocating Service</li>
+</ul>
+</li>
+<li>API Design<ul>
+<li><code>searchRoute(from, to)</code></li>
+<li><code>bookTicket(from, to, ticketCount)</code>: 插入booking table, 返回increment_id和request_id，之后async去读对应行数看看state是否为CONFIRMED。</li>
+<li><code>getSeat(route, )</code>: 可以做多条route的动态座位划分，<br>background job来定时看看table里哪些人可以取到作为、哪些route要被重新开放预定。<br>将已经发出的车次挪到history data warehouse去。</li>
+</ul>
+</li>
+<li>Databse Choice<br>因为要进行transactional的更新，所以选用SQL。<br>为了保证scalability，需要进行shard。<br>Book了之后不能data loss. Replica可以选择synchronize</li>
+<li>Data model/schema<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div></pre></td><td class="code"><pre><div class="line">// booking</div><div class="line">id auto_incre_int,</div><div class="line">booking_uuid uuid(hash of 车次&amp;datetime) sharding</div><div class="line">train_num string,</div><div class="line">start_time datetime,</div><div class="line">user_uuid uuid（护照号、身份证也行）,</div><div class="line">ticket_count int,</div><div class="line">route string/uuid,</div><div class="line">created_at timestamp,</div><div class="line">state [EMPTY, CONFIRMED, CANCELED]</div><div class="line"></div><div class="line">index on passenger_id, request_id, route.</div><div class="line">primary_key on auto_incre_int, 也用来决定谁抢票赢了</div><div class="line"></div><div class="line"></div><div class="line">// sea t allocating</div><div class="line">id auto_incre_int,</div><div class="line">booking_id int,</div><div class="line">seat_num string,</div><div class="line">created_at,</div><div class="line">state []</div></pre></td></tr></table></figure>
+</li>
+</ol>
+<h4 id="URL-Shortening-service"><a href="#URL-Shortening-service" class="headerlink" title="URL Shortening service"></a>URL Shortening service</h4><ol>
 <li>需求分析<ul>
 <li>Functional<ul>
 <li>输入一个长链接，生成唯一且更短的链接。</li>
@@ -823,14 +1118,192 @@
 </li>
 </ul>
 </li>
-<li>System APIs<ul>
-<li></li>
+<li>Architecture<br><a href="https://jamboard.google.com/d/122xakzGKt0llC1RjtdjjTbB_stV21QeQHoExX-AYxjQ/viewer?f=0" target="_blank" rel="external">Jamboard linke</a><ul>
+<li>Key Generating Service是一个offline预先生成短链接的service。为什么不直接hash给定的url呢？因为这个hash可能重复、而且不同用户上传相同长链接的话需要分辨，这个当然可通过append auto-inc的办法解决，但可能overflow；或者可以append user_uuid，但需要user登陆且可能重复。因此用这个KGS+memcache，从DB中不断把生成的短链接读到cache里并标记用已使用</li>
+<li>Cleanup Service是一个lazy删除过期链接的serivce，可以在off-peak时扫描并删除，也可以当user来读过期链接时再删除。被删除的key可以被reuse。</li>
+</ul>
+</li>
+<li>API<ul>
+<li><code>createURL(clientKey, originalUrl, customAlias = null, userName = null, expireDate = null)</code></li>
+<li><code>deleteURL(clientKey, shortUrl)</code></li>
+</ul>
+</li>
+<li>DB Choice<ul>
+<li>选择NoSQL主要是以下考虑：</li>
+</ul>
+<ul>
+<li>存储数据量很大(每个月500M rows)</li>
+<li>每个row其实很小</li>
+<li>除了user-url关系，没有强relationship，因此考虑nosql</li>
+<li>Read heavy</li>
+</ul>
+<ul>
+<li>Partitoning</li>
+</ul>
+<ul>
+<li>Range based: 直接根据短链接开头字母分，像字典一样，但可能造成不均匀分布</li>
+<li>Hash based: 对短链接求hash来决定存入哪个partition，用consistent hashing防止overloaded partitions.</li>
+</ul>
+<ul>
+<li>Cache</li>
+</ul>
+<ul>
+<li>memcache来存经常性被访问的短链接-长链接对儿。</li>
+<li>evict可以用LRU排除</li>
+</ul>
+</li>
+<li><p>Data Model + schema</p>
+<ul>
+<li><p>URL：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">shortened_url: string (primary key)</div><div class="line">original_url: string</div><div class="line">created_at: datetime</div><div class="line">expire_at: datetime</div><div class="line">user_uuid: UUID</div></pre></td></tr></table></figure>
+</li>
+<li><p>User:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">user_uuid: uuid (primary key)</div><div class="line">name: string</div><div class="line">email: string</div><div class="line">created_at: datetime</div><div class="line">last_login: datetime</div></pre></td></tr></table></figure>
+</li>
 </ul>
 </li>
 </ol>
+<h4 id="Pastebin"><a href="#Pastebin" class="headerlink" title="Pastebin"></a>Pastebin</h4><ol>
+<li>需求分析use case<ul>
+<li>Functional:</li>
+</ul>
+<ul>
+<li>存入text，生成URL</li>
+<li>根据URL访问text</li>
+<li>设置过期时间或默认过期时间</li>
+<li>custom url</li>
+</ul>
+<ul>
+<li>Non-functional</li>
+</ul>
+<ul>
+<li>reliable，数据不丢失</li>
+<li>available，能根据url访问text</li>
+<li>访问速度快</li>
+<li>url和text之间不能guessable</li>
+</ul>
+<ul>
+<li>Bonus/Non-goal</li>
+</ul>
+<ul>
+<li>DA支持，统计访问次数</li>
+<li>作为第三方允许别的service通过API调用</li>
+</ul>
+</li>
+<li>Capacity + Constraints<ul>
+<li>text limit: 10MB, avg 10KB</li>
+<li>read-write ratio: 5:1, READ-HEAVY</li>
+<li>write: 1MM pastes/day = 1MM/24/3600 = 12 QPS，网络bandwidth为120KB/s</li>
+<li>read: 5MM read/day = 58 QPS, 类似地，网络bandwidth为600KB/s</li>
+<li>storage volume: 1MM * 10KB = 10GB/day, 存10年就是36TB。注意这只是text本身，还需要存url作为key，总共有3.6B条记录，假设url为6个字符每个字符占用1Byte的话，需要22GB，不是一个数量级因此可以忽略。</li>
+<li>cache volumn: 假设20%的链接贡献了80%的流量，需要将每天 <code>5MM * 10KB * 20%</code>缓存下来，即10GB。</li>
+</ul>
+</li>
+<li>Architecture<br>和shorten-url非常类似</li>
+<li>API<ul>
+<li><code>addPaste(clientKey, textContent, customUrl = null, textTitle = null, userName = null, expireDate = null)</code></li>
+<li><code>getPaste(clientKey, accessUrl)</code></li>
+<li><code>deletePaste(clientKey, accessUrl)</code></li>
+</ul>
+</li>
+<li>Database Choice<ul>
+<li>和shorten一样，都是read-heavy, 单位object小，因此也可以考虑NoSQL</li>
+<li>text作为object也可以用amazon s3存放，这样之后想扩到支持图片上传也可以。</li>
+</ul>
+</li>
+<li><p>Data Model and schema<br>还是和shorten类似</p>
+<ul>
+<li><p>Paste:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">hash_of_url: string (primary key)</div><div class="line">content_key: string (for look up in object storage S3)</div><div class="line">created_at: datetime</div><div class="line">expire_at: datetime</div><div class="line">user_uuid: UUID</div></pre></td></tr></table></figure>
+</li>
+<li><p>User:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">user_uuid: uuid (primary key)</div><div class="line">name: string</div><div class="line">email: string</div><div class="line">created_at: datetime</div><div class="line">last_login: datetime</div></pre></td></tr></table></figure>
+</li>
+</ul>
+</li>
+</ol>
+<h4 id="Design-Rate-Limiter"><a href="#Design-Rate-Limiter" class="headerlink" title="Design Rate Limiter"></a>Design Rate Limiter</h4><ol>
+<li>use case<ul>
+<li>Functional</li>
+</ul>
+<ul>
+<li>限制client在一定时间window内能给API发送的请求数量</li>
+<li>这个限制必须是cluster范围内试用的，而不是host level的</li>
+</ul>
+<ul>
+<li>Non-functional</li>
+</ul>
+<ul>
+<li>highly available保护系统</li>
+<li>不能引入过多额外的latency</li>
+</ul>
+</li>
+<li>constraints + capacity<ul>
+<li>这个Rate limiter本身是限制访问频率的，所以QPS不太需要计算，主要是计算storage.</li>
+</ul>
+</li>
+<li>architecture<br><a href="https://jamboard.google.com/d/11MxIUCtvkjG_xMdISWFsJQ3Qh8MUeqX0beTYUpDwfro/viewer?f=0" target="_blank" rel="external">https://jamboard.google.com/d/11MxIUCtvkjG_xMdISWFsJQ3Qh8MUeqX0beTYUpDwfro/viewer?f=0</a></li>
+<li>api design<ul>
+<li><code>isValidRequest(ipAddr, clientId, api, timestamp)</code>告知caller这个client能否放行。<br>具体来说，rate limiter有两种算法</li>
+<li>fixed-window: 固定interval内的访问次数有上限，实现简单，存储空间需求小（因为只需记录每个interval最早出现时间，定期重置）；但fixed-window可能会放行跨越interval的大量请求，且由于是“read and then write”，很容易出现race condition，例如两个process同时认为当前请求是合法的予以放行。可以通过加锁（例如redis lock）保证atomicity，但会牺牲性能。</li>
+<li>sliding-window: 在当前时间往前的interval范围内的访问次数有上限。需要维持一个有序的访问时间记录，每次插入时排除过期的时间、再看看是否超过quota。但正是因为维护时间list，需要的存储空间暴增，且删除、插入操作也更复杂。</li>
+<li>hybrid：将sliding-window中的list时间向前round，比如5分钟为一个bucket，统计每个bucket的hit次数。</li>
+</ul>
+</li>
+<li>database choice + cache<br>典型的key-value存储即可，cache采用redis，DB用dynamo即可。</li>
+<li><p>data model + schema</p>
+<ul>
+<li><p>fixed-window:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">userId: &#123;count, start_timestamp&#125;</div></pre></td></tr></table></figure>
+</li>
+<li><p>sliding-window: </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">userId: &#123;sorted_timestamp_set&#125;</div></pre></td></tr></table></figure>
+</li>
+</ul>
+</li>
+</ol>
+<h4 id="Design-Instagram"><a href="#Design-Instagram" class="headerlink" title="Design Instagram"></a>Design Instagram</h4><ol>
+<li>use case<ul>
+<li>Functional</li>
+</ul>
+<ul>
+<li>upload/download/view photos</li>
+<li>perform searches based on titles</li>
+<li>follow other user</li>
+<li>generate news feed that shows top photos from users he’s following</li>
+</ul>
+<ul>
+<li>Non-functional</li>
+</ul>
+<ul>
+<li>available，但允许不consistent</li>
+<li>news feed latency小于200ms</li>
+<li>reliable，图片上传了就不丢失（即不能只用cache存数据） </li>
+</ul>
+<ul>
+<li>No-goals</li>
+</ul>
+<ul>
+<li>add tag in photo</li>
+<li>commenting on photo</li>
+<li>at user in photo</li>
+</ul>
+</li>
+<li>capacity + constraints<ul>
+<li>user: 假设总共有500M用户，每天活跃的有1M，平均他们每人上传2张图片。</li>
+<li>image: 每天2M新图片，23/s。假设平均一张图片200KB，则一天400GB，存10年就要1425TB（忽略用户增长）</li>
+</ul>
+</li>
+<li>Ar</li>
+</ol>
+<p>silent -&gt; syncing with interviews<br>completely checkin with the inteviewers out of loop<br>pitch with pros and cons<br>requirement should be covered<br>always echo back to the requirement<br>because of some requirement I’m choosing a/b</p>
+<p>basic component<br>way to answer tricky: just aware? signal to interviewer to expertise in something special<br>should be able to relate to something you<br>give the confidence<br>take a look at their blogs<br>git</p>
+<p><a href="https://www.educative.io/courses/grokking-the-system-design-interview" target="_blank" rel="external">https://www.educative.io/courses/grokking-the-system-design-interview</a><br>2- <a href="https://www.youtube.com/watch?v=xpDnVSmNFX0&amp;list=PLMCXHnjXnTnvo6alSjVkgxV-VH6EPyvoX" target="_blank" rel="external">https://www.youtube.com/watch?v=xpDnVSmNFX0&amp;list=PLMCXHnjXnTnvo6alSjVkgxV-VH6EPyvoX</a><br>3-<a href="https://github.com/donnemartin/system-design-primer" target="_blank" rel="external">https://github.com/donnemartin/system-design-primer</a> (try to master on these topics)<br>4- <a href="https://www.youtube.com/watch?v=WhXOdGhfE6o&amp;list=PLBtyBPTlyC7sPQDrYOEcQC3d1txIwF299" target="_blank" rel="external">https://www.youtube.com/watch?v=WhXOdGhfE6o&amp;list=PLBtyBPTlyC7sPQDrYOEcQC3d1txIwF299</a><br>5-<a href="https://www.youtube.com/watch?v=C3tlMqaNSaI" target="_blank" rel="external">https://www.youtube.com/watch?v=C3tlMqaNSaI</a><br>6- for the specific company that you are applying for try to read their blog and search for the microservices and high architecture they are trying to build.<br>7-<a href="https://github.com/donnemartin/system-design-primer/tree/master/solutions/system_design" target="_blank" rel="external">https://github.com/donnemartin/system-design-primer/tree/master/solutions/system_design</a> (The examples)<br>8- <a href="https://techtakshila.com/system-design-interview/chapter-4" target="_blank" rel="external">https://techtakshila.com/system-design-interview/chapter-4</a><br>9-<a href="https://www.amazon.com/System-Design-Interview-insiders-Second/dp/B08CMF2CQF" target="_blank" rel="external">https://www.amazon.com/System-Design-Interview-insiders-Second/dp/B08CMF2CQF</a></p>
+<p>#### </p>
 <hr>
 <h3 id="References"><a href="#References" class="headerlink" title="References"></a>References</h3><ul>
 <li><a href="https://www.educative.io/courses/grokking-the-system-design-interview" target="_blank" rel="external">grokking-the-system-design-interview</a></li>
+<li><a href="https://www.youtube.com/channel/UCqO9muMZKxutldgmN0J1zLQ/videos" target="_blank" rel="external">scott shi on Youtube</a></li>
 </ul>
 
       
@@ -1157,7 +1630,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#基础知识讲解"><span class="nav-text">基础知识讲解</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#分布式系统的主要特性"><span class="nav-text">分布式系统的主要特性</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Scalability"><span class="nav-text">Scalability</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Reliability"><span class="nav-text">Reliability</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Availability"><span class="nav-text">Availability</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Efficiency"><span class="nav-text">Efficiency</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Serviceability-Managebility"><span class="nav-text">Serviceability/Managebility</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Load-Balancing"><span class="nav-text">Load Balancing</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Caching"><span class="nav-text">Caching</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Database"><span class="nav-text">Database</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Best-Practices"><span class="nav-text">Best Practices</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Data-Partitioning"><span class="nav-text">Data Partitioning</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#Partitioning-Methods"><span class="nav-text">Partitioning Methods</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#Partitioning-Criteria"><span class="nav-text">Partitioning Criteria</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#Problems-of-Partitioning"><span class="nav-text">Problems of Partitioning</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Indexes"><span class="nav-text">Indexes</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Redundancy-amp-Replication"><span class="nav-text">Redundancy & Replication</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#SQL-amp-NoSQL"><span class="nav-text">SQL & NoSQL</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#CAP-Theorem"><span class="nav-text">CAP Theorem</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Consistent-Hashing"><span class="nav-text">Consistent Hashing</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Proxies"><span class="nav-text">Proxies</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Communication-Protocols"><span class="nav-text">Communication Protocols</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#系统设计面试"><span class="nav-text">系统设计面试</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#解题步骤"><span class="nav-text">解题步骤</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#模拟题"><span class="nav-text">模拟题</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#URL-Shortening-service"><span class="nav-text">URL Shortening service</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#References"><span class="nav-text">References</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#考点"><span class="nav-text">考点</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#基础知识讲解"><span class="nav-text">基础知识讲解</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#分布式系统的主要特性"><span class="nav-text">分布式系统的主要特性</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Scalability"><span class="nav-text">Scalability</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Reliability"><span class="nav-text">Reliability</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Availability"><span class="nav-text">Availability</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Efficiency"><span class="nav-text">Efficiency</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Serviceability-Managebility"><span class="nav-text">Serviceability/Managebility</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Load-Balancing"><span class="nav-text">Load Balancing</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Caching"><span class="nav-text">Caching</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Database"><span class="nav-text">Database</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Best-Practices"><span class="nav-text">Best Practices</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Data-Partitioning"><span class="nav-text">Data Partitioning</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#Partitioning-Methods"><span class="nav-text">Partitioning Methods</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#Partitioning-Criteria"><span class="nav-text">Partitioning Criteria</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#Problems-of-Partitioning"><span class="nav-text">Problems of Partitioning</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#Hot-Partition"><span class="nav-text">Hot Partition</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Indexes"><span class="nav-text">Indexes</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Redundancy-amp-Replication"><span class="nav-text">Redundancy & Replication</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#SQL-amp-NoSQL"><span class="nav-text">SQL & NoSQL</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#CAP-Theorem"><span class="nav-text">CAP Theorem</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Consistent-Hashing"><span class="nav-text">Consistent Hashing</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Proxies"><span class="nav-text">Proxies</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Communication-Protocols"><span class="nav-text">Communication Protocols</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#标准HTTP网络请求通常是这几步："><span class="nav-text">标准HTTP网络请求通常是这几步：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#大致有以下几类通信方式："><span class="nav-text">大致有以下几类通信方式：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#message-format"><span class="nav-text">message format</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#performance-testing"><span class="nav-text">performance testing</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#系统设计面试"><span class="nav-text">系统设计面试</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#积木"><span class="nav-text">积木</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#数据库-缓存-队列选择"><span class="nav-text">数据库/缓存/队列选择</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#两种disagree"><span class="nav-text">两种disagree</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#解题步骤"><span class="nav-text">解题步骤</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#模拟题"><span class="nav-text">模拟题</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Design-Slack"><span class="nav-text">Design Slack</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Design-Web-Crawler"><span class="nav-text">Design Web Crawler</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Design-ticket-booking-system-12306"><span class="nav-text">Design ticket booking system (12306)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#URL-Shortening-service"><span class="nav-text">URL Shortening service</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Pastebin"><span class="nav-text">Pastebin</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Design-Rate-Limiter"><span class="nav-text">Design Rate Limiter</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Design-Instagram"><span class="nav-text">Design Instagram</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#References"><span class="nav-text">References</span></a></li></ol></li></ol></div>
             
 
           </div>
