@@ -683,7 +683,7 @@
 <p> 调用String类的任何方法都不会改变String对象本身。</p>
 </li>
 <li>StringBuffer：可改变的Unicode字符序列。synchronous允许并发操作，thread-safe是线程安全的。最典型的使用场景是String的连接，使用append方法会比新建String高效。</li>
-<li>StringBuilder：可改变的Unicode字符序列。但不支持并发操作，不是线程安全的，不过就更快。</li>
+<li><a href="https://www.scaler.com/topics/java/stringbuilder-in-java/" target="_blank" rel="external">StringBuilder</a>：可改变的Unicode字符序列。但不支持并发操作，不是线程安全的，不过就更快。</li>
 </ul>
 <h4 id="内部类"><a href="#内部类" class="headerlink" title="内部类"></a>内部类</h4><ul>
 <li>内部类作为类的一个成员，依附于外部类存在。内部类提供了某种进入其外围类的窗口，通常使用场景是内部类继承自某个类或实现某个接口，在内部类代码中操作创建其外围类的对象。无论外围类是否已经继承了某个接口，都对内部类没有影响。主要分为成员内部类、局部内部类、静态内部类、匿名内部类。</li>
