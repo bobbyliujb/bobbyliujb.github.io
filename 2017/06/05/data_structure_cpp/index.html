@@ -1,0 +1,454 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222"><meta name="generator" content="Hexo 7.3.0">
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/favicon.ico">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon.ico">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon.ico">
+  <link rel="mask-icon" href="/images/favicon.ico" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha256-dABdfBfUoC8vJUBOwGVdm8L9qlMWaHTIfXt+7GnZCIo=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"bobbyliujb.github.io","root":"/","images":"/images","scheme":"Gemini","darkmode":false,"version":"8.23.0","exturl":false,"sidebar":{"position":"left","width_expanded":320,"width_dual_column":240,"display":"hide","padding":18,"offset":12},"hljswrap":true,"copycode":{"enable":false,"style":null},"fold":{"enable":false,"height":500},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"duration":200,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"}}</script><script src="/js/config.js" defer></script>
+
+    <meta name="description" content="刷题中遇到了瓶颈，图论的很多知识只记得有这么个东西，但具体不记得了，一翻课件发现大二上的『算法与数据结构』中很多东西都能找到，就暂停一下，把这部分知识重新过一遍。暂时只记录关键的算法，至于各种数据结构的实现就只是一笔带过了。（原本想翻译成英文的&#x3D;_&#x3D;">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Note for Data Structure in CPP">
+<meta property="og:url" content="https://bobbyliujb.github.io/2017/06/05/data_structure_cpp/index.html">
+<meta property="og:site_name" content="Bob&#39;s Blog">
+<meta property="og:description" content="刷题中遇到了瓶颈，图论的很多知识只记得有这么个东西，但具体不记得了，一翻课件发现大二上的『算法与数据结构』中很多东西都能找到，就暂停一下，把这部分知识重新过一遍。暂时只记录关键的算法，至于各种数据结构的实现就只是一笔带过了。（原本想翻译成英文的&#x3D;_&#x3D;">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://ww1.sinaimg.cn/large/9b3a5c2fgy1fgcnxpnkfvj20ek096407.jpg">
+<meta property="article:published_time" content="2017-06-05T16:29:50.000Z">
+<meta property="article:modified_time" content="2017-06-09T02:30:31.000Z">
+<meta property="article:author" content="Bob">
+<meta property="article:tag" content="algorithm">
+<meta property="article:tag" content="interview">
+<meta property="article:tag" content="cpp">
+<meta property="article:tag" content="data-structure">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://ww1.sinaimg.cn/large/9b3a5c2fgy1fgcnxpnkfvj20ek096407.jpg">
+
+
+<link rel="canonical" href="https://bobbyliujb.github.io/2017/06/05/data_structure_cpp/">
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"en","comments":true,"permalink":"https://bobbyliujb.github.io/2017/06/05/data_structure_cpp/","path":"2017/06/05/data_structure_cpp/","title":"Note for Data Structure in CPP"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>Note for Data Structure in CPP | Bob's Blog</title>
+  
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-118868735-1"></script>
+  <script class="next-config" data-name="google_analytics" type="application/json">{"tracking_id":"UA-118868735-1","only_pageview":false,"measure_protocol_api_secret":null}</script>
+  <script src="/js/third-party/analytics/google-analytics.js" defer></script>
+
+
+
+
+
+
+
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous" defer></script>
+<script src="/js/utils.js" defer></script><script src="/js/motion.js" defer></script><script src="/js/sidebar.js" defer></script><script src="/js/next-boot.js" defer></script>
+
+  
+
+
+
+
+
+
+  
+
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <div class="column">
+      <header class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">Bob's Blog</p>
+      <i class="logo-line"></i>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger" aria-label="Search" role="button">
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="home fa-fw"></i>Home</a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="tags fa-fw"></i>Tags</a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="th fa-fw"></i>Categories</a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="archive fa-fw"></i>Archives</a></li>
+  </ul>
+</nav>
+
+
+
+
+</header>
+        
+  
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#Stack"><span class="nav-number">1.</span> <span class="nav-text">Stack</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Feature"><span class="nav-number">1.1.</span> <span class="nav-text">Feature</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Implementation"><span class="nav-number">1.2.</span> <span class="nav-text">Implementation</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Application"><span class="nav-number">1.3.</span> <span class="nav-text">Application</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Queue"><span class="nav-number">2.</span> <span class="nav-text">Queue</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Feature-1"><span class="nav-number">2.1.</span> <span class="nav-text">Feature</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Implementation-1"><span class="nav-number">2.2.</span> <span class="nav-text">Implementation</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Application-1"><span class="nav-number">2.3.</span> <span class="nav-text">Application</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#LinkedList"><span class="nav-number">3.</span> <span class="nav-text">LinkedList</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Feature-2"><span class="nav-number">3.1.</span> <span class="nav-text">Feature</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Application-2"><span class="nav-number">3.2.</span> <span class="nav-text">Application</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Searching"><span class="nav-number">4.</span> <span class="nav-text">Searching</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Binary-Search"><span class="nav-number">4.1.</span> <span class="nav-text">Binary Search</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Application-3"><span class="nav-number">4.2.</span> <span class="nav-text">Application</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Sorting"><span class="nav-number">5.</span> <span class="nav-text">Sorting</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Recursion"><span class="nav-number">6.</span> <span class="nav-text">Recursion</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Binary-Trees"><span class="nav-number">7.</span> <span class="nav-text">Binary Trees</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Storage"><span class="nav-number">7.1.</span> <span class="nav-text">Storage</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Terminologies"><span class="nav-number">7.2.</span> <span class="nav-text">Terminologies</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Traversal"><span class="nav-number">7.3.</span> <span class="nav-text">Traversal</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Binary-Search-Tree"><span class="nav-number">7.4.</span> <span class="nav-text">Binary Search Tree</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Free-Trees"><span class="nav-number">7.5.</span> <span class="nav-text">Free Trees</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Graphs"><span class="nav-number">8.</span> <span class="nav-text">Graphs</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Terminologies-1"><span class="nav-number">8.1.</span> <span class="nav-text">Terminologies</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Storage-1"><span class="nav-number">8.2.</span> <span class="nav-text">Storage</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Traverse"><span class="nav-number">8.3.</span> <span class="nav-text">Traverse</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Topological-Sorting"><span class="nav-number">8.4.</span> <span class="nav-text">Topological Sorting</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Weighted-Graphs"><span class="nav-number">9.</span> <span class="nav-text">Weighted Graphs</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Minimum-Spanning-Tree"><span class="nav-number">9.1.</span> <span class="nav-text">Minimum Spanning Tree</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Shortest-Path"><span class="nav-number">9.2.</span> <span class="nav-text">Shortest Path</span></a></li></ol></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="Bob"
+      src="/images/avatar.jpg">
+  <p class="site-author-name" itemprop="name">Bob</p>
+  <div class="site-description" itemprop="description">I'm a Software Engineer!</div>
+</div>
+<div class="site-state-wrap animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">48</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+          <a href="/categories/">
+        <span class="site-state-item-count">4</span>
+        <span class="site-state-item-name">categories</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags/">
+        <span class="site-state-item-count">49</span>
+        <span class="site-state-item-name">tags</span></a>
+      </div>
+  </nav>
+</div>
+
+        </div>
+      </div>
+    </div>
+
+    
+  </aside>
+
+
+    </div>
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="en">
+    <link itemprop="mainEntityOfPage" href="https://bobbyliujb.github.io/2017/06/05/data_structure_cpp/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.jpg">
+      <meta itemprop="name" content="Bob">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Bob's Blog">
+      <meta itemprop="description" content="I'm a Software Engineer!">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="Note for Data Structure in CPP | Bob's Blog">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          Note for Data Structure in CPP
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2017-06-05 09:29:50" itemprop="dateCreated datePublished" datetime="2017-06-05T09:29:50-07:00">2017-06-05</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">Edited on</span>
+      <time title="Modified: 2017-06-08 19:30:31" itemprop="dateModified" datetime="2017-06-08T19:30:31-07:00">2017-06-08</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/Course/" itemprop="url" rel="index"><span itemprop="name">Course</span></a>
+        </span>
+    </span>
+
+  
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Disqus: </span>
+    
+    <a title="disqus" href="/2017/06/05/data_structure_cpp/#disqus_thread" itemprop="discussionUrl">
+      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2017/06/05/data_structure_cpp/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody"><p>刷题中遇到了瓶颈，图论的很多知识只记得有这么个东西，但具体不记得了，一翻课件发现大二上的『算法与数据结构』中很多东西都能找到，就暂停一下，把这部分知识重新过一遍。暂时只记录关键的算法，至于各种数据结构的实现就只是一笔带过了。（原本想翻译成英文的&#x3D;_&#x3D;</p>
+<span id="more"></span>
+
+<h3 id="Stack"><a href="#Stack" class="headerlink" title="Stack"></a>Stack</h3><h4 id="Feature"><a href="#Feature" class="headerlink" title="Feature"></a>Feature</h4><ul>
+<li>Last in First out: all insertions and deletions of entries are made at one end.</li>
+<li>CPP: <code>#include &lt;stack&gt;</code>, supports <code>push, pop, top, empty</code>.</li>
+</ul>
+<h4 id="Implementation"><a href="#Implementation" class="headerlink" title="Implementation"></a>Implementation</h4><ul>
+<li>存储方式：必须表现元素之间的关系、利于栈运算的实现。<br>  -&gt; 数组：写起来容易，很方便；但当规模到达数组容量上限，需要扩容并复制一波过去。<br>  -&gt; 链表：动态、灵活、可任意扩容；但写法比数组复杂。（栈顶对应的是链表头部）</li>
+</ul>
+<h4 id="Application"><a href="#Application" class="headerlink" title="Application"></a>Application</h4><ul>
+<li>括号匹配：一个只包含三种括号的字符串，判断各个括号是否合法匹配。<br>  Solution：左括号入栈，出现右括号就与栈顶匹配，成功则弹出。</li>
+<li>算数表达式的转换：前缀(polish)、中缀、后缀(reverse polish)。口诀分别是『根左右』、『左根右』、『左右根』。<br>  将中缀转成后缀：操作数直接输出到结果，左括号和操作符入栈；遇到右括号，则一直弹出栈顶元素直到左括号，输出这部分操作符到结果；还有一种情况需要弹出，就是栈中的操作符必须满足低优先级的在栈底，因此当新进入的操作符优先级低于栈顶，则需要一直弹出不符合的直到空或左括号（相同优先级也弹出），按弹出顺序将这些操作符放入结果中，最后再将新的操作符入栈。</li>
+</ul>
+<h3 id="Queue"><a href="#Queue" class="headerlink" title="Queue"></a>Queue</h3><h4 id="Feature-1"><a href="#Feature-1" class="headerlink" title="Feature"></a>Feature</h4><ul>
+<li>First in First out: Additions at one end and deletion at the other.</li>
+<li>CPP; <code>#include &lt;Queue&gt;</code>, supports <code>append, serve, retrieve, empty</code>.</li>
+</ul>
+<h4 id="Implementation-1"><a href="#Implementation-1" class="headerlink" title="Implementation"></a>Implementation</h4><ul>
+<li>数组：使用circular arrays节省空间，用索引front表示队首，rear表示下一个要插入的位置。注意当队为空时和队满时，都是<code>front == (rear + 1) % max</code>，因此需要引入一个flag标记队是否满了。</li>
+</ul>
+<h4 id="Application-1"><a href="#Application-1" class="headerlink" title="Application"></a>Application</h4><ul>
+<li>Palindrome：（虽然我觉得这个方法很低效）输入时把每个字符分别入队和入栈，然后分别serve和pop来比较。</li>
+<li>双栈模拟队列：stack1专门push来enqueue，stack2专门pop来dequeue。若stack2为空无法取得元素，则把stack1现有元素全部pop依次push到stack2当中，再取之。</li>
+<li>BFS：搜索图或树，将当前节点的邻居或后代全部入队，然后将当前节点出队。</li>
+</ul>
+<h3 id="LinkedList"><a href="#LinkedList" class="headerlink" title="LinkedList"></a>LinkedList</h3><h4 id="Feature-2"><a href="#Feature-2" class="headerlink" title="Feature"></a>Feature</h4><ul>
+<li>Singly: 只有value和next，可引入伪头部dummy，链表真正的头部为dummy.next，这样插入、删除都方便很多。</li>
+<li>Doubly：除了value和next，还有一个prev指向前一节点，同样可以引入一个dummy。双向链表的删除可以O(1)直接根据传入的节点删除，因为利用prev可以访问到前一个节点。而单向链表如果不传入prev的话，删除时需要遍历一波。</li>
+<li>Orthogonal：可以看作有向图的一种存储形式，可以高效存储稀疏矩阵。链表内有非零元素的row, col和value，还有同一行的后继节点right指针，和后续行（因为下一行不一定直接有后继节点）的后继节点down。<br> <img src="https://ww1.sinaimg.cn/large/9b3a5c2fgy1fgcnxpnkfvj20ek096407.jpg"></li>
+</ul>
+<h4 id="Application-2"><a href="#Application-2" class="headerlink" title="Application"></a>Application</h4><ul>
+<li>双指针问题：例如给一个[min, max]的范围，删除这段范围之间的链表节点。又例如数组中的元素swap使得所有奇数都在偶数前面，各占前后两部分。</li>
+<li>判断链表是否有环：快慢指针，fast走两格、slow走一格，看fast会否重新与slow重合。</li>
+<li>找到有环单向链表的环的入口：快慢指针的基础上再引入一个指针p，当fast与slow重合的时候，p从链表头出发，slow再继续一格格向后挪，当slow与p相遇即为环的入口。这是因为假设从头到入口长度为a，换部分为b，入口到fast和slow相遇为x，则<code>2*(a + x) = a + b + x</code>，因此<code>a = b - x</code>，而slow继续往后走，p从头往后走，分别对应的长度就是<code>b-x</code>和<code>a</code>。</li>
+<li>判断两个链表是否相交：将其中一个链表遍历到最后，然后将另一个链表头接在它后面，然后判断是否成环即可。</li>
+</ul>
+<h3 id="Searching"><a href="#Searching" class="headerlink" title="Searching"></a>Searching</h3><h4 id="Binary-Search"><a href="#Binary-Search" class="headerlink" title="Binary Search"></a>Binary Search</h4><ul>
+<li>在基于comparison的搜索算法中，二分查找是最优的。</li>
+<li>forgetful：在二分的过程中可能已经出现了<code>A[mid] == target</code>，但坚持做到最后。</li>
+<li>recognizing equality：每一步都check是否吻合target，无法返回『第一次出现的』。因此如果要返回尽可能靠前的结果，则不应该在查找到target的时候就返回索引。</li>
+</ul>
+ <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">private</span> <span class="type">int</span> <span class="title function_">binarySearch</span><span class="params">(<span class="type">int</span> start, <span class="type">int</span>[] nums, <span class="type">int</span> target)</span> &#123;</span><br><span class="line">  <span class="type">int</span> <span class="variable">left</span> <span class="operator">=</span> start, right = nums.length - <span class="number">1</span>;</span><br><span class="line">  <span class="keyword">while</span> (left &lt;= right) &#123;</span><br><span class="line">    <span class="type">int</span> <span class="variable">mid</span> <span class="operator">=</span> left + (right - left) / <span class="number">2</span>;</span><br><span class="line">    <span class="keyword">if</span> (nums[mid] == target) &#123;</span><br><span class="line">      <span class="keyword">return</span> mid;</span><br><span class="line">    &#125; <span class="keyword">else</span> <span class="keyword">if</span> (nums[mid] &lt; target) &#123;</span><br><span class="line">      left = mid + <span class="number">1</span>;</span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">      right = mid - <span class="number">1</span>;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">return</span> -<span class="number">1</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="Application-3"><a href="#Application-3" class="headerlink" title="Application"></a>Application</h4><ul>
+<li>最大值最小化：给一个正整数数组，划分成m个连续子序列，使得这些序列各自的和的最大值最小。<br> 解法：二分查找这个最小的最大值。先一波O(n)求序列总和为S，单个数字的最大值为Y，就以这俩值为上下界开始二分查找，假设答案为<code>X = (S+Y) / 2</code>，然后再来一波操作求问题P(X)『能否将原序列划分成m个部分，每次尽量往右划分，使得每个部分的和都不超过X』。如果最终的序列数小于m，说明X太大，将上界降低至X-1再二分；如果序列数大于m，说明X太小，将下界提升至X+1再二分；当序列数刚好等于m，也还需要确认是否真的出现了等于m的子序列，否则X还是太大。</li>
+</ul>
+<h3 id="Sorting"><a href="#Sorting" class="headerlink" title="Sorting"></a>Sorting</h3><p> <a href="https://bobbyliujb.github.io/2016/11/02/courseraAlgorithmI/">普林斯顿coursera笔记</a>里有了。</p>
+<h3 id="Recursion"><a href="#Recursion" class="headerlink" title="Recursion"></a>Recursion</h3><ul>
+<li>经典例子：汉诺塔，挪动小碟子使得大碟子永远在小碟子下面。</li>
+<li>Stack frame栈帧：为每个调用函数分配的临时存储区域，包括返回地址、调用参数、局部变量等。对于递归函数的嵌套调用，符合『后入先出』的栈的特点。</li>
+<li>递归or迭代：若时间空间允许，递归可读性更强；递归在必要时可以通过迭代+栈的方式代替。</li>
+<li>Tail recursion：若递归函数的最后一句执行语句再次调用本身，就是尾迭代。尾迭代可以在主函数中通过外层包裹while循环、内层在执行完递归函数之后修改参数的方式改掉。</li>
+</ul>
+<h3 id="Binary-Trees"><a href="#Binary-Trees" class="headerlink" title="Binary Trees"></a>Binary Trees</h3><h4 id="Storage"><a href="#Storage" class="headerlink" title="Storage"></a>Storage</h4><ul>
+<li>数组：连续存储，直接是<code>2*index + 1</code>, <code>2*index + 1</code>的索引存储孩子节点。但如果不是满二叉树（堆），k层的二叉树一定要<code>2^k</code>这么大规模的数组，不划算。</li>
+<li>链式：用left和right指针&#x2F;引用指向后续孩子节点。更常用。</li>
+</ul>
+<h4 id="Terminologies"><a href="#Terminologies" class="headerlink" title="Terminologies"></a>Terminologies</h4><ul>
+<li>Length of paths：路径的长度就是从节点A到节点B经过的边数。</li>
+<li>Depth：根的深度为0，从当前节点到根节点的边数。</li>
+<li>Height：叶子的高度为0，从当前节点到叶子节点的边数。</li>
+</ul>
+<h4 id="Traversal"><a href="#Traversal" class="headerlink" title="Traversal"></a>Traversal</h4><ul>
+<li>前序pre：输出当前节点value，再迭代地访问左右节点；或者利用Stack + while，先输出当前节点curr.value，入栈当前节点，然后看左节点是否为null，非空则把这个左节点设为curr；若没有左节点了，则pop栈顶节点出来，看是否有右节点，有则将右节点设为curr，没有就继续pop。直到curr和Stack都空。</li>
+<li>中序in：先迭代访问左节点直到null，然后输出当前节点value，再迭代访问右节点；或者利用Stack + while，先入栈当前节点，然后看左节点是否为null，非空则把这个左节点设为curr继续入栈；若没有左节点了，则pop栈顶节点出来，看是否有右节点，有则将右节点设为curr去入栈，没有就继续pop。直到curr和Stack都空。</li>
+<li>后续post：迭代地访问左右节点，再输出当前节点value。<a target="_blank" rel="noopener" href="https://leetcode.com/problems/binary-tree-postorder-traversal/#/description">双Stack+while</a>可以办到，或者直接使用一个<a target="_blank" rel="noopener" href="https://discuss.leetcode.com/topic/30632/preorder-inorder-and-postorder-iteratively-summarization/">Stack+while</a>，但是是使用addFirst将输出的值插入到List的开头。</li>
+<li>层级level：利用Queue + while，取队首节点输出同时把其左右子节点放到队尾。</li>
+<li>根据上面这些x序遍历的结果还原二叉树：必须有中序才能唯一确定树的结构，否则可能不唯一。例如<a target="_blank" rel="noopener" href="https://leetcode.com/problems/construct-binary-tree-from-preorder-and-inorder-traversal">给定中序和前序</a>，在前序中先出现的为根，那对应去中序里看看这个根的左边都是什么节点、右边都是什么节点，递归找下去。当然，用迭代+Stack也可以。</li>
+</ul>
+<h4 id="Binary-Search-Tree"><a href="#Binary-Search-Tree" class="headerlink" title="Binary Search Tree"></a>Binary Search Tree</h4><ul>
+<li>左子树的值都小于根节点、右都大于，不允许重复的值。与堆的区别在于，堆的左右子树之间没什么关系，只是要求根比两个孩子大或小。</li>
+<li>BST Sorting：BST的中序遍历即为排好序的结果。</li>
+<li>BST Removal：叶子节点直接删除并将父亲节点对应引用改为null，若只有一个子树则直接用该子树根代替被删除节点，若有两个节点，则取左子树的最右根拿上来代替带删除的节点。</li>
+</ul>
+<h4 id="Free-Trees"><a href="#Free-Trees" class="headerlink" title="Free Trees"></a>Free Trees</h4><ul>
+<li>不一定只有两个子节点了。而且free tree不一定有root，但一定不能有环。</li>
+<li>Lexicographic Search Trees(Tries)：字典树是一种多路树，每一个节点存放指针（Java中是引用）的数组和数据域。<a target="_blank" rel="noopener" href="https://leetcode.com/problems/implement-trie-prefix-tree/#/description">LeetCode 208</a>就让实现Trie。</li>
+<li>Disjoint-Set：一片Forest，用Find操作搜索该树的根节点、用Union操作将两个树合并。<a target="_blank" rel="noopener" href="https://leetcode.com/submissions/detail/104814183/">LeetCode 200</a>可以用并查集来做。</li>
+</ul>
+<h3 id="Graphs"><a href="#Graphs" class="headerlink" title="Graphs"></a>Graphs</h3><h4 id="Terminologies-1"><a href="#Terminologies-1" class="headerlink" title="Terminologies"></a>Terminologies</h4><ul>
+<li>connected: 无向图总是存在一条通路连接任意两个点。</li>
+<li>strongly connected: 有向图中总是存在path连接任意两个点。</li>
+<li>weakly connected: 有向图中将方向忽略，对应的无向图是connected的。</li>
+<li>degree: 该点处的indegree（指向它） + outdegree（指出去）。</li>
+</ul>
+<h4 id="Storage-1"><a href="#Storage-1" class="headerlink" title="Storage"></a>Storage</h4><ul>
+<li>Adjacency matrix: 矩阵A[i][j]对应从点i到点j有一条边，将1改为w则可以表示权重。行i的非零项数表示out-degree[i]，列j的非零项数表示in-degree[j]。</li>
+<li>Adjacency List: 由于点多的话矩阵可能会很稀疏，因此可以用动态List如vector(ArrayList&#x2F;LinkedList)来代替静态数组；或者自定义ListNode链表节点，用链式结构存储。</li>
+</ul>
+<h4 id="Traverse"><a href="#Traverse" class="headerlink" title="Traverse"></a>Traverse</h4><ul>
+<li>DFS：有点类似二叉树的前序遍历，借助一个visit数组方便判定是否已经访问过当前节点的邻居，当所有邻居都访问过了就回溯。结合Stack可以记录路径，每次判定栈顶元素即可进行search。</li>
+<li>BFS：有点类似二叉树的层级遍历，借助Queue将当前节点的所有邻居入队，每次都从队首取元素。也需要利用visit数组保证放入Queue的这些邻居都是未曾访问过的。</li>
+<li>BFS Application:<br> -&gt; 无权图最短路：最快到达目标节点的路径就是最短路，那么在BFS的时候一旦入队的节点是目的地，那之前出队的那些节点形成的路径就是最短路了，如果不需要记录路径只需要长度，那每次出队都加加就好了。<br> -&gt; 连通块计数：若一波BFS之后仍有未访问到的节点，说明该节点属于另一个连通块，计数加加然后对该点进行下一波BFS。</li>
+</ul>
+<h4 id="Topological-Sorting"><a href="#Topological-Sorting" class="headerlink" title="Topological Sorting"></a>Topological Sorting</h4><ul>
+<li>有向无环图，表示先后关系的一种排序。对应<a target="_blank" rel="noopener" href="https://leetcode.com/problems/course-schedule-ii/#/description">LeetCode 210</a>。</li>
+<li><a target="_blank" rel="noopener" href="https://leetcode.com/submissions/detail/104919098/">BFS</a>：一波流找到所有in-degree为0的节点作为起始点，将这些起始点入队。每次pop队首，将该点的所有出边删除，也就是将相邻点的indegree减减；若出现了新的in-degree为0的点，也入Queue。</li>
+<li><a target="_blank" rel="noopener" href="https://leetcode.com/submissions/detail/105371286/">DFS</a>：维护一个visit数组和onpath数组，分别表示是否访问过且进入了结果List、是否是递归过程中经过了的，全初始化为false，取任意未访问的节点进行DFS，将该点对应visit和onpath改为true，然后深入DFS它的邻接点，一旦发现回路（即onpath为真）就返回false，当这些点都访问成功则在退出DFS之前将当前这个点插入到结果链表LinkedList的头部，并恢复onpath、但不能恢复visit。</li>
+</ul>
+<h3 id="Weighted-Graphs"><a href="#Weighted-Graphs" class="headerlink" title="Weighted Graphs"></a>Weighted Graphs</h3><h4 id="Minimum-Spanning-Tree"><a href="#Minimum-Spanning-Tree" class="headerlink" title="Minimum Spanning Tree"></a>Minimum Spanning Tree</h4><ul>
+<li>给定一个无向带权图，适当地删除边使各边权重和最小。</li>
+<li>Kruskal: 把所有边按照权重进行排序，从小到大取边，维护一个并查集，若发现是回路就放弃当前边继续往后取，直到所有节点都访问到。这样一种贪心的策略选出来的边权重之和就是最小了。</li>
+<li>Prim：任取一点开始，标记为0，这个标记意味着当前生成树到达该点的权重，除了起始点，所有点的权重都初始化为MAX。每次循环都把与当前生成树直接相邻的点标记上对应经过的边的权重，每次将其中的最小的点加入当前的生成树，然后继续刷新相邻点的标记。</li>
+</ul>
+<h4 id="Shortest-Path"><a href="#Shortest-Path" class="headerlink" title="Shortest Path"></a>Shortest Path</h4><ul>
+<li>Dijkstra：（单源最短路、权重都为正数、O(N^2)）与Prim非常相似，用数组维护从起始点到该处的最小权重和，当前生成树的邻居点加入进来后，可能对原有生成树中的点的权重有优化（该点邻居权重 + 边的权重 &lt; 该点当前权重），则需要更新。</li>
+<li>Bellman-Ford：（单源最短路、权重可含负数、O(V*E)）初始化所有点dis[]为正无穷，起点为0；进入循环对每个点i进行『relax』，即比较<code>dis[i]</code>和<code>dis[j] + w[j,i]</code>，若后者小则需要更新前者。需要注意的是，可能出现负权环，在这种情况下最短路不存在，因为越走越短呀。其实这算是一种DP了。</li>
+<li>Floyd-Warshall：（多源最短路、非负权、O(N^3)）相当于完整的DP，三重循环，<code>w[i,j]_k</code>表示点i到点j的最短路使用1~k的点作为中间经过的点，在最内层的循环每次都加入新的中间点提供选择，<code>w[i,j]_k = Min&#123;w[i,j]_k-1, w[i,k]_k-1 + w[k,j]_k-1&#125;</code>。</li>
+</ul>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/algorithm/" rel="tag"># algorithm</a>
+              <a href="/tags/interview/" rel="tag"># interview</a>
+              <a href="/tags/cpp/" rel="tag"># cpp</a>
+              <a href="/tags/data-structure/" rel="tag"># data-structure</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2017/06/03/java_leetcode3/" rel="prev" title="Note for LeetCode in Java (201~300)">
+                  <i class="fa fa-angle-left"></i> Note for LeetCode in Java (201~300)
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/2017/07/01/reading_note2017_2/" rel="next" title="闲书摘录2017下">
+                  闲书摘录2017下 <i class="fa fa-angle-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+    
+  <div class="comments" id="disqus_thread">
+    <noscript>Please enable JavaScript to view the comments powered by Disqus.</noscript>
+  </div>
+  
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+  <div class="copyright">
+    &copy; 2016 – 
+    <span itemprop="copyrightYear">2025</span>
+    <span class="with-love">
+      <i class="futbol-o"></i>
+    </span>
+    <span class="author" itemprop="copyrightHolder">Bob</span>
+  </div>
+  <div class="powered-by">Powered by <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/" rel="noopener" target="_blank">NexT.Gemini</a>
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+  <div class="sidebar-dimmer"></div>
+  <div class="back-to-top" role="button" aria-label="Back to top">
+    <i class="fa fa-arrow-up fa-lg"></i>
+    <span>0%</span>
+  </div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+<script class="next-config" data-name="disqus" type="application/json">{"enable":true,"shortname":"bobbyliujb","count":true,"i18n":{"disqus":"disqus"}}</script>
+<script src="/js/third-party/comments/disqus.js" defer></script>
+
+</body>
+</html>

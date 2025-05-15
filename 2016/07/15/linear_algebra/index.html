@@ -1,0 +1,437 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222"><meta name="generator" content="Hexo 7.3.0">
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/favicon.ico">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon.ico">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon.ico">
+  <link rel="mask-icon" href="/images/favicon.ico" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha256-dABdfBfUoC8vJUBOwGVdm8L9qlMWaHTIfXt+7GnZCIo=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"bobbyliujb.github.io","root":"/","images":"/images","scheme":"Gemini","darkmode":false,"version":"8.23.0","exturl":false,"sidebar":{"position":"left","width_expanded":320,"width_dual_column":240,"display":"hide","padding":18,"offset":12},"hljswrap":true,"copycode":{"enable":false,"style":null},"fold":{"enable":false,"height":500},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"duration":200,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"}}</script><script src="/js/config.js" defer></script>
+
+    <meta name="description" content="In my first year of SYSU, I took this course about Linear Algebra introduced by Dr Wang CD. It’s the foundation for the study in computer science and I would use this post to summarize some basic conc">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Linear Algebra">
+<meta property="og:url" content="https://bobbyliujb.github.io/2016/07/15/linear_algebra/index.html">
+<meta property="og:site_name" content="Bob&#39;s Blog">
+<meta property="og:description" content="In my first year of SYSU, I took this course about Linear Algebra introduced by Dr Wang CD. It’s the foundation for the study in computer science and I would use this post to summarize some basic conc">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2016-07-15T16:47:43.000Z">
+<meta property="article:modified_time" content="2016-08-24T08:07:46.000Z">
+<meta property="article:author" content="Bob">
+<meta property="article:tag" content="freshman">
+<meta name="twitter:card" content="summary">
+
+
+<link rel="canonical" href="https://bobbyliujb.github.io/2016/07/15/linear_algebra/">
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"en","comments":true,"permalink":"https://bobbyliujb.github.io/2016/07/15/linear_algebra/","path":"2016/07/15/linear_algebra/","title":"Linear Algebra"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>Linear Algebra | Bob's Blog</title>
+  
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-118868735-1"></script>
+  <script class="next-config" data-name="google_analytics" type="application/json">{"tracking_id":"UA-118868735-1","only_pageview":false,"measure_protocol_api_secret":null}</script>
+  <script src="/js/third-party/analytics/google-analytics.js" defer></script>
+
+
+
+
+
+
+
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous" defer></script>
+<script src="/js/utils.js" defer></script><script src="/js/motion.js" defer></script><script src="/js/sidebar.js" defer></script><script src="/js/next-boot.js" defer></script>
+
+  
+
+
+
+
+
+
+  
+
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <div class="column">
+      <header class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">Bob's Blog</p>
+      <i class="logo-line"></i>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger" aria-label="Search" role="button">
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="home fa-fw"></i>Home</a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="tags fa-fw"></i>Tags</a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="th fa-fw"></i>Categories</a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="archive fa-fw"></i>Archives</a></li>
+  </ul>
+</nav>
+
+
+
+
+</header>
+        
+  
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Linear-Equations"><span class="nav-number">1.</span> <span class="nav-text">Linear Equations</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Linear-Systems"><span class="nav-number">1.0.1.</span> <span class="nav-text">Linear Systems</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Echelon-form"><span class="nav-number">1.0.2.</span> <span class="nav-text">Echelon form</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Vector-equations"><span class="nav-number">1.0.3.</span> <span class="nav-text">Vector equations</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Matrix-equations"><span class="nav-number">1.0.4.</span> <span class="nav-text">Matrix equations</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Solution-sets-of-linear-systems"><span class="nav-number">1.0.5.</span> <span class="nav-text">Solution sets of linear systems</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Linear-Independence"><span class="nav-number">1.0.6.</span> <span class="nav-text">Linear Independence</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Linear-Transformation"><span class="nav-number">1.0.7.</span> <span class="nav-text">Linear Transformation</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Matrix-Algebra"><span class="nav-number">2.</span> <span class="nav-text">Matrix Algebra</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Matrix-operations"><span class="nav-number">2.0.1.</span> <span class="nav-text">Matrix operations</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Inverse"><span class="nav-number">2.0.2.</span> <span class="nav-text">Inverse</span></a></li></ol></li></ol></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="Bob"
+      src="/images/avatar.jpg">
+  <p class="site-author-name" itemprop="name">Bob</p>
+  <div class="site-description" itemprop="description">I'm a Software Engineer!</div>
+</div>
+<div class="site-state-wrap animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">48</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+          <a href="/categories/">
+        <span class="site-state-item-count">4</span>
+        <span class="site-state-item-name">categories</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags/">
+        <span class="site-state-item-count">49</span>
+        <span class="site-state-item-name">tags</span></a>
+      </div>
+  </nav>
+</div>
+
+        </div>
+      </div>
+    </div>
+
+    
+  </aside>
+
+
+    </div>
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="en">
+    <link itemprop="mainEntityOfPage" href="https://bobbyliujb.github.io/2016/07/15/linear_algebra/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.jpg">
+      <meta itemprop="name" content="Bob">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Bob's Blog">
+      <meta itemprop="description" content="I'm a Software Engineer!">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="Linear Algebra | Bob's Blog">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          Linear Algebra
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2016-07-15 09:47:43" itemprop="dateCreated datePublished" datetime="2016-07-15T09:47:43-07:00">2016-07-15</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">Edited on</span>
+      <time title="Modified: 2016-08-24 01:07:46" itemprop="dateModified" datetime="2016-08-24T01:07:46-07:00">2016-08-24</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/Course/" itemprop="url" rel="index"><span itemprop="name">Course</span></a>
+        </span>
+    </span>
+
+  
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Disqus: </span>
+    
+    <a title="disqus" href="/2016/07/15/linear_algebra/#disqus_thread" itemprop="discussionUrl">
+      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2016/07/15/linear_algebra/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody"><p>In my first year of SYSU, I took this course about Linear Algebra introduced by Dr Wang CD. It’s the foundation for the study in computer science and I would use this post to summarize some basic concepts in it. </p>
+<span id="more"></span>
+
+<script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=default"></script>
+
+<h1 id="Linear-Equations"><a href="#Linear-Equations" class="headerlink" title="Linear Equations"></a>Linear Equations</h1><hr>
+<h3 id="Linear-Systems"><a href="#Linear-Systems" class="headerlink" title="Linear Systems"></a>Linear Systems</h3><ul>
+<li>Linear equation: For variables \(x_1, …, x_n\), linear equation can be written as $$a_1x_1 + a_2x_2 + … + a_nx_n &#x3D; b$$ </li>
+<li>Linear System: A collection of <u>one or more</u> linear equations involving same group of variables. The set of all possible solutions for the system is called solution set. Two linear systems are <strong>equivalent</strong> if they have the same solution set. </li>
+<li>Consistency: A consistent linear system has one or infinitely many solutions. An inconsistent linear system has no solution.</li>
+<li>Matrix notation: <strong>Coefficient matrix</strong> only includes the coefficients of each variable. <strong>Augmented matrix</strong> also includes the right-side constants.</li>
+<li>Solving linear system: Use three elementary row operations – <strong>replacement</strong>(replace one row by the sum of itself and a multiple of another),  <strong>interchange</strong>(switch two rows), <strong>scaling</strong>(multiply whole row with a nonzero constant). These row operations are reversible. Two <em>matrices</em> are <strong>row equivalent</strong> if one can be changed to the other by a sequence of elementary row operations.</li>
+</ul>
+<h3 id="Echelon-form"><a href="#Echelon-form" class="headerlink" title="Echelon form"></a>Echelon form</h3><ul>
+<li>Leading entry: the leftmost nonzero entry of a row.</li>
+<li>Echelon form:</li>
+</ul>
+<ol>
+<li>Nonzero rows are all above the all-zero rows; </li>
+<li>Each leading entry in a row is to the right of the leading entry in the row above; </li>
+<li>All entries beneath a leading entry in a column are zeros.</li>
+</ol>
+<ul>
+<li>Reduced echelon form:</li>
+</ul>
+<ol>
+<li>The leading entry is 1 for all nonzero rows; </li>
+<li>For each column containing a leading entry, the other entries are 0.</li>
+</ol>
+<p><u>Each matrix is row equivalent to exactly one reduced echelon form matrix.</u></p>
+<ul>
+<li>Pivot: The leading entry of the reduced echelon form matrix.</li>
+<li>Row reduction algorithm:</li>
+</ul>
+<ol>
+<li>Use row interchange to move the row with most nonzero entries to the top.</li>
+<li>Select the pivot row, use row replacement to make the entries below pivot become 0. (add each row below with some multiple of pivot row)</li>
+<li>Continue…</li>
+<li>Start with the right-most pivot and use row replacement to make the entries above it become 0.</li>
+<li>Scale each row to make the pivots become 1.</li>
+</ol>
+<ul>
+<li>Existence of solution: <u>For augmented matrix, if the right-most column is not pivot column, the linear system is consistent.</u></li>
+</ul>
+<h3 id="Vector-equations"><a href="#Vector-equations" class="headerlink" title="Vector equations"></a>Vector equations</h3><ul>
+<li>A vector equation  \(x_1{\bf{a_1}} + x_2{\bf{a_2}} + … + x_n{\bf{a_n}} &#x3D; \bf{b}\)  has the same solution set as the linear system \(\begin{bmatrix}\bf{a_1} &amp; \bf{a_2} &amp; … &amp; \bf{a_n} &amp; \bf{b}\end{bmatrix}\).</li>
+<li>SPAN {\({\bf{v_1}}, {\bf{v_2}}, …, {\bf{v_n}}\)}: All the possible linear combination of vectors \({\bf{v_1}}, {\bf{v_2}}, …, {\bf{v_n}}\), where these vectors are nonzero and noncolinear(unparallel).</li>
+</ul>
+<h3 id="Matrix-equations"><a href="#Matrix-equations" class="headerlink" title="Matrix equations"></a>Matrix equations</h3><ul>
+<li>Existence of solution: <u>For matrix equation \(A{\bf{x}} &#x3D; {\bf{b}}\), its solution exists if and only if \({bf{b}}\) is a linear combination of matrix A’s column vectors, which means \({\bf{b}}\) is in SPAN {\({\bf{a_1}}, {\bf{a_2}}, …, {\bf{a_n}}\)}.</u></li>
+</ul>
+<h3 id="Solution-sets-of-linear-systems"><a href="#Solution-sets-of-linear-systems" class="headerlink" title="Solution sets of linear systems"></a>Solution sets of linear systems</h3><ul>
+<li>Homogeneous linear systems: \(A{\bf{x}} &#x3D; {\bf{0}}\). It always has a trivial solution \({\bf{x}} &#x3D; {\bf{0}}\). It has a nontrivial solution if and only if it has at least one free variable(corresponding to the column without leading entry).</li>
+<li>Solution of Nonhomogeneous systems: \(A{\bf{x}} &#x3D; {\bf{b}}\)’s solutions can be obtained by adding a vector \({\bf{p}}\) to the solutions of \(A{\bf{x}} &#x3D; {\bf{0}}\), where \({\bf{p}}\) is one particular solution of \(A{\bf{x}} &#x3D; {\bf{b}}\).</li>
+<li>If \(A{\bf{x}} &#x3D; {\bf{0}}\) has</li>
+</ul>
+<ol>
+<li>no free variable: \({\bf{0}}\) -&gt; SPAN {\({\bf{0}}\)};</li>
+<li>1 free variable: A line through origin -&gt; SPAN {\({\bf{v}}\)};</li>
+<li>2 free variables: A plane through origin -&gt; SPAN {\({\bf{u}}, {\bf{v}}\)}.</li>
+</ol>
+<h3 id="Linear-Independence"><a href="#Linear-Independence" class="headerlink" title="Linear Independence"></a>Linear Independence</h3><ul>
+<li>Linearly independent: For a set of vectors {\({\bf{v_1}}, {\bf{v_2}}, …, {\bf{v_n}}\)}, \({x_1\bf{v_1}}, {x_2\bf{v_2}}, …, {x_p\bf{v_p}} &#x3D; {\bf{0}}\) has only trivial solution \({\bf{0}}\). If there is a set of c such that \({c_1\bf{v_1}}, {c_2\bf{v_2}}, …, {c_p\bf{v_p}} &#x3D; {\bf{0}}\), these vectors are linearly dependent. In other words, if there is a least one free variable, there is nontrivial solution and thus the vectors are linearly dependent.</li>
+</ul>
+<h3 id="Linear-Transformation"><a href="#Linear-Transformation" class="headerlink" title="Linear Transformation"></a>Linear Transformation</h3><ul>
+<li>Linear transformation for vector x, T\(({\bf{x}})\): In \(A{\bf{x}} &#x3D; {\bf{b}}\), \({\bf{R}}^n\) is the domain of T (columns of A and rows of \({\bf{x}}\)) and \({\bf{R}}^m\) is the codomain of T (rows of A and rows of \({\bf{b}}\)).</li>
+<li>Judgement of linear transformation:</li>
+</ul>
+<ol>
+<li>T\(({\bf{u}} + {\bf{v}})\) &#x3D; T\(({\bf{u}})\) + T\(({\bf{v}})\);</li>
+<li>T\((c{\bf{u}})\) &#x3D; cT\(({\bf{x}})\).<br> Matrix transformations are all linear transformation but linear transformation is not constrained to matrix trans.</li>
+</ol>
+<ul>
+<li>Image: For the \({\bf{x}}\) in \({\bf{R}}^n\), T\(({\bf{x}})\) is the image of \({\bf{x}}\) in \({\bf{R}}^m\).</li>
+<li>Matrix in linear transformation: There is a unique matrix A such that T\(({\bf{x}}) &#x3D; A{\bf{x}}\) for \({\bf{x}}\) in \({\bf{R}}^n\), where A &#x3D; \(\begin{bmatrix}T(\bf{e_1}) &amp; T(\bf{e_2}) &amp; … &amp; T(\bf{e_n}) \end{bmatrix}\) and \({\bf{e}}_j\) is the jth column of indentity matrix in \({\bf{R}}^n\).</li>
+<li>Onto: A mapping T from \({\bf{R}}^n\) to \({\bf{R}}^m\) is said to be onto \({\bf{R}}^m\) if each \({\bf{b}}\) in \({\bf{R}}^m\) is the image of <u>at least one</u> \({\bf{x}}\) in \({\bf{R}}^n\).</li>
+<li>One-to-one: A mapping T from \({\bf{R}}^n\) to \({\bf{R}}^m\) is said to be one-to-one if each \({\bf{b}}\) in \({\bf{R}}^m\) is the image of <u>at most one</u> \({\bf{x}}\) in \({\bf{R}}^n\).</li>
+</ul>
+<h1 id="Matrix-Algebra"><a href="#Matrix-Algebra" class="headerlink" title="Matrix Algebra"></a>Matrix Algebra</h1><hr>
+<h3 id="Matrix-operations"><a href="#Matrix-operations" class="headerlink" title="Matrix operations"></a>Matrix operations</h3><ul>
+<li>Matrix multiplication: For \(m \times n\) matrix A and \(n \times p\) matrix B, A·B &#x3D; A·\(\begin{bmatrix}\bf{b_1} &amp; \bf{b_2} &amp; … &amp; \bf{b_p}\end{bmatrix}\) &#x3D; \(\begin{bmatrix}A·\bf{b_1} &amp; A·\bf{b_2} &amp; … &amp; A·\bf{b_p}\end{bmatrix}\).</li>
+<li>Row-Column rule:</li>
+</ul>
+<ol>
+<li>\(row_i(AB) &#x3D; row_i(A)·B\);</li>
+<li>\(col_j(AB) &#x3D; A·col_j(B)\);</li>
+</ol>
+<ul>
+<li>Transpose of matrix: The rows and columns in \(A\) are the columns and rows in \(A^T\) with \(A_{ij} &#x3D; {A^T}_{ji}\). It follows a reverse order rule in \({(AB)}^T &#x3D; A^T + B^T\).</li>
+</ul>
+<h3 id="Inverse"><a href="#Inverse" class="headerlink" title="Inverse"></a>Inverse</h3><ul>
+<li>Inverse of matrix: Only the matrices with rows and columns equal have inverse, where \(A·A^{-1} &#x3D; I\). It the inverse exists, it is called a nonsingular matrix.</li>
+<li>Existence of inverse of \(2 \times 2\) matrix:<br> For matrix \(A &#x3D; \begin{bmatrix}a &amp; b\\ c &amp; d\end{bmatrix}\), its determinant is \(det(A) &#x3D; ad - bc\). If det(A) &#x3D;&#x3D; 0, it is not invertible. Or its inverse is \(A^{-1} &#x3D; \frac{1}{ad - bc}·\begin{bmatrix}d &amp; -b\\ -c &amp; a\end{bmatrix}\).</li>
+<li>Elementary matrix \(E\): Generated after one row transformation from identity matrix. If the same row transformation is conducted on matrix \(A\), \(A’ &#x3D; E·A\). Note that E should be to the left of A.</li>
+<li>Computation of \(A^{-1}\): Do row transformation on augmented matrix \(\begin{bmatrix}A &amp; I\end{bmatrix}\). If A is invertible, the result is \(\begin{bmatrix}I &amp; A^{-1}\end{bmatrix}\).</li>
+</ul>
+<hr>
+<p>高估了自己的耐性，原本打算把每门课都整理出来的，不过写博客真的是非常花时间，在JIE面试之前我还是尽量把所有课过一遍而不是花太多时间整理博客。之后有空再搞完这些基础课的笔记整理吧，至少有了博客就会逼着自己时不时放点干货上来[嘿嘿]。</p>
+<hr>
+<p>好吧，我要弃坑了。目前得多体验一下业界，多面向应用去有针对性的学习。这种general的东西，不见得会对实操有多大帮助吧。</p>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/freshman/" rel="tag"># freshman</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2016/07/14/aliyun/" rel="prev" title="Backend on Aliyun: Webpy + MySQL">
+                  <i class="fa fa-angle-left"></i> Backend on Aliyun: Webpy + MySQL
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/2016/08/04/html5_css/" rel="next" title="Fundamental of HTML5 and CSS">
+                  Fundamental of HTML5 and CSS <i class="fa fa-angle-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+    
+  <div class="comments" id="disqus_thread">
+    <noscript>Please enable JavaScript to view the comments powered by Disqus.</noscript>
+  </div>
+  
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+  <div class="copyright">
+    &copy; 2016 – 
+    <span itemprop="copyrightYear">2025</span>
+    <span class="with-love">
+      <i class="futbol-o"></i>
+    </span>
+    <span class="author" itemprop="copyrightHolder">Bob</span>
+  </div>
+  <div class="powered-by">Powered by <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/" rel="noopener" target="_blank">NexT.Gemini</a>
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+  <div class="sidebar-dimmer"></div>
+  <div class="back-to-top" role="button" aria-label="Back to top">
+    <i class="fa fa-arrow-up fa-lg"></i>
+    <span>0%</span>
+  </div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+<script class="next-config" data-name="disqus" type="application/json">{"enable":true,"shortname":"bobbyliujb","count":true,"i18n":{"disqus":"disqus"}}</script>
+<script src="/js/third-party/comments/disqus.js" defer></script>
+
+</body>
+</html>

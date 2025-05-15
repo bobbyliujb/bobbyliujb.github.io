@@ -1,0 +1,634 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222"><meta name="generator" content="Hexo 7.3.0">
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/favicon.ico">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon.ico">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon.ico">
+  <link rel="mask-icon" href="/images/favicon.ico" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha256-dABdfBfUoC8vJUBOwGVdm8L9qlMWaHTIfXt+7GnZCIo=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"bobbyliujb.github.io","root":"/","images":"/images","scheme":"Gemini","darkmode":false,"version":"8.23.0","exturl":false,"sidebar":{"position":"left","width_expanded":320,"width_dual_column":240,"display":"hide","padding":18,"offset":12},"hljswrap":true,"copycode":{"enable":false,"style":null},"fold":{"enable":false,"height":500},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"duration":200,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"}}</script><script src="/js/config.js" defer></script>
+
+    <meta name="description" content="Note for Cracking the Coding Interview 6th Edition.">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Note for Cracking the Coding Interview">
+<meta property="og:url" content="https://bobbyliujb.github.io/2018/05/31/cracking_the_code_interview/index.html">
+<meta property="og:site_name" content="Bob&#39;s Blog">
+<meta property="og:description" content="Note for Cracking the Coding Interview 6th Edition.">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2018-05-31T17:44:46.000Z">
+<meta property="article:modified_time" content="2018-08-06T04:38:52.920Z">
+<meta property="article:author" content="Bob">
+<meta property="article:tag" content="java">
+<meta property="article:tag" content="algorithm">
+<meta property="article:tag" content="interview">
+<meta name="twitter:card" content="summary">
+
+
+<link rel="canonical" href="https://bobbyliujb.github.io/2018/05/31/cracking_the_code_interview/">
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"en","comments":true,"permalink":"https://bobbyliujb.github.io/2018/05/31/cracking_the_code_interview/","path":"2018/05/31/cracking_the_code_interview/","title":"Note for Cracking the Coding Interview"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>Note for Cracking the Coding Interview | Bob's Blog</title>
+  
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-118868735-1"></script>
+  <script class="next-config" data-name="google_analytics" type="application/json">{"tracking_id":"UA-118868735-1","only_pageview":false,"measure_protocol_api_secret":null}</script>
+  <script src="/js/third-party/analytics/google-analytics.js" defer></script>
+
+
+
+
+
+
+
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous" defer></script>
+<script src="/js/utils.js" defer></script><script src="/js/motion.js" defer></script><script src="/js/sidebar.js" defer></script><script src="/js/next-boot.js" defer></script>
+
+  
+
+
+
+
+
+
+  
+
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <div class="column">
+      <header class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">Bob's Blog</p>
+      <i class="logo-line"></i>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger" aria-label="Search" role="button">
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="home fa-fw"></i>Home</a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="tags fa-fw"></i>Tags</a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="th fa-fw"></i>Categories</a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="archive fa-fw"></i>Archives</a></li>
+  </ul>
+</nav>
+
+
+
+
+</header>
+        
+  
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#Big-O"><span class="nav-number">1.</span> <span class="nav-text">Big O</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Multipart-Algorithms"><span class="nav-number">1.1.</span> <span class="nav-text">Multipart Algorithms</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Recursive-Runtimes"><span class="nav-number">1.2.</span> <span class="nav-text">Recursive Runtimes</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Arrays-and-Strings"><span class="nav-number">2.</span> <span class="nav-text">Arrays and Strings</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Hash-Tables"><span class="nav-number">2.1.</span> <span class="nav-text">Hash Tables</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Resizable-Arrays"><span class="nav-number">2.2.</span> <span class="nav-text">Resizable Arrays</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#String-v-s-StringBuilder"><span class="nav-number">2.3.</span> <span class="nav-text">String v.s.StringBuilder</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Problems"><span class="nav-number">2.4.</span> <span class="nav-text">Problems</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Linked-List"><span class="nav-number">3.</span> <span class="nav-text">Linked List</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Problems-1"><span class="nav-number">3.1.</span> <span class="nav-text">Problems</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Stacks-and-Queues"><span class="nav-number">4.</span> <span class="nav-text">Stacks and Queues</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Problems-2"><span class="nav-number">4.1.</span> <span class="nav-text">Problems</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Trees-and-Graphs"><span class="nav-number">5.</span> <span class="nav-text">Trees and Graphs</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Types-of-Trees"><span class="nav-number">5.1.</span> <span class="nav-text">Types of Trees</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Traverse"><span class="nav-number">5.2.</span> <span class="nav-text">Traverse</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Problems-3"><span class="nav-number">5.3.</span> <span class="nav-text">Problems</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Bit-Manipulation"><span class="nav-number">6.</span> <span class="nav-text">Bit Manipulation</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#2%E2%80%99s-Complement"><span class="nav-number">6.1.</span> <span class="nav-text">2’s Complement</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Common-bit-tasks"><span class="nav-number">6.2.</span> <span class="nav-text">Common bit tasks</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Problems-4"><span class="nav-number">6.3.</span> <span class="nav-text">Problems</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Math-and-Logic-Puzzles"><span class="nav-number">7.</span> <span class="nav-text">Math and Logic Puzzles</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Object-Oriented-Design"><span class="nav-number">8.</span> <span class="nav-text">Object-Oriented Design</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Recursion-and-Dynamic-Programming"><span class="nav-number">9.</span> <span class="nav-text">Recursion and Dynamic Programming</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#3-recursion-approach"><span class="nav-number">9.1.</span> <span class="nav-text">3 recursion approach</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Problems-5"><span class="nav-number">9.2.</span> <span class="nav-text">Problems</span></a></li></ol></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="Bob"
+      src="/images/avatar.jpg">
+  <p class="site-author-name" itemprop="name">Bob</p>
+  <div class="site-description" itemprop="description">I'm a Software Engineer!</div>
+</div>
+<div class="site-state-wrap animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">48</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+          <a href="/categories/">
+        <span class="site-state-item-count">4</span>
+        <span class="site-state-item-name">categories</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags/">
+        <span class="site-state-item-count">49</span>
+        <span class="site-state-item-name">tags</span></a>
+      </div>
+  </nav>
+</div>
+
+        </div>
+      </div>
+    </div>
+
+    
+  </aside>
+
+
+    </div>
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="en">
+    <link itemprop="mainEntityOfPage" href="https://bobbyliujb.github.io/2018/05/31/cracking_the_code_interview/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.jpg">
+      <meta itemprop="name" content="Bob">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Bob's Blog">
+      <meta itemprop="description" content="I'm a Software Engineer!">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="Note for Cracking the Coding Interview | Bob's Blog">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          Note for Cracking the Coding Interview
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2018-05-31 10:44:46" itemprop="dateCreated datePublished" datetime="2018-05-31T10:44:46-07:00">2018-05-31</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">Edited on</span>
+      <time title="Modified: 2018-08-05 21:38:52" itemprop="dateModified" datetime="2018-08-05T21:38:52-07:00">2018-08-05</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/Tech/" itemprop="url" rel="index"><span itemprop="name">Tech</span></a>
+        </span>
+    </span>
+
+  
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Disqus: </span>
+    
+    <a title="disqus" href="/2018/05/31/cracking_the_code_interview/#disqus_thread" itemprop="discussionUrl">
+      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2018/05/31/cracking_the_code_interview/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody"><p>Note for Cracking the Coding Interview 6th Edition.</p>
+<span id="more"></span>
+
+<hr>
+<h3 id="Big-O"><a href="#Big-O" class="headerlink" title="Big O"></a>Big O</h3><h4 id="Multipart-Algorithms"><a href="#Multipart-Algorithms" class="headerlink" title="Multipart Algorithms"></a>Multipart Algorithms</h4><ul>
+<li>Add: do A, then when A is all done, do B.</li>
+<li>Multiply: do B <strong>each time</strong> you do A.    (recall Zillow mistake…)</li>
+</ul>
+<h4 id="Recursive-Runtimes"><a href="#Recursive-Runtimes" class="headerlink" title="Recursive Runtimes"></a>Recursive Runtimes</h4><ul>
+<li>See branched recursive calls from parent calls to form a “tree”. Pattern: <code>O(barnches ^ depth)</code>, branches &#x3D; #times each recursive call branches.</li>
+</ul>
+<hr>
+<h3 id="Arrays-and-Strings"><a href="#Arrays-and-Strings" class="headerlink" title="Arrays and Strings"></a>Arrays and Strings</h3><h4 id="Hash-Tables"><a href="#Hash-Tables" class="headerlink" title="Hash Tables"></a>Hash Tables</h4><ul>
+<li>Array of linked lists: O(1) general lookup time.</li>
+<li>Balanced BST: O(logN) lookup time, less space.</li>
+</ul>
+<h4 id="Resizable-Arrays"><a href="#Resizable-Arrays" class="headerlink" title="Resizable Arrays"></a>Resizable Arrays</h4><ul>
+<li>ArrayList: O(1) amortized insertion time.</li>
+</ul>
+<h4 id="String-v-s-StringBuilder"><a href="#String-v-s-StringBuilder" class="headerlink" title="String v.s.StringBuilder"></a>String v.s.StringBuilder</h4><ul>
+<li>String: immutable, always create a new copy of the string when concatenating(might bring the runtime to O(N^2))</li>
+<li>StringBuilder: resizable char array.</li>
+</ul>
+<h4 id="Problems"><a href="#Problems" class="headerlink" title="Problems"></a>Problems</h4><ul>
+<li><em>Q：给一个String，判断它是否包含完全不同的unique characters。</em><ul>
+<li>用一个bucket数组，ASCII一共有128个字符。O(N)时间和空间。</li>
+<li>O(NlogN) sort之后遍历一波，判断相邻的char即可。无额外空间。</li>
+<li>如果只是26个字母，可以直接用bit当作bucket来用，一旦有一个bit之前已经设为1了就说明不unique。</li>
+</ul>
+</li>
+<li><em>Q：给两个String，判断它们是否是同一个permutation.</em><ul>
+<li>O(NlogN) sort之后比较一波。</li>
+<li>用一个bucket数组统计每个字符出现的个数。</li>
+</ul>
+</li>
+<li><em>Q：给一个char array和它的real length（array.length足够hold住替换之后的所有字符），将其中所有的空格都替换成<code>%20</code>，.</em><ul>
+<li>从给定的len - 1开始从后往前遍历，依次复制／替换到char数组的末尾。<strong>String manipulation问题通常可以尝试从后往前做，因为这样相当于在末尾有一个inplace的buffer</strong>。</li>
+</ul>
+</li>
+<li><em>Q：给一个String，判断它是否是palindrome的permutation。</em><ul>
+<li>用一个bucket记录所有字符出现的个数，最后再一波O(N)统计是否有超过一个的count是odd。</li>
+<li>用一个countOdd变量在统计个数的时候顺便记录有多少个是odd的，全部统计完了之后直接就可以判断了。</li>
+<li>我们并不关心『每个字符具体有多少个』，而只是想知道『每个字符个数是even还是odd』。因此直接用bit作为on&#x2F;off即可，最后要么为0（全是even），要么只有一位是1（判断x &amp; (x-1) &#x3D;&#x3D; 0即可）。</li>
+</ul>
+</li>
+<li><em>Q：给两个String，判断他们是否之多差一步操作即可相互转换：插入一个字符／删除一个字符／替换一个字符。</em><ul>
+<li>关键在于发现插入和删除其实是逆操作，直接根据长度判断一下即可知道是哪个操作。</li>
+</ul>
+</li>
+<li><em>Q：给一个String，将相邻连续出现的字符压缩成<code>a2b3c1</code>的形式，若压缩后长度并没有缩短则维持原字符串。</em><ul>
+<li>在实际操作之前先判断一下压缩之后的长度再决定要不要执行压缩。</li>
+</ul>
+</li>
+<li><em>Q：给一个n</em>n的方matrix，向右旋转90度。*<ul>
+<li>老老实实进行四位替换，top-left, left-bottom, bottom-right, right-top.</li>
+</ul>
+</li>
+<li><em>Q：给一个m</em>n的matrix，若其中一个位置为0则将它所处的行和列全都设为0.*<ul>
+<li>维护两个boolean array分别存放row和column的0的位置，最后再设为0。</li>
+<li>直接用矩阵的第一行和第一列存放0的位置（需要额外用两个变量mark一下第一行和第一列本身有没有0），就不需要额外空间了。</li>
+</ul>
+</li>
+<li><em>Q：给两个String，判断其中一个是否是另一个通过rotate形成的，例如<code>abbc</code>-&gt;<code>bcab</code>。</em><ul>
+<li>假设rotation point前面的部分为x，后面的为y，则形成<code>xy</code>的形式。要判断另一个字符是不是<code>yx</code>，其实只需要将<code>xy</code>自己拼接一下形成<code>xyxy</code>，直接看另一个字符串是否是它的substring即可。</li>
+</ul>
+</li>
+</ul>
+<hr>
+<h3 id="Linked-List"><a href="#Linked-List" class="headerlink" title="Linked List"></a>Linked List</h3><ul>
+<li>Runner technique: iterate through linked list with two pointers simultaneously, with one ahead or faster movement.</li>
+</ul>
+<h4 id="Problems-1"><a href="#Problems-1" class="headerlink" title="Problems"></a>Problems</h4><ul>
+<li><em>Q：给一个unsorted的链表，删除其中重复的元素。</em><ul>
+<li>fix一个节点然后一路往后删，O(N^2)时间。</li>
+<li>用Set。</li>
+</ul>
+</li>
+<li><em>Q：给一个链表，返回倒数第k个元素。</em><ul>
+<li>利用双指针，让后一个指针先挪k，然后两个一起挪即可。</li>
+</ul>
+</li>
+<li><em>Q：给一个链表中间的某个节点，删除它。</em><ul>
+<li>其实这题是假的删除，因为无法拿到该节点前面一个节点，因此只能把后面节点的值往前覆盖。</li>
+</ul>
+</li>
+<li><em>Q：给一个链表和一个int，要求将链表中小于x的元素都排在前面、大于等于x的元素都排在后面，而两个partition内部的顺序不需要维护。</em><ul>
+<li>链表问题有个经典做法是建“新”的链表、而节点都是原来的。这里就是用两个“新链表”，一个存小于的节点、一个存大于等于的节点，最后合起来。</li>
+</ul>
+</li>
+<li><em>Q：给两个链表，表示从低位到高位的整数，求它们的和（也用链表表示）。</em><ul>
+<li>就直接加，需要处理进位和两个链表长度不一样的情况。</li>
+<li>如果链表表示的是从高位到低位的数字，首先需要将较短的链表前面pad zero，然后再用自定义类（因为需要进位）recursive地求。</li>
+</ul>
+</li>
+<li><em>Q：给一个链表，判断是否palindrome。</em><ul>
+<li>先拷贝一份reverse的链表，然后直接比较两个链表是否相等。 </li>
+<li>用快慢指针将前半部分投入stack，然后一边pop一边往后比较。</li>
+<li>用自定义类（需要boolean以及后续指针）recursive地判断，若之前都为true且当前元素和返回的元素相等，则继续返回true。</li>
+</ul>
+</li>
+<li><em>Q：给两个链表，判断它们是否相交并返回第一个汇合点。</em><ul>
+<li>先走两波获取两个链表的长度求出delta，然后让长的先走delta，再一起遍历即得汇合点。</li>
+<li>交叉走法：A和B同时往后走，当A走到尽头就再从B出发、B同理，最后如果汇合了即为汇合点。假设A的独立部分长度为a，B的独立部分长度为b，公用部分为c，(a+c+b) &#x3D; (b+c+a).</li>
+</ul>
+</li>
+<li><em>Q：给一个链表，判断它是否有环并返回环的入口。</em><ul>
+<li>快慢指针出发，相遇之后再从起点走一个慢指针，相遇处即为入口。设环长度为l，环之前长度为a，相遇时慢指针在环内走了b。有(a+l+b) &#x3D; 2(a+b)，即l - b &#x3D; a，因此继续走必定相遇。</li>
+</ul>
+</li>
+</ul>
+<hr>
+<h3 id="Stacks-and-Queues"><a href="#Stacks-and-Queues" class="headerlink" title="Stacks and Queues"></a>Stacks and Queues</h3><ul>
+<li>Stack: LIFO</li>
+<li>Queue: FIFO</li>
+</ul>
+<h4 id="Problems-2"><a href="#Problems-2" class="headerlink" title="Problems"></a>Problems</h4><ul>
+<li><em>Q：用一个array实现三个Stack。</em><ul>
+<li>将array划分成3等份，然后每个stack就只有固定一部分的capacity进行pop, push.</li>
+<li>如果想要flexible size，可以学习arraylist那样在一开始先有一个initial capacity，满了之后再进行扩容。</li>
+</ul>
+</li>
+<li><em>Q：实现一个stack，支持push, pop, min方法，其中min可以返回当前所有stack中元素的最小值。</em><ul>
+<li>push的时候如果最小值更新了，则先把当前最小值push进去，然后再把新值push进去并更新最小值；pop的时候如果最小值和栈顶一致，则需要再pop一下把最小值更新。</li>
+</ul>
+</li>
+<li><em>Q：实现stacks的ArrayList，当一个stack满了之后就新建另一个stack继续存。</em><ul>
+<li>push好办，对应index进行存放，满了就在下一个index新建stack继续放。pop则需要考虑是否需要维护『前面所有stack都维持在满的状态』这个条件，如果需要就得把指定index之后的stack都进行roll over，将栈底釜底抽薪放到前面。</li>
+</ul>
+</li>
+<li><em>Q：用两个stack实现queue。</em><ul>
+<li>一个stackA只负责存、另一个stackB只负责取。如果peek的时候没有东西了，就需要将B中所有内容都pop到A中，再从A中取，这样就可以保证FIFO。</li>
+</ul>
+</li>
+<li><em>Q：给一个stack，将它排序，最小值在栈顶。只允许使用一个辅助stack。</em><ul>
+<li>s2作为辅助stack，维持从大到小的顺序。s1中pop栈顶元素先存入一个变量temp，若发现temp比s2栈顶大则完美存入，否则需要先将s2的元素不断pop并存入直到temp元素可以放入，然后再重复从s1 pop存入temp的过程插入s2。</li>
+<li>如果有无限制的辅助stack可以使用，就可以实现类似于mergesort和quicksort的排序。mergesort在每一个recursion level都需要两个辅助stack来排序，将他们各自排好序然后将他们汇集到输入的原始stack中，依次递归就能将整个stack排序完成；quicksort也需要在每一个recursion level两个辅助stack，将他们divide based on pivot value最后再汇集到原始stack。</li>
+</ul>
+</li>
+<li><em>Q：动物收容所领养动物必须遵循FIFO规则，只能选择动物种类cat&#x2F;dog，或者随机选择入队最久的anything。要求使用linkedlist。</em><ul>
+<li>维护两个LinkedList分别存放cat和dog，直接append到List末尾即可，dequeue就直接从头部取；dequeueAny则利用timestamp保证取最久的。</li>
+</ul>
+</li>
+</ul>
+<hr>
+<h3 id="Trees-and-Graphs"><a href="#Trees-and-Graphs" class="headerlink" title="Trees and Graphs"></a>Trees and Graphs</h3><h4 id="Types-of-Trees"><a href="#Types-of-Trees" class="headerlink" title="Types of Trees"></a>Types of Trees</h4><ul>
+<li>Complete Binary Tree: Every level is fully filled, except last level; In each level, nodes are filled from left to right.</li>
+<li>Full Binary Tree: Every node has either 0 or 2 children.</li>
+<li>Perfect Binary Tree: Both Full and Complete Binary Tree.</li>
+<li>BST: left &lt;&#x3D; n &lt; right</li>
+</ul>
+<h4 id="Traverse"><a href="#Traverse" class="headerlink" title="Traverse"></a>Traverse</h4><ul>
+<li>DFS: simpler implementation(recursion) for visiting all nodes in graph. Need to check if the node has been visited.</li>
+<li>BFS: find path(shortest path) between two nodes.</li>
+<li>Bidirectional Search: find the shortest path between a src and dest node by running two BFS from src and dest simultaneously.</li>
+</ul>
+<h4 id="Problems-3"><a href="#Problems-3" class="headerlink" title="Problems"></a>Problems</h4><ul>
+<li><em>Q：给一个有向图和两个node，判断它们之间是否有path</em><ul>
+<li>就是简单的考察BFS和DFS。</li>
+</ul>
+</li>
+<li><em>Q：给一个含有不同int的升序数组，创建一个对应的最小height的BST</em><ul>
+<li>要想生成高度最小的BST，也就是root需要是数组中间元素。因此一个递归方法就出来了，先找到中间元素作为root，然后递归生成左半边的BST和右半边的BST分别作为左右孩子。</li>
+</ul>
+</li>
+<li><em>Q：给一个二叉树，求每一个depth处的nodes，存在LinkedList中</em><ul>
+<li>其实就是level traverse，用BFS层级遍历即可。时间O(N)，空间不包括输出的话是O(1)。</li>
+<li>也可以用DFS的preorder traversal，附加传入一个level信息即可。时间O(N)，空间O(logN)。</li>
+</ul>
+</li>
+<li><em>Q：给一个二叉树，判断它是否balanced（左右子树的高度相差不超过1）</em><ul>
+<li>暴力递归，对于每一个节点递归地求深度，对于每一个节点都会被在它上面的节点访问一次，因此时间是O(NlogN)。</li>
+<li>考虑优化求height的过程，在递归的时候事实上可以通过传回「特殊值」来表示unbalanced的情况，这样可以保证每一个节点只会被访问一次，因此时间是O(N)。</li>
+</ul>
+</li>
+<li><em>Q：判断一个BST是否合法</em><ul>
+<li>用in-order traverse和一个全局变量来比较prev和curr，保证完全小于。</li>
+<li>传入min和max值限定孩子节点的值域，一旦不符合就直接false了。</li>
+</ul>
+</li>
+<li><em>Q：给一个二叉树中的node，求它在in-order traverse中的successor(假设每一个节点都可以访问到parent节点)</em><ul>
+<li>需要分情况讨论：如果当前node有右子树，则需要访问到右子树的最左节点；如果没有右子树，则说明当前节点及其孩子已经全部访问完了，需要回到parent，而这parent又要分node是它的左孩子还是右孩子，是右孩子的话说明是已经访问过parent才来到node的，因此还要往parent的parent找，只有当node是parent的左孩子时，parent才是successor.</li>
+</ul>
+</li>
+</ul>
+ <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line">TreeNode <span class="title function_">inorderSuccessor</span><span class="params">(TreeNode node)</span> &#123;</span><br><span class="line">    <span class="keyword">if</span> (node == <span class="literal">null</span>) &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">null</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span> (node.right != <span class="literal">null</span>) &#123;</span><br><span class="line">        <span class="keyword">return</span> getLeftMostChild(node.right);</span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">        <span class="type">TreeNode</span> <span class="variable">curr</span> <span class="operator">=</span> node;</span><br><span class="line">        <span class="type">TreeNode</span> <span class="variable">prev</span> <span class="operator">=</span> curr.parent;</span><br><span class="line">        <span class="keyword">while</span> (prev != <span class="literal">null</span> &amp;&amp; prev.left != curr) &#123;</span><br><span class="line">            curr = prev;</span><br><span class="line">            prev = prev.parent;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> prev;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">TreeNode <span class="title function_">getLeftMostChild</span><span class="params">(TreeNode node)</span> &#123;</span><br><span class="line">    <span class="keyword">if</span> (node == <span class="literal">null</span>) &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">null</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">while</span> (node.left != <span class="literal">null</span>) &#123;</span><br><span class="line">        node = node.left;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> node;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ul>
+<li><em>Q：给一个List包含一系列project，然后给出部分dependencies表示要想做b必须先完成a。求一个可以完成所有project的顺序。</em><ul>
+<li>经典拓扑排序，和利口210一样。BFS方法是先遍历一遍dependencies维护一个inDegree数组，然后找出所有入度为0的点入队作为起点，将所有相邻的点的入度减1（删掉从起点到该点的这条边），同时将新的入度为0的点入队。时间是O(v + e).</li>
+<li>DFS也可以做，首先构建邻接链表，然后用一个for-loop尝试从某一点出发能够完全走完所有node的，在DFS时维护一个visited和onpath分别表示当前节点已经访问过or当前节点正在被访问，一旦出现cycle（onpath为true）就说明有cyclic dependencies，不可能走完；如果都ok则吧当前节点插入到当前遍历path的最前面，表示从当前节点出发可以走到后续这些节点，这样回溯到上一层递归调用时又会把对应的incoming node加进来。时间也是O(v + e).</li>
+</ul>
+</li>
+<li><em>Q：First Common Ancestor</em><ul>
+<li>如果是正常的二叉树，只有从parent到child的Link，就是<a target="_blank" rel="noopener" href="https://leetcode.com/problems/lowest-common-ancestor-of-a-binary-tree/">利口236</a>。但注意限制条件，p和q不同且p和q都必须在二叉树中存在。如果拿掉这些限制条件，就无法区分p是q的ancestor和p在树中而q不存在的情况，此时就需要对return的结果小小修改一下，增加返回一个boolean值表示这个是不是真的找到了ancestor. <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Result</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> TreeNode node;</span><br><span class="line">    <span class="keyword">public</span> <span class="type">boolean</span> isAncestor;</span><br><span class="line">    <span class="keyword">public</span> <span class="title function_">Result</span><span class="params">(TreeNode node, <span class="type">boolean</span> isAncestor)</span> &#123;</span><br><span class="line">        <span class="built_in">this</span>.node = node;</span><br><span class="line">        <span class="built_in">this</span>.isAncestor = isAncestor;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">TreeNode <span class="title function_">LCA</span><span class="params">(TreeNode root, TreeNode p, TreeNode q)</span> &#123;</span><br><span class="line">    <span class="type">Result</span> <span class="variable">r</span> <span class="operator">=</span> helper(root, p, q);</span><br><span class="line">    <span class="keyword">if</span> (r.isAncestor) &#123;</span><br><span class="line">        <span class="keyword">return</span> r.node;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="literal">null</span>;</span><br><span class="line">&#125;</span><br><span class="line">Result <span class="title function_">helper</span><span class="params">(TreeNode root, TreeNode p, TreeNode q)</span> &#123;</span><br><span class="line">    <span class="keyword">if</span> (root == <span class="literal">null</span>) &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">new</span> <span class="title class_">Result</span>(<span class="literal">null</span>, <span class="literal">false</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span> (root == p &amp;&amp; root == q) &#123;      <span class="comment">// p和q相等且存在于树中</span></span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">new</span> <span class="title class_">Result</span>(root, <span class="literal">true</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="type">Result</span> <span class="variable">rLeft</span> <span class="operator">=</span> helper(root.left, p, q);</span><br><span class="line">    <span class="keyword">if</span> (rLeft.isAncestor) &#123;</span><br><span class="line">        <span class="keyword">return</span> rLeft;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="type">Result</span> <span class="variable">rRight</span> <span class="operator">=</span> helper(root.right, p, q);</span><br><span class="line">    <span class="keyword">if</span> (rRight.isAncestor) &#123;</span><br><span class="line">        <span class="keyword">return</span> rRight;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span> (rLeft.node != <span class="literal">null</span> &amp;&amp; rRight.node != <span class="literal">null</span>) &#123;  <span class="comment">// 左右两边分别找到了p和q</span></span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">new</span> <span class="title class_">Result</span>(root, <span class="literal">true</span>);    <span class="comment">// 当前root即为LCA</span></span><br><span class="line">    &#125; <span class="keyword">else</span> <span class="keyword">if</span> (root == p || root == q) &#123;  <span class="comment">// 当前root恰好为p/q时，需要确定另一方是否在子树中</span></span><br><span class="line">        <span class="type">boolean</span> <span class="variable">inSubTree</span> <span class="operator">=</span> rLeft.node != <span class="literal">null</span> || rRight.node != <span class="literal">null</span>;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">new</span> <span class="title class_">Result</span>(root, inSubTree);</span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">new</span> <span class="title class_">Result</span>(rLeft.node != <span class="literal">null</span> ? rLeft : rRight, <span class="literal">false</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+<li>如果有Link可以访问parent，则类似于intersection of two linkedlist，利用depth的差值先把较深的节点往上提几个level，然后一起向上挪，汇合处即为ancestor。时间复杂度为O(depth)。</li>
+<li>此外还可以选择从其中一个节点出发，在向上的时候总会解锁另一侧的child（即使为null），这时去那一侧check是否包含另一个节点即可，如果不包含就再往上走，继续解锁继续搜。时间复杂度为O(t)，t为ancestor所在subtree的节点数，这个t也可能包含所有节点。 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line"> TreeNode <span class="title function_">commonAncestor</span><span class="params">(TreeNode root, TreeNode p, TreeNode q)</span> &#123;</span><br><span class="line">    <span class="keyword">if</span> (!contains(root, p) || !contains(root, q)) &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">null</span>;</span><br><span class="line">    &#125; <span class="keyword">else</span> <span class="keyword">if</span> (contains(p, q)) &#123;</span><br><span class="line">        <span class="keyword">return</span> p;</span><br><span class="line">    &#125; <span class="keyword">else</span> <span class="keyword">if</span> (contains(q, p)) &#123;</span><br><span class="line">        <span class="keyword">return</span> q;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="type">TreeNode</span> <span class="variable">sibling</span> <span class="operator">=</span> getSibling(p);</span><br><span class="line">    <span class="type">TreeNode</span> <span class="variable">parent</span> <span class="operator">=</span> p.parent;</span><br><span class="line">    <span class="keyword">while</span> (!contains(sibling, q)) &#123;</span><br><span class="line">        sibling = getSibling(parent);</span><br><span class="line">        parent = parent.parent;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> parent;</span><br><span class="line">&#125;</span><br><span class="line"><span class="type">boolean</span> <span class="title function_">contains</span><span class="params">(TreeNode root, TreeNode p)</span> &#123;</span><br><span class="line">    <span class="keyword">if</span> (root == <span class="literal">null</span>) &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span> (root == p) &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> contains(root.left, p) || contains(root.right, p);</span><br><span class="line">&#125;</span><br><span class="line">TreeNode <span class="title function_">getSibling</span><span class="params">(TreeNode node)</span> &#123;    <span class="comment">// 得到和node相同地位的兄弟节点</span></span><br><span class="line">    <span class="keyword">if</span> (node == <span class="literal">null</span> || node.parent == <span class="literal">null</span>) &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">null</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="type">TreeNode</span> <span class="variable">parent</span> <span class="operator">=</span> node.parent;</span><br><span class="line">    <span class="keyword">return</span> parent.left == node ? parent.right : parent.left;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+</ul>
+</li>
+<li><em>Q:假设BST是通过一个List从左到右填充出来的。给一个BST，求所有可能形成该BST的List of List。例如root为2、左孩子为1、右孩子为3的BST可能是<code>[2,1,3]</code>或者<code>[2,3,1]</code>生成的，需要返回所有可能的List.</em><ul>
+<li>BST虽然要求当前节点所有左子树都小于它、所有右子树都大于它，但给定一个List和树的形状之后，只要知道了根节点，左右节点出现的先后顺序没有关系，因为一定是大的在右、小的在左。因此需要递归来实现“把所有左右子树可能情形枚举完后，将当前root插入到所有情况的开头”。 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br></pre></td><td class="code"><pre><span class="line">       List&lt;List&lt;Integer&gt;&gt; <span class="title function_">allSeq</span><span class="params">(TreeNode root)</span> &#123;</span><br><span class="line">           List&lt;List&lt;Integer&gt;&gt; result = <span class="keyword">new</span> <span class="title class_">ArrayList</span>&lt;&gt;();</span><br><span class="line"></span><br><span class="line">           <span class="keyword">if</span> (root == <span class="literal">null</span>) &#123;</span><br><span class="line">               result.add(<span class="keyword">new</span> <span class="title class_">LinkedList</span>&lt;Integer&gt;());</span><br><span class="line">               <span class="keyword">return</span> result;</span><br><span class="line">           &#125;</span><br><span class="line">           List&lt;Integer&gt; prefix = <span class="keyword">new</span> <span class="title class_">LinkedList</span>&lt;&gt;();</span><br><span class="line">           prefix.add(root.val);</span><br><span class="line"></span><br><span class="line">           <span class="comment">// 将左右子树的所有情况都列出来</span></span><br><span class="line">           List&lt;List&lt;Integer&gt;&gt; leftSeq = allSeq(root.left);  </span><br><span class="line">           List&lt;List&lt;Integer&gt;&gt; rightSeq = allSeq(root.right);</span><br><span class="line"></span><br><span class="line">           <span class="keyword">for</span> (List&lt;Integer&gt; left : leftSeq) &#123;     <span class="comment">// 两两组合一波</span></span><br><span class="line">               <span class="keyword">for</span> (List&lt;Integer&gt; right : rightSeq) &#123;</span><br><span class="line">                   List&lt;List&lt;Integer&gt;&gt; weaved = <span class="keyword">new</span> <span class="title class_">ArrayList</span>&lt;&gt;();</span><br><span class="line">                   weaveLists(left, right, weaved, prefix);</span><br><span class="line">                   result.addAll(weaved);</span><br><span class="line">               &#125;</span><br><span class="line">           &#125;</span><br><span class="line">           <span class="keyword">return</span> result;</span><br><span class="line">       &#125;</span><br><span class="line">       <span class="keyword">void</span> <span class="title function_">weaveLists</span><span class="params">(List&lt;Integer&gt; first, List&lt;Integer&gt; second, List&lt;List&lt;Integer&gt;&gt; results, List&lt;Integer&gt; prefix)</span> &#123;</span><br><span class="line">           <span class="keyword">if</span> (first.size() == <span class="number">0</span> || second.size() == <span class="number">0</span>) &#123;</span><br><span class="line">               List&lt;Integer&gt; result = (List&lt;Integer&gt;) prefix.clone();</span><br><span class="line">               result.addAll(first);</span><br><span class="line">               result.addAll(second);</span><br><span class="line">               results.add(result);</span><br><span class="line">               <span class="keyword">return</span>;</span><br><span class="line">           &#125;</span><br><span class="line">           <span class="type">int</span> <span class="variable">headFirst</span> <span class="operator">=</span> first.removeFirst();</span><br><span class="line">           prefix.addLast(headFirst);</span><br><span class="line">           weaveLists(first, second, results, prefix);   <span class="comment">// 递归，将前半部分的第一个元素append到prefix中</span></span><br><span class="line">           prefix.removeLast();</span><br><span class="line">           first.addFirst(headFirst);</span><br><span class="line"></span><br><span class="line">           <span class="type">int</span> <span class="variable">headSecond</span> <span class="operator">=</span> second.removeFirst();</span><br><span class="line">           prefix.addLast(headSecond);</span><br><span class="line">           weaveLists(first, second, results, prefix);   <span class="comment">// 将后半部分的第一个元素append到prefix中</span></span><br><span class="line">           prefix.removeLast();</span><br><span class="line">           second.addFirst(headSecond);</span><br><span class="line">       &#125;</span><br><span class="line">     ```  </span><br><span class="line">* *Q: 给两个binary tree T1和T2（含有N和M个节点，可能很大），判断T2是否是T1的subtree。*</span><br><span class="line">  - 用类似于二叉树serialized的办法，前序遍历将所有节点都append成StringBuilder，注意<span class="literal">null</span>节点也需要表示出来。这样需要O(N + M)空间和O(N + M)时间。</span><br><span class="line">  - 递归的办法，遍历T1的节点，只有当T2的root出现时才开始逐一匹配每一个节点。需要O(log(N) + log(M))空间和O(N + k*M)的时间，其中k是T2的root出现在T1中的次数。（WHY空间是那个？？？？？？？？？）</span><br><span class="line">* *Q: 要求实现一个BST类，含有insert, find, delete以及一个`getRandomNode()`以相等概率返回任意一个节点。*</span><br><span class="line">  - 方法一：如果有`N`个节点，那么相等概率就是`<span class="number">1</span>/N`.因此考虑在每个节点处保存它下属总共有多少个节点，然后就以`<span class="number">1</span>/N`的概率取。</span><br><span class="line">     ```Java</span><br><span class="line">       <span class="keyword">class</span> <span class="title class_">TreeNode</span> &#123;</span><br><span class="line">           <span class="keyword">public</span> <span class="type">int</span> val;   <span class="comment">// 简化了</span></span><br><span class="line">           <span class="keyword">public</span> TreeNode left;</span><br><span class="line">           <span class="keyword">public</span> TreeNode right;</span><br><span class="line">           <span class="keyword">public</span> <span class="type">int</span> <span class="variable">size</span> <span class="operator">=</span> <span class="number">0</span>;</span><br><span class="line">           ...</span><br><span class="line"></span><br><span class="line">           <span class="keyword">public</span> TreeNode <span class="title function_">getRandomNode</span><span class="params">()</span> &#123;</span><br><span class="line">               <span class="type">int</span> <span class="variable">leftSize</span> <span class="operator">=</span> left == <span class="literal">null</span> ? <span class="number">0</span> : left.size;</span><br><span class="line">               <span class="type">Random</span> <span class="variable">random</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">Random</span>();</span><br><span class="line">               <span class="type">int</span> <span class="variable">index</span> <span class="operator">=</span> random.nextInt(size);  <span class="comment">// 根据当前tree总共有多少节点来决定</span></span><br><span class="line">               <span class="keyword">if</span> (index &lt; leftSize) &#123;</span><br><span class="line">                   <span class="keyword">return</span> left.getRandomNode();</span><br><span class="line">               &#125; <span class="keyword">else</span> <span class="keyword">if</span> (index == leftSize) &#123;</span><br><span class="line">                   <span class="keyword">return</span> <span class="built_in">this</span>;</span><br><span class="line">               &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                   <span class="keyword">return</span> right.getRandomNode();</span><br><span class="line">               &#125;</span><br><span class="line">           &#125;</span><br><span class="line">           <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">insertInOrder</span><span class="params">(<span class="type">int</span> d)</span> &#123;</span><br><span class="line">               <span class="keyword">if</span> (d &lt;= val) &#123;</span><br><span class="line">                   <span class="keyword">if</span> (left == <span class="literal">null</span>) &#123;</span><br><span class="line">                       left = <span class="keyword">new</span> <span class="title class_">TreeNode</span>(d);</span><br><span class="line">                   &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                       left.insertInOrder(d);</span><br><span class="line">                   &#125;</span><br><span class="line">               &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                   <span class="keyword">if</span> (right == <span class="literal">null</span>) &#123;</span><br><span class="line">                       right = <span class="keyword">new</span> <span class="title class_">TreeNode</span>(d);</span><br><span class="line">                   &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                       right.insertInOrder(d);</span><br><span class="line">                   &#125;</span><br><span class="line">               &#125;</span><br><span class="line">               size++;     <span class="comment">// 当前这个node的size需要增长</span></span><br><span class="line">           &#125;</span><br><span class="line">           <span class="keyword">public</span> TreeNode <span class="title function_">find</span><span class="params">(<span class="type">int</span> d)</span> &#123;</span><br><span class="line">               <span class="keyword">if</span> (d == val) &#123;</span><br><span class="line">                   <span class="keyword">return</span> <span class="built_in">this</span>;</span><br><span class="line">               &#125; <span class="keyword">else</span> <span class="keyword">if</span> (d &lt;= val) &#123;</span><br><span class="line">                   <span class="keyword">return</span> left != <span class="literal">null</span> ? left.find(d) : <span class="literal">null</span>;</span><br><span class="line">               &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                   <span class="keyword">return</span> right != <span class="literal">null</span> ? right.find(d) : <span class="literal">null</span>;</span><br><span class="line">               &#125;</span><br><span class="line">           &#125;</span><br><span class="line">       &#125;</span><br></pre></td></tr></table></figure></li>
+<li>方法二：方法一调用Random次数较多，因为每次递归下去都要pick一个随机数。考虑在最开始就根据总size选定一个随机数i，然后一路递归下去，按照中序遍历找到第i个节点。  <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Tree</span> &#123;</span><br><span class="line">    <span class="type">TreeNode</span> <span class="variable">root</span> <span class="operator">=</span> <span class="literal">null</span>;</span><br><span class="line">    <span class="type">private</span> <span class="variable">treeSize</span> <span class="operator">=</span> root == <span class="literal">null</span> ? <span class="number">0</span> : root.size;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> TreeNode <span class="title function_">getRandomNode</span><span class="params">()</span> &#123;</span><br><span class="line">        <span class="keyword">if</span> (root == <span class="literal">null</span>) &#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="literal">null</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="type">Random</span> <span class="variable">random</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">Random</span>();</span><br><span class="line">        <span class="type">int</span> <span class="variable">i</span> <span class="operator">=</span> random.nextInt(treeSize);</span><br><span class="line">        <span class="keyword">return</span> root.getIthNode(i);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">insertInOrder</span><span class="params">(<span class="type">int</span> value)</span> &#123;</span><br><span class="line">        <span class="keyword">if</span> (root == <span class="literal">null</span>) &#123;</span><br><span class="line">            root = <span class="keyword">new</span> <span class="title class_">TreeNode</span>(value);</span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">            root.insertInOrder(value);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">class</span> <span class="title class_">TreeNode</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> TreeNode <span class="title function_">getIthNode</span><span class="params">(<span class="type">int</span> i)</span> &#123;</span><br><span class="line">        <span class="type">int</span> <span class="variable">leftSize</span> <span class="operator">=</span> left == <span class="literal">null</span> ? <span class="number">0</span> : left.size;</span><br><span class="line">        <span class="keyword">if</span> (i &lt; leftSize) &#123;</span><br><span class="line">            <span class="keyword">return</span> left.getIthNode(i);</span><br><span class="line">        &#125; <span class="keyword">else</span> <span class="keyword">if</span> (i == leftSize) &#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="built_in">this</span>;</span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">            <span class="keyword">return</span> right.getIthNode(i - (leftSize + <span class="number">1</span>));</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+</ul>
+</li>
+<li><em>Q: path sum: 给一个二叉树，每个节点含有任意整数，给一个sum，求有多少条从上往下的路径之和等于该sum。</em><ul>
+<li>暴力枚举，尝试从root出发看有多少，然后尝试从left和right出发。时间复杂度推导可以这样考虑，对于深度为d的节点，会被在它上面的d个节点touch到，因此对于一个balanced tree来说，时间为<code>O(NlogN)</code>。对于unbalanced的来说，例如一条单边的tree下来，就是O(N^2)</li>
+<li>显然暴力方法有很多可以reuse的东西，可以将问题抽象一下。从root往下走的时候，可以看作是一个数组，每一个bucket就是走到该处的runningSum，而给的targetSum其实就是某两个runningSum之间的差，这就转换成了<code>2 Sum</code>的问题，如何在更新runningSum的时候快速判断是否能和之前的某个runningSum刚好相差targetSum. <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">int</span> <span class="title function_">countPathSum</span><span class="params">(TreeNode root, <span class="type">int</span> targetSum)</span> &#123;</span><br><span class="line">    <span class="keyword">return</span> countPathSum(root, targetSum, <span class="number">0</span>, <span class="keyword">new</span> <span class="title class_">HashMap</span>&lt;Integer, Integer&gt;());</span><br><span class="line">&#125;</span><br><span class="line"><span class="type">int</span> <span class="title function_">countPathSum</span><span class="params">(TreeNode node, <span class="type">int</span> targetSum, <span class="type">int</span> runningSum, Map&lt;Integer, Integer&gt; pathSumCount)</span> &#123;</span><br><span class="line">    <span class="keyword">if</span> (node == <span class="literal">null</span>) <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line"></span><br><span class="line">    runningSum += node.val;</span><br><span class="line">    <span class="type">int</span> <span class="variable">previousSum</span> <span class="operator">=</span> runningSum - targetSum;</span><br><span class="line">    <span class="type">int</span> <span class="variable">totalPaths</span> <span class="operator">=</span> pathSumCount.getOrDefault(previousSum, <span class="number">0</span>); <span class="comment">// 和之前的某个sum恰好形成差值为target</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span> (runningSum == targetSum) &#123;  <span class="comment">// running其实就表示从root开始的pathSum</span></span><br><span class="line">        totalPaths++;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    updatePathSumCount(pathSumCount, runningSum, <span class="number">1</span>);    </span><br><span class="line">    totalPaths += countPathSum(node.left, targetSum, runningSum, pathSumCount);  <span class="comment">// 只能选一边往下走（链式）</span></span><br><span class="line">    totalPaths += countPathSum(node.right, targetSum, runningSum, pathSumCount);</span><br><span class="line">    updatePathSumCount(pathSumCount, runningSum, -<span class="number">1</span>);</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> totalPaths;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">void</span> <span class="title function_">updatePathSumCount</span><span class="params">(Map&lt;Integer, Integer&gt; pathSumCount, <span class="type">int</span> key, <span class="type">int</span> delta)</span> &#123;</span><br><span class="line">    <span class="type">int</span> <span class="variable">newCount</span> <span class="operator">=</span> pathSumCount.getOrDefault(key, <span class="number">0</span>) + delta;</span><br><span class="line">    <span class="keyword">if</span> (newCount == <span class="number">0</span>) &#123;</span><br><span class="line">        pathSumCount.remove(key);</span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">        pathSumCount.put(key, newCount);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+</ul>
+</li>
+</ul>
+<hr>
+<h3 id="Bit-Manipulation"><a href="#Bit-Manipulation" class="headerlink" title="Bit Manipulation"></a>Bit Manipulation</h3><h4 id="2’s-Complement"><a href="#2’s-Complement" class="headerlink" title="2’s Complement"></a>2’s Complement</h4><ul>
+<li>Negative K’s binary represenetation is concat(1, 2^(N-1) - K), where N is the total length of bits.</li>
+<li>Another interpretation: -K &#x3D; ~K + 1, then prepend 1 at the beginning.</li>
+<li>Arithmetic right shift &#x3D; divides by two; Logical right shift &#x3D; visually shiftying of bits.</li>
+</ul>
+<h4 id="Common-bit-tasks"><a href="#Common-bit-tasks" class="headerlink" title="Common bit tasks"></a>Common bit tasks</h4> <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">boolean</span> <span class="title function_">getBit</span><span class="params">(<span class="type">int</span> num, <span class="type">int</span> i)</span> &#123;</span><br><span class="line">    <span class="keyword">return</span> ((num &amp; (<span class="number">1</span> &lt;&lt; i)) != <span class="number">0</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="type">int</span> <span class="title function_">setBit</span><span class="params">(<span class="type">int</span> num, <span class="type">int</span> i)</span> &#123;</span><br><span class="line">    <span class="keyword">return</span> num | (<span class="number">1</span> &lt;&lt; i);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="type">int</span> <span class="title function_">clearBit</span><span class="params">(<span class="type">int</span> num, <span class="type">int</span> i)</span> &#123;</span><br><span class="line">    <span class="type">int</span> <span class="variable">mask</span> <span class="operator">=</span> ~(<span class="number">1</span> &lt;&lt; i);</span><br><span class="line">    <span class="keyword">return</span> num &amp; mask;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="type">int</span> <span class="title function_">clearBitsMSBthroughI</span><span class="params">(<span class="type">int</span> num, <span class="type">int</span> i)</span> &#123;   <span class="comment">// 把最高位到i清0</span></span><br><span class="line">    <span class="type">int</span> <span class="variable">mask</span> <span class="operator">=</span> (<span class="number">1</span> &lt;&lt; i) - <span class="number">1</span>;</span><br><span class="line">    <span class="keyword">return</span> num &amp; mask;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="type">int</span> <span class="title function_">clearBitsIthrough0</span><span class="params">(<span class="type">int</span> num, <span class="type">int</span> i)</span> &#123;     <span class="comment">// 把i到最低位清0</span></span><br><span class="line">    <span class="type">int</span> <span class="variable">mask</span> <span class="operator">=</span> (-<span class="number">1</span> &lt;&lt; (i + <span class="number">1</span>));</span><br><span class="line">    <span class="keyword">return</span> num &amp; mask; </span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="type">int</span> <span class="title function_">updateBit</span><span class="params">(<span class="type">int</span> num, <span class="type">int</span> i, <span class="type">boolean</span> bitIs1)</span> &#123;</span><br><span class="line">    <span class="type">int</span> <span class="variable">value</span> <span class="operator">=</span> bitIs1 ? <span class="number">1</span> : <span class="number">0</span>;</span><br><span class="line">    <span class="type">int</span> <span class="variable">mask</span> <span class="operator">=</span> ~(<span class="number">1</span> &lt;&lt; i);       <span class="comment">// 先将该bit重置为0</span></span><br><span class="line">    <span class="keyword">return</span> (num &amp; mask) | (value &lt;&lt; i);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h4 id="Problems-4"><a href="#Problems-4" class="headerlink" title="Problems"></a>Problems</h4><ul>
+<li><em>Q: 给两个32bit的整数N和M，给定两个索引i和j(j &gt; i且一定可以包含所有M的有效bit)。将N中j~i的部分替换成M的对应部分。</em><ul>
+<li>可以考虑分成三步：将N中j<del>i置为0、shift M挪到正确的j</del>i范围中、合并。 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">int</span> <span class="title function_">updateBits</span><span class="params">(<span class="type">int</span> N, <span class="type">int</span> M, <span class="type">int</span> i, <span class="type">int</span> j)</span> &#123;</span><br><span class="line">    <span class="type">int</span> <span class="variable">allOnes</span> <span class="operator">=</span> ~<span class="number">0</span>;<span class="comment">// 或者直接用-1</span></span><br><span class="line">    <span class="type">int</span> <span class="variable">left</span> <span class="operator">=</span> allOnes &lt;&lt; (j + <span class="number">1</span>);</span><br><span class="line">    <span class="type">int</span> <span class="variable">right</span> <span class="operator">=</span> ((<span class="number">1</span> &lt;&lt; i) - <span class="number">1</span>);</span><br><span class="line">    <span class="type">int</span> <span class="variable">mask</span> <span class="operator">=</span> left | right;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> (N &amp; mask) | (M &lt;&lt; i);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+</ul>
+</li>
+<li><em>Q: 给一个(0, 1)之间的double，求它的binary字符串表示，如果超过32bit则返回“ERROR”。</em><ul>
+<li>小数的二进制表示其实就是小数点后的bit乘以<code>2^(-i)</code>。因此直接先乘一个2上去看看是否超过1，决定bit。如果不能乘，那么直接和1&#x2F;2, 1&#x2F;4, 1&#x2F;8这样一路比下去也可以。</li>
+</ul>
+</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">String <span class="title function_">getBinary</span><span class="params">(<span class="type">double</span> num)</span> &#123;</span><br><span class="line">    <span class="keyword">if</span> (num &gt;= <span class="number">1</span> || num &lt;= <span class="number">0</span>) &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="string">&quot;ERROR&quot;</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="type">StringBuilder</span> <span class="variable">binary</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">StringBuilder</span>();</span><br><span class="line">    binary.append(<span class="string">&quot;.&quot;</span>);</span><br><span class="line">    <span class="keyword">while</span> (num &gt; <span class="number">0</span>) &#123;</span><br><span class="line">        <span class="keyword">if</span> (binary.length() &gt; <span class="number">32</span>) &#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="string">&quot;ERROR&quot;</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="type">double</span> <span class="variable">r</span> <span class="operator">=</span> num * <span class="number">2</span>;</span><br><span class="line">        <span class="keyword">if</span> (r &gt; <span class="number">1</span>) &#123;</span><br><span class="line">            binary.append(<span class="string">&#x27;1&#x27;</span>);</span><br><span class="line">            num = r - <span class="number">1</span>;</span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">            binary.append(<span class="string">&#x27;0&#x27;</span>);</span><br><span class="line">            num = r;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> binary.toString();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ul>
+<li><em>Q: 给一个int，只能flip其中一个0变成1，求最长的连续1的长度。</em><ul>
+<li>也就是找到夹在两个连续1中间的0使得两边的1长度最长。维护一个prev和curr判断即可。 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">int</span> <span class="title function_">flipBit</span><span class="params">(<span class="type">int</span> a)</span> &#123;</span><br><span class="line">    <span class="keyword">if</span> (~a == <span class="number">0</span>) <span class="keyword">return</span> Integer.BYTES * <span class="number">8</span>;   <span class="comment">// 已经全是1了</span></span><br><span class="line">    <span class="type">int</span> <span class="variable">curr</span> <span class="operator">=</span> <span class="number">0</span>, prev = <span class="number">0</span>, maxLen = <span class="number">1</span>; <span class="comment">// flip之后至少有一个1</span></span><br><span class="line">    <span class="keyword">while</span> (a != <span class="number">0</span>) &#123;</span><br><span class="line">        <span class="keyword">if</span> ((a &amp; <span class="number">1</span>) == <span class="number">1</span>) &#123;</span><br><span class="line">            curr++;</span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">            prev = (a &amp; <span class="number">2</span>) == <span class="number">0</span> ? <span class="number">0</span> : curr;  <span class="comment">// 看看下一位是否为0，连续的0就没法flip了</span></span><br><span class="line">            curr = <span class="number">0</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        maxLen = Math.max(maxLen, curr + prev + <span class="number">1</span>);</span><br><span class="line">        a &gt;&gt;&gt;= <span class="number">1</span>;   <span class="comment">// visual的右移</span></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> maxLen;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+</ul>
+</li>
+<li><em>Q: 给一个正数，返回最小的下一个数和最大的前一个数，这些数含有的1数量必须相同。</em><ul>
+<li>对于getNext，就是找到最靠右的非末尾的0，将它变为1后再把右侧的1先统计个数，然后清空后全部放到最右侧。对于getPrev也是类似，找到最靠右的非末尾的1，统计右侧的1后全置为0，然后紧接着拼到原最右侧1的后面。</li>
+<li>还可以考虑arithmetic的做法，因为对于getNext其实就类似于<code>10000 - 1 -&gt; 01111</code>的效果，因此就变成了先找<code>011100</code>，根据右侧0的个数加一个<code>1 &lt;&lt; 2</code>变成<code>100000</code>，然后加上一个<code>(1 &lt;&lt; (3 - 1)) - 1 -&gt; 000011</code>，即<code>n + (1 &lt;&lt; count0) + (1 &lt;&lt; (count1 - 1)) - 1</code>. getPrev也是根据右侧0的个数和1的个数，返回<code>n - (1 &lt;&lt; c1) - (1 &lt;&lt; (count0 - 1)) + 1</code>。</li>
+</ul>
+</li>
+<li><em>Q: 请解释<code>((n &amp; (n - 1)) == 0)</code>的目的。</em><ul>
+<li>n和n - 1没有一个bit有相同的1分布，类似于<code>1000 - 1 -&gt; 0111</code>，因此可以用来判断n是否是2的幂。</li>
+</ul>
+</li>
+<li><em>Q: 给两个int，判断他们之间需要flip多少个bit才能转换成对方。</em><ul>
+<li>也就是看异或之后有多少个1，除了老老实实地shift求有多少个1，还可以利用减1的trick加速求有多少个1。 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">int</span> <span class="title function_">bitSwapCount</span><span class="params">(<span class="type">int</span> a, <span class="type">int</span> b)</span> &#123;</span><br><span class="line">    <span class="type">int</span> <span class="variable">count</span> <span class="operator">=</span> <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> <span class="variable">c</span> <span class="operator">=</span> a ^ b; c != <span class="number">0</span>; c = c &amp; (c - <span class="number">1</span>)) &#123;  <span class="comment">// 每次都可以直接将最右的1置0，比一个个shift快得多</span></span><br><span class="line">        count++;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> count;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+</ul>
+</li>
+<li><em>Q: 用尽可能少的instrction实现奇数位和偶数位的bit互换。</em><ul>
+<li>可以先用mask分别把奇数和偶数的部分提取出来，然后分别shift即可（right shift必须是logic的）:<code>(((x &amp; 0xaaaaaaaa) &gt;&gt;&gt; 1) | ((x &amp; 0x55555555) &lt;&lt; 1))</code></li>
+</ul>
+</li>
+<li><em>Q: 假设一个黑白屏幕的像素存储在byte数组中，即每8个bit的上色情况存在一个byte中。给定坐标(x1, y)和(x2, y)，实现画线的函数。</em><ul>
+<li>可以傻傻地一个bit一个bit地上色，但是更高效的做法是先找到可以完整上色的区间直接赋值<code>0xFF</code>，然后如果头尾还有一点残余，再创建前后两小段的mask。注意edge case，如果x1和x2都在一个byte里面，就不能这样头尾搞来搞去了，直接在区间内自己搞小mask或一蛤。</li>
+</ul>
+</li>
+</ul>
+<hr>
+<h3 id="Math-and-Logic-Puzzles"><a href="#Math-and-Logic-Puzzles" class="headerlink" title="Math and Logic Puzzles"></a>Math and Logic Puzzles</h3><hr>
+<h3 id="Object-Oriented-Design"><a href="#Object-Oriented-Design" class="headerlink" title="Object-Oriented Design"></a>Object-Oriented Design</h3><hr>
+<h3 id="Recursion-and-Dynamic-Programming"><a href="#Recursion-and-Dynamic-Programming" class="headerlink" title="Recursion and Dynamic Programming"></a>Recursion and Dynamic Programming</h3><h4 id="3-recursion-approach"><a href="#3-recursion-approach" class="headerlink" title="3 recursion approach"></a>3 recursion approach</h4><ul>
+<li>Bottom-up: Start with knowing how to solve the problem for a simple case, then build previous case upon it.</li>
+<li>Top-down: Divide the problem for case N into subproblems(careful: overlap cases)</li>
+<li>Half-and-half: divide the dataset into halves. like Binary search and merge sort.</li>
+</ul>
+<h4 id="Problems-5"><a href="#Problems-5" class="headerlink" title="Problems"></a>Problems</h4><ul>
+<li><em>Q: 爬楼梯，一次只能爬1、2、3级，求到第n级共有多少走法。</em><ul>
+<li>利用memo数组记录下从0～n的所有走法数量，每次从前面三个累加即可。注意这种连续加法要考虑overflow的情况，向面试官指出来。</li>
+</ul>
+</li>
+<li><em>Q: 走grid，每次只能向下走或这向右走，grid值为false的地方是障碍物，求一条从左上角到右下角的路径。</em><ul>
+<li>可以从终点往回递归，这样如果找到路径了就只需要在List末尾插入当前坐标即可。为了提升time，需要额外空间记录每个点是否访问过。</li>
+</ul>
+</li>
+<li><em>Q: 给一个排好序的dinstinct int数组，求其中一个magic index若存在的话. magic index指的是<code>i s.t. A[i] == i</code></em><ul>
+<li>看到排好序就想到是否可以用二分查找？若<code>i &gt; A[i]</code>，而且数组中元素各不相同，说明<code>i</code>之前不可能有magic index，因此可以直接往后找，非常类似二分查找的思想。 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">int</span> <span class="title function_">getMagicIndex</span><span class="params">(<span class="type">int</span>[] arr)</span> &#123;</span><br><span class="line">    <span class="keyword">return</span> getMagicIndex(arr, <span class="number">0</span>, arr.length - <span class="number">1</span>);</span><br><span class="line">&#125;</span><br><span class="line"><span class="type">int</span> <span class="title function_">getMaticIndex</span><span class="params">(<span class="type">int</span>[] arr, <span class="type">int</span> start, <span class="type">int</span> end)</span> &#123;</span><br><span class="line">    <span class="keyword">if</span> (end &lt; start) &#123;</span><br><span class="line">        <span class="keyword">return</span> -<span class="number">1</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="type">int</span> <span class="variable">mid</span> <span class="operator">=</span> start + (end - start) / <span class="number">2</span>;</span><br><span class="line">    <span class="keyword">if</span> (arr[mid] == mid) &#123;</span><br><span class="line">        <span class="keyword">return</span> mid;</span><br><span class="line">    &#125; <span class="keyword">else</span> <span class="keyword">if</span> (arr[mid] &gt; mid) &#123;</span><br><span class="line">        <span class="keyword">return</span> getMagicIndex(arr, start, mid - <span class="number">1</span>);</span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> getMagicIndex(arr, start + <span class="number">1</span>, end);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+<li>Follow-up: 如果数组中含有重复元素，如何改进？还是沿用这个思路，区别在于当<code>i &gt; A[i]</code>，不能把整个<code>index &lt; i</code>都放弃，只能说明<code>[A[i], i]</code>这部分是不可能的，还需要保留<code>[start, A[i]]</code>的部分。 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">int</span> <span class="title function_">getMagicIndex</span><span class="params">(<span class="type">int</span>[] arr)</span> &#123;</span><br><span class="line">    <span class="keyword">return</span> getMagicIndex(arr, <span class="number">0</span>, arr.length - <span class="number">1</span>);</span><br><span class="line">&#125;</span><br><span class="line"><span class="type">int</span> <span class="title function_">getMaticIndex</span><span class="params">(<span class="type">int</span>[] arr, <span class="type">int</span> start, <span class="type">int</span> end)</span> &#123;</span><br><span class="line">    <span class="keyword">if</span> (end &lt; start) &#123;</span><br><span class="line">        <span class="keyword">return</span> -<span class="number">1</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="type">int</span> <span class="variable">midIndex</span> <span class="operator">=</span> start + (end - start) / <span class="number">2</span>;</span><br><span class="line">    <span class="type">int</span> <span class="variable">midValue</span> <span class="operator">=</span> arr[midIndex];</span><br><span class="line">    <span class="keyword">if</span> (midValue == midIndex) &#123;</span><br><span class="line">        <span class="keyword">return</span> midIndex;</span><br><span class="line">    &#125; </span><br><span class="line">    <span class="comment">// 搜索左边剩余部分</span></span><br><span class="line">    <span class="type">int</span> <span class="variable">leftEnd</span> <span class="operator">=</span> Math.min(midIndex - <span class="number">1</span>, midValue);</span><br><span class="line">    <span class="type">int</span> <span class="variable">left</span> <span class="operator">=</span> getMagicIndex(arr, start, leftEnd);</span><br><span class="line">    <span class="keyword">if</span> (left &gt;= <span class="number">0</span>) &#123;</span><br><span class="line">        <span class="keyword">return</span> left;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="type">int</span> <span class="variable">rightStart</span> <span class="operator">=</span> Math.max(midIndex + <span class="number">1</span>, midValue);</span><br><span class="line">    <span class="type">int</span> <span class="variable">right</span> <span class="operator">=</span> getMagicIndex(arr, rightStart, end);</span><br><span class="line">    <span class="keyword">return</span> right;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+</ul>
+</li>
+<li><em>Q: Power set, 求一个set（元素各不相同）的所有subset</em><ul>
+<li>经典递归，每一步直接考虑在前一个subset的基础上添加一个元素。 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">List&lt;List&lt;Integer&gt;&gt; <span class="title function_">getSubsets</span><span class="params">(List&lt;Integer&gt; set, <span class="type">int</span> index)</span> &#123;</span><br><span class="line">    List&lt;List&lt;Integer&gt;&gt; ans;</span><br><span class="line">    <span class="keyword">if</span> (set.size() == index) &#123;</span><br><span class="line">        ans = <span class="keyword">new</span> <span class="title class_">ArrayList</span>&lt;&gt;();</span><br><span class="line">        ans.add(<span class="keyword">new</span> <span class="title class_">ArrayList</span>&lt;&gt;());</span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">        ans = getSubsets(set, index + <span class="number">1</span>);</span><br><span class="line">        <span class="type">int</span> <span class="variable">curr</span> <span class="operator">=</span> set.get(index);</span><br><span class="line">        List&lt;List&lt;Integer&gt;&gt; moreSet = <span class="keyword">new</span> <span class="title class_">ArrayList</span>&lt;&gt;();</span><br><span class="line">        <span class="keyword">for</span> (List&lt;Integer&gt; subset : ans) &#123;</span><br><span class="line">            List&lt;Integer&gt; temp = <span class="keyword">new</span> <span class="title class_">ArrayList</span>&lt;&gt;();</span><br><span class="line">            temp.addAll(subset);</span><br><span class="line">            temp.add(curr);</span><br><span class="line">            moreSet.add(temp);</span><br><span class="line">        &#125;</span><br><span class="line">        ans.addAll(moreSet);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> ans;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+<li>还可以考虑用bit，每一个元素取&#x2F;不取就用1&#x2F;0来指代。 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">List&lt;List&lt;Integer&gt;&gt; <span class="title function_">getSubsets</span><span class="params">(List&lt;Integer&gt; set)</span> &#123;</span><br><span class="line">    List&lt;List&lt;Integer&gt;&gt; ans = <span class="keyword">new</span> <span class="title class_">ArrayList</span>&lt;&gt;();</span><br><span class="line">    <span class="type">int</span> <span class="variable">max</span> <span class="operator">=</span> <span class="number">1</span> &lt;&lt; set.size();</span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> <span class="variable">i</span> <span class="operator">=</span> <span class="number">0</span>; i &lt; max; i++) &#123;</span><br><span class="line">        List&lt;Integer&gt; subset = int2Set(k, set);</span><br><span class="line">        ans.add(subset);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> ans;</span><br><span class="line">&#125;</span><br><span class="line">List&lt;Integer&gt; <span class="title function_">int2Set</span><span class="params">(<span class="type">int</span> num, List&lt;Integer&gt; set)</span> &#123;</span><br><span class="line">    List&lt;Integer&gt; subset = <span class="keyword">new</span> <span class="title class_">ArrayList</span>&lt;&gt;();</span><br><span class="line">    <span class="type">int</span> <span class="variable">index</span> <span class="operator">=</span> <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> <span class="variable">i</span> <span class="operator">=</span> num; i &gt; <span class="number">0</span>; i &gt;&gt;= <span class="number">1</span>) &#123;</span><br><span class="line">        <span class="keyword">if</span> ((k &amp; <span class="number">1</span>) == <span class="number">1</span>) &#123;</span><br><span class="line">            subset.add(set.get(index));</span><br><span class="line">        &#125;</span><br><span class="line">        index++;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> subset;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+</ul>
+</li>
+<li><em>Q: 只使用加、减、shifting实现两个正整数的乘法，要求operations尽量少。</em><ul>
+<li>对于一大一小<code>x, y</code>两个数，相当于把大数x加y次，这个y次又可以通过shift进行折半。如果y是偶数折半刚好，如果是奇数就需要递归完成后再加一个x。时间复杂度只需要O(log(smaller)). <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">int</span> <span class="title function_">minProd</span><span class="params">(<span class="type">int</span> a, <span class="type">int</span> b)</span> &#123;</span><br><span class="line">    <span class="type">int</span> <span class="variable">smaller</span> <span class="operator">=</span> a &lt; b ? a : b;</span><br><span class="line">    <span class="type">int</span> <span class="variable">bigger</span> <span class="operator">=</span> a &lt; b ? b : a;</span><br><span class="line">    <span class="keyword">return</span> minProdHelper(smaller, bigger);</span><br><span class="line">&#125;</span><br><span class="line"><span class="type">int</span> <span class="title function_">minProdHelper</span><span class="params">(<span class="type">int</span> times, <span class="type">int</span> num)</span> &#123;</span><br><span class="line">    <span class="keyword">if</span> (times == <span class="number">0</span>) &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">    &#125; <span class="keyword">else</span> <span class="keyword">if</span> (times == <span class="number">1</span>) &#123;</span><br><span class="line">        <span class="keyword">return</span> num;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="type">int</span> <span class="variable">newTimes</span> <span class="operator">=</span> times &gt;&gt; <span class="number">1</span>;</span><br><span class="line">    <span class="type">int</span> <span class="variable">halfProd</span> <span class="operator">=</span> minProdHelper(newTimes, num);</span><br><span class="line">    <span class="keyword">if</span> (times % <span class="number">2</span> == <span class="number">0</span>) &#123;</span><br><span class="line">        <span class="keyword">return</span> halfProd + halfProd;</span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> halfProd + halfProd + num;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+</ul>
+</li>
+<li><em>Q: 汉诺塔，一堆从小到大的碟子，有三个柱子分别为起始、中介、终点，要求将这些碟子全部移到终点。</em><ul>
+<li>这三个柱子的角色并不是固定的，因此考虑用递归来利用传参确定角色。 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Tower</span> &#123;</span><br><span class="line">    <span class="keyword">private</span> Stack&lt;Integer&gt; disks;</span><br><span class="line">    <span class="keyword">private</span> <span class="type">int</span> index;  <span class="comment">// getter...</span></span><br><span class="line">    <span class="keyword">public</span> <span class="title function_">Tower</span><span class="params">(<span class="type">int</span> index)</span> &#123;</span><br><span class="line">        disks = <span class="keyword">new</span> <span class="title class_">StacK</span>&lt;&gt;();</span><br><span class="line">        <span class="built_in">this</span>.index = index;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">add</span><span class="params">(<span class="type">int</span> disk)</span> <span class="keyword">throws</span> Exception &#123;</span><br><span class="line">        <span class="keyword">if</span> (!disks.isEmpty() &amp;&amp; disk &gt;= disks.peek()) &#123;</span><br><span class="line">            <span class="keyword">throw</span> <span class="keyword">new</span> <span class="title class_">Exception</span>();</span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">            disks.push(disk);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">moveTop</span><span class="params">(Tower target)</span> &#123;</span><br><span class="line">        target.add(disks.pop());</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">moveDisks</span><span class="params">(<span class="type">int</span> n, Tower target, Tower buffer)</span> &#123;</span><br><span class="line">        <span class="keyword">if</span> (n &gt; <span class="number">0</span>) &#123;</span><br><span class="line">            moveDisks(n - <span class="number">1</span>, buffer, target);       <span class="comment">// 将buffer作为终点，target作为buffer</span></span><br><span class="line">            moveTop(target);</span><br><span class="line">            buffer.moveDisks(n - <span class="number">1</span>, target, <span class="built_in">this</span>);  <span class="comment">// 将起点作为buffer，终点为target</span></span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+</ul>
+</li>
+<li><em>Q: Permutation，重复和无重复元素</em></li>
+<li><em>Q: 生成所有合法的括号对。</em></li>
+<li></li>
+</ul>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/java/" rel="tag"># java</a>
+              <a href="/tags/algorithm/" rel="tag"># algorithm</a>
+              <a href="/tags/interview/" rel="tag"># interview</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2018/02/20/liveramp/" rel="prev" title="来福软谱">
+                  <i class="fa fa-angle-left"></i> 来福软谱
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/2018/08/21/vmware/" rel="next" title="威安姆位尔">
+                  威安姆位尔 <i class="fa fa-angle-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+    
+  <div class="comments" id="disqus_thread">
+    <noscript>Please enable JavaScript to view the comments powered by Disqus.</noscript>
+  </div>
+  
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+  <div class="copyright">
+    &copy; 2016 – 
+    <span itemprop="copyrightYear">2025</span>
+    <span class="with-love">
+      <i class="futbol-o"></i>
+    </span>
+    <span class="author" itemprop="copyrightHolder">Bob</span>
+  </div>
+  <div class="powered-by">Powered by <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/" rel="noopener" target="_blank">NexT.Gemini</a>
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+  <div class="sidebar-dimmer"></div>
+  <div class="back-to-top" role="button" aria-label="Back to top">
+    <i class="fa fa-arrow-up fa-lg"></i>
+    <span>0%</span>
+  </div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+<script class="next-config" data-name="disqus" type="application/json">{"enable":true,"shortname":"bobbyliujb","count":true,"i18n":{"disqus":"disqus"}}</script>
+<script src="/js/third-party/comments/disqus.js" defer></script>
+
+</body>
+</html>

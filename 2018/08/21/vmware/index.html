@@ -1,0 +1,384 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222"><meta name="generator" content="Hexo 7.3.0">
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/favicon.ico">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon.ico">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon.ico">
+  <link rel="mask-icon" href="/images/favicon.ico" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha256-dABdfBfUoC8vJUBOwGVdm8L9qlMWaHTIfXt+7GnZCIo=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"bobbyliujb.github.io","root":"/","images":"/images","scheme":"Gemini","darkmode":false,"version":"8.23.0","exturl":false,"sidebar":{"position":"left","width_expanded":320,"width_dual_column":240,"display":"hide","padding":18,"offset":12},"hljswrap":true,"copycode":{"enable":false,"style":null},"fold":{"enable":false,"height":500},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"duration":200,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"}}</script><script src="/js/config.js" defer></script>
+
+    <meta name="description" content="迎难而上，祝我好运。面朝大海，春暖花开。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="威安姆位尔">
+<meta property="og:url" content="https://bobbyliujb.github.io/2018/08/21/vmware/index.html">
+<meta property="og:site_name" content="Bob&#39;s Blog">
+<meta property="og:description" content="迎难而上，祝我好运。面朝大海，春暖花开。">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="http://www.1point3acres.com/bbs/data/attachment/forum/201808/15/003035y4qvou54svhivvlu.png">
+<meta property="og:image" content="http://www.1point3acres.com/bbs/data/attachment/forum/201808/15/003036n17v8zr7x6o9j6ry.png">
+<meta property="og:image" content="http://www.1point3acres.com/bbs/data/attachment/forum/201808/15/003036hzkqqubbbamlmqql.png">
+<meta property="article:published_time" content="2018-08-21T23:29:42.000Z">
+<meta property="article:modified_time" content="2018-09-09T19:10:22.700Z">
+<meta property="article:author" content="Bob">
+<meta property="article:tag" content="java">
+<meta property="article:tag" content="algorithm">
+<meta property="article:tag" content="interview">
+<meta property="article:tag" content="vmware">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://www.1point3acres.com/bbs/data/attachment/forum/201808/15/003035y4qvou54svhivvlu.png">
+
+
+<link rel="canonical" href="https://bobbyliujb.github.io/2018/08/21/vmware/">
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"en","comments":true,"permalink":"https://bobbyliujb.github.io/2018/08/21/vmware/","path":"2018/08/21/vmware/","title":"威安姆位尔"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>威安姆位尔 | Bob's Blog</title>
+  
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-118868735-1"></script>
+  <script class="next-config" data-name="google_analytics" type="application/json">{"tracking_id":"UA-118868735-1","only_pageview":false,"measure_protocol_api_secret":null}</script>
+  <script src="/js/third-party/analytics/google-analytics.js" defer></script>
+
+
+
+
+
+
+
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous" defer></script>
+<script src="/js/utils.js" defer></script><script src="/js/motion.js" defer></script><script src="/js/sidebar.js" defer></script><script src="/js/next-boot.js" defer></script>
+
+  
+
+
+
+
+
+
+  
+
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <div class="column">
+      <header class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">Bob's Blog</p>
+      <i class="logo-line"></i>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger" aria-label="Search" role="button">
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="home fa-fw"></i>Home</a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="tags fa-fw"></i>Tags</a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="th fa-fw"></i>Categories</a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="archive fa-fw"></i>Archives</a></li>
+  </ul>
+</nav>
+
+
+
+
+</header>
+        
+  
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#minimum-cost"><span class="nav-number">1.</span> <span class="nav-text">minimum cost</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%AE%8C%E7%BE%8E%E5%88%86%E9%85%8D%E9%98%9F%E5%91%98"><span class="nav-number">2.</span> <span class="nav-text">完美分配队员</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%B9%B3%E7%A7%BB%E6%95%B0%E7%BB%84"><span class="nav-number">3.</span> <span class="nav-text">平移数组</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%81%B6%E6%95%B0%E5%AD%90%E6%95%B0%E7%BB%84"><span class="nav-number">4.</span> <span class="nav-text">偶数子数组</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#minimum-increments"><span class="nav-number">5.</span> <span class="nav-text">minimum increments</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%AD%AA%E7%94%9F%E5%AD%97%E7%AC%A6%E4%B8%B2"><span class="nav-number">6.</span> <span class="nav-text">孪生字符串</span></a></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="Bob"
+      src="/images/avatar.jpg">
+  <p class="site-author-name" itemprop="name">Bob</p>
+  <div class="site-description" itemprop="description">I'm a Software Engineer!</div>
+</div>
+<div class="site-state-wrap animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">48</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+          <a href="/categories/">
+        <span class="site-state-item-count">4</span>
+        <span class="site-state-item-name">categories</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags/">
+        <span class="site-state-item-count">49</span>
+        <span class="site-state-item-name">tags</span></a>
+      </div>
+  </nav>
+</div>
+
+        </div>
+      </div>
+    </div>
+
+    
+  </aside>
+
+
+    </div>
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="en">
+    <link itemprop="mainEntityOfPage" href="https://bobbyliujb.github.io/2018/08/21/vmware/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.jpg">
+      <meta itemprop="name" content="Bob">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Bob's Blog">
+      <meta itemprop="description" content="I'm a Software Engineer!">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="威安姆位尔 | Bob's Blog">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          威安姆位尔
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2018-08-21 16:29:42" itemprop="dateCreated datePublished" datetime="2018-08-21T16:29:42-07:00">2018-08-21</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">Edited on</span>
+      <time title="Modified: 2018-09-09 12:10:22" itemprop="dateModified" datetime="2018-09-09T12:10:22-07:00">2018-09-09</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/Tech/" itemprop="url" rel="index"><span itemprop="name">Tech</span></a>
+        </span>
+    </span>
+
+  
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Disqus: </span>
+    
+    <a title="disqus" href="/2018/08/21/vmware/#disqus_thread" itemprop="discussionUrl">
+      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2018/08/21/vmware/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody"><p>迎难而上，祝我好运。面朝大海，春暖花开。</p>
+<span id="more"></span>
+
+<h4 id="minimum-cost"><a href="#minimum-cost" class="headerlink" title="minimum cost"></a><a target="_blank" rel="noopener" href="http://www.1point3acres.com/bbs/forum.php?mod=viewthread&tid=439073">minimum cost</a></h4><ul>
+<li>给一个int数组，要把它变成单调递增或者单调递减（相等也行），可以对数组内任意一个数字加或者减任意值，把这个加减的绝对值称为cost，问要实现最后单调递增或者递减的效果，最少的cost总和是多少？</li>
+<li><a target="_blank" rel="noopener" href="https://www.quora.com/What-is-the-way-to-solve-this-problem-on-Codeforces-Problem-13C-Codeforces">参考了DP做法</a>。原数组为nums，先尝试递增，排序得到sorted。input作row，sorted作col，<code>dp[i][j]</code>表示以sorted[j]为最大值、input[0<del>i]所需的minCost，<code>dp[0][0]</code>表示input[0]维持单调需要的minCost，自然就是abs(input[0] - sorted[0])了，<code>dp[i][0]</code>表示以sorted[0]为基准的到input[i]为止累计的minCost，<code>dp[0][j]</code>表示任选sorted[0</del>j]元素将input[0]变到它所需的cost。</li>
+</ul>
+ <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="type">int</span> <span class="title function_">getMinimumCost</span><span class="params">(<span class="type">int</span>[] input)</span> &#123;</span><br><span class="line">    <span class="keyword">if</span> (input == <span class="literal">null</span> || input.length == <span class="number">0</span>) &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> Math.min(getMinimumCost(input, <span class="literal">false</span>), getMinimumCost(input, <span class="literal">true</span>));</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">private</span> <span class="type">int</span> <span class="title function_">getMinimumCost</span><span class="params">(<span class="type">int</span>[] input, <span class="type">boolean</span> reverse)</span> &#123;</span><br><span class="line">    <span class="type">int</span>[] sorted = Arrays.copyOf(input, input.length);</span><br><span class="line">    Arrays.sort(sorted);</span><br><span class="line">    <span class="keyword">if</span> (reverse) &#123;</span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> <span class="variable">i</span> <span class="operator">=</span> <span class="number">0</span>, j = sorted.length - <span class="number">1</span>; i &lt; j; i++, j --) &#123;</span><br><span class="line">            <span class="type">int</span> <span class="variable">temp</span> <span class="operator">=</span> sorted[i];</span><br><span class="line">            sorted[i] = sorted[j];</span><br><span class="line">            sorted[j] = temp;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="type">int</span>[][] dp = <span class="keyword">new</span> <span class="title class_">int</span>[input.length][sorted.length];</span><br><span class="line">    dp[<span class="number">0</span>][<span class="number">0</span>] = Math.abs(input[<span class="number">0</span>] - sorted[<span class="number">0</span>]);</span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> <span class="variable">i</span> <span class="operator">=</span> <span class="number">1</span>; i &lt; input.length; i++) &#123;</span><br><span class="line">        dp[i][<span class="number">0</span>] = dp[i - <span class="number">1</span>][<span class="number">0</span>] + Math.abs(input[i] - sorted[<span class="number">0</span>]);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> <span class="variable">j</span> <span class="operator">=</span> <span class="number">1</span>; j &lt; sorted.length; j++) &#123;</span><br><span class="line">        dp[<span class="number">0</span>][j] = Math.min(dp[<span class="number">0</span>][j - <span class="number">1</span>], Math.abs(input[<span class="number">0</span>] - sorted[j]));</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> <span class="variable">i</span> <span class="operator">=</span> <span class="number">1</span>; i &lt; input.length; i++) &#123;</span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> <span class="variable">j</span> <span class="operator">=</span> <span class="number">1</span>; j &lt; sorted.length; j++) &#123;</span><br><span class="line">            dp[i][j] = Math.min(dp[i][j - <span class="number">1</span>], dp[i - <span class="number">1</span>][j] + Math.abs(input[i] - sorted[j]));</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> dp[input.length - <span class="number">1</span>][sorted.length - <span class="number">1</span>];</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h4 id="完美分配队员"><a href="#完美分配队员" class="headerlink" title="完美分配队员"></a><a target="_blank" rel="noopener" href="http://www.1point3acres.com/bbs/thread-438109-1-1.html">完美分配队员</a></h4><p> <img src="http://www.1point3acres.com/bbs/data/attachment/forum/201808/15/003035y4qvou54svhivvlu.png"></p>
+<ul>
+<li>根据skill看最多能分成几个组，由最少skill的学生数决定。</li>
+</ul>
+ <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="type">int</span> <span class="title function_">getTeamCount</span><span class="params">(String skills)</span> &#123;</span><br><span class="line">    <span class="keyword">if</span> (skills == <span class="literal">null</span> || skills.length() == <span class="number">0</span> || skills.length() % <span class="number">5</span> != <span class="number">0</span>) &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    Map&lt;Character, Integer&gt; skillCount = <span class="keyword">new</span> <span class="title class_">HashMap</span>&lt;&gt;();</span><br><span class="line">    <span class="keyword">for</span> (<span class="type">char</span> c : skills.toCharArray()) &#123;</span><br><span class="line">        skillCount.put(c, skillCount.getOrDefault(c, <span class="number">0</span>) + <span class="number">1</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span> (skillCount.size() &lt; <span class="number">5</span>) &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="type">int</span> <span class="variable">min</span> <span class="operator">=</span> Integer.MAX_VALUE;</span><br><span class="line">    <span class="keyword">for</span> (<span class="type">char</span> c : skillCount.keySet()) &#123;</span><br><span class="line">        min = Math.min(min, skillCount.get(c));</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> min;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h4 id="平移数组"><a href="#平移数组" class="headerlink" title="平移数组"></a><a target="_blank" rel="noopener" href="http://www.1point3acres.com/bbs/thread-438109-1-1.html">平移数组</a></h4><p> <img src="http://www.1point3acres.com/bbs/data/attachment/forum/201808/15/003036n17v8zr7x6o9j6ry.png"></p>
+<ul>
+<li>字符串循环平移。</li>
+</ul>
+ <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> String <span class="title function_">getShiftedString</span><span class="params">(String str, <span class="type">int</span> leftShifts, <span class="type">int</span> rightShifts)</span> &#123;</span><br><span class="line">    <span class="keyword">if</span> (str == <span class="literal">null</span> || str.length() == <span class="number">0</span>) &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">null</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span> (leftShifts + rightShifts == <span class="number">0</span>) &#123;</span><br><span class="line">        <span class="keyword">return</span> str;</span><br><span class="line">    &#125;</span><br><span class="line">    leftShifts = (leftShifts - rightShifts) % str.length();</span><br><span class="line">    <span class="keyword">return</span> str.substring(leftShifts) + str.substring(<span class="number">0</span>, leftShifts);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h4 id="偶数子数组"><a href="#偶数子数组" class="headerlink" title="偶数子数组"></a><a target="_blank" rel="noopener" href="http://www.1point3acres.com/bbs/thread-438109-1-1.html">偶数子数组</a></h4><p> <img src="http://www.1point3acres.com/bbs/data/attachment/forum/201808/15/003036hzkqqubbbamlmqql.png"></p>
+<ul>
+<li>给一个int数组，求有多少个至多含有k个奇数的、不重复出现的子数组。使用滑动窗口保证奇数count不超过k，同时每次右指针纳入新元素时就从左指针开始将已有的元素encode成字符串存入set，这样就可以保证是dinstinct的subarray了。</li>
+</ul>
+ <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="type">int</span> <span class="title function_">getDistinctSubarray</span><span class="params">(<span class="type">int</span>[] nums, <span class="type">int</span> k)</span> &#123;</span><br><span class="line">    <span class="keyword">if</span> (nums == <span class="literal">null</span> || nums.length == <span class="number">0</span>) &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="type">int</span> <span class="variable">left</span> <span class="operator">=</span> <span class="number">0</span>, right = <span class="number">0</span>, oddCount = <span class="number">0</span>;</span><br><span class="line">    Set&lt;String&gt; set = <span class="keyword">new</span> <span class="title class_">HashSet</span>&lt;&gt;();</span><br><span class="line">    <span class="type">StringBuilder</span> <span class="variable">sb</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">StringBuilder</span>();</span><br><span class="line">    <span class="keyword">while</span> (right &lt; nums.length) &#123;</span><br><span class="line">        oddCount += nums[right] % <span class="number">2</span> == <span class="number">1</span> ? <span class="number">1</span> : <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">while</span> (oddCount &gt; k) &#123;</span><br><span class="line">            <span class="keyword">if</span> (nums[left] % <span class="number">2</span> == <span class="number">1</span>) &#123;</span><br><span class="line">                oddCount--;</span><br><span class="line">            &#125;</span><br><span class="line">            left++;</span><br><span class="line">            sb.delete(<span class="number">0</span>, sb.indexOf(<span class="string">&quot;,&quot;</span>) + <span class="number">1</span>);</span><br><span class="line">        &#125;</span><br><span class="line">        sb.append(nums[right]);</span><br><span class="line">        sb.append(<span class="string">&#x27;,&#x27;</span>);</span><br><span class="line">        updateSet(set, sb);</span><br><span class="line">        right++;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> set.size();</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title function_">updateSet</span><span class="params">(Set&lt;String&gt; set, StringBuilder sb)</span> &#123;</span><br><span class="line">    <span class="type">int</span> <span class="variable">start</span> <span class="operator">=</span> <span class="number">0</span>, end = sb.indexOf(<span class="string">&quot;,&quot;</span>);</span><br><span class="line">    <span class="keyword">while</span> (end &gt; <span class="number">0</span>) &#123;</span><br><span class="line">        set.add(sb.substring(start, sb.length()));</span><br><span class="line">        start = end + <span class="number">1</span>;</span><br><span class="line">        end = sb.indexOf(<span class="string">&quot;,&quot;</span>, start);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 然而超时了，没搞出来。当时想用两个set来做的：</span></span><br><span class="line"><span class="keyword">public</span> <span class="type">int</span> <span class="title function_">getDistinctSubarray2</span><span class="params">(<span class="type">int</span>[] nums, <span class="type">int</span> k)</span> &#123;</span><br><span class="line">    <span class="keyword">if</span> (nums == <span class="literal">null</span> || nums.length == <span class="number">0</span>) &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="type">int</span> <span class="variable">left</span> <span class="operator">=</span> <span class="number">0</span>, right = <span class="number">0</span>, oddCount = <span class="number">0</span>;</span><br><span class="line">    Set&lt;String&gt; set = <span class="keyword">new</span> <span class="title class_">LinkedHashSet</span>&lt;&gt;();</span><br><span class="line">    Set&lt;String&gt; prevSet = <span class="keyword">new</span> <span class="title class_">LinkedHashSet</span>&lt;&gt;();</span><br><span class="line">    prevSet.add(<span class="string">&quot;&quot;</span>);</span><br><span class="line">    <span class="keyword">while</span> (right &lt; nums.length) &#123;</span><br><span class="line">        oddCount += nums[right] % <span class="number">2</span> == <span class="number">1</span> ? <span class="number">1</span> : <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">while</span> (oddCount &gt; k) &#123;</span><br><span class="line">            <span class="keyword">if</span> (nums[left] % <span class="number">2</span> == <span class="number">1</span>) &#123;</span><br><span class="line">                oddCount--;</span><br><span class="line">            &#125;</span><br><span class="line">            List&lt;String&gt; prevSetList = <span class="keyword">new</span> <span class="title class_">ArrayList</span>&lt;&gt;(prevSet);</span><br><span class="line">            <span class="keyword">for</span> (<span class="type">int</span> <span class="variable">i</span> <span class="operator">=</span> prevSetList.size() - <span class="number">1</span>; i &gt;= <span class="number">0</span> &amp;&amp; prevSetList.get(i).startsWith(String.valueOf(nums[left])); i--) &#123;</span><br><span class="line">                prevSet.remove(prevSetList.get(i));</span><br><span class="line">            &#125;</span><br><span class="line">            left++;</span><br><span class="line">        &#125;</span><br><span class="line">        prevSet = updateSet2(set, prevSet, nums[right]);</span><br><span class="line">        right++;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> set.size();</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">private</span> Set&lt;String&gt; <span class="title function_">updateSet2</span><span class="params">(Set&lt;String&gt; set, Set&lt;String&gt; prevSet, <span class="type">int</span> num)</span> &#123;</span><br><span class="line">    Set&lt;String&gt; newSet = <span class="keyword">new</span> <span class="title class_">LinkedHashSet</span>&lt;&gt;();</span><br><span class="line">    newSet.add(<span class="string">&quot;&quot;</span>);</span><br><span class="line">    <span class="keyword">for</span> (String prev : prevSet) &#123;</span><br><span class="line">        <span class="type">String</span> <span class="variable">curr</span> <span class="operator">=</span> prev + num + <span class="string">&quot;,&quot;</span>;</span><br><span class="line">        <span class="keyword">if</span> (!set.contains(curr)) &#123;</span><br><span class="line">            set.add(curr);</span><br><span class="line">            newSet.add(curr);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> newSet;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h4 id="minimum-increments"><a href="#minimum-increments" class="headerlink" title="minimum increments"></a><a target="_blank" rel="noopener" href="http://www.1point3acres.com/bbs/thread-271825-1-1.html">minimum increments</a></h4><ul>
+<li>给一个int数组，其中可能含有duplicate，对其中的元素进行++操作，使得所有数字都distinct，返回最小sum。</li>
+<li>先排序，然后遍历原数组，用一个prev记录之前的元素（可能经过++）了，若当前元素小于等于prev，就需要++，直接累加到sum中；否则就直接累加并将prev赋值为当前元素。</li>
+</ul>
+ <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="type">int</span> <span class="title function_">getMinSum</span><span class="params">(<span class="type">int</span>[] nums)</span> &#123;</span><br><span class="line">    <span class="keyword">if</span> (nums == <span class="literal">null</span> || nums.length == <span class="number">0</span>) &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="type">int</span> <span class="variable">sum</span> <span class="operator">=</span> nums[<span class="number">0</span>], prev = nums[<span class="number">0</span>];</span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> <span class="variable">i</span> <span class="operator">=</span> <span class="number">1</span>; i &lt; nums.length; i++) &#123;</span><br><span class="line">        <span class="keyword">if</span> (nums[i] &lt;= prev) &#123;</span><br><span class="line">            prev++;</span><br><span class="line">            sum += prev;</span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">            sum += nums[i];</span><br><span class="line">            prev = nums[i];</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> sum;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h4 id="孪生字符串"><a href="#孪生字符串" class="headerlink" title="孪生字符串"></a><a target="_blank" rel="noopener" href="http://www.1point3acres.com/bbs/thread-292218-1-1.html">孪生字符串</a></h4><ul>
+<li>个字符串a和b，同字符串内，奇数位和奇数位的字符可以互相交换，偶数位和偶数位的字符也可以。判断能否通过这种交换操作使两个字符串相等。</li>
+<li>分别统计奇数位和偶数位每个字母的出现次数，然后比较两个字符串的统计结果是否相等即可。</li>
+</ul>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/java/" rel="tag"># java</a>
+              <a href="/tags/algorithm/" rel="tag"># algorithm</a>
+              <a href="/tags/interview/" rel="tag"># interview</a>
+              <a href="/tags/vmware/" rel="tag"># vmware</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2018/05/31/cracking_the_code_interview/" rel="prev" title="Note for Cracking the Coding Interview">
+                  <i class="fa fa-angle-left"></i> Note for Cracking the Coding Interview
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/2018/09/08/pure_storage/" rel="next" title="飘儿斯朵瑞吉">
+                  飘儿斯朵瑞吉 <i class="fa fa-angle-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+    
+  <div class="comments" id="disqus_thread">
+    <noscript>Please enable JavaScript to view the comments powered by Disqus.</noscript>
+  </div>
+  
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+  <div class="copyright">
+    &copy; 2016 – 
+    <span itemprop="copyrightYear">2025</span>
+    <span class="with-love">
+      <i class="futbol-o"></i>
+    </span>
+    <span class="author" itemprop="copyrightHolder">Bob</span>
+  </div>
+  <div class="powered-by">Powered by <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/" rel="noopener" target="_blank">NexT.Gemini</a>
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+  <div class="sidebar-dimmer"></div>
+  <div class="back-to-top" role="button" aria-label="Back to top">
+    <i class="fa fa-arrow-up fa-lg"></i>
+    <span>0%</span>
+  </div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+<script class="next-config" data-name="disqus" type="application/json">{"enable":true,"shortname":"bobbyliujb","count":true,"i18n":{"disqus":"disqus"}}</script>
+<script src="/js/third-party/comments/disqus.js" defer></script>
+
+</body>
+</html>

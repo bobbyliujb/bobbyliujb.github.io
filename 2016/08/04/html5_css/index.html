@@ -1,0 +1,809 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222"><meta name="generator" content="Hexo 7.3.0">
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/favicon.ico">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon.ico">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon.ico">
+  <link rel="mask-icon" href="/images/favicon.ico" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha256-dABdfBfUoC8vJUBOwGVdm8L9qlMWaHTIfXt+7GnZCIo=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"bobbyliujb.github.io","root":"/","images":"/images","scheme":"Gemini","darkmode":false,"version":"8.23.0","exturl":false,"sidebar":{"position":"left","width_expanded":320,"width_dual_column":240,"display":"hide","padding":18,"offset":12},"hljswrap":true,"copycode":{"enable":false,"style":null},"fold":{"enable":false,"height":500},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"duration":200,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"}}</script><script src="/js/config.js" defer></script>
+
+    <meta name="description" content="大菜鸭推荐了几本前端学习书籍pdf给我，这本《HTML5与CSS3基础教程（第8版）》是我看的第一本。虽然大三上的时候选修了移动Web应用开发这门课，当时觉得这门课性价比真高，除了HTML&#x2F;CSS&#x2F;JavaScript三件套，还学了Java, JSP, MySQL等等，但都只是涉猎，并没有很全面地学。虽然我这样看书可能也不见得能学得多系统，不过一步步来吧。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Fundamental of HTML5 and CSS">
+<meta property="og:url" content="https://bobbyliujb.github.io/2016/08/04/html5_css/index.html">
+<meta property="og:site_name" content="Bob&#39;s Blog">
+<meta property="og:description" content="大菜鸭推荐了几本前端学习书籍pdf给我，这本《HTML5与CSS3基础教程（第8版）》是我看的第一本。虽然大三上的时候选修了移动Web应用开发这门课，当时觉得这门课性价比真高，除了HTML&#x2F;CSS&#x2F;JavaScript三件套，还学了Java, JSP, MySQL等等，但都只是涉猎，并没有很全面地学。虽然我这样看书可能也不见得能学得多系统，不过一步步来吧。">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="http://ww3.sinaimg.cn/mw690/9b3a5c2fgw1f6he65b8r9j20lo07xtau.jpg">
+<meta property="article:published_time" content="2016-08-04T14:34:22.000Z">
+<meta property="article:modified_time" content="2017-08-23T17:22:06.000Z">
+<meta property="article:author" content="Bob">
+<meta property="article:tag" content="frontend">
+<meta property="article:tag" content="html">
+<meta property="article:tag" content="css">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://ww3.sinaimg.cn/mw690/9b3a5c2fgw1f6he65b8r9j20lo07xtau.jpg">
+
+
+<link rel="canonical" href="https://bobbyliujb.github.io/2016/08/04/html5_css/">
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"en","comments":true,"permalink":"https://bobbyliujb.github.io/2016/08/04/html5_css/","path":"2016/08/04/html5_css/","title":"Fundamental of HTML5 and CSS"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>Fundamental of HTML5 and CSS | Bob's Blog</title>
+  
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-118868735-1"></script>
+  <script class="next-config" data-name="google_analytics" type="application/json">{"tracking_id":"UA-118868735-1","only_pageview":false,"measure_protocol_api_secret":null}</script>
+  <script src="/js/third-party/analytics/google-analytics.js" defer></script>
+
+
+
+
+
+
+
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous" defer></script>
+<script src="/js/utils.js" defer></script><script src="/js/motion.js" defer></script><script src="/js/sidebar.js" defer></script><script src="/js/next-boot.js" defer></script>
+
+  
+
+
+
+
+
+
+  
+
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <div class="column">
+      <header class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">Bob's Blog</p>
+      <i class="logo-line"></i>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger" aria-label="Search" role="button">
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="home fa-fw"></i>Home</a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="tags fa-fw"></i>Tags</a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="th fa-fw"></i>Categories</a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="archive fa-fw"></i>Archives</a></li>
+  </ul>
+</nav>
+
+
+
+
+</header>
+        
+  
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E7%BD%91%E9%A1%B5%E7%9A%84%E6%9E%84%E9%80%A0%E5%9D%97"><span class="nav-number">1.</span> <span class="nav-text">网页的构造块</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E7%BC%96%E5%86%99%E7%BD%91%E9%A1%B5"><span class="nav-number">2.</span> <span class="nav-text">编写网页</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%96%87%E6%9C%AC%E7%BC%96%E8%BE%91%E5%85%83%E7%B4%A0"><span class="nav-number">3.</span> <span class="nav-text">文本编辑元素</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%9B%BE%E5%83%8F"><span class="nav-number">4.</span> <span class="nav-text">图像</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E9%93%BE%E6%8E%A5"><span class="nav-number">5.</span> <span class="nav-text">链接</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#CSS%E6%9E%84%E9%80%A0%E5%9D%97"><span class="nav-number">6.</span> <span class="nav-text">CSS构造块</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%93%8D%E4%BD%9C%E6%A0%B7%E5%BC%8F%E8%A1%A8"><span class="nav-number">7.</span> <span class="nav-text">操作样式表</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%AE%9A%E4%B9%89%E9%80%89%E6%8B%A9%E5%99%A8"><span class="nav-number">8.</span> <span class="nav-text">定义选择器</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%96%87%E6%9C%AC%E6%A0%B7%E5%BC%8F"><span class="nav-number">9.</span> <span class="nav-text">文本样式</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E7%94%A8CSS%E5%B8%83%E5%B1%80"><span class="nav-number">10.</span> <span class="nav-text">用CSS布局</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%93%8D%E5%BA%94%E5%BC%8Fweb%E8%AE%BE%E8%AE%A1"><span class="nav-number">11.</span> <span class="nav-text">响应式web设计</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E4%BD%BF%E7%94%A8Web%E5%AD%97%E4%BD%93"><span class="nav-number">12.</span> <span class="nav-text">使用Web字体</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E4%BD%BF%E7%94%A8CSS3%E8%BF%9B%E8%A1%8C%E5%A2%9E%E5%BC%BA"><span class="nav-number">13.</span> <span class="nav-text">使用CSS3进行增强</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%88%97%E8%A1%A8"><span class="nav-number">14.</span> <span class="nav-text">列表</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E8%A1%A8%E5%8D%95"><span class="nav-number">15.</span> <span class="nav-text">表单</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%8F%92%E5%85%A5%E9%9F%B3%E8%A7%86%E9%A2%91%E5%92%8C%E5%A4%9A%E5%AA%92%E4%BD%93"><span class="nav-number">16.</span> <span class="nav-text">插入音视频和多媒体</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E8%A1%A8%E6%A0%BC"><span class="nav-number">17.</span> <span class="nav-text">表格</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%8A%A0%E8%BD%BDjavascript"><span class="nav-number">18.</span> <span class="nav-text">加载javascript</span></a></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="Bob"
+      src="/images/avatar.jpg">
+  <p class="site-author-name" itemprop="name">Bob</p>
+  <div class="site-description" itemprop="description">I'm a Software Engineer!</div>
+</div>
+<div class="site-state-wrap animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">48</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+          <a href="/categories/">
+        <span class="site-state-item-count">4</span>
+        <span class="site-state-item-name">categories</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags/">
+        <span class="site-state-item-count">49</span>
+        <span class="site-state-item-name">tags</span></a>
+      </div>
+  </nav>
+</div>
+
+        </div>
+      </div>
+    </div>
+
+    
+  </aside>
+
+
+    </div>
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="en">
+    <link itemprop="mainEntityOfPage" href="https://bobbyliujb.github.io/2016/08/04/html5_css/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.jpg">
+      <meta itemprop="name" content="Bob">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Bob's Blog">
+      <meta itemprop="description" content="I'm a Software Engineer!">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="Fundamental of HTML5 and CSS | Bob's Blog">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          Fundamental of HTML5 and CSS
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2016-08-04 07:34:22" itemprop="dateCreated datePublished" datetime="2016-08-04T07:34:22-07:00">2016-08-04</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">Edited on</span>
+      <time title="Modified: 2017-08-23 10:22:06" itemprop="dateModified" datetime="2017-08-23T10:22:06-07:00">2017-08-23</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/Tech/" itemprop="url" rel="index"><span itemprop="name">Tech</span></a>
+        </span>
+    </span>
+
+  
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Disqus: </span>
+    
+    <a title="disqus" href="/2016/08/04/html5_css/#disqus_thread" itemprop="discussionUrl">
+      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2016/08/04/html5_css/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody"><p>大菜鸭推荐了几本前端学习书籍pdf给我，这本《HTML5与CSS3基础教程（第8版）》是我看的第一本。虽然大三上的时候选修了移动Web应用开发这门课，当时觉得这门课性价比真高，除了HTML&#x2F;CSS&#x2F;JavaScript三件套，还学了Java, JSP, MySQL等等，但都只是涉猎，并没有很全面地学。虽然我这样看书可能也不见得能学得多系统，不过一步步来吧。</p>
+<span id="more"></span>
+
+<h1 id="网页的构造块"><a href="#网页的构造块" class="headerlink" title="网页的构造块"></a>网页的构造块</h1><hr>
+<ol>
+<li>网页包含的内容</li>
+</ol>
+<ul>
+<li>文本内容(text content): 纯文字;</li>
+<li>对其他文件的引用(references to other files): 由引用加载图像音视频、引用CSS层叠样式表控制页面显示效果、引用javascript为页面添加行为;</li>
+<li>标记(markup): 对文本内容进行描述并确保引用正确工作.</li>
+</ul>
+<ol start="2">
+<li>网页等成分都由纯文本构成，用纯文本格式可以跨平台在浏览器上显示。</li>
+<li>HTML思想：HTML通过标签来描述元素内容，而不关心内容的样式。</li>
+<li>元素：开始标签+内容+结束标签。标签中可能含有属性+值。<br>属性的值可能是无限制的，可能是需要枚举的，还可能是boolean的。一旦出现布尔属性，则该属性为真。例如<code>required</code>，或写作<code>required=&quot;required&quot;</code>.</li>
+<li>   URL: uniform resource locator，统一资源定位符包含了文件存储位置和浏览器应如何处理它的信息。<br><img src="http://ww3.sinaimg.cn/mw690/9b3a5c2fgw1f6he65b8r9j20lo07xtau.jpg" alt="url-def"></li>
+<li>   语义化HTML semantics</li>
+</ol>
+<ul>
+<li>使用最恰当的HTML元素进行标记。当然HTML5没有给所有可能的内容都配备对应元素，在100种元素中通常只会用到少量核心元素。</li>
+<li>语义化HTML的优点：<br>(1) 提升可访问性和互操作性，方便无障碍访问；<br>(2) 提升搜索引擎优化SEO效果；<br>(3) 使维护代码和添加样式更容易；<br>(4) 代码更少、页面加载更快。</li>
+</ul>
+<h1 id="编写网页"><a href="#编写网页" class="headerlink" title="编写网页"></a>编写网页</h1><hr>
+<ol>
+<li>HTML页面分为两部分，head和body。<br>DOCTYPE出现在每个页面开头，告诉浏览器本页面是HTML5.<br>head：指明页面标题title，提供搜索引擎所需页面本身的信息、加载样式表、加载javascript（不过在body结束之前加载JS会更好）。除了title，其余head中的信息对于浏览者都是不可见的。<br>body：包含浏览者可见的正文、图像、音视频、表单。</li>
+<li>title元素<br> 每个HTML页面都必须有title元素，简要概括文档内容，提升搜索引擎带来的流量。</li>
+<li>分级标题h1~h6<br> 对任何页面来说，分级标题可以说是最重要的元素，因为它们与搜索关键词匹配得越多，排序越靠前。<br> 分级标题通常都是粗体且上下行距会略大。这不是HTML带来的效果，这是浏览器默认的CSS制造的样式。</li>
+<li>创建页眉header<br> header元素标记一块含介绍性、导航性内容的区域。通常含有标题、标识、导航、搜索框等。若使用h1<del>h6可以满足要求，则不必引入header将它们包起来。Header不能代替h1</del>h6，他们各自有语义目的。</li>
+<li>标记导航nav<br> HTML5引入nav来把一组重要链接标记为导航。</li>
+<li>标记页面主要区域main<br> HTML5引入main标签来标记文档的主要区域。</li>
+<li>标记文章article<br> HTML5引入article表示页面中独立的容器，可嵌套使用。内容可包含任意数量的元素，如段落、列表、音视频、图像等。</li>
+<li>定义区块section<br> HTML5引入section代表一组具有相似主题的内容区块。Section虽说是通用的区域块，但不能与div混用，section指出了特定主题的区域，而div没有这样的语义。如果只是因为要添加样式而要对特定内容加个容器，直接用div.</li>
+<li>指定附注栏aside<br> HTML5引入aside表明页面中一组和主题内容相关性不是很强的部分，如引述、侧栏、友情链接、广告、商品列表等。若aside嵌入到正文中，则应当与这部分内容密切相关。</li>
+<li>创建页脚footer<br> HTML5引入footer表示所在区块的附录、索引、版权等信息。</li>
+<li>通用容器div<br> 不带有任何语义的块级元素，只是为了方便添加样式或javascript效果。同前面的header, footer, main, article, section, aside, nav, h1~h6一样，默认都是另起一行显示。</li>
+<li>role属性（ARIA改善可访问性）<br> 使用role属性，为元素添加landmark role，帮助用户识别页面区域。ARIA并不会改变任何样式，只用于提升辅助设备上的浏览体验。</li>
+</ol>
+<ul>
+<li>role&#x3D;”banner”对应放在页面级header元素中；</li>
+<li>role&#x3D;”navigation”对应nav元素或其他包含导航型链接群的容器；</li>
+<li>role&#x3D;”main”对应main元素或其他表示主体内容的元素；</li>
+<li>role&#x3D;”complementary”对应aside；</li>
+<li>role&#x3D;”contentinfo”对应footer。</li>
+</ul>
+<ol start="13">
+<li>class&#x2F;id属性<br> 通常为了添加样式会在html元素中添加class&#x3D;”xx-xxxx”””属性，每个元素可以有多个class。<br> 而id则是用于为元素添加javascript效果的，每个元素至多有一个id，且id在该页面中唯一。</li>
+<li>title属性<br> 使用title也可以提升无障碍访问体验，title中的内容可以朗读出来，或鼠标悬停在该元素时显示的提示。注意和前面的title元素区分！</li>
+</ol>
+<h1 id="文本编辑元素"><a href="#文本编辑元素" class="headerlink" title="文本编辑元素"></a>文本编辑元素</h1><hr>
+<ol>
+<li>段落p<br> HTML会忽略文本编辑器中的回车与空格，故另起一段文字应用p标签包裹。</li>
+<li>细则small<br> 行内文本的一小块，表示免责声明、注意事项、注解等短语。这并不意味着small包裹的内容就一定是小号字。</li>
+<li>强调重要性strong&#x2F;em<br> strong标记重要文本（以粗体显示），em着重强调一部分内容（以斜体显示）。<br> em是表示强调的唯一元素，strong表示重要程度，可嵌套提升重要性。注意HTML5强调标签的语义而非表现样式，HTML5中的粗体标签b和斜体标签i只是顺应样式上的惯例。（如书名用斜体，而不能用em实现这种斜体的效果）</li>
+<li>图片figure+figcaption<br> 一个fugure中不论有多少个<code>&lt;img src=”xxx” /&gt;</code>，都只能在开头或结尾出现一个figcaption。</li>
+</ol>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">figure</span>&gt;</span> </span><br><span class="line">  <span class="tag">&lt;<span class="name">figcaption</span>&gt;</span><span class="tag">&lt;<span class="name">b</span>&gt;</span>xxx<span class="tag">&lt;<span class="name">b</span>&gt;</span><span class="tag">&lt;/<span class="name">figcaption</span>&gt;</span> </span><br><span class="line">  <span class="tag">&lt;<span class="name">img</span> <span class="attr">src</span>=<span class="string">&quot;xx&quot;</span> <span class="attr">width</span>=<span class="string">&quot;180&quot;</span> <span class="attr">height</span>=<span class="string">&quot;143&quot;</span> <span class="attr">alt</span>=<span class="string">&quot;this is what&quot;</span> /&gt;</span> </span><br><span class="line"><span class="tag">&lt;/<span class="name">figure</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<ol start="5">
+<li>引用cite</li>
+</ol>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">cite</span>&gt;</span>引用的参考源<span class="tag">&lt;/<span class="name">cite</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<ol start="6">
+<li>引述文本blockquote&#x2F;q<br> blockquote是块级引述，可带有cite属性给出url链接；<br> q是行内引述，也可带有cite, lang等属性。<br> cite与blockquote&#x2F;q的区别是，cite表明的是引言的来源，而blockquote&#x2F;q是本身引用的内容片段。</li>
+<li>指定时间time（HTML5新增）<br> time中包含的内容会显示在页面上，若没有datetime属性，则必须是机器可读的格式如<code>YYYY-MM-DDThh:mm:ss</code>；若前面附上datetime&#x3D;” YYYY-MM-DDThh:mm:ss”，则后面的内容就不必严格遵守格式。</li>
+<li>解释缩写词abbr<br> 在abbr标签的title属性中写出后面缩写词的全称，方便访问者理解。其实针对触摸屏的用户，直接使用括号解释缩写词更方便。</li>
+<li>定义术语dfn<br> 包围要定义的专用术语，dfn元素必须和它的定义内容在一起。</li>
+<li>   上下标sup&#x2F;sub<br> sup通常用于为脚注标号，sup元素位置会稍高导致扰乱行间距。Sub下标类似。</li>
+<li>   作者联系信息address<br> 用于定义与页面或其中某一部分有关的相关人士的联系方式。</li>
+<li>   标记编辑或不再正确的文本ins&#x2F;del&#x2F;s<br> 标记添加内容的ins元素和标记已删除内容的del元素，它俩既可以包围块级也可以包围行内内容。而s则只可以标记行内的已删除内容。</li>
+<li>   标记代码code<br> 在行内插入一段代码，代码中<code>&lt;</code>和<code>&gt;</code>符号需要用<code>&amp;lt</code>和<code>&amp;gt</code>代替。若想单独成段且保持每行一段代码，需要使用pre元素保持原有代码格式。</li>
+<li>   预格式化pre<br> 保持文本编辑器中的文本的排版，保留空格、回车。</li>
+<li>   突出显示文本mark<br> HTML5引入mark提醒读者对特定文本段的注意。</li>
+<li>   换行br<br> 强制文字换行。<strong>确保br是最后的选择</strong>，例如控制段落间距时用margin去调而不是添加几个br。因为br元素将表现样式带到了HTML中，应该尽量将呈现样式的任务交给CSS。</li>
+<li>   span<br> 无语义（如同div），包围行内的字词、短语，非常适合给行内一小块内容添加样式或补充一些属性如class, dir, id, lang, title等。无语义元素应当作为最后的选择。</li>
+</ol>
+<h1 id="图像"><a href="#图像" class="headerlink" title="图像"></a>图像</h1><hr>
+<ol>
+<li>格式与下载速度</li>
+</ol>
+<ul>
+<li>jpeg: 有损的格式，不支持透明。合理压缩使图片体积变小，加载速度快，而压缩后丢失的信息无法还原。照片和插图通常选择jpeg方便加载。</li>
+<li>png: 无损的格式，支持透明（分为基本透明、alpha透明两档）。也带有压缩算法，但文件尺寸依然较大。</li>
+<li>gif: 无损格式，只支持基本透明。压缩算法不如png，文件更大。</li>
+<li>webp: 既支持有损压缩，也支持无损压缩，产生文件远小于jpeg和png，同时支持alpha透明。但浏览器支持较少。</li>
+</ul>
+<ol start="2">
+<li>   颜色<br> Gif, png-8支持256色。<br> Jpeg, png-24, png-32支持1600万+。</li>
+<li>   大小尺寸<br> 网页上的图片应控制在几百像素宽，控制好尺寸才能减少加载时间。<br> SVG可缩放矢量图形不论如何缩放都不会影响显示品质，不论页面中显示的大小如何，文件体积都是固定的。</li>
+<li>   透明度<br> 索引色透明是binary value，一个像素要么透明要么不透明；(gif)<br> Alpha透明是渐变的，可以控制透明程度，从而边缘更平滑、锯齿较少。互联网上大多数alpha透明的图片都是png-32的，虽然png-8也支持alpha透明。</li>
+<li>   动画<br> 使用图像表现动画需要保存为gif。</li>
+<li>   插入图像img<br> <code>&lt;img src=”xxx” alt=”xxx” width=”300” height=”350”&gt;</code>。<br> 其中alt可以在图像无法显示的时候作为文字说明显示在对应位置，而且可以提供无障碍访问。定义宽度和高度可以帮助浏览器预留出图像的位置，是图像更快地显示出来。默认单位是像素，属性这里的宽度和高度不一定要反映图片真实的尺寸，可以适当缩放，这在retina屏幕上会有更锐利的视觉效果。但注意加载速度仍不变，毕竟还是同一个图像文件，要想加速还得用PS修一下图真正改变尺寸。</li>
+<li>   网站图标favicon<br> 16*16的favicion.ico文件，放在网站的根目录，浏览器会显示在标签栏中。</li>
+</ol>
+<h1 id="链接"><a href="#链接" class="headerlink" title="链接"></a>链接</h1><hr>
+<ol>
+<li>   链接的组成<br> 由目标destination和标签label组成。目标文件需要有正确的路径。</li>
+<li>   行内链接元素a<br> <code>&lt;a href=”xxx.html”&gt;label content&lt;/a&gt;</code>。<br> 对于指向外部其他网站的链接，推荐加入属性rel&#x3D;”external”。Title属性也是作为一种鼠标悬停提示。</li>
+<li>   块级链接元素a<br> 即在a之间的标签加入p等块级元素，甚至可以包含h1, img等。不过需要注意标签内容还是尽量少比较好。</li>
+<li>   a的target属性<br> 控制链接在新窗口或标签页打开，target&#x3D;”window name”，<strong>但不推荐使用</strong>，因为在浏览器中有这样的选项，所以完全可以将这种操作权交给用户。</li>
+<li>   用锚跳转到网页特定区域<br> <code>&lt;a href=”xxx.html#anchor-name”&gt;</code>，其中anchor-name对应页面文件xxx.html中的某元素的id，若直接<code>href=”#anchor-name”</code>的话必须是当前页面。</li>
+<li>   其他链接<br> 如文件：href&#x3D;”<a target="_blank" rel="noopener" href="https://www.xxx.com/bbb.txt%E2%80%9D">https://www.xxx.com/bbb.txt”</a><br> 邮件：href&#x3D;”mailto: <a href="mailto:&#x73;&#x62;&#x40;&#120;&#x78;&#x78;&#x2e;&#x63;&#111;&#109;">sb@xxx.com</a>”<br> 电话：href&#x3D;tel:+8612345678900。</li>
+</ol>
+<h1 id="CSS构造块"><a href="#CSS构造块" class="headerlink" title="CSS构造块"></a>CSS构造块</h1><hr>
+<ol>
+<li>   样式表定义了网页外观的规则。每一条规则由选择器selector和声明块declaration block组成。</li>
+<li>   注释<br> Html中是<code>&lt;!-- blablabla--&gt;</code>，CSS是<code>/*Blablabla*/</code>。</li>
+<li>   继承inheritance<br> 根据元素的包含关系（或者画出树形结构）确定谁是后代谁是祖先。</li>
+<li>   样式层叠<br> 当多条规则定义同一元素的同一属性，会根据以下方式来确定样式：</li>
+</ol>
+<ul>
+<li>特殊性（specificity，越具体规则性越强，例如id选择器就大于继承来的样式）；</li>
+<li>顺序（order，晚出现的优先级更高）；</li>
+<li>重要性（在样式声明块末尾加上!important强调，不推荐）。</li>
+</ul>
+<ol start="5">
+<li>   样式属性值</li>
+</ol>
+<ul>
+<li>Inherit：显示地指出该元素继承祖先的样式。</li>
+<li>预定义的值：如none, left, right，不带引号。</li>
+<li>长度：必须带有单位。em表示当前字号长度，受font-size设置的影响，这属于响应式web设计；px像素，很难准确度量像素的实际大小；百分数则是相对于父元素的。</li>
+<li>URL：指定另一个文件（如图像）的url，如·<code>background-image: url(file.png)</code>。</li>
+<li>CSS颜色：最常用的是hex十六进制#5900FF；还有rgb(r, g, b)。CSS3引入了RGBA（引入alpha透明rgba(r, g, b, a)，alpha&#x3D;0为透明、1为不透明）、HSL（色相hue、饱和度saturation、亮度lightness）、HSLA（引入了alpha）</li>
+</ul>
+<h1 id="操作样式表"><a href="#操作样式表" class="headerlink" title="操作样式表"></a>操作样式表</h1><hr>
+<ol>
+<li>   外部样式表<br> 这是最佳选择，让各个页面有类似的样式设置，不会出现很多重复代码。同时使用外部样式表可以充分利用浏览器的缓存功能，不需要重复请求css文件。<br> 在html的head中使用<code>&lt;link rel=&quot;stylesheet&quot; type=&quot;text/css&quot; href=&quot;style.css&quot;&gt;</code>，在实践中最好将css放在单独子目录中。</li>
+<li>   嵌入样式表<br> 在html的head包围中，加入<code>&lt;style&gt; img&#123;border: 2px solid red;&#125; &lt;/style&gt;</code>这样的样式，只会作用于这个页面。</li>
+<li>   内联样式<br> 将style作为各个元素的属性进行设置，它严重违背了html的宗旨（将内容和表现分离）。要想改变一点点样式就需要大量的检查，很麻烦。当然可以作为简单的测试，合适后搬移到外部css文件中。</li>
+<li>   指定媒体<br> 在link的属性中加上media&#x3D;”screen”或“print”来规定什么情况下使用该样式。<br>或者直接在css文件中的对应选择器之前加上一个大包围</li>
+</ol>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">@media print &#123; </span><br><span class="line">  xxxx </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h1 id="定义选择器"><a href="#定义选择器" class="headerlink" title="定义选择器"></a>定义选择器</h1><hr>
+<ol>
+<li>   编写CSS的一个重要目标是使选择器尽可能简单，仅保持必要的特殊性。应充分利用样式的层叠特性，让后代继承祖先的样式。善于利用通用设计元素，便于共享样式。</li>
+<li>   基本选择器</li>
+</ol>
+<ul>
+<li>   标签选择器：直接用元素名称。P{font-size: 14px;}</li>
+<li>   ID选择器：#idname. 由于id的唯一性使id选择器的样式不能在其他元素上复用，且它的特殊性很高，在覆盖样式时不容易控制。Id属性应尽量只用于javascript。</li>
+<li>   类选择器：.classname;</li>
+</ul>
+<ol start="3">
+<li>   复合选择器</li>
+</ol>
+<ul>
+<li>   派生选择器：祖先后加空格，再接后代的选择器。<code>p span&#123;&#125;</code>选择p的所有子孙元素中的span元素。</li>
+<li>   子女选择器<code>&gt;</code>：只能选出直接后代，父元素后加<code>&gt;</code>接子元素。<code>p&gt;span&#123;&#125;</code>选择p元素所有直系子女中的span元素。</li>
+<li>   组合选择器：直接并在一起写就可以了，表示且&amp;&amp;。<code>p#start&#123;&#125;</code>，选择id为start的p元素。</li>
+<li>   群组选择器<code>,</code>：用逗号隔开且最好换行分别列出来，表示或||。<code>em, .even&#123;&#125;</code>会选择em或类名为even的元素.</li>
+<li>   相邻兄弟选择器<code>+</code>：用+连接，紧跟的同辈元素符合要求才会选中。<code>h1+p&#123;&#125;</code>当h1元素后紧跟的兄弟元素是p才会被选中。</li>
+<li>   后续兄弟选择器<code>~</code>：用<del>连接，所有后续同辈元素都会被选中。&#96;h1</del>p{}&#96;。</li>
+<li>   否定选择器<code>not</code>：<code>p:not(#start)</code>选择p元素中id不为start的。注意这里的冒号含义是“p元素中”，这与后面的单个孩子选择器中的冒号有区别。</li>
+</ul>
+<ol start="4">
+<li>   属性选择器</li>
+</ol>
+<ul>
+<li><code>img[alt]&#123;&#125;</code>：选择具有属性alt的img元素。</li>
+<li><code>img[alt=”value”]</code>：选择属性alt的值为value的元素。</li>
+<li><code>img[alt^=”val”]</code>：选择属性alt的值以val开头的元素。</li>
+<li><code>img[alt$=”lue”]</code>：选择属性alt的值以lue结尾的元素。</li>
+<li><code>img[alt*=”5-”]</code>：选择属性alt的值包含字符串5-的元素。（CSS3新增）</li>
+<li><code>img[alt~=”val”]</code>：选择属性alt的值完全匹配单词val的元素，单词指以空格分开。</li>
+</ul>
+<ol start="5">
+<li>   单个孩子选择器<br> 伪类中所有的冒号都不表示从属关系，而是表示“作为…身份”。</li>
+</ol>
+<ul>
+<li><code>p:first-child&#123;&#125;</code>：表示作为第一个孩子的p元素，即p的双亲的第一个孩子为p时选中。</li>
+<li><code>p:last-child&#123;&#125;</code>：表示作为最后一个孩子的p元素，即p的双亲的最后一个孩子为p时选中。</li>
+<li><code>p:nth-child(5)&#123;&#125;</code>：表示作为第五个孩子的p元素，即p的双亲的第五个孩子为p时选中。</li>
+<li><code>p:nth-child(even/odd)&#123;&#125;</code>：表示作为偶数&#x2F;奇数位孩子的p元素，即p的双亲的偶数&#x2F;奇数位孩子为p时选中。</li>
+<li><code>p:nth-child(3n+1)&#123;&#125;</code>：表示作为第1、4、7…个孩子的p元素，即p的双亲的3n+1位孩子为p时选中。</li>
+</ul>
+<ol start="6">
+<li>   子女类型选择器<br>与单个孩子选择器不同在于，参与计数的孩子只算上规定类型的元素。</li>
+</ol>
+<ul>
+<li><code>p:first-of-type&#123;&#125;</code>：表示作为第一个p元素的p元素，即选中p的双亲的第一个p元素。</li>
+<li><code>p:last-of-type&#123;&#125;</code>：表示作为最后一个p元素的p元素，即选中p的双亲的最后一个p元素。</li>
+<li><code>nth-of-type(5)&#123;&#125;</code>：表示作为第五个p元素的p元素。</li>
+<li><code>nth-of-type(even/odd/3n+1)</code>：类似。</li>
+</ul>
+<ol start="7">
+<li>   伪元素选择器<br> 在CSS3中将单冒号改为双冒号，这是为了与伪类区别开来（不过IE8不支持）。伪元素是在html中并不存在的元素，即没有对应标签，它们只是元素的一部分。</li>
+</ol>
+<ul>
+<li><code>p:first-letter</code>：选择p元素的第一个字母。</li>
+<li><code>p:first-line</code>：选择p元素的第一行。</li>
+<li><code>p:after&#123;content:”…”&#125;</code>：在p元素内容后面加上…。</li>
+<li><code>p:before&#123;content:”---”&#125;</code>：在p元素内容前面加上—。</li>
+</ul>
+<ol start="8">
+<li>   伪类选择器<br> 伪类的意思是不必为了应用于一组元素特地创建一个类来标记它们，伪类相当于内置类。例如根据连接的状态设置样式，记住设置顺序一定是LVFHA。</li>
+</ol>
+<ul>
+<li><code>a:link&#123;&#125;</code>：没有访问过的链接。</li>
+<li><code>a:visited&#123;&#125;</code>：已访问过的链接。</li>
+<li><code>a:focus&#123;&#125;</code>：通过键盘选择的、即将访问的链接。</li>
+<li><code>a:hover&#123;&#125;</code>：光标指向链接时。</li>
+<li><code>a:active&#123;&#125;</code>：光标点下时的链接。</li>
+</ul>
+<h1 id="文本样式"><a href="#文本样式" class="headerlink" title="文本样式"></a>文本样式</h1><hr>
+<ol>
+<li>   字体<br> font-family：可以多设置几个备选。</li>
+<li>   斜体<br> font-style：italic; 取消则用normal。</li>
+<li>   粗体<br> font-weight：bold; 取消则用normal。</li>
+<li>   字体大小<br> font-size：可用px, em, %, rem。尽量使用em这样的相对单位，便于适应各种尺寸的显示设备。</li>
+</ol>
+<ul>
+<li>关于px：使用像素会定死字体大小，浏览器内置的字体调节都不行。</li>
+<li>关于em：根据父元素的字体大小按比例缩放。先在body元素上加一个基准{ font-size: 100%; }，（通常是系统默认的是16px，各个浏览器都可以由用户自行设置），利用font-size的继承性传递到各个子元素。接下来在各个子元素中再计算一个比例，你要放大到2倍就用2em，缩小到0.8就0.8em。通常设计网页时，使用em比px好，原因是em是相对单位，有更大的灵活性，而且对定义页面中特定的设计部件（边距、空白）的尺寸有帮助。</li>
+<li>关于rem：根据root根元素（即html元素）的字体大小按比例缩放，在CSS3引入。</li>
+</ul>
+<ol start="5">
+<li>   行高line-height<br> 每行之间的距离，通常直接用数字设置行高，解析时会与字体大小相乘得出行高。<code>line-height: n;</code> 或者使用em，百分数。</li>
+<li>   统一设置font<br> 使用font简写属性同时设置体样式、粗细、变体、大小、行高和字体系列，其中必须显示声明字体大小和字体系列。行高如果出现只能写在字体大小后接横杠加行高。</li>
+<li>   文本颜色color<br> 使用#rrggbb（若为重复值可简写为#rgb），rgb(r, g, b)，rgb(r%, g%, b%)，hsl(h, s, l)，rgba(r, g, b, a)，hsla(h, s, l, a)。</li>
+<li>   文本背景background<br> 其实background也是简记法，包括了<br>background-color：颜色。<br>background-image: url(image.png)<br>background-repeat: repeat&#x2F;repeat-x&#x2F;repeat-y&#x2F;no-repeat<br>background-attachment: fixed表示随滚动固定在浏览器上<br>background-position: x y表示距离左上角的距离或百分数，也可用关键字。</li>
+<li>   单词间距<br> word-spacing：接带单位数字em, px，控制单词之间距离。</li>
+<li>   字母间距<br> letter-spacing：接带单位数字em, px，控制字母之间距离。</li>
+<li>   缩进<br> text-indent：接带单位数字em, px，只能对块级元素（或强制display:block&#x2F;inline-block的元素）预留缩进。</li>
+<li>   对齐<br> text-align：后接left左对齐、right右对齐、center居中、justify文本两端对齐。同样只对块级元素起作用。</li>
+<li>   指定大小写<br> text-transform：capitalize首字母大写、uppercase、lowercase、none取消继承值。</li>
+<li>   迷你大写<br> font-variant: small-caps可让大写字母与小写字母一样大。</li>
+<li>   装饰线<br> text-decoration：underline下划线、overline上划线、line-through删除线。</li>
+<li>   保留空白回车<br> white-space：pre显示原文本中空格&#x2F;回车、nowrap取消自动换行、normal默认。再次强调尽量少用html中的br元素，html应尽量少插手样式设置。</li>
+</ol>
+<h1 id="用CSS布局"><a href="#用CSS布局" class="headerlink" title="用CSS布局"></a>用CSS布局</h1><hr>
+<ol>
+<li>   布局分为两种</li>
+</ol>
+<ul>
+<li>固定布局fixed：每个元素都是固定宽度，不论任何设备显示都是固定的。</li>
+<li>响应式页面responsive（fluid, liquid）：使用百分数定义宽度，会随着环境变化、调整尺寸</li>
+</ul>
+<ol start="2">
+<li>   为不支持html5的浏览器添加样式的两种方法</li>
+</ol>
+<ul>
+<li>在每个页面的head元素中加入一段javascript（通常JS最好放在页面结束的位置，但这个必须放在最开始才起作用），这是html5shiv剃刀，防止IE8-浏览器忽略原声不支持元素的CSS.</li>
+</ul>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">&quot;utf-8&quot;</span> /&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">title</span>&gt;</span>Le Journal<span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">link</span> <span class="attr">rel</span>=<span class="string">&quot;stylesheet&quot;</span> <span class="attr">href</span>=<span class="string">&quot;css/lejournal.css&quot;</span> /&gt;</span></span><br><span class="line">  <span class="comment">&lt;!--[if lt IE 9]&gt;</span></span><br><span class="line"><span class="comment">    &lt;script src=&quot;https://html5shiv.googlecode.com/svn/trunk/html5.js&quot;&gt;&lt;/script&gt;</span></span><br><span class="line"><span class="comment">  &lt;![endif]--&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<ul>
+<li>HTML5剃刀<br> 将<a target="_blank" rel="noopener" href="https://github.com/aFarkas/html5shiv/">html5shiv</a>的文件放到网站服务器上并在head之间导入该js脚本。</li>
+</ul>
+ <figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!--[if lt IE 9]&gt;</span></span><br><span class="line"><span class="comment">  &lt;script src=&quot;js/html5shiv.js&quot;&gt;&lt;/script&gt;</span></span><br><span class="line"><span class="comment">&lt;![endif]--&gt;</span></span><br></pre></td></tr></table></figure>
+<p>  还需要注意的是由于大多数浏览器对无法识别的元素都当作行内元素处理，所以还需要加入一句CSS强制以块级显示html5元素<br>  <figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">article</span>, <span class="selector-tag">aside</span>, <span class="selector-tag">figcaption</span>, <span class="selector-tag">figure</span>, <span class="selector-tag">footer</span>, <span class="selector-tag">header</span>, <span class="selector-tag">main</span>, <span class="selector-tag">nav</span>, <span class="selector-tag">section</span> &#123;</span><br><span class="line">  <span class="attribute">display</span>: block;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><br>3.	对默认样式进行重置或标准化使得在不同浏览器中外观相似</p>
+<ul>
+<li>使用CSS重置开始主样式表<a target="_blank" rel="noopener" href="http://meyerweb.com/eric/tools/css/reset/">http://meyerweb.com/eric/tools/css/reset/</a></li>
+<li>使用normalize.css开始主样式表。</li>
+</ul>
+<ol start="4">
+<li>   盒模型</li>
+</ol>
+<ul>
+<li>默认处理方式<br>CSS中设置的宽度只是padding里面的内容的宽度，真正显示的宽度还需要加上padding和边框的大小。</li>
+<li>border-box方式<br> 这种方式更直观，CSS中设置的参数就是显示的参数，包含除了margin以外的内容+padding+border。需要在元素中显示指明</li>
+</ul>
+ <figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">box-sizing</span>: border-box;</span><br><span class="line">-webkit-<span class="attribute">box-sizing</span>: border-box; </span><br><span class="line">-moz-<span class="attribute">box-sizing</span>: border-box;  </span><br></pre></td></tr></table></figure>
+<p>  后二者是为了在旧的android和ios和firefox上也能识别。<br>5.	控制元素显示类型和可见性display<br> <code>display: block;</code> 可以将行内元素设为块级显示<br> <code>display: inline;</code> 将块级元素设为行内显示；<br> <code>display: inline-block;</code> 设为行内显示但是又可以用到块级元素的样式如width, height, margin<br> <code>display: none;</code> 直接完全消失，元素原本所处的位置也不会留出来。<br> 可见性还可以用<code>visibility: hidden</code>控制，这种情况下元素还是会在文档流中留有位置。<br>6.	元素宽高<br> <code>weight: w;</code> 设置元素内容的宽度，w可以为带单位px, em的长度，也可是父元素的百分比。<br> <code>height: h;</code> 设置元素内容到底高度，h可以为带单位px, em的长度，也可是父元素的百分比。<br> 若没有显示设置宽高，默认都是auto。以width为例，auto值就是包含块的宽度减去元素的padding、border和margin计算出来的。而包含块的宽度指的是父元素留出来的宽度。<br> 若手动设置了width同时将左右margin都设为auto，相当于左右外边距将父元素留出来的宽度平分，则元素会居中。<br>7.	padding<br> <code>padding: n;</code> 会将设置的值应用于四个方向；<br> <code>padding: n1 n2;</code> 将n1用于top&amp;bottom，n2用于left&amp;right。<br> <code>padding: n1 n2 n3;</code> 将n1用于top，n2用于left&amp;right，n3用于bottom。<br> <code>padding: n1 n2 n3 n4;</code> 按照TRouBLe的顺时针顺序用于上右下左。<br> 值的单位可以是px, em, rem或百分比。<br>8.	border<br> <code>border: 宽度 样式 颜色;</code><br> 样式有可以是 none、dotted（点线）、dashed（虚线）、solid （实线）、double（双线）、groove （槽线）、ridge（脊线）、inset（凹边）或 outset（凸边）。<br> 可以指定某个方向的border进行设置，如border-top这样。<br>9.	margin<br> 相邻元素的margin值不会叠加，只取较大者。<br> 使用<code>margin: 0 auto;</code>的方式实现居中，必须依赖于width手动设置好固定值。<br> em单位用于padding和margin时，它的值是相对于元素的字体大小的。<br>10.	浮动元素float<br> 可以使得设置了宽度的元素浮在第二层，其他第一层元素的内容环绕着它显示，注意只是内容环绕显示，对于height, width都是按第一层文档流计算的。<br> 若不希望某第一层元素的内容环绕在其他浮动元素周围，可强制使用clear: left&#x2F;right&#x2F;both;强行下挪直到该元素左&#x2F;右&#x2F;两边都没有浮动元素之后才显示。但是这样做也有问题，如果浮动元素的父元素中包含的全部都是浮动元素，那这个父元素的高度是0，它设置的背景色之类的样式就无法显示了。解决办法是加入clearfix类，给浮动元素的父元素添加class&#x3D;”clearfix”即可。<br> <figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.clearfix</span><span class="selector-pseudo">:before</span>,</span><br><span class="line"><span class="selector-class">.clearfix</span><span class="selector-pseudo">:after</span> &#123;</span><br><span class="line">  <span class="attribute">content</span>: <span class="string">&quot; &quot;</span>;</span><br><span class="line">  <span class="attribute">display</span>: table;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-class">.clearfix</span><span class="selector-pseudo">:after</span> &#123;</span><br><span class="line">  <span class="attribute">clear</span>: both;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-class">.clearfix</span> &#123;</span><br><span class="line">  *<span class="attribute">zoom</span>: <span class="number">1</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><br> 还可以用overflow创建自清除浮动元素，对浮动元素的父元素使用<code>overflow: hidden;</code><br>11.	相对定位<br> <code>position: relative;</code>表示相较于原本的自然位置的偏移。具体偏移量需要指定。<br> <code>top: 6px;</code> 另有right、bottom、left，后接带单位的数字。<br>12.	绝对定位<br> 指定它们相对于 body或最近的已定位祖先元素，绝对定位的元素会脱离正常文档流，但是又和浮动元素不一样，因为别的元素内容不会感知到它而环绕着显示，重叠了就是重叠了。<br> 对于重叠的元素，可以使用z-index指定叠放顺序，值越大越高。<br> 此外还有一种<code>position: fixed;</code>可以让元素随着滚动而固定不动，但它在移动设备上效果不佳，一般不用。<br>13.	overflow处理元素溢出盒子<br> <code>overflow: visible;</code>直接显示出来；hidden隐藏掉；scroll不管用不用都会强行加上滚动条；auto仅在需要时加上滚动条。<br>14.	垂直对齐行内元素<br> <code>vertical-align: middle;</code>-父元素中央；baseline-父元素基准线；sub-父元素下标；super-父元素上标；text-top-顶部对齐父元素；text-bottom-底部对齐父元素；top-对齐当前行中最高元素顶部；bottom-对齐当前行中最低元素的底部。<br>15.	鼠标形状<br> cursor: default箭头、pointer手指、crosshair十字架、move挪动框、wait沙漏、help带问号、text输入的I字形、process箭头带沙漏。</p>
+<h1 id="响应式web设计"><a href="#响应式web设计" class="headerlink" title="响应式web设计"></a>响应式web设计</h1><hr>
+<ol>
+<li>   响应式网页基于三点</li>
+</ol>
+<ul>
+<li>图像和媒体尺寸均以百分比定义；</li>
+<li>基于网格的流式布局，所有width都以百分比定义</li>
+<li>媒体查询，可根据设备进行调整适配。</li>
+</ul>
+<ol start="2">
+<li>   可自动伸缩的图像</li>
+</ol>
+<ul>
+<li>在HTML中的img标签必须省略width和height；</li>
+<li>在CSS中为该图像加上<code>max-width: 100%;</code>样式，使图像缩放的可用空间是由其父元素建立的内容区域（除去padding的）。</li>
+<li><code>width: 100%;</code>也可以缩放，但是它有可能会因为超过图像本身的宽度而强行填充容器，比较难看。</li>
+</ul>
+<ol start="3">
+<li>   弹性布局网络<br> 创建弹性布局需要使用百分数宽度，并将它们应用于页面里的主要区域。元素的百分数宽度基于其父元素（即包含该元素的容器）提供的可用空间。<br> 设置<code>width: p%;</code>形成弹性宽度。可结合<code>max-width: 1000px;</code>来限制最大宽度。可以使用<code>box-sizing: border-box;</code>来限定盒模型计算方式，直观很多。</li>
+<li>   媒体查询media query</li>
+</ol>
+<ul>
+<li>指向外部样式表的链接<br> <code>&lt;link rel=&quot;stylesheet&quot; media=&quot;logic type and (feature: value)&quot; href=&quot;your-stylesheet.css&quot; /&gt;</code><br> 其中logic值是可选的，可为only或not；<br> type是媒体类型，如screen, print；<br> (feature: value)组合是可选的，一定要用括号括起来。<br> 例如样式中插入一段针对480px屏幕的外部css</li>
+</ul>
+ <figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">link</span> <span class="attr">rel</span>=<span class="string">&quot;stylesheet&quot;</span> <span class="attr">media</span>=<span class="string">&quot;only screen and (min-width: 480px)&quot;</span> <span class="attr">href</span>=<span class="string">&quot;styles-480.css&quot;</span> /&gt;</span></span><br></pre></td></tr></table></figure>
+<ul>
+<li>位于样式表中的媒体查询：</li>
+</ul>
+ <figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">@media</span> logic type <span class="keyword">and</span> (<span class="attribute">feature</span>: value) &#123;</span><br><span class="line">  <span class="comment">/* 目标 CSS 样式规则写在这里  */</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>   例如<br> <figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">@media</span> <span class="keyword">only</span> screen <span class="keyword">and</span> (<span class="attribute">min-width</span>: <span class="number">480px</span>) &#123;</span><br><span class="line">  <span class="selector-tag">p</span> &#123;</span><br><span class="line">    <span class="attribute">color</span>: red;</span><br><span class="line">    <span class="attribute">font-weight</span>: bold;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><br>5.	组合可伸缩图像、弹性布局、媒体查询</p>
+<ul>
+<li>在html中添加<code>&lt;meta name= &quot;viewport&quot; content=&quot;width=device-width, initial-scale=1&quot;/&gt;</code></li>
+<li>遵循移动优先，先提供基本样式，再根据媒体查询为不同尺寸的屏幕定义样式。</li>
+<li>逐步完善布局，使用媒体查询为页面中的每个断点（breakpoint，内容需作适当调整的宽度临界值）定义样式。注意为其中的元素使用百分比宽度。</li>
+<li>测试响应式页面可以多缩放浏览器窗口。<a target="_blank" rel="noopener" href="http://lab.maltewassermann.com/viewport-resizer/">http://lab.maltewassermann.com/viewport-resizer/</a></li>
+<li>多倍屏可能也需要使用媒体查询，例如使用更锐丽的sprite图：</li>
+</ul>
+ <figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">@media</span> (<span class="attribute">-o-min-device-pixel-ratio</span>: <span class="number">5</span>/<span class="number">4</span>), (<span class="attribute">-webkit-min-device-pixel-ratio</span>:<span class="number">1.25</span>), (<span class="attribute">min-resolution</span>: <span class="number">120dpi</span>) &#123;</span><br><span class="line">  <span class="selector-class">.your-class</span> &#123;</span><br><span class="line">     <span class="attribute">background-image</span>:<span class="built_in">url</span>(<span class="string">sprite-2x.png</span>);</span><br><span class="line">     <span class="attribute">background-size</span>: <span class="number">200px</span> <span class="number">150px</span>;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ol start="6">
+<li>   针对无法媒体查询的处理<br>IE8以前都无法使用媒体查询，所以可以对低版本IE新建一个CSS，把媒体查询相关语句去掉，在html的head标签之间加入：</li>
+</ol>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!--[if gt IE 8]&gt;&lt;!--&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">link</span> <span class="attr">rel</span>=<span class="string">&quot;stylesheet&quot;</span> <span class="attr">href</span>=<span class="string">&quot;css/styles.css&quot;</span> /&gt;</span></span><br><span class="line"><span class="comment">&lt;!--&lt;![endif]--&gt;</span></span><br><span class="line"><span class="comment">&lt;!--[if lt IE 9]&gt;</span></span><br><span class="line"><span class="comment">  &lt;link rel=&quot;stylesheet&quot; href=&quot;css/old-ie.css&quot; /&gt;</span></span><br><span class="line"><span class="comment">&lt;![endif]--&gt;</span></span><br></pre></td></tr></table></figure>
+<p>或者为低版本IE使用<a target="_blank" rel="noopener" href="https://github.com/scottjehl/Respond">特殊的js</a>，这样IE就能理解min-width了<br> <figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!--[if lt IE 9]&gt;</span></span><br><span class="line"><span class="comment">  &lt;script src=&quot;js/respond.min.js&quot;&gt; &lt;/script&gt;</span></span><br><span class="line"><span class="comment">&lt;![endif]--&gt;</span></span><br></pre></td></tr></table></figure></p>
+<h1 id="使用Web字体"><a href="#使用Web字体" class="headerlink" title="使用Web字体"></a>使用Web字体</h1><hr>
+<ol>
+<li>   有点杂，略过。</li>
+<li>   使用Google fonts<br>(1)	在google fonts中找到喜欢的字体，复制<code>&lt;link href=&quot;http://fonts.googleapis.com/css?family=Lato:300|Open+Sans:700&quot; rel=&quot;stylesheet&quot; /&gt;</code>到head之间。<br>(2)	在CSS中直接可以使用font-family了。</li>
+</ol>
+<h1 id="使用CSS3进行增强"><a href="#使用CSS3进行增强" class="headerlink" title="使用CSS3进行增强"></a>使用CSS3进行增强</h1><hr>
+<ol>
+<li>   渐进增强<br> 强调创建所有用户都能访问（无论使用什么样的 Web 浏览器）的基本层面的内容和功能，同时为更强大的浏览器提供增强的体验。这意味着网站在不同 Web 浏览器中的外观和行为不一样是完全可以接受的，只要内容是可访问的。</li>
+<li>   polyfill<br> polyfill用于填补旧浏览器与新的Web技术之间的差异。polyfill通常使用JavaScript 实现，它可以为较弱的浏览器提供一定程度的对HTML5和CSS3的API和属性的支持，同时，当浏览器本身就具有相应的能力时，会不动声色地退而使用官方的支持。关于IE，Jason Johnston的<a target="_blank" rel="noopener" href="http://css3pie.com/">CSS3 PIE</a>是一种最为常见的polyfill.</li>
+<li>   厂商前缀<br> 每个主流浏览器都有其自身的前缀。使用时将前缀放在 CSS 属性名的前面，我们一般只需要-webkit 前缀。<br> -webkit- （Webkit&#x2F;Safari&#x2F; 旧版本的 Chrome）<br> -moz- （Firefox）<br> -ms- （Internet Explorer）<br> -o- （Opera）</li>
+<li>   创建圆角border-radius<br> <code>border-radius: 10px 20px 0 30px;</code><br> &#x2F;* 将左上方圆角半径设为10px，右上方圆角半径设为20px，右下方圆角半径设为0，左下方圆角半径设为30px *&#x2F;<br> <code>border-radius:  x / y;</code>为椭圆形圆角。<br> 同 border 、 margin 和 padding 属性一样，border-radius 属性也有长短两种形式的语法。只有当你想在旧版本的 Android、Mobile Safari 和 Safari 浏览器中显示相应效果的时候才使用 -webkit 前缀。<br> 为了防止背景透过圆角，在最后加上background-clip: padding-box;</li>
+<li>   文本阴影text-shadow<br><code>text-shadow: x-offset y-offset blur-radius color;</code><br>若想为同一个元素加入多个阴影样式，可以用逗号分隔，继续输入。<br><code>text-shadow: 2px 2px white，6px 6px #aaa;</code></li>
+<li>   元素阴影box-shadow<br> <code>-webkit-box-shadow: 2px 2px 3px 5px #333 inset;</code><br> box-shadow属性接受六个值：带长度单位的 x-offset 和 y-offset 、可选的带长度单位的 blur-radius 、可选的 inset 关键字(将阴影显示在内部)、可选的带长度单位的 spread 值及 color 值。如果不指定 blur-radius 和 spread 的值，则设为 0。为兼容旧版 Android、Mobile Safari和Safari浏 览器，使用-webkit-box-shadow。</li>
+<li>   颜色+图片混合背景（CSS3引入）</li>
+</ol>
+ <figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">background-color</span>: blue;（备用背景色）</span><br><span class="line"><span class="attribute">background-image</span>: <span class="built_in">url</span>(<span class="string">stars.png</span>); </span><br><span class="line"><span class="attribute">background-position</span>: <span class="number">0</span> -<span class="number">150px</span>; （对于每一个url都应该有一个pos，成对的<span class="attribute">x</span>-<span class="attribute">offset</span>和<span class="attribute">y</span>-<span class="attribute">offset</span>）</span><br><span class="line"><span class="attribute">background-repeat</span>: repeat-x/repeat-y/no-repeat;</span><br></pre></td></tr></table></figure>
+<ol start="8">
+<li>   渐变背景（CSS3引入）<br> 线性渐变background: linear-gradient(方向&#x2F;角度值，指定颜色)<br> 如<code>background: linear-gradient(to top left, aqua, navy);</code><br> 形状渐变background: radial-gradient(形状 尺寸 开始位置, 指定颜色)<br> 如<code>background: radial-gradient(30px 30px at 65% 70%, yellow, lime, red);</code></li>
+<li>   设置不透明度<br> <code>opacity: o;</code> 其中o越大，越不透明。</li>
+<li>   生成内容generated content<br> 使用<code>:before</code>和<code>:after</code>伪元素，与content属性结合使用，可生成CSS内容。生成内容可以添加符号、 创建用于添加样式的空内容元素<br> 如为链接<code>&lt;a href=&quot;victoria.html&quot; class=&quot;more&quot;&gt; Read More&lt;/a&gt;</code>添加后面的箭头，可用</li>
+</ol>
+ <figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.more</span><span class="selector-pseudo">:after</span> &#123;</span><br><span class="line">   <span class="attribute">content</span>: <span class="string">&quot; »&quot;</span>;</span><br><span class="line"> &#125;</span><br></pre></td></tr></table></figure>
+<ol start="11">
+<li>   Spirte拼合图像<br> 将多个图像拼合到一张图里，再使用background-position来定位找到图片。<br> 例如为每一个文件链接前加上文件类型的图标。</li>
+</ol>
+ <figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">li</span>&gt;</span><span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">&quot;expenses.xls&quot;</span> <span class="attr">class</span>=<span class="string">&quot;icon&quot;</span>&gt;</span> Business expenses<span class="tag">&lt;/<span class="name">a</span>&gt;</span><span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">li</span>&gt;</span><span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">&quot;user-manual.pdf&quot;</span> <span class="attr">class</span>=<span class="string">&quot;icon&quot;</span>&gt;</span>User Manual<span class="tag">&lt;/<span class="name">a</span>&gt;</span><span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p> 在CSS中的icon类，使用before伪类<br> <figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.icon</span><span class="selector-pseudo">:before</span> &#123;</span><br><span class="line">  <span class="attribute">background-image</span>: <span class="built_in">url</span>(<span class="string">sprite.png</span>);</span><br><span class="line">  <span class="attribute">content</span>: <span class="string">&quot; &quot;</span>;</span><br><span class="line">  <span class="attribute">display</span>: block;</span><br><span class="line">  <span class="attribute">height</span>: <span class="number">16px</span>; <span class="comment">/* 图标高度 */</span></span><br><span class="line">  <span class="attribute">position</span>: absolute;</span><br><span class="line">  <span class="attribute">width</span>: <span class="number">16px</span>; <span class="comment">/* 图标宽度 */</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-tag">a</span><span class="selector-attr">[href$=<span class="string">&quot;.xls&quot;</span>]</span><span class="selector-pseudo">:before</span> &#123;</span><br><span class="line">  <span class="attribute">background-position</span>: -<span class="number">17px</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-tag">a</span><span class="selector-attr">[href$=<span class="string">&quot;.docx&quot;</span>]</span><span class="selector-pseudo">:before</span> &#123;</span><br><span class="line">  <span class="attribute">background-position</span>: -<span class="number">34px</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<h1 id="列表"><a href="#列表" class="headerlink" title="列表"></a>列表</h1><hr>
+<ol>
+<li>   有序列表</li>
+</ol>
+ <figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">ol</span>&gt;</span></span><br><span class="line">   <span class="tag">&lt;<span class="name">li</span>&gt;</span><span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">ol</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<ul>
+<li>有序列表的每一个list item左边都会有标号，可以用CSS控制标号样式。<br> list-style-type: decimal（数字123）、upper-alpha（大写字母ABC）、lower-alpha（小写字母abc）、upper-roman（大写罗马字母I II III IV）、lower-roman（i ii iii iv）。也可以使用后面无序列表的标记，但这样ol标签的语义就被违背了。</li>
+<li>正确的列表嵌套次序为 I（罗马数字）、A、1、a（此后交替使用 1 和 a 编号方案）</li>
+<li>可以在html中为ul标签添加start&#x3D;”2”属性强制从2开始递增。或者在某个li标签中添加value&#x3D;”5”属性，则后续的标号也会根据这个值计算。</li>
+</ul>
+<ol start="2">
+<li>   无序列表</li>
+</ol>
+ <figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">ul</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">li</span>&gt;</span><span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">ul</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p> list-style-type: disc（圆点）、circle（圆圈）、square（方块）。当然也可以选用前面的数字标记。<br>3.	自定义列表标记</p>
+<ul>
+<li><code>list-style-type:none;</code>取消官方标记</li>
+<li>在每个li的目标CSS样式中，加入<code>background: url(image.png);</code></li>
+<li>为每个li适当调整行高<code>line-height: 1.5em;</code>并用padding把文本向右挪动<code>padding-left: x;</code></li>
+</ul>
+<ol start="4">
+<li>   标记位置内缩<br> <code>list-style-position: inside;</code></li>
+<li>   简写列表样式</li>
+</ol>
+ <figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">ul</span> &#123;</span><br><span class="line">  <span class="attribute">list-style</span>: circle inside;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ol start="6">
+<li>   嵌套列表实现下拉式导航<br> 使用CSS，让每个子菜单仅在访问者鼠标停留在其父元素的列表项目上时显示出来。</li>
+</ol>
+ <figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/*  子菜单的默认状态 */</span></span><br><span class="line"><span class="selector-class">.nav</span> <span class="selector-class">.subnav</span> &#123;</span><br><span class="line">  <span class="attribute">left</span>: -<span class="number">999em</span>; <span class="comment">/*  将子菜单移出屏幕 */</span></span><br><span class="line">  <span class="attribute">position</span>: absolute;</span><br><span class="line">  <span class="attribute">z-index</span>: <span class="number">1000</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">/*  当鼠标停留在父元素li上时子菜单的状态 */</span></span><br><span class="line"><span class="selector-class">.nav</span> <span class="selector-tag">li</span><span class="selector-pseudo">:hover</span> <span class="selector-class">.subnav</span> &#123;</span><br><span class="line">  <span class="attribute">left</span>: auto; <span class="comment">/*  让子菜单回到自然状态 */</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ol start="7">
+<li>   描述性列表<br> 专门描述成组出现的术语及对应值的列表。</li>
+</ol>
+ <figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">dl</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">dt</span>&gt;</span>Title<span class="tag">&lt;/<span class="name">dt</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">dd</span>&gt;</span>Description<span class="tag">&lt;/<span class="name">dd</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">dl</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<h1 id="表单"><a href="#表单" class="headerlink" title="表单"></a>表单</h1><hr>
+<ol>
+<li>   表单的组成部分</li>
+</ol>
+<ul>
+<li>页面上可视的控件、标签、按钮。</li>
+<li>用于获取信息并转化为可读取或计算的格式的处理脚本。</li>
+</ul>
+<ol start="2">
+<li>   HTML5对表单的改进<br> 引入新的表单元素、输入类型和属性，增强了表单行为如对必填字段、电子邮件地址、URL 以及定制模式的验证。<br> <code>&lt;input type=”email”&gt;</code> 另有search, tel, url, date, number, range<br> <a target="_blank" rel="noopener" href="https://github.com/ryanseddon/H5F">Ryanseddon</a>可为旧版浏览器提供模仿html5表单行为的js。</li>
+<li>   创建表单form</li>
+</ol>
+ <figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">form</span> <span class="attr">method</span>=<span class="string">&quot;post&quot;</span> <span class="attr">action</span>=<span class="string">&quot;show-data.php&quot;</span>&gt;</span></span><br><span class="line">  各种说明标签、控件和按钮。</span><br><span class="line">  <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">&quot;submit&quot;</span> <span class="attr">value</span>=<span class="string">&quot;Create Account&quot;</span> <span class="attr">class</span>=<span class="string">&quot;btn&quot;</span> /&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">form</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p> 可在form标签中加入novalidate关闭html5的表单验证功能。<br>4.	Get和Post的区别</p>
+<ul>
+<li>Get: 表单提交后，表单中的数据会显示在浏览器的地址栏里。通常，如果你希望表单提交后从服务器得到信息，就使用get。例如搜索引擎提交关键词，由于数据出现在 URL 中，因此用户可以保存搜索查询，或者将查询发给朋友。</li>
+<li>Post: 提交表单后，表单中的数据不会显示在浏览器的地址栏里，这样更为安全。同时，比起get，使用post可以向服务器发送更多的数据。通常，post用于向服务器存入数据，而非获取数据。因此，如果需要在数据库中保存、添加和删除数据,就应选择post。</li>
+<li>如果不确定使用哪一种，就使用 post ，这样数据不会暴露在 URL 中。</li>
+</ul>
+<ol start="5">
+<li>   用脚本处理表单<br> 脚本根据表单收集的信息，在服务器进行相应处理如存入服务器数据库、转发到别的邮箱等。常用的脚本语言有php, Django, Ruby on Rails, ASP.NET, JavaServer Pages.<br> 服务器端脚本有一个重要功能是表单验证，检查用户输入的信息是否符合预期格式。而元素内置的检查功能或者javascript提供的验证</li>
+<li>   服务器端与客户端</li>
+</ol>
+<ul>
+<li>php是服务器端server-side语言，运行于为网页服务的计算机（称为服务器）。脚本必须上传到服务器上才能发挥作用，这通常跟你托管网页、图像等用的是同一个服务器。</li>
+<li>html&#x2F;css是客户端client-side语言，在查看网页的访问者的计算机的浏览器上运行，可以在完全不与服务器交互的情况下执行很多任务。JavaScript也是一种客户端语言.</li>
+</ul>
+<ol start="7">
+<li>   将表单中相关元素组合起来</li>
+</ol>
+<ul>
+<li>在form标签下，加入<code>&lt;fieldset&gt;</code>标签开始包裹相关元素。</li>
+<li>紧跟着fieldset下方输入<code>&lt;legend&gt;</code>提供起注释标签功能的文本。</li>
+</ul>
+<ol start="8">
+<li>   文本框<br> type&#x3D;”text”的input。</li>
+</ol>
+<ul>
+<li>name属性必须为每个文本框设置，脚本会通过name获取文本框中的值。</li>
+<li>value属性是文本框默认值，会预先填入。</li>
+<li>placeholder起到提示的作用，鼠标点击后就消失，与value不同。</li>
+<li>required&#x3D;”required”会强制用户输入才能提交。</li>
+<li>autofocus&#x3D;” autofocus”会自动获取焦点。</li>
+<li>size设置文本框的宽度，以字符为单位。</li>
+<li>maxlength设置最大字符数，以字符为单位。</li>
+<li>autocomplete&#x3D;”off”可以关闭历史填充信息的保存，保护文本框隐私如银行卡等。</li>
+</ul>
+<ol start="9">
+<li>   为表单组件添加说明标签</li>
+</ol>
+ <figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">label</span> <span class="attr">for</span>=<span class="string">&quot;first-name&quot;</span>&gt;</span>First Name:<span class="tag">&lt;/<span class="name">label</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">&quot;text&quot;</span> <span class="attr">id</span>=<span class="string">&quot;first-name&quot;</span> <span class="attr">name</span>=<span class="string">&quot;first_name&quot;</span> <span class="attr">class</span>=<span class="string">&quot;field-large&quot;</span> /&gt;</span></span><br></pre></td></tr></table></figure>
+<p> label中使用for属性，若for 的值与一个表单字段的id 的值相同，该label 就与该字段显式地关联起来了。这可以提升可用性和可访问性。<br> 还可以将一个表单字段放在一个包含标签文本的label内，就不需要使用for和id了。但不经常这样做的原因是分离开来比较容易加样式。<br>10.	密码框<br> 相比文本框就把type&#x3D;”password”即可。<br>11.	html5新增类型框<br> 邮件 <code>type=”email”</code><br> 网址 <code>type=”url”</code><br> 电话 <code>type=”tel”</code><br> 加入pattern 属性用于定制的验证规则，它使用正则表达式对用户在框中输入的内容进行限制。<br>12.	单选按钮<br> 对input元素设置type&#x3D;”radio”即可。<br> name&#x3D;”xxx”用于服务器识别数据，同时用于将多个单选按钮联系在一起，同一组中最多只有一个被选中。<br> id&#x3D;”idxx”每一个独立的选项都会有唯一的id，可用于后面label的for属性进行关联。<br> value&#x3D;”data”是单选按钮被选中时要发送给服务器的文本。<br> checked&#x3D;”checked”可以默认勾选。<br>13.	多选按钮	<br> 对input元素设置type&#x3D;”checkbox”即可。<br> name&#x3D;”xxx[]”，加入[]可以让php自动创建一个包含复选框值的数组。<br> value&#x3D;”data”是复选框被选中时要发送给服务器的文本。<br>14.	文本区域textarea<br> <code>&lt;textarea id=&quot;bio&quot; name=&quot;bio&quot; cols=&quot;40&quot; rows=&quot;5&quot; class=&quot;field-large&quot;&gt;&lt;/textarea&gt;</code><br>15.	下拉选择<br> 由select和option标签组成。通常select中设置name属性，option中设置value属性。<br> <figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">label</span> <span class="attr">for</span>=<span class="string">&quot;state&quot;</span>&gt;</span>State:<span class="tag">&lt;/<span class="name">label</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">select</span> <span class="attr">id</span>=<span class="string">&quot;state&quot;</span> <span class="attr">name</span>=<span class="string">&quot;state&quot;</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">option</span> <span class="attr">value</span>=<span class="string">&quot;AL&quot;</span>&gt;</span>Alabama<span class="tag">&lt;/<span class="name">option</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">option</span> <span class="attr">value</span>=<span class="string">&quot;AK&quot;</span>&gt;</span>Alaska<span class="tag">&lt;/<span class="name">option</span>&gt;</span></span><br><span class="line">  ...</span><br><span class="line"><span class="tag">&lt;/<span class="name">select</span>&gt;</span></span><br></pre></td></tr></table></figure><br> 可以对option进行分组，加入<optgroup label="Online">分别包围起来即可。<br>16.	上传文件<br> <figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">form</span> <span class="attr">method</span>=<span class="string">&quot;post&quot;</span> <span class="attr">action</span>=<span class="string">&quot;show-data.php&quot;</span><span class="attr">enctype</span>=<span class="string">&quot;multipart/form-data&quot;</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">label</span> <span class="attr">for</span>=<span class="string">&quot;picture&quot;</span>&gt;</span>Picture:<span class="tag">&lt;/<span class="name">label</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">&quot;file&quot;</span> <span class="attr">id</span>=<span class="string">&quot;picture&quot;</span> <span class="attr">name</span>=<span class="string">&quot;picture&quot;</span> <span class="attr">multiple</span>=<span class="string">”multiple”(表示可上传多个)/</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">form</span>&gt;</span></span><br></pre></td></tr></table></figure><br> 服务器端必须有处理文件上传的脚本才行。<br>17.	隐藏字段<br> type&#x3D;”hidden”的input，它的值（name, value）也会一同提交到服务器，但不会显示在浏览器中，但通过开发者工具还是可以看到这个标签的。<br> 想设置为只读input，可用readonly&#x3D;”readonly”。<br> 想完全禁用，使用disabled&#x3D;”disabled”。<br>18.	提交按钮<br> <figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">&quot;submit&quot;</span> <span class="attr">value</span>=<span class="string">&quot; submit message &quot;</span> /&gt;</span> message是显示在按钮上的文本。</span><br><span class="line"><span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">&quot;image&quot;</span> <span class="attr">src</span>=<span class="string">&quot; image.url &quot;</span> <span class="attr">width</span>=<span class="string">”168”</span> <span class="attr">height</span>=<span class="string">”22”</span> <span class="attr">alt</span>=<span class="string">&quot;description&quot;</span> /&gt;</span></span><br></pre></td></tr></table></figure><br> 将文本与图片的按钮相结合，应使用button元素：<br> <figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">button</span> <span class="attr">type</span>=<span class="string">&quot;submit&quot;</span> <span class="attr">class</span>=<span class="string">&quot;btn&quot;</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">img</span> <span class="attr">src</span>=<span class="string">&quot;check.png&quot;</span> <span class="attr">width</span>=<span class="string">&quot;21&quot;</span> <span class="attr">height</span>=<span class="string">&quot;21&quot;</span> <span class="attr">alt</span>=<span class="string">&quot;&quot;</span> /&gt;</span> Create Profile<span class="tag">&lt;/<span class="name">button</span>&gt;</span></span><br></pre></td></tr></table></figure><br>19.	使用伪类根据状态调整表单样式<br> :focus<br> :checked<br> :disabled<br> :enable<br> :required<br> :optional<br> :invalid<br> :valid</p>
+<h1 id="插入音视频和多媒体"><a href="#插入音视频和多媒体" class="headerlink" title="插入音视频和多媒体"></a>插入音视频和多媒体</h1><hr>
+<ol>
+<li>   html5的改变<br> 在html5之前，添加多媒体必须通过插件如adobe, quicktime。而html5提供了原生的多媒体，由浏览器负责解析而不需要插件，同时为不支持某些格式的浏览器提供flash备选方式。<br> 为什么不喜欢flash等插件？一是兼容性，在某个浏览器中插入视频的代码不一定能在另一个浏览器上起作用，没有标签包围的优雅实现方式；而是用户体验，插件会占用计算资源，是浏览器卡顿甚至崩溃。<br> html5原生的多媒体速度更快，降低了对插件的依赖。但html5对文件格式进行了规范，这意味着可能需要提供多种格式才能满足要求。</li>
+<li>   视频</li>
+</ol>
+<ul>
+<li>Html5视频支持的格式包括.ogg, .ogv, .mp4, .m4v, .webm。</li>
+<li>插入视频直接使用video标签即可：<code>&lt;video src=”xxx.webm” &gt;&lt;/video&gt;</code></li>
+<li>其他属性<br>autoplay  加载完自动开始播放<br>controls  添加控制按钮<br>muted  视频静音<br>loop  循环播放<br>poster  指定视频上显示的图像，而不是默认的第一帧。<br>width<br>height<br>preload&#x3D;”none”关闭自动加载 ”metadata”只加载元数据 “auto”自动加载<br>  当视频不是页面主要元素或播放可能性不大，很有用，特别是为移动设备节省流量。</li>
+<li>防止视频格式不兼容的备择方案，使用source元素而非src属性。其中p元素是为旧浏览器配置的，当视频不能显示出来就会显示p中的文本，不过必须保证这些元素都被video标签包围。</li>
+</ul>
+ <figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">video</span> <span class="attr">width</span>=<span class="string">&quot;369&quot;</span> <span class="attr">height</span>=<span class="string">&quot;208&quot;</span> <span class="attr">controls</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">source</span> <span class="attr">src</span>=<span class="string">&quot;paddle-steamer.mp4&quot;</span> <span class="attr">type</span>=<span class="string">&quot;video/mp4&quot;</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">source</span> <span class="attr">src</span>=<span class="string">&quot;paddle-steamer.webm&quot;</span> <span class="attr">type</span>=<span class="string">&quot;video/webm&quot;</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">p</span>&gt;</span><span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">&quot;paddle-steamer.mp4&quot;</span>&gt;</span>Download the video<span class="tag">&lt;/<span class="name">a</span>&gt;</span><span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">video</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<ol start="3">
+<li>   音频</li>
+</ol>
+<ul>
+<li>html5音频支持的格式包括.ogg, .mp3, .wav, .aac, .mp4, .opus。其中mp4既可对视频编码也可对音频编码。</li>
+<li>插入音频直接使用audio标签即可<audio src="piano.ogg" controls></audio></li>
+<li>其他属性<br> autoplay<br> muted  默认静音<br> loop  循环播放<br> preload  参考前面视频</li>
+<li>防止浏览器不兼容html5的备择方案，使用source。</li>
+</ul>
+ <figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">audio</span> <span class="attr">controls</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">source</span> <span class="attr">src</span>=<span class="string">&quot;piano.ogg&quot;</span> <span class="attr">type</span>=<span class="string">&quot;audio/ogg&quot;</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">source</span> <span class="attr">src</span>=<span class="string">&quot;piano.mp3&quot;</span> <span class="attr">type</span>=<span class="string">&quot;audio/mp3&quot;</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">p</span>&gt;</span>Your browser doesn&#x27;t support HTML5 audio, but you can <span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>= <span class="string">&quot;piano.mp3&quot;</span>&gt;</span>download the audio file<span class="tag">&lt;/<span class="name">a</span>&gt;</span> (MP3, 1.3 MB).<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">audio</span>&gt;</span>.</span><br></pre></td></tr></table></figure>
+<p> type属性对于音频文件来说，其值总是”audio&#x2F;格式”。<br>4.	使用flash作为备择方案<br>使用<a target="_blank" rel="noopener" href="http://mediaelementjs.com/">MediaElement.js</a>自动选择让浏览器使用HTML5原生播放系统还是Flash播放器。使用其中的build文件夹，拷贝到服务器中。在html的head标签里加入<br> <figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">&quot;build/jquery.js&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">&quot;build/mediaelement-and-player.min.js&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">link</span> <span class="attr">rel</span>=<span class="string">&quot;stylesheet&quot;</span> <span class="attr">href</span>=<span class="string">&quot;build/mediaelementplayer.min.css&quot;</span> /&gt;</span></span><br></pre></td></tr></table></figure><br>   在正文中可正常添加html5的video或audio标签。在最底下、body结束之前，加入<br> <figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="language-javascript"></span></span><br><span class="line"><span class="language-javascript">  $(<span class="string">&#x27;video&#x27;</span>).<span class="title function_">mediaelementplayer</span>();/$(<span class="string">&#x27;audio&#x27;</span>).<span class="title function_">mediaelementplayer</span>();</span></span><br><span class="line"><span class="language-javascript"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure><br>5.	html5额外功能<br>canvas: 使用 canvas 元素及相应的 JavaScript API可以在网页上描制并创建动画。<br>SVG: Scalable Vector Graphic，使用XML定义图形和图像，浏览器则对其进行解释和使用，从而描绘出真正的图形。使用SVG创建的图像也是基于矢量而不是基于光栅的。这意味着它们可以很好地适应缩放，因为浏览器只是简单地依照绘制说明，根据所需的尺寸，将图形绘制出来。</p>
+<h1 id="表格"><a href="#表格" class="headerlink" title="表格"></a>表格</h1><hr>
+<ol>
+<li>   基本结构</li>
+</ol>
+ <figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">table</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">caption</span>&gt;</span>表格标题<span class="tag">&lt;/<span class="name">caption</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">tr</span>&gt;</span> （每一行的开始标签）</span><br><span class="line"><span class="tag">&lt;<span class="name">th</span> <span class="attr">scope</span>=<span class="string">”col”</span>&gt;</span>列标题<span class="tag">&lt;/<span class="name">th</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">th</span> <span class="attr">scope</span>=<span class="string">”col”</span>&gt;</span>列标题<span class="tag">&lt;/<span class="name">th</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">th</span> <span class="attr">scope</span>=<span class="string">”col”</span>&gt;</span>列标题<span class="tag">&lt;/<span class="name">th</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;/<span class="name">tr</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">tr</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">th</span> <span class="attr">scope</span>=<span class="string">”row”</span>&gt;</span>行标题<span class="tag">&lt;/<span class="name">th</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">td</span>&gt;</span>单元格内容<span class="tag">&lt;/<span class="name">td</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">td</span>&gt;</span>单元格内容<span class="tag">&lt;/<span class="name">td</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">td</span>&gt;</span>单元格内容<span class="tag">&lt;/<span class="name">td</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;/<span class="name">tr</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">table</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<ol start="2">
+<li>   结构化代码<br> 引入thead, tbody, tfoot来标记表格的第一行、主体、最后一行。<br>这些只是显示地指出表格内容的布局，但不会真正影响样式。</li>
+<li>   合并单元格<br> 将th或td跨越一个以上的单元格。使用下列两个属性。<br> colspan&#x3D;”n”横向合并。<br> rowspan&#x3D;”n”纵向合并。<br> 如<code>&lt;td colspan=&quot;2&quot;&gt;Celebrity Hoedown&lt;/td&gt;</code></li>
+</ol>
+<h1 id="加载javascript"><a href="#加载javascript" class="headerlink" title="加载javascript"></a>加载javascript</h1><hr>
+<ol>
+<li>   加载脚本</li>
+</ol>
+<ul>
+<li>类比外部CSS，直接src而不用rel, href等属性。但是注意不应该在head中使用script标签，而是尽量在最底下<code>&lt;/body&gt;</code>之前。</li>
+</ul>
+  <figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">link</span> <span class="attr">rel</span>=<span class="string">&quot;stylesheet&quot;</span> <span class="attr">href</span>=<span class="string">&quot;css/global.css&quot;</span> /&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">&quot;behavior.js&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<ul>
+<li>内部嵌入脚本则不能带有src属性：</li>
+</ul>
+ <figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span> ...Code... <span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<ol start="2">
+<li>   性能最佳化<br> 通常浏览器按照html出现次序依次下载脚本文件，然后解析、执行。在处理脚本的过程中，浏览器相当于挂起，既不会下载当前script标签之后的内容，也不会呈现那些元素。除了html5剃刀，其余脚本加载都应该放到最下面，防止这样的阻塞行为blocking behavior.</li>
+</ol>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/frontend/" rel="tag"># frontend</a>
+              <a href="/tags/html/" rel="tag"># html</a>
+              <a href="/tags/css/" rel="tag"># css</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2016/07/15/linear_algebra/" rel="prev" title="Linear Algebra">
+                  <i class="fa fa-angle-left"></i> Linear Algebra
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/2016/08/17/javascript/" rel="next" title="Fundamental of JavaScript">
+                  Fundamental of JavaScript <i class="fa fa-angle-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+    
+  <div class="comments" id="disqus_thread">
+    <noscript>Please enable JavaScript to view the comments powered by Disqus.</noscript>
+  </div>
+  
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+  <div class="copyright">
+    &copy; 2016 – 
+    <span itemprop="copyrightYear">2025</span>
+    <span class="with-love">
+      <i class="futbol-o"></i>
+    </span>
+    <span class="author" itemprop="copyrightHolder">Bob</span>
+  </div>
+  <div class="powered-by">Powered by <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/" rel="noopener" target="_blank">NexT.Gemini</a>
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+  <div class="sidebar-dimmer"></div>
+  <div class="back-to-top" role="button" aria-label="Back to top">
+    <i class="fa fa-arrow-up fa-lg"></i>
+    <span>0%</span>
+  </div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+<script class="next-config" data-name="disqus" type="application/json">{"enable":true,"shortname":"bobbyliujb","count":true,"i18n":{"disqus":"disqus"}}</script>
+<script src="/js/third-party/comments/disqus.js" defer></script>
+
+</body>
+</html>

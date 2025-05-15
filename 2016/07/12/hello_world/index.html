@@ -1,0 +1,538 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222"><meta name="generator" content="Hexo 7.3.0">
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/favicon.ico">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon.ico">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon.ico">
+  <link rel="mask-icon" href="/images/favicon.ico" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha256-dABdfBfUoC8vJUBOwGVdm8L9qlMWaHTIfXt+7GnZCIo=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"bobbyliujb.github.io","root":"/","images":"/images","scheme":"Gemini","darkmode":false,"version":"8.23.0","exturl":false,"sidebar":{"position":"left","width_expanded":320,"width_dual_column":240,"display":"hide","padding":18,"offset":12},"hljswrap":true,"copycode":{"enable":false,"style":null},"fold":{"enable":false,"height":500},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"duration":200,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"}}</script><script src="/js/config.js" defer></script>
+
+    <meta name="description" content="这是啵啵的第一篇博客日志，就记录一下这个博客是怎么利用github和Hexo静态博客框架搭建起来的吧。 This is the first blog of Bobby. This guthub page is built under the perfect guidance from Sunwhut’s blog. Here I just mention some key steps to cre">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Guidance to create Github blog">
+<meta property="og:url" content="https://bobbyliujb.github.io/2016/07/12/hello_world/index.html">
+<meta property="og:site_name" content="Bob&#39;s Blog">
+<meta property="og:description" content="这是啵啵的第一篇博客日志，就记录一下这个博客是怎么利用github和Hexo静态博客框架搭建起来的吧。 This is the first blog of Bobby. This guthub page is built under the perfect guidance from Sunwhut’s blog. Here I just mention some key steps to cre">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="http://ww1.sinaimg.cn/mw690/006nWDLfgw1f5s1ijhh7pj30m80femyk.jpg">
+<meta property="og:image" content="http://ww4.sinaimg.cn/mw690/006nWDLfgw1f5s9jgcd40j30bo05tgm2.jpg">
+<meta property="og:image" content="http://ww1.sinaimg.cn/large/006nWDLfgw1f5s9l8itiaj304v036t8o.jpg">
+<meta property="article:published_time" content="2016-07-12T22:07:28.000Z">
+<meta property="article:modified_time" content="2025-05-12T05:43:06.987Z">
+<meta property="article:author" content="Bob">
+<meta property="article:tag" content="github">
+<meta property="article:tag" content="hexo">
+<meta property="article:tag" content="next">
+<meta property="article:tag" content="markdown">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://ww1.sinaimg.cn/mw690/006nWDLfgw1f5s1ijhh7pj30m80femyk.jpg">
+
+
+<link rel="canonical" href="https://bobbyliujb.github.io/2016/07/12/hello_world/">
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"en","comments":true,"permalink":"https://bobbyliujb.github.io/2016/07/12/hello_world/","path":"2016/07/12/hello_world/","title":"Guidance to create Github blog"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>Guidance to create Github blog | Bob's Blog</title>
+  
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-118868735-1"></script>
+  <script class="next-config" data-name="google_analytics" type="application/json">{"tracking_id":"UA-118868735-1","only_pageview":false,"measure_protocol_api_secret":null}</script>
+  <script src="/js/third-party/analytics/google-analytics.js" defer></script>
+
+
+
+
+
+
+
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous" defer></script>
+<script src="/js/utils.js" defer></script><script src="/js/motion.js" defer></script><script src="/js/sidebar.js" defer></script><script src="/js/next-boot.js" defer></script>
+
+  
+
+
+
+
+
+
+  
+
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <div class="column">
+      <header class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">Bob's Blog</p>
+      <i class="logo-line"></i>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger" aria-label="Search" role="button">
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="home fa-fw"></i>Home</a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="tags fa-fw"></i>Tags</a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="th fa-fw"></i>Categories</a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="archive fa-fw"></i>Archives</a></li>
+  </ul>
+</nav>
+
+
+
+
+</header>
+        
+  
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Software"><span class="nav-number">1.</span> <span class="nav-text">Software</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Github"><span class="nav-number">2.</span> <span class="nav-text">Github</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Github-SSH-key"><span class="nav-number">2.1.</span> <span class="nav-text">Github SSH key</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Create-blog-repo"><span class="nav-number">2.2.</span> <span class="nav-text">Create blog repo</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Hexo"><span class="nav-number">3.</span> <span class="nav-text">Hexo</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Hexo-Installation"><span class="nav-number">3.1.</span> <span class="nav-text">Hexo Installation</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Hexo-Deployment"><span class="nav-number">3.2.</span> <span class="nav-text">Hexo Deployment</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Hexo-Theme-NexT-Mist"><span class="nav-number">3.3.</span> <span class="nav-text">Hexo Theme NexT.Mist</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Blog-post"><span class="nav-number">4.</span> <span class="nav-text">Blog post</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Create-a-new-post"><span class="nav-number">4.1.</span> <span class="nav-text">Create a new post</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Preview-the-post"><span class="nav-number">4.2.</span> <span class="nav-text">Preview the post</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Deploy-to-remote-sites"><span class="nav-number">4.3.</span> <span class="nav-text">Deploy to remote sites</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Comment-Service"><span class="nav-number">5.</span> <span class="nav-text">Comment Service</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Picture-Service"><span class="nav-number">6.</span> <span class="nav-text">Picture Service</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Page-View-Count"><span class="nav-number">7.</span> <span class="nav-text">Page View Count</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Show-the-update-of-each-post"><span class="nav-number">8.</span> <span class="nav-text">Show the update of each post</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Sort-the-posts-by-last-update"><span class="nav-number">9.</span> <span class="nav-text">Sort the posts by last update</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#AddThis-Share"><span class="nav-number">10.</span> <span class="nav-text">AddThis Share</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Update-Hexo"><span class="nav-number">11.</span> <span class="nav-text">Update Hexo</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Use-scheme-Gemini"><span class="nav-number">12.</span> <span class="nav-text">Use scheme Gemini</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Add-local-search"><span class="nav-number">13.</span> <span class="nav-text">Add local search</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Add-NeedMoreShare2"><span class="nav-number">14.</span> <span class="nav-text">Add NeedMoreShare2</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Add-site-count-at-the-bottom"><span class="nav-number">15.</span> <span class="nav-text">Add site count at the bottom</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Add-wordcount-and-reading-time"><span class="nav-number">16.</span> <span class="nav-text">Add wordcount and reading time</span></a></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="Bob"
+      src="/images/avatar.jpg">
+  <p class="site-author-name" itemprop="name">Bob</p>
+  <div class="site-description" itemprop="description">I'm a Software Engineer!</div>
+</div>
+<div class="site-state-wrap animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">48</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+          <a href="/categories/">
+        <span class="site-state-item-count">4</span>
+        <span class="site-state-item-name">categories</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags/">
+        <span class="site-state-item-count">49</span>
+        <span class="site-state-item-name">tags</span></a>
+      </div>
+  </nav>
+</div>
+
+        </div>
+      </div>
+    </div>
+
+    
+  </aside>
+
+
+    </div>
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="en">
+    <link itemprop="mainEntityOfPage" href="https://bobbyliujb.github.io/2016/07/12/hello_world/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.jpg">
+      <meta itemprop="name" content="Bob">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Bob's Blog">
+      <meta itemprop="description" content="I'm a Software Engineer!">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="Guidance to create Github blog | Bob's Blog">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          Guidance to create Github blog
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2016-07-12 15:07:28" itemprop="dateCreated datePublished" datetime="2016-07-12T15:07:28-07:00">2016-07-12</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">Edited on</span>
+      <time title="Modified: 2025-05-11 22:43:06" itemprop="dateModified" datetime="2025-05-11T22:43:06-07:00">2025-05-11</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/Tech/" itemprop="url" rel="index"><span itemprop="name">Tech</span></a>
+        </span>
+    </span>
+
+  
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Disqus: </span>
+    
+    <a title="disqus" href="/2016/07/12/hello_world/#disqus_thread" itemprop="discussionUrl">
+      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2016/07/12/hello_world/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody"><p>这是啵啵的第一篇博客日志，就记录一下这个博客是怎么利用github和Hexo静态博客框架搭建起来的吧。</p>
+<p>This is the first blog of Bobby. This guthub page is built under the perfect guidance from <a target="_blank" rel="noopener" href="http://sunwhut.com/2015/10/30/buildBlog/">Sunwhut’s blog</a>. Here I just mention some key steps to create this blog with Windows7 + Gitbub + Hexo. All the instructions and software have been tested on my Windows7. Also working on Mac OS High Sierra 10.13.6. As of 2025&#x2F;05, also tested on Sequoia 15.1.</p>
+<span id="more"></span>
+
+<h2 id="Software"><a href="#Software" class="headerlink" title="Software"></a>Software</h2><ul>
+<li>Homebrew</li>
+<li>VS Code</li>
+<li>Git (thru CLI)</li>
+</ul>
+<p>The official <a target="_blank" rel="noopener" href="https://zh.wikipedia.org/wiki/Node.js">Node.js</a> and Github desktop:</p>
+<ul>
+<li><a target="_blank" rel="noopener" href="https://nodejs.org/en/">https://nodejs.org/en/</a></li>
+<li><a target="_blank" rel="noopener" href="https://desktop.github.com/">https://desktop.github.com/</a></li>
+</ul>
+<p>The offline installers are available on CSDN:</p>
+<ul>
+<li><a target="_blank" rel="noopener" href="http://download.csdn.net/download/shshwzs/8038675">http://download.csdn.net/download/shshwzs/8038675</a></li>
+<li><a target="_blank" rel="noopener" href="http://download.csdn.net/download/lyg468088/8723039">http://download.csdn.net/download/lyg468088/8723039</a></li>
+</ul>
+<h2 id="Github"><a href="#Github" class="headerlink" title="Github"></a>Github</h2><h3 id="Github-SSH-key"><a href="#Github-SSH-key" class="headerlink" title="Github SSH key"></a>Github SSH key</h3><p>Launch Git Shell on Windows. Type</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ ssh -T git@github.com</span><br></pre></td></tr></table></figure>
+<p>When it’s done, this OS is authenticated to the github repository. </p>
+<h3 id="Create-blog-repo"><a href="#Create-blog-repo" class="headerlink" title="Create blog repo"></a>Create blog repo</h3><p>Each Github account can set exactly one corresponding blog repo. For user <em>tony</em>, his github page repo should be named <em>tony.github.io</em>. </p>
+<h2 id="Hexo"><a href="#Hexo" class="headerlink" title="Hexo"></a>Hexo</h2><h3 id="Hexo-Installation"><a href="#Hexo-Installation" class="headerlink" title="Hexo Installation"></a>Hexo Installation</h3><p>Launch Git Shell on Windows. Type in</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install hexo-cli -g</span><br></pre></td></tr></table></figure>
+<p>to install the Hexo. The <strong>npm</strong> should work with Node.js.</p>
+<h3 id="Hexo-Deployment"><a href="#Hexo-Deployment" class="headerlink" title="Hexo Deployment"></a>Hexo Deployment</h3><p>Now we are going to create a workspace for our blog. Firstly we can shift from disk <em>C</em> to <em>D</em> with</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ d:</span><br></pre></td></tr></table></figure>
+
+<p>Now create the workspace named <strong>Hexo</strong> with</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo <span class="built_in">hash</span> Hexo</span><br></pre></td></tr></table></figure>
+
+<p>Enter the workspace and install the blog content with</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ <span class="built_in">cd</span> Hexo</span><br><span class="line">$ npm install</span><br></pre></td></tr></table></figure>
+
+<h3 id="Hexo-Theme-NexT-Mist"><a href="#Hexo-Theme-NexT-Mist" class="headerlink" title="Hexo Theme NexT.Mist"></a>Hexo Theme NexT.Mist</h3><p>The default theme of Hexo is landscape, which looks umm… There are a lot of themes provided in <a target="_blank" rel="noopener" href="https://github.com/hexojs/hexo/wiki/Themes">Hexo Themes</a>. Take NexT.Mist for example. In the workspace <strong>Hexo</strong>, download the NexT theme with</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git <span class="built_in">clone</span> https://github.com/iissnan/hexo-theme-next themes/next</span><br></pre></td></tr></table></figure>
+
+<p>In the workspace <strong>Hexo</strong>, edit file <em>_config.yml</em> and search for keyword <strong>theme</strong>:</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">theme: next</span><br></pre></td></tr></table></figure>
+
+<p>To apply the Mist style of NexT, enter the NexT folder at <em>D:\Hexo\themes\next</em>, edit file <em>_config.yml</em> and search for keyword <strong>scheme</strong>:</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"># Schemes</span><br><span class="line">#scheme: Muse</span><br><span class="line">scheme: Mist</span><br><span class="line">#scheme: Pisces</span><br></pre></td></tr></table></figure>
+
+<p>Don’t forget the space after the colon. With this <em>_config.yml</em>, we can also modify the menu with</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">menu:</span><br><span class="line">  home: /</span><br><span class="line">  #categories: /categories</span><br><span class="line">  #about: /about</span><br><span class="line">  archives: /archives</span><br><span class="line">  tags: /tags</span><br><span class="line">  #commonweal: /404.html</span><br></pre></td></tr></table></figure>
+
+<p>Note that corresponding page is required. For more information about the settings of NexT theme, please visit <a target="_blank" rel="noopener" href="http://theme-next.iissnan.com/">iissnan’s official guide</a>.</p>
+<h2 id="Blog-post"><a href="#Blog-post" class="headerlink" title="Blog post"></a>Blog post</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><p>Launch Git Shell and enter the workspace.</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure>
+
+<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/writing.html">Writing</a></p>
+<p>It’s OK to simply create a new .md file at <em>D:\Hexo\source_posts</em>. The markdown file will be transformed into html. The grammar of MD can refer to <a target="_blank" rel="noopener" href="http://www.jianshu.com/p/1e402922ee32">Introduction to Markdown</a> and <a target="_blank" rel="noopener" href="http://www.jianshu.com/p/4Q3aay">note for markdown</a>. We can use <a target="_blank" rel="noopener" href="http://mahua.jser.me/">Online markdown tool</a> to preview .md file. Note that if you do not want an .md file to be transformed into html, like README.md on github, you can simply rename it as README.MDOWN.</p>
+<h3 id="Preview-the-post"><a href="#Preview-the-post" class="headerlink" title="Preview the post"></a>Preview the post</h3><p>To preview the post, firstly generate all the related static files with</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
+
+<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/generating.html">Generating</a></p>
+<p>Then run the local server at localhost on port 4000:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
+
+<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/server.html">Server</a></p>
+<p>Now we can preview the static post by visiting <a target="_blank" rel="noopener" href="http://localhost:4000/">http://localhost:4000/</a></p>
+<p>If you want to regenerate the files, use</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo clean</span><br></pre></td></tr></table></figure>
+
+<p>to clear all the deprecated files.</p>
+<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><p>When everything is done and generated, we need to deploy it to the remote github.io.</p>
+<ul>
+<li>Edit the <em>_config.yml</em> at workspace <strong>Hexo</strong> and search for keyword <strong>deploy</strong>:</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"># Deployment</span><br><span class="line">## Docs: https://hexo.io/docs/deployment.html</span><br><span class="line">deploy:</span><br><span class="line">  type: git</span><br><span class="line">  repository: https://github.com/yourname/yourname.github.io.git</span><br><span class="line">  branch: master</span><br></pre></td></tr></table></figure>
+<ul>
+<li>Deploy to the github page with</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>If ERROR occurs try to install the deploy-git with</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ npm install hexo-deployer-git --save</span><br></pre></td></tr></table></figure>
+<ul>
+<li>Then clean - generate - deploy.</li>
+</ul>
+<h2 id="Comment-Service"><a href="#Comment-Service" class="headerlink" title="Comment Service"></a>Comment Service</h2><p> <strong>This part is deprecated. See <a href="#comment_update">update below</a>.</strong></p>
+<p><del>Comment added following the <a target="_blank" rel="noopener" href="http://theme-next.iissnan.com/third-party-services.html">official guide</a> this <a target="_blank" rel="noopener" href="http://blog.xiazhiri.com/hexo-add-duoshuo.html">guidance</a>. Since the Hexo is a static blog based on Node.js, the comment function has to be introduced from third-party comment service such as Duoshuo and Disqus. ~~<br>~~* Create a new account at <a target="_blank" rel="noopener" href="https://duoshuo.com/create-site/">Duoshuo</a>.</del><br><del>* Edit the <em>_config.yml</em> at workspace <strong>Hexo</strong></del></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"># Comment</span><br><span class="line">duoshuo_shortname: tonyShortName</span><br></pre></td></tr></table></figure>
+
+<p><del>* Edit the <em>_config.yml</em> at theme NexT</del></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">duoshuo_info:</span><br><span class="line">  ua_enable: true</span><br><span class="line">  admin_enable: true</span><br><span class="line">  user_id: yourDuoshuoUserID</span><br><span class="line">  admin_nickname: (Author)</span><br></pre></td></tr></table></figure>
+
+<p><del>The Duoshuo userID can get in this way: Visit <a target="_blank" rel="noopener" href="http://dev.duoshuo.com/">http://dev.duoshuo.com/</a>. Then click your account at the top right and select “My home page” in the slide bar. The string of numbers at the end of the link is your userID in Duoshuo.</del></p>
+<p><del>Duoshuo also provides a share system, which can simply activated by set the value of keyword <strong>duoshuo_share</strong> to true in the <em>_config.yml</em> in the folder of theme NexT. The blog url should also be set correctly in the <em>_config.yml</em> of the workspace <strong>Hexo</strong>(search for keyword <strong>url</strong>).</del></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"># Share</span><br><span class="line">duoshuo_share: true</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"># URL</span><br><span class="line">## If your site is put in a subdirectory, set url as &#x27;http://yoursite.com/child&#x27; and root as &#x27;/child/&#x27;</span><br><span class="line">url: https://bobbyliujb.github.io</span><br><span class="line">root: /</span><br><span class="line">permalink: :year/:month/:day/:title/</span><br><span class="line">permalink_defaults:</span><br></pre></td></tr></table></figure>
+
+<h2 id="Picture-Service"><a href="#Picture-Service" class="headerlink" title="Picture Service"></a>Picture Service</h2><p>I am using <a target="_blank" rel="noopener" href="https://chrome.google.com/webstore/detail/fdfdnfpdplfbbnemmmoklbfjbhecpnhf">sina weibo picture service on chrome extension</a>, but I don’t think sina will keep this service available for free. </p>
+<figure class="highlight md"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">![<span class="string">tuchuang</span>](<span class="link">http://ww1.sinaimg.cn/mw690/006nWDLfgw1f5s1ijhh7pj30m80femyk.jpg</span>)</span><br></pre></td></tr></table></figure>
+<p><img src="http://ww1.sinaimg.cn/mw690/006nWDLfgw1f5s1ijhh7pj30m80femyk.jpg" alt="tuchuang"></p>
+<p>Pictures can also be added by path. Put the pictures into folder <code>workspaceOfHexo\themes\next\source\images</code> or <code>workspaceOfHexo\themes\next\source\uploads</code>. The settings for example can be set with</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">avatar: /uploads/avatar.png </span><br><span class="line">avatar: /images/avatar.png</span><br></pre></td></tr></table></figure>
+
+<p>in the Hexo’s <em>_config.yml</em> file.</p>
+<h2 id="Page-View-Count"><a href="#Page-View-Count" class="headerlink" title="Page View Count"></a>Page View Count</h2><p>Credit to <a target="_blank" rel="noopener" href="https://notes.wanghao.work/2015-10-21-%E4%B8%BANexT%E4%B8%BB%E9%A2%98%E6%B7%BB%E5%8A%A0%E6%96%87%E7%AB%A0%E9%98%85%E8%AF%BB%E9%87%8F%E7%BB%9F%E8%AE%A1%E5%8A%9F%E8%83%BD.html#%E9%85%8D%E7%BD%AELeanCloud">Doublemine’s blog</a></p>
+<ul>
+<li>Create an account at <a target="_blank" rel="noopener" href="https://leancloud.cn/">LeanCloud</a>.</li>
+<li>Create a new application and name it as you like.</li>
+</ul>
+<p><img src="http://ww4.sinaimg.cn/mw690/006nWDLfgw1f5s9jgcd40j30bo05tgm2.jpg" alt="leancloud1"></p>
+<ul>
+<li>Create a new class whose name must be <strong>Counter</strong>.</li>
+</ul>
+<p><img src="http://ww1.sinaimg.cn/large/006nWDLfgw1f5s9l8itiaj304v036t8o.jpg" alt="leancloud2"></p>
+<ul>
+<li>Get the App ID and App Key and add them into the configuration file <em>_config.yml</em> of the NexT theme folder (search for keyword <strong>leancloud</strong>).</li>
+</ul>
+<p>&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;2016.12.01&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;</p>
+<h2 id="Show-the-update-of-each-post"><a href="#Show-the-update-of-each-post" class="headerlink" title="Show the update of each post"></a>Show the update of each post</h2><p>Credit to <a target="_blank" rel="noopener" href="https://webcache.googleusercontent.com/search?q=cache:d4LsZA7G9aIJ:www.wuchenxu.com/2015/12/13/Static-Blog-hexo-github-7-display-updated-date/+&cd=9&hl=zh-CN&ct=clnk&gl=cn">this deleted but cached page</a></p>
+<ul>
+<li>Edit <code>...\Hexo\themes\next\layout\_macro\post.swig</code>, search for tag <code>&lt;div class=&quot;post-meta&quot;&gt;</code> and add the following tags next to <code>&lt;span class=&quot;post-time&quot;&gt;</code>:</li>
+</ul>
+ <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">&#123;%if post.updated and post.updated &gt; post.date%&#125;</span><br><span class="line">  &lt;span class=&quot;post-updated&quot;&gt;</span><br><span class="line">    &amp;nbsp; | &amp;nbsp; &#123;&#123; __(&#x27;post.updated&#x27;) &#125;&#125;</span><br><span class="line">    &lt;time itemprop=&quot;dateUpdated&quot; datetime=&quot;&#123;&#123; moment(post.updated).format() &#125;&#125;&quot; content=&quot;&#123;&#123; date(post.updated, config.date_format) &#125;&#125;&quot;&gt;</span><br><span class="line">      &#123;&#123; date(post.updated, config.date_format) &#125;&#125;</span><br><span class="line">    &lt;/time&gt;</span><br><span class="line">  &lt;/span&gt;</span><br><span class="line">&#123;% endif %&#125;</span><br></pre></td></tr></table></figure>
+<p> The class <code>post-updated</code> is used to retreive the corresponding value in the language configuration.</p>
+<ul>
+<li>Edit <code>...\Hexo\themes\next\languages\xx.yml</code>. For the <code>en.yml</code>, search for keyword “post”:</li>
+</ul>
+ <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">post:</span><br><span class="line">  ...</span><br><span class="line">  updated: Updated on</span><br><span class="line">  ...</span><br></pre></td></tr></table></figure>
+<ul>
+<li>Edit <code>workspaceOfHexo\Hexo\themes\next\_config.yml</code> and add a line at the bottom:</li>
+</ul>
+ <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">display_updated: true</span><br></pre></td></tr></table></figure>
+<ul>
+<li>Now each time you update your existing post, add “updated xxxx-xx-xx xx:xx:xx” below the “date xxxx-xx-xx xx:xx:xx” to manually set the updated date. Actually, once you modify the post, it would be displayed on the post.</li>
+</ul>
+<p><span id="comment_update">&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;2017.04.13&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;</span><br>The DuoShuo Comment Service is going to be closed in June, 2017. An alternative system named JiaThis&#x2F;YouYan seems to be a good choice, though Hexo does not initially add support for it. Reference to <a target="_blank" rel="noopener" href="https://jinfang.oschina.io/posts/5f6c0475/">this guidance</a>.</p>
+<ul>
+<li>Register at <a target="_blank" rel="noopener" href="http://www.uyan.cc/register">YouYan</a> and remember you uid.</li>
+<li>Create <em>youyan.swig</em> at <code>workspaceOfHexo\themes\next\layout\_scripts\third-party\comments</code>:</li>
+</ul>
+ <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">&#123;% if not (theme.duoshuo and theme.duoshuo.shortname)</span><br><span class="line">  and not theme.duoshuo_shortname</span><br><span class="line">  and not theme.disqus_shortname %&#125;</span><br><span class="line"></span><br><span class="line">  &#123;% if theme.youyan_uid %&#125;</span><br><span class="line">      &#123;% set uid = theme.youyan_uid %&#125;</span><br><span class="line">  &#123;% endif %&#125;</span><br><span class="line"></span><br><span class="line">  &#123;% if page.comments %&#125;</span><br><span class="line">      &lt;!-- UY BEGIN --&gt;</span><br><span class="line">      &lt;script type=&quot;text/javascript&quot; src=&quot;//v2.uyan.cc/code/uyan.js?uid=&#123;&#123;uid&#125;&#125;&quot;&gt;&lt;/script&gt;</span><br><span class="line">      &lt;!-- UY END --&gt;</span><br><span class="line">  &#123;% endif %&#125;</span><br><span class="line"></span><br><span class="line">&#123;% endif %&#125;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>Edit <code>workspaceOfHexo\themes\next\layout\_scripts\third-party\comments.swig</code> and add include for <em>youyan.swig</em>:</li>
+</ul>
+ <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&#123;% include &#x27;./comments/duoshuo.swig&#x27; %&#125;</span><br><span class="line">&#123;% include &#x27;./comments/disqus.swig&#x27; %&#125;</span><br><span class="line">&#123;% include &#x27;./comments/youyan.swig&#x27; %&#125;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>Edit <code>workspaceOfHexo\themes\next\layout\_partials\comments.swig</code> and add element for YouYan comment:</li>
+</ul>
+ <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&#123;% elseif theme.youyan_uid %&#125;</span><br><span class="line">     &lt;div id=&quot;uyan_frame&quot;&gt;</span><br><span class="line">     &lt;/div&gt;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>Add your uid at theme config file <code>workspaceOfHexo\themes\next\_config.yml</code>:</li>
+</ul>
+ <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"># youyan</span><br><span class="line">youyan_uid: UID_numbers...</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<p> Unfortunately, the YouYan comment count is still unable to show the statistics in the row right below the Topic.</p>
+<ul>
+<li>The Duoshuo Share is also replaced by JiaThis share. Enable it at theme config file <code>workspaceOfHexo\themes\next\_config.yml</code>:</li>
+</ul>
+ <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"># Share</span><br><span class="line">jiathis:</span><br><span class="line">  enable: true</span><br><span class="line">  id: UID_numbers...</span><br></pre></td></tr></table></figure>
+<ul>
+<li>Modify the JiaThis Share style by editing <em>jiathis.swig</em> at <code>workspaceOfHexo\themes\next\layout\_partials\share</code>:</li>
+</ul>
+ <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line">&lt;!-- JiaThis Button BEGIN --&gt;</span><br><span class="line">&lt;div&gt;</span><br><span class="line">  &lt;a class=&quot;jiathis_like_tsina&quot; data=&quot;width=120&quot;&gt;&lt;/a&gt;</span><br><span class="line">&lt;/div&gt;</span><br><span class="line"></span><br><span class="line">&lt;div class=&quot;jiathis_style&quot;&gt;</span><br><span class="line">  &lt;span class=&quot;jiathis_txt&quot;&gt;ShareTo: &lt;/span&gt;</span><br><span class="line">  &lt;a class=&quot;jiathis_button_tsina&quot;&gt;Weibo&lt;/a&gt;</span><br><span class="line">  &lt;a class=&quot;jiathis_button_weixin&quot;&gt;Wechat&lt;/a&gt;</span><br><span class="line">  &lt;a class=&quot;jiathis_button_douban&quot;&gt;Douban&lt;/a&gt;</span><br><span class="line">  &lt;a class=&quot;jiathis_button_fb&quot;&gt;Facebook&lt;/a&gt;</span><br><span class="line">  &lt;a class=&quot;jiathis_button_twitter&quot;&gt;Twitter&lt;/a&gt;</span><br><span class="line">  &lt;a class=&quot;jiathis_button_googleplus&quot;&gt;Google+&lt;/a&gt;</span><br><span class="line">  &lt;a class=&quot;jiathis_button_tumblr&quot;&gt;Tumblr&lt;/a&gt;</span><br><span class="line">  &lt;a href=&quot;//www.jiathis.com/share?uid=xxx&quot; class=&quot;jiathis jiathis_txt jtico jtico_jiathis&quot; target=&quot;_blank&quot;&gt;&lt;/a&gt;</span><br><span class="line">  &lt;a class=&quot;jiathis_counter_style&quot;&gt;&lt;/a&gt;</span><br><span class="line">&lt;/div&gt;</span><br><span class="line"></span><br><span class="line">&lt;script type=&quot;text/javascript&quot;&gt;</span><br><span class="line">var jiathis_config = &#123;</span><br><span class="line">  data_track_clickback: true,</span><br><span class="line">  hideMore: false</span><br><span class="line">&#125;;</span><br><span class="line">&lt;/script&gt;</span><br><span class="line">&lt;script type=&quot;text/javascript&quot; src=&quot;//v3.jiathis.com/code/jia.js?uid=xxx&quot; charset=&quot;utf-8&quot;&gt;&lt;/script&gt;</span><br><span class="line">&lt;!-- JiaThis Button END --&gt;</span><br></pre></td></tr></table></figure>
+<p> Unfortunately again, YouYan does not support HTTPS. Since github page uses https, request for http resources is blocked, which means YouYan is not able to show off on blog, even though this method is locally feasible.</p>
+<p> So let turn to another system Disqus, which is blocked in mainland.</p>
+<ul>
+<li>Firstly, recover Duoshuo share by modifying <code>workspaceOfHexo\themes\next\_config.yml</code>:</li>
+</ul>
+ <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"># Share</span><br><span class="line">duoshuo_share: true</span><br><span class="line"></span><br><span class="line">duoshuo_shortname: xxx</span><br></pre></td></tr></table></figure>
+<ul>
+<li>Since we don’t want to use Duoshuo comment, we need to put config of disqus in front of duoshuo in <code>workspaceOfHexo\themes\next\layout\_partials\comments.swig</code></li>
+<li>Add disqus shortname in <code>workspaceOfHexo\themes\next\_config.yml</code>. Theoratically done, but seem to be blocked in mainland…</li>
+</ul>
+<p>&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;2016.12.01&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;</p>
+<h2 id="Sort-the-posts-by-last-update"><a href="#Sort-the-posts-by-last-update" class="headerlink" title="Sort the posts by last update"></a>Sort the posts by last update</h2><p> Referred to <a target="_blank" rel="noopener" href="https://yanhuili.github.io/2016/11/21/hexo%E5%8D%9A%E6%96%87%E7%BD%AE%E9%A1%B6%E6%8A%80%E5%B7%A7/">this guide</a>.<br> Modify <code>node_modules/hexo-generator-index/lib/generator.js</code> like the following:<br> <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//var posts = locals.posts.sort(config.index_generator.order_by);</span></span><br><span class="line"><span class="keyword">var</span> posts = locals.<span class="property">posts</span>;</span><br><span class="line">  posts.<span class="property">data</span> = posts.<span class="property">data</span>.<span class="title function_">sort</span>(<span class="keyword">function</span>(<span class="params">a,b</span>)&#123;</span><br><span class="line">    <span class="keyword">if</span> (a.<span class="property">updated</span>) &#123;</span><br><span class="line">    	<span class="keyword">if</span> (b.<span class="property">updated</span>) &#123;</span><br><span class="line">    		<span class="keyword">if</span> (a.<span class="property">updated</span> == b.<span class="property">updated</span>) &#123;</span><br><span class="line">	    		<span class="keyword">return</span> b.<span class="property">date</span> - a.<span class="property">date</span>;</span><br><span class="line">	    	&#125; <span class="keyword">else</span> &#123;</span><br><span class="line">	    		<span class="keyword">return</span> b.<span class="property">updated</span> - a.<span class="property">updated</span>;</span><br><span class="line">	    	&#125;</span><br><span class="line">    	&#125; <span class="keyword">else</span> &#123;</span><br><span class="line">    		<span class="keyword">return</span> -<span class="number">1</span>;</span><br><span class="line">    	&#125;</span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">    	<span class="keyword">if</span> (b.<span class="property">updated</span>) &#123;</span><br><span class="line">    		<span class="keyword">return</span> <span class="number">1</span>;</span><br><span class="line">    	&#125; <span class="keyword">else</span> &#123;</span><br><span class="line">    		<span class="keyword">return</span> b.<span class="property">date</span> - a.<span class="property">date</span>;</span><br><span class="line">    	&#125;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;);</span><br></pre></td></tr></table></figure></p>
+<h2 id="AddThis-Share"><a href="#AddThis-Share" class="headerlink" title="AddThis Share"></a>AddThis Share</h2><p>Referred to <a target="_blank" rel="noopener" href="http://blog.whguardian.info/2016/07/16/set-up-a-personal-blog/">this post</a>.<br>Go to <a target="_blank" rel="noopener" href="https://www.addthis.com/">AddThis</a> to register and customize your own sharing buttons. Get AddThis ID in Profile Options - General and paste it into <code>workspaceOfHexo\Hexo\themes\next\_config.yml</code>. Supports HTTPS, though not stable.</p>
+<p>&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;2019.01.05&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;<br> Found another <a target="_blank" rel="noopener" href="https://www.jianshu.com/p/9f0e90cc32c2">tutorial</a> to make Hexo.Next even better.</p>
+<h2 id="Update-Hexo"><a href="#Update-Hexo" class="headerlink" title="Update Hexo"></a>Update Hexo</h2><p> Simply run <code>npm update -g hexo</code> in terminal.</p>
+<h2 id="Use-scheme-Gemini"><a href="#Use-scheme-Gemini" class="headerlink" title="Use scheme Gemini"></a>Use scheme Gemini</h2><p> Modify 「Next Theme config」:</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"># Schemes</span><br><span class="line"># scheme: Muse</span><br><span class="line">#scheme: Mist</span><br><span class="line">#scheme: Pisces</span><br><span class="line">scheme: Gemini</span><br></pre></td></tr></table></figure>
+<p> I don’t like the black headband hanging at the top of the page, so I add custom setting in <code>hexo/themes/next/source/css/_custom/custom.styl</code>:</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">.headband &#123;</span><br><span class="line">  height: 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="Add-local-search"><a href="#Add-local-search" class="headerlink" title="Add local search"></a>Add local search</h2><ol>
+<li>Install <a target="_blank" rel="noopener" href="https://www.npmjs.com/package/hexo-generator-search">local search plugin</a> at the root of hexo with <code>npm install hexo-generator-search --save</code>.</li>
+<li>Modify the hexo config:</li>
+</ol>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">search:</span><br><span class="line">  path: search.xml</span><br><span class="line">  field: post</span><br><span class="line">  content: true</span><br></pre></td></tr></table></figure>
+<ol>
+<li>Enable local search at the theme Next config:</li>
+</ol>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">local_search:</span><br><span class="line">  enable: true</span><br><span class="line">  # if auto, trigger search by changing input</span><br><span class="line">  # if manual, trigger search by pressing enter key or search button</span><br><span class="line">  trigger: auto</span><br><span class="line">  # show top n results per article, show all results by setting to -1</span><br><span class="line">  top_n_per_article: 10</span><br><span class="line">  # unescape html strings to the readable one</span><br><span class="line">  unescape: false</span><br></pre></td></tr></table></figure>
+
+<h2 id="Add-NeedMoreShare2"><a href="#Add-NeedMoreShare2" class="headerlink" title="Add NeedMoreShare2"></a>Add <a target="_blank" rel="noopener" href="https://github.com/revir/need-more-share2">NeedMoreShare2</a></h2><p> Simply enable the needmoreshare2 in the theme Next config.<br> <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"># NeedMoreShare2</span><br><span class="line"># Dependencies: https://github.com/theme-next/theme-next-needmoreshare2</span><br><span class="line"># See: https://github.com/revir/need-more-share2, https://github.com/DzmVasileusky/needShareButton</span><br><span class="line"># iconStyle: default | box</span><br><span class="line"># boxForm: horizontal | vertical</span><br><span class="line"># position: top / middle / bottom + Left / Center / Right</span><br><span class="line"># networks:</span><br><span class="line"># Weibo,Wechat,Douban,QQZone,Twitter,Linkedin,Mailto,Reddit,Delicious,StumbleUpon,Pinterest,Facebook,GooglePlus,</span><br><span class="line"># Slashdot,Technorati,Posterous,Tumblr,GoogleBookmarks,Newsvine,Evernote,Friendfeed,Vkontakte,Odnoklassniki,Mailru</span><br><span class="line">needmoreshare2:</span><br><span class="line">  enable: true</span><br><span class="line">  postbottom:</span><br><span class="line">    enable: true</span><br><span class="line">    options:</span><br><span class="line">      iconStyle: box</span><br><span class="line">      boxForm: horizontal</span><br><span class="line">      position: topCenter</span><br><span class="line">      networks: Linkedin,Weibo,Wechat,Twitter,Facebook,Pinterest,GooglePlus,Evernote,Reddit,Douban,QQZone,Mailto</span><br><span class="line">  float:</span><br><span class="line">    enable: false</span><br><span class="line">    options:</span><br><span class="line">      iconStyle: box</span><br><span class="line">      boxForm: horizontal</span><br><span class="line">      position: middleRight</span><br><span class="line">      networks: Weibo,Wechat,Douban,QQZone,Twitter,Facebook</span><br></pre></td></tr></table></figure></p>
+<h2 id="Add-site-count-at-the-bottom"><a href="#Add-site-count-at-the-bottom" class="headerlink" title="Add site count at the bottom"></a>Add site count at the bottom</h2><p> Modify the theme Next config:<br> <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line">footer:</span><br><span class="line">  # Specify the date when the site was setup.</span><br><span class="line">  # If not defined, current year will be used.</span><br><span class="line">  since: 2016</span><br><span class="line"></span><br><span class="line">  # Icon between year and copyright info.</span><br><span class="line">  icon:</span><br><span class="line">    # Icon name in fontawesome, see: https://fontawesome.com/v4.7.0/icons/</span><br><span class="line">    # `heart` is recommended with animation in red (#ff0000).</span><br><span class="line">    name: futbol-o</span><br><span class="line">    # If you want to animate the icon, set it to true.</span><br><span class="line">    animated: true</span><br><span class="line">    # Change the color of icon, using Hex Code.</span><br><span class="line">    color: &quot;#808080&quot;</span><br><span class="line"></span><br><span class="line">  # If not defined, `author` from Hexo main config will be used.</span><br><span class="line">  copyright:</span><br><span class="line">  # -------------------------------------------------------------</span><br><span class="line">  powered:</span><br><span class="line">    # Hexo link (Powered by Hexo).</span><br><span class="line">    enable: true</span><br><span class="line">    # Version info of Hexo after Hexo link (vX.X.X).</span><br><span class="line">    version: false</span><br><span class="line"></span><br><span class="line">  theme:</span><br><span class="line">    # Theme &amp; scheme info link (Theme - NexT.scheme).</span><br><span class="line">    enable: true</span><br><span class="line">    # Version info of NexT after scheme info (vX.X.X).</span><br><span class="line">    version: false</span><br></pre></td></tr></table></figure></p>
+<h2 id="Add-wordcount-and-reading-time"><a href="#Add-wordcount-and-reading-time" class="headerlink" title="Add wordcount and reading time"></a>Add <a target="_blank" rel="noopener" href="https://github.com/theme-next/hexo-symbols-count-time">wordcount and reading time</a></h2><p> Add following code to hexo config:<br> <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">symbols_count_time:</span><br><span class="line">  symbols: true</span><br><span class="line">  time: true</span><br><span class="line">  total_symbols: false</span><br><span class="line">  total_time: false</span><br></pre></td></tr></table></figure><br> You can customize wordcount settings in theme Next’s config:<br> <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"># Post wordcount display settings</span><br><span class="line"># Dependencies: https://github.com/theme-next/hexo-symbols-count-time</span><br><span class="line">symbols_count_time:</span><br><span class="line">  separated_meta: true</span><br><span class="line">  item_text_post: true</span><br><span class="line">  item_text_total: false</span><br><span class="line">  awl: 4</span><br><span class="line">  wpm: 240</span><br></pre></td></tr></table></figure></p>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/github/" rel="tag"># github</a>
+              <a href="/tags/hexo/" rel="tag"># hexo</a>
+              <a href="/tags/next/" rel="tag"># next</a>
+              <a href="/tags/markdown/" rel="tag"># markdown</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+            </div>
+            <div class="post-nav-item">
+                <a href="/2016/07/14/aliyun/" rel="next" title="Backend on Aliyun: Webpy + MySQL">
+                  Backend on Aliyun: Webpy + MySQL <i class="fa fa-angle-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+    
+  <div class="comments" id="disqus_thread">
+    <noscript>Please enable JavaScript to view the comments powered by Disqus.</noscript>
+  </div>
+  
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+  <div class="copyright">
+    &copy; 2016 – 
+    <span itemprop="copyrightYear">2025</span>
+    <span class="with-love">
+      <i class="futbol-o"></i>
+    </span>
+    <span class="author" itemprop="copyrightHolder">Bob</span>
+  </div>
+  <div class="powered-by">Powered by <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/" rel="noopener" target="_blank">NexT.Gemini</a>
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+  <div class="sidebar-dimmer"></div>
+  <div class="back-to-top" role="button" aria-label="Back to top">
+    <i class="fa fa-arrow-up fa-lg"></i>
+    <span>0%</span>
+  </div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+<script class="next-config" data-name="disqus" type="application/json">{"enable":true,"shortname":"bobbyliujb","count":true,"i18n":{"disqus":"disqus"}}</script>
+<script src="/js/third-party/comments/disqus.js" defer></script>
+
+</body>
+</html>
